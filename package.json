@@ -1,0 +1,27 @@
+{
+  "name": "guide",
+  "version": "1.0.0",
+  "description": "Japanese version of guide.elm-lang.org",
+  "main": "index.js",
+  "dependencies": {
+    "gitbook-cli": "^2.3.2",
+    "gitbook-plugin-bulk-redirect": "^0.2.1",
+    "gitbook-plugin-youtube": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "install": "gitbook install",
+    "start": "gitbook serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elm-jp/guide.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elm-jp/guide/issues"
+  },
+  "homepage": "https://github.com/elm-jp/guide#readme"
+}
