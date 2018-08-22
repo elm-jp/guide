@@ -44,12 +44,12 @@ So we have this `elm` binary now, but what can it do exactly?
 
 ### `elm repl`
 
-`elm repl` lets interact with Elm expressions in the terminal.
+`elm repl` lets us interact with Elm expressions in the terminal.
 
 ```elm
 $ elm repl
 ---- Elm 0.19.0 ----------------------------------------------------------------
- :help for help, :exit to exit, more at <https://github.com/elm-lang/elm-repl>
+Read <https://elm-lang.org/0.19.0/repl> to learn more: exit, help, imports, etc.
 --------------------------------------------------------------------------------
 > 1 / 2
 0.5 : Float
@@ -61,7 +61,7 @@ $ elm repl
 $
 ```
 
-We will be using `elm repl` in the upcoming &ldquo;Core Language&rdquo; section, and you can read more about how it works [here](https://github.com/elm-lang/elm-compiler/blob/master/docs/repl.md).
+We will be using `elm repl` in the upcoming &ldquo;Core Language&rdquo; section, and you can read more about how it works [here](https://elm-lang.org/0.19.0/repl).
 
 > **Note:** `elm repl` works by compiling code to JavaScript, so make sure you have [Node.js](http://nodejs.org/) installed. We use that to evaluate code.
 
@@ -91,24 +91,19 @@ elm make Main.elm --output=main.html
 
 ### `elm install`
 
-The Elm community shares packages at: [`https://package.elm-lang.org/`](https://package.elm-lang.org/)
+Elm packages all live at [`package.elm-lang.org`](https://package.elm-lang.org/).
 
-Elm projects all have an `elm.json` file (like [this](https://github.com/elm-lang/elm-compiler/blob/master/docs/elm.json/application.md)) which lists any packages it depends upon. Do you need [`elm-lang/http`][http]? Do you need [`elm-lang/time`][time]?
+Say you look around and decide you need [`elm/http`][http] and [`elm/json`][json] to make some HTTP requests. You can get them set up in your project with the following commands:
 
-`elm install` just helps you add dependencies to `elm.json`.
+```bash
+elm install elm/http
+elm install elm/json
+```
 
-Say you want to use [`elm-lang/http`][http] and [`NoRedInk/json-decode-pipeline`][pipe] to make HTTP requests to a server and turn the resulting JSON into Elm values. You would say:
+This will add the dependencies into your `elm.json` file, described in more detail [here](https://github.com/elm/compiler/blob/master/docs/elm.json/application.md).
 
 [http]: https://package.elm-lang.org/packages/elm/http/latest
 [json]: https://package.elm-lang.org/packages/elm/json/latest
-[pipe]: https://package.elm-lang.org/packages/NoRedInk/json-decode-pipeline/latest
-
-```bash
-elm install elm-lang/http
-elm install NoRedInk/elm-decode-pipeline
-```
-
-This will add the dependencies to `elm.json` (or create it if needed!)
 
 
 ## Summary

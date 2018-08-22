@@ -1,7 +1,7 @@
 # Time
 
 ---
-#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://elm-lang.org/examples/time).
+#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://ellie-app.com/37gYpCSxQHGa1).
 ---
 
 Now we are going to make a digital clock. (Analog will be an exercise!)
@@ -146,6 +146,8 @@ subscriptions model =
 ```
 
 We are using the [`Time.every`][every] function here:
+
+[every]: https://package.elm-lang.org/packages/elm/time/latest/Time#every
 
 ```elm
 every : Float -> (Time.Posix -> msg) -> Sub msg
