@@ -1,5 +1,7 @@
 # Japanese translation of guide.elm-lang.org
 
+[Original version](https://github.com/evancz/guide.elm-lang.org/)
+
 guide.elm-lang.org 日本語化プロジェクト
 
 英語の原文をコメントアウトして、その下に日本語を記入していきます。
