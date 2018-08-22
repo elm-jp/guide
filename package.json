@@ -6,6 +6,7 @@
   "dependencies": {
     "gitbook-cli": "^2.3.2",
     "gitbook-plugin-bulk-redirect": "^0.2.1",
+    "gitbook-plugin-meta": "^0.1.12",
     "gitbook-plugin-youtube": "^1.1.0"
   },
   "devDependencies": {},
