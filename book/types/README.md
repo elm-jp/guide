@@ -40,7 +40,7 @@ JavaScript や Python のように、余分なものなしにこのコードは�
 In JavaScript, the equivalent code spits out `"undefined Hesse"`. Not even an error! Hopefully one of your users will tell you about it when they see it in the wild. In contrast, the Elm compiler just looks at the source code and tells you:
 -->
 
-JavaScript で同等のコードは`"undefined Hesse"`を吐き出します。 エラーですらありません！ うまくいけばユーザーがこのバグを見つけたときに報告してくれるかもしれません。 対照的に、Elm コンパイラは単にソースコードソースコードを解析するだけで警告してくれます:
+JavaScript で同等のコードは`"undefined Hesse"`を吐き出します。 エラーですらありません！ うまくいけばユーザーがこのバグを見つけたときに報告してくれるかもしれません。 対照的に、Elm コンパイラは単にソースコードを解析するだけで警告してくれます:
 
 ```
 -- TYPE MISMATCH ---------------------------------------------------------------
