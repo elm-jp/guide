@@ -1,5 +1,9 @@
+<!--
 # Summary
+-->
+# 目次
 
+<!--
 * [Introduction](README.md)
 * [Install](install.md)
 * [Core Language](core_language.md)
@@ -35,3 +39,39 @@
    * [Types as Sets](appendix/types_as_sets.md)
    * [Types as Bits](appendix/types_as_bits.md)
    * [Function Types](appendix/function_types.md)
+-->
+* [はじめに](README.md)
+* [インストール](install.md)
+* [言語の基礎](core_language.md)
+* [The Elm Architecture](architecture/README.md)
+   * [ボタン](architecture/buttons.md)
+   * [テキスト入力](architecture/text_fields.md)
+   * [フォーム](architecture/forms.md)
+* [型](types/README.md)
+   * [型を読む](types/reading_types.md)
+   * [型の別名](types/type_aliases.md)
+   * [カスタム型](types/custom_types.md)
+   * [パターンマッチ](types/pattern_matching.md)
+* [コマンドとサブスクリプション](effects/README.md)
+   * [Random](effects/random.md)
+   * [Time](effects/time.md)
+   * [JSON](effects/json.md)
+   * [HTTP](effects/http.md)
+* [JavaScriptとの相互運用](interop/README.md)
+   * [フラグ](interop/flags.md)
+   * [ポート](interop/ports.md)
+   * [カスタムエレメンツ](interop/custom_elements.md)
+* [Webアプリケーション](webapps/README.md)
+   * [ナビゲーションする](webapps/navigation.md)
+   * [URLをパースする](webapps/url_parsing.md)
+   * [モジュール](webapps/modules.md)
+   * [モジュールの構造化](webapps/structure.md)
+* [最適化](optimization/README.md)
+   * [Html.lazy](optimization/lazy.md)
+   * [Html.keyed](optimization/keyed.md)
+   * [アセットサイズ縮小化](optimization/asset_size.md)
+* [次への一歩](next_steps.md)
+* 付録
+   * [集合としての型](appendix/types_as_sets.md)
+   * [型のビット表現](appendix/types_as_bits.md)
+   * [関数の型](appendix/function_types.md)
