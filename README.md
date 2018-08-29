@@ -52,3 +52,13 @@ Serving book on http://localhost:4000
 ```
 
 `http://localhost:4000` にアクセスすることで表示の確認ができます。
+
+## 本番環境へのデプロイ
+
+masterへのコミット権限がある人がやってください。
+
+```bash
+$ git checkout master
+$ npm run build
+$ git add docs && git commit -m 'Update docs' && git push origin master
+```
