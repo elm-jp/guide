@@ -18,7 +18,7 @@ type Color = Red | Yellow | Green
 One of the most important techniques in Elm programming is to make **the possible values in code** exactly match **the valid values in real life**. This leaves no room for invalid data, and this is why I always encourage folks to focus on custom types and data structures.
 -->
 
-Elmにおけるプログラミングの中で最も重要なテクニックの一つは、**コード中で可能な値**を**現実世界での正当な値**に完全に一致させることです。これにより不正なデータの入り込む余地がなくなるため、私はカスタム型とデータ構造に注力するようにみんなに勧めています。
+Elmにおけるプログラミングの中で最も重要なテクニックのひとつは、**コード中で可能な値**を**現実世界での正当な値**に完全に一致させることです。これにより不正なデータの入り込む余地がなくなるため、私はカスタム型とデータ構造に注力するようにみんなに勧めています。
 
 <!--
 In pursuit of this goal, I have found it helpful to understand the relationship between types and sets. It sounds like a stretch, but it really helps develop your mindset!
@@ -113,6 +113,9 @@ When you combine types with tuples, the cardinalities get multiplied:
 - cardinality(`(Bool, Color)`) = cardinality(`Bool`) × cardinality(`Color`) = 2 × 3 = 6
 -->
 
+- `(Bool, Bool)`の濃度 = `Bool`の濃度 × `Bool`の濃度 = 2 × 2 = 4
+- `(Bool, Color)`の濃度 = `Bool`の濃度 × `Color`の濃度 = 2 × 3 = 6
+
 <!--
 To make sure you believe this, try listing all the possible values of `(Bool, Bool)` and `(Bool, Color)`. Do they match the numbers we predicted? How about for `(Color, Color)`?
 -->
@@ -137,7 +140,7 @@ But what happens when we use infinite sets like `Int` and `String`?
 I personally really like the idea of having two infinities. One wasn’t enough? And then seeing infinite infinities. Aren’t we going to run out at some point?
 -->
 
-個人的に無限が2つあるという発想は好きです。一つで十分じゃないかって？もし無限個の無限集合があったら、どこかで収集がつかなくなるんじゃないかですって？
+個人的に無限が2つあるという発想は好きです。ひとつで十分じゃないかって？もし無限個の無限集合があったら、どこかで収集がつかなくなるんじゃないかですって？
 
 <!--
 > **Note:** So far we have used tuples, but records work exactly the same way:
@@ -188,6 +191,28 @@ Here are some other examples:
 
 その他の例はこちらです:
 
+<!--
+```elm
+type Height
+  = Inches Int
+  | Meters Float
+
+-- cardinality(Height)
+-- = cardinality(Int) + cardinality(Float)
+-- = ∞ + ∞
+
+
+type Location
+  = Nowhere
+  | Somewhere Float Float
+
+-- cardinality(Location)
+-- = 1 + cardinality((Float, Float))
+-- = 1 + cardinality(Float) × cardinality(Float)
+-- = 1 + ∞ × ∞
+```
+-->
+
 ```elm
 type Height
   = Inches Int
@@ -219,7 +244,7 @@ Looking at custom types this way helps us see when two types are equivalent. For
 2. The `Maybe` module may expose functions that do not make sense for my particular data. For example, combining two locations probably should not work like `Maybe.map2`. Should one `Nowhere` mean that everything is `Nowhere`? Seems weird!
 -->
 
-1. ソースコードがより自己をドキュメント化しています。`Just (1.6, 1.8)`が場所を表すのか、身長の値のペアを表すのか悩む必要がありません。
+1. ソースコード自身がその意味するところを雄弁に語るようになります。`Just (1.6, 1.8)`が場所を表すのか、身長の値のペアを表すのか悩む必要がありません。
 2. `Maybe`モジュールは自分のデータでは意味をなさないメソッドを持っているかもしれません。例えば2つの`Location`の値を連結することは`Maybe.map2`とは違う意味になるでしょう。中にひとつだけ`Nowhere`が含まれていたら、全てが`Nowhere`になってしまうのでしょうか?それは奇妙だと思います!
 
 <!--
