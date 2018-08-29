@@ -1,0 +1,773 @@
+
+<!DOCTYPE HTML>
+<html lang="ja" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>型の別名 · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    <meta name="robots" content="noindex">
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="custom_types.html" />
+    
+    
+    <link rel="prev" href="reading_types.html" />
+    
+
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="検索すると入力" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../install.html">
+            
+                <a href="../install.html">
+            
+                    
+                    インストール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../core_language.html">
+            
+                <a href="../core_language.html">
+            
+                    
+                    言語の基礎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    ボタン
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    テキスト入力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    フォーム
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="reading_types.html">
+            
+                <a href="reading_types.html">
+            
+                    
+                    型を読む
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.2" data-path="type_aliases.html">
+            
+                <a href="type_aliases.html">
+            
+                    
+                    型の別名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="custom_types.html">
+            
+                <a href="custom_types.html">
+            
+                    
+                    カスタム型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="pattern_matching.html">
+            
+                <a href="pattern_matching.html">
+            
+                    
+                    パターンマッチ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../effects/">
+            
+                <a href="../effects/">
+            
+                    
+                    コマンドとサブスクリプション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../effects/random.html">
+            
+                <a href="../effects/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../effects/time.html">
+            
+                <a href="../effects/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../effects/json.html">
+            
+                <a href="../effects/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../effects/http.html">
+            
+                <a href="../effects/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../interop/">
+            
+                <a href="../interop/">
+            
+                    
+                    JavaScriptとの相互運用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../interop/flags.html">
+            
+                <a href="../interop/flags.html">
+            
+                    
+                    フラグ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../interop/ports.html">
+            
+                <a href="../interop/ports.html">
+            
+                    
+                    ポート
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../interop/custom_elements.html">
+            
+                <a href="../interop/custom_elements.html">
+            
+                    
+                    カスタムエレメンツ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Webアプリケーション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    ナビゲーションする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URLをパースする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    モジュール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    モジュールの構造化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    最適化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    アセットサイズ縮小化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    次への一歩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    付録
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../appendix/types_as_sets.html">
+            
+                <a href="../appendix/types_as_sets.html">
+            
+                    
+                    集合としての型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../appendix/types_as_bits.html">
+            
+                <a href="../appendix/types_as_bits.html">
+            
+                    
+                    型のビット表現
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../appendix/function_types.html">
+            
+                <a href="../appendix/function_types.html">
+            
+                    
+                    関数の型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBookで公開 
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >型の別名</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+# Type Aliases
+-->
+<h1 id="&#x578B;&#x306E;&#x5225;&#x540D;&#xFF08;&#x30BF;&#x30A4;&#x30D7;&#x30A8;&#x30A4;&#x30EA;&#x30A2;&#x30B9;&#xFF09;">&#x578B;&#x306E;&#x5225;&#x540D;&#xFF08;&#x30BF;&#x30A4;&#x30D7;&#x30A8;&#x30A4;&#x30EA;&#x30A2;&#x30B9;&#xFF09;</h1>
+<!--
+Elm allows you to create a **type alias**. An alias is just a shorter name for some other type. It looks like this:
+-->
+<p>Elm&#x3067;&#x306F; <strong>&#x578B;&#x306E;&#x5225;&#x540D;&#xFF08;&#x30BF;&#x30A4;&#x30D7;&#x30A8;&#x30A4;&#x30EA;&#x30A2;&#x30B9;&#xFF09;</strong> &#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002; &#x5225;&#x540D;&#x306F;&#x5358;&#x306B;&#x4ED6;&#x306E;&#x578B;&#x306E;&#x77ED;&#x3044;&#x540D;&#x524D;&#x3067;&#x3059;&#x3002; &#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x5B9A;&#x7FA9;&#x3067;&#x304D;&#x307E;&#x3059;:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">User</span> =
+  { name : <span class="hljs-type">String</span>
+  , bio : <span class="hljs-type">String</span>
+  }
+</code></pre>
+<!--
+So rather than having to type out this record type all the time, we can just say `User` instead. For example, you can shorten type annotations like this:
+-->
+<p>&#x3064;&#x307E;&#x308A;&#x3053;&#x306E;&#x30EC;&#x30B3;&#x30FC;&#x30C9;&#x578B;&#x3092;&#x3044;&#x3064;&#x3082;&#x66F8;&#x304F;&#x306E;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;&#x4EE3;&#x308F;&#x308A;&#x306B;<code>User</code>&#x3068;&#x66F8;&#x304F;&#x3060;&#x3051;&#x3067;&#x6E08;&#x307E;&#x305B;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002; &#x4F8B;&#x3048;&#x3070;&#x3001;&#x578B;&#x6CE8;&#x91C8;&#x3092;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x77ED;&#x304F;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;:</p>
+<pre><code class="lang-elm"><span class="hljs-title">hasDecentBio</span> : <span class="hljs-type">User</span> -&gt; <span class="hljs-type">Bool</span>
+<span class="hljs-title">hasDecentBio</span> user =
+  <span class="hljs-type">String</span>.length user.bio &gt; <span class="hljs-number">80</span>
+</code></pre>
+<!--
+That would be `{ name : String, bio : String } -> Bool` without the type annotation. **The main point of type aliases is to help us write shorter and clearer type annotations.** This becomes more important as your application grows. Say we have a `updateBio` function:
+-->
+<p>&#x578B;&#x306E;&#x5225;&#x540D;&#x3092;&#x4F7F;&#x308F;&#x305A;&#x306B;&#x66F8;&#x3051;&#x3070;<code>{ name : String, bio : String } -&gt; Bool</code>&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002; <strong>&#x578B;&#x306E;&#x5225;&#x540D;&#x306E;&#x4E3B;&#x306A;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x306F;&#x77ED;&#x304F;&#x660E;&#x78BA;&#x306A;&#x578B;&#x6CE8;&#x91C8;&#x3092;&#x66F8;&#x304F;&#x306E;&#x3092;&#x52A9;&#x3051;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</strong> &#x3053;&#x308C;&#x306F;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x6210;&#x9577;&#x3059;&#x308B;&#x306B;&#x3064;&#x308C;&#x3066;&#x3088;&#x308A;&#x91CD;&#x8981;&#x306B;&#x306A;&#x3063;&#x3066;&#x304D;&#x307E;&#x3059;&#x3002; <code>updateBio</code>&#x95A2;&#x6570;&#x304C;&#x3042;&#x308B;&#x3068;&#x3057;&#x307E;&#x3059;:</p>
+<pre><code class="lang-elm"><span class="hljs-title">updateBio</span> : <span class="hljs-type">String</span> -&gt; <span class="hljs-type">User</span> -&gt; <span class="hljs-type">User</span>
+<span class="hljs-title">updateBio</span> bio user =
+  { user | bio = bio }
+</code></pre>
+<!--
+First, think about the type signature without a type alias! Now, imagine that as our application grows we add more fields to represent a user. We could add 10 or 100 fields to the `User` type alias, and we do not need any changes to our `updateBio` function. Nice!
+-->
+<p>&#x307E;&#x305A;&#x3001;&#x578B;&#x306E;&#x5225;&#x540D;&#x3092;&#x4F7F;&#x308F;&#x306A;&#x3044;&#x578B;&#x6CE8;&#x91C8;&#x306B;&#x3064;&#x3044;&#x3066;&#x8003;&#x3048;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002; &#x4ECA;&#x5EA6;&#x306F;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x6210;&#x9577;&#x3059;&#x308B;&#x306B;&#x3064;&#x308C;&#x3066;&#x30E6;&#x30FC;&#x30B6;&#x3092;&#x8868;&#x3059;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x304C;&#x5897;&#x3048;&#x308B;&#x3053;&#x3068;&#x3092;&#x60F3;&#x50CF;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002; 10&#x500B;&#x3084;100&#x500B;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3092;<code>User</code>&#x578B;&#x306B;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002; &#x3057;&#x304B;&#x3057;<code>updateBio</code>&#x95A2;&#x6570;&#x306B;&#x5909;&#x66F4;&#x3092;&#x52A0;&#x3048;&#x308B;&#x5FC5;&#x8981;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002; &#x3084;&#x3063;&#x305F;&#x306D;&#xFF01;</p>
+<!--
+## Record Constructors
+-->
+<h2 id="&#x30EC;&#x30B3;&#x30FC;&#x30C9;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;">&#x30EC;&#x30B3;&#x30FC;&#x30C9;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;</h2>
+<!--
+When you create a type alias specifically for a record, it also generates a **record constructor**. So if we define a `User` type alias in `elm repl` we could start building records like this:
+-->
+<p>&#x30EC;&#x30B3;&#x30FC;&#x30C9;&#x7528;&#x306B;&#x578B;&#x306E;&#x5225;&#x540D;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x3068;&#x3001; <strong>&#x30EC;&#x30B3;&#x30FC;&#x30C9;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;</strong>&#x3082;&#x4E00;&#x7DD2;&#x306B;&#x751F;&#x6210;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002; &#x3064;&#x307E;&#x308A;<code>elm repl</code>&#x3067;<code>User</code>&#x578B;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x305F;&#x3089;&#x3001;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x30EC;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x4F5C;&#x308C;&#x307E;&#x3059;:</p>
+<pre><code class="lang-elm">&gt; <span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">User</span> = { name : <span class="hljs-type">String</span>, bio : <span class="hljs-type">String</span> }
+
+&gt; <span class="hljs-type">User</span> <span class="hljs-string">&quot;Tom&quot;</span> <span class="hljs-string">&quot;Friendly Carpenter&quot;</span>
+{ name = <span class="hljs-string">&quot;Tom&quot;</span>, bio = <span class="hljs-string">&quot;Friendly Carpenter&quot;</span> }
+</code></pre>
+<!--
+The arguments are in the order they appear in the type alias declaration. This can be pretty handy.
+-->
+<p>&#x5F15;&#x6570;&#x306F;&#x578B;&#x306E;&#x5225;&#x540D;&#x306E;&#x5B9A;&#x7FA9;&#x306B;&#x73FE;&#x308C;&#x308B;&#x9806;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002; &#x3053;&#x308C;&#x306F;&#x304B;&#x306A;&#x308A;&#x4FBF;&#x5229;&#x3067;&#x3059;&#x3002;</p>
+<!--
+And again, this is only for records. Making type aliases for non-record types will not result in a constructor.
+-->
+<p>&#x3053;&#x306E;&#x6A5F;&#x80FD;&#x306F;&#x30EC;&#x30B3;&#x30FC;&#x30C9;&#x578B;&#x306E;&#x305F;&#x3081;&#x3060;&#x3051;&#x306E;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002; &#x30EC;&#x30B3;&#x30FC;&#x30C9;&#x578B;&#x3067;&#x306F;&#x306A;&#x3044;&#x578B;&#x306B;&#x5225;&#x540D;&#x3092;&#x4ED8;&#x3051;&#x3066;&#x3082;&#x30B3;&#x30F3;&#x30B9;&#x30C8;&#x30E9;&#x30AF;&#x30BF;&#x306F;&#x751F;&#x6210;&#x3055;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="reading_types.html" class="navigation navigation-prev " aria-label="Previous page: 型を読む">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="custom_types.html" class="navigation navigation-next " aria-label="Next page: カスタム型">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"型の別名","level":"1.5.2","depth":2,"next":{"title":"カスタム型","level":"1.5.3","depth":2,"path":"types/custom_types.md","ref":"types/custom_types.md","articles":[]},"previous":{"title":"型を読む","level":"1.5.1","depth":2,"path":"types/reading_types.md","ref":"types/reading_types.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"types/type_aliases.md","mtime":"2018-08-29T07:39:27.291Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-29T07:51:15.382Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

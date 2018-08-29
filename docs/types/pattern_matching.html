@@ -1,0 +1,772 @@
+
+<!DOCTYPE HTML>
+<html lang="ja" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>パターンマッチ · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    <meta name="robots" content="noindex">
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../effects/" />
+    
+    
+    <link rel="prev" href="custom_types.html" />
+    
+
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="検索すると入力" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../install.html">
+            
+                <a href="../install.html">
+            
+                    
+                    インストール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../core_language.html">
+            
+                <a href="../core_language.html">
+            
+                    
+                    言語の基礎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    ボタン
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    テキスト入力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    フォーム
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="reading_types.html">
+            
+                <a href="reading_types.html">
+            
+                    
+                    型を読む
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="type_aliases.html">
+            
+                <a href="type_aliases.html">
+            
+                    
+                    型の別名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="custom_types.html">
+            
+                <a href="custom_types.html">
+            
+                    
+                    カスタム型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.4" data-path="pattern_matching.html">
+            
+                <a href="pattern_matching.html">
+            
+                    
+                    パターンマッチ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../effects/">
+            
+                <a href="../effects/">
+            
+                    
+                    コマンドとサブスクリプション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../effects/random.html">
+            
+                <a href="../effects/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../effects/time.html">
+            
+                <a href="../effects/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../effects/json.html">
+            
+                <a href="../effects/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../effects/http.html">
+            
+                <a href="../effects/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../interop/">
+            
+                <a href="../interop/">
+            
+                    
+                    JavaScriptとの相互運用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../interop/flags.html">
+            
+                <a href="../interop/flags.html">
+            
+                    
+                    フラグ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../interop/ports.html">
+            
+                <a href="../interop/ports.html">
+            
+                    
+                    ポート
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../interop/custom_elements.html">
+            
+                <a href="../interop/custom_elements.html">
+            
+                    
+                    カスタムエレメンツ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Webアプリケーション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    ナビゲーションする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URLをパースする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    モジュール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    モジュールの構造化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    最適化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    アセットサイズ縮小化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    次への一歩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    付録
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../appendix/types_as_sets.html">
+            
+                <a href="../appendix/types_as_sets.html">
+            
+                    
+                    集合としての型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../appendix/types_as_bits.html">
+            
+                <a href="../appendix/types_as_bits.html">
+            
+                    
+                    型のビット表現
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../appendix/function_types.html">
+            
+                <a href="../appendix/function_types.html">
+            
+                    
+                    関数の型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBookで公開 
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >パターンマッチ</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="pattern-matching">Pattern Matching</h1>
+<p>On the previous page, we learned how to create <a href="custom_types.html">custom types</a> with the <code>type</code> keyword. Our primary example was a <code>User</code> in a chat room:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">User</span>
+  = <span class="hljs-type">Regular</span> <span class="hljs-type">String</span>
+  | <span class="hljs-type">Visitor</span> <span class="hljs-type">String</span>
+</code></pre>
+<p>So we have our custom type, but how do we actually use it?</p>
+<h2 id="case"><code>case</code></h2>
+<p>Say we want a <code>toName</code> function that decides on a name to show for each <code>User</code>. We need to use a <code>case</code> expression:</p>
+<pre><code class="lang-elm"><span class="hljs-title">toName</span> : <span class="hljs-type">User</span> -&gt; <span class="hljs-type">String</span>
+<span class="hljs-title">toName</span> user =
+  <span class="hljs-keyword">case</span> user <span class="hljs-keyword">of</span>
+    <span class="hljs-type">Regular</span> name -&gt;
+      name
+
+    <span class="hljs-type">Visitor</span> name -&gt;
+      name
+</code></pre>
+<p>The incoming <code>User</code> value can come in two different variants. The <code>case</code> expression allows us to branch based on which variant we happen to see. Here are some example uses:</p>
+<pre><code class="lang-elm"><span class="hljs-title">toName</span> (<span class="hljs-type">Regular</span> <span class="hljs-string">&quot;Thomas&quot;</span>) == <span class="hljs-string">&quot;Thomas&quot;</span>
+<span class="hljs-title">toName</span> (<span class="hljs-type">Visitor</span> <span class="hljs-string">&quot;kate95&quot;</span>) == <span class="hljs-string">&quot;kate95&quot;</span>
+</code></pre>
+<p>And if we try invalid arguments like <code>toName (Visitar &quot;kate95&quot;)</code> or <code>toName Anonymous</code>, the compiler tells us about it immediately. This means many &#x201C;silly mistakes&#x201D; can be fixed in seconds, rather than making it to users and costing a lot more time overall.</p>
+<h2 id="refactoring-support">Refactoring Support</h2>
+<p>Say we want to track the age of <code>Regular</code> users so we can try to encourage cross-generational discussions in our chat room. We first add that to our custom type:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">User</span>
+  = <span class="hljs-type">Regular</span> <span class="hljs-type">String</span> <span class="hljs-type">Int</span>
+  | <span class="hljs-type">Visitor</span> <span class="hljs-type">String</span>
+</code></pre>
+<p>At this point, the compiler will tell us about every single <code>case</code> expression that needs to be updated as a result. So for <code>toName</code> we might update to:</p>
+<pre><code class="lang-elm"><span class="hljs-title">toName</span> : <span class="hljs-type">User</span> -&gt; <span class="hljs-type">String</span>
+<span class="hljs-title">toName</span> user =
+  <span class="hljs-keyword">case</span> user <span class="hljs-keyword">of</span>
+    <span class="hljs-type">Regular</span> name age -&gt;
+      name ++ <span class="hljs-string">&quot; (&quot;</span> ++ <span class="hljs-type">String</span>.fromInt age ++ <span class="hljs-string">&quot;)&quot;</span>
+
+    <span class="hljs-type">Visitor</span> name -&gt;
+      name
+</code></pre>
+<p>I decided that I want to show the age as part of the display name, but maybe it should be displayed some other way. The important point is just that the compiler actively asks you to consider this question!</p>
+<p>This is especially helpful when you start refactoring in large codebases. Say you have 20 <code>case</code> expressions that handle <code>User</code> values. They are scattered throughout a bunch of different files. The files are written and maintained by different people. And say someone adds a <code>Anonymous</code> variant to <code>User</code>:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">User</span>
+  = <span class="hljs-type">Regular</span> <span class="hljs-type">String</span> <span class="hljs-type">Int</span>
+  | <span class="hljs-type">Visitor</span> <span class="hljs-type">String</span>
+  | <span class="hljs-type">Anonymous</span>
+</code></pre>
+<p>The compiler will inform you about all 20 <code>case</code> expressions that need to be updated. You can hop around deciding exactly how to handle <code>Anonymous</code> users in each situation.</p>
+<p>I feel like this sounds pretty boring, but experientially, it is one of my favorite things about languages like Elm. You change a type and then the compiler helps you methodically make the necessary updates. I find it strangely relaxing. Maybe because I get to focus on the fun programming puzzles, but without the anxiety about forgetting something and spending hours trying to figure out what it was. Unclear!</p>
+<blockquote>
+<p><strong>Note:</strong> When refactoring is easy, it changes the dynamics of large projects quite significantly.</p>
+<p>Refactors like this are so risky in JavaScript that many people do not even try. Will the tests cover all 20 cases? Probably not. Will you notice all the cases that are not covered? Probably not. What about the cases in code written by your colleagues? Wait, they worked on this code too?! This leads to a (justifiable) preoccupation with getting file structure right from the first day in JavaScript projects.</p>
+<p>But when refactoring is easy, it actually works better to make changes as you learn more about the problem. Do not worry about it so much. If you get something wrong, just fix it when you find out. I describe this change in mindset in more detail in <a href="https://youtu.be/XpDsk374LDE" target="_blank">The Life of a File</a>.</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="custom_types.html" class="navigation navigation-prev " aria-label="Previous page: カスタム型">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../effects/" class="navigation navigation-next " aria-label="Next page: コマンドとサブスクリプション">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"パターンマッチ","level":"1.5.4","depth":2,"next":{"title":"コマンドとサブスクリプション","level":"1.6","depth":1,"path":"effects/README.md","ref":"effects/README.md","articles":[{"title":"Random","level":"1.6.1","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},{"title":"Time","level":"1.6.2","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]},{"title":"JSON","level":"1.6.3","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},{"title":"HTTP","level":"1.6.4","depth":2,"path":"effects/http.md","ref":"effects/http.md","articles":[]}]},"previous":{"title":"カスタム型","level":"1.5.3","depth":2,"path":"types/custom_types.md","ref":"types/custom_types.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"types/pattern_matching.md","mtime":"2018-08-22T13:15:11.494Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-29T07:51:15.382Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

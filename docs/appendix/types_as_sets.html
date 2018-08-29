@@ -1,0 +1,821 @@
+
+<!DOCTYPE HTML>
+<html lang="ja" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>集合としての型 · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    <meta name="robots" content="noindex">
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="types_as_bits.html" />
+    
+    
+
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="検索すると入力" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../install.html">
+            
+                <a href="../install.html">
+            
+                    
+                    インストール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../core_language.html">
+            
+                <a href="../core_language.html">
+            
+                    
+                    言語の基礎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    ボタン
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    テキスト入力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    フォーム
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    型を読む
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    型の別名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    カスタム型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    パターンマッチ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../effects/">
+            
+                <a href="../effects/">
+            
+                    
+                    コマンドとサブスクリプション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../effects/random.html">
+            
+                <a href="../effects/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../effects/time.html">
+            
+                <a href="../effects/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../effects/json.html">
+            
+                <a href="../effects/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../effects/http.html">
+            
+                <a href="../effects/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../interop/">
+            
+                <a href="../interop/">
+            
+                    
+                    JavaScriptとの相互運用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../interop/flags.html">
+            
+                <a href="../interop/flags.html">
+            
+                    
+                    フラグ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../interop/ports.html">
+            
+                <a href="../interop/ports.html">
+            
+                    
+                    ポート
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../interop/custom_elements.html">
+            
+                <a href="../interop/custom_elements.html">
+            
+                    
+                    カスタムエレメンツ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Webアプリケーション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    ナビゲーションする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URLをパースする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    モジュール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    モジュールの構造化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    最適化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    アセットサイズ縮小化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    次への一歩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    付録
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.11.1" data-path="types_as_sets.html">
+            
+                <a href="types_as_sets.html">
+            
+                    
+                    集合としての型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="types_as_bits.html">
+            
+                <a href="types_as_bits.html">
+            
+                    
+                    型のビット表現
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="function_types.html">
+            
+                <a href="function_types.html">
+            
+                    
+                    関数の型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBookで公開 
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >集合としての型</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="types-as-sets">Types as Sets</h1>
+<p>We have seen primitive types like <code>Bool</code> and <code>String</code>. We have made our own custom types like this:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Color</span> = <span class="hljs-type">Red</span> | <span class="hljs-type">Yellow</span> | <span class="hljs-type">Green</span>
+</code></pre>
+<p>One of the most important techniques in Elm programming is to make <strong>the possible values in code</strong> exactly match <strong>the valid values in real life</strong>. This leaves no room for invalid data, and this is why I always encourage folks to focus on custom types and data structures.</p>
+<p>In pursuit of this goal, I have found it helpful to understand the relationship between types and sets. It sounds like a stretch, but it really helps develop your mindset!</p>
+<h2 id="sets">Sets</h2>
+<p>You can think of types as a set of values.</p>
+<ul>
+<li><code>Bool</code> is the set <code>{ True, False }</code></li>
+<li><code>Color</code> is the set <code>{ Red, Yellow, Green }</code></li>
+<li><code>Int</code> is the set <code>{ ... -2, -1, 0, 1, 2 ... }</code></li>
+<li><code>Float</code> is the set <code>{ ... 0.9, 0.99, 0.999 ... 1.0 ... }</code></li>
+<li><code>String</code> is the set <code>{ &quot;&quot;, &quot;a&quot;, &quot;aa&quot;, &quot;aaa&quot; ... &quot;hello&quot; ... }</code></li>
+</ul>
+<p>So when you say <code>x : Bool</code> it is like saying <code>x</code> is in the <code>{ True, False }</code> set.</p>
+<h2 id="cardinality">Cardinality</h2>
+<p>Some interesting things happen when you start figuring out how many values are in these sets. For example the <code>Bool</code> set <code>{ True, False }</code> contains two values. So math people would say that <code>Bool</code> has a <a href="https://en.wikipedia.org/wiki/Cardinality" target="_blank">cardinality</a> of two. So conceptually:</p>
+<ul>
+<li>cardinality(<code>Bool</code>) = 2</li>
+<li>cardinality(<code>Color</code>) = 3</li>
+<li>cardinality(<code>Int</code>) = &#x221E;</li>
+<li>cardinality(<code>Float</code>) = &#x221E;</li>
+<li>cardinality(<code>String</code>) = &#x221E;</li>
+</ul>
+<p>This gets more interesting when we start thinking about types like <code>(Bool, Bool)</code> that combine sets together.</p>
+<blockquote>
+<p><strong>Note:</strong> The cardinality for <code>Int</code> and <code>Float</code> are actually smaller than infinity. Computers need to fit the numbers into a fixed amount of bits (as described <a href="types-as-bits.html">here</a>) so it is more like cardinality(<code>Int32</code>) = 2^32 and cardinality(<code>Float32</code>) = 2^32. The point is just that it is a lot.</p>
+</blockquote>
+<h2 id="multiplication-tuples-and-records">Multiplication (Tuples and Records)</h2>
+<p>When you combine types with tuples, the cardinalities get multiplied:</p>
+<ul>
+<li>cardinality(<code>(Bool, Bool)</code>) = cardinality(<code>Bool</code>) &#xD7; cardinality(<code>Bool</code>) = 2 &#xD7; 2 = 4</li>
+<li>cardinality(<code>(Bool, Color)</code>) = cardinality(<code>Bool</code>) &#xD7; cardinality(<code>Color</code>) = 2 &#xD7; 3 = 6</li>
+</ul>
+<p>To make sure you believe this, try listing all the possible values of <code>(Bool, Bool)</code> and <code>(Bool, Color)</code>. Do they match the numbers we predicted? How about for <code>(Color, Color)</code>?</p>
+<p>But what happens when we use infinite sets like <code>Int</code> and <code>String</code>?</p>
+<ul>
+<li>cardinality(<code>(Bool, String)</code>) = 2 &#xD7; &#x221E;</li>
+<li>cardinality(<code>(Int, Int)</code>) = &#x221E; &#xD7; &#x221E;</li>
+</ul>
+<p>I personally really like the idea of having two infinities. One wasn&#x2019;t enough? And then seeing infinite infinities. Aren&#x2019;t we going to run out at some point?</p>
+<blockquote>
+<p><strong>Note:</strong> So far we have used tuples, but records work exactly the same way:</p>
+<ul>
+<li>cardinality(<code>(Bool, Bool)</code>) = cardinality(<code>{ x : Bool, y : Bool }</code>)</li>
+<li>cardinality(<code>(Bool, Color)</code>) = cardinality(<code>{ active : Bool, color : Color }</code>)</li>
+</ul>
+<p>And if you define <code>type Point = Point Float Float</code> then cardinality(<code>Point</code>) is equivalent to cardinality(<code>(Float, Float)</code>). It is all multiplication!</p>
+</blockquote>
+<h2 id="addition-custom-types">Addition (Custom Types)</h2>
+<p>When figuring out the cardinality of a custom type, you add together the cardinality of each variant. Let&#x2019;s start by looking at some <code>Maybe</code> and <code>Result</code> types:</p>
+<ul>
+<li>cardinality(<code>Result Bool Color</code>) = cardinality(<code>Bool</code>) + cardinality(<code>Color</code>) = 2 + 3 = 5</li>
+<li>cardinality(<code>Maybe Bool</code>) = 1 + cardinality(<code>Bool</code>) = 1 + 2 = 3</li>
+<li>cardinality(<code>Maybe Int</code>) = 1 + cardinality(<code>Int</code>) = 1 + &#x221E;</li>
+</ul>
+<p>To persuade yourself that this is true, try listing out all the possible values in the <code>Maybe Bool</code> and <code>Result Bool Color</code> sets. Does it match the numbers we got?</p>
+<p>Here are some other examples:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Height</span>
+  = <span class="hljs-type">Inches</span> <span class="hljs-type">Int</span>
+  | <span class="hljs-type">Meters</span> <span class="hljs-type">Float</span>
+
+<span class="hljs-comment">-- cardinality(Height)</span>
+<span class="hljs-comment">-- = cardinality(Int) + cardinality(Float)</span>
+<span class="hljs-comment">-- = &#x221E; + &#x221E;</span>
+
+
+<span class="hljs-keyword">type</span> <span class="hljs-type">Location</span>
+  = <span class="hljs-type">Nowhere</span>
+  | <span class="hljs-type">Somewhere</span> <span class="hljs-type">Float</span> <span class="hljs-type">Float</span>
+
+<span class="hljs-comment">-- cardinality(Location)</span>
+<span class="hljs-comment">-- = 1 + cardinality((Float, Float))</span>
+<span class="hljs-comment">-- = 1 + cardinality(Float) &#xD7; cardinality(Float)</span>
+<span class="hljs-comment">-- = 1 + &#x221E; &#xD7; &#x221E;</span>
+</code></pre>
+<p>Looking at custom types this way helps us see when two types are equivalent. For example, <code>Location</code> is equivalent to <code>Maybe (Float, Float)</code>. Once you know that, which one should you use? I prefer <code>Location</code> for two reasons:</p>
+<ol>
+<li>The code becomes more self-documenting. No need to wonder if <code>Just (1.6, 1.8)</code> is a location or a pair of heights.</li>
+<li>The <code>Maybe</code> module may expose functions that do not make sense for my particular data. For example, combining two locations probably should not work like <code>Maybe.map2</code>. Should one <code>Nowhere</code> mean that everything is <code>Nowhere</code>? Seems weird!</li>
+</ol>
+<p>In other words, I write a couple lines of code that are <em>similar</em> to other code, but it gives me a level of clarity and control that is extremely valuable for large code bases and teams.</p>
+<h2 id="who-cares">Who Cares?</h2>
+<p>Thinking of &#x201C;types as sets&#x201D; helps explain an important class of bugs: <strong>invalid data</strong>. For example, say we want to represent the color of a traffic light. The set of valid values are { red, yellow, green } but how do we represent that in code? Here are three different approaches:</p>
+<ul>
+<li><p><code>type alias Color = String</code> &#x2014; We could decide that <code>&quot;red&quot;</code>, <code>&quot;yellow&quot;</code>, <code>&quot;green&quot;</code> are the three strings we will use, and that all the other ones are <em>invalid data</em>. But what happens if invalid data is produced? Maybe someone makes a typo like <code>&quot;rad&quot;</code>. Maybe someone types <code>&quot;RED&quot;</code> instead. Should all functions have checks for incoming color arguments? Should all functions have tests to make sure color results are valid? The root issue is that cardinality(<code>Color</code>) = &#x221E;, meaning there are (&#x221E; - 3) invalid values. We will need to do a lot of checking to make sure none of them ever show up!</p>
+</li>
+<li><p><code>type alias Color = { red : Bool, yellow : Bool, green : Bool }</code> &#x2014; The idea here is that the idea of &#x201C;red&#x201D; is represented by <code>Color True False False</code>. But what about <code>Color True True True</code>? What does it mean for it to be all the colors at once? This is <em>invalid data</em>. Just like with the <code>String</code> representation, we end up writing checks in our code and tests to make sure there are no mistakes. In this case, cardinality(<code>Color</code>) = 2 &#xD7; 2 &#xD7; 2 = 8, so there are only 5 invalid values. There are definitely fewer ways to mess up, but we should still have some checks and tests.</p>
+</li>
+<li><p><code>type Color = Red | Yellow | Green</code> &#x2014; In this case, invalid data is impossible. cardinality(<code>Color</code>) = 1 + 1 + 1 = 3, exactly corresponding to the set of three values in real life. So there is no point checking for invalid color data in our code or tests. It cannot exist!</p>
+</li>
+</ul>
+<p>So the whole point here is that <strong>ruling out invalid data makes your code shorter, simpler, and more reliable.</strong> By making sure the set of <em>possible</em> values in code exactly matches the set of <em>valid</em> values in real life, many problems just go away. This is a sharp knife!</p>
+<p>As your program changes, the set of possible values in code may start to diverge from the set of valid values in real life. <strong>I highly recommend revisiting your types periodically to make them match again.</strong> This is like noticing your knife has become dull and sharpening it with a whetstone. This kind of maintenance is a core part of programming in Elm.</p>
+<p><strong>When you start thinking this way, you end up needing fewer tests, yet having more reliable code.</strong> You start using fewer dependencies, yet accomplishing things more quickly. Similarly, someone skilled with a knife probably will not buy a <a href="https://www.slapchop.com/" target="_blank">SlapChop</a>. There is definitely a place for blenders and food processors, but it is smaller than you might think. No one runs ads about how you can be independent and self-sufficient without any serious downsides. No money in that!</p>
+<blockquote>
+<h2 id="aside-on-language-design">Aside on Language Design</h2>
+<p>Thinking of types as sets like this can also be helpful in explaining why a language would feel &#x201C;easy&#x201D; or &#x201C;restrictive&#x201D; or &#x201C;error-prone&#x201D; to some people. For example:</p>
+<ul>
+<li><p><strong>Java</strong> &#x2014; There are primitive values like <code>Bool</code> and <code>String</code>. From there, you can create classes with a fixed set of fields of different types. This is much like records in Elm, allowing you to multiply cardinalities. But it quite difficult to do addition. You can do it with subtyping, but it is quite an elaborate process. So where <code>Result Bool Color</code> is easy in Elm, it is pretty tough in Java. I think some people find Java &#x201C;restrictive&#x201D; because designing a type with cardinality 5 is quite difficult, often seeming like it is not worth the trouble.</p>
+</li>
+<li><p><strong>JavaScript</strong> &#x2014; Again, there are primitive values like <code>Bool</code> and <code>String</code>. From there you can create objects with a dynamic set of fields, allowing you to multiply cardinalities. This is much more lightweight than creating classes. But like Java, doing addition is not particularly easy. For example, you can simulate <code>Maybe Int</code> with objects like <code>{ tag: &quot;just&quot;, value: 42 }</code> and <code>{ tag: &quot;nothing&quot; }</code>, but this is really still multiplication of cardinality. This makes it quite difficult to exactly match the set of valid values in real life. So I think people find JavaScript &#x201C;easy&#x201D; because designing a type with cardinality (&#x221E; &#xD7; &#x221E; &#xD7; &#x221E;) is super easy and that can cover pretty much anything, but other people find it &#x201C;error-prone&#x201D; because desiging a type with cardinality 5 is not really possible, leaving lots of space for invalid data.</p>
+</li>
+</ul>
+<p>Interestingly, some imperative languages have custom types! Rust is a great example. They call them <a href="https://doc.rust-lang.org/book/second-edition/ch06-01-defining-an-enum.html" target="_blank">enums</a> to build on the intuition folks may have from C and Java. So in Rust, addition of cardinalities is just as easy as in Elm, and it brings all the same benefits!</p>
+<p>I think the point here is that &#x201C;addition&#x201D; of types is extraordinarily underrated in in general, and thinking of &#x201C;types as sets&#x201D; helps clarify why certain language designs would produce certain frustrations.</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="types_as_bits.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 型のビット表現">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"集合としての型","level":"1.11.1","depth":2,"next":{"title":"型のビット表現","level":"1.11.2","depth":2,"path":"appendix/types_as_bits.md","ref":"appendix/types_as_bits.md","articles":[]},"previous":{"title":"付録","level":"1.11","depth":1,"ref":"","articles":[{"title":"集合としての型","level":"1.11.1","depth":2,"path":"appendix/types_as_sets.md","ref":"appendix/types_as_sets.md","articles":[]},{"title":"型のビット表現","level":"1.11.2","depth":2,"path":"appendix/types_as_bits.md","ref":"appendix/types_as_bits.md","articles":[]},{"title":"関数の型","level":"1.11.3","depth":2,"path":"appendix/function_types.md","ref":"appendix/function_types.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"appendix/types_as_sets.md","mtime":"2018-08-22T13:15:11.486Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-29T07:51:15.382Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,783 @@
+
+<!DOCTYPE HTML>
+<html lang="ja" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>型のビット表現 · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    <meta name="robots" content="noindex">
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="function_types.html" />
+    
+    
+    <link rel="prev" href="types_as_sets.html" />
+    
+
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="検索すると入力" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../install.html">
+            
+                <a href="../install.html">
+            
+                    
+                    インストール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../core_language.html">
+            
+                <a href="../core_language.html">
+            
+                    
+                    言語の基礎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    ボタン
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    テキスト入力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    フォーム
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    型を読む
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    型の別名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    カスタム型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    パターンマッチ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../effects/">
+            
+                <a href="../effects/">
+            
+                    
+                    コマンドとサブスクリプション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../effects/random.html">
+            
+                <a href="../effects/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../effects/time.html">
+            
+                <a href="../effects/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../effects/json.html">
+            
+                <a href="../effects/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../effects/http.html">
+            
+                <a href="../effects/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../interop/">
+            
+                <a href="../interop/">
+            
+                    
+                    JavaScriptとの相互運用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../interop/flags.html">
+            
+                <a href="../interop/flags.html">
+            
+                    
+                    フラグ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../interop/ports.html">
+            
+                <a href="../interop/ports.html">
+            
+                    
+                    ポート
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../interop/custom_elements.html">
+            
+                <a href="../interop/custom_elements.html">
+            
+                    
+                    カスタムエレメンツ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Webアプリケーション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    ナビゲーションする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URLをパースする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    モジュール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    モジュールの構造化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    最適化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    アセットサイズ縮小化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    次への一歩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    付録
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="types_as_sets.html">
+            
+                <a href="types_as_sets.html">
+            
+                    
+                    集合としての型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.11.2" data-path="types_as_bits.html">
+            
+                <a href="types_as_bits.html">
+            
+                    
+                    型のビット表現
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="function_types.html">
+            
+                <a href="function_types.html">
+            
+                    
+                    関数の型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBookで公開 
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >型のビット表現</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="types-as-bits">Types as Bits</h1>
+<p>There are all sorts of types in Elm:</p>
+<ul>
+<li><code>Bool</code></li>
+<li><code>Int</code></li>
+<li><code>String</code></li>
+<li><code>(Int, Int)</code></li>
+<li><code>Maybe Int</code></li>
+<li>...</li>
+</ul>
+<p>We have a conceptual understanding of them by now, but how are they understood by a computer? How is <code>Maybe Int</code> stored on a hard disk?</p>
+<h2 id="bits">Bits</h2>
+<p>A <strong>bit</strong> is little box that has two states. Zero or a one. On or off. Computer memory is one super long sequence of bits.</p>
+<p>Okay, so all we have is a bunch of bits. Now we need to represent <em>everything</em> with that!</p>
+<h2 id="bool"><code>Bool</code></h2>
+<p>A <code>Bool</code> value can be either <code>True</code> or <code>False</code>. This corresponds exactly to a bit!</p>
+<h2 id="int"><code>Int</code></h2>
+<p>An <code>Int</code> value is some whole number like <code>0</code>, <code>1</code>, <code>2</code>, etc. You cannot fit that in a single bit, so the only other option is to use multiple bits. So normally, an <code>Int</code> would be a sequence of bits, like these:</p>
+<pre><code>00000000
+00000001
+00000010
+00000011
+...
+</code></pre><p>We can arbitrarily assign meaning to each of these sequences. So maybe <code>00000000</code> is zero and <code>00000001</code> is one. Great! We can just start assigning numbers to bit sequences in ascending order. But eventually we will run out of bits...</p>
+<p>By some quick math, eight bits only allow (2^8 = 256) numbers. What about perfectly reasonable numbers like 9000 and 8004?</p>
+<p>The answer is to just add more bits. For a long time, people used 32 bits. That allowed for (2^32 = 4,294,967,296) numbers which covers the kinds of numbers humans typically think about. Computers these days support 64-bit integers, allowing for (2^64 = 18,446,744,073,709,551,616) numbers. That is a lot!</p>
+<blockquote>
+<p><strong>Note:</strong> If you are curious how addition works, learn about <a href="https://en.wikipedia.org/wiki/Two%27s_complement" target="_blank">two&#x2019;s complement</a>. It reveals that numbers are not assigned to bit sequences arbitrarily. For the sake of making addition as fast as possible, this particular way of assigning numbers works really well.</p>
+</blockquote>
+<h2 id="string"><code>String</code></h2>
+<p>The string <code>&quot;abc&quot;</code> is the sequence of characters <code>a</code> <code>b</code> <code>c</code>, so we will start by trying to represent characters as bits.</p>
+<p>One of the early ways of encoding characters is called <a href="https://en.wikipedia.org/wiki/ASCII" target="_blank">ASCII</a>. Just like with integers, they decided to list out a bunch of bit sequences and start assigning values arbitrarily:</p>
+<pre><code>00000000
+00000001
+00000010
+00000011
+...
+</code></pre><p>So every character needed to fit in eight bits, meaning only 256 characters could be represented! But if you only care about English, this actually works out pretty well. You need to cover 26 lower-case letters, 26 upper-case letters, and 10 numbers. That is 62. There is a bunch of room left for symbols and other weird stuff. You can see what they ended up with <a href="https://ascii.cl/" target="_blank">here</a>.</p>
+<p>We have an idea for characters now, but how will the computer know where the <code>String</code> ends and the next piece of data begins? It is all just bits. Characters look just like <code>Int</code> values really! So we need some way to mark the end.</p>
+<p>These days, languages tend to do this by storing the <strong>length</strong> of the string. So a string like <code>&quot;hello&quot;</code> might look something like <code>5</code> <code>h</code> <code>e</code> <code>l</code> <code>l</code> <code>o</code> in memory. So you know a <code>String</code> always starts with 32-bits representing the length. And whether the length is 0 or 9000, you know exactly where the characters end.</p>
+<blockquote>
+<p><strong>Note:</strong> At some point, folks wanted to cover languages besides English. This effort eventually resulted in the <a href="https://en.wikipedia.org/wiki/UTF-8" target="_blank">UTF-8</a> encoding. It is quite brilliant really, and I encourage you to learn about it. It turns out that &#x201C;get the 5th character&#x201D; is harder than it sounds!</p>
+</blockquote>
+<h2 id="int-int"><code>(Int, Int)</code></h2>
+<p>What about tuples? Well, <code>(Int, Int)</code> is two <code>Int</code> values, and each one is a sequence of bits. Let&#x2019;s just put those two sequences next to each other in memory and call it a day!</p>
+<h2 id="custom-types">Custom Types</h2>
+<p>A custom type is all about combining different types. Those different types may have all sorts of different shapes. We will start with the <code>Color</code> type:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Color</span> = <span class="hljs-type">Red</span> | <span class="hljs-type">Yellow</span> | <span class="hljs-type">Green</span>
+</code></pre>
+<p>We can assign each case a number: <code>Red = 0</code>, <code>Yellow = 1</code>, and <code>Green = 2</code>. Now we can use the <code>Int</code> representation. Here we only need two bits to cover all the possible cases, so <code>00</code> is red, <code>01</code> is yellow, <code>10</code> is green, and <code>11</code> is unused.</p>
+<p>But what about custom types that hold additional data? Like <code>Maybe Int</code>? The typical approach is to set aside some bits to &#x201C;tag&#x201D; the data, so we can decide that <code>Nothing = 0</code> and <code>Just = 1</code>. Here are some examples:</p>
+<ul>
+<li><code>Nothing</code> = <code>0</code></li>
+<li><code>Just 12</code> = <code>1</code> <code>00001100</code></li>
+<li><code>Just 16</code> = <code>1</code> <code>00010000</code></li>
+</ul>
+<p>A <code>case</code> expression always looks at that &#x201C;tag&#x201D; before deciding what to do next. If it sees a <code>0</code> it knows there is no more data. If it sees a <code>1</code> it knows it is followed by a sequence of bits representing the data.</p>
+<p>This &#x201C;tag&#x201D; idea is similar to putting the length at the beginning of <code>String</code> values. The values may be different sizes, but the code can always figure out where they start and end.</p>
+<h2 id="summary">Summary</h2>
+<p>Eventually, all values need to be represented in bits. This page gives a rough overview of how that actually works.</p>
+<p>Normally there is no real reason to think about this, but I found it to be helpful in deepening my understanding of custom types and <code>case</code> expressions. I hope it is helpful to you as well!</p>
+<blockquote>
+<p><strong>Note:</strong> If you think this is interesting, it may be fun to learn more about garbage collection. I have found <a href="http://gchandbook.org/" target="_blank">The Garbage Collection Handbook</a> to be an excellent resource on the topic!</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="types_as_sets.html" class="navigation navigation-prev " aria-label="Previous page: 集合としての型">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="function_types.html" class="navigation navigation-next " aria-label="Next page: 関数の型">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"型のビット表現","level":"1.11.2","depth":2,"next":{"title":"関数の型","level":"1.11.3","depth":2,"path":"appendix/function_types.md","ref":"appendix/function_types.md","articles":[]},"previous":{"title":"集合としての型","level":"1.11.1","depth":2,"path":"appendix/types_as_sets.md","ref":"appendix/types_as_sets.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"appendix/types_as_bits.md","mtime":"2018-08-22T13:15:11.486Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-29T07:51:15.382Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

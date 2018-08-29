@@ -1,0 +1,806 @@
+
+<!DOCTYPE HTML>
+<html lang="ja" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Html.lazy · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    <meta name="robots" content="noindex">
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="keyed.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="検索すると入力" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../install.html">
+            
+                <a href="../install.html">
+            
+                    
+                    インストール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../core_language.html">
+            
+                <a href="../core_language.html">
+            
+                    
+                    言語の基礎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    ボタン
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    テキスト入力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    フォーム
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    型を読む
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    型の別名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    カスタム型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    パターンマッチ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../effects/">
+            
+                <a href="../effects/">
+            
+                    
+                    コマンドとサブスクリプション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../effects/random.html">
+            
+                <a href="../effects/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../effects/time.html">
+            
+                <a href="../effects/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../effects/json.html">
+            
+                <a href="../effects/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../effects/http.html">
+            
+                <a href="../effects/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../interop/">
+            
+                <a href="../interop/">
+            
+                    
+                    JavaScriptとの相互運用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../interop/flags.html">
+            
+                <a href="../interop/flags.html">
+            
+                    
+                    フラグ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../interop/ports.html">
+            
+                <a href="../interop/ports.html">
+            
+                    
+                    ポート
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../interop/custom_elements.html">
+            
+                <a href="../interop/custom_elements.html">
+            
+                    
+                    カスタムエレメンツ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Webアプリケーション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    ナビゲーションする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URLをパースする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    モジュール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    モジュールの構造化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    最適化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.9.1" data-path="lazy.html">
+            
+                <a href="lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="keyed.html">
+            
+                <a href="keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="asset_size.html">
+            
+                <a href="asset_size.html">
+            
+                    
+                    アセットサイズ縮小化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    次への一歩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    付録
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../appendix/types_as_sets.html">
+            
+                <a href="../appendix/types_as_sets.html">
+            
+                    
+                    集合としての型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../appendix/types_as_bits.html">
+            
+                <a href="../appendix/types_as_bits.html">
+            
+                    
+                    型のビット表現
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../appendix/function_types.html">
+            
+                <a href="../appendix/function_types.html">
+            
+                    
+                    関数の型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBookで公開 
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Html.lazy</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="htmllazy"><code>Html.Lazy</code></h1>
+<p>In the <a href="https://package.elm-lang.org/packages/elm/html/latest/" target="_blank"><code>elm/html</code></a> package is used to show things on screen. To understand how to optimize it, we need to learn how it works in the first place!</p>
+<h2 id="what-is-the-dom">What is the DOM?</h2>
+<p>If you are creating an HTML file, you would write HTML directly like this:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Chair alternatives include:<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>seiza<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>chabudai<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>You can think of this as producing some DOM data structure behind the scenes:</p>
+<p><img src="diagrams/dom.svg" alt=""></p>
+<p>The black boxes represent heavy-weight DOM objects with hundreds of attributes. And when any of them change, it can trigger expensive renders and reflows of page content.</p>
+<h2 id="what-is-virtual-dom">What is Virtual DOM?</h2>
+<p>If you are creating an Elm file, you would use <code>elm/html</code> to write something like this:</p>
+<pre><code class="lang-elm"><span class="hljs-title">viewChairAlts</span> : <span class="hljs-type">List</span> <span class="hljs-type">String</span> -&gt; <span class="hljs-type">Html</span> msg
+<span class="hljs-title">viewChairAlts</span> chairAlts =
+  div []
+    [ p [] [ text <span class="hljs-string">&quot;Chair alternatives include:&quot;</span> ]
+    , ul [] (<span class="hljs-type">List</span>.map viewAlt chairAlts)
+    ]
+
+<span class="hljs-title">viewAlt</span> : <span class="hljs-type">String</span> -&gt; <span class="hljs-type">Html</span> msg
+<span class="hljs-title">viewAlt</span> chairAlt =
+  li [] [ text chairAlt ]
+</code></pre>
+<p>You can think of <code>viewChairAlts [&quot;seiza&quot;,&quot;chabudai&quot;]</code> as producing some &#x201C;Virtual DOM&#x201D; data structure behind the scenes:</p>
+<p><img src="diagrams/vdom.svg" alt=""></p>
+<p>The white boxes represent light-weight JavaScript objects. They only have the attributes you specify. Their creation can never cause renders or reflows. Point is, compared to DOM nodes, these are much cheaper to allocate!</p>
+<h2 id="render">Render</h2>
+<p>If we are always working with these virtual nodes in Elm, how does it get converted to the DOM we see on screen? When an Elm program starts, it goes like this:</p>
+<ul>
+<li>Call <code>init</code> to get the initial <code>Model</code>.</li>
+<li>Call <code>view</code> to get the initial virtual nodes.</li>
+</ul>
+<p>Now that we have virtual nodes, we make an exact replica in the real DOM:</p>
+<p><img src="diagrams/render.svg" alt=""></p>
+<p>Great! But what about when things change? Redoing the whole DOM on every frame does not work, so what do we do instead?</p>
+<h2 id="diffing">Diffing</h2>
+<p>Once we have the initial DOM, we switch to working primarily with virtual nodes instead. Whenever the <code>Model</code> changes, we run <code>view</code> again. From there, we &#x201C;diff&#x201D; the resulting virtual nodes to figure out how to touch the DOM as little as possible.</p>
+<p>So imagine our <code>Model</code> gets a new chair alternative, and we want to add a new <code>li</code> node for it. Behind the scenes, Elm diffs the <strong>current</strong> virtual nodes and the <strong>next</strong> virtual nodes to detect any changes:</p>
+<p><img src="diagrams/diff.svg" alt=""></p>
+<p>It noticed that a third <code>li</code> was added. I marked it in green. Elm now knows exactly how to modify the real DOM to make it match. Just insert that new <code>li</code>:</p>
+<p><img src="diagrams/patch.svg" alt=""></p>
+<p>This diffing process makes it possible to touch the DOM as little as possible. And if no differences are found, we do not need to touch the DOM at all! So this process helps minimize the renders and reflows that need to happen.</p>
+<p>But can we do even less work?</p>
+<h2 id="htmllazy"><code>Html.Lazy</code></h2>
+<p>The <a href="https://package.elm-lang.org/packages/elm/html/latest/Html-Lazy/" target="_blank"><code>Html.Lazy</code></a> module makes it possible to not even build the virtual nodes! The core idea is the <code>lazy</code> function:</p>
+<pre><code class="lang-elm"><span class="hljs-title">lazy</span> : (a -&gt; <span class="hljs-type">Html</span> msg) -&gt; a -&gt; <span class="hljs-type">Html</span> msg
+</code></pre>
+<p>Going back to our chair example, we called <code>viewChairAlts [&quot;seiza&quot;,&quot;chabudai&quot;]</code>, but we could just as easily have called <code>lazy viewChairAlts [&quot;seiza&quot;,&quot;chabudai&quot;]</code> instead. The lazy version allocates a single &#x201C;lazy&#x201D; node like this:</p>
+<p><img src="diagrams/lazy.svg" alt=""></p>
+<p>The node just keeps a reference to the function and arguments. Elm can put the function and arguments together to generate the whole structure if needed, but it is not always needed!</p>
+<p>One of the cool things about Elm is the &#x201C;same input, same output&#x201D; guarantee for functions. So whenever we run into two &#x201C;lazy&#x201D; nodes while diffing virtual nodes, we ask is the function the same? Are the arguments the same? If they are all the same, we know the resulting virtual nodes are the same as well! <strong>So we can skip building the virtual nodes entirely!</strong> If any of them have changed, we can build the virtual nodes and do a normal diff.</p>
+<blockquote>
+<p><strong>Note:</strong> When are two values &#x201C;the same&#x201D; though? To optimize for performance, we use JavaScript&#x2019;s <code>===</code> operator behind the scenes:</p>
+<ul>
+<li>Structural equality is used for <code>Int</code>, <code>Float</code>, <code>String</code>, <code>Char</code>, and <code>Bool</code>.</li>
+<li>Reference equality is used for records, lists, custom types, dictionaries, etc.</li>
+</ul>
+<p>Structural equality means that <code>4</code> is the same as <code>4</code> no matter how you produced those values. Reference equality means the actual pointer in memory has to be the same. Using reference equality is always cheap <code>O(1)</code>, even when the data structure has thousands or millions of entries. So this is mostly about making sure that using <code>lazy</code> will never slow your code down a bunch by accident. All the checks are super cheap!</p>
+</blockquote>
+<h2 id="usage">Usage</h2>
+<p>The ideal place to put a lazy node is at the root of your application. Many applications are set up to have distinct visual regions like headers, sidebars, search results, etc. And when people are messing with one, they are very rarely messing with the others. This creates really natural lines for <code>lazy</code> calls!</p>
+<p>For example, in <a href="https://github.com/evancz/elm-todomvc/" target="_blank">my TodoMVC implementation</a>, the <code>view</code> is defined like this:</p>
+<pre><code class="lang-elm"><span class="hljs-title">view</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">view</span> model =
+  div
+    [ class <span class="hljs-string">&quot;todomvc-wrapper&quot;</span>
+    , style <span class="hljs-string">&quot;visibility&quot;</span> <span class="hljs-string">&quot;hidden&quot;</span>
+    ]
+    [ section
+        [ class <span class="hljs-string">&quot;todoapp&quot;</span> ]
+        [ lazy viewInput model.field
+        , lazy2 viewEntries model.visibility model.entries
+        , lazy2 viewControls model.visibility model.entries
+        ]
+    , infoFooter
+    ]
+</code></pre>
+<p>Notice that the text input, entries, and controls are all in separate lazy nodes. So I can type however many characters I want in the input without ever building virtual nodes for the entries or controls. They are not changing! So the first tip is <strong>try to use lazy nodes at the root of your application.</strong></p>
+<p>It can also be useful to use lazy in long lists of items. In the TodoMVC app, it is all about adding entries to your todo list. You could conceivable have hundreds of entries, but they change very infrequently. This is a great candidate for laziness! By switching <code>viewEntry entry</code> to <code>lazy viewEntry entry</code> we can skip a bunch of allocation that is very rarely useful. So the second tip is <strong>try to use lazy nodes on repeated structures where each individual item change infrequently.</strong></p>
+<h2 id="summary">Summary</h2>
+<p>Touching the DOM is way more expensive than anything that happens in a normal user interface. Based on my benchmarking, you can do whatever you want with fancy data structures, but in the end it only matters how much you successfully use <code>lazy</code>.</p>
+<p>On the next page, we will learn a technique to use <code>lazy</code> even more!</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: 最適化">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="keyed.html" class="navigation navigation-next " aria-label="Next page: Html.keyed">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Html.lazy","level":"1.9.1","depth":2,"next":{"title":"Html.keyed","level":"1.9.2","depth":2,"path":"optimization/keyed.md","ref":"optimization/keyed.md","articles":[]},"previous":{"title":"最適化","level":"1.9","depth":1,"path":"optimization/README.md","ref":"optimization/README.md","articles":[{"title":"Html.lazy","level":"1.9.1","depth":2,"path":"optimization/lazy.md","ref":"optimization/lazy.md","articles":[]},{"title":"Html.keyed","level":"1.9.2","depth":2,"path":"optimization/keyed.md","ref":"optimization/keyed.md","articles":[]},{"title":"アセットサイズ縮小化","level":"1.9.3","depth":2,"path":"optimization/asset_size.md","ref":"optimization/asset_size.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"optimization/lazy.md","mtime":"2018-08-22T13:15:11.494Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-29T07:51:15.382Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

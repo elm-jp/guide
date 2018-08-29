@@ -1,0 +1,842 @@
+
+<!DOCTYPE HTML>
+<html lang="ja" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>JSON · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    <meta name="robots" content="noindex">
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="http.html" />
+    
+    
+    <link rel="prev" href="time.html" />
+    
+
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="検索すると入力" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../install.html">
+            
+                <a href="../install.html">
+            
+                    
+                    インストール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../core_language.html">
+            
+                <a href="../core_language.html">
+            
+                    
+                    言語の基礎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    ボタン
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    テキスト入力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    フォーム
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    型を読む
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    型の別名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    カスタム型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    パターンマッチ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    コマンドとサブスクリプション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="random.html">
+            
+                <a href="random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="time.html">
+            
+                <a href="time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.3" data-path="json.html">
+            
+                <a href="json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="http.html">
+            
+                <a href="http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../interop/">
+            
+                <a href="../interop/">
+            
+                    
+                    JavaScriptとの相互運用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../interop/flags.html">
+            
+                <a href="../interop/flags.html">
+            
+                    
+                    フラグ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../interop/ports.html">
+            
+                <a href="../interop/ports.html">
+            
+                    
+                    ポート
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../interop/custom_elements.html">
+            
+                <a href="../interop/custom_elements.html">
+            
+                    
+                    カスタムエレメンツ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Webアプリケーション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    ナビゲーションする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URLをパースする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    モジュール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    モジュールの構造化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    最適化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    アセットサイズ縮小化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    次への一歩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    付録
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../appendix/types_as_sets.html">
+            
+                <a href="../appendix/types_as_sets.html">
+            
+                    
+                    集合としての型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../appendix/types_as_bits.html">
+            
+                <a href="../appendix/types_as_bits.html">
+            
+                    
+                    型のビット表現
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../appendix/function_types.html">
+            
+                <a href="../appendix/function_types.html">
+            
+                    
+                    関数の型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBookで公開 
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >JSON</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="json">JSON</h1>
+<p>On the next page we are going to ask <code>api.giphy.com</code> for some random GIFs. The endpoint <a href="https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&amp;tag=cat" target="_blank">here</a> is going to give us JSON like this:</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;data&quot;</span>: {
+    <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;gif&quot;</span>,
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;l2JhxfHWMBWuDMIpi&quot;</span>,
+    <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;cat love GIF by The Secret Life Of Pets&quot;</span>,
+    <span class="hljs-string">&quot;image_url&quot;</span>: <span class="hljs-string">&quot;https://media1.giphy.com/media/l2JhxfHWMBWuDMIpi/giphy.gif&quot;</span>,
+    <span class="hljs-string">&quot;caption&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    ...
+  },
+  <span class="hljs-string">&quot;meta&quot;</span>: {
+    <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-number">200</span>,
+    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;OK&quot;</span>,
+    <span class="hljs-string">&quot;response_id&quot;</span>: <span class="hljs-string">&quot;5b105e44316d3571456c18b3&quot;</span>
+  }
+}
+</code></pre>
+<p>But how do we deal with data like this in Elm?</p>
+<p>In JavaScript you can run <code>JSON.parse</code> and get a JavaScript object. You then start accessing fields like <code>response.data.image_url</code> to get the random GIF. One would expect JavaScript Object Notation (JSON) to integrate easily with JavaScript! But what happens if <code>api.giphy.com</code> makes a change to the JSON? We crash! What happens if we have a typo in a field access? We crash! What happens if the endpoint is managed by your backend team and it produces different results in different scenarios? We crash!</p>
+<p>So turning JSON directly into JavaScript values is easy <em>at first</em>, but you pay for it later. Is this <code>null</code>? Is this an integer or a string containing an integer? Does this field exist? Etc. You end up with complicated logic, unpredictable behavior, and a bunch of tests to prove to yourself that it cannot be otherwise.</p>
+<p>In Elm, we validate JSON <em>before</em> it gets into our code. Let&#x2019;s see how!</p>
+<h2 id="json-decoders">JSON Decoders</h2>
+<p>Say we have some JSON:</p>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Tom&quot;</span>,
+    <span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">42</span>
+}
+</code></pre>
+<p>We need to run it through a <code>Decoder</code> to access specific information. So if we wanted to get the <code>&quot;age&quot;</code>, we would run the JSON through a <code>Decoder Int</code> that describes exactly how to access that information:</p>
+<p><img src="diagrams/int.svg" alt=""></p>
+<p>If all goes well, we get an <code>Int</code> on the other side! And if we wanted the <code>&quot;name&quot;</code> we would run the JSON through a <code>Decoder String</code> that describes exactly how to access it:</p>
+<p><img src="diagrams/string.svg" alt=""></p>
+<p>If all goes well, we get a <code>String</code> on the other side!</p>
+<p>How do we create decoders like this though?</p>
+<h2 id="building-blocks">Building Blocks</h2>
+<p>The <a href="https://package.elm-lang.org/packages/elm/json/latest/" target="_blank"><code>elm/json</code></a> package gives us the <a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode" target="_blank"><code>Json.Decode</code></a> module. It is filled with tiny decoders that we can snap together.</p>
+<p>So to get <code>&quot;age&quot;</code> from <code>{ &quot;name&quot;: &quot;Tom&quot;, &quot;age&quot;: 42 }</code> we would create a decoder like this:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Json.Decode <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Decoder</span>, field, int)
+
+<span class="hljs-title">ageDecoder</span> : <span class="hljs-type">Decoder</span> <span class="hljs-type">Int</span>
+<span class="hljs-title">ageDecoder</span> =
+  field <span class="hljs-string">&quot;age&quot;</span> int
+
+ <span class="hljs-comment">-- int : Decoder Int</span>
+ <span class="hljs-comment">-- field : String -&gt; Decoder a -&gt; Decoder a</span>
+</code></pre>
+<p>The <a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#field" target="_blank"><code>field</code></a> function takes two arguments:</p>
+<ol>
+<li><code>String</code> &#x2014; a field name. So we are demanding an object with an <code>&quot;age&quot;</code> field.</li>
+<li><code>Decoder a</code> &#x2014; a decoder to try next. So if the <code>&quot;age&quot;</code> field exists, we will try this decoder on the value there.</li>
+</ol>
+<p>So putting it together, <code>field &quot;age&quot; int</code> is asking for an <code>&quot;age&quot;</code> field, and if it exists, it runs the <code>Decoder Int</code> to try to extract an integer.</p>
+<p>We do pretty much exactly the same thing to extract the <code>&quot;name&quot;</code> field:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Json.Decode <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Decoder</span>, field, string)
+
+<span class="hljs-title">nameDecoder</span> : <span class="hljs-type">Decoder</span> <span class="hljs-type">String</span>
+<span class="hljs-title">nameDecoder</span> =
+  field <span class="hljs-string">&quot;name&quot;</span> string
+
+<span class="hljs-comment">-- string : Decoder String</span>
+</code></pre>
+<p>In this case we demand an object with a <code>&quot;name&quot;</code> field, and if it exists, we want the value there to be a <code>String</code>.</p>
+<h2 id="nesting-decoders">Nesting Decoders</h2>
+<p>Remember the <code>api.giphy.com</code> data?</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;data&quot;</span>: {
+    <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;gif&quot;</span>,
+    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;l2JhxfHWMBWuDMIpi&quot;</span>,
+    <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;cat love GIF by The Secret Life Of Pets&quot;</span>,
+    <span class="hljs-string">&quot;image_url&quot;</span>: <span class="hljs-string">&quot;https://media1.giphy.com/media/l2JhxfHWMBWuDMIpi/giphy.gif&quot;</span>,
+    <span class="hljs-string">&quot;caption&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    ...
+  },
+  <span class="hljs-string">&quot;meta&quot;</span>: {
+    <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-number">200</span>,
+    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;OK&quot;</span>,
+    <span class="hljs-string">&quot;response_id&quot;</span>: <span class="hljs-string">&quot;5b105e44316d3571456c18b3&quot;</span>
+  }
+}
+</code></pre>
+<p>We wanted to access <code>response.data.image_url</code> to show a random GIF. Well, we have the tools now!</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Json.Decode <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Decoder</span>, field, string)
+
+<span class="hljs-title">gifDecoder</span> : <span class="hljs-type">Decoder</span> <span class="hljs-type">String</span>
+<span class="hljs-title">gifDecoder</span> =
+  field <span class="hljs-string">&quot;data&quot;</span> (field <span class="hljs-string">&quot;image_url&quot;</span> string)
+</code></pre>
+<p>Is there a <code>&quot;data&quot;</code> field? If so, does that value have an <code>&quot;image_url&quot;</code> field? If so, is the value there a string?</p>
+<p>So we are essentially building up a <em>contract</em> of what we expect. &#x201C;If you give me JSON like this, I will turn them into Elm values.&#x201D;</p>
+<h2 id="combining-decoders">Combining Decoders</h2>
+<p>So far we have only been accessing one field at a time, but what if we want <em>two</em> fields? We snap decoders together with <a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2" target="_blank"><code>map2</code></a>:</p>
+<pre><code class="lang-elm"><span class="hljs-title">map2</span> : (a -&gt; b -&gt; value) -&gt; <span class="hljs-type">Decoder</span> a -&gt; <span class="hljs-type">Decoder</span> b -&gt; <span class="hljs-type">Decoder</span> value
+</code></pre>
+<p>This function takes in two decoders. It tries them both and combines their results. So now we can put together two different decoders:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Json.Decode <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Decoder</span>, map2, field, string, int)
+
+<span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Person</span> =
+  { name : <span class="hljs-type">Int</span>
+  , age : <span class="hljs-type">Int</span>
+  }
+
+<span class="hljs-title">personDecoder</span> : <span class="hljs-type">Decoder</span> <span class="hljs-type">Person</span>
+<span class="hljs-title">personDecoder</span> =
+  map2 <span class="hljs-type">Person</span>
+      (field <span class="hljs-string">&quot;name&quot;</span> string)
+      (field <span class="hljs-string">&quot;age&quot;</span> int)
+</code></pre>
+<p>So if we used <code>personDecoder</code> on <code>{ &quot;name&quot;: &quot;Tom&quot;, &quot;age&quot;: 42 }</code> we would get out an Elm value like <code>Person &quot;Tom&quot; 42</code>.</p>
+<p>If we really wanted to get into the spirit of decoders, we would define <code>personDecoder</code> as <code>map2 Person nameDecoder ageDecoder</code> using our previous definitions. You always want to be building your decoders up from smaller building blocks!</p>
+<h2 id="next-steps">Next Steps</h2>
+<p>There are a bunch of important functions in <code>Json.Decode</code> that we did not cover here:</p>
+<ul>
+<li><a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#bool" target="_blank"><code>bool</code></a> : <code>Decoder Bool</code></li>
+<li><a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#list" target="_blank"><code>list</code></a> : <code>Decoder a -&gt; Decoder (List a)</code></li>
+<li><a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#dict" target="_blank"><code>dict</code></a> : <code>Decoder a -&gt; Decoder (Dict String a)</code></li>
+<li><a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#oneOf" target="_blank"><code>oneOf</code></a> : <code>List (Decoder a) -&gt; Decoder a</code></li>
+</ul>
+<p>So there are ways to extract all sorts of data structures. The <code>oneOf</code> function is particularly helpful for messy JSON. (e.g. sometimes you get an <code>Int</code> and other times you get a <code>String</code> containing digits. So annoying!)</p>
+<p>There are also <a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map3" target="_blank"><code>map3</code></a>, <a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map4" target="_blank"><code>map4</code></a>, and others for handling objects with more than two fields. But as you start working with larger JSON objects, it is worth checking out <a href="https://package.elm-lang.org/packages/NoRedInk/elm-json-decode-pipeline/latest" target="_blank"><code>NoRedInk/elm-json-decode-pipeline</code></a>. The types there are a bit fancier, but some folks find them much easier to read and work with.</p>
+<blockquote>
+<p><strong>Fun Fact:</strong> I have heard a bunch of stories of folks finding bugs in their <em>server</em> code as they switched from JS to Elm. The decoders people write end up working as a validation phase, catching weird stuff in JSON values. So when NoRedInk switched from React to Elm, it revealed a couple bugs in their Ruby code!</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="time.html" class="navigation navigation-prev " aria-label="Previous page: Time">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="http.html" class="navigation navigation-next " aria-label="Next page: HTTP">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"JSON","level":"1.6.3","depth":2,"next":{"title":"HTTP","level":"1.6.4","depth":2,"path":"effects/http.md","ref":"effects/http.md","articles":[]},"previous":{"title":"Time","level":"1.6.2","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"effects/json.md","mtime":"2018-08-22T16:15:11.946Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-29T07:51:15.382Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,784 @@
+
+<!DOCTYPE HTML>
+<html lang="ja" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>はじめに · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    <meta name="robots" content="noindex">
+    
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="install.html" />
+    
+    
+
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="検索すると入力" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="install.html">
+            
+                <a href="install.html">
+            
+                    
+                    インストール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="core_language.html">
+            
+                <a href="core_language.html">
+            
+                    
+                    言語の基礎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="architecture/">
+            
+                <a href="architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="architecture/buttons.html">
+            
+                <a href="architecture/buttons.html">
+            
+                    
+                    ボタン
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="architecture/text_fields.html">
+            
+                <a href="architecture/text_fields.html">
+            
+                    
+                    テキスト入力
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="architecture/forms.html">
+            
+                <a href="architecture/forms.html">
+            
+                    
+                    フォーム
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="types/">
+            
+                <a href="types/">
+            
+                    
+                    型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="types/reading_types.html">
+            
+                <a href="types/reading_types.html">
+            
+                    
+                    型を読む
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="types/type_aliases.html">
+            
+                <a href="types/type_aliases.html">
+            
+                    
+                    型の別名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="types/custom_types.html">
+            
+                <a href="types/custom_types.html">
+            
+                    
+                    カスタム型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="types/pattern_matching.html">
+            
+                <a href="types/pattern_matching.html">
+            
+                    
+                    パターンマッチ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="effects/">
+            
+                <a href="effects/">
+            
+                    
+                    コマンドとサブスクリプション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="effects/random.html">
+            
+                <a href="effects/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="effects/time.html">
+            
+                <a href="effects/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="effects/json.html">
+            
+                <a href="effects/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="effects/http.html">
+            
+                <a href="effects/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="interop/">
+            
+                <a href="interop/">
+            
+                    
+                    JavaScriptとの相互運用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="interop/flags.html">
+            
+                <a href="interop/flags.html">
+            
+                    
+                    フラグ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="interop/ports.html">
+            
+                <a href="interop/ports.html">
+            
+                    
+                    ポート
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="interop/custom_elements.html">
+            
+                <a href="interop/custom_elements.html">
+            
+                    
+                    カスタムエレメンツ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="webapps/">
+            
+                <a href="webapps/">
+            
+                    
+                    Webアプリケーション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="webapps/navigation.html">
+            
+                <a href="webapps/navigation.html">
+            
+                    
+                    ナビゲーションする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="webapps/url_parsing.html">
+            
+                <a href="webapps/url_parsing.html">
+            
+                    
+                    URLをパースする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="webapps/modules.html">
+            
+                <a href="webapps/modules.html">
+            
+                    
+                    モジュール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="webapps/structure.html">
+            
+                <a href="webapps/structure.html">
+            
+                    
+                    モジュールの構造化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="optimization/">
+            
+                <a href="optimization/">
+            
+                    
+                    最適化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="optimization/lazy.html">
+            
+                <a href="optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="optimization/keyed.html">
+            
+                <a href="optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="optimization/asset_size.html">
+            
+                <a href="optimization/asset_size.html">
+            
+                    
+                    アセットサイズ縮小化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="next_steps.html">
+            
+                <a href="next_steps.html">
+            
+                    
+                    次への一歩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" >
+            
+                <span>
+            
+                    
+                    付録
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="appendix/types_as_sets.html">
+            
+                <a href="appendix/types_as_sets.html">
+            
+                    
+                    集合としての型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="appendix/types_as_bits.html">
+            
+                <a href="appendix/types_as_bits.html">
+            
+                    
+                    型のビット表現
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="appendix/function_types.html">
+            
+                <a href="appendix/function_types.html">
+            
+                    
+                    関数の型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBookで公開 
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >はじめに</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+# An Introduction to Elm
+-->
+<h1 id="elm-&#x306B;&#x3064;&#x3044;&#x3066;-&#x306F;&#x3058;&#x3081;&#x306B;">Elm &#x306B;&#x3064;&#x3044;&#x3066; (&#x306F;&#x3058;&#x3081;&#x306B;)</h1>
+<!--
+**Elm is a functional language that compiles to JavaScript.** It competes with projects like React as a tool for creating websites and web apps. Elm has a very strong emphasis on simplicity, ease-of-use, and quality tooling.
+-->
+<p><strong>Elm &#x306F; JavaScript &#x306B;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3067;&#x304D;&#x308B;&#x95A2;&#x6570;&#x578B;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x8A00;&#x8A9E;&#x3067;&#x3059;&#x3002;</strong> &#x30A6;&#x30A7;&#x30D6;&#x30B5;&#x30A4;&#x30C8;&#x3084;&#x30A6;&#x30A7;&#x30D6;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x4F5C;&#x308B;&#x30C4;&#x30FC;&#x30EB;&#x3068;&#x3044;&#x3046;&#x9762;&#x3067;&#x306F; React &#x306E;&#x3088;&#x3046;&#x306A;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3060;&#x3068;&#x8A00;&#x3048;&#x307E;&#x3059;&#x3002; Elm &#x306F;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3001;&#x7C21;&#x5358;&#x306B;&#x4F7F;&#x3048;&#x308B;&#x3053;&#x3068;&#x3001;&#x9AD8;&#x54C1;&#x8CEA;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x5927;&#x5207;&#x306B;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<!--
+This guide will:
+
+  - Teach you the fundamentals of programming in Elm.
+  - Show you how to make interactive apps with *The Elm Architecture*.
+  - Emphasize principles and patterns that generalize to programming in any language.
+-->
+<p>&#x3053;&#x306E;&#x30AC;&#x30A4;&#x30C9;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3053;&#x3068;&#x3092;&#x76EE;&#x6307;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<ul>
+<li>Elm &#x306B;&#x3088;&#x308B;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x306E;&#x57FA;&#x790E;&#x3092;&#x8EAB;&#x306B;&#x7740;&#x3051;&#x3066;&#x3082;&#x3089;&#x3046;&#x3053;&#x3068;</li>
+<li><em>The Elm Architecture</em> &#x3092;&#x4F7F;&#x3063;&#x3066;&#x30A4;&#x30F3;&#x30BF;&#x30E9;&#x30AF;&#x30C6;&#x30A3;&#x30D6;&#x306A;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x4F5C;&#x308B;&#x65B9;&#x6CD5;&#x3092;&#x304A;&#x898B;&#x305B;&#x3059;&#x308B;&#x3053;&#x3068;</li>
+<li>&#x3042;&#x3089;&#x3086;&#x308B;&#x8A00;&#x8A9E;&#x3067;&#x4F7F;&#x3048;&#x308B;&#x6CD5;&#x5247;&#x3084;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x91CD;&#x8996;&#x3059;&#x308B;&#x3053;&#x3068;</li>
+</ul>
+<!--
+By the end I hope you will not only be able to create great web apps in Elm, but also understand the core ideas and patterns that make Elm nice to use.
+-->
+<p>&#x6700;&#x7D42;&#x7684;&#x306B;&#x306F;&#x3042;&#x306A;&#x305F;&#x306B;&#x306F; Elm &#x3092;&#x4F7F;&#x3063;&#x3066;&#x7D20;&#x6674;&#x3089;&#x3057;&#x3044;&#x30A6;&#x30A7;&#x30D6;&#x30A2;&#x30D7;&#x30EA;&#x3092;&#x305F;&#x3060;&#x4F5C;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x3060;&#x3051;&#x3067;&#x306A;&#x304F;&#x3001;Elm &#x3092;&#x3046;&#x307E;&#x304F;&#x4F7F;&#x3048;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x305F;&#x3081;&#x306E;&#x4E2D;&#x5FC3;&#x7684;&#x306A;&#x30A2;&#x30A4;&#x30C7;&#x30A3;&#x30A2;&#x3084;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3092;&#x7406;&#x89E3;&#x3057;&#x3066;&#x3082;&#x3089;&#x3048;&#x308C;&#x3070;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<!--
+If you are on the fence, I can safely guarantee that if you give Elm a shot and actually make a project in it, you will end up writing better JavaScript and React code. The ideas transfer pretty easily!
+-->
+<p>Elm &#x306B;&#x5BFE;&#x3057;&#x3066;&#x69D8;&#x5B50;&#x898B;&#x306E;&#x7ACB;&#x5834;&#x3067;&#x3042;&#x308B;&#x65B9;&#x3082;&#x3001;Elm &#x3092;&#x3061;&#x3087;&#x3063;&#x3068;&#x8A66;&#x3057;&#x3066;&#x307F;&#x3066;&#x5B9F;&#x969B;&#x306B;&#x4F55;&#x304B;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3067;&#x4F7F;&#x3063;&#x3066;&#x307F;&#x308B;&#x3068; JavaScript &#x3084; React &#x306E;&#x30B3;&#x30FC;&#x30C9;&#x304C;&#x3044;&#x307E;&#x307E;&#x3067;&#x3088;&#x308A;&#x3082;&#x3046;&#x307E;&#x304F;&#x66F8;&#x3051;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x306F;&#x305A;&#x3067;&#x3059;&#x3002; Elm &#x3067;&#x5F97;&#x3089;&#x308C;&#x305F;&#x77E5;&#x898B;&#x306F;&#x3044;&#x308D;&#x3093;&#x306A;&#x3068;&#x3053;&#x308D;&#x3067;&#x7C21;&#x5358;&#x306B;&#x5F79;&#x7ACB;&#x3066;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<!--
+## A Quick Sample
+-->
+<h2 id="a-quick-sample">A Quick Sample</h2>
+<p>&lt;!--
+Of course <em>I</em> think Elm is good, so look for yourself.</p>
+<p>Here is <a href="https://elm-lang.org/examples/buttons" target="_blank">a simple counter</a>. If you look at the code, it just lets you increment and decrement the counter:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Browser
+<span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Html</span>, button, div, text)
+<span class="hljs-keyword">import</span> Html.Events <span class="hljs-keyword">exposing</span> (onClick)
+
+<span class="hljs-title">main</span> =
+  <span class="hljs-type">Browser</span>.sandbox { init = <span class="hljs-number">0</span>, update = update, view = view }
+
+<span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span> = <span class="hljs-type">Increment</span> | <span class="hljs-type">Decrement</span>
+
+<span class="hljs-title">update</span> msg model =
+  <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
+    <span class="hljs-type">Increment</span> -&gt;
+      model + <span class="hljs-number">1</span>
+
+    <span class="hljs-type">Decrement</span> -&gt;
+      model - <span class="hljs-number">1</span>
+
+<span class="hljs-title">view</span> model =
+  div []
+    [ button [ onClick <span class="hljs-type">Decrement</span> ] [ text <span class="hljs-string">&quot;-&quot;</span> ]
+    , div [] [ text (<span class="hljs-type">String</span>.fromInt model) ]
+    , button [ onClick <span class="hljs-type">Increment</span> ] [ text <span class="hljs-string">&quot;+&quot;</span> ]
+    ]
+</code></pre>
+<p>Notice that the <code>update</code> and <code>view</code> are entirely decoupled. You describe your HTML in a declarative way and Elm takes care of messing with the DOM.</p>
+<h2 id="why-a-functional-language">Why a <em>functional</em> language?</h2>
+<p>Forget what you have heard about functional programming. Fancy words, weird ideas, bad tooling. Barf. Elm is about:</p>
+<ul>
+<li>No runtime errors in practice. No <code>null</code>. No <code>undefined</code> is not a function.</li>
+<li>Friendly error messages that help you add features more quickly.</li>
+<li>Well-architected code that <em>stays</em> well-architected as your app grows.</li>
+<li>Automatically enforced semantic versioning for all Elm packages.</li>
+</ul>
+<p>No combination of JS libraries can ever give you this, yet it is all free and easy in Elm. Now these nice things are <em>only</em> possible because Elm builds upon 40+ years of work on typed functional languages. So Elm is a functional language because the practical benefits are worth the couple hours you&apos;ll spend reading this guide.</p>
+<p>I have put a huge emphasis on making Elm easy to learn and use, so all I ask is that you give Elm a shot and see what you think. I hope you will be pleasantly surprised!</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="install.html" class="navigation navigation-next navigation-unique" aria-label="Next page: インストール">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"はじめに","level":"1.1","depth":1,"next":{"title":"インストール","level":"1.2","depth":1,"path":"install.md","ref":"install.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"README.md","mtime":"2018-08-27T16:07:02.599Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-29T07:51:15.382Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
