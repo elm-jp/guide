@@ -14,7 +14,7 @@
   "scripts": {
     "install": "gitbook install",
     "start": "gitbook serve",
-    "build": "rimraf _book && rimraf docs && gitbook build && mv _book docs",
+    "build": "rimraf _book && rimraf docs && gitbook build && mv _book docs && rimraf docs/**/*.md",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
