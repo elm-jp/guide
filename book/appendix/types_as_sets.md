@@ -291,7 +291,7 @@ As your program changes, the set of possible values in code may start to diverge
 <!--
 **When you start thinking this way, you end up needing fewer tests, yet having more reliable code.** You start using fewer dependencies, yet accomplishing things more quickly. Similarly, someone skilled with a knife probably will not buy a [SlapChop](https://www.slapchop.com/). There is definitely a place for blenders and food processors, but it is smaller than you might think. No one runs ads about how you can be independent and self-sufficient without any serious downsides. No money in that!
 -->
-こういった考え方をしだすと、より少ないテストしか必要にならなくなり、それでいてより信頼性の高いコードを書くことが出来ます。依存性が少なくなるにも関わらず、やるべきことをすばやく片付けられます。これはナイフを扱う技術を持った人はおそらく[SlapChop](https://www.slapchop.com/)を買わないことと似たようなものです。料理用ミキサーやフードプロセッサーが活躍する場面はもちろんあります、しかしあなたが思うよりもそれは少ないものです。あなたが大きな不都合なく、自立して自足できることを宣伝してくれる人なんていません。そこにお金を払う人はいませんから！
+こういった考え方をしだすと、より少ないテストしか必要にならなくなり、それでいてより信頼性の高いコードを書くことが出来ます。依存性が少なくなるにも関わらず、やるべきことをすばやく片付けられます。これはナイフを扱う技術を持った人はおそらく[SlapChop](https://www.slapchop.com/)を買わないことと似たようなものです。料理用ミキサーやフードプロセッサーが活躍する場面はもちろんあります、しかしあなたが思うよりもそれは少ないものです。人はつい、シンプルな道具よりも簡単に使いはじめられる道具を選んでしまいます。でも、そういった道具は実際にはシンプルな道具に比べて構造が複雑でどうやって動いているのかもわかりにくいため壊れやすく自分で修理できない上に、使える範囲も限られてしまうものです。
 
 <!--
 > ## Aside on Language Design
