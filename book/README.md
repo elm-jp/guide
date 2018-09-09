@@ -36,7 +36,7 @@ Elm に対して様子見の立場である方も、Elm をちょっと試して
 
 Of course *I* think Elm is good, so look for yourself.
 
-Here is [a simple counter](https://elm-lang.org/examples/buttons). If you look at the code, it just lets you increment and decrement the counter:
+Here is [a simple counter](https://ellie-app.com/new). If you look at the code, it just lets you increment and decrement the counter:
 
 ```elm
 import Browser
