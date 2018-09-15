@@ -26,7 +26,7 @@ jobs:
             git commit -m 'Update docs [skip ci]'
       - run:
           name: push changes
-          command: git push origin master
+          command: git push origin auto_build
 
 workflows:
   version: 2
@@ -35,4 +35,4 @@ workflows:
       - build-and-push:
           filters:
             branches:
-              only: master
+              only: auto_build
