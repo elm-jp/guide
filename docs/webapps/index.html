@@ -592,6 +592,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.12" data-path="../about_translation.html">
+            
+                <a href="../about_translation.html">
+            
+                    
+                    翻訳について
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -639,7 +652,7 @@
                                 
                                 <h1 id="web-apps">Web Apps</h1>
 <p>So far we have been creating Elm programs with <code>Browser.element</code>, allowing us to take over a single node in a larger application. This is great for <em>introducing</em> Elm at work (as described <a href="https://elm-lang.org/blog/how-to-use-elm-at-work" target="_blank">here</a>) but what happens after that? How can we use Elm more extensively?</p>
-<p>In this chapter, we will learn how to create a &#x201C;web app&#x201D; with a bunch of different pages that all intergrate nicely with each other, but we must start by controlling a single page.</p>
+<p>In this chapter, we will learn how to create a &#x201C;web app&#x201D; with a bunch of different pages that all integrate nicely with each other, but we must start by controlling a single page.</p>
 <h2 id="control-the-document">Control the Document</h2>
 <p>The first step is to switch to starting programs with <a href="https://package.elm-lang.org/packages/elm/browser/latest/Browser#document" target="_blank"><code>Browser.document</code></a>:</p>
 <pre><code class="lang-elm"><span class="hljs-title">document</span> :
@@ -679,7 +692,7 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
 </code></pre>
 <p>This HTML is pretty simple. You load whatever you need in the <code>&lt;head&gt;</code> and you initialize your Elm program in the <code>&lt;body&gt;</code>. The Elm program will take it from there and render everything.</p>
-<p>Either way, now you have some HTML that you can send to browsers. You can get that HTML people with free services like <a href="https://pages.github.com/" target="_blank">GitHub Pages</a> or <a href="https://www.netlify.com/" target="_blank">Netlify</a>, or maybe you make your own server and run a VPS with a service like <a href="https://m.do.co/c/c47faa1916d2" target="_blank">Digital Ocean</a>. Whatever works for you! You just need a way to get HTML into a browser.</p>
+<p>Either way, now you have some HTML that you can send to browsers. You can get that HTML to people with free services like <a href="https://pages.github.com/" target="_blank">GitHub Pages</a> or <a href="https://www.netlify.com/" target="_blank">Netlify</a>, or maybe you make your own server and run a VPS with a service like <a href="https://m.do.co/c/c47faa1916d2" target="_blank">Digital Ocean</a>. Whatever works for you! You just need a way to get HTML into a browser.</p>
 <blockquote>
 <p><strong>Note 1:</strong> Creating custom HTML is helpful if you are doing something custom with CSS. Many people use projects like <a href="https://package.elm-lang.org/packages/rtfeldman/elm-css/latest/" target="_blank"><code>rtfeldman/elm-css</code></a> to handle all of their styles from within Elm, but maybe you are working in a team where there is lots of predefined CSS. Maybe the team is even using one of those CSS preprocessors. That is all fine. Just load the final CSS file in the <code>&lt;head&gt;</code> of your HTML file.</p>
 <p><strong>Note 2:</strong> The Digital Ocean link above is a referral link, so if you sign up through that and end up using the service, we get a $25 credit towards our hosting costs for <code>elm-lang.org</code> and <code>package.elm-lang.org</code>.</p>
@@ -727,7 +740,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Webアプリケーション","level":"1.8","depth":1,"next":{"title":"ナビゲーションする","level":"1.8.1","depth":2,"path":"webapps/navigation.md","ref":"webapps/navigation.md","articles":[]},"previous":{"title":"カスタムエレメンツ","level":"1.7.3","depth":2,"path":"interop/custom_elements.md","ref":"interop/custom_elements.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"webapps/README.md","mtime":"2018-08-27T15:52:28.619Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-29T10:10:56.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Webアプリケーション","level":"1.8","depth":1,"next":{"title":"ナビゲーションする","level":"1.8.1","depth":2,"path":"webapps/navigation.md","ref":"webapps/navigation.md","articles":[]},"previous":{"title":"カスタムエレメンツ","level":"1.7.3","depth":2,"path":"interop/custom_elements.md","ref":"interop/custom_elements.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"webapps/README.md","mtime":"2018-09-09T07:58:01.988Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-15T12:33:57.270Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

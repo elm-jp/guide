@@ -592,6 +592,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.12" data-path="about_translation.html">
+            
+                <a href="about_translation.html">
+            
+                    
+                    翻訳について
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -637,37 +650,105 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <blockquote>
-<p><strong>Note:</strong> If you do not want to install yet, you can follow along anyway. Most sections can be done in an online editor!</p>
-</blockquote>
-<h1 id="install">Install</h1>
-<ul>
-<li>Mac &#x2014; <a href="https://github.com/elm/compiler/releases/download/0.19.0/installer-for-mac.pkg" target="_blank">installer</a></li>
-<li>Windows &#x2014; <a href="https://github.com/elm/compiler/releases/download/0.19.0/installer-for-windows.exe" target="_blank">installer</a></li>
-<li>Linux &#x2014; <a href="https://gist.github.com/evancz/442b56717b528f913d1717f2342a295d" target="_blank">instructions</a></li>
-</ul>
-<p>After installing through any of those routes, you will have the <code>elm</code> binary available in your terminal!</p>
+                                <!--
+> **Note:** If you do not want to install yet, you can follow along anyway. Most sections can be done in an online editor!
+-->
 <blockquote>
-<p><strong>Troubleshooting:</strong> The fastest way to learn <em>anything</em> is to talk with other people in the Elm community. We are friendly and happy to help! So if you get stuck during installation or encounter something weird, visit <a href="http://elmlang.herokuapp.com/" target="_blank">the Elm Slack</a> and ask about it. In fact, if you run into something confusing at any point while learning or using Elm, come ask us about it. You can save yourself hours. Just do it!</p>
+<p><strong>&#x304A;&#x77E5;&#x3089;&#x305B;:</strong> &#x307E;&#x3060;Elm&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x305F;&#x304F;&#x306A;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3092;&#x3057;&#x306A;&#x3044;&#x307E;&#x307E;&#x3067;&#x3082;&#x69CB;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;&#x307B;&#x3068;&#x3093;&#x3069;&#x306E;&#x7AE0;&#x3067;&#x306F;&#x30AA;&#x30F3;&#x30E9;&#x30A4;&#x30F3;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x3067;&#x5B8C;&#x7D50;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 </blockquote>
-<h2 id="configure-your-editor">Configure Your Editor</h2>
-<p>Using Elm is way nicer when you have a code editor to help you out. There are Elm plugins for at least the following editors:</p>
+<!--
+# Install
+
+  * Mac &mdash; [installer][mac]
+  * Windows &mdash; [installer][win]
+  * Linux &mdash; [instructions][linux]
+
+[mac]: https://github.com/elm/compiler/releases/download/0.19.0/installer-for-mac.pkg
+[win]: https://github.com/elm/compiler/releases/download/0.19.0/installer-for-windows.exe
+[linux]: https://gist.github.com/evancz/442b56717b528f913d1717f2342a295d
+[npm]: https://www.npmjs.com/package/elm
+
+After installing through any of those routes, you will have the `elm` binary available in your terminal!
+
+> **Troubleshooting:** The fastest way to learn *anything* is to talk with other people in the Elm community. We are friendly and happy to help! So if you get stuck during installation or encounter something weird, visit [the Elm Slack](http://elmlang.herokuapp.com/) and ask about it. In fact, if you run into something confusing at any point while learning or using Elm, come ask us about it. You can save yourself hours. Just do it!
+-->
+<h1 id="&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;">&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;</h1>
+<ul>
+<li>Mac &#x2014; <a href="https://github.com/elm/compiler/releases/download/0.19.0/installer-for-mac.pkg" target="_blank">&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30E9;&#x30FC;</a></li>
+<li>Windows &#x2014; <a href="https://github.com/elm/compiler/releases/download/0.19.0/installer-for-windows.exe" target="_blank">&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30E9;&#x30FC;</a></li>
+<li>Linux &#x2014; <a href="https://gist.github.com/evancz/442b56717b528f913d1717f2342a295d" target="_blank">&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x30AC;&#x30A4;&#x30C9;</a></li>
+</ul>
+<p>&#x4E0A;&#x8A18;&#x3044;&#x305A;&#x308C;&#x304B;&#x306E;&#x65B9;&#x6CD5;&#x3067;Elm&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x3068;&#x3001;<code>elm</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x304C;&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x304B;&#x3089;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<blockquote>
+<p><strong>&#x30C8;&#x30E9;&#x30D6;&#x30EB;&#x30B7;&#x30E5;&#x30FC;&#x30C6;&#x30A3;&#x30F3;&#x30B0;</strong> <em>&#x5168;&#x3066;</em>&#x3092;&#x5B66;&#x3076;&#x305F;&#x3081;&#x306E;&#x6700;&#x3082;&#x624B;&#x3063;&#x53D6;&#x308A;&#x65E9;&#x3044;&#x65B9;&#x6CD5;&#x306F;&#x3001;Elm&#x30B3;&#x30DF;&#x30E5;&#x30CB;&#x30C6;&#x30A3;&#x306B;&#x3044;&#x308B;&#x4EBA;&#x3005;&#x3068;&#x4F1A;&#x8A71;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;Elm&#x30B3;&#x30DF;&#x30E5;&#x30CB;&#x30C6;&#x30A3;&#x306F;&#x30D5;&#x30EC;&#x30F3;&#x30C9;&#x30EA;&#x30FC;&#x306B;&#x3001;&#x305D;&#x3057;&#x3066;&#x559C;&#x3093;&#x3067;&#x624B;&#x52A9;&#x3051;&#x3092;&#x3057;&#x307E;&#x3059;&#xFF01;&#x3082;&#x3057;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x306B;&#x884C;&#x304D;&#x8A70;&#x307E;&#x3063;&#x305F;&#x308A;&#x4F55;&#x304B;&#x898B;&#x305F;&#x3053;&#x3068;&#x3082;&#x306A;&#x3044;&#x4E8B;&#x614B;&#x306B;&#x906D;&#x9047;&#x3057;&#x305F;&#x3068;&#x304D;&#x306F;&#x3001;<a href="http://elmlang.herokuapp.com/" target="_blank">Elm Slack</a>(&#x82F1;&#x8A9E;)&#x3084;<a href="https://discordapp.com/invite/m9Ew6fR" target="_blank">elm-jp Discord</a>(&#x65E5;&#x672C;&#x8A9E;)&#x306B;&#x53C2;&#x52A0;&#x3057;&#x3066;&#x8CEA;&#x554F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x7279;&#x306B;Elm&#x306E;&#x5B66;&#x7FD2;&#x4E2D;&#x3084;&#x5229;&#x7528;&#x4E2D;&#x306B;&#x308F;&#x304B;&#x3089;&#x306A;&#x3044;&#x3053;&#x3068;&#x304C;&#x3042;&#x3063;&#x305F;&#x3068;&#x304D;&#x306F;&#x3001;&#x305D;&#x306E;&#x3053;&#x3068;&#x306B;&#x3064;&#x3044;&#x3066;&#x8CEA;&#x554F;&#x3057;&#x306B;&#x6765;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x3046;&#x307E;&#x304F;&#x8CEA;&#x554F;&#x3057;&#x3066;&#x6642;&#x9593;&#x3092;&#x7BC0;&#x7D04;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x884C;&#x52D5;&#x3042;&#x308B;&#x306E;&#x307F;&#x3067;&#x3059;&#xFF01;</p>
+</blockquote>
+<!--
+## Configure Your Editor
+
+Using Elm is way nicer when you have a code editor to help you out. There are Elm plugins for at least the following editors:
+
+  * [Atom](https://atom.io/packages/language-elm)
+  * [Brackets](https://github.com/lepinay/elm-brackets)
+  * [Emacs](https://github.com/jcollard/elm-mode)
+  * [IntelliJ](https://github.com/klazuka/intellij-elm)
+  * [Light Table](https://github.com/rundis/elm-light)
+  * [Sublime Text](https://packagecontrol.io/packages/Elm%20Language%20Support)
+  * [Vim](https://github.com/ElmCast/elm-vim)
+  * [VS Code](https://github.com/sbrink/vscode-elm)
+
+If you do not have an editor at all, [Sublime Text](https://www.sublimetext.com/) is a great one to get started with!
+
+You may also want to try out [elm-format][] which makes your code pretty!
+
+[elm-format]: https://github.com/avh4/elm-format
+-->
+<h2 id="&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x306E;&#x8A2D;&#x5B9A;">&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x306E;&#x8A2D;&#x5B9A;</h2>
+<p>&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x304C;&#x3042;&#x308B;&#x3068;Elm&#x304C;&#x66F8;&#x304D;&#x3084;&#x3059;&#x304F;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x5C11;&#x306A;&#x304F;&#x3068;&#x3082;&#x4EE5;&#x4E0B;&#x306E;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x306B;&#x306F;Elm&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x304C;&#x7528;&#x610F;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <ul>
 <li><a href="https://atom.io/packages/language-elm" target="_blank">Atom</a></li>
 <li><a href="https://github.com/lepinay/elm-brackets" target="_blank">Brackets</a></li>
 <li><a href="https://github.com/jcollard/elm-mode" target="_blank">Emacs</a></li>
-<li><a href="https://github.com/durkiewicz/elm-plugin" target="_blank">IntelliJ</a></li>
+<li><a href="https://github.com/klazuka/intellij-elm" target="_blank">IntelliJ</a></li>
 <li><a href="https://github.com/rundis/elm-light" target="_blank">Light Table</a></li>
 <li><a href="https://packagecontrol.io/packages/Elm%20Language%20Support" target="_blank">Sublime Text</a></li>
 <li><a href="https://github.com/ElmCast/elm-vim" target="_blank">Vim</a></li>
 <li><a href="https://github.com/sbrink/vscode-elm" target="_blank">VS Code</a></li>
 </ul>
-<p>If you do not have an editor at all, <a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a> is a great one to get started with!</p>
-<p>You may also want to try out <a href="https://github.com/avh4/elm-format" target="_blank">elm-format</a> which makes your code pretty!</p>
-<h2 id="terminal-tools">Terminal Tools</h2>
-<p>So we have this <code>elm</code> binary now, but what can it do exactly?</p>
+<p>&#x307E;&#x3060;&#x3069;&#x306E;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x3082;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x3066;&#x3044;&#x306A;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;<a href="https://www.sublimetext.com/" target="_blank">Sublime Text</a>&#x304C;&#x5165;&#x9580;&#x306B;&#x6700;&#x9069;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x307E;&#x305F;&#x3001;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x7F8E;&#x3057;&#x304F;&#x3059;&#x308B;<a href="https://github.com/avh4/elm-format" target="_blank">elm-format</a>&#x3092;&#x8A66;&#x3057;&#x3066;&#x307F;&#x308B;&#x306E;&#x3082;&#x826F;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<!--
+## Terminal Tools
+
+So we have this `elm` binary now, but what can it do exactly?
+-->
+<h2 id="&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x7528;&#x30C4;&#x30FC;&#x30EB;">&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x7528;&#x30C4;&#x30FC;&#x30EB;</h2>
+<p><code>elm</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x3069;&#x3093;&#x306A;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;</p>
+<!--
+### `elm repl`
+
+`elm repl` lets us interact with Elm expressions in the terminal.
+
+```elm
+$ elm repl
+---- Elm 0.19.0 ----------------------------------------------------------------
+Read <https://elm-lang.org/0.19.0/repl> to learn more: exit, help, imports, etc.
+--------------------------------------------------------------------------------
+> 1 / 2
+0.5 : Float
+> List.length [1,2,3,4]
+4 : Int
+> String.reverse "stressed"
+"desserts" : String
+> :exit
+$
+```
+
+We will be using `elm repl` in the upcoming &ldquo;Core Language&rdquo; section, and you can read more about how it works [here](https://elm-lang.org/0.19.0/repl).
+
+> **Note:** `elm repl` works by compiling code to JavaScript, so make sure you have [Node.js](http://nodejs.org/) installed. We use that to evaluate code.
+-->
 <h3 id="elm-repl"><code>elm repl</code></h3>
-<p><code>elm repl</code> lets us interact with Elm expressions in the terminal.</p>
+<p><code>elm repl</code> &#x306F;&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x4E0A;&#x3067;Elm&#x306E;&#x5F0F;&#x3092;&#x8A66;&#x3059;&#x305F;&#x3081;&#x306B;&#x4F7F;&#x3048;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-elm">$ elm repl
 <span class="hljs-comment">---- Elm 0.19.0 ----------------------------------------------------------------</span>
 <span class="hljs-type">Read</span> &lt;https://elm-lang.org/<span class="hljs-number">0.19</span><span class="hljs-number">.0</span>/repl&gt; to learn more: exit, help, imports, etc.
@@ -681,32 +762,77 @@
 &gt; :exit
 $
 </code></pre>
-<p>We will be using <code>elm repl</code> in the upcoming &#x201C;Core Language&#x201D; section, and you can read more about how it works <a href="https://elm-lang.org/0.19.0/repl" target="_blank">here</a>.</p>
-<blockquote>
-<p><strong>Note:</strong> <code>elm repl</code> works by compiling code to JavaScript, so make sure you have <a href="http://nodejs.org/" target="_blank">Node.js</a> installed. We use that to evaluate code.</p>
-</blockquote>
+<p><code>elm repl</code>&#x306F;&#x201C;Core Language&#x201D;&#x306E;&#x7AE0;&#x3067;&#x4F7F;&#x3044;&#x307E;&#x3059;&#x3002;&#x8A73;&#x3057;&#x3044;&#x4F7F;&#x3044;&#x65B9;&#x306F;<a href="https://elm-lang.org/0.19.0/repl" target="_blank">&#x3053;&#x3061;&#x3089;</a>&#x3092;&#x3054;&#x89A7;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<!--
+### `elm reactor`
+
+`elm reactor` helps you build Elm projects without messing with the terminal too much. You just run it at the root of your project, like this:
+
+```bash
+git clone https://github.com/evancz/elm-architecture-tutorial.git
+cd elm-architecture-tutorial
+elm reactor
+```
+
+This starts a server at [`http://localhost:8000`](http://localhost:8000). You can navigate to any Elm file and see what it looks like. Try to check out `examples/01-button.elm`.
+-->
 <h3 id="elm-reactor"><code>elm reactor</code></h3>
-<p><code>elm reactor</code> helps you build Elm projects without messing with the terminal too much. You just run it at the root of your project, like this:</p>
+<p><code>elm reactor</code>&#x3092;&#x4F7F;&#x3046;&#x3068;&#x3001;&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x3092;&#x983B;&#x7E41;&#x306B;&#x64CD;&#x4F5C;&#x3057;&#x306A;&#x304F;&#x3066;&#x3082;Elm&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x30D3;&#x30EB;&#x30C9;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x6B21;&#x306E;&#x4F8B;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x30EB;&#x30FC;&#x30C8;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x3067;&#x4EE5;&#x4E0B;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 <pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> https://github.com/evancz/elm-architecture-tutorial.git
 <span class="hljs-built_in">cd</span> elm-architecture-tutorial
 elm reactor
 </code></pre>
-<p>This starts a server at <a href="http://localhost:8000" target="_blank"><code>http://localhost:8000</code></a>. You can navigate to any Elm file and see what it looks like. Try to check out <code>examples/01-button.elm</code>.</p>
-<h2 id="elm-make"><code>elm make</code></h2>
-<p><code>elm make</code> builds Elm projects. It can compile Elm code to HTML or JavaScript. It is the most general way to compile Elm code, so if your project becomes too advanced for <code>elm reactor</code>, you will want to start using <code>elm make</code> directly.</p>
-<p>Say you want to compile <code>Main.elm</code> to an HTML file named <code>main.html</code>. You would run this command:</p>
+<p>&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x304C;<a href="http://localhost:8000" target="_blank"><code>http://localhost:8000</code></a>&#x3067;&#x8D77;&#x52D5;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x306F;&#x4EFB;&#x610F;&#x306E;Elm&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>examples/01-button.elm</code>&#x3092;&#x78BA;&#x8A8D;&#x3057;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<!--
+## `elm make`
+
+`elm make` builds Elm projects. It can compile Elm code to HTML or JavaScript. It is the most general way to compile Elm code, so if your project becomes too advanced for `elm reactor`, you will want to start using `elm make` directly.
+
+Say you want to compile `Main.elm` to an HTML file named `main.html`. You would run this command:
+
+```bash
+elm make Main.elm --output=main.html
+```
+-->
+<h3 id="elm-make"><code>elm make</code></h3>
+<p><code>elm make</code>&#x3092;&#x4F7F;&#x3063;&#x3066;Elm&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x30D3;&#x30EB;&#x30C9;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;Elm&#x30B3;&#x30FC;&#x30C9;&#x306F;HTML&#x3084;JavaScript&#x306B;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F;&#x6700;&#x3082;&#x4E00;&#x822C;&#x7684;&#x306A;Elm&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x30D3;&#x30EB;&#x30C9;&#x65B9;&#x6CD5;&#x3067;&#x3001;<code>elm reactor</code>&#x306E;&#x6069;&#x6075;&#x3092;&#x53D7;&#x3051;&#x3066;&#x3044;&#x308B;&#x306E;&#x306A;&#x3089;<code>elm make</code>&#x3082;&#x76F4;&#x63A5;&#x4F7F;&#x3044;&#x305F;&#x304F;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p><code>Main.elm</code>&#x3092;<code>main.html</code>&#x3068;&#x3044;&#x3046;&#x540D;&#x524D;&#x3067;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3057;&#x305F;&#x3044;&#x5834;&#x5408;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-bash">elm make Main.elm --output=main.html
 </code></pre>
+<!--
+### `elm install`
+
+Elm packages all live at [`package.elm-lang.org`](https://package.elm-lang.org/).
+
+Say you look around and decide you need [`elm/http`][http] and [`elm/json`][json] to make some HTTP requests. You can get them set up in your project with the following commands:
+
+```bash
+elm install elm/http
+elm install elm/json
+```
+
+This will add the dependencies into your `elm.json` file, described in more detail [here](https://github.com/elm/compiler/blob/master/docs/elm.json/application.md).
+
+[http]: https://package.elm-lang.org/packages/elm/http/latest
+[json]: https://package.elm-lang.org/packages/elm/json/latest
+-->
 <h3 id="elm-install"><code>elm install</code></h3>
-<p>Elm packages all live at <a href="https://package.elm-lang.org/" target="_blank"><code>package.elm-lang.org</code></a>.</p>
-<p>Say you look around and decide you need <a href="https://package.elm-lang.org/packages/elm/http/latest" target="_blank"><code>elm/http</code></a> and <a href="https://package.elm-lang.org/packages/elm/json/latest" target="_blank"><code>elm/json</code></a> to make some HTTP requests. You can get them set up in your project with the following commands:</p>
+<p>Elm&#x306E;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x306F;&#x5168;&#x3066;<a href="https://package.elm-lang.org/" target="_blank"><code>package.elm-lang.org</code></a>&#x306B;&#x7F6E;&#x304B;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4F8B;&#x3048;&#x3070;HTTP&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3092;&#x7D44;&#x307F;&#x7ACB;&#x3066;&#x308B;&#x305F;&#x3081;&#x306B;<a href="https://package.elm-lang.org/packages/elm/http/latest" target="_blank"><code>elm/http</code></a>&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3068;<a href="https://package.elm-lang.org/packages/elm/json/latest" target="_blank"><code>elm/json</code></a>&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3092;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x305F;&#x3044;&#x3068;&#x304D;&#x306F;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3067;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-bash">elm install elm/http
 elm install elm/json
 </code></pre>
-<p>This will add the dependencies into your <code>elm.json</code> file, described in more detail <a href="https://github.com/elm/compiler/blob/master/docs/elm.json/application.md" target="_blank">here</a>.</p>
-<h2 id="summary">Summary</h2>
-<p>The <code>elm</code> binary can do a bunch of stuff. Do not worry about remembering it all. You can always just run <code>elm --help</code> or <code>elm repl --help</code> to get a bunch of information about any of these commands.</p>
-<p>Next we are going to learn the basics of Elm!</p>
+<p>&#x3053;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3067;&#x306F;<code>elm.json</code>&#x306B;&#x4F9D;&#x5B58;&#x95A2;&#x4FC2;&#x3092;&#x8FFD;&#x8A18;&#x3057;&#x307E;&#x3059;&#x3002;&#x8A73;&#x7D30;&#x306F;<a href="https://github.com/elm/compiler/blob/master/docs/elm.json/application.md" target="_blank">&#x3053;&#x3061;&#x3089;</a>&#x3092;&#x3054;&#x89A7;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<!--
+## Summary
+
+The `elm` binary can do a bunch of stuff. Do not worry about remembering it all. You can always just run `elm --help` or `elm repl --help` to get a bunch of information about any of these commands.
+
+Next we are going to learn the basics of Elm!
+-->
+<h2 id="&#x307E;&#x3068;&#x3081;">&#x307E;&#x3068;&#x3081;</h2>
+<p><code>elm</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3067;&#x306F;&#x69D8;&#x3005;&#x306A;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x304C;&#x3001;&#x5168;&#x3066;&#x3092;&#x899A;&#x3048;&#x3088;&#x3046;&#x3068;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;<code>elm --help</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3084;<code>elm repl --help</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x3001;&#x3044;&#x3064;&#x3067;&#x3082;&#x3053;&#x306E;&#x7AE0;&#x3067;&#x7D39;&#x4ECB;&#x3057;&#x305F;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306E;&#x8A73;&#x7D30;&#x60C5;&#x5831;&#x3092;&#x78BA;&#x8A8D;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x6B21;&#x306F;&#x3001;Elm&#x306E;&#x57FA;&#x672C;&#x306B;&#x3064;&#x3044;&#x3066;&#x5B66;&#x3073;&#x307E;&#x3057;&#x3087;&#x3046;&#xFF01;</p>
 
                                 
                                 </section>
@@ -750,7 +876,7 @@ elm install elm/json
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"インストール","level":"1.2","depth":1,"next":{"title":"言語の基礎","level":"1.3","depth":1,"path":"core_language.md","ref":"core_language.md","articles":[]},"previous":{"title":"はじめに","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"install.md","mtime":"2018-08-27T15:52:28.619Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-29T10:10:56.258Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"インストール","level":"1.2","depth":1,"next":{"title":"言語の基礎","level":"1.3","depth":1,"path":"core_language.md","ref":"core_language.md","articles":[]},"previous":{"title":"はじめに","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"install.md","mtime":"2018-09-15T12:26:19.156Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-15T12:33:57.270Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

@@ -592,6 +592,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.12" data-path="../about_translation.html">
+            
+                <a href="../about_translation.html">
+            
+                    
+                    翻訳について
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -652,7 +665,7 @@
 </code></pre>
 <p>We can give information to the Elm program, but only when it starts. What if you want to talk to JavaScript while the program is running?</p>
 <h2 id="message-passing">Message Passing</h2>
-<p>Elm allows you to pass messages between Elm and JavaScript through <strong>ports</strong>. Unlike the request/response pairs you see with HTTP, the messages sent through ports just go in one direction. It is like sending a letter. For example, banks in the United States send me hundreds of unsolicited letters, cajoling me to indebt myself to them so I will finally be happy. Those messages are all one-way. All letters are like that really. I may send a letter to my friend and she may reply, but there is nothing inherent about messages that demands request/response pairs. Point is, <strong>Elm and JavaScript can comminicate by sending these one-way messages through ports.</strong></p>
+<p>Elm allows you to pass messages between Elm and JavaScript through <strong>ports</strong>. Unlike the request/response pairs you see with HTTP, the messages sent through ports just go in one direction. It is like sending a letter. For example, banks in the United States send me hundreds of unsolicited letters, cajoling me to indebt myself to them so I will finally be happy. Those messages are all one-way. All letters are like that really. I may send a letter to my friend and she may reply, but there is nothing inherent about messages that demands request/response pairs. Point is, <strong>Elm and JavaScript can communicate by sending these one-way messages through ports.</strong></p>
 <h2 id="outgoing-messages">Outgoing Messages</h2>
 <p>Say we want to use <a href="https://developer.mozilla.org/en-US/docs/Web/API/Storage" target="_blank"><code>localStorage</code></a> to cache some information. The solution is to set up a port that sends information out to JavaScript.</p>
 <p>On the Elm side, this means defining the <code>port</code> like this:</p>
@@ -735,12 +748,12 @@ app.ports.activeUsers.send(activeUsers);
 <p>These paths are attractive, but they are not ideal for Elm for two main reasons:</p>
 <ol>
 <li><strong>Losing Guarantees.</strong> One of the best things about Elm is that there are entire categories of problems you just do not have to worry about, but if we can use JS directly in any package, all that goes away. Does this package produce runtime exceptions? When? Will it mutate the values I give to it? Do I need to detect that? Does the package have side-effects? Will it send messages to some 3rd party servers? A decent chunk of Elm users are drawn to the language specifically because they do not have to think like that anymore.</li>
-<li><strong>Package Flooding.</strong> There is quite high demand to directly copy JavaScript APIs into Elm. In the two years before <code>elm/html</code> existed, I am sure someone would have contributed jQuery bindings if it was possible. This has already happened in the typed functional languages that use more traditional interop designs. As far as I know, package flooding is unique to compile-to-JS languages. The pressure is not nearly as high in Python for example, so I think downside is a product of the unique culture and history of the JavaScript ecosystem.</li>
+<li><strong>Package Flooding.</strong> There is quite high demand to directly copy JavaScript APIs into Elm. In the two years before <code>elm/html</code> existed, I am sure someone would have contributed jQuery bindings if it was possible. This has already happened in the typed functional languages that use more traditional interop designs. As far as I know, package flooding is unique to compile-to-JS languages. The pressure is not nearly as high in Python for example, so I think that downside is a product of the unique culture and history of the JavaScript ecosystem.</li>
 </ol>
-<p>Given these pitfalls, ports are attractive because they let you get things done in JavaScript while preserving the best parts of Elm. Great! On the flipside, it means Elm cannot piggyback on the JS ecosystem to gain more libraries more quickly. If you take a longer-view, I think this is actually key strength. As a result:</p>
+<p>Given these pitfalls, ports are attractive because they let you get things done in JavaScript while preserving the best parts of Elm. Great! On the flipside, it means Elm cannot piggyback on the JS ecosystem to gain more libraries more quickly. If you take a longer-view, I think this is actually a key strength. As a result:</p>
 <ol>
 <li><strong>Packages are designed for Elm.</strong> As members of the Elm community get more experience and confidence, we are starting to see fresh approaches to layout and data visualization that work seamlessly with The Elm Architecture and the overall ecosystem. I expect this to keep happening with other sorts of problems!</li>
-<li><strong>Packages are portable.</strong> If the compiler someday produces x86 or WebAssembly, the whole ecosysem just keeps working, but faster! Ports guarantee that all packages are written entirely in Elm, and Elm itself was designed such that other non-JS compiler targets are viable.</li>
+<li><strong>Packages are portable.</strong> If the compiler someday produces x86 or WebAssembly, the whole ecosystem just keeps working, but faster! Ports guarantee that all packages are written entirely in Elm, and Elm itself was designed such that other non-JS compiler targets are viable.</li>
 </ol>
 <p>So this is definitely a longer and harder path, but languages live for 30+ years. They have to support teams and companies for decades, and when I think about what Elm will look like in 20 or 30 years, I think the tradeoffs that come with ports look really promising! My talk <a href="https://youtu.be/uGlzRt-FYto" target="_blank">What is Success?</a> starts a little slow, but it gets into this a bit more!</p>
 </blockquote>
@@ -787,7 +800,7 @@ app.ports.activeUsers.send(activeUsers);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ポート","level":"1.7.2","depth":2,"next":{"title":"カスタムエレメンツ","level":"1.7.3","depth":2,"path":"interop/custom_elements.md","ref":"interop/custom_elements.md","articles":[]},"previous":{"title":"フラグ","level":"1.7.1","depth":2,"path":"interop/flags.md","ref":"interop/flags.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"interop/ports.md","mtime":"2018-08-22T13:15:11.490Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-29T10:10:56.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ポート","level":"1.7.2","depth":2,"next":{"title":"カスタムエレメンツ","level":"1.7.3","depth":2,"path":"interop/custom_elements.md","ref":"interop/custom_elements.md","articles":[]},"previous":{"title":"フラグ","level":"1.7.1","depth":2,"path":"interop/flags.md","ref":"interop/flags.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"interop/ports.md","mtime":"2018-09-15T12:33:31.239Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-15T12:33:57.270Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

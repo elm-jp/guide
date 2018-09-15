@@ -592,6 +592,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.12" data-path="../about_translation.html">
+            
+                <a href="../about_translation.html">
+            
+                    
+                    翻訳について
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -649,7 +662,7 @@
 <li>...</li>
 </ul>
 <p>But when you you change the sort order, all of these are going to be different! So you end up doing a lot of work on the DOM when you could have just shuffled some nodes around.</p>
-<p>This issue shows exists with insertion and removal as well. Say you remove the 1st of 100 items. Everything is going to be off-by-one and look different. So you get 99 diffs and one removal at the end. No good!</p>
+<p>This issue exists with insertion and removal as well. Say you remove the 1st of 100 items. Everything is going to be off-by-one and look different. So you get 99 diffs and one removal at the end. No good!</p>
 <h2 id="the-solution">The Solution</h2>
 <p>The fix for all of this is <a href="https://package.elm-lang.org/packages/elm/html/latest/Html-Keyed#node" target="_blank"><code>Html.Keyed.node</code></a>, which makes it possible to pair each entry with a &#x201C;key&#x201D; that easily distinguishes it from all the others.</p>
 <p>So in our presidents example, we could write our code like this:</p>
@@ -659,7 +672,7 @@
 
 <span class="hljs-title">viewPresidents</span> : <span class="hljs-type">List</span> <span class="hljs-type">President</span> -&gt; <span class="hljs-type">Html</span> msg
 <span class="hljs-title">viewPresidents</span> presidents =
-  <span class="hljs-type">Keyed</span>.node <span class="hljs-string">&quot;ul&quot;</span> (<span class="hljs-type">List</span>.map viewKeyedPresident presidents)
+  <span class="hljs-type">Keyed</span>.node <span class="hljs-string">&quot;ul&quot;</span> [] (<span class="hljs-type">List</span>.map viewKeyedPresident presidents)
 
 <span class="hljs-title">viewKeyedPresident</span> : <span class="hljs-type">President</span> -&gt; (<span class="hljs-type">String</span>, <span class="hljs-type">Html</span> msg)
 <span class="hljs-title">viewKeyedPresident</span> president =
@@ -717,7 +730,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Html.keyed","level":"1.9.2","depth":2,"next":{"title":"アセットサイズ縮小化","level":"1.9.3","depth":2,"path":"optimization/asset_size.md","ref":"optimization/asset_size.md","articles":[]},"previous":{"title":"Html.lazy","level":"1.9.1","depth":2,"path":"optimization/lazy.md","ref":"optimization/lazy.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"optimization/keyed.md","mtime":"2018-08-27T15:52:28.619Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-29T10:10:56.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Html.keyed","level":"1.9.2","depth":2,"next":{"title":"アセットサイズ縮小化","level":"1.9.3","depth":2,"path":"optimization/asset_size.md","ref":"optimization/asset_size.md","articles":[]},"previous":{"title":"Html.lazy","level":"1.9.1","depth":2,"path":"optimization/lazy.md","ref":"optimization/lazy.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"optimization/keyed.md","mtime":"2018-09-15T12:33:31.239Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-15T12:33:57.270Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

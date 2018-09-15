@@ -62,6 +62,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="../about_translation.html" />
+    
     
     <link rel="prev" href="types_as_bits.html" />
     
@@ -590,6 +592,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.12" data-path="../about_translation.html">
+            
+                <a href="../about_translation.html">
+            
+                    
+                    翻訳について
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -659,7 +674,7 @@
 <span class="hljs-string">&quot;red|yellow|green&quot;</span> : <span class="hljs-type">String</span>
 </code></pre>
 <p>So conceptually, <strong>every function accepts one argument.</strong> It may return another function that accepts one argument. Etc. At some point it will stop returning functions.</p>
-<p>We <em>could</em> always put the parentheses to indicate that this is what is really happening, but it starts to get pretty unweildy when you have multiple arguments. It is the same logic behind writing <code>4 * 2 + 5 * 3</code> instead of <code>(4 * 2) + (5 * 3)</code>. It means there is a bit extra to learn, but it is so common that it is worth it.</p>
+<p>We <em>could</em> always put the parentheses to indicate that this is what is really happening, but it starts to get pretty unwieldy when you have multiple arguments. It is the same logic behind writing <code>4 * 2 + 5 * 3</code> instead of <code>(4 * 2) + (5 * 3)</code>. It means there is a bit extra to learn, but it is so common that it is worth it.</p>
 <p>Fine, but what is the point of this feature in the first place? Why not do <code>(Int, String) -&gt; String</code> and give all the arguments at once?</p>
 <h2 id="partial-application">Partial Application</h2>
 <p>It is quite common to use the <code>List.map</code> function in Elm programs:</p>
@@ -735,10 +750,14 @@
 
             
                 
-                <a href="types_as_bits.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 型のビット表現">
+                <a href="types_as_bits.html" class="navigation navigation-prev " aria-label="Previous page: 型のビット表現">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
+                
+                <a href="../about_translation.html" class="navigation navigation-next " aria-label="Next page: 翻訳について">
+                    <i class="fa fa-angle-right"></i>
+                </a>
                 
             
         
@@ -747,7 +766,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"関数の型","level":"1.11.3","depth":2,"previous":{"title":"型のビット表現","level":"1.11.2","depth":2,"path":"appendix/types_as_bits.md","ref":"appendix/types_as_bits.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"appendix/function_types.md","mtime":"2018-08-22T16:15:11.946Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-29T10:10:56.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"関数の型","level":"1.11.3","depth":2,"next":{"title":"翻訳について","level":"1.12","depth":1,"path":"about_translation.md","ref":"about_translation.md","articles":[]},"previous":{"title":"型のビット表現","level":"1.11.2","depth":2,"path":"appendix/types_as_bits.md","ref":"appendix/types_as_bits.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"appendix/function_types.md","mtime":"2018-09-09T07:58:01.984Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-15T12:33:57.270Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

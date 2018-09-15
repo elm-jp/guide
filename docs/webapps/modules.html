@@ -592,6 +592,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.12" data-path="../about_translation.html">
+            
+                <a href="../about_translation.html">
+            
+                    
+                    翻訳について
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -700,7 +713,7 @@ decoder =
 <li><strong>The Same</strong> &#x2014; At some point we will have a bunch of <strong>unique</strong> code. That is fine! But perhaps we find that some definitions contain logic that is <em>exactly</em> the same. Break out a helper function for that logic! If all the uses are in one module, no need to do anything more. Maybe put a comment header like <code>-- READ TIME</code> if you really want.</li>
 </ul>
 <p>These heuristics are all about making helper functions within a single file. You only want to create a new module when a bunch of these helper functions all center around a specific custom type. For example, you start by creating a <code>Page.Author</code> module, and do not create a <code>Post</code> module until the helper functions start piling up. At that point, creating a new module should make your code feel easier to navigate and understand. If it does not, go back to the version that was clearer. More modules is not more better! Take the path that keeps the code simple and clear.</p>
-<p>To summarize, assume <strong>similar</strong> code is <strong>unique</strong> by default. (It usually is in user interfaces in the end!) If you see logic that is <strong>the same</strong> in diferent definitions, make some helper functions with appropriate comment headers. When you have a bunch of helper functions about a specific type, <em>consider</em> making a new module. If a new module makes your code clearer, great! If not, go back. More files is not inherently simpler or clearer.</p>
+<p>To summarize, assume <strong>similar</strong> code is <strong>unique</strong> by default. (It usually is in user interfaces in the end!) If you see logic that is <strong>the same</strong> in different definitions, make some helper functions with appropriate comment headers. When you have a bunch of helper functions about a specific type, <em>consider</em> making a new module. If a new module makes your code clearer, great! If not, go back. More files is not inherently simpler or clearer.</p>
 <blockquote>
 <p><strong>Note:</strong> One of the most common ways to get tripped up with modules is when something that was once <strong>the same</strong> becomes <strong>similar</strong> later on. Very common, especially in user interfaces! Folks will often try to create a Frankenstein function that handles all the different cases. Adding more arguments. Adding more <em>complex</em> arguments. The better path is to accept that you now have two <strong>unique</strong> situations and copy the code into both places. Customize it exactly how you need. Then see if any of the resulting logic is <strong>the same</strong>. If so, move it out into helpers. <strong>Your long functions should split into multiple smaller functions, not grow longer and more complex!</strong></p>
 </blockquote>
@@ -764,7 +777,7 @@ decoder =
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"モジュール","level":"1.8.3","depth":2,"next":{"title":"モジュールの構造化","level":"1.8.4","depth":2,"path":"webapps/structure.md","ref":"webapps/structure.md","articles":[]},"previous":{"title":"URLをパースする","level":"1.8.2","depth":2,"path":"webapps/url_parsing.md","ref":"webapps/url_parsing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"webapps/modules.md","mtime":"2018-08-27T15:52:28.619Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-29T10:10:56.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"モジュール","level":"1.8.3","depth":2,"next":{"title":"モジュールの構造化","level":"1.8.4","depth":2,"path":"webapps/structure.md","ref":"webapps/structure.md","articles":[]},"previous":{"title":"URLをパースする","level":"1.8.2","depth":2,"path":"webapps/url_parsing.md","ref":"webapps/url_parsing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"webapps/modules.md","mtime":"2018-09-09T07:58:01.988Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-15T12:33:57.270Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

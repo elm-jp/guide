@@ -592,6 +592,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.12" data-path="../about_translation.html">
+            
+                <a href="../about_translation.html">
+            
+                    
+                    翻訳について
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -660,7 +673,7 @@
 <span class="hljs-title">kate95</span> = { status = <span class="hljs-type">Visitor</span>, name = <span class="hljs-string">&quot;kate95&quot;</span> }
 </code></pre>
 <p>So now we can track if someone is a <code>Regular</code> with an account or a <code>Visitor</code> who is just passing through. It is not too tough, but we can make it simpler!</p>
-<p>Rather than creating a <code>type</code> and a <code>type alias</code>, we can actually represent all this with just a <code>type</code> by associating data with each variant. So we can make a new <code>User</code> type in which the <code>Regular</code> and <code>Visitor</code> variants each have an associated <code>String</code> value:</p>
+<p>Rather than creating a custom type and a type alias, we can represent all this with just a single custom type. The <code>Regular</code> and <code>Visitor</code> variants each have an associated data. In our case, the associated data is a <code>String</code> value:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">User</span>
   = <span class="hljs-type">Regular</span> <span class="hljs-type">String</span>
   | <span class="hljs-type">Visitor</span> <span class="hljs-type">String</span>
@@ -669,7 +682,7 @@
 <span class="hljs-title">kate95</span> = <span class="hljs-type">Visitor</span> <span class="hljs-string">&quot;kate95&quot;</span>
 </code></pre>
 <p>The data is attached directly to the variant, so there is no need for the record anymore.</p>
-<p>Another benefit of this approach is that each variant can have different associated data. Say that <code>Regular</code> users gave their age when they signed up. There is no nice way to capture that with records, but when you define your own <code>type</code> it is no problem. We add some associated data to the <code>Regular</code> variant:</p>
+<p>Another benefit of this approach is that each variant can have different associated data. Say that <code>Regular</code> users gave their age when they signed up. There is no nice way to capture that with records, but when you define your own custom type it is no problem. We add some associated data to the <code>Regular</code> variant:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">User</span>
   = <span class="hljs-type">Regular</span> <span class="hljs-type">String</span> <span class="hljs-type">Int</span>
   | <span class="hljs-type">Visitor</span> <span class="hljs-type">String</span>
@@ -759,7 +772,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"カスタム型","level":"1.5.3","depth":2,"next":{"title":"パターンマッチ","level":"1.5.4","depth":2,"path":"types/pattern_matching.md","ref":"types/pattern_matching.md","articles":[]},"previous":{"title":"型の別名","level":"1.5.2","depth":2,"path":"types/type_aliases.md","ref":"types/type_aliases.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"types/custom_types.md","mtime":"2018-08-27T15:52:28.619Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-29T10:10:56.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"カスタム型","level":"1.5.3","depth":2,"next":{"title":"パターンマッチ","level":"1.5.4","depth":2,"path":"types/pattern_matching.md","ref":"types/pattern_matching.md","articles":[]},"previous":{"title":"型の別名","level":"1.5.2","depth":2,"path":"types/type_aliases.md","ref":"types/type_aliases.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"types/custom_types.md","mtime":"2018-09-09T07:58:01.988Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-15T12:33:57.270Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

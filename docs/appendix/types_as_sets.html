@@ -590,6 +590,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.12" data-path="../about_translation.html">
+            
+                <a href="../about_translation.html">
+            
+                    
+                    翻訳について
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -635,71 +648,187 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="types-as-sets">Types as Sets</h1>
-<p>We have seen primitive types like <code>Bool</code> and <code>String</code>. We have made our own custom types like this:</p>
+                                <!--
+# Types as Sets
+-->
+<h1 id="&#x96C6;&#x5408;&#x3068;&#x3057;&#x3066;&#x306E;&#x578B;">&#x96C6;&#x5408;&#x3068;&#x3057;&#x3066;&#x306E;&#x578B;</h1>
+<!--
+We have seen primitive types like `Bool` and `String`. We have made our own custom types like this:
+-->
+<p>&#x3053;&#x308C;&#x307E;&#x3067;<code>Bool</code>&#x3084;<code>Int</code>&#x3001;<code>String</code>&#x306E;&#x3088;&#x3046;&#x306A;&#x578B;&#x3092;&#x898B;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002; &#x305D;&#x3057;&#x3066;&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;&#x3092;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x5B9A;&#x7FA9;&#x3057;&#x307E;&#x3057;&#x305F;&#x3002;</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Color</span> = <span class="hljs-type">Red</span> | <span class="hljs-type">Yellow</span> | <span class="hljs-type">Green</span>
 </code></pre>
-<p>One of the most important techniques in Elm programming is to make <strong>the possible values in code</strong> exactly match <strong>the valid values in real life</strong>. This leaves no room for invalid data, and this is why I always encourage folks to focus on custom types and data structures.</p>
-<p>In pursuit of this goal, I have found it helpful to understand the relationship between types and sets. It sounds like a stretch, but it really helps develop your mindset!</p>
-<h2 id="sets">Sets</h2>
-<p>You can think of types as a set of values.</p>
+<!--
+One of the most important techniques in Elm programming is to make **the possible values in code** exactly match **the valid values in real life**. This leaves no room for invalid data, and this is why I always encourage folks to focus on custom types and data structures.
+-->
+<p>Elm&#x306B;&#x304A;&#x3051;&#x308B;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x306E;&#x4E2D;&#x3067;&#x6700;&#x3082;&#x91CD;&#x8981;&#x306A;&#x30C6;&#x30AF;&#x30CB;&#x30C3;&#x30AF;&#x306E;&#x3072;&#x3068;&#x3064;&#x306F;&#x3001;<strong>&#x30B3;&#x30FC;&#x30C9;&#x4E2D;&#x3067;&#x53EF;&#x80FD;&#x306A;&#x5024;</strong>&#x3092;<strong>&#x73FE;&#x5B9F;&#x4E16;&#x754C;&#x3067;&#x306E;&#x6B63;&#x5F53;&#x306A;&#x5024;</strong>&#x306B;&#x5B8C;&#x5168;&#x306B;&#x4E00;&#x81F4;&#x3055;&#x305B;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x306B;&#x3088;&#x308A;&#x4E0D;&#x6B63;&#x306A;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x5165;&#x308A;&#x8FBC;&#x3080;&#x4F59;&#x5730;&#x304C;&#x306A;&#x304F;&#x306A;&#x308B;&#x305F;&#x3081;&#x3001;&#x79C1;&#x306F;&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;&#x3068;&#x30C7;&#x30FC;&#x30BF;&#x69CB;&#x9020;&#x306B;&#x6CE8;&#x529B;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x307F;&#x3093;&#x306A;&#x306B;&#x52E7;&#x3081;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<!--
+In pursuit of this goal, I have found it helpful to understand the relationship between types and sets. It sounds like a stretch, but it really helps develop your mindset!
+-->
+<p>&#x3053;&#x306E;&#x76EE;&#x7684;&#x3092;&#x8FFD;&#x6C42;&#x3059;&#x308B;&#x306B;&#x3042;&#x305F;&#x3063;&#x3066;&#x306F;&#x3001;&#x79C1;&#x306F;&#x578B;&#x3068;&#x96C6;&#x5408;&#x306E;&#x95A2;&#x4FC2;&#x3092;&#x7406;&#x89E3;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x5F79;&#x306B;&#x7ACB;&#x3064;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306B;&#x6C17;&#x3065;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x5C11;&#x3057;&#x96E3;&#x3057;&#x304F;&#x805E;&#x3053;&#x3048;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x304C;&#x3001;&#x3053;&#x308C;&#x306F;&#x672C;&#x5F53;&#x306B;&#x30DE;&#x30A4;&#x30F3;&#x30C9;&#x30BB;&#x30C3;&#x30C8;&#x3092;&#x958B;&#x767A;&#x3059;&#x308B;&#x306E;&#x306B;&#x5F79;&#x7ACB;&#x3061;&#x307E;&#x3059;&#xFF01;</p>
+<!--
+## Sets
+-->
+<h2 id="&#x96C6;&#x5408;">&#x96C6;&#x5408;</h2>
+<!--
+You can think of types as a set of values.
+-->
+<p>&#x578B;&#x306F;&#x5024;&#x306E;&#x96C6;&#x5408;&#x3060;&#x3068;&#x307F;&#x306A;&#x3059;&#x3053;&#x3068;&#x304C;&#x51FA;&#x6765;&#x307E;&#x3059;</p>
+<!--
+- `Bool` is the set `{ True, False }`
+- `Color` is the set `{ Red, Yellow, Green }`
+- `Int` is the set `{ ... -2, -1, 0, 1, 2 ... }`
+- `Float` is the set `{ ... 0.9, 0.99, 0.999 ... 1.0 ... }`
+- `String` is the set `{ "", "a", "aa", "aaa" ... "hello" ... }`
+-->
 <ul>
-<li><code>Bool</code> is the set <code>{ True, False }</code></li>
-<li><code>Color</code> is the set <code>{ Red, Yellow, Green }</code></li>
-<li><code>Int</code> is the set <code>{ ... -2, -1, 0, 1, 2 ... }</code></li>
-<li><code>Float</code> is the set <code>{ ... 0.9, 0.99, 0.999 ... 1.0 ... }</code></li>
-<li><code>String</code> is the set <code>{ &quot;&quot;, &quot;a&quot;, &quot;aa&quot;, &quot;aaa&quot; ... &quot;hello&quot; ... }</code></li>
+<li><code>Bool</code> &#x306F; <code>{ True, False }</code> &#x306E;&#x306A;&#x3059;&#x96C6;&#x5408;</li>
+<li><code>Color</code> &#x306F; <code>{ Red, Yellow, Green }</code> &#x306E;&#x306A;&#x3059;&#x96C6;&#x5408;</li>
+<li><code>Int</code> &#x306F; <code>{ ... -2, -1, 0, 1, 2 ... }</code> &#x306E;&#x306A;&#x3059;&#x96C6;&#x5408;</li>
+<li><code>Float</code> &#x306F; <code>{ ... 0.9, 0.99, 0.999 ... 1.0 ... }</code> &#x306E;&#x306A;&#x3059;&#x96C6;&#x5408;</li>
+<li><code>String</code> &#x306F; <code>{ &quot;&quot;, &quot;a&quot;, &quot;aa&quot;, &quot;aaa&quot; ... &quot;hello&quot; ... }</code> &#x306E;&#x306A;&#x3059;&#x96C6;&#x5408;</li>
 </ul>
-<p>So when you say <code>x : Bool</code> it is like saying <code>x</code> is in the <code>{ True, False }</code> set.</p>
-<h2 id="cardinality">Cardinality</h2>
-<p>Some interesting things happen when you start figuring out how many values are in these sets. For example the <code>Bool</code> set <code>{ True, False }</code> contains two values. So math people would say that <code>Bool</code> has a <a href="https://en.wikipedia.org/wiki/Cardinality" target="_blank">cardinality</a> of two. So conceptually:</p>
+<!--
+So when you say `x : Bool` it is like saying `x` is in the `{ True, False }` set.
+-->
+<p>&#x3064;&#x307E;&#x308A;&#x3001;<code>x : Bool</code>&#x3068;&#x8A00;&#x3046;&#x3068;&#x304D;&#x3001;<code>x</code>&#x306F;<code>{ True, False }</code>&#x306E;&#x306A;&#x3059;&#x96C6;&#x5408;&#x306E;&#x8981;&#x7D20;&#x3067;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<!--
+## Cardinality
+-->
+<h2 id="&#x6FC3;&#x5EA6;">&#x6FC3;&#x5EA6;</h2>
+<!--
+Some interesting things happen when you start figuring out how many values are in these sets. For example the `Bool` set `{ True, False }` contains two values. So math people would say that `Bool` has a [cardinality](https://en.wikipedia.org/wiki/Cardinality) of two. So conceptually:
+-->
+<p>&#x3053;&#x308C;&#x3089;&#x306E;&#x96C6;&#x5408;&#x306B;&#x3069;&#x308C;&#x3060;&#x3051;&#x591A;&#x304F;&#x306E;&#x5024;&#x304C;&#x542B;&#x307E;&#x308C;&#x308B;&#x304B;&#x3092;&#x8003;&#x3048;&#x59CB;&#x3081;&#x308B;&#x3068;&#x8208;&#x5473;&#x6DF1;&#x3044;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x3001;<code>Bool</code>&#x96C6;&#x5408;&#x306E;<code>{ True, False }</code>&#x306F;2&#x3064;&#x306E;&#x5024;&#x3092;&#x542B;&#x307F;&#x307E;&#x3059;&#x3002;&#x305D;&#x3053;&#x3067;&#x6570;&#x5B66;&#x306E;&#x308F;&#x304B;&#x308B;&#x4EBA;&#x306A;&#x3089;<code>Bool</code>&#x304C;<a href="https://en.wikipedia.org/wiki/Cardinality" target="_blank">&#x6FC3;&#x5EA6;</a>2&#x3092;&#x6301;&#x3064;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;&#x3064;&#x307E;&#x308A;&#x6982;&#x5FF5;&#x7684;&#x306B;&#x306F;&#x3053;&#x3046;&#x306A;&#x308A;&#x307E;&#x3059;:</p>
+<!--
+- cardinality(`Bool`) = 2
+- cardinality(`Color`) = 3
+- cardinality(`Int`) = ∞
+- cardinality(`Float`) = ∞
+- cardinality(`String`) = ∞
+-->
 <ul>
-<li>cardinality(<code>Bool</code>) = 2</li>
-<li>cardinality(<code>Color</code>) = 3</li>
-<li>cardinality(<code>Int</code>) = &#x221E;</li>
-<li>cardinality(<code>Float</code>) = &#x221E;</li>
-<li>cardinality(<code>String</code>) = &#x221E;</li>
+<li><code>Bool</code>&#x306E;&#x6FC3;&#x5EA6; = 2</li>
+<li><code>Color</code>&#x306E;&#x6FC3;&#x5EA6; = 3</li>
+<li><code>Int</code>&#x306E;&#x6FC3;&#x5EA6; = &#x221E;</li>
+<li><code>Float</code>&#x306E;&#x6FC3;&#x5EA6; = &#x221E;</li>
+<li><code>String</code>&#x306E;&#x6FC3;&#x5EA6; = &#x221E;</li>
 </ul>
-<p>This gets more interesting when we start thinking about types like <code>(Bool, Bool)</code> that combine sets together.</p>
+<!--
+This gets more interesting when we start thinking about types like `(Bool, Bool)` that combine sets together.
+-->
+<p><code>(Bool, Bool)</code>&#x306E;&#x3088;&#x3046;&#x306A;&#x96C6;&#x5408;&#x306E;&#x7D44;&#x307F;&#x5408;&#x305B;&#x3092;&#x8003;&#x3048;&#x59CB;&#x3081;&#x308B;&#x3068;&#x3088;&#x308A;&#x8208;&#x5473;&#x6DF1;&#x3044;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<!--
+> **Note:** The cardinality for `Int` and `Float` are actually smaller than infinity. Computers need to fit the numbers into a fixed amount of bits (as described [here](/appendix/types-as-bits.html)) so it is more like cardinality(`Int32`) = 2^32 and cardinality(`Float32`) = 2^32. The point is just that it is a lot.
+-->
 <blockquote>
-<p><strong>Note:</strong> The cardinality for <code>Int</code> and <code>Float</code> are actually smaller than infinity. Computers need to fit the numbers into a fixed amount of bits (as described <a href="types-as-bits.html">here</a>) so it is more like cardinality(<code>Int32</code>) = 2^32 and cardinality(<code>Float32</code>) = 2^32. The point is just that it is a lot.</p>
+<p><strong>Note:</strong> <code>Int</code>&#x3068;<code>Float</code>&#x306E;&#x6FC3;&#x5EA6;&#x306F;&#x5B9F;&#x969B;&#x306B;&#x306F;&#x7121;&#x9650;&#x3088;&#x308A;&#x5C0F;&#x3055;&#x304F;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x30B3;&#x30F3;&#x30D4;&#x30E5;&#x30FC;&#x30BF;&#x306F;(<a href="types-as-bits.html">&#x3053;&#x3053;</a>&#x3067;&#x8AAC;&#x660E;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3088;&#x3046;&#x306B;)&#x56FA;&#x5B9A;&#x30D3;&#x30C3;&#x30C8;&#x9577;&#x306B;&#x6570;&#x5024;&#x3092;&#x53CE;&#x3081;&#x306D;&#x3070;&#x306A;&#x3089;&#x306A;&#x3044;&#x305F;&#x3081;&#x3001;<code>Int32</code>&#x306E;&#x6FC3;&#x5EA6; = 2^32&#x3000;<code>Float32</code>&#x306E;&#x6FC3;&#x5EA6; = 2^32&#x3000;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x5927;&#x4E8B;&#x306A;&#x3053;&#x3068;&#x306F;&#x3001;&#x3053;&#x308C;&#x3089;&#x306E;&#x6FC3;&#x5EA6;&#x306F;&#x5927;&#x304D;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
 </blockquote>
-<h2 id="multiplication-tuples-and-records">Multiplication (Tuples and Records)</h2>
-<p>When you combine types with tuples, the cardinalities get multiplied:</p>
+<!--
+## Multiplication (Tuples and Records)
+-->
+<h2 id="&#x4E57;&#x7B97;-&#x30BF;&#x30D7;&#x30EB;&#x3068;&#x30EC;&#x30B3;&#x30FC;&#x30C9;">&#x4E57;&#x7B97; (&#x30BF;&#x30D7;&#x30EB;&#x3068;&#x30EC;&#x30B3;&#x30FC;&#x30C9;)</h2>
+<!--
+When you combine types with tuples, the cardinalities get multiplied:
+-->
+<p>&#x578B;&#x3092;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3066;&#x30BF;&#x30D7;&#x30EB;&#x3092;&#x4F5C;&#x308B;&#x3068;&#x304D;&#x3001;&#x6FC3;&#x5EA6;&#x306F;&#x4E57;&#x7B97;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;:</p>
+<!--
+- cardinality(`(Bool, Bool)`) = cardinality(`Bool`) × cardinality(`Bool`) = 2 × 2 = 4
+- cardinality(`(Bool, Color)`) = cardinality(`Bool`) × cardinality(`Color`) = 2 × 3 = 6
+-->
 <ul>
-<li>cardinality(<code>(Bool, Bool)</code>) = cardinality(<code>Bool</code>) &#xD7; cardinality(<code>Bool</code>) = 2 &#xD7; 2 = 4</li>
-<li>cardinality(<code>(Bool, Color)</code>) = cardinality(<code>Bool</code>) &#xD7; cardinality(<code>Color</code>) = 2 &#xD7; 3 = 6</li>
+<li><code>(Bool, Bool)</code>&#x306E;&#x6FC3;&#x5EA6; = <code>Bool</code>&#x306E;&#x6FC3;&#x5EA6; &#xD7; <code>Bool</code>&#x306E;&#x6FC3;&#x5EA6; = 2 &#xD7; 2 = 4</li>
+<li><code>(Bool, Color)</code>&#x306E;&#x6FC3;&#x5EA6; = <code>Bool</code>&#x306E;&#x6FC3;&#x5EA6; &#xD7; <code>Color</code>&#x306E;&#x6FC3;&#x5EA6; = 2 &#xD7; 3 = 6</li>
 </ul>
-<p>To make sure you believe this, try listing all the possible values of <code>(Bool, Bool)</code> and <code>(Bool, Color)</code>. Do they match the numbers we predicted? How about for <code>(Color, Color)</code>?</p>
-<p>But what happens when we use infinite sets like <code>Int</code> and <code>String</code>?</p>
+<!--
+To make sure you believe this, try listing all the possible values of `(Bool, Bool)` and `(Bool, Color)`. Do they match the numbers we predicted? How about for `(Color, Color)`?
+-->
+<p>&#x81EA;&#x5206;&#x3067;&#x3053;&#x308C;&#x304C;&#x6B63;&#x3057;&#x3044;&#x306E;&#x3060;&#x3068;&#x4FE1;&#x3058;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x3001;<code>(Bool, Bool)</code>&#x3068;<code>(Bool, Color)</code>&#x3067;&#x53EF;&#x80FD;&#x306A;&#x5024;&#x3092;&#x5168;&#x3066;&#x6319;&#x3052;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x6319;&#x3052;&#x3066;&#x307F;&#x305F;&#x5024;&#x306F;&#x4E88;&#x60F3;&#x3068;&#x4E00;&#x81F4;&#x3057;&#x307E;&#x3057;&#x305F;&#x304B;&#xFF1F;<code>(Color, Color)</code>&#x306E;&#x5834;&#x5408;&#x306F;&#x3069;&#x3046;&#x3067;&#x3059;&#x304B;&#xFF1F;</p>
+<!--
+But what happens when we use infinite sets like `Int` and `String`?
+-->
+<p>&#x3057;&#x304B;&#x3057;&#x3001;<code>Int</code>&#x3084;<code>String</code>&#x306E;&#x3088;&#x3046;&#x306A;&#x7121;&#x9650;&#x96C6;&#x5408;&#x3092;&#x6271;&#x3046;&#x5834;&#x5408;&#x306F;&#x3069;&#x3046;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#xFF1F;</p>
+<!--
+- cardinality(`(Bool, String)`) = 2 × ∞
+- cardinality(`(Int, Int)`) = ∞ × ∞
+-->
 <ul>
-<li>cardinality(<code>(Bool, String)</code>) = 2 &#xD7; &#x221E;</li>
-<li>cardinality(<code>(Int, Int)</code>) = &#x221E; &#xD7; &#x221E;</li>
+<li><code>(Bool, String)</code>&#x306E;&#x6FC3;&#x5EA6; = 2 &#xD7; &#x221E;</li>
+<li><code>(Int, Int)</code>&#x306E;&#x6FC3;&#x5EA6; = &#x221E; &#xD7; &#x221E;</li>
 </ul>
-<p>I personally really like the idea of having two infinities. One wasn&#x2019;t enough? And then seeing infinite infinities. Aren&#x2019;t we going to run out at some point?</p>
+<!--
+I personally really like the idea of having two infinities. One wasn’t enough? And then seeing infinite infinities. Aren’t we going to run out at some point?
+-->
+<p>&#x500B;&#x4EBA;&#x7684;&#x306B;&#x7121;&#x9650;&#x304C;2&#x3064;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x767A;&#x60F3;&#x306F;&#x597D;&#x304D;&#x3067;&#x3059;&#x3002;&#x3072;&#x3068;&#x3064;&#x3067;&#x5341;&#x5206;&#x3058;&#x3083;&#x306A;&#x3044;&#x304B;&#x3063;&#x3066;&#xFF1F;&#x3082;&#x3057;&#x7121;&#x9650;&#x500B;&#x306E;&#x7121;&#x9650;&#x96C6;&#x5408;&#x304C;&#x3042;&#x3063;&#x305F;&#x3089;&#x3001;&#x3069;&#x3053;&#x304B;&#x3067;&#x53CE;&#x96C6;&#x304C;&#x3064;&#x304B;&#x306A;&#x304F;&#x306A;&#x308B;&#x3093;&#x3058;&#x3083;&#x306A;&#x3044;&#x304B;&#x3067;&#x3059;&#x3063;&#x3066;&#xFF1F;</p>
+<!--
+> **Note:** So far we have used tuples, but records work exactly the same way:
+>
+> - cardinality(`(Bool, Bool)`) = cardinality(`{ x : Bool, y : Bool }`)
+> - cardinality(`(Bool, Color)`) = cardinality(`{ active : Bool, color : Color }`)
+>
+> And if you define `type Point = Point Float Float` then cardinality(`Point`) is equivalent to cardinality(`(Float, Float)`). It is all multiplication!
+-->
 <blockquote>
-<p><strong>Note:</strong> So far we have used tuples, but records work exactly the same way:</p>
+<p><strong>Note:</strong> &#x3053;&#x3053;&#x307E;&#x3067;&#x306F;&#x30BF;&#x30D7;&#x30EB;&#x578B;&#x3092;&#x898B;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x3057;&#x304B;&#x3057;&#x30EC;&#x30B3;&#x30FC;&#x30C9;&#x578B;&#x306B;&#x3064;&#x3044;&#x3066;&#x3082;&#x5168;&#x304F;&#x540C;&#x3058;&#x3053;&#x3068;&#x304C;&#x8A00;&#x3048;&#x307E;&#x3059;:</p>
 <ul>
-<li>cardinality(<code>(Bool, Bool)</code>) = cardinality(<code>{ x : Bool, y : Bool }</code>)</li>
-<li>cardinality(<code>(Bool, Color)</code>) = cardinality(<code>{ active : Bool, color : Color }</code>)</li>
+<li><code>(Bool, Bool)</code>&#x306E;&#x6FC3;&#x5EA6; = <code>{ x : Bool, y : Bool }</code>&#x306E;&#x6FC3;&#x5EA6;</li>
+<li><code>(Bool, Color)</code>&#x306E;&#x6FC3;&#x5EA6; = <code>{ active : Bool, color : Color }</code>&#x306E;&#x6FC3;&#x5EA6;</li>
 </ul>
-<p>And if you define <code>type Point = Point Float Float</code> then cardinality(<code>Point</code>) is equivalent to cardinality(<code>(Float, Float)</code>). It is all multiplication!</p>
+<p>&#x305D;&#x3057;&#x3066;&#x3082;&#x3057;<code>type Point = Point Float Float</code>&#x306E;&#x3088;&#x3046;&#x306A;&#x5B9A;&#x7FA9;&#x3092;&#x3059;&#x308C;&#x3070;<code>Point</code>&#x306E;&#x6FC3;&#x5EA6;&#x306F;<code>(Float, Float)</code>&#x306E;&#x6FC3;&#x5EA6;&#x3068;&#x7B49;&#x3057;&#x304F;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x5168;&#x3066;&#x4E57;&#x7B97;&#x3067;&#x3059;&#xFF01;</p>
 </blockquote>
-<h2 id="addition-custom-types">Addition (Custom Types)</h2>
-<p>When figuring out the cardinality of a custom type, you add together the cardinality of each variant. Let&#x2019;s start by looking at some <code>Maybe</code> and <code>Result</code> types:</p>
+<!--
+## Addition (Custom Types)
+-->
+<h2 id="&#x52A0;&#x7B97;-&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;">&#x52A0;&#x7B97; (&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;)</h2>
+<!--
+When figuring out the cardinality of a custom type, you add together the cardinality of each variant. Let’s start by looking at some `Maybe` and `Result` types
+-->
+<p>&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;&#x306E;&#x6FC3;&#x5EA6;&#x306F;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x30D0;&#x30EA;&#x30A2;&#x30F3;&#x30C8;&#x306E;&#x6FC3;&#x5EA6;&#x3092;&#x8DB3;&#x3057;&#x5408;&#x308F;&#x305B;&#x308B;&#x3053;&#x3068;&#x306B;&#x3088;&#x3063;&#x3066;&#x3082;&#x6C42;&#x3081;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;&#x307E;&#x305A;&#x6700;&#x521D;&#x306B;<code>Maybe</code>&#x578B;&#x3068;<code>Result</code>&#x578B;&#x3092;&#x898B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;</p>
+<!--
+- cardinality(`Result Bool Color`) = cardinality(`Bool`) + cardinality(`Color`) = 2 + 3 = 5
+- cardinality(`Maybe Bool`) = 1 + cardinality(`Bool`) = 1 + 2 = 3
+- cardinality(`Maybe Int`) = 1 + cardinality(`Int`) = 1 + ∞
+-->
 <ul>
-<li>cardinality(<code>Result Bool Color</code>) = cardinality(<code>Bool</code>) + cardinality(<code>Color</code>) = 2 + 3 = 5</li>
-<li>cardinality(<code>Maybe Bool</code>) = 1 + cardinality(<code>Bool</code>) = 1 + 2 = 3</li>
-<li>cardinality(<code>Maybe Int</code>) = 1 + cardinality(<code>Int</code>) = 1 + &#x221E;</li>
+<li><code>Result Bool Color</code>&#x306E;&#x6FC3;&#x5EA6; = <code>Bool</code>&#x306E;&#x6FC3;&#x5EA6; + <code>Color</code>&#x306E;&#x6FC3;&#x5EA6; = 2 + 3 = 5</li>
+<li><code>Maybe Bool</code>&#x306E;&#x6FC3;&#x5EA6; = 1 + <code>Bool</code>&#x306E;&#x6FC3;&#x5EA6; = 1 + 2 = 3</li>
+<li><code>Maybe Int</code>&#x306E;&#x6FC3;&#x5EA6; = 1 + <code>Int</code>&#x306E;&#x6FC3;&#x5EA6; = 1 + &#x221E;</li>
 </ul>
-<p>To persuade yourself that this is true, try listing out all the possible values in the <code>Maybe Bool</code> and <code>Result Bool Color</code> sets. Does it match the numbers we got?</p>
-<p>Here are some other examples:</p>
+<!--
+To persuade yourself that this is true, try listing out all the possible values in the `Maybe Bool` and `Result Bool Color` sets. Does it match the numbers we got?
+-->
+<p>&#x81EA;&#x5206;&#x3067;&#x3053;&#x308C;&#x304C;&#x6B63;&#x3057;&#x3044;&#x3068;&#x7D0D;&#x5F97;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;&#x3001;<code>Maybe Bool</code>&#x3068;<code>Result Bool Color</code>&#x3067;&#x53EF;&#x80FD;&#x306A;&#x5024;&#x3092;&#x5168;&#x3066;&#x6319;&#x3052;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x7D50;&#x679C;&#x306F;&#x4E0A;&#x8A18;&#x306E;&#x8A08;&#x7B97;&#x3068;&#x4E00;&#x81F4;&#x3057;&#x307E;&#x3057;&#x305F;&#x304B;&#xFF1F;</p>
+<!--
+Here are some other examples:
+-->
+<p>&#x305D;&#x306E;&#x4ED6;&#x306E;&#x4F8B;&#x306F;&#x3053;&#x3061;&#x3089;&#x3067;&#x3059;:</p>
+<!--
+```elm
+type Height
+  = Inches Int
+  | Meters Float
+
+-- cardinality(Height)
+-- = cardinality(Int) + cardinality(Float)
+-- = ∞ + ∞
+
+
+type Location
+  = Nowhere
+  | Somewhere Float Float
+
+-- cardinality(Location)
+-- = 1 + cardinality((Float, Float))
+-- = 1 + cardinality(Float) × cardinality(Float)
+-- = 1 + ∞ × ∞
+```
+-->
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Height</span>
   = <span class="hljs-type">Inches</span> <span class="hljs-type">Int</span>
   | <span class="hljs-type">Meters</span> <span class="hljs-type">Float</span>
 
-<span class="hljs-comment">-- cardinality(Height)</span>
-<span class="hljs-comment">-- = cardinality(Int) + cardinality(Float)</span>
+<span class="hljs-comment">-- Height&#x306E;&#x6FC3;&#x5EA6;</span>
+<span class="hljs-comment">-- = Int&#x306E;&#x6FC3;&#x5EA6; + Float&#x306E;&#x6FC3;&#x5EA6;</span>
 <span class="hljs-comment">-- = &#x221E; + &#x221E;</span>
 
 
@@ -707,41 +836,88 @@
   = <span class="hljs-type">Nowhere</span>
   | <span class="hljs-type">Somewhere</span> <span class="hljs-type">Float</span> <span class="hljs-type">Float</span>
 
-<span class="hljs-comment">-- cardinality(Location)</span>
-<span class="hljs-comment">-- = 1 + cardinality((Float, Float))</span>
-<span class="hljs-comment">-- = 1 + cardinality(Float) &#xD7; cardinality(Float)</span>
+<span class="hljs-comment">-- Location&#x306E;&#x6FC3;&#x5EA6;</span>
+<span class="hljs-comment">-- = 1 + (Float, Float)&#x306E;&#x6FC3;&#x5EA6;</span>
+<span class="hljs-comment">-- = 1 + Float&#x306E;&#x6FC3;&#x5EA6; &#xD7; Float&#x306E;&#x6FC3;&#x5EA6;</span>
 <span class="hljs-comment">-- = 1 + &#x221E; &#xD7; &#x221E;</span>
 </code></pre>
-<p>Looking at custom types this way helps us see when two types are equivalent. For example, <code>Location</code> is equivalent to <code>Maybe (Float, Float)</code>. Once you know that, which one should you use? I prefer <code>Location</code> for two reasons:</p>
+<!--
+Looking at custom types this way helps us see when two types are equivalent. For example, `Location` is equivalent to `Maybe (Float, Float)`. Once you know that, which one should you use? I prefer `Location` for two reasons:
+-->
+<p>&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;&#x3092;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x8996;&#x70B9;&#x304B;&#x3089;&#x307F;&#x308B;&#x3053;&#x3068;&#x306F;2&#x3064;&#x306E;&#x578B;&#x304C;&#x7B49;&#x3057;&#x3044;&#x3068;&#x304D;&#x306B;&#x5F79;&#x7ACB;&#x3061;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x3001;<code>Location</code>&#x306F;<code>Maybe (Float, Float)</code>&#x3068;&#x7B49;&#x3057;&#x304F;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x3092;&#x8E0F;&#x307E;&#x3048;&#x305F;&#x4E0A;&#x3067;&#x3001;&#x3069;&#x3061;&#x3089;&#x3092;&#x4F7F;&#x3046;&#x3079;&#x304D;&#x3067;&#x3057;&#x3087;&#x3046;&#xFF1F;&#x79C1;&#x306F;&#x4EE5;&#x4E0B;&#x306E;2&#x3064;&#x306E;&#x7406;&#x7531;&#x304B;&#x3089;<code>Location</code>&#x304C;&#x597D;&#x307E;&#x3057;&#x3044;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<!--
+1. The code becomes more self-documenting. No need to wonder if `Just (1.6, 1.8)` is a location or a pair of heights.
+2. The `Maybe` module may expose functions that do not make sense for my particular data. For example, combining two locations probably should not work like `Maybe.map2`. Should one `Nowhere` mean that everything is `Nowhere`? Seems weird!
+-->
 <ol>
-<li>The code becomes more self-documenting. No need to wonder if <code>Just (1.6, 1.8)</code> is a location or a pair of heights.</li>
-<li>The <code>Maybe</code> module may expose functions that do not make sense for my particular data. For example, combining two locations probably should not work like <code>Maybe.map2</code>. Should one <code>Nowhere</code> mean that everything is <code>Nowhere</code>? Seems weird!</li>
+<li>&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x81EA;&#x8EAB;&#x304C;&#x305D;&#x306E;&#x610F;&#x5473;&#x3059;&#x308B;&#x3068;&#x3053;&#x308D;&#x3092;&#x96C4;&#x5F01;&#x306B;&#x8A9E;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;<code>Just (1.6, 1.8)</code>&#x304C;&#x5834;&#x6240;&#x3092;&#x8868;&#x3059;&#x306E;&#x304B;&#x3001;&#x8EAB;&#x9577;&#x306E;&#x5024;&#x306E;&#x30DA;&#x30A2;&#x3092;&#x8868;&#x3059;&#x306E;&#x304B;&#x60A9;&#x3080;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</li>
+<li><code>Maybe</code>&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306F;&#x81EA;&#x5206;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x3067;&#x306F;&#x610F;&#x5473;&#x3092;&#x306A;&#x3055;&#x306A;&#x3044;&#x30E1;&#x30BD;&#x30C3;&#x30C9;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x4F8B;&#x3048;&#x3070;2&#x3064;&#x306E;<code>Location</code>&#x306E;&#x5024;&#x3092;&#x9023;&#x7D50;&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;<code>Maybe.map2</code>&#x3068;&#x306F;&#x9055;&#x3046;&#x610F;&#x5473;&#x306B;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x4E2D;&#x306B;&#x3072;&#x3068;&#x3064;&#x3060;&#x3051;<code>Nowhere</code>&#x304C;&#x542B;&#x307E;&#x308C;&#x3066;&#x3044;&#x305F;&#x3089;&#x3001;&#x5168;&#x3066;&#x304C;<code>Nowhere</code>&#x306B;&#x306A;&#x3063;&#x3066;&#x3057;&#x307E;&#x3046;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;?&#x305D;&#x308C;&#x306F;&#x5947;&#x5999;&#x3060;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;!</li>
 </ol>
-<p>In other words, I write a couple lines of code that are <em>similar</em> to other code, but it gives me a level of clarity and control that is extremely valuable for large code bases and teams.</p>
-<h2 id="who-cares">Who Cares?</h2>
-<p>Thinking of &#x201C;types as sets&#x201D; helps explain an important class of bugs: <strong>invalid data</strong>. For example, say we want to represent the color of a traffic light. The set of valid values are { red, yellow, green } but how do we represent that in code? Here are three different approaches:</p>
+<!--
+In other words, I write a couple lines of code that are _similar_ to other code, but it gives me a level of clarity and control that is extremely valuable for large code bases and teams.
+-->
+<p>&#x8A00;&#x3044;&#x63DB;&#x3048;&#x308C;&#x3070;&#x3001;&#x3082;&#x3057;&#x4ED6;&#x306E;&#x3042;&#x308B;&#x90E8;&#x5206;&#x3068;&#x4F3C;&#x305F;&#x8907;&#x6570;&#x884C;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x3044;&#x3066;&#x3082;&#x3001;&#x3042;&#x308B;&#x7A0B;&#x5EA6;&#x660E;&#x78BA;&#x3055;&#x3092;&#x3082;&#x305F;&#x305B;&#x3001;&#x7D71;&#x5236;&#x306E;&#x53D6;&#x308C;&#x305F;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x305F;&#x3081;&#x3001;&#x305D;&#x308C;&#x306F;&#x5927;&#x898F;&#x6A21;&#x306A;&#x30B3;&#x30FC;&#x30C9;&#x30D9;&#x30FC;&#x30B9;&#x3068;&#x30C1;&#x30FC;&#x30E0;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x975E;&#x5E38;&#x306B;&#x4FA1;&#x5024;&#x306E;&#x3042;&#x308B;&#x3082;&#x306E;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<!--
+## Who Cares?
+-->
+<h2 id="&#x8AB0;&#x304C;&#x6C17;&#x306B;&#x3059;&#x308B;&#x306E;&#xFF1F;">&#x8AB0;&#x304C;&#x6C17;&#x306B;&#x3059;&#x308B;&#x306E;&#xFF1F;</h2>
+<!--
+Thinking of “types as sets” helps explain an important class of bugs: **invalid data**. For example, say we want to represent the color of a traffic light. The set of valid values are { red, yellow, green } but how do we represent that in code? Here are three different approaches:
+-->
+<p>&#x300C;&#x96C6;&#x5408;&#x3068;&#x3057;&#x3066;&#x306E;&#x578B;&#x300D;&#x306B;&#x3064;&#x3044;&#x3066;&#x8003;&#x3048;&#x308B;&#x3053;&#x3068;&#x306F;<strong>&#x4E0D;&#x6B63;&#x306A;&#x30C7;&#x30FC;&#x30BF;</strong>&#x3068;&#x3044;&#x3046;&#x91CD;&#x8981;&#x306A;&#x30D0;&#x30B0;&#x306E;&#x4E00;&#x7FA4;&#x3092;&#x8AAC;&#x660E;&#x3059;&#x308B;&#x306E;&#x306B;&#x5F79;&#x7ACB;&#x3061;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x3001;&#x4EA4;&#x901A;&#x4FE1;&#x53F7;&#x306E;&#x8272;&#x3092;&#x8868;&#x3057;&#x305F;&#x3044;&#x3068;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x5024;&#x306E;&#x96C6;&#x5408;&#x306F;{ red, yellow, green }&#x3067;&#x3059;&#x304C;&#x3001;&#x3069;&#x3046;&#x3084;&#x3063;&#x3066;&#x30B3;&#x30FC;&#x30C9;&#x3067;&#x8868;&#x73FE;&#x3059;&#x308B;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x4EE5;&#x4E0B;&#x306F;3&#x3064;&#x306E;&#x7570;&#x306A;&#x308B;&#x30A2;&#x30D7;&#x30ED;&#x30FC;&#x30C1;&#x3067;&#x3059;:</p>
+<!--
+- `type alias Color = String` &mdash; We could decide that `"red"`, `"yellow"`, `"green"` are the three strings we will use, and that all the other ones are _invalid data_. But what happens if invalid data is produced? Maybe someone makes a typo like `"rad"`. Maybe someone types `"RED"` instead. Should all functions have checks for incoming color arguments? Should all functions have tests to make sure color results are valid? The root issue is that cardinality(`Color`) = ∞, meaning there are (∞ - 3) invalid values. We will need to do a lot of checking to make sure none of them ever show up!
+-->
 <ul>
-<li><p><code>type alias Color = String</code> &#x2014; We could decide that <code>&quot;red&quot;</code>, <code>&quot;yellow&quot;</code>, <code>&quot;green&quot;</code> are the three strings we will use, and that all the other ones are <em>invalid data</em>. But what happens if invalid data is produced? Maybe someone makes a typo like <code>&quot;rad&quot;</code>. Maybe someone types <code>&quot;RED&quot;</code> instead. Should all functions have checks for incoming color arguments? Should all functions have tests to make sure color results are valid? The root issue is that cardinality(<code>Color</code>) = &#x221E;, meaning there are (&#x221E; - 3) invalid values. We will need to do a lot of checking to make sure none of them ever show up!</p>
-</li>
-<li><p><code>type alias Color = { red : Bool, yellow : Bool, green : Bool }</code> &#x2014; The idea here is that the idea of &#x201C;red&#x201D; is represented by <code>Color True False False</code>. But what about <code>Color True True True</code>? What does it mean for it to be all the colors at once? This is <em>invalid data</em>. Just like with the <code>String</code> representation, we end up writing checks in our code and tests to make sure there are no mistakes. In this case, cardinality(<code>Color</code>) = 2 &#xD7; 2 &#xD7; 2 = 8, so there are only 5 invalid values. There are definitely fewer ways to mess up, but we should still have some checks and tests.</p>
-</li>
-<li><p><code>type Color = Red | Yellow | Green</code> &#x2014; In this case, invalid data is impossible. cardinality(<code>Color</code>) = 1 + 1 + 1 = 3, exactly corresponding to the set of three values in real life. So there is no point checking for invalid color data in our code or tests. It cannot exist!</p>
-</li>
+<li><code>type alias Color = String</code> &#x2014; <code>&quot;red&quot;</code>, <code>&quot;yellow&quot;</code>, <code>&quot;green&quot;</code>&#x3068;&#x3044;&#x3046;3&#x3064;&#x306E;&#x6587;&#x5B57;&#x5217;&#x3092;&#x4F7F;&#x3044;&#x3001;&#x305D;&#x306E;&#x4ED6;&#x306F;&#x5168;&#x3066;&#x4E0D;&#x6B63;&#x306A;&#x30C7;&#x30FC;&#x30BF;&#x3068;&#x3057;&#x3066;&#x6271;&#x3046;&#x3053;&#x3068;&#x304C;&#x51FA;&#x6765;&#x307E;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x3082;&#x3057;&#x4E0D;&#x6B63;&#x306A;&#x30C7;&#x30FC;&#x30BF;&#x304C;&#x751F;&#x6210;&#x3055;&#x308C;&#x3066;&#x3057;&#x307E;&#x3063;&#x305F;&#x3089;&#x3069;&#x3046;&#x3067;&#x3057;&#x3087;&#x3046;&#xFF1F;&#x8AB0;&#x304B;&#x304C; <code>&quot;rad&quot;</code>&#x3068;&#x3044;&#x3046;&#x8AA4;&#x5B57;&#x3092;&#x5165;&#x529B;&#x3059;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x307E;&#x305F;&#x306F;&#x5927;&#x6587;&#x5B57;&#x306E;<code>&quot;RED&quot;</code>&#x3068;&#x5165;&#x529B;&#x3057;&#x3066;&#x3057;&#x307E;&#x3046;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x5168;&#x3066;&#x306E;&#x95A2;&#x6570;&#x3067;&#x5F15;&#x6570;&#x306E;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3092;&#x884C;&#x3046;&#x3079;&#x304D;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x3059;&#x3079;&#x3066;&#x306E;&#x95A2;&#x6570;&#x306F;&#x7D50;&#x679C;&#x306E;&#x8272;&#x306E;&#x5024;&#x306E;&#x6B63;&#x5F53;&#x6027;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x3079;&#x304D;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x6839;&#x672C;&#x7684;&#x306A;&#x554F;&#x984C;&#x306F;<code>Color</code>&#x306E;&#x6FC3;&#x5EA6; = &#x221E;&#x3067;&#x3042;&#x308B;&#x305F;&#x3081;&#x3001;(&#x221E; - 3)&#x500B;&#x306E;&#x4E0D;&#x6B63;&#x306A;&#x5024;&#x304C;&#x3042;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x3089;&#x4E0D;&#x6B63;&#x306A;&#x5024;&#x304C;&#x5165;&#x308A;&#x8FBC;&#x307E;&#x306A;&#x3044;&#x3088;&#x3046;&#x306B;&#x5927;&#x91CF;&#x306E;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3092;&#x884C;&#x308F;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;&#xFF01;</li>
 </ul>
-<p>So the whole point here is that <strong>ruling out invalid data makes your code shorter, simpler, and more reliable.</strong> By making sure the set of <em>possible</em> values in code exactly matches the set of <em>valid</em> values in real life, many problems just go away. This is a sharp knife!</p>
-<p>As your program changes, the set of possible values in code may start to diverge from the set of valid values in real life. <strong>I highly recommend revisiting your types periodically to make them match again.</strong> This is like noticing your knife has become dull and sharpening it with a whetstone. This kind of maintenance is a core part of programming in Elm.</p>
-<p><strong>When you start thinking this way, you end up needing fewer tests, yet having more reliable code.</strong> You start using fewer dependencies, yet accomplishing things more quickly. Similarly, someone skilled with a knife probably will not buy a <a href="https://www.slapchop.com/" target="_blank">SlapChop</a>. There is definitely a place for blenders and food processors, but it is smaller than you might think. No one runs ads about how you can be independent and self-sufficient without any serious downsides. No money in that!</p>
+<!--
+- `type alias Color = { red : Bool, yellow : Bool, green : Bool }` &mdash; The idea here is that the idea of “red” is represented by `Color True False False`. But what about `Color True True True`? What does it mean for it to be all the colors at once? This is _invalid data_. Just like with the `String` representation, we end up writing checks in our code and tests to make sure there are no mistakes. In this case, cardinality(`Color`) = 2 × 2 × 2 = 8, so there are only 5 invalid values. There are definitely fewer ways to mess up, but we should still have some checks and tests.
+-->
+<ul>
+<li><code>type alias Color = { red : Bool, yellow : Bool, green : Bool }</code> &#x2014; &#x3053;&#x308C;&#x306F;&#x201C;red&#x201D;&#x3092;<code>Color True False False</code>&#x3068;&#x3044;&#x3046;&#x5F62;&#x3067;&#x8868;&#x73FE;&#x3057;&#x3088;&#x3046;&#x3068;&#x3044;&#x3046;&#x30A2;&#x30A4;&#x30C7;&#x30A2;&#x3067;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;<code>Color True True True</code>&#x3068;&#x3044;&#x3046;&#x5834;&#x5408;&#x306F;&#x3069;&#x3046;&#x3067;&#x3057;&#x3087;&#x3046;&#xFF1F;&#x5168;&#x3066;&#x306E;&#x8272;&#x5024;&#x304C;&#x540C;&#x6642;&#x306B;True&#x306B;&#x306A;&#x308B;&#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x3069;&#x3046;&#x3044;&#x3046;&#x610F;&#x5473;&#x3067;&#x3057;&#x3087;&#x3046;&#xFF1F;&#x3053;&#x308C;&#x306F;&#x4E0D;&#x6B63;&#x306A;&#x30C7;&#x30FC;&#x30BF;&#x3067;&#x3059;&#x3002;<code>String</code>&#x3067;&#x8272;&#x3092;&#x8868;&#x73FE;&#x3059;&#x308B;&#x3068;&#x304D;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x305F;&#x304F;&#x3055;&#x3093;&#x306E;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3084;&#x30C6;&#x30B9;&#x30C8;&#x3092;&#x884C;&#x3044;&#x9593;&#x9055;&#x3044;&#x304C;&#x8D77;&#x3053;&#x3089;&#x306A;&#x3044;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x5834;&#x5408;&#x3001;<code>Color</code>&#x306E;&#x6FC3;&#x5EA6; = 2 &#xD7; 2 &#xD7; 2 = 8&#x3067;&#x3059;&#x3001;&#x3064;&#x307E;&#x308A;5&#x3064;&#x306E;&#x4E0D;&#x6B63;&#x306A;&#x5024;&#x3057;&#x304B;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x6DF7;&#x4E71;&#x3092;&#x5F15;&#x304D;&#x8D77;&#x3053;&#x3059;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x306F;&#x3050;&#x3063;&#x3068;&#x6E1B;&#x308A;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x305D;&#x308C;&#x3067;&#x3082;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3068;&#x30C6;&#x30B9;&#x30C8;&#x306F;&#x884C;&#x308F;&#x306A;&#x304F;&#x3066;&#x306F;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</li>
+</ul>
+<!--
+- `type Color = Red | Yellow | Green` &mdash; In this case, invalid data is impossible. cardinality(`Color`) = 1 + 1 + 1 = 3, exactly corresponding to the set of three values in real life. So there is no point checking for invalid color data in our code or tests. It cannot exist!
+-->
+<ul>
+<li><code>type Color = Red | Yellow | Green</code> &#x2014; &#x3053;&#x306E;&#x5834;&#x5408;&#x3001;&#x4E0D;&#x6B63;&#x306A;&#x30C7;&#x30FC;&#x30BF;&#x304C;&#x4F7F;&#x308F;&#x308C;&#x308B;&#x3053;&#x3068;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;<code>Color</code>&#x306E;&#x6FC3;&#x5EA6; = 1 + 1 + 1 = 3&#x3067;&#x3042;&#x308A;&#x3001;&#x73FE;&#x5B9F;&#x4E16;&#x754C;&#x3067;&#x53EF;&#x80FD;&#x306A;3&#x3064;&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3068;&#x5B8C;&#x5168;&#x306B;&#x4E00;&#x81F4;&#x3057;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x305F;&#x3081;&#x3001;&#x4E0D;&#x6B63;&#x306A;&#x5024;&#x304C;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3057;&#x305F;&#x308A;&#x30C6;&#x30B9;&#x30C8;&#x3057;&#x305F;&#x308A;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x305D;&#x308C;&#x3089;&#x306F;&#x5B58;&#x5728;&#x3057;&#x5F97;&#x306A;&#x3044;&#x306E;&#x3067;&#x3059;&#xFF01;</li>
+</ul>
+<!--
+So the whole point here is that **ruling out invalid data makes your code shorter, simpler, and more reliable.** By making sure the set of _possible_ values in code exactly matches the set of _valid_ values in real life, many problems just go away. This is a sharp knife!
+-->
+<p>&#x809D;&#x5FC3;&#x306A;&#x3053;&#x3068;&#x306F;&#x3001;&#x4E0D;&#x6B63;&#x306A;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x6392;&#x9664;&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;&#x30BD;&#x30FC;&#x30B9;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x3088;&#x308A;&#x77ED;&#x304F;&#x3057;&#x3001;&#x3088;&#x308A;&#x5358;&#x7D14;&#x306B;&#x3057;&#x3001;&#x305D;&#x3057;&#x3066;&#x3088;&#x308A;&#x4FE1;&#x983C;&#x6027;&#x3092;&#x4E0A;&#x3052;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x30B3;&#x30FC;&#x30C9;&#x4E2D;&#x3067;&#x53EF;&#x80FD;&#x306A;&#x5024;&#x3092;&#x73FE;&#x5B9F;&#x4E16;&#x754C;&#x3067;&#x53EF;&#x80FD;&#x306A;&#x5024;&#x306B;&#x5B8C;&#x5168;&#x306B;&#x4E00;&#x81F4;&#x3055;&#x305B;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;&#x6570;&#x591A;&#x304F;&#x306E;&#x554F;&#x984C;&#x304C;&#x306A;&#x304F;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x5207;&#x308C;&#x5473;&#x92ED;&#x3044;&#x30CA;&#x30A4;&#x30D5;&#x306E;&#x3088;&#x3046;&#x3067;&#x3059;&#xFF01;</p>
+<!--
+As your program changes, the set of possible values in code may start to diverge from the set of valid values in real life. **I highly recommend revisiting your types periodically to make them match again.** This is like noticing your knife has become dull and sharpening it with a whetstone. This kind of maintenance is a core part of programming in Elm.
+-->
+<p>&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x304C;&#x5909;&#x5316;&#x3057;&#x3066;&#x3044;&#x304F;&#x306B;&#x9023;&#x308C;&#x3001;&#x30B3;&#x30FC;&#x30C9;&#x4E2D;&#x3067;&#x306E;&#x53EF;&#x80FD;&#x306A;&#x5024;&#x306F;&#x73FE;&#x5B9F;&#x4E16;&#x754C;&#x3067;&#x6B63;&#x5F53;&#x306A;&#x5024;&#x306E;&#x96C6;&#x5408;&#x304B;&#x3089;&#x96E2;&#x308C;&#x3066;&#x3044;&#x3063;&#x3066;&#x3057;&#x307E;&#x3046;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;<strong>&#x305D;&#x3046;&#x3044;&#x3046;&#x3068;&#x304D;&#x306F;&#x81EA;&#x5206;&#x306E;&#x578B;&#x3092;&#x898B;&#x3064;&#x3081;&#x76F4;&#x3057;&#x3066;&#x3001;&#x305D;&#x308C;&#x3089;&#x3092;&#x4E00;&#x81F4;&#x3055;&#x305B;&#x308B;&#x3053;&#x3068;&#x3092;&#x5F37;&#x304F;&#x52E7;&#x3081;&#x307E;&#x3059;&#x3002;</strong>&#x3053;&#x308C;&#x306F;&#x30CA;&#x30A4;&#x30D5;&#x306E;&#x5207;&#x308C;&#x5473;&#x304C;&#x920D;&#x304F;&#x306A;&#x3063;&#x305F;&#x4E8B;&#x306B;&#x6C17;&#x3065;&#x3044;&#x3066;&#x3001;&#x7825;&#x77F3;&#x3067;&#x7814;&#x304E;&#x76F4;&#x3059;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x4FDD;&#x5B88;&#x306F;Elm&#x3067;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x306E;&#x4E2D;&#x5FC3;&#x3068;&#x306A;&#x308B;&#x4F5C;&#x696D;&#x306E;&#x3072;&#x3068;&#x3064;&#x3067;&#x3059;&#x3002;</p>
+<!--
+**When you start thinking this way, you end up needing fewer tests, yet having more reliable code.** You start using fewer dependencies, yet accomplishing things more quickly. Similarly, someone skilled with a knife probably will not buy a [SlapChop](https://www.slapchop.com/). There is definitely a place for blenders and food processors, but it is smaller than you might think. No one runs ads about how you can be independent and self-sufficient without any serious downsides. No money in that!
+-->
+<p>&#x3053;&#x3046;&#x3044;&#x3063;&#x305F;&#x8003;&#x3048;&#x65B9;&#x3092;&#x3057;&#x3060;&#x3059;&#x3068;&#x3001;&#x3088;&#x308A;&#x5C11;&#x306A;&#x3044;&#x30C6;&#x30B9;&#x30C8;&#x3057;&#x304B;&#x5FC5;&#x8981;&#x306B;&#x306A;&#x3089;&#x306A;&#x304F;&#x306A;&#x308A;&#x3001;&#x305D;&#x308C;&#x3067;&#x3044;&#x3066;&#x3088;&#x308A;&#x4FE1;&#x983C;&#x6027;&#x306E;&#x9AD8;&#x3044;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x51FA;&#x6765;&#x307E;&#x3059;&#x3002;&#x4F9D;&#x5B58;&#x6027;&#x304C;&#x5C11;&#x306A;&#x304F;&#x306A;&#x308B;&#x306B;&#x3082;&#x95A2;&#x308F;&#x3089;&#x305A;&#x3001;&#x3084;&#x308B;&#x3079;&#x304D;&#x3053;&#x3068;&#x3092;&#x3059;&#x3070;&#x3084;&#x304F;&#x7247;&#x4ED8;&#x3051;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x30CA;&#x30A4;&#x30D5;&#x3092;&#x6271;&#x3046;&#x6280;&#x8853;&#x3092;&#x6301;&#x3063;&#x305F;&#x4EBA;&#x306F;&#x304A;&#x305D;&#x3089;&#x304F;<a href="https://www.slapchop.com/" target="_blank">SlapChop</a>&#x3092;&#x8CB7;&#x308F;&#x306A;&#x3044;&#x3053;&#x3068;&#x3068;&#x4F3C;&#x305F;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;&#x6599;&#x7406;&#x7528;&#x30DF;&#x30AD;&#x30B5;&#x30FC;&#x3084;&#x30D5;&#x30FC;&#x30C9;&#x30D7;&#x30ED;&#x30BB;&#x30C3;&#x30B5;&#x30FC;&#x304C;&#x6D3B;&#x8E8D;&#x3059;&#x308B;&#x5834;&#x9762;&#x306F;&#x3082;&#x3061;&#x308D;&#x3093;&#x3042;&#x308A;&#x307E;&#x3059;&#x3001;&#x3057;&#x304B;&#x3057;&#x3042;&#x306A;&#x305F;&#x304C;&#x601D;&#x3046;&#x3088;&#x308A;&#x3082;&#x305D;&#x308C;&#x306F;&#x5C11;&#x306A;&#x3044;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;&#x4EBA;&#x306F;&#x3064;&#x3044;&#x3001;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;&#x9053;&#x5177;&#x3088;&#x308A;&#x3082;&#x7C21;&#x5358;&#x306B;&#x4F7F;&#x3044;&#x306F;&#x3058;&#x3081;&#x3089;&#x308C;&#x308B;&#x9053;&#x5177;&#x3092;&#x9078;&#x3093;&#x3067;&#x3057;&#x307E;&#x3044;&#x307E;&#x3059;&#x3002;&#x3067;&#x3082;&#x3001;&#x305D;&#x3046;&#x3044;&#x3063;&#x305F;&#x9053;&#x5177;&#x306F;&#x5B9F;&#x969B;&#x306B;&#x306F;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;&#x9053;&#x5177;&#x306B;&#x6BD4;&#x3079;&#x3066;&#x69CB;&#x9020;&#x304C;&#x8907;&#x96D1;&#x3067;&#x3069;&#x3046;&#x3084;&#x3063;&#x3066;&#x52D5;&#x3044;&#x3066;&#x3044;&#x308B;&#x306E;&#x304B;&#x3082;&#x308F;&#x304B;&#x308A;&#x306B;&#x304F;&#x3044;&#x305F;&#x3081;&#x58CA;&#x308C;&#x3084;&#x3059;&#x304F;&#x81EA;&#x5206;&#x3067;&#x4FEE;&#x7406;&#x3067;&#x304D;&#x306A;&#x3044;&#x4E0A;&#x306B;&#x3001;&#x4F7F;&#x3048;&#x308B;&#x7BC4;&#x56F2;&#x3082;&#x9650;&#x3089;&#x308C;&#x3066;&#x3057;&#x307E;&#x3046;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<!--
+> ## Aside on Language Design
+>
+> Thinking of types as sets like this can also be helpful in explaining why a language would feel “easy” or “restrictive” or “error-prone” to some people. For example:
+>
+>
+> - **JavaScript** &mdash; Again, there are primitive values like `Bool` and `String`. From there you can create objects with a dynamic set of fields, allowing you to multiply cardinalities. This is much more lightweight than creating classes. But like Java, doing addition is not particularly easy. For example, you can simulate `Maybe Int` with objects like `{ tag: "just", value: 42 }` and `{ tag: "nothing" }`, but this is really still multiplication of cardinality. This makes it quite difficult to exactly match the set of valid values in real life. So I think people find JavaScript “easy” because designing a type with cardinality (∞ × ∞ × ∞) is super easy and that can cover pretty much anything, but other people find it “error-prone” because desiging a type with cardinality 5 is not really possible, leaving lots of space for invalid data.
+>
+> Interestingly, some imperative languages have custom types! Rust is a great example. They call them [enums](https://doc.rust-lang.org/book/second-edition/ch06-01-defining-an-enum.html) to build on the intuition folks may have from C and Java. So in Rust, addition of cardinalities is just as easy as in Elm, and it brings all the same benefits!
+>
+> I think the point here is that “addition” of types is extraordinarily underrated in in general, and thinking of “types as sets” helps clarify why certain language designs would produce certain frustrations.
+-->
 <blockquote>
-<h2 id="aside-on-language-design">Aside on Language Design</h2>
-<p>Thinking of types as sets like this can also be helpful in explaining why a language would feel &#x201C;easy&#x201D; or &#x201C;restrictive&#x201D; or &#x201C;error-prone&#x201D; to some people. For example:</p>
+<h2 id="&#x8A00;&#x8A9E;&#x30C7;&#x30B6;&#x30A4;&#x30F3;&#x306E;&#x4F59;&#x8AC7;">&#x8A00;&#x8A9E;&#x30C7;&#x30B6;&#x30A4;&#x30F3;&#x306E;&#x4F59;&#x8AC7;</h2>
+<p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x578B;&#x3084;&#x96C6;&#x5408;&#x3092;&#x8003;&#x3048;&#x308B;&#x3053;&#x3068;&#x306F;&#x3001;&#x3042;&#x308B;&#x8A00;&#x8A9E;&#x304C;&#x3069;&#x3046;&#x3057;&#x3066;&#x300C;&#x7C21;&#x5358;&#x300D;&#x3082;&#x3057;&#x304F;&#x306F;&#x300C;&#x5236;&#x7D04;&#x7684;&#x300D;&#x3042;&#x308B;&#x3044;&#x306F;&#x300C;&#x30A8;&#x30E9;&#x30FC;&#x3092;&#x8D77;&#x3053;&#x3057;&#x3084;&#x3059;&#x3044;&#x300D;&#x3068;&#x611F;&#x3058;&#x308B;&#x306E;&#x304B;&#x3092;&#x8AAC;&#x660E;&#x3059;&#x308B;&#x306E;&#x306B;&#x3082;&#x5F79;&#x7ACB;&#x3061;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;:</p>
 <ul>
-<li><p><strong>Java</strong> &#x2014; There are primitive values like <code>Bool</code> and <code>String</code>. From there, you can create classes with a fixed set of fields of different types. This is much like records in Elm, allowing you to multiply cardinalities. But it quite difficult to do addition. You can do it with subtyping, but it is quite an elaborate process. So where <code>Result Bool Color</code> is easy in Elm, it is pretty tough in Java. I think some people find Java &#x201C;restrictive&#x201D; because designing a type with cardinality 5 is quite difficult, often seeming like it is not worth the trouble.</p>
+<li><p><strong>Java</strong> &#x2014; <code>Bool</code>&#x3084;<code>String</code>&#x3068;&#x3044;&#x3063;&#x305F;&#x30D7;&#x30EA;&#x30DF;&#x30C6;&#x30A3;&#x30D6;&#x306A;&#x5024;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x3053;&#x304B;&#x3089;&#x3001;&#x56FA;&#x5B9A;&#x3055;&#x308C;&#x305F;&#x6570;&#x306E;&#x7570;&#x306A;&#x308B;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3092;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3066;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x304C;&#x51FA;&#x6765;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x6FC3;&#x5EA6;&#x3092;&#x4E57;&#x7B97;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x305F;&#x3081;Elm&#x306E;&#x30EC;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x4F3C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;Java&#x3067;&#x306F;&#x6FC3;&#x5EA6;&#x306E;&#x52A0;&#x7B97;&#x3092;&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;&#x975E;&#x5E38;&#x306B;&#x96E3;&#x3057;&#x3044;&#x3067;&#x3059;&#x3002;&#x7D99;&#x627F;&#x3092;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x305D;&#x308C;&#x306F;&#x53EF;&#x80FD;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x305D;&#x308C;&#x306F;&#x8CA0;&#x62C5;&#x306E;&#x5927;&#x304D;&#x3044;&#x30D7;&#x30ED;&#x30BB;&#x30B9;&#x3067;&#x3059;&#x3002;Elm&#x3067;&#x306F;<code>Result Bool Color</code>&#x3068;&#x7C21;&#x5358;&#x306B;&#x66F8;&#x3051;&#x308B;&#x306E;&#x306B;&#x3001;Java&#x3067;&#x306F;&#x305D;&#x308C;&#x306F;&#x3068;&#x3066;&#x3082;&#x5927;&#x5909;&#x306A;&#x3053;&#x3068;&#x306A;&#x306E;&#x3067;&#x3059;&#x3002;Java&#x304C;&#x6FC3;&#x5EA6;5&#x306E;&#x578B;&#x3092;&#x30C7;&#x30B6;&#x30A4;&#x30F3;&#x3059;&#x308B;&#x306E;&#x304C;&#x3068;&#x3066;&#x3082;&#x96E3;&#x3057;&#x304F;&#x3001;&#x591A;&#x304F;&#x306E;&#x5834;&#x5408;&#x5272;&#x306B;&#x5408;&#x308F;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x610F;&#x5473;&#x3067;&#x3001;Java&#x304C;&#x300C;&#x5236;&#x7D04;&#x7684;&#x300D;&#x3060;&#x3068;&#x8003;&#x3048;&#x308B;&#x4EBA;&#x3082;&#x3044;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 </li>
-<li><p><strong>JavaScript</strong> &#x2014; Again, there are primitive values like <code>Bool</code> and <code>String</code>. From there you can create objects with a dynamic set of fields, allowing you to multiply cardinalities. This is much more lightweight than creating classes. But like Java, doing addition is not particularly easy. For example, you can simulate <code>Maybe Int</code> with objects like <code>{ tag: &quot;just&quot;, value: 42 }</code> and <code>{ tag: &quot;nothing&quot; }</code>, but this is really still multiplication of cardinality. This makes it quite difficult to exactly match the set of valid values in real life. So I think people find JavaScript &#x201C;easy&#x201D; because designing a type with cardinality (&#x221E; &#xD7; &#x221E; &#xD7; &#x221E;) is super easy and that can cover pretty much anything, but other people find it &#x201C;error-prone&#x201D; because desiging a type with cardinality 5 is not really possible, leaving lots of space for invalid data.</p>
+<li><p><strong>JavaScript</strong> &#x2014; &#x3053;&#x3061;&#x3089;&#x3067;&#x3082; <code>Bool</code>&#x3084;<code>String</code>&#x3068;&#x3044;&#x3063;&#x305F;&#x30D7;&#x30EA;&#x30DF;&#x30C6;&#x30A3;&#x30D6;&#x306A;&#x5024;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x3053;&#x304B;&#x3089;&#x52D5;&#x7684;&#x306A;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306E;&#x96C6;&#x5408;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x304C;&#x51FA;&#x6765;&#x3001;&#x6FC3;&#x5EA6;&#x3092;&#x4E57;&#x7B97;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x51FA;&#x6765;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x30AF;&#x30E9;&#x30B9;&#x3092;&#x4F5C;&#x308B;&#x3088;&#x308A;&#x975E;&#x5E38;&#x306B;&#x8EFD;&#x91CF;&#x306A;&#x4F5C;&#x696D;&#x3067;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;Java&#x306E;&#x3088;&#x3046;&#x306B;&#x6FC3;&#x5EA6;&#x306E;&#x52A0;&#x7B97;&#x306F;&#x3068;&#x3066;&#x3082;&#x96E3;&#x3057;&#x3044;&#x3067;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x3001;<code>Maybe Int</code>&#x3092;<code>{ tag: &quot;just&quot;, value: 42 }</code>&#x3084;<code>{ tag: &quot;nothing&quot; }</code>&#x3068;&#x3044;&#x3063;&#x305F;&#x5F62;&#x3067;&#x30B7;&#x30DF;&#x30E5;&#x30EC;&#x30FC;&#x30C8;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x51FA;&#x6765;&#x307E;&#x3059;&#x3001;&#x3057;&#x304B;&#x3057;&#x5B9F;&#x969B;&#x306B;&#x306F;&#x3053;&#x308C;&#x306F;&#x6FC3;&#x5EA6;&#x3092;&#x4E57;&#x7B97;&#x3057;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x3060;&#x3068;&#x73FE;&#x5B9F;&#x306E;&#x4E16;&#x754C;&#x3067;&#x306E;&#x53EF;&#x80FD;&#x306A;&#x5024;&#x306B;&#x5408;&#x308F;&#x305B;&#x308B;&#x3053;&#x3068;&#x304C;&#x975E;&#x5E38;&#x306B;&#x56F0;&#x96E3;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x4EBA;&#x306B;&#x3088;&#x3063;&#x3066;&#x306F;(&#x221E; &#xD7; &#x221E; &#xD7; &#x221E;)&#x3068;&#x3044;&#x3046;&#x6FC3;&#x5EA6;&#x306E;&#x578B;&#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x304C;&#x975E;&#x5E38;&#x306B;&#x7C21;&#x5358;&#x3067;&#x3042;&#x308A;&#x305D;&#x308C;&#x3067;&#x5168;&#x3066;&#x3092;&#x6271;&#x3048;&#x308B;&#x3053;&#x3068;&#x304B;&#x3089;JavaScript&#x3092;&#x7C21;&#x5358;&#x3060;&#x3068;&#x8003;&#x3048;&#x308B;&#x4EBA;&#x304C;&#x3044;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3001;&#x3057;&#x304B;&#x3057;&#x53CD;&#x5BFE;&#x306B;&#x6FC3;&#x5EA6;5&#x306E;&#x578B;&#x3092;&#x30C7;&#x30B6;&#x30A4;&#x30F3;&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;&#x4E0D;&#x53EF;&#x80FD;&#x3067;&#x4E0D;&#x6B63;&#x306A;&#x30C7;&#x30FC;&#x30BF;&#x304C;&#x5B58;&#x5728;&#x3059;&#x308B;&#x53EF;&#x80FD;&#x6027;&#x3092;&#x5927;&#x304D;&#x304F;&#x5E83;&#x3052;&#x3066;&#x3057;&#x307E;&#x3046;&#x305F;&#x3081;&#x300C;&#x30A8;&#x30E9;&#x30FC;&#x3092;&#x8D77;&#x3053;&#x3057;&#x3084;&#x3059;&#x3044;&#x300D;&#x3068;&#x8003;&#x3048;&#x308B;&#x4EBA;&#x3082;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 </li>
 </ul>
-<p>Interestingly, some imperative languages have custom types! Rust is a great example. They call them <a href="https://doc.rust-lang.org/book/second-edition/ch06-01-defining-an-enum.html" target="_blank">enums</a> to build on the intuition folks may have from C and Java. So in Rust, addition of cardinalities is just as easy as in Elm, and it brings all the same benefits!</p>
-<p>I think the point here is that &#x201C;addition&#x201D; of types is extraordinarily underrated in in general, and thinking of &#x201C;types as sets&#x201D; helps clarify why certain language designs would produce certain frustrations.</p>
+<p>&#x8208;&#x5473;&#x6DF1;&#x3044;&#x3053;&#x3068;&#x306B;&#x3001;&#x3044;&#x304F;&#x3064;&#x304B;&#x306E;&#x624B;&#x7D9A;&#x304D;&#x578B;&#x8A00;&#x8A9E;&#x306F;&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#xFF01;Rust&#x306F;&#x826F;&#x3044;&#x4F8B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;Rust&#x306F;C&#x3084;Java&#x304B;&#x3089;&#x6765;&#x305F;&#x4EBA;&#x3005;&#x304C;&#x76F4;&#x611F;&#x7684;&#x306B;&#x7406;&#x89E3;&#x3057;&#x3084;&#x3059;&#x3044;<a href="https://doc.rust-lang.org/book/second-edition/ch06-01-defining-an-enum.html" target="_blank">enums</a>&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3064;&#x307E;&#x308A;Rust&#x3067;&#x306F;&#x6FC3;&#x5EA6;&#x306E;&#x52A0;&#x7B97;&#x306F;Elm&#x3068;&#x540C;&#x3058;&#x304F;&#x3089;&#x3044;&#x7C21;&#x5358;&#x3067;&#x3001;&#x540C;&#x69D8;&#x306E;&#x6069;&#x6075;&#x3092;&#x5168;&#x3066;&#x3082;&#x305F;&#x3089;&#x3057;&#x3066;&#x304F;&#x308C;&#x307E;&#x3059;&#xFF01;</p>
+<p>&#x809D;&#x5FC3;&#x306A;&#x70B9;&#x306F;&#x3001;&#x4E00;&#x822C;&#x306B;&#x578B;&#x306E;&#x300C;&#x52A0;&#x7B97;&#x300D;&#x306F;&#x975E;&#x5E38;&#x306B;&#x904E;&#x5C0F;&#x8A55;&#x4FA1;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x300C;&#x96C6;&#x5408;&#x3068;&#x3057;&#x3066;&#x306E;&#x578B;&#x300D;&#x3092;&#x8003;&#x3048;&#x308B;&#x3053;&#x3068;&#x306F;&#x3001;&#x306A;&#x305C;&#x3042;&#x308B;&#x8A00;&#x8A9E;&#x306E;&#x30C7;&#x30B6;&#x30A4;&#x30F3;&#x304C;&#x7279;&#x5B9A;&#x306E;&#x4E0D;&#x6E80;&#x3092;&#x751F;&#x307F;&#x51FA;&#x3059;&#x306E;&#x304B;&#x660E;&#x78BA;&#x306B;&#x3059;&#x308B;&#x306E;&#x306B;&#x5F79;&#x7ACB;&#x3061;&#x307E;&#x3059;&#x3002;</p>
 </blockquote>
 
                                 
@@ -782,7 +958,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"集合としての型","level":"1.11.1","depth":2,"next":{"title":"型のビット表現","level":"1.11.2","depth":2,"path":"appendix/types_as_bits.md","ref":"appendix/types_as_bits.md","articles":[]},"previous":{"title":"付録","level":"1.11","depth":1,"ref":"","articles":[{"title":"集合としての型","level":"1.11.1","depth":2,"path":"appendix/types_as_sets.md","ref":"appendix/types_as_sets.md","articles":[]},{"title":"型のビット表現","level":"1.11.2","depth":2,"path":"appendix/types_as_bits.md","ref":"appendix/types_as_bits.md","articles":[]},{"title":"関数の型","level":"1.11.3","depth":2,"path":"appendix/function_types.md","ref":"appendix/function_types.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"appendix/types_as_sets.md","mtime":"2018-08-22T13:15:11.486Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-29T10:10:56.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"集合としての型","level":"1.11.1","depth":2,"next":{"title":"型のビット表現","level":"1.11.2","depth":2,"path":"appendix/types_as_bits.md","ref":"appendix/types_as_bits.md","articles":[]},"previous":{"title":"付録","level":"1.11","depth":1,"ref":"","articles":[{"title":"集合としての型","level":"1.11.1","depth":2,"path":"appendix/types_as_sets.md","ref":"appendix/types_as_sets.md","articles":[]},{"title":"型のビット表現","level":"1.11.2","depth":2,"path":"appendix/types_as_bits.md","ref":"appendix/types_as_bits.md","articles":[]},{"title":"関数の型","level":"1.11.3","depth":2,"path":"appendix/function_types.md","ref":"appendix/function_types.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"appendix/types_as_sets.md","mtime":"2018-09-09T07:58:01.984Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-15T12:33:57.270Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

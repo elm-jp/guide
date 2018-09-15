@@ -592,6 +592,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.12" data-path="../about_translation.html">
+            
+                <a href="../about_translation.html">
+            
+                    
+                    翻訳について
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -647,7 +660,7 @@
 <p>Okay, so you read those sections, right?</p>
 <p>...</p>
 <p>Good!</p>
-<p>In this example uses The Elm Architecture, just like we have seen in all the previous examples. The new parts are all because we are using the <a href="https://package.elm-lang.org/packages/elm/http/latest" target="_blank"><code>elm/http</code></a> and <a href="https://package.elm-lang.org/packages/elm/url/latest" target="_blank"><code>elm/url</code></a> packages. We will talk about all that after you look through the code a bit:</p>
+<p>This example uses The Elm Architecture, just like we have seen in all the previous examples. The new parts are all because we are using the <a href="https://package.elm-lang.org/packages/elm/http/latest" target="_blank"><code>elm/http</code></a> and <a href="https://package.elm-lang.org/packages/elm/url/latest" target="_blank"><code>elm/url</code></a> packages. We will talk about all that after you look through the code a bit:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Browser
 <span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (..)
 <span class="hljs-keyword">import</span> Html.Attributes <span class="hljs-keyword">exposing</span> (..)
@@ -761,7 +774,7 @@
 <span class="hljs-title">gifDecoder</span> =
   <span class="hljs-type">Decode</span>.field <span class="hljs-string">&quot;data&quot;</span> (<span class="hljs-type">Decode</span>.field <span class="hljs-string">&quot;image_url&quot;</span> <span class="hljs-type">Decode</span>.string)
 </code></pre>
-<p>This program is quite similar to the random dice roller we just saw: <code>Model</code>, <code>init</code>, <code>update</code>, <code>subscriptions</code>, and <code>view</code>. The new stuff is mostly in the <code>HTTP</code> section which uses <code>elm/url</code>, <code>elm/json</code>, and <code>elm/http</code>. Let&amp;rsqou;s go through those one-by-one.</p>
+<p>This program is quite similar to the random dice roller we just saw: <code>Model</code>, <code>init</code>, <code>update</code>, <code>subscriptions</code>, and <code>view</code>. The new stuff is mostly in the <code>HTTP</code> section which uses <code>elm/url</code>, <code>elm/json</code>, and <code>elm/http</code>. Let&#x2019;s go through those one-by-one.</p>
 <h2 id="elmurl"><code>elm/url</code></h2>
 <p>Let&#x2019;s look at the <code>toGiphyUrl</code> function first. It may seem like we should have just made a string like this:</p>
 <pre><code class="lang-elm"><span class="hljs-title">toBrokenGiphyUrl</span> : <span class="hljs-type">String</span> -&gt; <span class="hljs-type">String</span>
@@ -876,7 +889,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"HTTP","level":"1.6.4","depth":2,"next":{"title":"JavaScriptとの相互運用","level":"1.7","depth":1,"path":"interop/README.md","ref":"interop/README.md","articles":[{"title":"フラグ","level":"1.7.1","depth":2,"path":"interop/flags.md","ref":"interop/flags.md","articles":[]},{"title":"ポート","level":"1.7.2","depth":2,"path":"interop/ports.md","ref":"interop/ports.md","articles":[]},{"title":"カスタムエレメンツ","level":"1.7.3","depth":2,"path":"interop/custom_elements.md","ref":"interop/custom_elements.md","articles":[]}]},"previous":{"title":"JSON","level":"1.6.3","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"effects/http.md","mtime":"2018-08-27T15:52:28.619Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-08-29T10:10:56.258Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"HTTP","level":"1.6.4","depth":2,"next":{"title":"JavaScriptとの相互運用","level":"1.7","depth":1,"path":"interop/README.md","ref":"interop/README.md","articles":[{"title":"フラグ","level":"1.7.1","depth":2,"path":"interop/flags.md","ref":"interop/flags.md","articles":[]},{"title":"ポート","level":"1.7.2","depth":2,"path":"interop/ports.md","ref":"interop/ports.md","articles":[]},{"title":"カスタムエレメンツ","level":"1.7.3","depth":2,"path":"interop/custom_elements.md","ref":"interop/custom_elements.md","articles":[]}]},"previous":{"title":"JSON","level":"1.6.3","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"content":"noindex","data":[],"name":"robots"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"effects/http.md","mtime":"2018-09-15T12:33:31.238Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-15T12:33:57.270Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
