@@ -28,7 +28,7 @@ jobs:
           name: push changes
           command: |
             git remote add upstream https://${GITHUB_ACCESS_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}
-            git push upstream auto_build
+            git push upstream master
 
 
 workflows:
@@ -38,4 +38,4 @@ workflows:
       - build-and-push:
           filters:
             branches:
-              only: auto_build
+              only: master
