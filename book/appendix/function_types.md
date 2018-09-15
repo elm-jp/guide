@@ -64,7 +64,7 @@ So conceptually, **every function accepts one argument.** It may return another 
 <!--
 We _could_ always put the parentheses to indicate that this is what is really happening, but it starts to get pretty unwieldy when you have multiple arguments. It is the same logic behind writing `4 * 2 + 5 * 3` instead of `(4 * 2) + (5 * 3)`. It means there is a bit extra to learn, but it is so common that it is worth it.
 -->
-実際に起こっていることを明示するために常に括弧をつけることはできますが、複数の引数を持つ関数などではとても扱いづらくなってしまいます。これは`4 * 2 + 5 * 3`を`(4 * 2) + (5 * 3)`と書くことと同じ論理です。それは、少しだけ新たに学ぶことを意味しますが、価値があることが非常に一般的です。
+実際に起こっていることを明示するために常に括弧をつけることはできますが、複数の引数を持つ関数などではとても扱いづらくなってしまいます。これは`4 * 2 + 5 * 3`を`(4 * 2) + (5 * 3)`とは書かないのと同じことです。型における括弧の省略ルールを新たに学ぶことは少し手間かもしれませんが、一般的に価値のあることです。
 
 <!--
 Fine, but what is the point of this feature in the first place? Why not do `(Int, String) -> String` and give all the arguments at once?
@@ -97,7 +97,7 @@ It takes two arguments: a function and a list. From there it transforms every el
 <!--
 Now remember how `String.repeat 4` had type `String -> String` on its own? Well, that means we can say:
 -->
-ここで、`String.repeat 4`が`String -> String`型であったことを覚えていますか？よって以下のように使うことができます:
+さて、`String.repeat 4`が`String -> String`型であったことを覚えていますか？よって以下のように使うことができます:
 
 - `List.map (String.repeat 2) ["ha","choo"] == ["haha","choochoo"]`
 
@@ -175,7 +175,7 @@ sanitize input =
 つまりこの"パイプライン"では`String.trim`に入力を渡して、そしてその結果を`String.toInt`に入力として渡しています。
 
 <!-- This is neat because it allows a “left-to-right” reading that many people like, but **pipelines can be overused!** When you have three or four steps, the code often gets clearer if you break out a top-level helper function. Now the transformation has a name. The arguments are named. It has a type annotation. It is much more self-documenting that way, and your teammates and your future self will appreciate it! Testing the logic gets easier too. -->
-これは多くの人が好むように、"左から右へ"読むことを可能にするため、すっきりしてします。しかし**パイプラインは過度に使われる可能性があります**。3、4つのパイプラインとなった場合トップレベルにヘルパー関数を書いた方がコードがより簡潔になる場合が多くあります。これにより変換は名前を持ち、引数も名前を持つことになり、型注釈も持ちます。これにより、さらにself-documentingなコードを書くことができ、チームメイトや将来の自分は感謝するでしょう！ロジックをテストすることもより簡単になります。
+これは多くの人が好むように、"左から右へ"読むことを可能にするため、すっきりしています。しかし**パイプラインは過度に使われる可能性があります**。3、4つのパイプラインとなった場合トップレベルにヘルパー関数を書いた方がコードがより簡潔になる場合が多くあります。トップレベルに定義することで変換自体に関数名が付き、その引数にも名前が付けられ、型注釈も書くことになります。つまりソースコード自体がその意味するところを雄弁に語るようになり、チームメイトや将来の自分自身は感謝することでしょう！更にロジックをテストすることもより簡単になります。
 
 <!-- > **Note:** I personally prefer the `BEFORE`, but perhaps that is just because I learned functional programming in languages without pipes! -->
 > **Note:** 私は個人的にはむしろ`BEFORE`のほうが好きですが、これはおそらくパイプが無い言語で関数型プログラミングを学んだからでしょう！
