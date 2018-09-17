@@ -20,7 +20,10 @@ It's super helpful!
 [サンプル](https://github.com/elm-jp/guide/pull/1)
 
 せっかく翻訳していただいたのに、実は同時に他の人が同じところを翻訳していて先にPRを出されちゃったらすごくもったいないですよね？
-それを防ぐために
+それを防ぐためにまず対応する issue を探して「これを担当します」とコメントするか、権限がある方は自分を assign してください。
+他の人が「お、これは作業中だな」と気づくのでオススメです！
+
+また、こちらは任意ですが
 
 ```bash
 $ git checkout -b ${your_branch_name}
@@ -28,8 +31,7 @@ $ git commit --allow-empty -m 'Empty commit'
 $ git push origin ${your_branch_name}
 ```
 
-のように空のコミットでブランチをプッシュして、「[WIP] interop/flags.md」 みたいなタイトルのPRを作っておくと
-他の人が「お、これは作業中だな」と気づくのでオススメです！
+のように空のコミットでブランチをプッシュして、「[WIP] interop/flags.md」 みたいなタイトルのPRを作っても良いでしょう。
 
 ## ローカル環境で確認する
 
