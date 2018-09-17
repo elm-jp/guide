@@ -16,3 +16,5 @@
 |:-------------:|:-------------:|
 | 型の別名      | type alias    |
 | カスタム型    | custom types  |
+| バリアント    | variant       |
+| パターンマッチ | pattern matching |
