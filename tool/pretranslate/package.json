@@ -1,0 +1,18 @@
+{
+  "name": "pretranslate",
+  "version": "1.0.0",
+  "description": "Pretranslation tool for guide.elm-lang.jp",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require jsdoctest index.js"
+  },
+  "author": "Kadzuya Okamoto",
+  "license": "MIT",
+  "bin": {
+    "pretranslate": "./index.js"
+  },
+  "devDependencies": {
+    "jsdoctest": "^1.7.1",
+    "mocha": "^5.2.0"
+  }
+}
