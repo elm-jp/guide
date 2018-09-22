@@ -12,7 +12,17 @@
 この翻訳プロジェクトで使う訳語と元の英単語の対応を表に表しました。
 学習にお役立てください。
 
-| 訳語          | 原文          |
-|:-------------:|:-------------:|
-| 型の別名      | type alias    |
-| カスタム型    | custom types  |
+| 訳語              | 原文            |
+|:-----------------:|:---------------:|
+| 型の別名          | type alias      |
+| カスタム型        | custom types    |
+| オブジェクト指向  | object oriented |
+| テキスト入力      | text field      |
+| カスタム型        | custom type     |
+| パターンマッチ    | pattern match   |
+| 相互運用          | interop         |
+| カスタムエレメンツ| custom elements |
+| パース            | parsing         |
+| パースする        | parse           |
+| ソースコード自身がその意味するところを雄弁に語るようになります | self-documenting |
+| ソースコード自身がその意味するところを雄弁に語るようになります | self-documented |
