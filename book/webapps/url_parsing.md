@@ -12,7 +12,7 @@
 
 <!-- How do we do that? We use the [`elm/url`](https://package.elm-lang.org/packages/elm/url/latest/) to parse the raw strings into nice Elm data structures. This package makes the most sense when you just look at examples, so that is what we will do! -->
 
-これはどのようにすればいいのでしょうか？　ここでは[`elm/url`](https://package.elm-lang.org/packages/elm/url/latest/)を使って、生の文字列をElmのデータ構造へとパースしていきます。例を見ていけば、このパッケージが何より役に立つことがわかると思います。私たちがやろうとしていることが、まさにそれですから！
+これはどのようにすればいいのでしょうか？　ここでは[`elm/url`](https://package.elm-lang.org/packages/elm/url/latest/)を使って、生の文字列をElmの素敵なデータ構造へとパースしていきます。例を見ていくだけで、このパッケージが何より役に立つことがわかると思います。私たちがやろうとしていることが、まさにそれですから！
 
 <!-- ## Example 1 -->
 
@@ -20,7 +20,7 @@
 
 <!-- Say we have an art website where the following addresses should be valid: -->
 
-美術のウェブサイトがあり、次のようなアドレスが妥当であるとしましょう。
+美術のウェブサイトがあり、次のようなURLのページがあるとしましょう。
 
 - `/topic/architecture`
 - `/topic/painting`
@@ -73,7 +73,7 @@ routeParser =
 
 <!-- The `Url.Parser` module makes it quite concise to fully turn valid URLs into nice Elm data! -->
 
-この`URL.Parser`パーサモジュールを使えば、妥当なURLを素晴らしいElmの素敵なデータへと完全に変換するのを、とても簡潔に書くことができます！
+この`URL.Parser`パーサモジュールを使えば、URLをElmの素敵なデータへと完全に変換するコードを、とても簡潔に書くことができます！
 
 
 <!-- ## Example 2 -->
@@ -82,7 +82,7 @@ routeParser =
 
 <!-- Now say we have a personal blog where addresses like this are valid: -->
 
-ユーザがそれぞれ個人のブログを持ち、次のようなアドレスが妥当であるとしましょう。
+個人用のプログで、次のようなURLのページがあるとしましょう。
 
 - `/blog/12/the-history-of-chairs`
 - `/blog/13/the-endless-september`
@@ -93,7 +93,7 @@ routeParser =
 
 <!-- In this case we have individual blog posts and a blog overview with an optional query parameter. We need to add the [`Url.Parser.Query`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser-Query) module to write our URL parser this time: -->
 
-ここで、ユーザの個々のブログポストがあり、オプショナルなクエリパラメータとしてブログの概要を渡すこともできるものとします。このとき、URLパーサを書くために、[`Url.Parser.Query`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser-Query)モジュールを追加しておく必要があります。
+ここで、それぞれのブログ投稿のページがあり、またオプショナルなクエリパラメータとしてブログの概要を渡すこともできるものとします。このとき、URLパーサを書くために、[`Url.Parser.Query`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser-Query)モジュールを追加しておく必要があります。
 
 ```elm
 import Url.Parser exposing (Parser, (</>), (<?>), int, map, oneOf, s, string)
@@ -130,7 +130,7 @@ routeParser =
 
 <!-- Okay, now we have a documentation website with addresses like this: -->
 
-今度は、次のようなアドレスを持つドキュメンテーションのウェブサイトを考えてみましょう。
+今度は、次のようなURLのページを持つ、ドキュメンテーションのウェブサイトを考えてみましょう。
 
 - `/Basics`
 - `/Maybe`
@@ -179,7 +179,7 @@ TODO
 
 <!-- The major new things are: -->
 
-ここで重要な新しい要素は、
+ここで重要な新しい要素は次の２点です。
 
 <!--
 1. Our `update` parses the URL when it gets a `UrlChanged` message.
@@ -187,11 +187,11 @@ TODO
 -->
 
 1. `UrlChanged`メッセージを受け取ったときに、`update`はそのURLをパースします。
-2. `view`関数は異なるアドレスそれぞれについて異なる内容を表示します。
+2. `view`関数は異なるアドレスそれぞれについて異なる内容を表示します！
 
 <!-- It is really not too fancy. Nice! -->
 
-これは別に風変わりというほどではありませんね。素晴らしいです！
+風変わりすぎるということはまったくありませんね。素晴らしいです！
 
 <!-- But what happens when you have 10 or 20 or 100 different pages? Does it all go in this one `view` function? Surely it cannot be all in one file. How many files should it be in? What should be the directory structure? That is what we will discuss next! -->
 
