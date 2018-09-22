@@ -4,7 +4,7 @@
 
 <!-- We just saw how to serve one page, but say we are making a website like `package.elm-lang.org`. It has a bunch of pages (e.g. [search](https://package.elm-lang.org/), [README](https://package.elm-lang.org/packages/elm/core/latest/), [docs](https://package.elm-lang.org/packages/elm/core/latest/Maybe)) that all work differently. How does it do that? -->
 
-さきほどは単一のページをどのようにサーバから送信するのかを見てきましたが、そういえばここでは`package.elm-lang.org`のようなウェブサイトを作っているのでした。ウェブサイトにはたくさんのページがあり(たとえば[検索](https://package.elm-lang.org/)や[README](https://package.elm-lang.org/packages/elm/core/latest/)、[ドキュメント](https://package.elm-lang.org/packages/elm/core/latest/Maybe))、それぞれ異なる動作をしています。これはどのようにすればいいのでしょうか？
+さきほどは単一のページをどのようにサーバから送信するのかを見てきましたが、そういえばここでは`package.elm-lang.org`のようなウェブサイトを作っているのでした。そのようなウェブサイトにはたくさんのページがあり(たとえば[検索](https://package.elm-lang.org/)や[README](https://package.elm-lang.org/packages/elm/core/latest/)、[ドキュメント](https://package.elm-lang.org/packages/elm/core/latest/Maybe))、それぞれ異なる動作をしています。これはどのようにすればいいのでしょうか？
 
 <!-- ## Multiple Pages -->
 
@@ -12,19 +12,19 @@
 
 <!-- The simple way would be to serve a bunch of different HTML files. Going to the home page? Load new HTML. Going to `elm/core` docs? Load new HTML. Going to `elm/json` docs? Load new HTML. -->
 
-簡単な方法としては、ページごとにそれぞれ異なる HTML ファイルをサーバから送信するというものがあるでしょう。ホームページに行きますか？それでは新しい HTML を読み込みましょう。今度は`elm/core`ドキュメントへ行きますか？では新しい HTML を読み込みましょう。
+簡単な方法としては、ページごとにそれぞれ異なる HTML ファイルをサーバから送信するというものがあるでしょう。サイトのホームページに行きますか？それでは新しい HTML を読み込みましょう。今度は`elm/core`ドキュメントへ行きますか？では新しい HTML を読み込みましょう。
 
 <!-- Until Elm 0.19, that is exactly what the package website did! It works. It is simple. But it has some weaknesses: -->
 
-Elm 0.19 まで、この『パッケージウェブサイト』がしていたことが、まさにそれでした！　これはうまく動きますし、シンプルです。でもいくつか弱点もあります。
+Elm 0.19 まで、このパッケージウェブサイトがしていたことが、まさにそれでした！　これはうまく動きますし、シンプルです。でもいくつか弱点もあります。
 
 <!-- 1. **Blank Screens.** The screen goes white everytime you load new HTML. Can we do a nice transition instead?
 2. **Redundant Requests.** Each package has a single `docs.json` file, but it gets loaded each time you visit a module like [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) or [`Maybe`](https://package.elm-lang.org/packages/elm/core/latest/Maybe). Can we share the data between pages somehow?
 3. **Redundant Code.** The home page and the docs share a lot of functions, like `Html.text` and `Html.div`. Can this code be shared between pages? -->
 
 4. **空白の画面。**新しい HTML が読み込まれるたびに、画面は真っ白になります。代わりに滑らかな遷移をすることはできるでしょうか？
-5. **冗長なリクエスト。**パッケージごとにそれぞれひとつづつ`docs.json`ファイルを持つことになりますが、[`String`](https://package.elm-lang.org/packages/elm/core/latest/String)や[`Maybe`](https://package.elm-lang.org/packages/elm/core/latest/Maybe)のようなモジュールを読み込むたびに毎回これが読み込まれます。どうにかしてこのデータを共有することはできないものでしょうか？
-6. **冗長なコード。**『ホームページ』と『ドキュメント』は`Html.text`や`Html.div`といった多くの関数を共有しています。ページ間でこのコードを共有することはできるでしょうか？
+5. **冗長なリクエスト。** パッケージごとにそのパッケージ内の全モジュールが共通でつかう`docs.json`ファイルを持つことになりますが、[`String`](https://package.elm-lang.org/packages/elm/core/latest/String)や[`Maybe`](https://package.elm-lang.org/packages/elm/core/latest/Maybe)のようなモジュールを読み込むたびに毎回これが読み込まれます。どうにかしてこのデータを共有することはできないものでしょうか？
+6. **冗長なコード。**『サイトのホームページ』と『ドキュメント』は`Html.text`や`Html.div`といった多くの関数を共有しています。ページ間でこのコードを共有することはできるでしょうか？
 
 <!-- We can improve all three cases! The basic idea is to only load HTML once, and then be a bit tricky to handle URL changes. -->
 
@@ -60,7 +60,7 @@ application :
 
 <!-- **When someone clicks a link**, like `<a href="/home">Home</a>`, it is intercepted as a [`UrlRequest`][ur]. So instead of loading new HTML with all the downsides, `onUrlRequest` creates a message for your `update` where you can decide exactly what to do next. You can save scroll position, persist data, change the URL yourself, etc. -->
 
-`<a href="/home">Home</a>`のような**リンクをクリックしたとき**、それを[`UrlRequest`][ur]として傍受します。いろいろな欠点がある HTML の再読み込みをするのではなく、`onUrlRequest`は`update`へメッセージを送り、次に何をするのかを細かく決定することができるようにします。スクロール位置を保存したり、URLを自分自身で変更したりなどです。
+`<a href="/home">Home</a>`のような**リンクをクリックしたとき**、それを[`UrlRequest`][ur]として傍受します。いろいろな欠点がある HTML の再読み込みをするのではなく、`onUrlRequest`は`update`へメッセージを送り、次に何をするのかを細かく決定することができるようにします。スクロール位置を保存したり、データを永続化したり、URLを自分自身で変更したりなどです。
 
 <!-- **When the URL changes**, the new `Url` is sent to `onUrlChange`.
 The resulting message goes to `update` where you can decide how to show the new page. -->
@@ -260,9 +260,9 @@ update msg model =
 > **Note 2:** If you want to restore “what they were looking at” when they come `BACK`, scroll position is not perfect. If they resize their browser or reorient their device, it could be off by quite a lot! So it is probably better to save “what they were looking at” instead. Maybe that means using [`getViewportOf`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Dom#getViewportOf) to figure out exactly what is on screen at the moment. The particulars depend on how your application works exactly, so I cannot give exact advice!
 -->
 
-> **脚注1:** このサンプルでは`Internal`リンクと`External`リンクのどちらもコマンドを直ちに生成していますが、これは必須ではありません！`External`リンクがクリックされたとき、別のページに遷移する前にテキストボックスの内容をデータベースに保存したいというような場合もあるでしょう。`Internal`リンクがクリックされたときは、あとで『戻る』で戻ってきたときのために[`getViewport`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Dom#getViewport)を使ってスクロール位置を保存しておきたくなるかもしれません。これらはどちらも可能です！　これは`update`関数では普通ののことで、ナビゲーションを先送りにし、やりたいことをなんでもすることができます。
+> **Note 1:** このサンプルでは`Internal`リンクと`External`リンクのどちらもコマンドを直ちに生成していますが、これは必須ではありません！`External`リンクがクリックされたとき、別のページに遷移する前にテキストボックスの内容をデータベースに保存したいというような場合もあるでしょう。`Internal`リンクがクリックされたときは、あとで『戻る』で戻ってきたときのために[`getViewport`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Dom#getViewport)を使ってスクロール位置を保存しておきたくなるかもしれません。これらはどちらも可能です！　これは`update`関数では普通のことで、ナビゲーションを先送りにし、やりたいことをなんでもすることができます。
 > 
-> **脚注2:** もし『戻る』で戻ってきたときに、以前見ていた状態をそのまま再現したいなら、スクロール位置を保存するだけでは完璧とは言えません。もしブラウザの大きさを変えたりデバイスの向きを変えたりすれば、ぜんぜん違ったものになってしまうかもしれません！そうではなく『以前見えていた状態』を保存するのがいいでしょう。もしかしたらそれは、[`getViewportOf`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Dom#getViewportOf)を使って、その瞬間に画面に見えているものが何なのかを調べるということかもしれません。詳細はそれぞれのアプリケーションの動作しだいですので、これ以上アドバイスすることはできません！
+> **Note 2:** もし『戻る』で戻ってきたときに、以前見ていた状態をそのまま再現したいなら、スクロール位置を保存するだけでは完璧とは言えません。もしブラウザの大きさを変えたりデバイスの向きを変えたりすれば、ぜんぜん違ったものになってしまうかもしれません！そうではなく『以前見えていた状態』を保存するのがいいでしょう。もしかしたらそれは、[`getViewportOf`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Dom#getViewportOf)を使って、その瞬間に画面に見えているものが何なのかを調べるということかもしれません。詳細はそれぞれのアプリケーションの動作しだいですので、これ以上アドバイスすることはできません！
 
 
 
@@ -270,11 +270,11 @@ update msg model =
 
 <!-- There are a couple ways to get `UrlChanged` messages. We just saw that `pushUrl` produces them, but pressing the browser `BACK` and `FORWARD` buttons produce them as well. And like I was saying in the notes a second ago, when you get a `LinkClicked` message, the `pushUrl` command may not be given immediately. -->
 
-`UrlChanged`メッセージを受け取る方法はいくつかあります。`pushUrl`がこれを生成することはこれまで見てきましたが、ブラウザの『戻る』や『進む』ボタンでも同じようにこのメッセージを生成します。そして先ほどの脚注で述べたように、`LinkClicked`メッセージを受け取ったときは、`pushUrl`コマンドはすぐには与えられないこともあります。
+`UrlChanged`メッセージを受け取る方法はいくつかあります。`pushUrl`がこれを生成することはこれまで見てきましたが、ブラウザの『戻る』や『進む』ボタンでも同じようにこのメッセージを生成します。そして先ほどのNote 1で述べたように、`LinkClicked`メッセージを受け取ったからといって、`pushUrl`コマンドをすぐに実行するようなコードにはなっていないこともあります。
 
 <!-- So the nice thing about having a separate `UrlChanged` message is that it does not matter how or when the URL changed. All you need to know is that it did! -->
 
-分離された`UrlChanged`メッセージを持つようにすると良いのは、いつどのようにURLが変更されたのかは気にしなくていいということです。ここで知っておく必要があるのは、それが起きたということだけです！
+`UrlChanged` メッセージを `LinkClicked` やブラウザバックの動作などとは独立したメッセージにしておくことで、いつどのようにURLが変更されたのかについては気にしないで常に「ページの遷移が実際に起こった後に何をするか」だけを考えればよくなります。
 
 <!-- We are just storing the new URL in our example here, but in a real web app, you need to parse the URL to figure out what content to show. That is what the next page is all about! -->
 
@@ -289,9 +289,9 @@ update msg model =
 > As a result of all that, we have a line in our `Model` for our `Key`. A relatively low price to pay to help everyone avoid an extremely subtle category of problems!
 -->
 
-> **脚注:** より重要な概念に注目するため、[`Nav.Key`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation#Key)についての説明は飛ばしました。でも、興味がある人のために、ここで説明しておきます。
+> **Note:** より重要な概念に注目するため、[`Nav.Key`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation#Key)についての説明は飛ばしました。でも、興味がある人のために、ここで説明しておきます。
 >
-> ナビゲーション『キー』は、URLを変更する(`pushUrl`のような)ナビゲーションコマンドを生成するのに必要です。`Browser.application`でプログラムを作成したときだけ`Key`を取得することができ、プログラムがURLの変更を検出する用意があることを保証します。もし`Key`の値がほかのプログラムから利用可能だとすると、不注意な開発者が[やっかいなバグ][bugs]を引き起こし、いろんな技巧を苦労して学ぶはめになるのはまず間違いないでしょう。
+> ナビゲーション『キー』(`Key`)は、URLを変更する(`pushUrl`のような)ナビゲーションコマンドを生成するのに必要です。`Browser.application`でプログラムを作成したときだけ`Key`を取得することができ、プログラムがURLの変更を検出する用意があることを保証します。もし`Key`の値がほかのプログラムから利用可能だとすると、不注意な開発者が[やっかいなバグ][bugs]を引き起こし、いろんな技巧を苦労して学ぶはめになるのはまず間違いないでしょう。
 > このような理由により、この`Key`と`Model`を結びつけています。とてもややこしい問題を避けるようにする方法としては、比較的安価な代償だと言えるでしょう。
 
 [bugs]: https://github.com/elm/browser/blob/1.0.0/notes/navigation-in-elements.md
