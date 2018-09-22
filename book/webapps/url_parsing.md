@@ -12,7 +12,7 @@
 
 <!-- How do we do that? We use the [`elm/url`](https://package.elm-lang.org/packages/elm/url/latest/) to parse the raw strings into nice Elm data structures. This package makes the most sense when you just look at examples, so that is what we will do! -->
 
-これはどのようにすればいいのでしょうか？[`elm/url`](https://package.elm-lang.org/packages/elm/url/latest/)を使って、生の文字列をElmのデータ構造へとパースしていきます。例を見ていけば、このパッケージが何より役に立つことがわかると思います。私たちがやろうとしていることが、まさにそれですから！
+これはどのようにすればいいのでしょうか？　ここでは[`elm/url`](https://package.elm-lang.org/packages/elm/url/latest/)を使って、生の文字列をElmのデータ構造へとパースしていきます。例を見ていけば、このパッケージが何より役に立つことがわかると思います。私たちがやろうとしていることが、まさにそれですから！
 
 <!-- ## Example 1 -->
 
@@ -35,7 +35,7 @@
 
 <!-- So we have topic pages, blog posts, user information, and a way to look up individual user comments. We would use the [`Url.Parser`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser) module to write a URL parser like this: -->
 
-トピック、ブログ投稿、ユーザ情報のページがあり、それぞれのユーザのコメントを見ることもできます。[`Url.Parser`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser) モジュールを使って、次のようにURLパーサを書くといいでしょう。
+トピックのページ、ブログの投稿、ユーザ情報のページがあり、それぞれのユーザのコメントを見ることもできます。[`Url.Parser`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser) モジュールを使って、次のようにURLパーサを書くといいでしょう。
 
 ```elm
 import Url.Parser exposing (Parser, (</>), int, map, oneOf, s, string)
@@ -73,7 +73,7 @@ routeParser =
 
 <!-- The `Url.Parser` module makes it quite concise to fully turn valid URLs into nice Elm data! -->
 
-この`URL.Parser`パーサモジュールは、妥当なURLを素晴らしいElmのデータへと完全に変換するのを、とても簡潔にしてくれます！
+この`URL.Parser`パーサモジュールを使えば、妥当なURLを素晴らしいElmの素敵なデータへと完全に変換するのを、とても簡潔に書くことができます！
 
 
 <!-- ## Example 2 -->
@@ -93,7 +93,7 @@ routeParser =
 
 <!-- In this case we have individual blog posts and a blog overview with an optional query parameter. We need to add the [`Url.Parser.Query`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser-Query) module to write our URL parser this time: -->
 
-このとき、個々のブログポストがあり、オプショナルなクエリパラメータとしてブログの概要を渡せるとします。ここで、URLパーサを書くために、[`Url.Parser.Query`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser-Query)モジュールを追加しておく必要があります。
+ここで、ユーザの個々のブログポストがあり、オプショナルなクエリパラメータとしてブログの概要を渡すこともできるものとします。このとき、URLパーサを書くために、[`Url.Parser.Query`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser-Query)モジュールを追加しておく必要があります。
 
 ```elm
 import Url.Parser exposing (Parser, (</>), (<?>), int, map, oneOf, s, string)
@@ -122,7 +122,7 @@ routeParser =
 
 <!-- The `</>` and `<?>` operators let us to write parsers that look quite like the actual URLs we want to parse. And adding `Url.Parser.Query` allowed us to handle query parameters like `?q=seiza`. -->
 
-`</>`と`<?>`演算子を使うと、パースしようとしている実際のURLによく似た形で、パーサを書くことができます。`Url.Parser.Query`を追加すると、`?q=seiza`というようなクエリパラメータを扱うことができるようになります。
+`</>`演算子や`<?>`演算子を使うと、パースしようとしている実際のURLによく似た形で、パーサを書くことができます。`Url.Parser.Query`を追加すると、`?q=seiza`というようなクエリパラメータを扱うことができるようになります。
 
 <!-- ## Example 3 -->
 
@@ -141,7 +141,7 @@ routeParser =
 
 <!-- We can use the [`fragment`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser#fragment) parser from `Url.Parser` to handle these addresses like this: -->
 
-`Url.Parser`モジュールにある[`fragment`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser#fragment)パーサを使うと、これらのアドレスは次のようになります。
+`Url.Parser`モジュールにある[`fragment`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser#fragment)パーサを使うと、これらのアドレスのパーサを次のように書くことができます。
 
 ```elm
 type alias Docs =
@@ -179,7 +179,7 @@ TODO
 
 <!-- The major new things are: -->
 
-ここで重要な点は、
+ここで重要な新しい要素は、
 
 <!--
 1. Our `update` parses the URL when it gets a `UrlChanged` message.
@@ -191,9 +191,9 @@ TODO
 
 <!-- It is really not too fancy. Nice! -->
 
-これは別に風変わりというほどではありませんね。素晴らしい！
+これは別に風変わりというほどではありませんね。素晴らしいです！
 
 <!-- But what happens when you have 10 or 20 or 100 different pages? Does it all go in this one `view` function? Surely it cannot be all in one file. How many files should it be in? What should be the directory structure? That is what we will discuss next! -->
 
-しかし、20や100といった異なるページがあるときはどうなるのでしょうか。ひとつの`view`関数にすべてを詰め込むのでしょうか？確かに、ひとつのファイルにすべてを書くというのは不可能です。いくつのファイルにわければいいのでしょうか？　デイレクトリ構造はどうすべきでしょうか？　これについては次の章で議論します。
+しかし、10や20、あるいは100も異なるページがあるときはどうなるのでしょうか。ひとつの`view`関数にすべてを詰め込むのでしょうか？確かに、ひとつのファイルにすべてを書くというのは不可能です。いくつのファイルにわければいいのでしょうか？　デイレクトリ構造はどうすべきでしょうか？　これについては次の章で議論します！
 
