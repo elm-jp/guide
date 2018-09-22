@@ -138,7 +138,7 @@ import Post exposing (Post, estimatedReadTime)
 -- Post, estimatedReadTime
 -- Post.Post, Post.estimatedReadTime, Post.encode, Post.decoder
 
-import Post as P exposing (Post, egitstimatedReadTime)
+import Post as P exposing (Post, estimatedReadTime)
 -- Post, estimatedReadTime
 -- P.Post, P.estimatedReadTime, P.encode, P.decoder
 ```
