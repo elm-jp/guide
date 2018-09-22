@@ -94,6 +94,6 @@ elm make src/Main.elm --output=main.js
 >
 > **Note 2:** The Digital Ocean link above is a referral link, so if you sign up through that and end up using the service, we get a $25 credit towards our hosting costs for `elm-lang.org` and `package.elm-lang.org`. -->
 
-> > **脚注 2:** 　もしあなたが CSS で何らかのカスタマイズをしたいのなら、カスタム HTML を作るといいでしょう。多くのユーザは、[`rtfeldman/elm-css`](https://package.elm-lang.org/packages/rtfeldman/elm-css/latest/)のようなプロジェクト使って Elm のなかでスタイルを扱っていますが、あなたはチームを組んで作業しており、事前に書かれたたくさんの CSS があるかもしれません。チームでは何らかの CSS プロプロセッサを使っていることもあるでしょう。その場合もあなたの HTML ファイルの`<head>`で、最終的な CSS ファイルを読み込むだけです。
+> **Note 1:** 　もしあなたが CSS で何らかのカスタマイズをしたいのなら、カスタム HTML を作るといいでしょう。多くのユーザは、[`rtfeldman/elm-css`](https://package.elm-lang.org/packages/rtfeldman/elm-css/latest/)のようなプロジェクト使って Elm のなかでスタイルを扱っていますが、あなたはチームを組んで作業しており、事前に書かれたたくさんの CSS があるかもしれません。チームでは何らかの CSS プロプロセッサを使っていることもあるでしょう。その場合もあなたの HTML ファイルの`<head>`で、最終的な CSS ファイルを読み込むだけです。
 
-> **脚注 2:** 先述の Digital Ocean へのリンクは紹介料付きのリンクで、もしこちらを通じてサインアップしてサービスを使っていただければ、`elm-lang.org`と`package.elm-lang.org`へ 25 ドルのホスティング料が支払われます。
+> **Note 2:** 先述の Digital Ocean へのリンクは紹介料付きのリンクで、もしこちらを通じてサインアップしてサービスを使っていただければ、`elm-lang.org`と`package.elm-lang.org`へ 25 ドルのホスティング料が支払われます。
