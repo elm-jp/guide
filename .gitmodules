@@ -1,0 +1,3 @@
+[submodule "guide.elm-lang.org"]
+	path = guide.elm-lang.org
+	url = https://github.com/evancz/guide.elm-lang.org.git
