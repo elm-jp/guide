@@ -650,15 +650,32 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="pattern-matching">Pattern Matching</h1>
-<p>On the previous page, we learned how to create <a href="custom_types.html">custom types</a> with the <code>type</code> keyword. Our primary example was a <code>User</code> in a chat room:</p>
+                                <!--
+# Pattern Matching
+-->
+<h1 id="&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;">&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;</h1>
+<!--
+On the previous page, we learned how to create [custom types](/types/custom_types.html) with the `type` keyword. Our primary example was a `User` in a chat room:
+-->
+<p>&#x524D;&#x306E;&#x30DA;&#x30FC;&#x30B8;&#x3067;&#x3001;<code>type</code> &#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x7528;&#x3044;&#x305F;<a href="custom_types.html">&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;</a>&#x306E;&#x66F8;&#x304D;&#x65B9;&#x306B;&#x3064;&#x3044;&#x3066;&#x5B66;&#x3073;&#x307E;&#x3057;&#x305F;&#x3002;
+&#x4E3B;&#x8981;&#x306A;&#x4F8B;&#x3068;&#x3057;&#x3066;&#x30C1;&#x30E3;&#x30C3;&#x30C8;&#x30EB;&#x30FC;&#x30E0;&#x306E; <code>User</code> &#x578B;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x307E;&#x3057;&#x305F;:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">User</span>
   = <span class="hljs-type">Regular</span> <span class="hljs-type">String</span>
   | <span class="hljs-type">Visitor</span> <span class="hljs-type">String</span>
 </code></pre>
-<p>So we have our custom type, but how do we actually use it?</p>
+<!--
+So we have our custom type, but how do we actually use it?
+-->
+<p>&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;&#x306B;&#x3064;&#x3044;&#x3066;&#x898B;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x5B9F;&#x969B;&#x306B;&#x306F;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x4F7F;&#x3048;&#x3070;&#x826F;&#x3044;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;</p>
+<!--
+## `case`
+-->
 <h2 id="case"><code>case</code></h2>
-<p>Say we want a <code>toName</code> function that decides on a name to show for each <code>User</code>. We need to use a <code>case</code> expression:</p>
+<!--
+Say we want a `toName` function that decides on a name to show for each `User`. We need to use a `case` expression:
+-->
+<p>&#x5404; <code>User</code> &#x304B;&#x3089;&#x8868;&#x793A;&#x3059;&#x308B;&#x540D;&#x524D;&#x3092;&#x8FD4;&#x3059;&#x95A2;&#x6570; <code>toName</code> &#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x305F;&#x3044;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;
+<code>case</code> &#x5F0F;&#x3092;&#x4F7F;&#x3046;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;:</p>
 <pre><code class="lang-elm"><span class="hljs-title">toName</span> : <span class="hljs-type">User</span> -&gt; <span class="hljs-type">String</span>
 <span class="hljs-title">toName</span> user =
   <span class="hljs-keyword">case</span> user <span class="hljs-keyword">of</span>
@@ -668,18 +685,38 @@
     <span class="hljs-type">Visitor</span> name -&gt;
       name
 </code></pre>
-<p>The incoming <code>User</code> value can come in two different variants. The <code>case</code> expression allows us to branch based on which variant we happen to see. Here are some example uses:</p>
+<!--
+The incoming `User` value can come in two different variants. The `case` expression allows us to branch based on which variant we happen to see. Here are some example uses:
+-->
+<p><code>User</code> &#x306F;2&#x3064;&#x306E;&#x7570;&#x306A;&#x308B;&#x30D0;&#x30EA;&#x30A2;&#x30F3;&#x30C8;&#x3092;&#x5024;&#x3068;&#x3057;&#x3066;&#x6301;&#x3064;&#x3053;&#x3068;&#x304C;&#x51FA;&#x6765;&#x307E;&#x3059;&#x3002;
+<code>case</code> &#x5F0F;&#x306F;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x30D0;&#x30EA;&#x30A2;&#x30F3;&#x30C8;&#x304B;&#x306B;&#x57FA;&#x3065;&#x3044;&#x3066;&#x5206;&#x5C90;&#x3059;&#x308B;&#x3053;&#x3068;&#x3092;&#x53EF;&#x80FD;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;
+<code>toName</code> &#x95A2;&#x6570;&#x3092;&#x4F7F;&#x3063;&#x305F;&#x4F8B;&#x306F;&#x3053;&#x3061;&#x3089;&#x3067;&#x3059;:</p>
 <pre><code class="lang-elm"><span class="hljs-title">toName</span> (<span class="hljs-type">Regular</span> <span class="hljs-string">&quot;Thomas&quot;</span>) == <span class="hljs-string">&quot;Thomas&quot;</span>
 <span class="hljs-title">toName</span> (<span class="hljs-type">Visitor</span> <span class="hljs-string">&quot;kate95&quot;</span>) == <span class="hljs-string">&quot;kate95&quot;</span>
 </code></pre>
-<p>And if we try invalid arguments like <code>toName (Visitar &quot;kate95&quot;)</code> or <code>toName Anonymous</code>, the compiler tells us about it immediately. This means many &#x201C;silly mistakes&#x201D; can be fixed in seconds, rather than making it to users and costing a lot more time overall.</p>
-<h2 id="refactoring-support">Refactoring Support</h2>
-<p>Say we want to track the age of <code>Regular</code> users so we can try to encourage cross-generational discussions in our chat room. We first add that to our custom type:</p>
+<!--
+And if we try invalid arguments like `toName (Visitar "kate95")` or `toName Anonymous`, the compiler tells us about it immediately. This means many “silly mistakes” can be fixed in seconds, rather than making it to users and costing a lot more time overall.
+-->
+<p>&#x305D;&#x3057;&#x3066;&#x3082;&#x3057;&#x3001;<code>toName (Visitar &quot;kate95&quot;)</code>&#x3000;&#x3084; <code>toName Anonymous</code>  &#x306E;&#x3088;&#x3046;&#x306A;&#x4E0D;&#x6B63;&#x306A;&#x5F15;&#x6570;&#x3092;&#x4E0E;&#x3048;&#x305F;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C;&#x305D;&#x306E;&#x3053;&#x3068;&#x306B;&#x3064;&#x3044;&#x3066;&#x3059;&#x3050;&#x306B;&#x6559;&#x3048;&#x3066;&#x304F;&#x308C;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;
+&#x3064;&#x307E;&#x308A;&#x3001;&#x591A;&#x304F;&#x306E; &#x201C;&#x611A;&#x304B;&#x306A;&#x9593;&#x9055;&#x3044;&#x201D; &#x306F;&#x3001;&#x305F;&#x304F;&#x3055;&#x3093;&#x306E;&#x6642;&#x9593;&#x3092;&#x8CBB;&#x3084;&#x3059;&#x3053;&#x3068;&#x306A;&#x304F;&#x3001;&#x6570;&#x79D2;&#x3067;&#x4FEE;&#x6B63;&#x3067;&#x304D;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<!--
+## Refactoring Support
+-->
+<h2 id="&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x306E;&#x30B5;&#x30DD;&#x30FC;&#x30C8;">&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x306E;&#x30B5;&#x30DD;&#x30FC;&#x30C8;</h2>
+<!--
+Say we want to track the age of `Regular` users so we can try to encourage cross-generational discussions in our chat room. We first add that to our custom type:
+-->
+<p>&#x79C1;&#x305F;&#x3061;&#x306E;&#x30C1;&#x30E3;&#x30C3;&#x30C8;&#x30EB;&#x30FC;&#x30E0;&#x306B;&#x3066;&#x4E16;&#x4EE3;&#x9593;&#x306E;&#x8B70;&#x8AD6;&#x3092;&#x63A8;&#x5968;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x3001;<code>Regular</code> &#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x5E74;&#x9F62;&#x3092;&#x8FFD;&#x8DE1;&#x3057;&#x305F;&#x3044;&#x3068;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;
+&#x307E;&#x305A;&#x306F;&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;&#x306B;&#x5E74;&#x9F62;&#x306E;&#x578B;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x307E;&#x3059;:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">User</span>
   = <span class="hljs-type">Regular</span> <span class="hljs-type">String</span> <span class="hljs-type">Int</span>
   | <span class="hljs-type">Visitor</span> <span class="hljs-type">String</span>
 </code></pre>
-<p>At this point, the compiler will tell us about every single <code>case</code> expression that needs to be updated as a result. So for <code>toName</code> we might update to:</p>
+<!--
+At this point, the compiler will tell us about every single `case` expression that needs to be updated as a result. So for `toName` we might update to:
+-->
+<p>&#x3053;&#x306E;&#x6642;&#x70B9;&#x3067;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x3001;&#x66F4;&#x65B0;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x306E;&#x3042;&#x308B;&#x5168;&#x3066;&#x306E; <code>case</code> &#x5F0F;&#x3092;&#x7D50;&#x679C;&#x3068;&#x3057;&#x3066;&#x6559;&#x3048;&#x3066;&#x304F;&#x308C;&#x307E;&#x3059;&#x3002;
+&#x305D;&#x308C;&#x306B;&#x3088;&#x308A;&#x3001;<code>toName</code> &#x3092;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x66F4;&#x65B0;&#x3059;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;:</p>
 <pre><code class="lang-elm"><span class="hljs-title">toName</span> : <span class="hljs-type">User</span> -&gt; <span class="hljs-type">String</span>
 <span class="hljs-title">toName</span> user =
   <span class="hljs-keyword">case</span> user <span class="hljs-keyword">of</span>
@@ -689,19 +726,47 @@
     <span class="hljs-type">Visitor</span> name -&gt;
       name
 </code></pre>
-<p>I decided that I want to show the age as part of the display name, but maybe it should be displayed some other way. The important point is just that the compiler actively asks you to consider this question!</p>
-<p>This is especially helpful when you start refactoring in large codebases. Say you have 20 <code>case</code> expressions that handle <code>User</code> values. They are scattered throughout a bunch of different files. The files are written and maintained by different people. And say someone adds a <code>Anonymous</code> variant to <code>User</code>:</p>
+<!--
+I decided that I want to show the age as part of the display name, but maybe it should be displayed some other way. The important point is just that the compiler actively asks you to consider this question!
+-->
+<p>&#x4ECA;&#x56DE;&#x306F;&#x3001;&#x5E74;&#x9F62;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&#x540D;&#x524D;&#x306E;&#x4E00;&#x90E8;&#x3068;&#x3057;&#x3066;&#x8868;&#x793A;&#x3057;&#x305F;&#x3044;&#x3068;&#x3057;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x5225;&#x306E;&#x65B9;&#x6CD5;&#x3067;&#x8868;&#x793A;&#x3059;&#x3079;&#x304D;&#x3060;&#x3068;&#x8003;&#x3048;&#x308B;&#x4EBA;&#x3082;&#x5C45;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;
+&#x3057;&#x304B;&#x3057;&#x3001;&#x3053;&#x3053;&#x3067;&#x306E;&#x91CD;&#x8981;&#x306A;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x306F;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C;&#x3053;&#x306E;&#x554F;&#x984C;&#x306B;&#x3064;&#x3044;&#x3066;&#x8003;&#x3048;&#x308B;&#x3088;&#x3046;&#x306B;&#x3068;&#x7A4D;&#x6975;&#x7684;&#x306B;&#x4FC3;&#x3057;&#x3066;&#x304F;&#x308C;&#x308B;&#x70B9;&#x3067;&#x3059;&#xFF01;</p>
+<!--
+This is especially helpful when you start refactoring in large codebases. Say you have 20 `case` expressions that handle `User` values. They are scattered throughout a bunch of different files. The files are written and maintained by different people. And say someone adds a `Anonymous` variant to `User`:
+-->
+<p>&#x3053;&#x308C;&#x306F;&#x3001;&#x3042;&#x306A;&#x305F;&#x304C;&#x5927;&#x898F;&#x6A21;&#x306A;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x3092;&#x59CB;&#x3081;&#x305F;&#x3068;&#x304D;&#x306B;&#x3001;&#x7279;&#x306B;&#x52A9;&#x3051;&#x306B;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;
+&#x4F8B;&#x3048;&#x3070;&#x3001;<code>User</code> &#x578B;&#x306B;&#x5BFE;&#x3059;&#x308B;20&#x500B;&#x3082;&#x306E; <code>case</code> &#x5F0F;&#x3092;&#x66F8;&#x3044;&#x3066;&#x3044;&#x305F;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;
+&#x305D;&#x308C;&#x3089;&#x306F;&#x69D8;&#x3005;&#x306A;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x6563;&#x5728;&#x3057;&#x3066;&#x304A;&#x308A;&#x3001;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306F;&#x7570;&#x306A;&#x308B;&#x4EBA;&#x305F;&#x3061;&#x306B;&#x3088;&#x3063;&#x3066;&#x30E1;&#x30F3;&#x30C6;&#x30CA;&#x30F3;&#x30B9;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;
+&#x305D;&#x3053;&#x3067;&#x3001;&#x65B0;&#x3057;&#x304F; <code>Anonymous</code> &#x30D0;&#x30EA;&#x30A2;&#x30F3;&#x30C8;&#x3092; <code>User</code> &#x578B;&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x305F;&#x3044;&#x3068;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">User</span>
   = <span class="hljs-type">Regular</span> <span class="hljs-type">String</span> <span class="hljs-type">Int</span>
   | <span class="hljs-type">Visitor</span> <span class="hljs-type">String</span>
   | <span class="hljs-type">Anonymous</span>
 </code></pre>
-<p>The compiler will inform you about all 20 <code>case</code> expressions that need to be updated. You can hop around deciding exactly how to handle <code>Anonymous</code> users in each situation.</p>
-<p>I feel like this sounds pretty boring, but experientially, it is one of my favorite things about languages like Elm. You change a type and then the compiler helps you methodically make the necessary updates. I find it strangely relaxing. Maybe because I get to focus on the fun programming puzzles, but without the anxiety about forgetting something and spending hours trying to figure out what it was. Unclear!</p>
+<!--
+The compiler will inform you about all 20 `case` expressions that need to be updated. You can hop around deciding exactly how to handle `Anonymous` users in each situation.
+-->
+<p>&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;20&#x500B;&#x3082;&#x306E; <code>case</code> &#x5F0F;&#x5168;&#x3066;&#x306B;&#x3064;&#x3044;&#x3066;&#x3001;&#x66F4;&#x65B0;&#x304C;&#x5FC5;&#x8981;&#x3067;&#x3042;&#x308B;&#x65E8;&#x3092;&#x5831;&#x544A;&#x3057;&#x3066;&#x304F;&#x308C;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;
+&#x3042;&#x306A;&#x305F;&#x306F;&#x3001;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x72B6;&#x6CC1;&#x3067; <code>Anonymous</code> &#x306A;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x3092;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x6271;&#x3046;&#x3079;&#x304D;&#x304B;&#x3092;&#x6C7A;&#x3081;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<!--
+I feel like this sounds pretty boring, but experientially, it is one of my favorite things about languages like Elm. You change a type and then the compiler helps you methodically make the necessary updates. I find it strangely relaxing. Maybe because I get to focus on the fun programming puzzles, but without the anxiety about forgetting something and spending hours trying to figure out what it was. Unclear!
+-->
+<p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x306F;&#x3068;&#x3066;&#x3082;&#x9000;&#x5C48;&#x306A;&#x3082;&#x306E;&#x3060;&#x3068;&#x611F;&#x3058;&#x307E;&#x3059;&#x304C;&#x3001;&#x7D4C;&#x9A13;&#x7684;&#x306B;&#x3001;Elm &#x306E;&#x3088;&#x3046;&#x306A;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x8A00;&#x8A9E;&#x306E;&#x597D;&#x304D;&#x306A;&#x70B9;&#x306E;&#x4E00;&#x3064;&#x3067;&#x3059;&#x3002;
+&#x578B;&#x3092;&#x5909;&#x3048;&#x308B;&#x3068;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x5FC5;&#x8981;&#x306B;&#x306A;&#x308B;&#x66F4;&#x65B0;&#x7B87;&#x6240;&#x3092;&#x898B;&#x3064;&#x3051;&#x51FA;&#x3057;&#x3066;&#x304F;&#x308C;&#x307E;&#x3059;&#x3002;
+&#x79C1;&#x306F;&#x305D;&#x3053;&#x304B;&#x3089;&#x4E0D;&#x601D;&#x8B70;&#x306A;&#x5B89;&#x3089;&#x304E;&#x3092;&#x611F;&#x3058;&#x307E;&#x3059;&#x3002;
+&#x3053;&#x308C;&#x306F;&#x304A;&#x305D;&#x3089;&#x304F;&#x3001;&#x697D;&#x3057;&#x3044;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x30D1;&#x30BA;&#x30EB;&#x306B;&#x96C6;&#x4E2D;&#x3057;&#x305F;&#x3044;&#x304C;&#x3001;&#x4F55;&#x304B;&#x3092;&#x5FD8;&#x308C;&#x3066;&#x3057;&#x307E;&#x3044;&#x305D;&#x308C;&#x3092;&#x601D;&#x3044;&#x51FA;&#x3059;&#x305F;&#x3081;&#x306B;&#x6642;&#x9593;&#x3092;&#x8CBB;&#x3084;&#x3059;&#x3053;&#x3068;&#x306B;&#x5BFE;&#x3059;&#x308B;&#x4E0D;&#x5B89;&#x3092;&#x611F;&#x3058;&#x305A;&#x306B;&#x306F;&#x3044;&#x3089;&#x308C;&#x306A;&#x3044;&#x304B;&#x3089;&#x3060;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;
+&#x77E5;&#x3089;&#x3093;&#x3051;&#x3069;&#x3002;</p>
+<!--
+> **Note:** When refactoring is easy, it changes the dynamics of large projects quite significantly.
+>
+> Refactors like this are so risky in JavaScript that many people do not even try. Will the tests cover all 20 cases? Probably not. Will you notice all the cases that are not covered? Probably not. What about the cases in code written by your colleagues? Wait, they worked on this code too?! This leads to a (justifiable) preoccupation with getting file structure right from the first day in JavaScript projects.
+>
+> But when refactoring is easy, it actually works better to make changes as you learn more about the problem. Do not worry about it so much. If you get something wrong, just fix it when you find out. I describe this change in mindset in more detail in [The Life of a File](https://youtu.be/XpDsk374LDE).
+-->
 <blockquote>
-<p><strong>Note:</strong> When refactoring is easy, it changes the dynamics of large projects quite significantly.</p>
-<p>Refactors like this are so risky in JavaScript that many people do not even try. Will the tests cover all 20 cases? Probably not. Will you notice all the cases that are not covered? Probably not. What about the cases in code written by your colleagues? Wait, they worked on this code too?! This leads to a (justifiable) preoccupation with getting file structure right from the first day in JavaScript projects.</p>
-<p>But when refactoring is easy, it actually works better to make changes as you learn more about the problem. Do not worry about it so much. If you get something wrong, just fix it when you find out. I describe this change in mindset in more detail in <a href="https://youtu.be/XpDsk374LDE" target="_blank">The Life of a File</a>.</p>
+<p><strong>Note:</strong> &#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x304C;&#x5BB9;&#x6613;&#x3067;&#x3042;&#x308B;&#x306A;&#x3089;&#x3070;&#x3001;&#x5927;&#x898F;&#x6A21;&#x306A;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x30C0;&#x30A4;&#x30CA;&#x30DF;&#x30AF;&#x30B9;&#x3092;&#x304B;&#x306A;&#x308A;&#x5927;&#x5E45;&#x306B;&#x5909;&#x3048;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x591A;&#x304F;&#x306E;&#x4EBA;&#x3005;&#x304C;&#x8A66;&#x3055;&#x306A;&#x3044;&#x3067;&#x3042;&#x308D;&#x3046; JavaScript &#x3067;&#x306E;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x306F;&#x3068;&#x3066;&#x3082;&#x30EA;&#x30B9;&#x30AD;&#x30FC;&#x3067;&#x3059;&#x3002;20&#x500B;&#x5168;&#x3066;&#x306E;&#x30B1;&#x30FC;&#x30B9;&#x3092;&#x30C6;&#x30B9;&#x30C8;&#x3067;&#x30AB;&#x30D0;&#x30FC;&#x3067;&#x304D;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x304A;&#x305D;&#x3089;&#x304F;&#x7121;&#x7406;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x30AB;&#x30D0;&#x30FC;&#x3055;&#x308C;&#x3066;&#x306A;&#x3044;&#x5168;&#x3066;&#x306E;&#x30B1;&#x30FC;&#x30B9;&#x306B;&#x3064;&#x3044;&#x3066;&#x6C17;&#x3065;&#x304F;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x304A;&#x305D;&#x3089;&#x304F;&#x7121;&#x7406;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x3042;&#x306A;&#x305F;&#x306E;&#x540C;&#x50DA;&#x306B;&#x3088;&#x3063;&#x3066;&#x66F8;&#x304B;&#x308C;&#x305F;&#x30B3;&#x30FC;&#x30C9;&#x306F;&#x3069;&#x3046;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x5F85;&#x3063;&#x3066;&#x3001;&#x5F7C;&#x3089;&#x3082;&#x3053;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x5F04;&#x3063;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3067;&#x3057;&#x305F;&#x304B;&#xFF01;&#xFF1F;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B; JavaScript &#x3067;&#x306F;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x69CB;&#x9020;&#x3092;&#x5909;&#x3048;&#x308B;&#x3088;&#x3046;&#x306A;&#x5927;&#x898F;&#x6A21;&#x306A;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x304C;&#x96E3;&#x3057;&#x3044;&#x306E;&#x3067;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DE;&#x304C; JavaScript &#x306E;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3067;&#x306F;&#x6700;&#x521D;&#x304B;&#x3089;&#x6B63;&#x3057;&#x304F;&#x30E2;&#x30C7;&#x30EA;&#x30F3;&#x30B0;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3068;&#x601D;&#x3044;&#x8FBC;&#x3080;&#x306E;&#x306F;&#x7121;&#x7406;&#x306E;&#x306A;&#x3044;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
+<p>&#x3057;&#x304B;&#x3057;&#x3001;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x304C;&#x7C21;&#x5358;&#x306A;&#x3068;&#x304D;&#x306F;&#x3001;&#x554F;&#x984C;&#x306B;&#x3064;&#x3044;&#x3066;&#x3082;&#x3063;&#x3068;&#x826F;&#x304F;&#x77E5;&#x308B;&#x306B;&#x3064;&#x308C;&#x3066;&#x6539;&#x5584;&#x3057;&#x305F;&#x65B9;&#x304C;&#x826F;&#x304F;&#x306A;&#x3063;&#x3066;&#x3044;&#x304F;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x305D;&#x3093;&#x306A;&#x306B;&#x5FC3;&#x914D;&#x3057;&#x306A;&#x3044;&#x3067;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x4F55;&#x304B;&#x9593;&#x9055;&#x3048;&#x305F;&#x3068;&#x3053;&#x308D;&#x304C;&#x3042;&#x3063;&#x305F;&#x306A;&#x3089;&#x3001;&#x898B;&#x3064;&#x3051;&#x305F;&#x3068;&#x304D;&#x306B;&#x4FEE;&#x6B63;&#x3059;&#x308C;&#x3070;&#x826F;&#x3044;&#x306E;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x8003;&#x3048;&#x65B9;&#x306E;&#x5909;&#x5316;&#x306B;&#x3064;&#x3044;&#x3066;&#x306E;&#x8A73;&#x7D30;&#x306F; <a href="https://youtu.be/XpDsk374LDE" target="_blank">The Life of a File</a> &#x3067;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 </blockquote>
 
                                 
@@ -746,7 +811,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"パターンマッチ","level":"1.5.4","depth":2,"next":{"title":"コマンドとサブスクリプション","level":"1.6","depth":1,"path":"effects/README.md","ref":"effects/README.md","articles":[{"title":"Random","level":"1.6.1","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},{"title":"Time","level":"1.6.2","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]},{"title":"JSON","level":"1.6.3","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},{"title":"HTTP","level":"1.6.4","depth":2,"path":"effects/http.md","ref":"effects/http.md","articles":[]}]},"previous":{"title":"カスタム型","level":"1.5.3","depth":2,"path":"types/custom_types.md","ref":"types/custom_types.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"name":"robots","content":"noindex","data":[]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"types/pattern_matching.md","mtime":"2018-09-22T07:01:31.874Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-22T07:02:25.041Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"パターンマッチ","level":"1.5.4","depth":2,"next":{"title":"コマンドとサブスクリプション","level":"1.6","depth":1,"path":"effects/README.md","ref":"effects/README.md","articles":[{"title":"Random","level":"1.6.1","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},{"title":"Time","level":"1.6.2","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]},{"title":"JSON","level":"1.6.3","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},{"title":"HTTP","level":"1.6.4","depth":2,"path":"effects/http.md","ref":"effects/http.md","articles":[]}]},"previous":{"title":"カスタム型","level":"1.5.3","depth":2,"path":"types/custom_types.md","ref":"types/custom_types.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"name":"robots","content":"noindex","data":[]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"types/pattern_matching.md","mtime":"2018-09-25T11:12:51.326Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-09-25T11:13:47.022Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
