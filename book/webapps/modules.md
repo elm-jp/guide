@@ -4,7 +4,7 @@
 
 <!-- Elm has **modules** to help you grow your codebase in a nice way. On the most basic level, modules let you break your code into multiple files. -->
 
-Elmにはコードベースをうまく拡大していくときに役に立つ**モジュール**があります。最も基本的には、モジュールはコードを複数のファイルへと分割できるようにします。
+Elm にはコードベースをうまく拡大していくときに役に立つ**モジュール**があります。最も基本的には、モジュールはコードを複数のファイルへと分割できるようにします。
 
 <!-- ## Defining Modules -->
 
@@ -12,7 +12,7 @@ Elmにはコードベースをうまく拡大していくときに役に立つ**
 
 <!-- Elm modules work best when you define them around a central type. Like how the `List` module is all about the `List` type. So say we want to build a module around a `Post` type for a blogging website. We can create something like this: -->
 
-Elmのモジュールは、型を中心にして定義していくようにすると最もうまくいきます。`List`型に対する`List`モジュールがまさにそうなっています。そうなると、ブログサイトであれば、`Post`型を中心にしてモジュールを組み立てたくなる思います。たとえば次のようにモジュールを作ることができるでしょう。
+Elm のモジュールは、型を中心にして定義していくようにすると最もうまくいきます。`List`型に対する`List`モジュールがまさにそうなっています。そうなると、ブログサイトであれば、`Post`型を中心にしてモジュールを組み立てたくなる思います。たとえば次のようにモジュールを作ることができるでしょう。
 
 ```elm
 module Post exposing (Post, estimatedReadTime, encode, decode)
@@ -61,7 +61,7 @@ decoder =
 
 <!-- The only new syntax here is that `module Post exposing (..)` line at the very top. That means the module is known as `Post` and only certain values are available to outsiders. As written, the `wordCount` function is only available _within_ the `Post` module. Hiding functions like this is one of the most important techniques in Elm! -->
 
-ここで出てくる新しい構文は、最上部にある`module Post exposing (..)`の行だけです。この行が意味しているのは、このモジュールが`Post`という名前であることと、ここに並んだいくつかの値だけがモジュールの外部から利用できるということです。ここに書かれているように、`wordCount`関数は `Post`モジュールの**中でだけ**利用可能になります。このように関数を隠すのは、Elmで最も重要なテクニックのひとつです！
+ここで出てくる新しい構文は、最上部にある`module Post exposing (..)`の行だけです。この行が意味しているのは、このモジュールが`Post`という名前であることと、ここに並んだいくつかの値だけがモジュールの外部から利用できるということです。ここに書かれているように、`wordCount`関数は `Post`モジュールの**中でだけ**利用可能になります。このように関数を隠すのは、Elm で最も重要なテクニックのひとつです！
 
 <!--
 > **Note:** If you forget to add a module declaration, Elm will use this one instead:
@@ -73,13 +73,15 @@ module Main exposing (..)
 > This makes things easier for beginners working in just one file. They should not be confronted with the module system on their first day!
 -->
 
-> **ノート:** もしモジュールの定義を追加するのを忘れてしまったら、Elmは代わりに次のようなものを使います。
+> **Note:** もしモジュールの宣言を追加するのを忘れてしまったら、Elm は代わりに次のようなものを使います。
 >
->```elm
-module Main exposing (..)
-```
+> ```elm
+> module Main exposing (..)
+> ```
+
+````
 >
-> これは初心者がひとつのファイルだけで作業するときに簡単にしてくれます。Elmを学び始めた最初の日からいきなりモジュールシステムに向き合うべきではありません！　
+> これは初心者がひとつのファイルだけで作業するときに簡単にしてくれます。Elmを学び始めた最初の日からいきなりモジュールシステムに向き合うべきではありません！
 
 <!-- ## Growing Modules -->
 
@@ -99,23 +101,23 @@ module Main exposing (..)
 - **The Same** &mdash; At some point we will have a bunch of **unique** code. That is fine! But perhaps we find that some definitions contain logic that is _exactly_ the same. Break out a helper function for that logic! If all the uses are in one module, no need to do anything more. Maybe put a comment header like `-- READ TIME` if you really want.
 -->
 
-- **コードが固有である** &mdash; もしロジックが一箇所だけに出現するのなら、トップレベルの補助関数として分割し、それを使用している箇所になるべく近いところに置きます。すぐ後ろに続く定義が先述のPOSTと関係していることを表すため、`-- POST PREVIEW`というようなコメントヘッダを使うこともあります。
-- **コードが類似している** &mdash; 投稿(`Post`)のプレビューを、サイトのホームページと作者のページの両方に表示したいとしましょう。サイトのホームページでは、その興味深い内容を強調したいので、長めの抜粋が欲しいです。それに対して作者のページでは、内容の幅を強調したいのでタイトルに注目したいです。これらは**よく類似してはいます**が同じではありませんから、**『固有』**の経験則に戻りましょう。ただロジックを別々に書けばいいのです。
-- **コードが同一である** &mdash; たくさんの**固有**のコードがあちこちに現れることになるでしょう。これは良いことです！しかしおそらくその中に、**完全に**同一のロジックを含む定義があることに気づくでしょう。そのようなロジックは補助関数へと分割しましょう！　もしそのすべての使用箇所がひとつのモジュールのなかにあるなら、これ以上何もする必要はありません。もし本当にそうしたいのなら、`-- READ TIME`というようなコメントヘッダを置いてもいいでしょう。
+- **コードがその場所でしか使われていないとき** &mdash; もしロジックが一箇所だけに出現するのなら、トップレベルの補助関数として分割し、それを使用している箇所になるべく近いところに置きます。すぐ後ろに続く定義がブログ投稿のプレビューと関係していることを表すため、`-- POST PREVIEW`というようなコメントヘッダを使うこともあります。
+- **似たようなコードがあるとき** &mdash; 投稿(`Post`)のプレビューを、サイトのホームページと投稿者のページの両方に表示したいとしましょう。サイトのホームページでは、その興味深い内容を強調したいので、長めの抜粋が欲しいです。それに対して投稿者のページでは、内容の幅を強調したいのでタイトルに注目したいです。これらは**よく似てはいます**が同じではありませんから、**『その場所でしか使われていないとき』**の経験則に戻りましょう。ただロジックを別々に書けばいいのです。
+- **コードがまったく同じであるとき** &mdash; たくさんの**その場所でしか使われていない**コードがあちこちに現れることになるでしょう。これは良いことです！しかしおそらくその中に、**完全に**同じロジックを含む定義があることに気づくでしょう。そのようなロジックは補助関数へと分割しましょう！　もしそのすべての使用箇所がひとつのモジュールのなかにあるなら、これ以上何もする必要はありません。もし本当にそうしたいのなら、`-- READ TIME`というようなコメントヘッダを置いてもいいでしょう。
 
 <!-- These heuristics are all about making helper functions within a single file. You only want to create a new module when a bunch of these helper functions all center around a specific custom type. For example, you start by creating a `Page.Author` module, and do not create a `Post` module until the helper functions start piling up. At that point, creating a new module should make your code feel easier to navigate and understand. If it does not, go back to the version that was clearer. More modules is not more better! Take the path that keeps the code simple and clear. -->
 
-これらの経験則はすべて、ひとつのファイルのなかに補助関数を作ることについてです。ある独自の型を中心としてたくさんの補助関数すべてがあるときだけ、新しいモジュールを作りたくなるでしょう。たとえば、`Page.Author`モジュールを作成することから始めて、補助関数が山積みになるまで`Post`モジュールは作りません。このとき新しいモジュールを作ると、探しているコードを見つけやすくなったり、コードを理解するのを簡単にしてくれるはずです。そうでないとしたら、わかりやすかったバージョンに戻しましょう。モジュールがたくさんあるほど良いというわけではありません！コードを単純かつわかりやすく保つ道を選びましょう。
+これらの経験則はすべて、ひとつのファイルのなかに補助関数を作ることについてです。ある独自の型を中心としてたくさんの補助関数すべてがあるときだけ、新しいモジュールを作りたくなるでしょう。たとえば、Postモジュールを作っていない状態でPage.Authorモジュールを先に作りはじめて補助関数が山積みになった場合、新しくPostモジュールを作ると、探しているコードを見つけやすくなったり、コードを理解するのが簡単になるはずです。そうでないとしたら、わかりやすかったバージョンに戻しましょう。モジュールがたくさんあるほど良いというわけではありません！コードを単純かつわかりやすく保つ道を選びましょう。
 
 <!-- To summarize, assume **similar** code is **unique** by default. (It usually is in user interfaces in the end!) If you see logic that is **the same** in different definitions, make some helper functions with appropriate comment headers. When you have a bunch of helper functions about a specific type, _consider_ making a new module. If a new module makes your code clearer, great! If not, go back. More files is not inherently simpler or clearer. -->
 
-まとめると、**類似した**コードは最初は**固有の**コードであると見なしましょう(たいていそういうコードは最終的にユーザインターフェイスにあります)。異なる定義のなかに**同一の**ロジックを見かけたら、適切なコメントヘッダのついた補助関数を作りましょう。特定の型に対するたくさんの補助関数があるなら、それを新しいモジュールに分割することを**検討**してください。もし新たなモジュールがコードをわかりやすくしてくれるのなら、それは素晴らしいです！でもそうでないのなら、元に戻しましょう。多くのファイルがあるというのは、単純だとかわかりやすいということとは本質的に異なるのです。
+まとめると、**似ている**コードは最初は**その場所でし使われていない**コードであると見なしましょう(たいていそういうコードは最終的にユーザインターフェイスにあります)。異なる定義のなかに**まったく同じ**ロジックを見かけたら、適切なコメントヘッダのついた補助関数を作りましょう。特定の型に対するたくさんの補助関数があるなら、それを新しいモジュールに分割することを**検討**してください。もし新たなモジュールがコードをわかりやすくしてくれるのなら、それは素晴らしいです！でもそうでないのなら、元に戻しましょう。多くのファイルがあるというのは、単純だとかわかりやすいということとは本質的に異なるのです。
 
 <!--
 > **Note:** One of the most common ways to get tripped up with modules is when something that was once **the same** becomes **similar** later on. Very common, especially in user interfaces! Folks will often try to create a Frankenstein function that handles all the different cases. Adding more arguments. Adding more _complex_ arguments. The better path is to accept that you now have two **unique** situations and copy the code into both places. Customize it exactly how you need. Then see if any of the resulting logic is **the same**. If so, move it out into helpers. **Your long functions should split into multiple smaller functions, not grow longer and more complex!**
 -->
 
-> **ノート:** モジュールについて失敗する最もよくあるケースは、最初は**『同一』**であったものが、あとから**『類似』**に変わったときです。ユーザインターフェイスではそれが特によく起こります！　それぞれ異なる場合をぜんぶまとめて扱おうとして、引数を追加し、そして**複雑な**引数をさらに追加しては、つぎはぎだらけの関数を作ろうとする人もいます。より良い方法は、ふたつの**固有**の状況があることを受け入れ、それら両方の箇所にコードを複製することです。それから必要に応じてカスタマイズします。それから、ロジックのいずれかが結果的に**同一**になったかどうかを見てください。もしそうなら、それを補助関数へと括りだしてください。**長い関数は複数の小さい関数へと分割するべきで、長く複雑にしてしまうべきではありません！**
+> **Note:** モジュールについて失敗する最もよくあるケースは、最初は**『まったく同じ』**であったものが、あとから**『似ている』**に変わったときです。ユーザインターフェイスではそれが特によく起こります！　それぞれ異なる場合をぜんぶまとめて扱おうとして、引数を追加し、そして**複雑な**引数をさらに追加しては、つぎはぎだらけの関数を作ろうとする人もいます。より良い方法は、ふたつの**『その場所でしか使われていない』**という状況があることを受け入れ、それら両方の箇所にコードを複製することです。それから必要に応じてカスタマイズします。それから、ロジックのいずれかが結果的に**まったく同じ**になったかどうかを見てください。もしそうなら、それを補助関数へと括りだしてください。**長い関数は複数の小さい関数へと分割するべきで、長く複雑にしてしまうべきではありません！**
 
 <!-- ## Using Modules --->
 
@@ -124,7 +126,7 @@ module Main exposing (..)
 <!-- It is customary in Elm for all of your code to live in the `src/` directory. That is the default for [`elm.json`](https://github.com/elm/compiler/blob/0.19.0/docs/elm.json/application.md) even. So our `Post` module would need to live in a file named `src/Post.elm`. From there, we can `import` a module and use its exposed values. There are four ways to do that: -->
 
 
-コードはすべて`src/`ディレクトリの中に入れておくというのがElmの慣習です。これは[`elm.json`](https://github.com/elm/compiler/blob/0.19.0/docs/elm.json/application.md)の既定値でもあります。そのため、この`Post`モジュールは`src/Post.elm`という名前のファイルにする必要があるでしょう。これでこのモジュールを`import`し、公開された値を使えるようになりました。インポートには４種類の方法があります。
+コードはすべて`src/`ディレクトリの中に入れておくというのがElmの慣習です。これは[`elm.json`](https://github.com/elm/compiler/blob/0.19.0/docs/elm.json/application.md)の既定値でもあります。そのため、この`Post`モジュールは`src/Post.elm`という名前のファイルにする必要があるでしょう。これでこのモジュールを`import`し、`exposing`節でモジュール外に公開するよう指定された値を使えるようになりました。インポートには４種類の方法があります。
 
 
 ```elm
