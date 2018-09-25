@@ -26,3 +26,5 @@
 | パースする        | parse           |
 | ソースコード自身がその意味するところを雄弁に語るようになります | self-documenting |
 | ソースコード自身がその意味するところを雄弁に語るようになります | self-documented |
+| バリアント    | variant       |
+| パターンマッチ | pattern matching |
