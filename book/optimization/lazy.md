@@ -115,7 +115,7 @@ viewAlt chairAlt =
 
 <!-- This diffing process makes it possible to touch the DOM as little as possible. And if no differences are found, we do not need to touch the DOM at all! So this process helps minimize the renders and reflows that need to happen. -->
 
-このような差分処理によって、DOMを可能な限り少なく操作するようにしています。そして、もし違いが見つからなかったなら、DOMにはまったく触れる必要はありません！　つまりこの差分処理は、レンダリングとリフローを可能な限り減らすることを助けてくれるのです。
+このような差分処理によって、可能な限りDOMの操作を減らすようにしています。そして、もし違いが見つからなかったなら、DOMにはまったく触れる必要はありません！　つまりこの差分処理は、レンダリングとリフローを可能な限り減らすることを助けてくれるのです。
 
 <!-- But can we do even less work? -->
 
@@ -126,7 +126,7 @@ viewAlt chairAlt =
 
 <!-- The [`Html.Lazy`](https://package.elm-lang.org/packages/elm/html/latest/Html-Lazy/) module makes it possible to not even build the virtual nodes! The core idea is the `lazy` function: -->
 
-[`Html.Lazy`](https://package.elm-lang.org/packages/elm/html/latest/Html-Lazy/)モジュールは仮想DOMを構築しないようにするのです！　中心となるアイデアは、次のような`lazy`関数です。
+[`Html.Lazy`](https://package.elm-lang.org/packages/elm/html/latest/Html-Lazy/)モジュールは仮想DOMの構築すらなるべく減らすことができるのです！　中心となるアイデアは、次のような`lazy`関数です。
 
 ```elm
 lazy : (a -> Html msg) -> a -> Html msg
