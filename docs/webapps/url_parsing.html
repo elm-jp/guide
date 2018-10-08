@@ -650,16 +650,21 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="parsing-urls">Parsing URLs</h1>
-<p>In a realistic web app, we want to show different content for different URLs:</p>
+                                <!-- # Parsing URLs -->
+<h1 id="url&#x306E;&#x30D1;&#x30FC;&#x30B9;">URL&#x306E;&#x30D1;&#x30FC;&#x30B9;</h1>
+<!-- In a realistic web app, we want to show different content for different URLs: -->
+<p>&#x5B9F;&#x969B;&#x306E;&#x30A6;&#x30A7;&#x30D6;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x306F;&#x3001;&#x7570;&#x306A;&#x308B;URL&#x3054;&#x3068;&#x306B;&#x7570;&#x306A;&#x308B;&#x5185;&#x5BB9;&#x3092;&#x8868;&#x793A;&#x3057;&#x305F;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <ul>
 <li><code>/search</code></li>
 <li><code>/search?q=seiza</code></li>
 <li><code>/settings</code></li>
 </ul>
-<p>How do we do that? We use the <a href="https://package.elm-lang.org/packages/elm/url/latest/" target="_blank"><code>elm/url</code></a> to parse the raw strings into nice Elm data structures. This package makes the most sense when you just look at examples, so that is what we will do!</p>
-<h2 id="example-1">Example 1</h2>
-<p>Say we have an art website where the following addresses should be valid:</p>
+<!-- How do we do that? We use the [`elm/url`](https://package.elm-lang.org/packages/elm/url/latest/) to parse the raw strings into nice Elm data structures. This package makes the most sense when you just look at examples, so that is what we will do! -->
+<p>&#x3053;&#x308C;&#x306F;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x3059;&#x308C;&#x3070;&#x3044;&#x3044;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x3000;&#x3053;&#x3053;&#x3067;&#x306F;<a href="https://package.elm-lang.org/packages/elm/url/latest/" target="_blank"><code>elm/url</code></a>&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3001;&#x751F;&#x306E;&#x6587;&#x5B57;&#x5217;&#x3092;Elm&#x306E;&#x7D20;&#x6575;&#x306A;&#x30C7;&#x30FC;&#x30BF;&#x69CB;&#x9020;&#x3078;&#x3068;&#x30D1;&#x30FC;&#x30B9;&#x3057;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3092;&#x898B;&#x3066;&#x3044;&#x304F;&#x3060;&#x3051;&#x3067;&#x3001;&#x3053;&#x306E;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x304C;&#x4F55;&#x3088;&#x308A;&#x5F79;&#x306B;&#x7ACB;&#x3064;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;&#x79C1;&#x305F;&#x3061;&#x304C;&#x3084;&#x308D;&#x3046;&#x3068;&#x3057;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x3001;&#x307E;&#x3055;&#x306B;&#x305D;&#x308C;&#x3067;&#x3059;&#x304B;&#x3089;&#xFF01;</p>
+<!-- ## Example 1 -->
+<h2 id="&#x4F8B;-1">&#x4F8B; 1</h2>
+<!-- Say we have an art website where the following addresses should be valid: -->
+<p>&#x7F8E;&#x8853;&#x306E;&#x30A6;&#x30A7;&#x30D6;&#x30B5;&#x30A4;&#x30C8;&#x304C;&#x3042;&#x308A;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;URL&#x306E;&#x30DA;&#x30FC;&#x30B8;&#x304C;&#x3042;&#x308B;&#x3068;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <ul>
 <li><code>/topic/architecture</code></li>
 <li><code>/topic/painting</code></li>
@@ -672,7 +677,8 @@
 <li><code>/user/sue/comment/11</code></li>
 <li><code>/user/sue/comment/51</code></li>
 </ul>
-<p>So we have topic pages, blog posts, user information, and a way to look up individual user comments. We would use the <a href="https://package.elm-lang.org/packages/elm/url/latest/Url-Parser" target="_blank"><code>Url.Parser</code></a> module to write a URL parser like this:</p>
+<!-- So we have topic pages, blog posts, user information, and a way to look up individual user comments. We would use the [`Url.Parser`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser) module to write a URL parser like this: -->
+<p>&#x30C8;&#x30D4;&#x30C3;&#x30AF;&#x306E;&#x30DA;&#x30FC;&#x30B8;&#x3001;&#x30D6;&#x30ED;&#x30B0;&#x306E;&#x6295;&#x7A3F;&#x3001;&#x30E6;&#x30FC;&#x30B6;&#x60C5;&#x5831;&#x306E;&#x30DA;&#x30FC;&#x30B8;&#x304C;&#x3042;&#x308A;&#x3001;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x306E;&#x30B3;&#x30E1;&#x30F3;&#x30C8;&#x3092;&#x898B;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<a href="https://package.elm-lang.org/packages/elm/url/latest/Url-Parser" target="_blank"><code>Url.Parser</code></a> &#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;URL&#x30D1;&#x30FC;&#x30B5;&#x3092;&#x66F8;&#x304F;&#x3068;&#x3044;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Url.Parser <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Parser</span>, (&lt;/&gt;), int, map, oneOf, s, string)
 
 <span class="hljs-keyword">type</span> <span class="hljs-type">Route</span>
@@ -705,9 +711,12 @@
 <span class="hljs-comment">-- /user/sam/comment/    ==&gt;  Nothing</span>
 <span class="hljs-comment">-- /user/                ==&gt;  Nothing</span>
 </code></pre>
-<p>The <code>Url.Parser</code> module makes it quite concise to fully turn valid URLs into nice Elm data!</p>
-<h2 id="example-2">Example 2</h2>
-<p>Now say we have a personal blog where addresses like this are valid:</p>
+<!-- The `Url.Parser` module makes it quite concise to fully turn valid URLs into nice Elm data! -->
+<p>&#x3053;&#x306E;<code>URL.Parser</code>&#x30D1;&#x30FC;&#x30B5;&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x4F7F;&#x3048;&#x3070;&#x3001;URL&#x3092;Elm&#x306E;&#x7D20;&#x6575;&#x306A;&#x30C7;&#x30FC;&#x30BF;&#x3078;&#x3068;&#x5B8C;&#x5168;&#x306B;&#x5909;&#x63DB;&#x3059;&#x308B;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x3001;&#x3068;&#x3066;&#x3082;&#x7C21;&#x6F54;&#x306B;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#xFF01;</p>
+<!-- ## Example 2 -->
+<h2 id="&#x4F8B;-2">&#x4F8B; 2</h2>
+<!-- Now say we have a personal blog where addresses like this are valid: -->
+<p>&#x500B;&#x4EBA;&#x7528;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x3067;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;URL&#x306E;&#x30DA;&#x30FC;&#x30B8;&#x304C;&#x3042;&#x308B;&#x3068;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <ul>
 <li><code>/blog/12/the-history-of-chairs</code></li>
 <li><code>/blog/13/the-endless-september</code></li>
@@ -716,7 +725,8 @@
 <li><code>/blog?q=whales</code></li>
 <li><code>/blog?q=seiza</code></li>
 </ul>
-<p>In this case we have individual blog posts and a blog overview with an optional query parameter. We need to add the <a href="https://package.elm-lang.org/packages/elm/url/latest/Url-Parser-Query" target="_blank"><code>Url.Parser.Query</code></a> module to write our URL parser this time:</p>
+<!-- In this case we have individual blog posts and a blog overview with an optional query parameter. We need to add the [`Url.Parser.Query`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser-Query) module to write our URL parser this time: -->
+<p>&#x3053;&#x3053;&#x3067;&#x3001;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x30D6;&#x30ED;&#x30B0;&#x6295;&#x7A3F;&#x306E;&#x30DA;&#x30FC;&#x30B8;&#x304C;&#x3042;&#x308A;&#x3001;&#x307E;&#x305F;&#x30AA;&#x30D7;&#x30B7;&#x30E7;&#x30CA;&#x30EB;&#x306A;&#x30AF;&#x30A8;&#x30EA;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#x3068;&#x3057;&#x3066;&#x30D6;&#x30ED;&#x30B0;&#x306E;&#x6982;&#x8981;&#x3092;&#x6E21;&#x3059;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x308B;&#x3082;&#x306E;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x3068;&#x304D;&#x3001;URL&#x30D1;&#x30FC;&#x30B5;&#x3092;&#x66F8;&#x304F;&#x305F;&#x3081;&#x306B;&#x3001;<a href="https://package.elm-lang.org/packages/elm/url/latest/Url-Parser-Query" target="_blank"><code>Url.Parser.Query</code></a>&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x3066;&#x304A;&#x304F;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Url.Parser <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Parser</span>, (&lt;/&gt;), (&lt;?&gt;), int, map, oneOf, s, string)
 <span class="hljs-keyword">import</span> Url.Parser.Query <span class="hljs-keyword">as</span> Query
 
@@ -740,9 +750,12 @@
 <span class="hljs-comment">-- /blog/?q=whales       ==&gt;  Just (BlogQuery (Just &quot;whales&quot;))</span>
 <span class="hljs-comment">-- /blog/?query=whales   ==&gt;  Just (BlogQuery Nothing)</span>
 </code></pre>
-<p>The <code>&lt;/&gt;</code> and <code>&lt;?&gt;</code> operators let us to write parsers that look quite like the actual URLs we want to parse. And adding <code>Url.Parser.Query</code> allowed us to handle query parameters like <code>?q=seiza</code>.</p>
-<h2 id="example-3">Example 3</h2>
-<p>Okay, now we have a documentation website with addresses like this:</p>
+<!-- The `</>` and `<?>` operators let us to write parsers that look quite like the actual URLs we want to parse. And adding `Url.Parser.Query` allowed us to handle query parameters like `?q=seiza`. -->
+<p><code>&lt;/&gt;</code>&#x6F14;&#x7B97;&#x5B50;&#x3084;<code>&lt;?&gt;</code>&#x6F14;&#x7B97;&#x5B50;&#x3092;&#x4F7F;&#x3046;&#x3068;&#x3001;&#x30D1;&#x30FC;&#x30B9;&#x3057;&#x3088;&#x3046;&#x3068;&#x3057;&#x3066;&#x3044;&#x308B;&#x5B9F;&#x969B;&#x306E;URL&#x306B;&#x3088;&#x304F;&#x4F3C;&#x305F;&#x5F62;&#x3067;&#x3001;&#x30D1;&#x30FC;&#x30B5;&#x3092;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>Url.Parser.Query</code>&#x3092;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x3068;&#x3001;<code>?q=seiza</code>&#x3068;&#x3044;&#x3046;&#x3088;&#x3046;&#x306A;&#x30AF;&#x30A8;&#x30EA;&#x30D1;&#x30E9;&#x30E1;&#x30FC;&#x30BF;&#x3092;&#x6271;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<!-- ## Example 3 -->
+<h2 id="&#x4F8B;-3">&#x4F8B; 3</h2>
+<!-- Okay, now we have a documentation website with addresses like this: -->
+<p>&#x4ECA;&#x5EA6;&#x306F;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;URL&#x306E;&#x30DA;&#x30FC;&#x30B8;&#x3092;&#x6301;&#x3064;&#x3001;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C6;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x30A6;&#x30A7;&#x30D6;&#x30B5;&#x30A4;&#x30C8;&#x3092;&#x8003;&#x3048;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <ul>
 <li><code>/Basics</code></li>
 <li><code>/Maybe</code></li>
@@ -751,7 +764,8 @@
 <li><code>/List#filter</code></li>
 <li><code>/List#foldl</code></li>
 </ul>
-<p>We can use the <a href="https://package.elm-lang.org/packages/elm/url/latest/Url-Parser#fragment" target="_blank"><code>fragment</code></a> parser from <code>Url.Parser</code> to handle these addresses like this:</p>
+<!-- We can use the [`fragment`](https://package.elm-lang.org/packages/elm/url/latest/Url-Parser#fragment) parser from `Url.Parser` to handle these addresses like this: -->
+<p><code>Url.Parser</code>&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x306B;&#x3042;&#x308B;<a href="https://package.elm-lang.org/packages/elm/url/latest/Url-Parser#fragment" target="_blank"><code>fragment</code></a>&#x30D1;&#x30FC;&#x30B5;&#x3092;&#x4F7F;&#x3046;&#x3068;&#x3001;&#x3053;&#x308C;&#x3089;&#x306E;&#x30A2;&#x30C9;&#x30EC;&#x30B9;&#x306E;&#x30D1;&#x30FC;&#x30B5;&#x3092;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Docs</span> =
   (<span class="hljs-type">String</span>, <span class="hljs-type">Maybe</span> <span class="hljs-type">String</span>)
 
@@ -767,18 +781,28 @@
 <span class="hljs-comment">-- /List/map   ==&gt;  Nothing</span>
 <span class="hljs-comment">-- /           ==&gt;  Nothing</span>
 </code></pre>
-<p>So now we can handle URL fragments as well!</p>
-<h2 id="synthesis">Synthesis</h2>
-<p>Now that we have seen a few parsers, we should look at how this fits into a <code>Browser.application</code> program. Rather than just saving the current URL like last time, can we parse it into useful data and show that instead?</p>
+<!-- So now we can handle URL fragments as well! -->
+<p>&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x3001;URL&#x30D5;&#x30E9;&#x30B0;&#x30E1;&#x30F3;&#x30C8;&#x3082;&#x6271;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x3066;&#x3044;&#x308B;&#x306E;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<!-- ## Synthesis -->
+<h2 id="&#x7D71;&#x5408;">&#x7D71;&#x5408;</h2>
+<!-- Now that we have seen a few parsers, we should look at how this fits into a `Browser.application` program. Rather than just saving the current URL like last time, can we parse it into useful data and show that instead? -->
+<p>&#x3053;&#x3053;&#x307E;&#x3067;&#x3044;&#x304F;&#x3064;&#x304B;&#x306E;&#x30D1;&#x30FC;&#x30B5;&#x3092;&#x898B;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;<code>Browser.application</code>&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306B;&#x3053;&#x308C;&#x3092;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x7D44;&#x307F;&#x5165;&#x308C;&#x308C;&#x3070;&#x3044;&#x3044;&#x306E;&#x304B;&#x3092;&#x898B;&#x3066;&#x3044;&#x304F;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x5148;&#x307B;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x73FE;&#x5728;&#x306E;URL&#x3092;&#x5358;&#x306B;&#x4FDD;&#x6301;&#x3059;&#x308B;&#x306E;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;URL&#x3092;&#x5F79;&#x306B;&#x7ACB;&#x3064;&#x30C7;&#x30FC;&#x30BF;&#x3078;&#x3068;&#x30D1;&#x30FC;&#x30B9;&#x3057;&#x3066;&#x3001;&#x305D;&#x308C;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;</p>
 <pre><code class="lang-elm"><span class="hljs-type">TODO</span>
 </code></pre>
-<p>The major new things are:</p>
+<!-- The major new things are: -->
+<p>&#x3053;&#x3053;&#x3067;&#x91CD;&#x8981;&#x306A;&#x65B0;&#x3057;&#x3044;&#x8981;&#x7D20;&#x306F;&#x6B21;&#x306E;&#xFF12;&#x70B9;&#x3067;&#x3059;&#x3002;</p>
+<!--
+1. Our `update` parses the URL when it gets a `UrlChanged` message.
+2. Our `view` function shows different content for different addresses!
+-->
 <ol>
-<li>Our <code>update</code> parses the URL when it gets a <code>UrlChanged</code> message.</li>
-<li>Our <code>view</code> function shows different content for different addresses!</li>
+<li><code>UrlChanged</code>&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x3063;&#x305F;&#x3068;&#x304D;&#x306B;&#x3001;<code>update</code>&#x306F;&#x305D;&#x306E;URL&#x3092;&#x30D1;&#x30FC;&#x30B9;&#x3057;&#x307E;&#x3059;&#x3002;</li>
+<li><code>view</code>&#x95A2;&#x6570;&#x306F;&#x7570;&#x306A;&#x308B;&#x30A2;&#x30C9;&#x30EC;&#x30B9;&#x305D;&#x308C;&#x305E;&#x308C;&#x306B;&#x3064;&#x3044;&#x3066;&#x7570;&#x306A;&#x308B;&#x5185;&#x5BB9;&#x3092;&#x8868;&#x793A;&#x3057;&#x307E;&#x3059;&#xFF01;</li>
 </ol>
-<p>It is really not too fancy. Nice!</p>
-<p>But what happens when you have 10 or 20 or 100 different pages? Does it all go in this one <code>view</code> function? Surely it cannot be all in one file. How many files should it be in? What should be the directory structure? That is what we will discuss next!</p>
+<!-- It is really not too fancy. Nice! -->
+<p>&#x98A8;&#x5909;&#x308F;&#x308A;&#x3059;&#x304E;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306F;&#x307E;&#x3063;&#x305F;&#x304F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x306D;&#x3002;&#x7D20;&#x6674;&#x3089;&#x3057;&#x3044;&#x3067;&#x3059;&#xFF01;</p>
+<!-- But what happens when you have 10 or 20 or 100 different pages? Does it all go in this one `view` function? Surely it cannot be all in one file. How many files should it be in? What should be the directory structure? That is what we will discuss next! -->
+<p>&#x3057;&#x304B;&#x3057;&#x3001;10&#x3084;20&#x3001;&#x3042;&#x308B;&#x3044;&#x306F;100&#x3082;&#x7570;&#x306A;&#x308B;&#x30DA;&#x30FC;&#x30B8;&#x304C;&#x3042;&#x308B;&#x3068;&#x304D;&#x306F;&#x3069;&#x3046;&#x306A;&#x308B;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;&#x3072;&#x3068;&#x3064;&#x306E;<code>view</code>&#x95A2;&#x6570;&#x306B;&#x3059;&#x3079;&#x3066;&#x3092;&#x8A70;&#x3081;&#x8FBC;&#x3080;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x78BA;&#x304B;&#x306B;&#x3001;&#x3072;&#x3068;&#x3064;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x3059;&#x3079;&#x3066;&#x3092;&#x66F8;&#x304F;&#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x4E0D;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;&#x3044;&#x304F;&#x3064;&#x306E;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x308F;&#x3051;&#x308C;&#x3070;&#x3044;&#x3044;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x3000;&#x30C7;&#x30A4;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x69CB;&#x9020;&#x306F;&#x3069;&#x3046;&#x3059;&#x3079;&#x304D;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x3000;&#x3053;&#x308C;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x6B21;&#x306E;&#x7AE0;&#x3067;&#x8B70;&#x8AD6;&#x3057;&#x307E;&#x3059;&#xFF01;</p>
 
                                 
                                 </section>
@@ -822,7 +846,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"URLをパースする","level":"1.8.2","depth":2,"next":{"title":"モジュール","level":"1.8.3","depth":2,"path":"webapps/modules.md","ref":"webapps/modules.md","articles":[]},"previous":{"title":"ナビゲーションする","level":"1.8.1","depth":2,"path":"webapps/navigation.md","ref":"webapps/navigation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"name":"robots","content":"noindex","data":[]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"webapps/url_parsing.md","mtime":"2018-10-08T03:13:06.412Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-08T03:13:38.093Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"URLをパースする","level":"1.8.2","depth":2,"next":{"title":"モジュール","level":"1.8.3","depth":2,"path":"webapps/modules.md","ref":"webapps/modules.md","articles":[]},"previous":{"title":"ナビゲーションする","level":"1.8.1","depth":2,"path":"webapps/navigation.md","ref":"webapps/navigation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"name":"robots","content":"noindex","data":[]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"webapps/url_parsing.md","mtime":"2018-10-08T04:48:27.609Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-08T04:49:05.129Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
