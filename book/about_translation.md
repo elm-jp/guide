@@ -28,3 +28,4 @@
 | ソースコード自身がその意味するところを雄弁に語るようになります | self-documented |
 | バリアント    | variant       |
 | パターンマッチ | pattern matching |
+| 補助関数       | helper function  |
