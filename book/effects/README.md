@@ -64,27 +64,27 @@ Like before, you get to program in the nice Elm world, but these `Cmd` and `Sub`
 <!--
 I think commands and subscriptions make more sense when you start seeing examples, so let&rsquo;s do that!
 -->
-いくつかの例を見ていくと、コマンドとサブスクリプションについての理解が深まるとおもいますので、やってみましょう！
+いくつかの例を見ていくと、コマンドとサブスクリプションについての理解が深まると思いますので、やってみましょう！
 
 [element]: https://package.elm-lang.org/packages/elm/browser/latest/Browser#element
 
 <!--
 > **Note 1:** Some readers may be worrying about asset size. &ldquo;A runtime system? That sounds big!&rdquo; It is not. In fact, [Elm assets are exceptionally small](https://elm-lang.org/blog/small-assets-without-the-headache) when compared to React, Angular, Vue, etc.
 -->
-> **備考1:** アセットのサイズについて心配する方がいるかもしれません。&ldquo;ランタイムシステムて大きいもんでしょ！&rdquo; 実際には、ReactやAngularそしてVueなどと比べても、[Elmのアセットは非常に小さいのです](https://elm-lang.org/blog/small-assets-without-the-headache)。
+> **Note 1:** アセットのサイズについて心配する方がいるかもしれません。&ldquo;ランタイムシステムって大きいもんでしょ！&rdquo; いいえ、そんな事はありません。実際には、ReactやAngularそしてVueなどと比べても、[Elmのアセットは非常に小さいのです](https://elm-lang.org/blog/small-assets-without-the-headache)。
 >
 
 <!--
 > **Note 2:** We are going to use packages from [`package.elm-lang.org`](https://package.elm-lang.org) in the upcoming examples. We have already been working with a couple:
 -->
-> **備考2:** 続く例ではパッケージを[`package.elm-lang.org`](https://package.elm-lang.org)から利用していきます。すでにいくつかの物を利用済みです:
+> **Note 2:** 続く例ではパッケージを[`package.elm-lang.org`](https://package.elm-lang.org)から利用していきます。すでにいくつかの物を利用済みです:
 >
 > - [`elm/core`](https://package.elm-lang.org/packages/elm/core/latest/)
 > - [`elm/html`](https://package.elm-lang.org/packages/elm/html/latest/)
 <!--
  But now we will start getting into some fancier ones:
 -->
-> しかし、もっと創造的な物に取り組んで行きましょう：
+> では、次はもっとおもしろいpackageを使って行きましょう：
 >
 > - [`elm/random`](https://package.elm-lang.org/packages/elm/random/latest/)
 > - [`elm/time`](https://package.elm-lang.org/packages/elm/time/latest/)
