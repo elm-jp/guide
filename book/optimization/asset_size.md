@@ -22,7 +22,7 @@ DOMを操作するよりも更に遅い処理があるとしたら、それは�
 
 <!-- Elm makes it pretty easy to get all this set up for your project. No need for some complex build system. It is just two terminal commands! -->
 
-Elmは、プロジェクトに対してこれらを設定するのを、とても簡単にしてくれます。複雑なビルドシステムは必要ありません。たったふたつのターミナルコマンドだけでできるのです！
+Elmではこれらの最適化をプロジェクトに対してとても簡単に設定することができます。複雑なビルドシステムは必要ありません。たったふたつのターミナルコマンドだけでできるのです！
 
 
 <!-- ## Instructions -->
@@ -35,7 +35,7 @@ Elmは、プロジェクトに対してこれらを設定するのを、とて�
 
 <!-- Step two is to minify the resulting JavaScript code. I use a minifier called `uglifyjs`, but you can use a different one if you want. The neat thing about `uglifyjs` is all its special flags. These flags unlock optimizations that are unreliable in normal JS code, but thanks to the design of Elm, they are totally safe for us! -->
 
-次のステップは、出力されたJavaScriptコードをミニファイすることです。私は`uglifyjs`というミニファイアを使っていますが、別のあなたが好きなものを使っても構いません。`uglifyjs`のいいところは、その特別なフラグにあります。そのようなフラグを付けると、通常のJSコードに対しては正しく動くかわからない高度な最適化が有効になりますが、Elmのデザインのお陰でこれらの最適化はまったく安全です！
+次のステップは、出力されたJavaScriptコードをミニファイすることです。私は`uglifyjs`というミニファイアを使っていますが、別のあなたが好きなものを使っても構いません。`uglifyjs`のいいところは、その特別なフラグにあります。そのようなフラグを付けると、通常のJSコードに対して実施しても正しく動くかわからない高度な最適化が有効になりますが、Elmのデザインのお陰でこれらの最適化はまったく安全です！
 
 <!-- Putting those together, we can optimize `src/Main.elm` with two terminal commands: -->
 
@@ -101,11 +101,11 @@ Gzipped size:     9148 bytes
 
 <!-- Pretty neat! We only need to send about 9kb to get this program to people! -->
 
-なかなかいいですね！　このプログラムをユーザに送るときは、たった9キロバイトほどを送るだけでいいのです！
+なかなかいいですね！　このプログラムをユーザに渡すときは、たった9キロバイトほどを送るだけでいいのです！
 
 <!-- The important commands here are `elm` and `uglifyjs` which work on any platform, so it should not be too tough to do something similar on Windows. -->
 
-この`elm`と`uglifyjs`はどのプラットフォームでも動く重要なコマンドですので、同じようなことをWindowsで行うのはすごく大変というほどでもありません。
+この`elm`と`uglifyjs`はどのプラットフォームでも動く重要なコマンドですので、同じようなことをWindowsで行うのはとても大変というほどでもありません。
 
 <!-- ## Advice -->
 
