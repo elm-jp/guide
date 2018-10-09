@@ -10,7 +10,7 @@
 
 <!-- If you are creating an HTML file, you would write HTML directly like this: -->
 
-HTMLファイルを作ろうとするとき、次のようにHTMLを直接書くこともあるでしょう。
+HTMLファイルを作ろうとするときは、次のようにHTMLを直接書くと思います。
 
 ```html
 <div>
@@ -24,13 +24,13 @@ HTMLファイルを作ろうとするとき、次のようにHTMLを直接書く
 
 <!-- You can think of this as producing some DOM data structure behind the scenes: -->
 
-ここでシーンの背後で生成されているDOMデータ構造は、次のようなものだと考えることができます。
+ここで裏で生成されているDOMデータ構造は、次のようなものだと考えることができます。
 
 ![](diagrams/dom.svg)
 
 <!-- The black boxes represent heavy-weight DOM objects with hundreds of attributes. And when any of them change, it can trigger expensive renders and reflows of page content. -->
 
-この黒い箱は、大量の属性を持った重量オブジェクトを表しています。これに何らかの変更を加えたときは、高価なレンダリングとページ内容のリフローが実行されることがあります。
+この黒い箱は、大量の属性を持った重量DOMオブジェクトを表しています。これに何らかの変更を加えたときは、高価なレンダリングとページ内容のリフローが実行されることがあります。
 
 
 <!-- ## What is Virtual DOM? --> 
@@ -56,13 +56,13 @@ viewAlt chairAlt =
 
 <!-- You can think of `viewChairAlts ["seiza","chabudai"]` as producing some “Virtual DOM” data structure behind the scenes: -->
 
-`viewChairAlts ["seiza","chabudai"]`は、シーンの背後で次のような『仮想DOM』データ構造を生成していると考えることができます。
+`viewChairAlts ["seiza","chabudai"]`は、裏では次のような『仮想DOM』データ構造を生成していると考えることができます。
 
 ![](diagrams/vdom.svg)
 
 <!-- The white boxes represent light-weight JavaScript objects. They only have the attributes you specify. Their creation can never cause renders or reflows. Point is, compared to DOM nodes, these are much cheaper to allocate! -->
 
-この白い箱は軽量JavaScriptオブジェクトを表しています。属性は指定されたものだけを保持しています。この軽量オブジェクトを作っても、レンダリングやリフローが起きることは決してありません。ポイントは、軽量オブジェクトをメモリに確保するのは、DOMノードに比べてはるかに安価だということです。
+この白い箱は軽量JavaScriptオブジェクトを表しています。属性は指定されたものだけを保持しています。この軽量オブジェクトを作っても、レンダリングやリフローが起きることは決してありません。ポイントは、レンダリングやリフローが起きうるDOMノードに比べて、軽量オブジェクトを作るのははるかに軽い処理だということです。
 
 
 <!-- ## Render -->
@@ -103,13 +103,13 @@ viewAlt chairAlt =
 
 <!-- So imagine our `Model` gets a new chair alternative, and we want to add a new `li` node for it. Behind the scenes, Elm diffs the **current** virtual nodes and the **next** virtual nodes to detect any changes: -->
 
-`Model`が椅子の代わりを新しく手に入れたと想像してみてください。そして新しい`li`ノードを追加したくなります。シーンの背後では、変更を検出するために、Elmは**現在の**仮想ノードと**次の**仮想ノードの差分をとります。
+いま `Model` には「椅子の代わり」となるものとして `"seiza"` (正座)と `"chabudai"` (ちゃぶ台)のふたつが含まれていますが、また新たな「椅子の代わり」を手に入れ、新しい`li`ノードを追加したいと想像してみてください。そして。裏では変更を検出するために、Elmは**現在の**仮想ノードと**次の**仮想ノードの差分をとります。
 
 ![](diagrams/diff.svg)
 
 <!-- It noticed that a third `li` was added. I marked it in green. Elm now knows exactly how to modify the real DOM to make it match. Just insert that new `li`: -->
 
-３つめの`li`が追加されたのがわかると思います。緑色で示しておきました。いまElmは、実際のDOMをどのように変更して合わせるのかを正確に知っています。単に新しい`li`を挿入するだけです。
+Elmは３つめの`li`が追加されたのがわかります。緑色で示しておきました。いまElmは、実際のDOMをどのように変更して合わせるのかを正確に知っています。単に新しい`li`を挿入するだけです。
 
 ![](diagrams/patch.svg)
 
@@ -126,7 +126,7 @@ viewAlt chairAlt =
 
 <!-- The [`Html.Lazy`](https://package.elm-lang.org/packages/elm/html/latest/Html-Lazy/) module makes it possible to not even build the virtual nodes! The core idea is the `lazy` function: -->
 
-[`Html.Lazy`](https://package.elm-lang.org/packages/elm/html/latest/Html-Lazy/)モジュールは仮想DOMの構築すらなるべく減らすことができるのです！　中心となるアイデアは、次のような`lazy`関数です。
+[`Html.Lazy`](https://package.elm-lang.org/packages/elm/html/latest/Html-Lazy/)モジュールは、仮想DOMの構築すら減らすことができるのです！　中心となるアイデアは、次のような`lazy`関数です。
 
 ```elm
 lazy : (a -> Html msg) -> a -> Html msg
@@ -155,7 +155,7 @@ Elmの最もクールなところのひとつは、関数は「同じ入力か�
 > Structural equality means that `4` is the same as `4` no matter how you produced those values. Reference equality means the actual pointer in memory has to be the same. Using reference equality is always cheap `O(1)`, even when the data structure has thousands or millions of entries. So this is mostly about making sure that using `lazy` will never slow your code down a bunch by accident. All the checks are super cheap!
 -->
 
-> **ノート:** しかし、ふたつの値が『同一』であるというのはどういうときなのでしょうか？　パフォーマンスの最適化のため、シーンの背後ではJavaScriptの `===`演算子を使っています。
+> **Note:** しかし、ふたつの値が『同一』であるというのはどういうときなのでしょうか？　パフォーマンスの最適化のため、裏ではJavaScriptの `===`演算子を使っています。
 > 
 > - 構造的等値性は、`Int`と`Float`、`String`、`Char`、`Bool`に使われます。
 > - 参照的等値性は、レコードやリスト、カスタム型、辞書などに使われます。
@@ -197,7 +197,7 @@ view model =
 
 <!-- It can also be useful to use lazy in long lists of items. In the TodoMVC app, it is all about adding entries to your todo list. You could conceivable have hundreds of entries, but they change very infrequently. This is a great candidate for laziness! By switching `viewEntry entry` to `lazy viewEntry entry` we can skip a bunch of allocation that is very rarely useful. So the second tip is **try to use lazy nodes on repeated structures where each individual item change infrequently.** -->
 
-アイテムの長いリストでも遅延ノードは有効かもしれません。TodoMVCアプリケーションでは、TODOリストの追加されるすべてのエントリについてです。数百ものエントリを持つことが考えられますが、それらが変更されることはめったにありません。これは遅延性を使うちょうどいい候補となります！　`viewEntry entry`を`lazy viewEntry entry`へと変えることで、めったに役に立たないたくさんのメモリ確保をスキップすることができます。つまり、ふたつめのアドバイスは、**個々の要素がめったに変更されないような、繰り返しの構造に対して遅延ノードを使ってみてください。**
+アイテムの長いリストでも遅延ノードは有効かもしれません。TodoMVCアプリケーションでやっていることは、TODOリストへ項目を追加することだけです。数百もの項目を持つことが考えられますが、それらが変更されることはめったにありません。これは遅延性を使うちょうどいい候補となります！　`viewEntry entry`を`lazy viewEntry entry`へと変えることで、めったに役に立たないたくさんの処理をスキップすることができます。つまり、ふたつめのアドバイスは、**個々の要素がめったに変更されないような、繰り返しの構造に対して遅延ノードを使ってみてください。**
 
 <!-- ## Summary -->
 
