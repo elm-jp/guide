@@ -29,3 +29,5 @@
 | バリアント    | variant       |
 | パターンマッチ | pattern matching |
 | 補助関数       | helper function  |
+| コマンド | Command |
+| サブスクリプション | Subscription |
