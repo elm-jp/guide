@@ -126,7 +126,7 @@ To work with time successfully in programming, we need three different concepts:
 - **Human Time** &mdash; This is what you see on clocks (8am) or on calendars (May 3rd). Great! But if my phone call is at 8am in Boston, what time is it for my friend in Vancouver? If it is at 8am in Tokyo, is that even the same day in New York? (No!) So between [time zones][tz] based on ever-changing political boundaries and inconsistent use of [daylight saving time][dst], human time should basically never be stored in your `Model` or database! It is only for display!
 -->
 
-- **人間にとっての時間** &mdash; これは時計（午前8時）やカレンダー（5月3日）で目にするものです。ですね！しかし、もしボストンで午前8時に電話をかけると、バンクーバーにいる友人にとっては何時になるでしょうか？もし、東京で午前8時だとして、ニューヨークでも同じ日付なのでしょうか？（違います！）常に変化する政治的な境界に基づいた[タイムゾーン][tz]と一貫性のない使われ方をする[サマータイム][dst]の間で、人間にとっての時間は基本的には決して`Model`やデータベースには保存されるべきではありません。あくまでも表示だけの目的です！
+- **人間にとっての時間** &mdash; これは時計（午前8時）やカレンダー（5月3日）で目にするものです。ですね！しかし、もしボストンで午前8時に電話をかけると、バンクーバーにいる友人にとっては何時になるでしょうか？もし、東京で午前8時だとして、ニューヨークでも同じ日付なのでしょうか？（違います！）常に変化する政治的な境界に基づいた[タイムゾーン][tz]と一貫性のない使われ方をする[サマータイム][dst]の間で変化するので、人間にとっての時間は基本的には決して`Model`やデータベースには保存されるべきではありません。あくまでも表示だけの目的です！
 
 <!--
 - **POSIX Time** &mdash; With POSIX time, it does not matter where you live or what time of year it is. It is just the number of seconds elapsed since some arbitrary moment (in 1970). Everywhere you go on Earth, POSIX time is the same.
