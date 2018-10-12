@@ -4,7 +4,7 @@
 <!--
 #### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://ellie-app.com/37gYpCSxQHGa1).
 -->
-#### [コードをクローンする](https://github.com/evancz/elm-architecture-tutorial/)か[オンラインエディタ](https://ellie-app.com/37gYpCSxQHGa1)で追ってください。
+#### [サンプルコード](https://github.com/evancz/elm-architecture-tutorial/)をクローンするか[オンラインエディタ](https://ellie-app.com/37gYpCSxQHGa1)で試してください。
 ---
 <!--
 Now we are going to make a digital clock. (Analog will be an exercise!)
@@ -14,11 +14,11 @@ So far we have focused on commands. With the randomness example, we commanded th
 After you read through the code, we will talk about how we are using the [`elm/time`][time]
  package here:
 -->
-まずはデジタル時計を作っって見ましょう（アナログ時計は今後の練習ですね！）
+まずはデジタル時計を作っって見ましょう（アナログ時計は今後の課題です！）
 
-これまでは、コマンドに注目してきました。乱数に関する例では、ランダムな値をよこすようランタイムシステムに対して指示しましたが、時計の例の場合には奇妙な感じのパターンとなってしまいます。現在の時刻を _常に_ 知りたいのです。ここで **サブスクリプション** の登場です。
+これまでは、コマンドに注目してきました。乱数に関する例では、ランダムな値をよこすようランタイムシステムに対して指示しましたが、時計の例の場合には奇妙な感じのパターンとなってしまいます。現在の時刻を _常に_ 知りたいのです。ここで **サブスクリプション** が登場します。
 
-コードを一通り読んだ後で、どのように[`elm/time`][time]パッケージを使用しているかを説明していきます：
+あなたが以下のコードに一通り目を通した後に、どのように[`elm/time`][time]パッケージを使用するかを説明していきます：
 
 [time]: https://package.elm-lang.org/packages/elm/time/latest/
 
@@ -126,23 +126,23 @@ To work with time successfully in programming, we need three different concepts:
 - **Human Time** &mdash; This is what you see on clocks (8am) or on calendars (May 3rd). Great! But if my phone call is at 8am in Boston, what time is it for my friend in Vancouver? If it is at 8am in Tokyo, is that even the same day in New York? (No!) So between [time zones][tz] based on ever-changing political boundaries and inconsistent use of [daylight saving time][dst], human time should basically never be stored in your `Model` or database! It is only for display!
 -->
 
-- **人間にとっての時間** &mdash; これは時計（午前8時）やカレンダー（5月3日）で目にするものです。素晴らしい！しかし、もしボストンで午前8時に電話をかけると、バンクーバーにいる友人にとっては何時になるでしょうか？もし、東京で午前8時だとして、ニューヨークでも同じ日付なのでしょうか？（違います！）常に変化する政治的な境界に基づいた[タイムゾーン][tz]と一貫性のない使われ方をする[サマータイム][dst]の間で、人間にとっての時間は基本的には決して`Model`やデータベースには保存されるべきではありません。あくまでも表示だけの目的です！
+- **人間にとっての時間** &mdash; これは時計（午前8時）やカレンダー（5月3日）で目にするものです。ですね！しかし、もしボストンで午前8時に電話をかけると、バンクーバーにいる友人にとっては何時になるでしょうか？もし、東京で午前8時だとして、ニューヨークでも同じ日付なのでしょうか？（違います！）常に変化する政治的な境界に基づいた[タイムゾーン][tz]と一貫性のない使われ方をする[サマータイム][dst]の間で、人間にとっての時間は基本的には決して`Model`やデータベースには保存されるべきではありません。あくまでも表示だけの目的です！
 
 <!--
 - **POSIX Time** &mdash; With POSIX time, it does not matter where you live or what time of year it is. It is just the number of seconds elapsed since some arbitrary moment (in 1970). Everywhere you go on Earth, POSIX time is the same.
 -->
 
-- **POSIX時間** &mdash; POSIX時間では、どこ住んでいるとか何年の何時であるとかは関係ありません。それは、あくまでもある任意の時間（1970年代）からの経過秒数を数字として表しているだけです。地球上のどこに行こうとも、POSIX時間は同じなのです。
+- **POSIX時間** &mdash; POSIX時間では、どこ住んでいるとか何年の何時であるとかは関係ありません。それは、あくまでも（1970年の）ある時間からの経過秒数を数字として表しているだけです。地球上のどこに行こうとも、POSIX時間は同じなのです。
 
 <!--
 - **Time Zones** &mdash; A “time zone” is a bunch of data that allows you to turn POSIX time into human time. This is _not_ just `UTC-7` or `UTC+3` though! Time zones are way more complicated than a simple offset! Every time [Florida switches to DST forever][florida] or [Samoa switches from UTC-11 to UTC+13][samoa], some poor soul adds a note to the [IANA time zone database][iana]. That database is loaded onto every computer, and between POSIX time and all the corner cases in the database, we can figure out human times!
 -->
-- **タイムゾーン** &mdash; ある"タイムゾーン"とは、POSIX時間を人間にとっての時間に変換するための、データの集まりです。これは単なる`UTC-7`とか`UTC+3`などとは _異なります_ ！タイムゾーンは単純なオフセットではなくもっと複雑なのです。[フロリダではサマータイムに永遠に移行します][florida]、[サモアではUTC-11からUCT+13に移行します](samoa)、などと常に哀れなる魂が[IANAのタイムゾーンデータベース](iana)に一行を追加します。そんなデータベースは個々のコンピュータに読み込まれ、データベース内でのPOSIX時間と全てのコーナーケース関係も含めて、そうやって人間にとっての時間を見出すことができるのです。
+- **タイムゾーン** &mdash; ある"タイムゾーン"とは、POSIX時間から人間にとっての時間への変換を助けるための、データの集まりです。これは単なる`UTC-7`とか`UTC+3`などとは _異なります_ ！タイムゾーンは単純なオフセットではなく、もっと複雑なのです。[フロリダではサマータイムに永遠に移行します][florida]、[サモアではUTC-11からUCT+13に移行します](samoa)、などと常に哀れなる魂が[IANAのタイムゾーンデータベース](iana)に一行を追加します。そのデータベースは個々のコンピュータに読み込まれ、POSIX時間とデータベース内での全てのコーナーケースとの関係も含めて計算され、そうやって人間にとっての時間を見出すことができるのです。
 
 <!--
 So to show a human being a time, you must always know `Time.Posix` and `Time.Zone`. That is it! So all that “human time” stuff is for the `view` function, not the `Model`. In fact, you can see that in our `view`:
 -->
-したがって人に対して時間を示すためには、常に`Time.Posix`と`Time.Zone`について知っていなければなりません。そうです！全ての"人間にとっての時間"なるものは`view`のためであって、`Model`のためではありません。実際にその事実を`view`に見ることができます：
+したがって人に対して時間を示すためには、常に`Time.Posix`と`Time.Zone`について知っていなければなりません。そうです！全ての"人間にとっての時間"なるものは`view`関数のためであって、`Model`のためではありません。その事は以下の`view`に見ることができます：
 
 ```elm
 view : Model -> Html Msg
@@ -157,12 +157,12 @@ view model =
 <!--
 The [`Time.toHour`][toHour] function takes `Time.Zone` and `Time.Posix` gives us back an `Int` from `0` to `23` indicating what hour it is in _your_ time zone.
 -->
-関数[`Time.toHour`][toHour]は、`Time.Zone`と`Time.Posix`を引数にとり、_あなた_のタイムゾーンにおける時間を示す`Int`型の数字を返します。
+関数[`Time.toHour`][toHour]は、`Time.Zone`と`Time.Posix`を引数にとり、_あなた_のタイムゾーンにおける時間を示す`0`から`23`の`Int`型の数字を返します。
 
 <!--
 There is a lot more info about handling times in the README of [`elm/time`][time]. Definitely read it before doing more with time! Especially if you are working with scheduling, calendars, etc.
 -->
-時間を取り扱うためのさらに多くの情報が[`elm/time`][time]のREADMEに含まれていますので、時間についてもっと何かする前に必ず読んでください。特に、もしスケジューリングやカレンダー等について
+時間を取り扱うためのさらに多くの情報が[`elm/time`][time]のREADMEに含まれていますので、時間についてもっと何かする前には必ず読むべきです！特に、もしスケジューリングやカレンダー等について何かするなら読んでみてください。
 
 [tz]: https://en.wikipedia.org/wiki/Time_zone
 [dst]: https://en.wikipedia.org/wiki/Daylight_saving_time
@@ -224,7 +224,7 @@ Task.perform AdjustTimeZone Time.here
 <!--
 Reading through the [`Task`][task] docs is the best way to understand that line. The docs are written to actually explain the new concepts, and I think it would be too much of a digression to include a worse version of that info here. The point is just that we command the runtime to give us the `Time.Zone` wherever the code is running.
 -->
-この行を理解するための最良の方法は、[`Task`][task]のドキュメンの全てに目を通すことです。このドキュメンは実際のところ新しい概念を説明するために書かれており、ここで端折った情報を提供するために脱線すべきでないと考えます。大事な点はランタイムシステムに対して、このコードの実行時に`Time.Zone`を返すように指示しているだけということです。
+この行を理解するための最良の方法は、[`Task`][task]のドキュメントの全てに目を通すことです。あなたが読んでいるドキュメントは、実際のところ新しい概念を説明するために書かれており、ここで端折った情報を提供するために脱線すべきでないと考えます。大事な点はランタイムシステムに対して、このコードの実行時に`Time.Zone`を返すように指示しているだけということです。
 
 [utc]: https://package.elm-lang.org/packages/elm/time/latest/Time#utc
 [task]: https://package.elm-lang.org/packages/elm/core/latest/Task
