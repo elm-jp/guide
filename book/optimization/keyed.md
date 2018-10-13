@@ -26,14 +26,14 @@
 - ...
 -->
 
-- 現在のリストのひとつめ要素と、次のリストのひとつめ要素の差分をとる
-- 現在のリストのふたつめ要素と、次のリストのふたつめ要素の差分をとる
+- 現在のリストのひとつめの要素と、次のリストのひとつめの要素の差分をとる
+- 現在のリストのふたつめの要素と、次のリストのふたつめの要素の差分をとる
 - ...
 
 
 <!-- But when you you change the sort order, all of these are going to be different! So you end up doing a lot of work on the DOM when you could have just shuffled some nodes around. -->
 
-しかし、並び替えの順序を変更したときは、これらの差分処理のほとんどが違っていることでしょう！　そして、ノードをシャッフルしたときなどでは、DOMに対して大量の操作を行うはめになります。
+しかし、並び替えの順序を変更したときは、これらの組のほとんどが違っていてそれぞれ差分処理が必要になるでしょう！　そして、ノードをシャッフルしたときなどでは、DOMに対して大量の操作を行うはめになります。
 
 <!-- This issue exists with insertion and removal as well. Say you remove the 1st of 100 items. Everything is going to be off-by-one and look different. So you get 99 diffs and one removal at the end. No good! -->
 
@@ -71,15 +71,15 @@ viewPresident president =
 
 <!-- Each child node is associated with a key. So instead of doing a pairwise diff, we can diff based on matching keys! -->
 
-どの子のノードもキーに関連付けられています。位置に基いた組で差分をとる代わりに、キーによる照合に基いて比較することができるのです！
+どの子のノードもキーに関連付けられています。要素の順序に基いた組で差分をとる代わりに、キーによる照合に基いた組で比較することができるのです！
 
 <!-- Now the Virtual DOM implementation can recognize when the list is resorted. It first matches all the presidents up by key. Then it diffs those. We used `lazy` for each entry, so we can skip all that work. Nice! It then figures out how to shuffle the DOM nodes to show things in the order you want. So the keyed version does a lot less work in the end. -->
 
-これで仮想DOM実装はリストが並び替えられたことを認識できるようになります。まず仮想DOM実装は、大統領をキーに基づいて照合します。それから、それらの組の差分を処理します。ここではそれぞれの項目に`lazy`を使っていますので、それらのすべての処理を省くことができます。素晴らしいでしょう！　それから仮想DOM実装は、指定した順序で表示するにはDOMノードをどのように入れ替えればいいかを見つけ出します。結果として、キー付きのバージョンの処理量はキーを使わなかったときよりも少なくなるのです。
+これでElmの仮想DOM実装は、リストが並び替えられたことを認識できるようになります。まずElmは、大統領をキーに基づいて照合します。それから、それらの組の差分を処理します。ここではそれぞれの項目に`lazy`を使っていますので、それらのすべての処理を省くことができます。素晴らしいでしょう！　それからElmは、指定した順序で表示するにはDOMノードをどのように入れ替えればいいかを見つけ出します。結果として、キーを付けたときの処理量はキーを使わなかったときよりも少なくなるのです。
 
 <!-- Resorting helps show how it works, but it is not the most common case that really needs this optimization. **Keyed nodes are extremely important for insertion and removal.** When you remove the 1st of 100 elements, using keyed nodes allows the Virtual DOM implementation to recognize that immediately. So you get a single removal instead of 99 diffs. -->
 
-並び替えでキーが役に立つのはわかりましたが、この最適化が本当に必要になるのは並び替えが最も典型的というわけではありません。**キーが付けられたノードは、項目の挿入や削除においても極めて重要です。**100要素の最初の要素を削除するとき、キー付きのノードを使えば仮想DOM実装がそれを直ちに認識できるようになるのでした。そのため、99回も差分を処理することなく、ひとつの要素を削除するだけで済むのです。
+並び替えでキーが役に立つのはわかりましたが、この最適化が本当に必要になる場面は並び替えのほかにもあります。**キーが付けられたノードは、項目の挿入や削除においても極めて重要です。**100要素の最初の要素を削除するとき、キー付きのノードを使えばElmの仮想DOM実装がそれを直ちに認識できるようになるのでした。そのため、99回も差分を処理することなく、ひとつの要素を削除するだけで済むのです。
 
 
 <!-- ## Summary -->
