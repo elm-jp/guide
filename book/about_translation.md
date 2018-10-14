@@ -31,3 +31,9 @@
 | 補助関数       | helper function  |
 | コマンド | Command |
 | サブスクリプション | Subscription |
+| 型注釈 | type annotation |
+| タプル | tuple |
+| レコード | record |
+| 無名関数 | anonymous function |
+| 予約語 | keyword |
+| 構造に基づく型 | structural typing |
