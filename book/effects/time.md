@@ -132,7 +132,7 @@ To work with time successfully in programming, we need three different concepts:
 - **POSIX Time** &mdash; With POSIX time, it does not matter where you live or what time of year it is. It is just the number of seconds elapsed since some arbitrary moment (in 1970). Everywhere you go on Earth, POSIX time is the same.
 -->
 
-- **POSIX時間** &mdash; POSIX時間では、どこ住んでいるとか、どの時期であるとかは関係ありません。あくまでも（1970年の）ある時間からの経過秒数を数字として表しているだけです。地球上のどこに行こうとも、POSIX時間は同じなのです。
+- **POSIX時間** &mdash; POSIX時間では、どこに住んでいるとか、どの時期であるとかは関係ありません。あくまでも（1970年の）ある時間からの経過秒数を数字として表しているだけです。地球上のどこに行こうとも、POSIX時間は同じなのです。
 
 <!--
 - **Time Zones** &mdash; A “time zone” is a bunch of data that allows you to turn POSIX time into human time. This is _not_ just `UTC-7` or `UTC+3` though! Time zones are way more complicated than a simple offset! Every time [Florida switches to DST forever][florida] or [Samoa switches from UTC-11 to UTC+13][samoa], some poor soul adds a note to the [IANA time zone database][iana]. That database is loaded onto every computer, and between POSIX time and all the corner cases in the database, we can figure out human times!
@@ -224,7 +224,7 @@ Task.perform AdjustTimeZone Time.here
 <!--
 Reading through the [`Task`][task] docs is the best way to understand that line. The docs are written to actually explain the new concepts, and I think it would be too much of a digression to include a worse version of that info here. The point is just that we command the runtime to give us the `Time.Zone` wherever the code is running.
 -->
-この行を理解するための最良の方法は、[`Task`][task]のドキュメントに一通り目を通すことで、そのドキュメントの中で、`Task`という新しい概念についての実際の説明がなされています。ここで中途半端な説明をして脱線するのはやめようと思いますが、大事な点はランタイムシステムに対して、このコードの実行時に`Time.Zone`を返すように指示しているだけということです。
+この行を理解するための最良の方法は、[`Task`][task]のドキュメントに一通り目を通すことです。そのドキュメントの中で、実際に`Task`という新しい概念について説明がなされています。ここで中途半端な説明をして脱線するのはやめようと思いますが、大事な点はランタイムシステムに対して、このコードの実行時に`Time.Zone`を返すように指示しているだけということです。
 
 [utc]: https://package.elm-lang.org/packages/elm/time/latest/Time#utc
 [task]: https://package.elm-lang.org/packages/elm/core/latest/Task
