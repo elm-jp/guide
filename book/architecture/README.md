@@ -1,10 +1,18 @@
-# The Elm Architecture
+<!-- # The Elm Architecture -->
 
-The Elm Architecture is a simple pattern for architecting webapps. It is great for modularity, code reuse, and testing. Ultimately, it makes it easy to create complex web apps that stay healthy as you refactor and add features.
+# Elmアーキテクチャ
 
-This architecture seems to emerge naturally in Elm. Rather than someone “inventing” it, early Elm programmers kept discovering the same basic patterns in their code. Teams have found this particularly nice for onboarding new developers. Code just turns out well-architected. It is kind of spooky.
+<!-- The Elm Architecture is a simple pattern for architecting webapps. It is great for modularity, code reuse, and testing. Ultimately, it makes it easy to create complex web apps that stay healthy as you refactor and add features. -->
 
-So The Elm Architecture is *easy* in Elm, but it is useful in any front-end project. In fact, projects like Redux have been inspired by The Elm Architecture, so you may have already seen derivatives of this pattern. Point is, even if you ultimately cannot use Elm at work yet, you will get a lot out of using Elm and internalizing this pattern.
+Elmアーキテクチャは、ウェブアプリケーションを構築するためのシンプルなパターンです。モジュール性やコードの再利用性、テストのしやすさなどに優れています。つまり、複雑なアプリケーションを作るときでも、安心してリファクタリングしたり機能を追加できるようにしてくれるのです。
+
+<!-- This architecture seems to emerge naturally in Elm. Rather than someone “inventing” it, early Elm programmers kept discovering the same basic patterns in their code. Teams have found this particularly nice for onboarding new developers. Code just turns out well-architected. It is kind of spooky. -->
+
+このアーキテクチャは、Elmを使っていれば自然にわかってくるものです。誰かがこれを「発明した」というより、コードの中にこの基本的なパターンが常にあることを初期のElmプログラマが発見したということなのです。チーム開発においても、新人開発者にとって特に適していることもわかっています。
+
+<!-- So The Elm Architecture is *easy* in Elm, but it is useful in any front-end project. In fact, projects like Redux have been inspired by The Elm Architecture, so you may have already seen derivatives of this pattern. Point is, even if you ultimately cannot use Elm at work yet, you will get a lot out of using Elm and internalizing this pattern. -->
+
+そして、ElmアーキテクチャはElmでは「簡単」ですが、どんなフロントエンドプロジェクトにおいても便利なものです。実のところReduxのようなプロジェクトはElmアーキテクチャに着想を得て作られたものなので、このパターンの派生をすでに見たことがある人もいるかもしれません。もしまだ実際のプロジェクトでElmを使うことができないとしても、Elmとこの特徴的なパターンを使うことで得るものは多いでしょう。
 
 [Elm]: https://elm-lang.org/
 [TodoMVC]: https://github.com/evancz/elm-todomvc
@@ -14,15 +22,27 @@ So The Elm Architecture is *easy* in Elm, but it is useful in any front-end proj
 [Pivotal]: https://www.pivotaltracker.com/blog/Elm-pivotal-tracker/
 
 
-## The Basic Pattern
+<!-- ## The Basic Pattern -->
 
-The logic of every Elm program will break up into three cleanly separated parts:
+## 基本的なパターン
 
+<!-- The logic of every Elm program will break up into three cleanly separated parts: -->
+
+どんなElmプログラムも、次の３つの要素に明確に分割することができるでしょう。
+
+<!--
   * **Model** &mdash; the state of your application
   * **Update** &mdash; a way to update your state
   * **View** &mdash; a way to view your state as HTML
+-->
 
-This pattern is so reliable that I always start with the following skeleton and fill in details for my particular case.
+  * **Model** &mdash; アプリケーションの状態
+  * **Update** &mdash; 状態を更新する方法
+  * **View** &mdash; HTMLとして状態を閲覧する方法
+
+<!-- This pattern is so reliable that I always start with the following skeleton and fill in details for my particular case. -->
+
+私はいつも次のような骨組みから始めて、プロジェクトごとの振る舞いに応じて詳細を埋めていくのですが、このパターンはとても信頼性があります。
 
 ```elm
 import Html exposing (..)
@@ -51,22 +71,42 @@ view model =
   ...
 ```
 
-That is really the essence of The Elm Architecture! We will proceed by filling in this skeleton with increasingly interesting logic.
+<!-- That is really the essence of The Elm Architecture! We will proceed by filling in this skeleton with increasingly interesting logic. -->
+
+まさしくこれがElmアーキテクチャの本質なのです！　ここからは、様々なロジックでだんだんとこの骨組みを埋めていくことで、説明を進めていきましょう。
 
 
-# The Elm Architecture + User Input
+<!-- # The Elm Architecture + User Input -->
 
-Your web app is going to need to deal with user input. This section will get you familiar with The Elm Architecture in the context of things like:
+# Elmアーキテクチャ + ユーザ入力
 
+<!-- Your web app is going to need to deal with user input. This section will get you familiar with The Elm Architecture in the context of things like: -->
+
+ウェブアプリケーションではユーザからの入力を扱う必要があるでしょう。この章では、次のような内容について、Elmアーキテクチャに慣れるようにしていきます。
+
+<!--
   - Buttons
   - Text Fields
   - Check Boxes
   - Radio Buttons
   - etc.
+-->
 
-We will go through a few examples that build knowledge gradually, so go in order!
+  - ボタン
+  - テキストフィールド
+  - チェックボックス
+  - ラジオボタン
+  - そのほか
+
+<!-- We will go through a few examples that build knowledge gradually, so go in order! -->
+
+幾つかの例を見ながら徐々に知識を深めていきますので、それではこの順番で進めて行きましょう！
 
 
-## Follow Along
+<!-- ## Follow Along -->
 
-In the last section we used `elm repl` to get comfortable with Elm expressions. In this section, we are switching to creating Elm files of our own. You can do that in [the online editor](https://ellie-app.com/new), or if you have Elm [installed](/install.html), you can follow [these simple instructions](https://github.com/evancz/elm-architecture-tutorial#run-the-examples) to get everything working on your computer!
+## 本書を読み進めるためにあたって
+
+<!-- In the last section we used `elm repl` to get comfortable with Elm expressions. In this section, we are switching to creating Elm files of our own. You can do that in [the online editor](https://ellie-app.com/new), or if you have Elm [installed](/install.html), you can follow [these simple instructions](https://github.com/evancz/elm-architecture-tutorial#run-the-examples) to get everything working on your computer! -->
+
+先ほどの章では、Elmの式に慣れるために`elm repl`を使いました。この章からは、自分自身のElmファイルを作るように切り替えていきます。[オンラインエディタ](https://ellie-app.com/new)でも構いませんが、もしElmの[インストールを済ませた](/install.html)なら、[これらの簡単な指示](https://github.com/evancz/elm-architecture-tutorial#run-the-examples)に従うことで、あなたのコンピュータ上ですべての作業をすることもできます！
