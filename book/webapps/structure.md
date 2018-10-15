@@ -29,7 +29,7 @@
 
 <!-- Early in my projects, I always have these grand schemes of how everything will fit together. “The pages for editing and viewing posts both care about posts, so I will have a `Post` module!” But as I write my application, I find that only the viewing page should have a publication date. And I actually need to track editing differently to cache data when tabs are closed. And they actually need to be stored a bit differently on servers as a result. Etc. I end up turning `Post` into a big mess to handle all these competing concerns, and it ends up being worse for both pages. -->
 
-以前の私のプロジェクトでは、すべてをどのようにひとつに組み合わせるかという壮大な計画を練っていました。「このページは編集と投稿の閲覧で、どちらも投稿に関係しているから、`Post`モジュールが必要だな！」しかし私がアプリケーションを書いたとき、閲覧のページだけが公開日を持つということに気付きました。そして、タブが閉じたときにデータをキャッシュするように、編集を追跡する必要がありました。また、サーバに保存する必要があった編集と閲覧の結果は、それぞれ少しだけ異なっていた、などです。私はついに`Post`が互いに絡み合う要素すべてを制御するようにめちゃくちゃにしてしまい、ページは両方ともひどいものになってしまいました。
+以前の私のプロジェクトでは、すべてをどのようにひとつに組み合わせるかという壮大な計画を練っていました。「このページは編集と投稿の閲覧で、どちらも投稿に関係しているから、`Post`モジュールが必要だな！」しかし私がアプリケーションを書いたとき、閲覧のページだけが公開日を持つということに気付きました。そして、編集中の記事内容は別の方法で管理して、タブを閉じたときにもデータが失われないように一時的に保存するようにする必要がありました。その結果、ページを開いたときにサーバー上のデータをページに表示する処理を、閲覧ページと編集ページでは少し異なるやり方にしなければなりませんでした。私はついに互いに絡み合う要素すべてを`Post`に制御させようとめちゃくちゃにしてしまい、ページは両方ともひどいものになってしまいました。
 
 <!-- By just starting with pages, it becomes much easier to see when things are **similar**, but not **the same**. The norm in user interfaces! So with editing and viewing posts, it seems plausible that we could end up with an `EditablePost` type and a `ViewablePost` type, each with different structure, helper functions, and JSON decoders. Maybe those types are complex enough to warrant their own module. Maybe not! I would just write the code and see what happens. -->
 
