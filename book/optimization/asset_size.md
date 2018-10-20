@@ -8,7 +8,7 @@ DOMを操作するよりも更に遅い処理があるとしたら、それは�
 
 <!-- A great way to improve is to send fewer bits. For example, if a 122kb asset can become a 9kb asset, it will load faster! We get results like that by using the following techniques: -->
 
-これを改善する良い方法は、送信するデータをもっと少なくすることです。たとえば、122キロバイトのアセットを9キロバイトにすることができれば、読み込みはずっと早くなります！　次のような手法を使うことで、そのような結果を得ることができます。
+これを改善する良い方法は、送信するデータをもっと少なくすることです。たとえば、122キロバイトのアセット（サーバからブラウザに送られるファイル）を9キロバイトにすることができれば、読み込みはずっと早くなります！　次のような手法を使うことで、そのような結果を得ることができます。
 
 <!--
 - **Compilation.** The Elm compiler can perform optimizations like dead code elimination and record field renaming. So it can cut unused code and shorten record field names like `userStatus` in the generated code.
@@ -18,7 +18,7 @@ DOMを操作するよりも更に遅い処理があるとしたら、それは�
 
 - **コンパイル。**　Elmコンパイラは、デッドコード除去やレコードフィールドの名前変更のような、パフォーマンス最適化を実施することができます。つまり、生成されたコードの使われていないコードを取り除いたり、`userStatus`のようなレコードフィールド名を短くしたりすることができます。
 - **ミニファイ。** JavaScriptの世界には、いろいろな変換を行う『ミニファイア』(minifiers)と呼ばれるツールがあります。これは、変数名を短くしたり、インライン化をしたり、`if`文を3項演算子へと置き換えたり、`'\u0041'` を `'A'` に置き換えたりします。いずれもデータ量を削減するためです！
-- **圧縮。**　いったんコードを可能な限り小さくすることができたら、gzipのようなアルゴリズムを使ってまとめることで、これを更に圧縮することができます。それ自身を単純に取り除くことが難しい`function`や`return`のような予約語に対して特に有効です。
+- **圧縮。**　デッドコード除去やミニファイによってコードを可能な限り小さくしたら、そのあとgzipのようなアルゴリズムを使うことでコードを更に圧縮することができます。それ自身を単純に取り除くことが難しい`function`や`return`のような予約語に対して特に有効です。
 
 <!-- Elm makes it pretty easy to get all this set up for your project. No need for some complex build system. It is just two terminal commands! -->
 
@@ -91,7 +91,7 @@ echo "Gzipped size: $(cat $min | gzip -c | wc -c) bytes"
 
 <!-- Now if I run `./optimize.sh src/Main.elm` on my [TodoMVC](https://github.com/evancz/elm-todomvc) code, I see something like this in the terminal: -->
 
-これで、もし[TodoMVC](https://github.com/evancz/elm-todomvc)の`./optimize.sh src/Main.elm`を実行すれば、次のようなものがターミナルに出力されるのを見ることができるでしょう。
+これで、もし[TodoMVC](https://github.com/evancz/elm-todomvc)のプロジェクト上で`./optimize.sh src/Main.elm`を実行すれば、次のようなものがターミナルに出力されるのを見ることができるでしょう。
 
 ```
 Compiled size:  122297 bytes  (elm.js)
@@ -113,8 +113,8 @@ Gzipped size:     9148 bytes
 
 <!-- I recommend writing a `Browser.application` and compiling to a single JavaScript file as we have seen here. It will get downloaded (and cached) when people first visit. Elm creates quite small files compared to the popular competitors, as you can see [here](https://elm-lang.org/blog/small-assets-without-the-headache), so this strategy can take you quite far. -->
 
-これまで見てきたように、`Browser.application`を使い、単一のJavaScriptファイルへとコンパイルするのを書くのをお勧めします。そのJavaScriptファイルは、ユーザがページを最初に訪れたときにダウンロード(とキャッシュ)されるでしょう。JavaScriptを生成する他の有名な開発環境と比較しても、Elmはずっと小さなファイルを作成しますので、[ここ](https://elm-lang.org/blog/small-assets-without-the-headache)で見ていただいたように、この戦略はあなたをとても遠くまで連れて行ってくれることでしょう。
+これまで見てきたように、`Browser.application`を使い、単一のJavaScriptファイルへとコンパイルするのを書くのをお勧めします。そのJavaScriptファイルは、ユーザがページを最初に訪れたときにダウンロード(とキャッシュ)されるでしょう。JavaScriptを生成する他の有名なプログラミング言語と比較しても、Elmはずっと小さなファイルを作成しますので、[ここ](https://elm-lang.org/blog/small-assets-without-the-headache)で見ていただいたように、この戦略に従えばよりいっそう良い結果を得られるでしょう。
 
 <!-- >> **Note:** In theory, it is possible to get even smaller assets with Elm. It is not possible right now, but if you are working on 50k lines of Elm or more, we would like to learn about your situation as part of a user study. More details [here](https://gist.github.com/evancz/fc6ff4995395a1643155593a182e2de7)! -->
 
->> **Note:** 理論的には、Elmでこれよりもさらに小さなアセットにすることも可能です。これは今現在でも不可能というわけではないので、もしあなたがElmで5万行以上のコードを書いているなら、ユーザの使用状況の調査のひとつとして、あなたの状況を教えていただけたらと思います。くわしくは[こちら](https://gist.github.com/evancz/fc6ff4995395a1643155593a182e2de7)をご覧ください！
+>> **Note:** 理論的には、Elmでこれよりもさらに小さなアセットにすることも可能です。これは現段階では不可能なのですが、もしあなたがElmで5万行以上のコードを書いているなら、ユーザの使用状況の調査のひとつとして、あなたの状況を教えていただけたらと思います。くわしくは[こちら](https://gist.github.com/evancz/fc6ff4995395a1643155593a182e2de7)をご覧ください！
