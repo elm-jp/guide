@@ -6,7 +6,7 @@
 <!--
 In the [Core Language](../core_language.md) section of this book, we ran a bunch of code in the REPL. Well, we are going to do it again, but now with an emphasis on the types that are getting spit out. So type `elm repl` in your terminal again. You should see this:
 -->
-この本の[言語の基礎](../core_language.md)セクションでは、REPL で一連のコードを実行しました。 さて、私たちはもう一度やってみるつもりですが、今度は表示される型に注目していきましょう。 ターミナルに`elm repl`と入力してください。 このように表示されます:
+この本の[言語の基礎](../core_language.md)の節では、REPL で一連のコードを実行しました。 さて、私たちはもう一度やってみるつもりですが、今度は表示される型に注目していきましょう。 ターミナルに`elm repl`と入力してください。 このように表示されます:
 
 ```elm
 ---- Elm 0.19.0 ----------------------------------------------------------------
