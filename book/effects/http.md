@@ -1,22 +1,41 @@
 # HTTP
 
 ---
+<!--
 #### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://ellie-app.com/37gZn34mDJPa1).
+-->
+#### [サンプルコード](https://github.com/evancz/elm-architecture-tutorial/)をダウンロードするか[オンラインエディタ]で試してください。
 ---
 
+<!--
 We are about to make an app that fetches a random GIF when the user asks for another image.
 
 I know some readers are skipping around, but this example assumes you read (1) [Random](/effects/random.md) which introduced `update` and `init` functions that can produce commands and (2) [JSON](/effects/json.md) which introduced JSON decoders. This example will not make sense without that background knowledge!
+-->
+
+これからユーザーが新しい画像を求めたら任意のGIF画像を取得するアプリケーションを作ってみます。
+
+飛ばして読んでいる読者もいると思いますが、この例では(1)[Random](/effects/random.md)、コマンドを発行ための`update`と`init`関数について紹介しています、そして(2)[JSON](/effects/json.md)、JSONデコーダーについて紹介しています。これらの予備知識無しではこの例を実行する意味はありません。
 
 ...
 
+<!--
 Okay, so you read those sections, right?
+-->
+
+これらの節を読みましたね、用意はいいですか？
 
 ...
 
+<!--
 Good!
 
 This example uses The Elm Architecture, just like we have seen in all the previous examples. The new parts are all because we are using the [`elm/http`][http] and [`elm/url`][url] packages. We will talk about all that after you look through the code a bit:
+-->
+
+すばらしい！
+
+これまでの例で見てきたように、ここでもThe Elm Architectureを使っていきます。パッケージ[`elm/http`][http]と[`elm/url`][url]を使用していきますので、新しい部分だらけになります。
 
 [http]: https://package.elm-lang.org/packages/elm/http/latest
 [json]: https://package.elm-lang.org/packages/elm/json/latest
@@ -137,12 +156,19 @@ gifDecoder =
   Decode.field "data" (Decode.field "image_url" Decode.string)
 ```
 
+<!--
 This program is quite similar to the random dice roller we just saw: `Model`, `init`, `update`, `subscriptions`, and `view`. The new stuff is mostly in the `HTTP` section which uses `elm/url`, `elm/json`, and `elm/http`. Let&rsquo;s go through those one-by-one.
+-->
 
+プログラム自体はサイコロを振るアプリケーションとそっくりです：`Model`, `init`, `update`, `subscriptions`そして`view`からなります。新しいコードは`elm/url`と`elm/json`そして`elm/http`を使っている`HTTP`の部分になります。それぞれ追ってみていきましょう。
 
 ## `elm/url`
 
+<!--
 Let&rsquo;s look at the `toGiphyUrl` function first. It may seem like we should have just made a string like this:
+-->
+
+まずは`toGiphyUrl`関数を見てみてください。この関数は次のように単純に文字列を結合するだけで良い気がします。
 
 ```elm
 toBrokenGiphyUrl : String -> String
@@ -150,14 +176,31 @@ toBrokenGiphyUrl topic =
   "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=" ++ topic
 ```
 
+<!--
 This is nice and simple. But it will have quite odd results if `topic` contains characters like `=` or `&`. The user could start adding totally different query parameters!
+-->
 
+これはこれで簡潔で良いのですが、もし`topic`に`=`や`&`などの文字が含まれていたら、おかしなことになってしまいます。ユーザーがでたらめなクエリパラメータを追加できてしまうのです！
+
+<!--
 So instead we use the [`Url.Builder`][builder] module from the `elm/url` package. We use two specific helper functions:
+-->
 
+代わりに、パッケージ`elm/url`のモジュール[`Url.Builder`][builder]に含まれる次の二つのヘルパー関数を使います：
+
+<!--
 - [`crossOrigin`][crossOrigin] takes three arguments: (1) the domain, (2) each level of the path, and (3) a list of query parameters. It also guarantees that the query parameters are properly encoded. That means having `=` or `&` in the `topic` is not a problem anymore.
 - [`string`][string] takes a `key` and a `value`. The `crossOrigin` function will turn them into `?key=value` to make the final URL, and the `value` will always be properly encoded.
+-->
 
+- [`crossOrigin`][crossOrigin]は3個の引数をとります：(1)ドメイン名、(2)パスを構成する階層、(3)クエリパラメータのリスト。またクエリパラメータは適切にエンコードされていることを保証します。つまり、`=`や`&`などの文字が`topic`に含まれていても問題ありません。
+- [`string`][string]は`key`と`value`を引数に取ります。最終的なURLを作るために、`crossOrigin`関数がこれらを`?key=value`といった形式に変換しますが、その際に`value`は常に適切にエンコードされます。
+
+<!--
 So when you put them together, we end up with this `toGiphyUrl` function:
+-->
+
+これらを一つにまとめると、次のような`toGiphyUrl`関数にたどり着きます。
 
 ```elm
 toGiphyUrl : String -> String
@@ -168,7 +211,11 @@ toGiphyUrl topic =
     ]
 ```
 
+<!--
 In this version, the `topic` will definitely be encoded correctly!
+-->
+
+このバージョンでは、`topic`は絶対に正確にエンコードされるでしょう。
 
 [builder]: https://package.elm-lang.org/packages/elm/url/latest/Url-Builder
 [crossOrigin]: https://package.elm-lang.org/packages/elm/url/latest/Url-Builder#crossOrigin
@@ -177,7 +224,11 @@ In this version, the `topic` will definitely be encoded correctly!
 
 ## `elm/json`
 
+<!--
 That URL is going to send back some JSON like this:
+-->
+
+先のURLは以下のようなJSONを送り返してきます。
 
 ```json
 {
@@ -197,7 +248,11 @@ That URL is going to send back some JSON like this:
 }
 ```
 
+<!--
 We actually saw this exact JSON on the previous page, and we learned how to create a JSON decoder to extract the info we need:
+-->
+
+前のページでこれと全く同じJSONを見ましたね。そこでは、必要な情報を抽出するためのJSONデコーダーの作り方を学びました。
 
 ```elm
 gifDecoder : Decode.Decoder String
@@ -205,12 +260,19 @@ gifDecoder =
   Decode.field "data" (Decode.field "image_url" Decode.string)
 ```
 
+<!--
 In the `"data"` field, in the `"image_url"` field, we want to read a `String`.
+-->
 
+`"data"`フィールドの中の、`"image_url"`フィールドの中の`String`を読み出したいのいです。
 
 ## `elm/http`
 
+<!--
 Alright, the only thing missing now is the HTTP request! It is created with the following function:
+-->
+
+いいですね、あと残っているのはHTTPリクエストになります！次の関数で作られます：
 
 ```elm
 getRandomGif : String -> Cmd Msg
@@ -218,7 +280,10 @@ getRandomGif topic =
   Http.send NewGif (Http.get (toGiphyUrl topic) gifDecoder)
 ```
 
+<!--
 We need to break this down into smaller parts!
+-->>
+ここは小さな部分に噛み砕いて行きましょう！
 
 First we use [`Http.get`](https://package.elm-lang.org/packages/elm/http/latest/Http#get) to describe our request:
 
@@ -245,4 +310,3 @@ So rather than defaulting to ignoring errors like in JavaScript, this API requir
 > - Allow the user to modify the `topic` with a text field.
 > - Allow the user to modify the `topic` with a drop down menu.
 > - Try decoding other parts of the JSON received from `api.giphy.com`.
-
