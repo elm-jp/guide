@@ -3,7 +3,7 @@
 
 On the next page we are going to ask `api.giphy.com` for some random GIFs. The endpoint [here](https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cat) is going to give us JSON like this:
 -->
-次のページでは適当なGIF画像を取得するために`api.giphy.com`に問い合わせをするつもりです。その[エンドポイント](https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cat)は次のようなJSONを返すでしょう：
+次のページでは任意のGIF画像を取得するために`api.giphy.com`に問い合わせをします。その際の[エンドポイント](https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cat)は次のようなJSONを返すでしょう：
 
 ```json
 {
@@ -35,9 +35,9 @@ In Elm, we validate JSON _before_ it gets into our code. Let&rsquo;s see how!
 
 では、この様なデータをElmではどのように取り扱ったら良いのでしょうか？
 
-JavaScriptでは、`JSON.parse`を実行するとJavaScriptのオブジェクトを取得することができます。`response.data.image_url`としてオブジェクトのフィールドにアクセスすることにより、任意のGIF画像を取得することができます。JavaScript Object Notation (JSON)はJavaScriptへ容易に取り込めると期待されがちです！しかし、もし`api.giphy.com`がJSONに変更を加えたらどうなるでしょうか？クラッシュです！もしフィールドにアクセスする際にタイプミスがあったらどうなるでしょうか？クラッシュです！もしエンドポイントがバックエンドチームによって管理されているとして、場合によって異なる結果を返すとしたらどうなるでしょうか？クラッシュです！
+JavaScriptでは、`JSON.parse`を実行するとJavaScriptのオブジェクトを取得することができます。`response.data.image_url`としてオブジェクトのフィールドにアクセスすることにより、任意のGIF画像を取得することができます。JavaScript Object Notation (JSON)はJavaScriptへ容易に取り込めると期待されがちです！しかし、もし`api.giphy.com`がJSONに変更を加えたらどうなるでしょうか？クラッシュします！もしフィールドにアクセスする際にタイプミスがあったらどうなるでしょうか？クラッシュします！もしエンドポイントがバックエンドチームによって管理されているとして、場合によって異なる結果を返すとしたらどうなるでしょうか？クラッシュします！
 
-JSONをJavaScriptの値に変換するのは _とりあえず_ は簡単ですが、後でしっぺ返しを食らうのです。`null`値なのかどうか？整数なのかそれとも整数を含む文字列なのか？このフィールドは存在するのかどうか？などと。複雑なロジックや、予測不可能なふるまい、ありえないという事を自分に対して証明するための大量のテストなどに行き着くのです。
+JSONをJavaScriptの値に変換するのは _とりあえず_ は簡単ですが、後で痛い目に合うことになります。`null`値なのかどうか？整数なのかそれとも整数を含む文字列なのか？このフィールドは存在するのかどうか？などと。複雑なロジックや、予測不可能なふるまい、ありえないという事を自分に対して証明するための大量のテストなどに行き着くのです。
 
 Elmにおいては、自身のコードに取り込まれる _前_ にJSONを検証します。どうやるか見てみましょう！
 
@@ -45,7 +45,7 @@ Elmにおいては、自身のコードに取り込まれる _前_ にJSONを検
 ## JSON Decoders
 -->
 
-## JSONデコーダー
+## JSONデコーダ
 
 <!--
 Say we have some JSON:
@@ -64,7 +64,7 @@ Say we have some JSON:
 We need to run it through a `Decoder` to access specific information. So if we wanted to get the `"age"`, we would run the JSON through a `Decoder Int` that describes exactly how to access that information:
 -->
 
-特定の情報にアクセスするためには、このJSONを`Decoder`で処理する必要があります。もし、`"age"`の値が欲しいなら、どうやってこの情報にアクセスするかを定めた`Decoder Int`を使ってJSONを処理します。
+特定の情報にアクセスするためには、このJSONを`Decoder`で処理する必要があります。もし`"age"`の値が欲しいとしたら、どのようにこの情報にアクセスするかを定めた`Decoder Int`を使ってJSONを処理します。
 
 ![](diagrams/int.svg)
 
@@ -72,7 +72,7 @@ We need to run it through a `Decoder` to access specific information. So if we w
 If all goes well, we get an `Int` on the other side! And if we wanted the `"name"` we would run the JSON through a `Decoder String` that describes exactly how to access it:
 -->
 
-全てが上手く行けば、右側で`Int`型の値を得ます。次にもし、`"name"`の値が欲しいなら、どうやってこの情報にアクセスするかを定めた`Decoder String`を使ってJSONを処理します。
+全てが上手く行けば、出力側で`Int`型の値を得ます。次にもし`"name"`の値が欲しいとしたら、どのようにこの情報にアクセスするかを定めた`Decoder String`を使ってJSONを処理します。
 
 ![](diagrams/string.svg)
 
@@ -82,9 +82,9 @@ If all goes well, we get a `String` on the other side!
 How do we create decoders like this though?
 -->
 
-全てがうまく行けば、右側で`String`型の値を得ます！
+全てがうまく行けば、出力側で`String`型の値を得ます！
 
-ではどうやってこの様なデコーダーを作ったらよいのでしょうか？
+ではどうやってこの様なデコーダを作ったらよいのでしょうか？
 
 <!--
 ## Building Blocks
@@ -96,7 +96,7 @@ How do we create decoders like this though?
 The [`elm/json`][json] package gives us the [`Json.Decode`][decode] module. It is filled with tiny decoders that we can snap together.
 -->
 
-パッケージ[`elm/json`][json]に[`Json.Decode`][decode]モジュールが含まれています。このモジュールは沢山の最小単位のデコーダーで一杯で、それらを組み合わせることが出来ます。
+パッケージ[`elm/json`][json]に[`Json.Decode`][decode]モジュールが含まれています。このモジュールは沢山の最小単位のデコーダで一杯で、それらを組み合わせることが出来ます。
 
 [json]: https://package.elm-lang.org/packages/elm/json/latest/
 [decode]: https://package.elm-lang.org/packages/elm/json/latest/Json-Decode
@@ -105,7 +105,7 @@ The [`elm/json`][json] package gives us the [`Json.Decode`][decode] module. It i
 So to get `"age"` from `{ "name": "Tom", "age": 42 }` we would create a decoder like this:
 -->
 
-例えば、`{ "name": "Tom", "age": 42 }`から`"age"`を取得するためには、次のようなデコーダーを用意します。
+例えば、`{ "name": "Tom", "age": 42 }`から`"age"`を取得するためには、次のようなデコーダを用意します。
 
 ```elm
 import Json.Decode exposing (Decoder, field, int)
@@ -132,9 +132,9 @@ We do pretty much exactly the same thing to extract the `"name"` field:
 ここで[`field`][field]関数は2つの引数をとります：
 
 1. `String` &mdash; フィールド名。ここでは`"age"`フィールドを含むオブジェクトを要求しています。
-2. `Decoder a` &mdash; 次に試すべきデコーダー。もし`"age"`フィールドが存在すれば、その値の処理をこのデコーダーで試みます。
+2. `Decoder a` &mdash; 次に試すべきデコーダ。もし`"age"`フィールドが存在すれば、その値のデコード処理をこのデコーダで試みます。
 
-これらをまとめると、`field "age" int`では、`"age"`フィールドがあるか尋ね、もし存在する場合には、`Decoder Int`を実行し整数の値の抽出を試みます。
+これらをまとめると、`field "age" int`では、`"age"`フィールドがあるかを尋ね、もし存在する場合には、`Decoder Int`でデコード処理を実行し整数の値の抽出を試みます。
 
 `"name"`フィールドについても同様に処理することができます。
 
@@ -160,7 +160,7 @@ In this case we demand an object with a `"name"` field, and if it exists, we wan
 ## Nesting Decoders
 -->
 
-## 入れ子になった複数のデコーダー
+## 入れ子になった複数のデコーダ
 
 <!--
 Remember the `api.giphy.com` data?
@@ -214,13 +214,13 @@ So we are essentially building up a _contract_ of what we expect. &ldquo;If you 
 ## Combining Decoders
 -->
 
-## デコーダーの結合
+## デコーダの結合
 
 <!--
 So far we have only been accessing one field at a time, but what if we want _two_ fields? We snap decoders together with [`map2`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2):
 -->
 
-これまでは、一度に一つのフィールドしかアクセスしてきませんでしたが、_二つ_ のフィールドにアクセスしたい場合はどうしたら良いのでしょうか？デコーダー同士を[`map2`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2)でくっつけてあげます：
+これまでは、一度に一つのフィールドしかアクセスしてきませんでしたが、_二つ_ のフィールドにアクセスしたい場合はどうしたら良いのでしょうか？デコーダ同士を[`map2`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2)でくっつけてあげます：
 
 ```elm
 map2 : (a -> b -> value) -> Decoder a -> Decoder b -> Decoder value
@@ -230,7 +230,7 @@ map2 : (a -> b -> value) -> Decoder a -> Decoder b -> Decoder value
 This function takes in two decoders. It tries them both and combines their results. So now we can put together two different decoders:
 -->
 
-この関数は二つのデコーダーを引数に取ります。両方の処理を試みてそれらの結果を結合します。二つの異なるデコーダーをまとめることができるのです：
+この関数は二つのデコーダを引数に取ります。両方の処理を試みてそれらの結果を結合します。二つの異なるデコーダをまとめることができるのです：
 
 ```elm
 import Json.Decode exposing (Decoder, map2, field, string, int)
@@ -253,9 +253,9 @@ So if we used `personDecoder` on `{ "name": "Tom", "age": 42 }` we would get out
 If we really wanted to get into the spirit of decoders, we would define `personDecoder` as `map2 Person nameDecoder ageDecoder` using our previous definitions. You always want to be building your decoders up from smaller building blocks!
 -->
 
-もし`personDecoder`デコーダーを`{ "name": "Tom", "age": 42 }`というJSON文字列に適用すると、Elmの値として`Person "Tom" 42`を得ることが出来ます。
+もし`personDecoder`デコーダを`{ "name": "Tom", "age": 42 }`というJSON文字列に適用すると、Elmの値として`Person "Tom" 42`を得ることが出来ます。
 
-デコーダーの流儀に従うとするなら、以前に定義したデコーダーを使って、`personDecoder`を`map2 Person nameDecoder ageDecoder`として書くことも可能です。小さな構成要素からデコーダーを組み立てたいと常に思うようになるでしょう！
+デコーダの流儀に従うとするなら、以前に定義したデコーダを使って、`personDecoder`を`map2 Person nameDecoder ageDecoder`として書くことも可能です。小さな構成要素からデコーダを組み立てたいと常に思うようになるでしょう！
 
 <!--
 ## Next Steps
@@ -290,4 +290,4 @@ There are also [`map3`](https://package.elm-lang.org/packages/elm/json/latest/Js
 > **Fun Fact:** I have heard a bunch of stories of folks finding bugs in their _server_ code as they switched from JS to Elm. The decoders people write end up working as a validation phase, catching weird stuff in JSON values. So when NoRedInk switched from React to Elm, it revealed a couple bugs in their Ruby code!
 -->
 
-> **面白い事実：** JSからElmに切り替えたら、_サーバー_ 側のコードのバグを見つけ出すことができたと言うような話題を幾つも聞いたことがあります。人々が書くデコーダーが検証として働く結果となりJSONの不自然な部分を捉えてくれます。NoRedInkがReactからElmに切り替えた際には彼らのRubyコードに幾つかのバグがあることが判明しました！
+> **面白い事実：** JSからElmに切り替えたら、_サーバー_ 側のコードのバグを見つけ出すことができたと言うような話題を幾つも聞いたことがあります。人々が書くデコーダが検証として働く結果となりJSONの不自然な部分を捉えてくれます。NoRedInkがReactからElmに切り替えた際には彼らのRubyコードに幾つかのバグがあることが判明しました！
