@@ -136,6 +136,8 @@ function parseDictionary (content) {
  *  // => true
  *  trContents('|訳語|原文') === null
  *  // => true
+ *  trContents('<!-- |  訳語   |    原文 |  -->')
+ *  // => ['訳語', '原文']
  */
 function trContents (row) {
   const matches = /\| *([^|]+) *\| *([^|]+) *\|/.exec(row);
