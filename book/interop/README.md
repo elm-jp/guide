@@ -6,7 +6,7 @@
 <!--
 We have seen quite a bit of Elm so far! We learned **The Elm Architecture**. We learned about **types**. We learned how to interact with the outside world through **commands** and **subscriptions**. Things are going well!
 -->
-ここまでElmについてのたくさんの事柄を見てきました。**Elmアーキテクチャ**を学び、**型**について学び、**コマンド**と**サブスクリプション**を使って外の世界とやり取りする方法を学びました。いい調子です！
+ここまでElmについてのたくさんの事柄を見てきました。**The Elm Architecture**を学び、**型**について学び、**コマンド**と**サブスクリプション**を使って外の世界とやり取りする方法を学びました。いい調子です！
 
 <!--
 But what happens when you need to do something in JavaScript? Maybe there is a JavaScript library you absolutely need? Maybe you want to embed Elm in an existing JavaScript application? Etc. This chapter will outline all the available options: flags, ports, and custom elements.
@@ -46,7 +46,6 @@ elm make src/Main.elm --output=main.js
 This produces a JavaScript file that exposes an `Elm.Main.init` function. So once you have `main.js` you can write your own HTML file that does whatever you want! For example:
 -->
 こうすれば、`Elm.Main.init`関数を公開するJavaScriptファイルが生成されます。`main.js`ファイルが手に入ったので、自分で好きなようにHTMLファイルを書くことができます！例えばこうです：
-
 
 
 ```html
