@@ -11,7 +11,7 @@ We have seen quite a bit of Elm so far! We learned **The Elm Architecture**. We 
 <!--
 But what happens when you need to do something in JavaScript? Maybe there is a JavaScript library you absolutely need? Maybe you want to embed Elm in an existing JavaScript application? Etc. This chapter will outline all the available options: flags, ports, and custom elements.
 -->
-では、JavaScriptを使って何かしたくなったとしたらどうでしょう？どうしても必要なJavaScriptライブラリがあったとしたら？Elmを既存のJavaScriptアプリケーションに組み込みたいとしたら？この章では、そのためにElmが提供する選択肢を取り上げて、要点を解説します：フラグ、ポート、そしてカスタムエレメンツです。
+では、JavaScriptを使って何かしたくなったとしたらどうでしょう？どうしても必要なJavaScriptライブラリがあったとしたら？Elmを既存のJavaScriptアプリケーションに組み込みたいとしたら？この章では、そのためにElmが提供する選択肢を取り上げて、要点を解説します: フラグ、ポート、そしてカスタムエレメンツです。
 
 <!--
 Whichever one you use, the first step is to initialize your Elm program.
@@ -27,7 +27,7 @@ Whichever one you use, the first step is to initialize your Elm program.
 <!--
 Running `elm make` produces HTML files by default. So if you say:
 -->
-`elm make`コマンドは、デフォルトでHTMLファイルを生成します。つまり、次のようなコマンドを打つと：
+`elm make`コマンドは、デフォルトでHTMLファイルを生成します。つまり、次のようなコマンドを打つと:
 
 ```bash
 elm make src/Main.elm
@@ -36,7 +36,7 @@ elm make src/Main.elm
 <!--
 It produces an `index.html` file that you can just open and start playing with. If you are getting into JavaScript interop, you want to produce JavaScript files instead:
 -->
-すぐに開いていろいろと試すことのできる`index.html`ファイルが生成されます。しかしJavaScriptとの相互運用性を試すときには、JavaScriptファイルが欲しいはずです：
+すぐに開いていろいろと試すことのできる`index.html`ファイルが生成されます。しかしJavaScriptとの相互運用性を試すときには、JavaScriptファイルが欲しいはずです:
 
 ```bash
 elm make src/Main.elm --output=main.js
@@ -45,7 +45,7 @@ elm make src/Main.elm --output=main.js
 <!--
 This produces a JavaScript file that exposes an `Elm.Main.init` function. So once you have `main.js` you can write your own HTML file that does whatever you want! For example:
 -->
-こうすれば、`Elm.Main.init`関数を公開するJavaScriptファイルが生成されます。`main.js`ファイルが手に入ったので、自分で好きなようにHTMLファイルを書くことができます！例えばこうです：
+こうすれば、`Elm.Main.init`関数を公開するJavaScriptファイルが生成されます。`main.js`ファイルが手に入ったので、自分で好きなようにHTMLファイルを書くことができます！例えばこうです:
 
 
 ```html
@@ -77,7 +77,7 @@ I want to call attention to a couple important lines here.
 <!--
 **First**, in the `<head>` of the document, you can load whatever you want! In our little example we  loaded a CSS file called `whatever-you-want.css`:
 -->
-**最初に**、ドキュメントの`<head>`の中では、なんでも好きなものを読み込むことができます！この小さな例では`whatever-you-want.css`というCSSファイルを読み込んでいます：
+**最初に**、ドキュメントの`<head>`の中では、なんでも好きなものを読み込むことができます！この小さな例では`whatever-you-want.css`というCSSファイルを読み込んでいます:
 
 ```html
 <link rel="stylesheet" href="whatever-you-want.css">
@@ -91,7 +91,7 @@ Maybe you write CSS by hand. Maybe you generate it somehow. Whatever the case, y
 <!--
 **Second**, we have a line to load our compiled Elm code:
 -->
-**第二に**、コンパイルしたElmコードを読み込んでいるのは次の行です：
+**第二に**、コンパイルしたElmコードを読み込んでいるのは次の行です:
 
 ```html
 <script src="main.js"></script>
