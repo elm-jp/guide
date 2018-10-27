@@ -5,5 +5,5 @@ cache:
 jobs:
   include:
     - stage: check diff evancz/guide.elm-lang.org
-      if: branch = master AND type IN (cron)
+      # if: branch = master AND type IN (cron)
       script: ./script/diff_evancz_guide.sh
