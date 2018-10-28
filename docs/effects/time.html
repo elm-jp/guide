@@ -652,12 +652,22 @@
                                 
                                 <h1 id="time">Time</h1>
 <hr>
-<h4 id="clone-the-code-or-follow-along-in-the-online-editor"><a href="https://github.com/evancz/elm-architecture-tutorial/" target="_blank">Clone the code</a> or follow along in the <a href="https://ellie-app.com/37gYpCSxQHGa1" target="_blank">online editor</a>.</h4>
+<!--
+#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://ellie-app.com/37gYpCSxQHGa1).
+-->
+<h4 id="&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x304B;&#x30AA;&#x30F3;&#x30E9;&#x30A4;&#x30F3;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x3067;&#x8A66;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;"><a href="https://github.com/evancz/elm-architecture-tutorial/" target="_blank">&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30B3;&#x30FC;&#x30C9;</a>&#x3092;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x304B;<a href="https://ellie-app.com/37gYpCSxQHGa1" target="_blank">&#x30AA;&#x30F3;&#x30E9;&#x30A4;&#x30F3;&#x30A8;&#x30C7;&#x30A3;&#x30BF;</a>&#x3067;&#x8A66;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</h4>
 <hr>
-<p>Now we are going to make a digital clock. (Analog will be an exercise!)</p>
-<p>So far we have focused on commands. With the randomness example, we commanded the runtime system to give us a random value, but that is sort of a weird pattern for a clock. We <em>always</em> want to know the current time. This is where <strong>subscriptions</strong> come in!</p>
-<p>After you read through the code, we will talk about how we are using the <a href="https://package.elm-lang.org/packages/elm/time/latest/" target="_blank"><code>elm/time</code></a>
- package here:</p>
+<!--
+Now we are going to make a digital clock. (Analog will be an exercise!)
+
+So far we have focused on commands. With the randomness example, we commanded the runtime system to give us a random value, but that is sort of a weird pattern for a clock. We _always_ want to know the current time. This is where **subscriptions** come in!
+
+After you read through the code, we will talk about how we are using the [`elm/time`][time]
+ package here:
+-->
+<p>&#x307E;&#x305A;&#x306F;&#x30C7;&#x30B8;&#x30BF;&#x30EB;&#x6642;&#x8A08;&#x3092;&#x4F5C;&#x3063;&#x3066;&#x898B;&#x307E;&#x3057;&#x3087;&#x3046;&#xFF08;&#x30A2;&#x30CA;&#x30ED;&#x30B0;&#x6642;&#x8A08;&#x306F;&#x4ECA;&#x5F8C;&#x306E;&#x8AB2;&#x984C;&#x3067;&#x3059;&#xFF01;&#xFF09;</p>
+<p>&#x3053;&#x308C;&#x307E;&#x3067;&#x306F;&#x3001;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306B;&#x6CE8;&#x76EE;&#x3057;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x4E71;&#x6570;&#x306B;&#x95A2;&#x3059;&#x308B;&#x4F8B;&#x3067;&#x306F;&#x3001;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;&#x5024;&#x3092;&#x3088;&#x3053;&#x3059;&#x3088;&#x3046;&#x30E9;&#x30F3;&#x30BF;&#x30A4;&#x30E0;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x767A;&#x884C;&#x3057;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x6642;&#x8A08;&#x306E;&#x4F8B;&#x306E;&#x5834;&#x5408;&#x306B;&#x306F;&#x5947;&#x5999;&#x306A;&#x611F;&#x3058;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3068;&#x306A;&#x3063;&#x3066;&#x3057;&#x307E;&#x3044;&#x307E;&#x3059;&#x3002;&#x73FE;&#x5728;&#x306E;&#x6642;&#x523B;&#x3092; <em>&#x5E38;&#x306B;</em> &#x77E5;&#x308A;&#x305F;&#x3044;&#x306E;&#x3067;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067; <strong>&#x30B5;&#x30D6;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;</strong> &#x304C;&#x767B;&#x5834;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3042;&#x306A;&#x305F;&#x304C;&#x4EE5;&#x4E0B;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x4E00;&#x901A;&#x308A;&#x76EE;&#x3092;&#x901A;&#x3057;&#x305F;&#x5F8C;&#x306B;&#x3001;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;<a href="https://package.elm-lang.org/packages/elm/time/latest/" target="_blank"><code>elm/time</code></a>&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x304B;&#x3092;&#x8AAC;&#x660E;&#x3057;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#xFF1A;</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Browser
 <span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (..)
 <span class="hljs-keyword">import</span> Task
@@ -740,18 +750,40 @@
   <span class="hljs-keyword">in</span>
   h1 [] [ text (hour ++ <span class="hljs-string">&quot;:&quot;</span> ++ minute ++ <span class="hljs-string">&quot;:&quot;</span> ++ second) ]
 </code></pre>
-<p>Let&#x2019;s go through the new stuff.</p>
-<h2 id="timeposix-and-timezone"><code>Time.Posix</code> and <code>Time.Zone</code></h2>
-<p>To work with time successfully in programming, we need three different concepts:</p>
+<!-- 
+Let&rsquo;s go through the new stuff.
+-->
+<p>&#x65B0;&#x3057;&#x304F;&#x5C0E;&#x5165;&#x3055;&#x308C;&#x305F;&#x90E8;&#x5206;&#x3092;&#x898B;&#x3066;&#x3044;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<!-- 
+## `Time.Posix` and `Time.Zone`
+-->
+<h2 id="timeposix-&#x3068;-timezone"><code>Time.Posix</code> &#x3068; <code>Time.Zone</code></h2>
+<!--
+To work with time successfully in programming, we need three different concepts:
+-->
+<p>&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x306B;&#x304A;&#x3044;&#x3066;&#x6642;&#x9593;&#x3092;&#x6B63;&#x3057;&#x304F;&#x53D6;&#x308A;&#x6271;&#x3046;&#x305F;&#x3081;&#x306B;&#x306F;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#xFF13;&#x3064;&#x306E;&#x6982;&#x5FF5;&#x304C;&#x5FC5;&#x8981;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#xFF1A;</p>
+<!--
+- **Human Time** &mdash; This is what you see on clocks (8am) or on calendars (May 3rd). Great! But if my phone call is at 8am in Boston, what time is it for my friend in Vancouver? If it is at 8am in Tokyo, is that even the same day in New York? (No!) So between [time zones][tz] based on ever-changing political boundaries and inconsistent use of [daylight saving time][dst], human time should basically never be stored in your `Model` or database! It is only for display!
+-->
 <ul>
-<li><p><strong>Human Time</strong> &#x2014; This is what you see on clocks (8am) or on calendars (May 3rd). Great! But if my phone call is at 8am in Boston, what time is it for my friend in Vancouver? If it is at 8am in Tokyo, is that even the same day in New York? (No!) So between <a href="https://en.wikipedia.org/wiki/Time_zone" target="_blank">time zones</a> based on ever-changing political boundaries and inconsistent use of <a href="https://en.wikipedia.org/wiki/Daylight_saving_time" target="_blank">daylight saving time</a>, human time should basically never be stored in your <code>Model</code> or database! It is only for display!</p>
-</li>
-<li><p><strong>POSIX Time</strong> &#x2014; With POSIX time, it does not matter where you live or what time of year it is. It is just the number of seconds elapsed since some arbitrary moment (in 1970). Everywhere you go on Earth, POSIX time is the same.</p>
-</li>
-<li><p><strong>Time Zones</strong> &#x2014; A &#x201C;time zone&#x201D; is a bunch of data that allows you to turn POSIX time into human time. This is <em>not</em> just <code>UTC-7</code> or <code>UTC+3</code> though! Time zones are way more complicated than a simple offset! Every time <a href="https://www.npr.org/sections/thetwo-way/2018/03/08/591925587/" target="_blank">Florida switches to DST forever</a> or <a href="https://en.wikipedia.org/wiki/Time_in_Samoa" target="_blank">Samoa switches from UTC-11 to UTC+13</a>, some poor soul adds a note to the <a href="https://en.wikipedia.org/wiki/IANA_time_zone_database" target="_blank">IANA time zone database</a>. That database is loaded onto every computer, and between POSIX time and all the corner cases in the database, we can figure out human times!</p>
-</li>
+<li><strong>&#x4EBA;&#x9593;&#x306B;&#x3068;&#x3063;&#x3066;&#x306E;&#x6642;&#x9593;</strong> &#x2014; &#x3053;&#x308C;&#x306F;&#x6642;&#x8A08;&#xFF08;&#x5348;&#x524D;8&#x6642;&#xFF09;&#x3084;&#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC;&#xFF08;5&#x6708;3&#x65E5;&#xFF09;&#x3067;&#x76EE;&#x306B;&#x3059;&#x308B;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x3082;&#x3057;&#x30DC;&#x30B9;&#x30C8;&#x30F3;&#x3067;&#x5348;&#x524D;8&#x6642;&#x306B;&#x96FB;&#x8A71;&#x3092;&#x304B;&#x3051;&#x308B;&#x3068;&#x3001;&#x30D0;&#x30F3;&#x30AF;&#x30FC;&#x30D0;&#x30FC;&#x306B;&#x3044;&#x308B;&#x53CB;&#x4EBA;&#x306B;&#x3068;&#x3063;&#x3066;&#x306F;&#x4F55;&#x6642;&#x306B;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x3082;&#x3057;&#x3001;&#x6771;&#x4EAC;&#x3067;&#x5348;&#x524D;8&#x6642;&#x3060;&#x3068;&#x3057;&#x3066;&#x3001;&#x30CB;&#x30E5;&#x30FC;&#x30E8;&#x30FC;&#x30AF;&#x3067;&#x3082;&#x540C;&#x3058;&#x65E5;&#x4ED8;&#x306A;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#xFF08;&#x9055;&#x3044;&#x307E;&#x3059;&#xFF01;&#xFF09;&#x4EBA;&#x9593;&#x306B;&#x3068;&#x3063;&#x3066;&#x306E;&#x6642;&#x9593;&#x3068;&#x306F;&#x3001;&#x5E38;&#x306B;&#x5909;&#x5316;&#x3059;&#x308B;&#x653F;&#x6CBB;&#x7684;&#x306A;&#x5883;&#x754C;&#x306B;&#x57FA;&#x3065;&#x3044;&#x305F;<a href="https://en.wikipedia.org/wiki/Time_zone" target="_blank">&#x30BF;&#x30A4;&#x30E0;&#x30BE;&#x30FC;&#x30F3;</a>&#x3084;&#x3001;&#x4E00;&#x8CAB;&#x6027;&#x306E;&#x306A;&#x3044;&#x4F7F;&#x308F;&#x308C;&#x65B9;&#x3092;&#x3059;&#x308B;<a href="https://en.wikipedia.org/wiki/Daylight_saving_time" target="_blank">&#x30B5;&#x30DE;&#x30FC;&#x30BF;&#x30A4;&#x30E0;</a>&#x306B;&#x3088;&#x3063;&#x3066;&#x7570;&#x306A;&#x3063;&#x3066;&#x3057;&#x307E;&#x3046;&#x306E;&#x3067;&#x3001;&#x57FA;&#x672C;&#x7684;&#x306B;&#x306F;<code>Model</code>&#x3084;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x306B;&#x4FDD;&#x5B58;&#x3055;&#x308C;&#x308B;&#x3079;&#x304D;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x3042;&#x304F;&#x307E;&#x3067;&#x3082;&#x8868;&#x793A;&#x3060;&#x3051;&#x306E;&#x76EE;&#x7684;&#x3068;&#x3059;&#x3079;&#x304D;&#x3067;&#x3057;&#x3087;&#x3046;&#xFF01;</li>
 </ul>
-<p>So to show a human being a time, you must always know <code>Time.Posix</code> and <code>Time.Zone</code>. That is it! So all that &#x201C;human time&#x201D; stuff is for the <code>view</code> function, not the <code>Model</code>. In fact, you can see that in our <code>view</code>:</p>
+<!--
+- **POSIX Time** &mdash; With POSIX time, it does not matter where you live or what time of year it is. It is just the number of seconds elapsed since some arbitrary moment (in 1970). Everywhere you go on Earth, POSIX time is the same.
+-->
+<ul>
+<li><strong>POSIX&#x6642;&#x9593;</strong> &#x2014; POSIX&#x6642;&#x9593;&#x3067;&#x306F;&#x3001;&#x3069;&#x3053;&#x306B;&#x4F4F;&#x3093;&#x3067;&#x3044;&#x308B;&#x3068;&#x304B;&#x3001;&#x3069;&#x306E;&#x6642;&#x671F;&#x3067;&#x3042;&#x308B;&#x3068;&#x304B;&#x306F;&#x95A2;&#x4FC2;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x3042;&#x304F;&#x307E;&#x3067;&#x3082;&#xFF08;1970&#x5E74;&#x306E;&#xFF09;&#x3042;&#x308B;&#x6642;&#x9593;&#x304B;&#x3089;&#x306E;&#x7D4C;&#x904E;&#x79D2;&#x6570;&#x3092;&#x6570;&#x5B57;&#x3068;&#x3057;&#x3066;&#x8868;&#x3057;&#x3066;&#x3044;&#x308B;&#x3060;&#x3051;&#x3067;&#x3059;&#x3002;&#x5730;&#x7403;&#x4E0A;&#x306E;&#x3069;&#x3053;&#x306B;&#x884C;&#x3053;&#x3046;&#x3068;&#x3082;&#x3001;POSIX&#x6642;&#x9593;&#x306F;&#x540C;&#x3058;&#x306A;&#x306E;&#x3067;&#x3059;&#x3002;</li>
+</ul>
+<!--
+- **Time Zones** &mdash; A “time zone” is a bunch of data that allows you to turn POSIX time into human time. This is _not_ just `UTC-7` or `UTC+3` though! Time zones are way more complicated than a simple offset! Every time [Florida switches to DST forever][florida] or [Samoa switches from UTC-11 to UTC+13][samoa], some poor soul adds a note to the [IANA time zone database][iana]. That database is loaded onto every computer, and between POSIX time and all the corner cases in the database, we can figure out human times!
+-->
+<ul>
+<li><strong>&#x30BF;&#x30A4;&#x30E0;&#x30BE;&#x30FC;&#x30F3;</strong> &#x2014; &quot;&#x30BF;&#x30A4;&#x30E0;&#x30BE;&#x30FC;&#x30F3;&quot;&#x3068;&#x306F;&#x3001;POSIX&#x6642;&#x9593;&#x304B;&#x3089;&#x4EBA;&#x9593;&#x306B;&#x3068;&#x3063;&#x3066;&#x306E;&#x6642;&#x9593;&#x3078;&#x5909;&#x63DB;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x5FC5;&#x8981;&#x306A;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x96C6;&#x307E;&#x308A;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x5358;&#x306A;&#x308B;<code>UTC-7</code>&#x3068;&#x304B;<code>UTC+3</code>&#x306A;&#x3069;&#x3068;&#x306F; <em>&#x7570;&#x306A;&#x308A;&#x307E;&#x3059;</em> &#xFF01;&#x30BF;&#x30A4;&#x30E0;&#x30BE;&#x30FC;&#x30F3;&#x306F;&#x5358;&#x7D14;&#x306A;&#x30AA;&#x30D5;&#x30BB;&#x30C3;&#x30C8;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;&#x304B;&#x306A;&#x308A;&#x3082;&#x3063;&#x3068;&#x8907;&#x96D1;&#x306A;&#x306E;&#x3067;&#x3059;&#xFF01;<a href="https://www.npr.org/sections/thetwo-way/2018/03/08/591925587/" target="_blank">&#x30D5;&#x30ED;&#x30EA;&#x30C0;&#x306B;&#x304A;&#x3051;&#x308B;&#x30B5;&#x30DE;&#x30FC;&#x30BF;&#x30A4;&#x30E0;&#x3078;&#x306E;&#x6052;&#x4E45;&#x7684;&#x306A;&#x79FB;&#x884C;</a>&#x3001;<a href="https://en.wikipedia.org/wiki/Time_in_Samoa" target="_blank">&#x30B5;&#x30E2;&#x30A2;&#x3067;&#x306E;UTC-11&#x304B;&#x3089;UCT+13&#x3078;&#x306E;&#x79FB;&#x884C;</a>&#x3001;&#x306A;&#x3069;&#x3068;<a href="https://en.wikipedia.org/wiki/IANA_time_zone_database" target="_blank">IANA&#x306E;&#x30BF;&#x30A4;&#x30E0;&#x30BE;&#x30FC;&#x30F3;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;</a>&#x306B;&#x7121;&#x6148;&#x60B2;&#x306A;&#x811A;&#x6CE8;&#x304C;&#x8FFD;&#x52A0;&#x3055;&#x308C;&#x3066;&#x3057;&#x307E;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x304C;&#x500B;&#x3005;&#x306E;&#x30B3;&#x30F3;&#x30D4;&#x30E5;&#x30FC;&#x30BF;&#x306B;&#x8AAD;&#x307F;&#x8FBC;&#x307E;&#x308C;&#x3001;POSIX&#x6642;&#x9593;&#x3092;&#x30C7;&#x30FC;&#x30BF;&#x30D9;&#x30FC;&#x30B9;&#x306B;&#x8A18;&#x8F09;&#x3055;&#x308C;&#x305F;&#x5168;&#x3066;&#x306E;&#x30B3;&#x30FC;&#x30CA;&#x30FC;&#x30B1;&#x30FC;&#x30B9;&#x306E;&#x60C5;&#x5831;&#x3092;&#x53CD;&#x6620;&#x3059;&#x308B;&#x3088;&#x3046;&#x8A08;&#x7B97;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x3088;&#x308A;&#x3001;&#x4EBA;&#x9593;&#x306B;&#x3068;&#x3063;&#x3066;&#x306E;&#x6642;&#x9593;&#x3068;&#x3057;&#x3066;&#x8868;&#x793A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3068;&#x306A;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</li>
+</ul>
+<!--
+So to show a human being a time, you must always know `Time.Posix` and `Time.Zone`. That is it! So all that “human time” stuff is for the `view` function, not the `Model`. In fact, you can see that in our `view`:
+-->
+<p>&#x3057;&#x305F;&#x304C;&#x3063;&#x3066;&#x4EBA;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x6642;&#x9593;&#x3092;&#x793A;&#x3059;&#x305F;&#x3081;&#x306B;&#x306F;&#x3001;&#x5E38;&#x306B;<code>Time.Posix</code>&#x3068;<code>Time.Zone</code>&#x306B;&#x3064;&#x3044;&#x3066;&#x77E5;&#x3063;&#x3066;&#x3044;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x305D;&#x3046;&#x3067;&#x3059;&#xFF01;&#x5168;&#x3066;&#x306E;&quot;&#x4EBA;&#x9593;&#x306B;&#x3068;&#x3063;&#x3066;&#x306E;&#x6642;&#x9593;&quot;&#x306A;&#x308B;&#x3082;&#x306E;&#x306F;<code>view</code>&#x95A2;&#x6570;&#x306E;&#x305F;&#x3081;&#x3067;&#x3042;&#x3063;&#x3066;&#x3001;<code>Model</code>&#x306E;&#x305F;&#x3081;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x305D;&#x306E;&#x4E8B;&#x306F;&#x4EE5;&#x4E0B;&#x306E;<code>view</code>&#x306B;&#x898B;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#xFF1A;</p>
 <pre><code class="lang-elm"><span class="hljs-title">view</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
 <span class="hljs-title">view</span> model =
   <span class="hljs-keyword">let</span>
@@ -761,34 +793,68 @@
   <span class="hljs-keyword">in</span>
   h1 [] [ text (hour ++ <span class="hljs-string">&quot;:&quot;</span> ++ minute ++ <span class="hljs-string">&quot;:&quot;</span> ++ second) ]
 </code></pre>
-<p>The <a href="https://package.elm-lang.org/packages/elm/time/latest/Time#toHour" target="_blank"><code>Time.toHour</code></a> function takes <code>Time.Zone</code> and <code>Time.Posix</code> gives us back an <code>Int</code> from <code>0</code> to <code>23</code> indicating what hour it is in <em>your</em> time zone.</p>
-<p>There is a lot more info about handling times in the README of <a href="https://package.elm-lang.org/packages/elm/time/latest/" target="_blank"><code>elm/time</code></a>. Definitely read it before doing more with time! Especially if you are working with scheduling, calendars, etc.</p>
+<!--
+The [`Time.toHour`][toHour] function takes `Time.Zone` and `Time.Posix` gives us back an `Int` from `0` to `23` indicating what hour it is in _your_ time zone.
+-->
+<p>&#x95A2;&#x6570;<a href="https://package.elm-lang.org/packages/elm/time/latest/Time#toHour" target="_blank"><code>Time.toHour</code></a>&#x306F;&#x3001;<code>Time.Zone</code>&#x3068;<code>Time.Posix</code>&#x3092;&#x5F15;&#x6570;&#x306B;&#x3068;&#x308A;&#x3001;<em>&#x3042;&#x306A;&#x305F;</em>&#x306E;&#x30BF;&#x30A4;&#x30E0;&#x30BE;&#x30FC;&#x30F3;&#x306B;&#x304A;&#x3051;&#x308B;&#x6642;&#x9593;&#x3092;&#x793A;&#x3059;<code>0</code>&#x304B;&#x3089;<code>23</code>&#x306E;<code>Int</code>&#x578B;&#x306E;&#x6570;&#x5B57;&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<!--
+There is a lot more info about handling times in the README of [`elm/time`][time]. Definitely read it before doing more with time! Especially if you are working with scheduling, calendars, etc.
+-->
+<p>&#x6642;&#x9593;&#x3092;&#x53D6;&#x308A;&#x6271;&#x3046;&#x305F;&#x3081;&#x306E;&#x3055;&#x3089;&#x306B;&#x591A;&#x304F;&#x306E;&#x60C5;&#x5831;&#x304C;<a href="https://package.elm-lang.org/packages/elm/time/latest/" target="_blank"><code>elm/time</code></a>&#x306E;README&#x306B;&#x542B;&#x307E;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x306E;&#x3067;&#x3001;&#x6642;&#x9593;&#x306B;&#x3064;&#x3044;&#x3066;&#x3082;&#x3063;&#x3068;&#x4F55;&#x304B;&#x3059;&#x308B;&#x524D;&#x306B;&#x306F;&#x5FC5;&#x305A;&#x8AAD;&#x3080;&#x3079;&#x304D;&#x3067;&#x3059;&#xFF01;&#x7279;&#x306B;&#x3001;&#x3082;&#x3057;&#x30B9;&#x30B1;&#x30B8;&#x30E5;&#x30FC;&#x30EA;&#x30F3;&#x30B0;&#x3084;&#x30AB;&#x30EC;&#x30F3;&#x30C0;&#x30FC;&#x7B49;&#x306B;&#x3064;&#x3044;&#x3066;&#x4F55;&#x304B;&#x3059;&#x308B;&#x306A;&#x3089;&#x8AAD;&#x3093;&#x3067;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
 <h2 id="subscriptions"><code>subscriptions</code></h2>
-<p>Okay, well how should we get our <code>Time.Posix</code> though? With a <strong>subscription</strong>!</p>
+<!--
+Okay, well how should we get our `Time.Posix` though? With a **subscription**!
+-->
+<p>&#x305D;&#x308C;&#x3067;&#x306F;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;<code>Time.Posix</code>&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x305D;&#x3046;<strong>&#x30B5;&#x30D6;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;</strong>&#x3067;&#x3059;&#xFF01;</p>
 <pre><code class="lang-elm"><span class="hljs-title">subscriptions</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Sub</span> <span class="hljs-type">Msg</span>
 <span class="hljs-title">subscriptions</span> model =
   <span class="hljs-type">Time</span>.every <span class="hljs-number">1000</span> <span class="hljs-type">Tick</span>
 </code></pre>
-<p>We are using the <a href="https://package.elm-lang.org/packages/elm/time/latest/Time#every" target="_blank"><code>Time.every</code></a> function here:</p>
+<!--
+We are using the [`Time.every`][every] function here:
+-->
+<p>&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;<a href="https://package.elm-lang.org/packages/elm/time/latest/Time#every" target="_blank"><code>Time.every</code></a>&#x95A2;&#x6570;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#xFF1A;</p>
 <pre><code class="lang-elm"><span class="hljs-title">every</span> : <span class="hljs-type">Float</span> -&gt; (<span class="hljs-type">Time</span>.<span class="hljs-type">Posix</span> -&gt; msg) -&gt; <span class="hljs-type">Sub</span> msg
 </code></pre>
-<p>It takes two arguments:</p>
+<!--
+It takes two arguments:
+
+1. A time interval in milliseconds. We said `1000` which means every second. But we could also say `60 * 1000` for every minute, or `5 * 60 * 1000` for every five minutes.
+2. A function that turns the current time into a `Msg`. So every second, the current time is going to turn into a `Tick <time>` for our `update` function.
+
+That is the basic pattern of any subscription. You give some configuration, and you describe how to produce `Msg` values. Not too bad!
+-->
+<p>&#x3053;&#x306E;&#x95A2;&#x6570;&#x306F;2&#x3064;&#x306E;&#x5F15;&#x6570;&#x3092;&#x53D6;&#x308A;&#x307E;&#x3059;&#xFF1A;</p>
 <ol>
-<li>A time interval in milliseconds. We said <code>1000</code> which means every second. But we could also say <code>60 * 1000</code> for every minute, or <code>5 * 60 * 1000</code> for every five minutes.</li>
-<li>A function that turns the current time into a <code>Msg</code>. So every second, the current time is going to turn into a <code>Tick &lt;time&gt;</code> for our <code>update</code> function.</li>
+<li>&#x30DF;&#x30EA;&#x79D2;&#x5358;&#x4F4D;&#x3067;&#x306E;&#x6642;&#x9593;&#x9593;&#x9694;&#x3002;<code>1000</code>&#x3068;&#x8A00;&#x3048;&#x3070;&#x6BCE;&#x79D2;&#x3092;&#x610F;&#x5473;&#x3057;&#x307E;&#x3059;&#x3002;<code>60 * 1000</code>&#x3068;&#x3059;&#x308C;&#x3070;&#x6BCE;&#x5206;&#x3001;<code>5 * 50 * 1000</code>&#x3068;&#x3059;&#x308C;&#x3070;5&#x5206;&#x6BCE;&#x3068;&#x8A00;&#x3046;&#x4E8B;&#x3082;&#x51FA;&#x6765;&#x307E;&#x3059;&#x3002;</li>
+<li>&#x73FE;&#x6642;&#x523B;&#x3092;&#x3042;&#x308B;<code>Msg</code>&#x306B;&#x5909;&#x63DB;&#x3059;&#x308B;&#x95A2;&#x6570;&#x3001;&#x3059;&#x306A;&#x308F;&#x3061;&#x6BCE;&#x79D2;&#x3054;&#x3068;&#x306B;&#x3001;&#x73FE;&#x6642;&#x523B;&#x304C;<code>update</code>&#x95A2;&#x6570;&#x306E;&#x305F;&#x3081;&#x306E;<code>Tick &lt;time&gt;</code>&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x306B;&#x5909;&#x63DB;&#x3055;&#x308C;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x3002;</li>
 </ol>
-<p>That is the basic pattern of any subscription. You give some configuration, and you describe how to produce <code>Msg</code> values. Not too bad!</p>
+<p>&#x3053;&#x308C;&#x304C;&#x30B5;&#x30D6;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x306E;&#x57FA;&#x672C;&#x7684;&#x306A;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x3067;&#x3059;&#x3002;&#x4F55;&#x3089;&#x304B;&#x306E;&#x8A2D;&#x5B9A;&#x3092;&#x4E0E;&#x3048;&#x3001;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;<code>Msg</code>&#x306E;&#x5024;&#x3092;&#x767A;&#x884C;&#x3059;&#x308B;&#x304B;&#x8A18;&#x8FF0;&#x3057;&#x307E;&#x3059;&#x3002;&#x60AA;&#x304F;&#x306A;&#x3044;&#x3067;&#x3057;&#x3087;&#xFF01;</p>
 <h2 id="taskperform"><code>Task.perform</code></h2>
-<p>Getting <code>Time.Zone</code> is a bit trickier. Our program created a <strong>command</strong> with:</p>
+<!--
+Getting `Time.Zone` is a bit trickier. Our program created a **command** with:
+-->
+<p><code>Time.Zone</code>&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x306E;&#x306F;&#x3061;&#x3087;&#x3063;&#x3068;&#x5DE5;&#x592B;&#x304C;&#x5FC5;&#x8981;&#x3067;&#x3059;&#x3002;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;<strong>&#x30B3;&#x30DE;&#x30F3;&#x30C9;</strong>&#x3092;&#x767A;&#x884C;&#x3057;&#x307E;&#x3057;&#x305F;&#xFF1A;</p>
 <pre><code class="lang-elm"><span class="hljs-type">Task</span>.perform <span class="hljs-type">AdjustTimeZone</span> <span class="hljs-type">Time</span>.here
 </code></pre>
-<p>Reading through the <a href="https://package.elm-lang.org/packages/elm/core/latest/Task" target="_blank"><code>Task</code></a> docs is the best way to understand that line. The docs are written to actually explain the new concepts, and I think it would be too much of a digression to include a worse version of that info here. The point is just that we command the runtime to give us the <code>Time.Zone</code> wherever the code is running.</p>
+<!--
+Reading through the [`Task`][task] docs is the best way to understand that line. The docs are written to actually explain the new concepts, and I think it would be too much of a digression to include a worse version of that info here. The point is just that we command the runtime to give us the `Time.Zone` wherever the code is running.
+-->
+<p>&#x3053;&#x306E;&#x884C;&#x3092;&#x7406;&#x89E3;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x6700;&#x826F;&#x306E;&#x65B9;&#x6CD5;&#x306F;&#x3001;<a href="https://package.elm-lang.org/packages/elm/core/latest/Task" target="_blank"><code>Task</code></a>&#x306E;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x306B;&#x4E00;&#x901A;&#x308A;&#x76EE;&#x3092;&#x901A;&#x3059;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x305D;&#x306E;&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x306E;&#x4E2D;&#x3067;&#x3001;&#x5B9F;&#x969B;&#x306B;<code>Task</code>&#x3068;&#x3044;&#x3046;&#x65B0;&#x3057;&#x3044;&#x6982;&#x5FF5;&#x306B;&#x3064;&#x3044;&#x3066;&#x8AAC;&#x660E;&#x304C;&#x306A;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x4E2D;&#x9014;&#x534A;&#x7AEF;&#x306A;&#x8AAC;&#x660E;&#x3092;&#x3057;&#x3066;&#x8131;&#x7DDA;&#x3059;&#x308B;&#x306E;&#x306F;&#x3084;&#x3081;&#x3088;&#x3046;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x5927;&#x4E8B;&#x306A;&#x70B9;&#x306F;&#x30E9;&#x30F3;&#x30BF;&#x30A4;&#x30E0;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3001;&#x3053;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x5B9F;&#x884C;&#x6642;&#x306B;<code>Time.Zone</code>&#x3092;&#x8FD4;&#x3059;&#x3088;&#x3046;&#x306B;&#x6307;&#x793A;&#x3057;&#x3066;&#x3044;&#x308B;&#x3060;&#x3051;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
+<!--
+> **Exercises:**
+-->
 <blockquote>
-<p><strong>Exercises:</strong></p>
+<p><strong>&#x7DF4;&#x7FD2;&#x554F;&#x984C;&#xFF1A;</strong></p>
+<!--
+- Add a button to pause the clock, turning the `Time.every` subscription off.
+- Make the digital clock look nicer. Maybe add some [`style`][style] attributes.
+- Use [`elm/svg`][svg] to make an analog clock with a red second hand!
+-->
 <ul>
-<li>Add a button to pause the clock, turning the <code>Time.every</code> subscription off.</li>
-<li>Make the digital clock look nicer. Maybe add some <a href="https://package.elm-lang.org/packages/elm/html/latest/Html-Attributes#style" target="_blank"><code>style</code></a> attributes.</li>
-<li>Use <a href="https://package.elm-lang.org/packages/elm/svg/latest/" target="_blank"><code>elm/svg</code></a> to make an analog clock with a red second hand!</li>
+<li>&#x6642;&#x8A08;&#x3092;&#x6B62;&#x3081;&#x308B;&#x305F;&#x3081;&#x306E;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x3001;<code>Time.every</code>&#x306E;&#x30B5;&#x30D6;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x6B62;&#x3081;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</li>
+<li>&#x30C7;&#x30B8;&#x30BF;&#x30EB;&#x6642;&#x8A08;&#x306E;&#x898B;&#x6804;&#x3048;&#x3092;&#x826F;&#x304F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x306A;&#x3093;&#x3089;&#x304B;&#x306E;<a href="https://package.elm-lang.org/packages/elm/html/latest/Html-Attributes#style" target="_blank"><code>style</code></a>&#x5C5E;&#x6027;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</li>
+<li><a href="https://package.elm-lang.org/packages/elm/svg/latest/" target="_blank"><code>elm/svg</code></a>&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3001;&#x8D64;&#x3044;&#x79D2;&#x91DD;&#x306E;&#x30A2;&#x30CA;&#x30ED;&#x30B0;&#x6642;&#x8A08;&#x3092;&#x4F5C;&#x3063;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</li>
 </ul>
 </blockquote>
 
@@ -834,7 +900,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Time","level":"1.6.2","depth":2,"next":{"title":"JSON","level":"1.6.3","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},"previous":{"title":"Random","level":"1.6.1","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"name":"robots","content":"noindex","data":[]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"effects/time.md","mtime":"2018-10-08T12:39:22.382Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-08T12:39:50.453Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Time","level":"1.6.2","depth":2,"next":{"title":"JSON","level":"1.6.3","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},"previous":{"title":"Random","level":"1.6.1","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"name":"robots","content":"noindex","data":[]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"effects/time.md","mtime":"2018-10-21T07:15:55.525Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-21T07:16:24.488Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
