@@ -2,7 +2,7 @@
 > **Note:** If you do not want to install yet, you can follow along anyway. Most sections can be done in an online editor!
 -->
 
-> **お知らせ:** まだElmをインストールしたくない場合は、インストールをしないままでも構いません。ほとんどの章ではオンラインエディタで完結できます。
+> **お知らせ:** まだElmをインストールしたくない場合は、インストールをしないままでも構いません。ほとんどの節ではオンラインエディタで完結できます。
 
 
 <!--
@@ -131,7 +131,7 @@ Read <https://elm-lang.org/0.19.0/repl> to learn more: exit, help, imports, etc.
 $
 ```
 
-`elm repl`は&ldquo;Core Language&rdquo;の章で使います。詳しい使い方は[こちら](https://elm-lang.org/0.19.0/repl)をご覧ください。
+`elm repl`は&ldquo;Core Language&rdquo;の節で使います。詳しい使い方は[こちら](https://elm-lang.org/0.19.0/repl)をご覧ください。
 
 
 <!--
