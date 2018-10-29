@@ -5,11 +5,11 @@
 
 <!-- This section will walk you through Elm's simple core language. -->
 
-この章では、Elmの言語の基礎についてざっと見ていきましょう。
+この節では、Elmの言語の基礎についてざっと見ていきましょう。
 
 <!-- This works best when you follow along, so after [installing](install.md), run `elm repl` in the terminal. You should see something like this: -->
 
-以下の説明の流れをたどっていくときに役に立つので、[インストール](install.md)が終わったら、ターミナルで`elm repl`を実行してみてください。ターミナルに次のようなものが表示されるはずです。
+以下の説明の流れをたどっていくときには、REPLを使って実際に手を動かしながら読み進めていくと理解しやすいので、[インストール](install.md)が終わったらターミナルで`elm repl`を実行してみてください。ターミナルに次のようなものが表示されるはずです。
 
 ```elm
 ---- Elm 0.19.0 ----------------------------------------------------------------
@@ -99,7 +99,7 @@ False
 
 <!-- Notice that function application looks different than in languages like JavaScript and Python and Java. Instead of wrapping all arguments in parentheses and separating them with commas, we use spaces to apply the function. So `(add(3,4))` becomes `(add 3 4)` which ends up avoiding a bunch of parens and commas as things get bigger. Ultimately, this looks much cleaner once you get used to it! The [elm/html][html] package is a good example of how this keeps things feeling light. -->
 
-JavaScriptやPython、Javaのような言語とは関数適用の見た目が異なっていることに注目してください。括弧の中にすべての引数をカンマで区切って書くのではなく、関数を適用するのには単に空白を使います。そのため、`(add(3,4))`は`(add 3 4)`になり、結果として括弧やカンマをたくさん書いてコードが長くなるのを避けることができるのです。いったんこれに慣れてしまえば、これはとても読みやすく感じられるようになるでしょう！　[elm/html][html]パッケージは、どのようにすればコードを読みやすく保てるのかの良い例になっています。
+JavaScriptやPython、Javaのような言語とは関数適用の見た目が異なっていることに注目してください。括弧の中にすべての引数をカンマで区切って書くのではなく、関数を適用するのには単に空白を使います。そのため、`(add(3,4))`は`(add 3 4)`になり、結果として括弧やカンマをたくさん書いてコードが長くなるのを避けることができるのです。いったんこれに慣れてしまえば、括弧やカンマを使う構文よりもずっと読みやすく感じられるようになるはずです！　[elm/html][html]パッケージを見ると、この関数適用の構文のお陰でコードが読みやすく保たれているのがわかると思います。
 
 [html]: https://elm-lang.org/blog/blazing-fast-html-round-two
 
@@ -248,7 +248,7 @@ False
 
 <!-- A record is a fixed set of key-value pairs, similar to objects in JavaScript or Python. You will find that they are extremely common and useful in Elm! Let's see some basic examples. -->
 
-レコードはキーと値の組の固定された集合で、JavaScriptやPythonのオブジェクトに似ています。Elmではとても頻繁に使われる便利なものであることがすぐにわかるでしょう！　簡単な例を見ていきます。
+レコードはJavaScriptやPythonのオブジェクトに似たデータ型で、レコードは任意個のフィールドを持っていて、それぞれのフィールドに値を格納したり、フィールドから値を取り出すことができます。ただしElmのレコードのフィールドは固定されていて、レコードに動的にフィールドを付け加えたり取り除いたりすることはできません。レコードはElmではとても頻繁に使われる便利なものであることがすぐにわかるでしょう！　いくつか簡単な例を見ていきます。
 
 ```elm
 > point = { x = 3, y = 4 }
@@ -266,7 +266,7 @@ False
 
 <!-- So we can create records using curly braces and access fields using a dot. Elm also has a version of record access that works like a function. By starting the variable with a dot, you are saying *please access the field with the following name*. This means that `.name` is a function that gets the `name` field of the record. -->
 
-波括弧を使うとレコードを作ることができ、フィールドにアクセスするにはドットを使います。Elmには関数のように振る舞うレコードアクセスの別の構文もあります。変数名の先頭にドットを付けると、「次の名前でフィールドにアクセスしてください」と言っていることになります。`.name`はレコードの`name`フィールドを取り出す関数であるという意味です。
+波括弧を使うとレコードを作ることができ、フィールドにアクセスするにはドットを使います。Elmのレコードアクセスには、関数のように振る舞う別の構文もあります。変数名の先頭にドットを付けると、「次の名前でフィールドにアクセスしてください」と言っていることになります。`.name`はレコードの`name`フィールドを取り出す関数であるという意味です。
 
 
 ```elm
@@ -298,7 +298,7 @@ False
 
 <!-- It is often useful to update the values in a record. -->
 
-これはレコードが持つ値を更新するときにも便利です。
+レコードが持つ値を更新するときに便利な、次のような構文もあります。
 
 ```elm
 > { bill | name = "Nye" }
@@ -310,7 +310,7 @@ False
 
 <!-- It is important to notice that we do not make *destructive* updates. When we update some fields of `bill` we actually create a new record rather than overwriting the existing one. Elm makes this efficient by sharing as much content as possible. If you update one of ten fields, the new record will share the nine unchanged values. -->
 
-**破壊的な更新**をしているのではないことに注意してください。`bill`のフィールドを更新したとき、実際には既存のレコードを上書きしているのではなく、新たなレコードが作成されています。効率のためElmは可能な限りその内容を新しいレコードと共有します。もし10個のフィールドのうちのひとつを更新したとしたら、変更されていない残りの9個の値は新しいレコードも共有します。
+この構文ではレコードの**破壊的な更新**をしているのではないことに注意してください。`bill`のフィールドを更新したとき、実際には既存のレコードを上書きしているのではなく、新たなレコードが作成されています。効率のため、Elmは新しいレコードの内容を古いレコードとなるべく共有しようとします。もし10個のフィールドのうちのひとつを更新したとしたら、変更されていない残りの9個の値は新しいレコードも共有します。
 
 
 <!--
