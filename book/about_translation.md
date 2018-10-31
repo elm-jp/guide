@@ -42,7 +42,9 @@
 | バリアント    | variant       |
 | パターンマッチ | pattern matching |
 | 補助関数       | helper function  |
+| アセット | asset |
+| ミニファイ | minify |
 | コマンド | Command |
 | サブスクリプション | Subscription |
-<!-- | 章 | chapter | -->
-<!-- | 節 | section | -->
+| 章 | chapter |
+| 節 | section |
