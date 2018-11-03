@@ -52,5 +52,5 @@
 | 無名関数 | anonymous function |
 | 予約語 | keyword |
 | 構造的部分型 | structural typing |
-| 章 | chapter |
-| 節 | section |
+<!-- | 章 | chapter | -->
+<!-- | 節 | section | -->
