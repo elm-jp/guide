@@ -46,5 +46,11 @@
 | ミニファイ | minify |
 | コマンド | Command |
 | サブスクリプション | Subscription |
+| 型注釈 | type annotation |
+| タプル | tuple |
+| レコード | record |
+| 無名関数 | anonymous function |
+| 予約語 | keyword |
+| 構造的部分型 | structural typing |
 | 章 | chapter |
 | 節 | section |
