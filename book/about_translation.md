@@ -31,5 +31,5 @@
 | 補助関数       | helper function  |
 | コマンド | Command |
 | サブスクリプション | Subscription |
-| Elmアーキテクチャ | The Elm Architecture |
+| The Elm Architecture | The Elm Architecture |
 | ウェブアプリケーション | webapps |
