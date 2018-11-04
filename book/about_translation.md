@@ -12,20 +12,33 @@
 この翻訳プロジェクトで使う訳語と元の英単語の対応を表に表しました。
 学習にお役立てください。
 
+<!--
+対訳表のうち、コメントアウトした行はウェブ上には表示されません `pretranslate` コマンドには読み込まれます。
+翻訳者の間で共有したほうが良いが、あえて読者に見せる必要はないような対訳を記載しておくと便利です。
+
+また、名詞はできるだけ単数形で記載してください。
+複数形が "s" や "es" をつけるだけの名詞の場合は単数形でそのまま単純に原文を検索すれば複数形もマッチするため、
+`pretranslate` コマンドがうまく原文から単語を見つけることができます。
+
+"industry" <-> "industries"
+"leaf" <-> "leaves"
+"kitchen knife" <-> "kitchen knives"
+のように特殊な活用をする単語の場合はコメントとして付記するといいでしょう。
+-->
+
 | 訳語              | 原文            |
 |:-----------------:|:---------------:|
 | 型の別名          | type alias      |
-| カスタム型        | custom types    |
 | オブジェクト指向  | object oriented |
 | テキスト入力      | text field      |
 | カスタム型        | custom type     |
 | パターンマッチ    | pattern match   |
 | 相互運用          | interop         |
-| カスタムエレメンツ| custom elements |
+| カスタムエレメンツ| custom element  |
 | パース            | parsing         |
 | パースする        | parse           |
-| ソースコード自身がその意味するところを雄弁に語るようになります | self-documenting |
-| ソースコード自身がその意味するところを雄弁に語るようになります | self-documented |
+<!-- | ソースコード自身がその意味するところを雄弁に語るようになります | self-documenting | -->
+<!-- | ソースコード自身がその意味するところを雄弁に語るようになります | self-documented | -->
 | バリアント    | variant       |
 | パターンマッチ | pattern matching |
 | 補助関数       | helper function  |
@@ -33,3 +46,5 @@
 | サブスクリプション | Subscription |
 | The Elm Architecture | The Elm Architecture |
 | ウェブアプリケーション | webapps |
+<!-- | 章 | chapter | -->
+<!-- | 節 | section | -->
