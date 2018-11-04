@@ -54,3 +54,5 @@
 | 構造的部分型 | structural typing |
 <!-- | 章 | chapter | -->
 <!-- | 節 | section | -->
+<!-- | ウェブアプリケーション | webapp          | -->
+<!-- | The Elm Architecture | The Elm Architecture | -->
