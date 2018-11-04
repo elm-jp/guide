@@ -52,7 +52,7 @@
 | 無名関数 | anonymous function |
 | 予約語 | keyword |
 | 構造的部分型 | structural typing |
-| The Elm Architecture | The Elm Architecture |
-| ウェブアプリケーション | webapps |
 <!-- | 章 | chapter | -->
 <!-- | 節 | section | -->
+<!-- | ウェブアプリケーション | webapp          | -->
+<!-- | The Elm Architecture | The Elm Architecture | -->
