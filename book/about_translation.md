@@ -26,25 +26,25 @@
 のように特殊な活用をする単語の場合はコメントとして付記するといいでしょう。
 -->
 
-| 訳語              | 原文            |
-|:-----------------:|:---------------:|
-| 型の別名          | type alias      |
-| オブジェクト指向  | object oriented |
-| テキスト入力      | text field      |
-| カスタム型        | custom type     |
-| パターンマッチ    | pattern match   |
-| 相互運用          | interop         |
-| カスタムエレメンツ| custom element  |
-| パース            | parsing         |
-| パースする        | parse           |
+| 訳語                   | 原文             |
+|:----------------------:|:----------------:|
+| 型の別名               | type alias       |
+| オブジェクト指向       | object oriented  |
+| テキスト入力           | text field       |
+| カスタム型             | custom type      |
+| パターンマッチ         | pattern match    |
+| 相互運用               | interop          |
+| カスタムエレメンツ     | custom element   |
+| パース                 | parsing          |
+| パースする             | parse            |
+| バリアント             | variant          |
+| パターンマッチ         | pattern matching |
+| 補助関数               | helper function  |
+| コマンド               | Command          |
+| サブスクリプション     | Subscription     |
+<!-- | ウェブアプリケーション | webapp          | -->
 <!-- | ソースコード自身がその意味するところを雄弁に語るようになります | self-documenting | -->
 <!-- | ソースコード自身がその意味するところを雄弁に語るようになります | self-documented | -->
-| バリアント    | variant       |
-| パターンマッチ | pattern matching |
-| 補助関数       | helper function  |
-| コマンド | Command |
-| サブスクリプション | Subscription |
-| The Elm Architecture | The Elm Architecture |
-| ウェブアプリケーション | webapps |
+<!-- | The Elm Architecture | The Elm Architecture | -->
 <!-- | 章 | chapter | -->
 <!-- | 節 | section | -->

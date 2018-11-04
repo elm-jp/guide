@@ -8,7 +8,7 @@ The Elm Architecture は、ウェブアプリケーションを構築するた�
 
 <!-- This architecture seems to emerge naturally in Elm. Rather than someone “inventing” it, early Elm programmers kept discovering the same basic patterns in their code. Teams have found this particularly nice for onboarding new developers. Code just turns out well-architected. It is kind of spooky. -->
 
-このアーキテクチャは、Elmの歴史の中から自然に生まれてきたものです。誰かがこれを「発明した」というより、コードの中にこの基本的なパターンが常にあることを初期のElmプログラマが発見したということなのです。チームで開発している人たちも、The Elm Architecture は新人開発者の教育に特に適していると考えています。The Elm Architecture に従えば、それだけでコードはより良く設計されるようになります。これではまるで妖怪のようですね。
+このアーキテクチャは、Elmの歴史の中から自然に生まれてきました。誰かがこれを「発明した」というより、コードの中にこの基本的なパターンが常にあることを初期のElmプログラマが発見したということです。チームで開発している人たちも、The Elm Architecture は新人開発者の教育に特に適していると考えています。The Elm Architecture に従えば、それだけでコードはより良く設計されるようになります。このように、気がついたらおばけみたいにすっと現れていたパターンなのです。
 
 <!-- So The Elm Architecture is *easy* in Elm, but it is useful in any front-end project. In fact, projects like Redux have been inspired by The Elm Architecture, so you may have already seen derivatives of this pattern. Point is, even if you ultimately cannot use Elm at work yet, you will get a lot out of using Elm and internalizing this pattern. -->
 
@@ -73,7 +73,7 @@ view model =
 
 <!-- That is really the essence of The Elm Architecture! We will proceed by filling in this skeleton with increasingly interesting logic. -->
 
-まさしくこれが The Elm Architecture の本質なのです！　ここからは、だんたんと面白くなるロジックでこの骨組みを埋めていくことで、説明を進めていきましょう。
+まさしくこれが The Elm Architecture の本質なのです！　ここからは、面白いロジックでこの骨組みをだんだんと埋めていくことで、説明を進めていきましょう。
 
 
 <!-- # The Elm Architecture + User Input -->
