@@ -37,8 +37,6 @@
 | カスタムエレメンツ| custom element  |
 | パース            | parsing         |
 | パースする        | parse           |
-<!-- | ソースコード自身がその意味するところを雄弁に語るようになります | self-documenting | -->
-<!-- | ソースコード自身がその意味するところを雄弁に語るようになります | self-documented | -->
 | バリアント    | variant       |
 | パターンマッチ | pattern matching |
 | 補助関数       | helper function  |
@@ -52,6 +50,8 @@
 | 無名関数 | anonymous function |
 | 予約語 | keyword |
 | 構造的部分型 | structural typing |
+<!-- | ソースコード自身がその意味するところを雄弁に語るようになります | self-documenting | -->
+<!-- | ソースコード自身がその意味するところを雄弁に語るようになります | self-documented | -->
 <!-- | 章 | chapter | -->
 <!-- | 節 | section | -->
 <!-- | ウェブアプリケーション | webapp          | -->
