@@ -10,12 +10,12 @@
 
   * Mac &mdash; [installer][mac]
   * Windows &mdash; [installer][win]
-  * Linux &mdash; [instructions][linux]
+  * Anywhere &mdash; [direct download][gh] or [npm][]
 
 [mac]: https://github.com/elm/compiler/releases/download/0.19.0/installer-for-mac.pkg
 [win]: https://github.com/elm/compiler/releases/download/0.19.0/installer-for-windows.exe
-[linux]: https://gist.github.com/evancz/442b56717b528f913d1717f2342a295d
 [npm]: https://www.npmjs.com/package/elm
+[gh]: https://github.com/elm/compiler/releases/tag/0.19.0
 
 After installing through any of those routes, you will have the `elm` binary available in your terminal!
 

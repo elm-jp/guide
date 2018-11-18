@@ -9,10 +9,9 @@
 <!--
 Now we are going to make a digital clock. (Analog will be an exercise!)
 
-So far we have focused on commands. With the randomness example, we commanded the runtime system to give us a random value, but that is sort of a weird pattern for a clock. We _always_ want to know the current time. This is where **subscriptions** come in!
+So far we have focused on commands. With the HTTP and randomness examples, we commanded Elm to do specific work immediately, but that is sort of a weird pattern for a clock. We _always_ want to know the current time. This is where **subscriptions** come in!
 
-After you read through the code, we will talk about how we are using the [`elm/time`][time]
- package here:
+After you read through the code, we will talk about how we are using the [`elm/time`][time] package here:
 -->
 まずはデジタル時計を作って見ましょう（アナログ時計は今後の課題です！）
 
@@ -186,9 +185,9 @@ subscriptions model =
 ```
 
 <!--
-We are using the [`Time.every`][every] function here:
+We are using the [`Time.every`][every] function:
 -->
-ここでは、[`Time.every`][every]関数を使っています：
+[`Time.every`][every]関数を使っています：
 
 [every]: https://package.elm-lang.org/packages/elm/time/latest/Time#every
 

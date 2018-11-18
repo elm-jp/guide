@@ -50,6 +50,7 @@
 | 無名関数 | anonymous function |
 | 予約語 | keyword |
 | 構造的部分型 | structural typing |
+| 制約付き型変数 | constrained type variable |
 <!-- | ソースコード自身がその意味するところを雄弁に語るようになります | self-documenting | -->
 <!-- | ソースコード自身がその意味するところを雄弁に語るようになります | self-documented | -->
 <!-- | 章 | chapter | -->
