@@ -654,8 +654,8 @@
 <hr>
 <h4 id="clone-the-code-or-follow-along-in-the-online-editor"><a href="https://github.com/evancz/elm-architecture-tutorial/" target="_blank">Clone the code</a> or follow along in the <a href="https://ellie-app.com/37gXN5G4T2sa1" target="_blank">online editor</a>.</h4>
 <hr>
-<p>We are going to make an app that rolls dice, producing a random number between 1 and 6.</p>
-<p>We need the <a href="https://package.elm-lang.org/packages/elm/random/latest" target="_blank"><code>elm/random</code></a> package for this. The <a href="https://package.elm-lang.org/packages/elm/random/latest/Random" target="_blank"><code>Random</code></a> module in particular. Let&#x2019;s start by just looking at all the code. There are some new things, but do not worry. We will go through it all!</p>
+<p>So far we have only seen commands to make HTTP requests, but we can command other things as well, like generating random values! So we are going to make an app that rolls dice, producing a random number between 1 and 6.</p>
+<p>We need the <a href="https://package.elm-lang.org/packages/elm/random/latest" target="_blank"><code>elm/random</code></a> package for this. The <a href="https://package.elm-lang.org/packages/elm/random/latest/Random" target="_blank"><code>Random</code></a> module in particular. Let&#x2019;s start by just looking at all the code:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Browser
 <span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (..)
 <span class="hljs-keyword">import</span> Html.Events <span class="hljs-keyword">exposing</span> (..)
@@ -734,65 +734,56 @@
     , button [ onClick <span class="hljs-type">Roll</span> ] [ text <span class="hljs-string">&quot;Roll&quot;</span> ]
     ]
 </code></pre>
-<p>Now there are a couple new things in this program. Let&#x2019;s work through them!</p>
-<h2 id="update"><code>update</code></h2>
-<p>In the previous examples, the <code>update</code> function just produced a new <code>Model</code>. The new code is doing a bit more:</p>
-<pre><code class="lang-elm"><span class="hljs-title">update</span> : <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">Model</span> -&gt; (<span class="hljs-type">Model</span>, <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>)
-<span class="hljs-title">update</span> msg model =
-  <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
-    <span class="hljs-type">Roll</span> -&gt;
-      ( model
-      , <span class="hljs-type">Random</span>.generate <span class="hljs-type">NewFace</span> (<span class="hljs-type">Random</span>.int <span class="hljs-number">1</span> <span class="hljs-number">6</span>)
-      )
+<p>The new thing here is command issued in the <code>update</code> function:</p>
+<pre><code class="lang-elm"><span class="hljs-type">Random</span>.generate <span class="hljs-type">NewFace</span> (<span class="hljs-type">Random</span>.int <span class="hljs-number">1</span> <span class="hljs-number">6</span>)
+</code></pre>
+<p>Generating random values works a bit different than in languages like JavaScript, Python, Java, etc. So let&#x2019;s see how it works in Elm!</p>
+<h2 id="random-generators">Random Generators</h2>
+<p>The core idea is that we have random <code>Generator</code> that describes <em>how</em> to generate a random value. For example:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Random
 
-    <span class="hljs-type">NewFace</span> newFace -&gt;
-      ( <span class="hljs-type">Model</span> newFace
-      , <span class="hljs-type">Cmd</span>.none
-      )
+<span class="hljs-title">probability</span> : <span class="hljs-type">Random</span>.<span class="hljs-type">Generator</span> <span class="hljs-type">Float</span>
+<span class="hljs-title">probability</span> =
+  <span class="hljs-type">Random</span>.float <span class="hljs-number">0</span> <span class="hljs-number">1</span>
+
+<span class="hljs-title">roll</span> : <span class="hljs-type">Random</span>.<span class="hljs-type">Generator</span> <span class="hljs-type">Int</span>
+<span class="hljs-title">roll</span> =
+  <span class="hljs-type">Random</span>.int <span class="hljs-number">1</span> <span class="hljs-number">6</span>
+
+<span class="hljs-title">usuallyTrue</span> : <span class="hljs-type">Random</span>.<span class="hljs-type">Generator</span> <span class="hljs-type">Bool</span>
+<span class="hljs-title">usuallyTrue</span> =
+  <span class="hljs-type">Random</span>.weighted (<span class="hljs-number">80</span>, <span class="hljs-type">True</span>) [ (<span class="hljs-number">20</span>, <span class="hljs-type">False</span>) ]
 </code></pre>
-<p>Say this <code>update</code> function gets a <code>Roll</code> message. It is going to produce two values:</p>
-<ol>
-<li>The <code>model</code> without any changes.</li>
-<li>A <strong>command</strong> to generate a random integer between <code>1</code> and <code>6</code>.</li>
-</ol>
-<p>These both go to Elm&#x2019;s runtime system:</p>
-<p><img src="diagrams/element.svg" alt=""></p>
-<p>The runtime system (RTS) will handle these two values as follows:</p>
-<ol>
-<li>When the RTS gets a new <code>Model</code>, it calls your <code>view</code> function. Does the DOM need to change? In this case, it does not!</li>
-<li>When the RTS gets a command, it immediately starts working on it. In this case, the RTS generates a random number and sends a message like <code>NewFace 3</code> or <code>NewFace 5</code> back to our <code>update</code> function. So <code>Cmd Msg</code> is saying &#x201C;this is a command for the RTS, and the RTS will give us back a <code>Msg</code> about what happened.&#x201D;</li>
-</ol>
-<p>Let&#x2019;s say the command produces a <code>NewFace 3</code> message. That triggers the second branch of our <code>update</code> function. In this case, we update our <code>Model</code> with the new value and give <a href="https://package.elm-lang.org/packages/elm/core/latest/Platform-Cmd#none" target="_blank"><code>Cmd.none</code></a> to indicate that we have no commands this time.</p>
-<blockquote>
-<p><strong>Note:</strong> One crucial detail here is that <strong>commands are data</strong>. So just because you create a command does not mean it is happening. Here are some analogies:</p>
-<ul>
-<li>Maybe you find a cake recipe (command) on the internet. It outlines exactly how to make a delicious cake. You have to give it to a baker (RTS) to actually turn it into a cake.</li>
-<li>Maybe you have a grocery list (command) on your fridge. You need a sack of potatoes. You can only get those potatoes if you (RTS) go to the store and buy them.</li>
-<li>Maybe I tell you to eat an entire watermelon in one bite (command) right this second. Did you do it? No! You (RTS) kept reading before you even <em>thought</em> about buying a tiny watermelon.</li>
-</ul>
-<p>None of these analogies are perfect, particularly because the Elm runtime system is much more reliable than you or a baker! When you give it a command, it starts working on it immediately and it follows your directions exactly.</p>
-</blockquote>
-<h2 id="init"><code>init</code></h2>
-<p>In previous examples, <code>init</code> was a value specifying the initial <code>Model</code> for our Elm program. In our new version, it is a function:</p>
-<pre><code class="lang-elm"><span class="hljs-title">init</span> : () -&gt; (<span class="hljs-type">Model</span>, <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>)
-<span class="hljs-title">init</span> _ =
-  ( <span class="hljs-type">Model</span> <span class="hljs-number">1</span>
-  , <span class="hljs-type">Cmd</span>.none
-  )
+<p>So here we have three random generators. The <code>roll</code> generator is saying it will produce an <code>Int</code>, and more specifically, it will produce an integer between <code>1</code> and <code>6</code> inclusive. Likewise, the <code>usuallyTrue</code> generator is saying it will produce a <code>Bool</code>, and more specifically, it will be true 80% of the time.</p>
+<p>The point is that we are not actually generating the values yet. We are just describing <em>how</em> to generate them. From there you use the <a href="https://package.elm-lang.org/packages/elm/random/latest/Random#generate" target="_blank"><code>Random.generate</code></a> to turn it into a command:</p>
+<pre><code class="lang-elm"><span class="hljs-title">generate</span> : (a -&gt; msg) -&gt; <span class="hljs-type">Generator</span> a -&gt; <span class="hljs-type">Cmd</span> msg
 </code></pre>
-<p>Like our new <code>update</code> function, we are now producing (1) a new model and (2) some commands for the RTS. In our dice rolling program, we give <code>Cmd.none</code> because we do not need to do anything on initialization, but later you may want to do things like trigger HTTP requests from here.</p>
+<p>When the command is performed, the <code>Generator</code> produces some value, and then that gets turned into a message for your <code>update</code> function. So in our example, the <code>Generator</code> produces a value between 1 and 6, and then it gets turned into a message like <code>NewFace 1</code> or <code>NewFace 4</code>. That is all we need to know to get our random dice rolls, but generators can do quite a bit more!</p>
+<h2 id="combining-generators">Combining Generators</h2>
+<p>Once we have some simple generators like <code>probability</code> and <code>usuallyTrue</code>, we can start snapping them together with functions like <a href="https://package.elm-lang.org/packages/elm/random/latest/Random#map3" target="_blank"><code>map3</code></a>. Imagine we want to make a simple slot machine. We could create a generator like this:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Random
+
+<span class="hljs-keyword">type</span> <span class="hljs-type">Symbol</span> = <span class="hljs-type">Cherry</span> | <span class="hljs-type">Seven</span> | <span class="hljs-type">Bar</span> | <span class="hljs-type">Grapes</span>
+
+<span class="hljs-title">symbol</span> : <span class="hljs-type">Random</span>.<span class="hljs-type">Generator</span> <span class="hljs-type">Symbol</span>
+<span class="hljs-title">symbol</span> =
+  <span class="hljs-type">Random</span>.uniform <span class="hljs-type">Cherry</span> [ <span class="hljs-type">Seven</span>, <span class="hljs-type">Bar</span>, <span class="hljs-type">Grapes</span> ]
+
+<span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Spin</span> =
+  { one : <span class="hljs-type">Symbol</span>
+  , two : <span class="hljs-type">Symbol</span>
+  , three : <span class="hljs-type">Symbol</span>
+  }
+
+<span class="hljs-title">spin</span> : <span class="hljs-type">Random</span>.<span class="hljs-type">Generator</span> <span class="hljs-type">Spin</span>
+<span class="hljs-title">spin</span> =
+  <span class="hljs-type">Random</span>.map3 <span class="hljs-type">Spin</span> symbol symbol symbol
+</code></pre>
+<p>We first create <code>Symbol</code> to describe the pictures that can appear on the slot machine. We then create a random generator that generates each symbol with equal probability.</p>
+<p>From there we use <code>map3</code> to combine them into a new <code>spin</code> generator. It says to generate three symbols and then put them together into a <code>Spin</code>.</p>
+<p>The point here is that from small building blocks, we can create a <code>Generator</code> that describes pretty complex behavior. And then from our application, we just have to say something like <code>Random.generate NewSpin spin</code> to get the next random value.</p>
 <blockquote>
-<p><strong>Note:</strong> Why is it taking that <code>()</code> argument though? We are just ignoring it. What is the point? Well, this program switches from <a href="https://package.elm-lang.org/packages/elm/browser/latest/Browser#sandbox" target="_blank"><code>Browser.sandbox</code></a> to <a href="https://package.elm-lang.org/packages/elm/browser/latest/Browser#element" target="_blank"><code>Browser.element</code></a>, enabling the command features we have been looking at so far. It <em>also</em> allows the program to get &#x201C;flags&#x201D; from JavaScript on initialization. So the <code>()</code> is saying that we are not getting any interesting flags. We will talk about this more in the chapter on interop. It is not too important right now!</p>
-</blockquote>
-<h2 id="subscriptions"><code>subscriptions</code></h2>
-<p>The final new thing that we need to specify if we subscribe to anything. For now we are saying <a href="https://package.elm-lang.org/packages/elm/core/latest/Platform-Sub#none" target="_blank"><code>Sub.none</code></a> to indicate that there are no subscriptions. We will get into subscriptions in one of the next examples!</p>
-<h1 id="summary">Summary</h1>
-<p>We have now seen our first <strong>command</strong> to generate random values.</p>
-<p>Rather than generating random values willy-nilly, you create a <a href="https://package.elm-lang.org/packages/elm/random/latest/Random#Generator" target="_blank"><code>Random.Generator</code></a> that describes exactly how to generate random values. In our case we used <code>Random.int 1 6</code>, but we could have made a weighted die with <a href="https://package.elm-lang.org/packages/elm/random/latest/Random#weighted" target="_blank"><code>Random.weighted</code></a> if we wanted.</p>
-<p>From there we send our command off to the runtime system which (1) dutifully generates a random value to our exact specification and (2) sends it back as a <code>NewFace 6</code> or <code>NewFace 1</code> message.</p>
-<p>At this point, the best way to improve your understanding of commands is just to see more of them! They will appear prominently with the <code>Http</code> and <code>WebSocket</code> libraries, so if you are feeling shaky, the only path forward is practicing with randomness and playing with other examples of commands!</p>
-<blockquote>
-<p><strong>Exercises:</strong> Here are a few ideas to make the program here a bit more interesting!</p>
+<p><strong>Exercises:</strong> Here are a few ideas to make the example code on this page a bit more interesting!</p>
 <ul>
 <li>Instead of showing a number, show the die face as an image.</li>
 <li>Instead of showing an image of a die face, use <a href="https://package.elm-lang.org/packages/elm/svg/latest/" target="_blank"><code>elm/svg</code></a> to draw it yourself.</li>
@@ -844,7 +835,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Random","level":"1.6.1","depth":2,"next":{"title":"Time","level":"1.6.2","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]},"previous":{"title":"コマンドとサブスクリプション","level":"1.6","depth":1,"path":"effects/README.md","ref":"effects/README.md","articles":[{"title":"Random","level":"1.6.1","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},{"title":"Time","level":"1.6.2","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]},{"title":"JSON","level":"1.6.3","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},{"title":"HTTP","level":"1.6.4","depth":2,"path":"effects/http.md","ref":"effects/http.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"name":"robots","content":"noindex","data":[]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"effects/random.md","mtime":"2018-11-12T03:18:13.201Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-12T03:18:45.867Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Random","level":"1.6.1","depth":2,"next":{"title":"Time","level":"1.6.2","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]},"previous":{"title":"コマンドとサブスクリプション","level":"1.6","depth":1,"path":"effects/README.md","ref":"effects/README.md","articles":[{"title":"Random","level":"1.6.1","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},{"title":"Time","level":"1.6.2","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]},{"title":"JSON","level":"1.6.3","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},{"title":"HTTP","level":"1.6.4","depth":2,"path":"effects/http.md","ref":"effects/http.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"name":"robots","content":"noindex","data":[]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"effects/random.md","mtime":"2018-11-18T06:22:32.888Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-18T06:23:03.453Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

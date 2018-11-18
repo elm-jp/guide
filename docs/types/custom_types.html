@@ -687,7 +687,7 @@
   = <span class="hljs-type">Regular</span> <span class="hljs-type">String</span> <span class="hljs-type">Int</span>
   | <span class="hljs-type">Visitor</span> <span class="hljs-type">String</span>
 
-<span class="hljs-title">thomas</span> = <span class="hljs-type">Regular</span> <span class="hljs-string">&quot;Thomas&quot;</span> <span class="hljs-number">33</span>
+<span class="hljs-title">thomas</span> = <span class="hljs-type">Regular</span> <span class="hljs-string">&quot;Thomas&quot;</span> <span class="hljs-number">44</span>
 <span class="hljs-title">kate95</span> = <span class="hljs-type">Visitor</span> <span class="hljs-string">&quot;kate95&quot;</span>
 </code></pre>
 <p>The different variants of a type can diverge quite dramatically. For example, maybe we add location for <code>Regular</code> users so we can suggest regional chat rooms. Add more associated data! Or maybe we want to have anonymous users. Add a third variant called <code>Anonymous</code>. Maybe we end up with:</p>
@@ -706,28 +706,17 @@
   | <span class="hljs-type">ClickedExit</span>
 </code></pre>
 <p>We have four variants. Some variants have no associated data, others have a bunch. Notice that <code>ReceivedMessage</code> actually has a record as associated data. That is totally fine. Any type can be associated data! This allows you to describe interactions in your application very precisely.</p>
-<p>So you will be defining your own custom types, but you will also run into types defined by others.</p>
-<h2 id="common-examples">Common Examples</h2>
-<p>There are quite a few types defined in <code>elm/core</code> that you are sure to run into. For example, the <a href="https://package.elm-lang.org/packages/elm-lang/core/latest/Basics#Bool" target="_blank"><code>Bool</code></a> type:</p>
-<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Bool</span> = <span class="hljs-type">True</span> | <span class="hljs-type">False</span>
+<h2 id="modeling">Modeling</h2>
+<p>Custom types become extremely powerful when you start modeling situations very precisely. For example, if you are waiting for some data to load, you might want to model it with a custom type like this:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Profile</span>
+  = <span class="hljs-type">Failure</span>
+  | <span class="hljs-type">Loading</span>
+  | <span class="hljs-type">Success</span> { name : <span class="hljs-type">String</span>, description : <span class="hljs-type">String</span> }
 </code></pre>
-<p>It has two variants. <code>True</code> and <code>False</code>. Neither has associated data.</p>
-<p>Another common one is the <a href="https://package.elm-lang.org/packages/elm-lang/core/latest/Maybe#Maybe" target="_blank"><code>Maybe</code></a> type:</p>
-<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Maybe</span> a = <span class="hljs-type">Just</span> a | <span class="hljs-type">Nothing</span>
-</code></pre>
-<p>This is useful for functions that may not succeed. The function <a href="https://package.elm-lang.org/packages/elm-lang/core/latest/String#toInt" target="_blank"><code>String.toInt</code></a> has type <code>String -&gt; Maybe Int</code>, making it a great example:</p>
-<ul>
-<li><code>String.toInt &quot;abc&quot; == Nothing</code></li>
-<li><code>String.toInt &quot;2x4&quot; == Nothing</code></li>
-<li><code>String.toInt &quot;403&quot; == Just 403</code></li>
-<li><code>String.toInt &quot;100&quot; == Just 100</code></li>
-</ul>
-<p>Not all <code>String</code> values can become <code>Int</code> values in a reasonable way. By using <code>Maybe</code> we are able to capture that explicitly.</p>
+<p>So you can start in the <code>Loading</code> state and then transition to <code>Failure</code> or <code>Success</code> depending on what happens. This makes it really simple to write a <code>view</code> function that always shows something reasonable when data is loading.</p>
+<p>Now we know how to create custom types, the next section will show how to use them!</p>
 <blockquote>
-<p><strong>Note: Custom types are the most important feature in Elm.</strong></p>
-<p>They may seem sort of boring on the surface, but do not be fooled! I think of them like kitchen knives. They may seem like any other boring utensil, but they have surprising depth. From <a href="https://youtu.be/LO35cdWL1MQ" target="_blank">design</a> to <a href="https://youtu.be/SIw5ChGOADE" target="_blank">maintenance</a> to <a href="https://youtu.be/RjWkO9A-Ckk" target="_blank">use</a>, there are so many techniques that are both foundational and totally invisible.</p>
-<p>For example, if no one tells you that knives must be sharpened with a whetstone periodically, your knives become dull and annoying. And then cooking becomes dull and annoying. The more you practice, the worse it gets. But once you know about whetstones, chopping becomes easier and more fun. Cooking becomes easier and more fun. The more you practice, the better it gets. It is a cruel pair of feedback loops, seperated only by technique. And until you know to look for it, you cannot see it!</p>
-<p>Point is, <del>knives</del> custom types are extremely important. I tried to share some of the hidden knowledge in <a href="../appendix/types_as_sets.html">Types as Sets</a> and <a href="../appendix/types_as_bits.html">Types as Bits</a> in the appendix. I hope you find them helpful!</p>
+<p><strong>Note: Custom types are the most important feature in Elm.</strong> They have a lot of depth, especially once you get in the habit of trying to model scenarios more precisely. I tried to share some of this depth in <a href="../appendix/types_as_sets.html">Types as Sets</a> and <a href="../appendix/types_as_bits.html">Types as Bits</a> in the appendix. I hope you find them helpful!</p>
 </blockquote>
 
                                 
@@ -772,7 +761,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"カスタム型","level":"1.5.3","depth":2,"next":{"title":"パターンマッチ","level":"1.5.4","depth":2,"path":"types/pattern_matching.md","ref":"types/pattern_matching.md","articles":[]},"previous":{"title":"型の別名","level":"1.5.2","depth":2,"path":"types/type_aliases.md","ref":"types/type_aliases.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"name":"robots","content":"noindex","data":[]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"types/custom_types.md","mtime":"2018-11-12T03:18:13.205Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-12T03:18:45.867Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"カスタム型","level":"1.5.3","depth":2,"next":{"title":"パターンマッチ","level":"1.5.4","depth":2,"path":"types/pattern_matching.md","ref":"types/pattern_matching.md","articles":[]},"previous":{"title":"型の別名","level":"1.5.2","depth":2,"path":"types/type_aliases.md","ref":"types/type_aliases.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"name":"robots","content":"noindex","data":[]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"types/custom_types.md","mtime":"2018-11-18T06:22:32.892Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-18T06:23:03.453Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

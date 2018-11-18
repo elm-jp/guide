@@ -655,7 +655,7 @@
 -->
 <h1 id="&#x578B;&#x3092;&#x8AAD;&#x3080;">&#x578B;&#x3092;&#x8AAD;&#x3080;</h1>
 <!--
-In the [Core Language](../core_language.md) section of this book, we ran a bunch of code in the REPL. Well, we are going to do it again, but now with an emphasis on the types that are getting spit out. So type `elm repl` in your terminal again. You should see this:
+In the [Core Language](/core_language.html) section of this book, we ran a bunch of code in the REPL. Well, we are going to do it again, but now with an emphasis on the types that are getting spit out. So type `elm repl` in your terminal again. You should see this:
 -->
 <p>&#x3053;&#x306E;&#x672C;&#x306E;<a href="../core_language.html">&#x8A00;&#x8A9E;&#x306E;&#x57FA;&#x790E;</a>&#x306E;&#x7BC0;&#x3067;&#x306F;&#x3001;REPL &#x3067;&#x4E00;&#x9023;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x307E;&#x3057;&#x305F;&#x3002; &#x3055;&#x3066;&#x3001;&#x79C1;&#x305F;&#x3061;&#x306F;&#x3082;&#x3046;&#x4E00;&#x5EA6;&#x3084;&#x3063;&#x3066;&#x307F;&#x308B;&#x3064;&#x3082;&#x308A;&#x3067;&#x3059;&#x304C;&#x3001;&#x4ECA;&#x5EA6;&#x306F;&#x8868;&#x793A;&#x3055;&#x308C;&#x308B;&#x578B;&#x306B;&#x6CE8;&#x76EE;&#x3057;&#x3066;&#x3044;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002; &#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x306B;<code>elm repl</code>&#x3068;&#x5165;&#x529B;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002; &#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x3059;:</p>
 <pre><code class="lang-elm"><span class="hljs-comment">---- Elm 0.19.0 ----------------------------------------------------------------</span>
@@ -709,8 +709,7 @@ In the first case, we have a `List` filled with `String` values. In the second, 
 Let's see the type of some functions:
 -->
 <p>&#x95A2;&#x6570;&#x306E;&#x578B;&#x3092;&#x898B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;:</p>
-<pre><code class="lang-elm">&gt; <span class="hljs-keyword">import</span> String
-&gt; <span class="hljs-type">String</span>.length
+<pre><code class="lang-elm">&gt; <span class="hljs-type">String</span>.length
 &lt;function&gt; : <span class="hljs-type">String</span> -&gt; <span class="hljs-type">Int</span>
 </code></pre>
 <!--
@@ -756,29 +755,40 @@ Giving two arguments like `String.repeat 3 "ha"` will produce `"hahaha"`. It wor
 -->
 <h2 id="&#x578B;&#x6CE8;&#x91C8;&#xFF08;&#x30BF;&#x30A4;&#x30D7;&#x30A2;&#x30CE;&#x30C6;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#xFF09;">&#x578B;&#x6CE8;&#x91C8;&#xFF08;&#x30BF;&#x30A4;&#x30D7;&#x30A2;&#x30CE;&#x30C6;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#xFF09;</h2>
 <!--
-So far we have just let Elm figure out the types, but it also lets you write a *type annotation* on the line above a definition if you want. So when you are writing code, you can say things like this:
+So far we have just let Elm figure out the types, but it also lets you write a **type annotation** on the line above a definition if you want. So when you are writing code, you can say things like this:
 -->
-<p>&#x4ECA;&#x306E;&#x3068;&#x3053;&#x308D;Elm&#x306B;&#x578B;&#x3092;&#x63A8;&#x8AD6;&#x3055;&#x305B;&#x3066;&#x3044;&#x308B;&#x3060;&#x3051;&#x3067;&#x3059;&#x304C;&#x3001;&#x5FC5;&#x8981;&#x306A;&#x3089;&#x3070;&#x3001;&#x5B9A;&#x7FA9;&#x306E;&#x4E0A;&#x306E;&#x884C;&#x306B;<em>&#x578B;&#x6CE8;&#x91C8;</em>&#x3092;&#x66F8;&#x304F;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002; &#x3064;&#x307E;&#x308A;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;:</p>
+<p>&#x4ECA;&#x306E;&#x3068;&#x3053;&#x308D;Elm&#x306B;&#x578B;&#x3092;&#x63A8;&#x8AD6;&#x3055;&#x305B;&#x3066;&#x3044;&#x308B;&#x3060;&#x3051;&#x3067;&#x3059;&#x304C;&#x3001;&#x5FC5;&#x8981;&#x306A;&#x3089;&#x3070;&#x3001;&#x5B9A;&#x7FA9;&#x306E;&#x4E0A;&#x306E;&#x884C;&#x306B;<strong>&#x578B;&#x6CE8;&#x91C8;</strong>&#x3092;&#x66F8;&#x304F;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002; &#x3064;&#x307E;&#x308A;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;:</p>
 <pre><code class="lang-elm"><span class="hljs-title">half</span> : <span class="hljs-type">Float</span> -&gt; <span class="hljs-type">Float</span>
 <span class="hljs-title">half</span> n =
   n / <span class="hljs-number">2</span>
 
-<span class="hljs-title">divide</span> : <span class="hljs-type">Float</span> -&gt; <span class="hljs-type">Float</span> -&gt; <span class="hljs-type">Float</span>
-<span class="hljs-title">divide</span> x y =
-  x / y
+<span class="hljs-comment">-- half 256 == 128</span>
+<span class="hljs-comment">-- half &quot;3&quot; -- error!</span>
 
-<span class="hljs-title">askVegeta</span> : <span class="hljs-type">Int</span> -&gt; <span class="hljs-type">String</span>
-<span class="hljs-title">askVegeta</span> powerLevel =
-  <span class="hljs-keyword">if</span> powerLevel &gt; <span class="hljs-number">9000</span> <span class="hljs-keyword">then</span>
-    <span class="hljs-string">&quot;It&apos;s over 9000!!!&quot;</span>
+<span class="hljs-title">hypotenuse</span> : <span class="hljs-type">Float</span> -&gt; <span class="hljs-type">Float</span> -&gt; <span class="hljs-type">Float</span>
+<span class="hljs-title">hypotenuse</span> a b =
+  sqrt (a^<span class="hljs-number">2</span> + b^<span class="hljs-number">2</span>)
 
-  <span class="hljs-keyword">else</span>
-    <span class="hljs-string">&quot;It is &quot;</span> ++ toString powerLevel ++ <span class="hljs-string">&quot;.&quot;</span>
+<span class="hljs-comment">-- hypotenuse 3 4  == 5</span>
+<span class="hljs-comment">-- hypotenuse 5 12 == 13</span>
+
+<span class="hljs-title">checkPower</span> : <span class="hljs-type">Int</span> -&gt; <span class="hljs-type">String</span>
+<span class="hljs-title">checkPower</span> powerLevel =
+  <span class="hljs-keyword">if</span> powerLevel &gt; <span class="hljs-number">9000</span> <span class="hljs-keyword">then</span> <span class="hljs-string">&quot;It&apos;s over 9000!!!&quot;</span> <span class="hljs-keyword">else</span> <span class="hljs-string">&quot;Meh&quot;</span>
+
+<span class="hljs-comment">-- checkPower 9001 == &quot;It&apos;s over 9000!!!&quot;</span>
+<span class="hljs-comment">-- checkPower True -- error!</span>
 </code></pre>
+<p>Adding type annotations is not required, but it is definitely recommended! Benefits include:</p>
+<ol>
+<li><strong>Error Message Quality</strong> &#x2014; When you add a type annotation, it tells the compiler what you are <em>trying</em> to do. Your implementation may have mistakes, and now the compiler can compare against your stated intent. &#x201C;You said argument <code>powerLevel</code> was an <code>Int</code>, but it is getting used as a <code>String</code>!&#x201D;</li>
+<li><strong>Documentation</strong> &#x2014; When you revisit code later (or when a colleague visits it for the first time) it can be really helpful to see exactly what is going in and out of the function without having to read the implementation super carefully.</li>
+</ol>
+<!-- TODO -->
 <!--
-People can make mistakes in type annotations, so what happens if they say the wrong thing? The compiler still figures out the type on its own, and it checks that your annotation matches the real answer. In other words, the compiler will always verify that all the annotations you add are correct!
+People can make mistakes in type annotations, so what happens if they say the wrong thing?  The compiler still figures out the type on its own, and it checks that your annotation matches the real answer.  In other words, the compiler will always verify that all the annotations you add are correct!
 -->
-<p>&#x578B;&#x6CE8;&#x91C8;&#x3067;&#x9593;&#x9055;&#x3044;&#x3092;&#x72AF;&#x3059;&#x53EF;&#x80FD;&#x6027;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x9593;&#x9055;&#x3063;&#x305F;&#x578B;&#x3092;&#x66F8;&#x3044;&#x305F;&#x3089;&#x3069;&#x3046;&#x306A;&#x308A;&#x307E;&#x3059;&#x304B;&#xFF1F; &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x95A2;&#x6570;&#x306E;&#x5B9F;&#x88C5;&#x306E;&#x578B;&#x3092;&#x63A8;&#x8AD6;&#x3057;&#x3001;&#x578B;&#x6CE8;&#x91C8;&#x304C;&#x5B9F;&#x969B;&#x306E;&#x578B;&#x3068;&#x4E00;&#x81F4;&#x3059;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3057;&#x307E;&#x3059;&#x3002; &#x3064;&#x307E;&#x308A;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x8FFD;&#x52A0;&#x3057;&#x305F;&#x30A2;&#x30CE;&#x30C6;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x5168;&#x3066;&#x6B63;&#x3057;&#x3044;&#x3053;&#x3068;&#x3092;&#x5E38;&#x306B;&#x78BA;&#x8A8D;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x578B;&#x6CE8;&#x91C8;&#x3067;&#x9593;&#x9055;&#x3044;&#x3092;&#x72AF;&#x3059;&#x53EF;&#x80FD;&#x6027;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x5B9F;&#x88C5;&#x3057;&#x305F;&#x5185;&#x5BB9;&#x3068;&#x4E00;&#x81F4;&#x3057;&#x306A;&#x3044;&#x578B;&#x3092;&#x66F8;&#x3044;&#x305F;&#x3089;&#x3069;&#x3046;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F; &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x305D;&#x306E;&#x5B9F;&#x88C5;&#x5185;&#x3067;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x308B;&#x5168;&#x3066;&#x306E;&#x578B;&#x3092;&#x63A8;&#x8AD6;&#x3057;&#x3001;&#x578B;&#x6CE8;&#x91C8;&#x304C;&#x5B9F;&#x969B;&#x306E;&#x578B;&#x3068;&#x4E00;&#x81F4;&#x3059;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3092;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3057;&#x307E;&#x3059;&#x3002; &#x3064;&#x307E;&#x308A;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x8FFD;&#x52A0;&#x3055;&#x308C;&#x305F;&#x578B;&#x6CE8;&#x91C8;&#x304C;&#x5168;&#x3066;&#x6B63;&#x3057;&#x3044;&#x3053;&#x3068;&#x3092;&#x5E38;&#x306B;&#x78BA;&#x8A8D;&#x3057;&#x307E;&#x3059;&#x3002; &#x305D;&#x308C;&#x306B;&#x3088;&#x308A;&#x3001;&#x308F;&#x304B;&#x308A;&#x3084;&#x3059;&#x3044;&#x30A8;&#x30E9;&#x30FC;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x51FA;&#x3059;&#x3060;&#x3051;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;&#x578B;&#x304C;&#x5B9F;&#x88C5;&#x306E;&#x5185;&#x5BB9;&#x3092;&#x793A;&#x3059; <em>&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x3068;&#x3057;&#x3066;&#x3082;</em> &#x5E38;&#x306B;&#x6700;&#x65B0;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x3092;&#x62C5;&#x4FDD;&#x3067;&#x304D;&#x307E;&#x3059;&#xFF01;</p>
 <!--
 > **Note:** Some folks feel that it is odd that the type annotation goes on the line above the actual definition. The reasoning is that it should be easy and noninvasive to add a type annotation *later*. This way you can turn a sloppy prototype into higher-quality code just by adding lines.
 -->
@@ -790,41 +800,47 @@ People can make mistakes in type annotations, so what happens if they say the wr
 -->
 <h2 id="&#x578B;&#x5909;&#x6570;&#xFF08;&#x30BF;&#x30A4;&#x30D7;&#x30D0;&#x30EA;&#x30A2;&#x30D6;&#x30EB;&#xFF09;">&#x578B;&#x5909;&#x6570;&#xFF08;&#x30BF;&#x30A4;&#x30D7;&#x30D0;&#x30EA;&#x30A2;&#x30D6;&#x30EB;&#xFF09;</h2>
 <!--
-As you look through the functions in [`elm/core`][core], you will see some type signatures with lower-case letters in them. [`List.reverse`][reverse] is a good example:
+As you look through the functions in [`elm/core`][core], you will see some type signatures with lower-case letters in them.  We can check some of them out in `elm repl`:
 -->
-<p><a href="https://package.elm-lang.org/packages/elm/core/latest/" target="_blank"><code>elm/core</code></a>&#x306E;&#x95A2;&#x6570;&#x3092;&#x898B;&#x308B;&#x3068;&#x3001;&#x5C0F;&#x6587;&#x5B57;&#x306E;&#x578B;&#x30B7;&#x30B0;&#x30CD;&#x30C1;&#x30E3;&#x304C;&#x3044;&#x304F;&#x3064;&#x304B;&#x3042;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002; <a href="https://package.elm-lang.org/packages/elm/core/latest/List#reverse" target="_blank"><code>List.reverse</code></a>&#x306F;&#x3061;&#x3087;&#x3046;&#x3069;&#x3088;&#x3044;&#x4F8B;&#x3067;&#x3059;:</p>
+<p><a href="https://package.elm-lang.org/packages/elm/core/latest/" target="_blank"><code>elm/core</code></a>&#x306E;&#x95A2;&#x6570;&#x3092;&#x898B;&#x308B;&#x3068;&#x3001;&#x5C0F;&#x6587;&#x5B57;&#x306E;&#x578B;&#x30B7;&#x30B0;&#x30CD;&#x30C1;&#x30E3;&#x304C;&#x3044;&#x304F;&#x3064;&#x304B;&#x3042;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;
+&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B; <code>elm repl</code> &#x3067;&#x5B9F;&#x969B;&#x306B;&#x78BA;&#x304B;&#x3081;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <blockquote>
 <p><strong>&#x8A33;&#x6CE8;:</strong> &#x578B;&#x30B7;&#x30B0;&#x30CD;&#x30C1;&#x30E3;&#x306F;&#x95A2;&#x6570;&#x306E;&#x5F15;&#x6570;&#x306E;&#x578B;&#x3068;&#x8FD4;&#x308A;&#x5024;&#x306E;&#x578B;&#x306E;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x306E;&#x3053;&#x3068;&#x3002;</p>
 </blockquote>
-<pre><code class="lang-elm"><span class="hljs-type">List</span>.reverse : <span class="hljs-type">List</span> a -&gt; <span class="hljs-type">List</span> a
+<pre><code class="lang-elm">&gt; <span class="hljs-type">List</span>.length
+&lt;function&gt; : <span class="hljs-type">List</span> a -&gt; <span class="hljs-type">Int</span>
 </code></pre>
 <!--
-That lower-case `a` is called a **type variable**. It means we can use `List.reverse` as if it has type:
+Notice that lower-case `a` in the type? That is called a **type variable**.
+It can vary depending on how [`List.length`][length] is used:
 -->
-<p>&#x5C0F;&#x6587;&#x5B57;&#x306E;<code>a</code>&#x306F; <strong>&#x578B;&#x5909;&#x6570;</strong> &#x3068;&#x547C;&#x3070;&#x308C;&#x308B;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002; &#x3064;&#x307E;&#x308A;<code>List.reverse</code>&#x3092;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x578B;&#x3092;&#x6301;&#x3064;&#x95A2;&#x6570;&#x3068;&#x3057;&#x3066;&#x4F7F;&#x3048;&#x308B;&#x3053;&#x3068;&#x3092;&#x610F;&#x5473;&#x3057;&#x307E;&#x3059;:</p>
-<ul>
-<li><code>List String -&gt; List String</code></li>
-<li><code>List Float -&gt; List Float</code></li>
-<li><code>List Int -&gt; List Int</code></li>
-<li>...</li>
-</ul>
-<!--
-The `a` can vary and match any type. The `List.reverse` function does not care. But once you decide that `a` is a `String` in the argument, it must also be a `String` in the result. That means `List.reverse` can never be `List String -> List Int`. All `a` values must match in any specific reversal!
--->
-<p><code>a</code>&#x306F;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x578B;&#x306B;&#x3082;&#x5909;&#x66F4;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002; <code>List.reverse</code>&#x95A2;&#x6570;&#x306F;<code>a</code>&#x306E;&#x578B;&#x3092;&#x6C17;&#x306B;&#x3057;&#x307E;&#x305B;&#x3093;&#x3002; &#x3057;&#x304B;&#x3057;&#x3001; &#x5F15;&#x6570;&#x306E;&#x578B;&#x306E;<code>a</code>&#x3092;<code>String</code>&#x3068;&#x6C7A;&#x3081;&#x308B;&#x3068;&#x3001;&#x8FD4;&#x308A;&#x5024;&#x306E;&#x578B;&#x306E;<code>a</code>&#x3082;<code>String</code>&#x3067;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002; &#x3064;&#x307E;&#x308A;&#x3001;<code>List.reverse</code>&#x306E;&#x578B;&#x306F;<code>List String -&gt; List Int</code>&#x306B;&#x306A;&#x308B;&#x3053;&#x3068;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002; &#x5168;&#x3066;&#x306E;<code>a</code>&#x306E;&#x5024;&#x306F;&#x4E00;&#x81F4;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;&#xFF01;</p>
-<!--
-> **Note:** Type variables must start with a lower-case letter, and they do not have to be just one character! Imagine we create a function that takes an argument and then gives it back without changes. This is often called the identity function:
--->
+<p>&#x578B;&#x306E;&#x4E2D;&#x306B;&#x5C0F;&#x6587;&#x5B57;&#x306E; <code>a</code> &#x304C;&#x3042;&#x308B;&#x3053;&#x3068;&#x306B;&#x6C17;&#x3065;&#x304D;&#x307E;&#x3057;&#x305F;&#x304B;&#xFF1F; &#x3053;&#x308C;&#x306F; <strong>&#x578B;&#x5909;&#x6570;</strong> &#x3068;&#x547C;&#x3070;&#x308C;&#x308B;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;
+&#x3053;&#x306E; <code>a</code> &#x304C;&#x5B9F;&#x969B;&#x306B;&#x3069;&#x3093;&#x306A;&#x578B;&#x306B;&#x306A;&#x308B;&#x304B;&#x306F;&#x3001; <code>[List.length][length]</code> &#x304C;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x308B;&#x304B;&#x306B;&#x3088;&#x3063;&#x3066;&#x5909;&#x308F;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-elm">&gt; <span class="hljs-type">List</span>.length [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">8</span>]
+<span class="hljs-number">6</span> : <span class="hljs-type">Int</span>
+
+&gt; <span class="hljs-type">List</span>.length [ <span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span> ]
+<span class="hljs-number">3</span> : <span class="hljs-type">Int</span>
+
+&gt; <span class="hljs-type">List</span>.length [ <span class="hljs-type">True</span>, <span class="hljs-type">False</span> ]
+<span class="hljs-number">2</span> : <span class="hljs-type">Int</span>
+</code></pre>
+<p>We just want the length, so it does not matter what is in the list. So the type variable <code>a</code> is saying that we can match any type. Let&#x2019;s look at another common example:</p>
+<!-- TODO -->
+<pre><code class="lang-elm">&gt; <span class="hljs-type">List</span>.reverse
+&lt;function&gt; : <span class="hljs-type">List</span> a -&gt; <span class="hljs-type">List</span> a
+
+&gt; <span class="hljs-type">List</span>.reverse [ <span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span> ]
+[<span class="hljs-string">&quot;c&quot;</span>,<span class="hljs-string">&quot;b&quot;</span>,<span class="hljs-string">&quot;a&quot;</span>] : <span class="hljs-type">List</span> <span class="hljs-type">String</span>
+
+&gt; <span class="hljs-type">List</span>.reverse [ <span class="hljs-type">True</span>, <span class="hljs-type">False</span> ]
+[<span class="hljs-type">False</span>,<span class="hljs-type">True</span>] : <span class="hljs-type">List</span> <span class="hljs-type">Bool</span>
+</code></pre>
+<p>Again, the type variable <code>a</code> can vary depending on how <a href="https://package.elm-lang.org/packages/elm/core/latest/List#reverse" target="_blank"><code>List.reverse</code></a> is used. But in this case, we have an <code>a</code> in the argument and in the result. This means that if you give a <code>List Int</code> you must get a <code>List Int</code> as well. Once we decide what <code>a</code> is, that&#x2019;s what it is everywhere.
+<!-- TODO --></p>
 <blockquote>
-<p><strong>Note:</strong> &#x578B;&#x5909;&#x6570;&#x306F;&#x5C0F;&#x6587;&#x5B57;&#x3067;&#x59CB;&#x307E;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#xFF11;&#x6587;&#x5B57;&#x3067;&#x3042;&#x308B;&#x5FC5;&#x8981;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#xFF01; &#x5F15;&#x6570;&#x3092;&#xFF11;&#x3064;&#x53D6;&#x308A;&#x3001;&#x305D;&#x308C;&#x3092;&#x5909;&#x66F4;&#x305B;&#x305A;&#x306B;&#x8FD4;&#x3059;&#x95A2;&#x6570;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002; &#x3053;&#x308C;&#x306F;&#x3057;&#x3070;&#x3057;&#x3070;&#x30A2;&#x30A4;&#x30C7;&#x30F3;&#x30C6;&#x30A3;&#x30C6;&#x30A3;&#x95A2;&#x6570;&#x3068;&#x547C;&#x3070;&#x308C;&#x307E;&#x3059;:</p>
-<pre><code class="lang-elm"><span class="hljs-title">identity</span> : value -&gt; value
-<span class="hljs-title">identity</span> x =
-  x
-</code></pre>
-<!--
-I wrote the type signature as `value -> value`, but it could also be `a -> a`. The only thing that matters is that the type of values going in matches the type of values going out!
--->
-<p>&#x578B;&#x30B7;&#x30B0;&#x30CD;&#x30C1;&#x30E3;&#x3092; <code>value -&gt; value</code>&#x3068;&#x66F8;&#x304D;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;<code>a -&gt; a</code>&#x3067;&#x3082;&#x304B;&#x307E;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002; &#x91CD;&#x8981;&#x306A;&#x306E;&#x306F;&#x3001;&#x95A2;&#x6570;&#x306B;&#x5165;&#x308B;&#x5024;&#x306E;&#x578B;&#x3068;&#x5916;&#x306B;&#x51FA;&#x308B;&#x5024;&#x306E;&#x578B;&#x304C;&#x4E00;&#x81F4;&#x3059;&#x308B;&#x3053;&#x3068;&#x3060;&#x3051;&#x3067;&#x3059;&#x3002;</p>
+<p><strong>Note:</strong> Type variables must start with a lower-case letter, but they can be full words. We could write the type of <code>List.length</code> as <code>List value -&gt; Int</code> and we could write the type of <code>List.reverse</code> as <code>List element -&gt; List element</code>. It is fine as long as they start with a lower-case letter. Type variables <code>a</code> and <code>b</code> are used by convention in many places, but some type annotations benefit from more specific names.
+<!-- TODO --></p>
 </blockquote>
 <!--
 ## Constrained Type Variables
@@ -844,19 +860,22 @@ Normally type variables can get filled in with _anything_, but `number` can only
 The full list of constrained type variables is:
 -->
 <p>&#x5236;&#x7D04;&#x4ED8;&#x304D;&#x578B;&#x5909;&#x6570;&#x306E;&#x5B8C;&#x5168;&#x306A;&#x30EA;&#x30B9;&#x30C8;&#x306F;&#x6B21;&#x306E;&#x901A;&#x308A;&#x3067;&#x3059;:</p>
+<!--
+- `number` permits `Int` and `Float`
+- `appendable` permits `String` and `List a`
+- `comparable` permits `Int`, `Float`, `Char`, `String`, and lists/tuples of `comparable` values
+- `compappend` permits `String` and `List comparable`
+-->
 <ul>
-<li><code>number</code> = <code>Int</code> or <code>Float</code></li>
-<li><code>appendable</code> = <code>String</code> or <code>List a</code></li>
-<li><code>compappend</code> = <code>String</code> or <code>List comparable</code></li>
-<li><code>comparable</code> = <code>Int</code>, <code>Float</code>, <code>Char</code>, <code>String</code>, <code>comparable</code>&#x306A;&#x5024;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x304B;&#x30BF;&#x30D7;&#x30EB;</li>
+<li><code>number</code> &#x306F; <code>Int</code> &#x304B; <code>Float</code> &#x3067;&#x57CB;&#x3081;&#x3089;&#x308C;&#x307E;&#x3059;</li>
+<li><code>appendable</code> &#x306F; <code>String</code> &#x304B; <code>List a</code> &#x3067;&#x57CB;&#x3081;&#x3089;&#x308C;&#x307E;&#x3059;</li>
+<li><code>comparable</code> &#x306F; <code>Int</code>, <code>Float</code>, <code>Char</code>, <code>String</code>, &#x305D;&#x3057;&#x3066; <code>comparable</code> &#x306A;&#x5024;&#x3067;&#x69CB;&#x6210;&#x3055;&#x308C;&#x308B;&#x30EA;&#x30B9;&#x30C8;&#x307E;&#x305F;&#x306F;&#x30BF;&#x30D7;&#x30EB;&#x3067;&#x57CB;&#x3081;&#x3089;&#x308C;&#x307E;&#x3059;</li>
+<li><code>compappend</code> &#x306F; <code>String</code> &#x304B; <code>List comparable</code> &#x3067;&#x57CB;&#x3081;&#x3089;&#x308C;&#x307E;&#x3059;</li>
 </ul>
 <!--
-- `comparable` = `Int`, `Float`, `Char`, `String`, lists and tuples of `comparable` values
+These constrained type variables exist to make operators like `(+)` and `(<)` a bit more flexible.
 -->
-<!--
-These constrained type variables exist to make operations like `(+)` and `(<)` a bit more flexible.
--->
-<p>&#x3053;&#x308C;&#x3089;&#x306E;&#x5236;&#x7D04;&#x4ED8;&#x304D;&#x578B;&#x5909;&#x6570;&#x306F;&#x3001;<code>(+)</code>&#x3084;<code>(&lt;)</code>&#x306E;&#x3088;&#x3046;&#x306A;&#x64CD;&#x4F5C;&#x3092;&#x3088;&#x308A;&#x67D4;&#x8EDF;&#x306B;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x5B58;&#x5728;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x3053;&#x308C;&#x3089;&#x306E;&#x5236;&#x7D04;&#x4ED8;&#x304D;&#x578B;&#x5909;&#x6570;&#x306F;&#x3001;<code>(+)</code>&#x3084;<code>(&lt;)</code>&#x306E;&#x3088;&#x3046;&#x306A;&#x6F14;&#x7B97;&#x5B50;&#x3092;&#x3088;&#x308A;&#x67D4;&#x8EDF;&#x306B;&#x4F7F;&#x3048;&#x308B;&#x3088;&#x3046;&#x306B;&#x5B58;&#x5728;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 
                                 
                                 </section>
@@ -900,7 +919,7 @@ These constrained type variables exist to make operations like `(+)` and `(<)` a
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"型を読む","level":"1.5.1","depth":2,"next":{"title":"型の別名","level":"1.5.2","depth":2,"path":"types/type_aliases.md","ref":"types/type_aliases.md","articles":[]},"previous":{"title":"型","level":"1.5","depth":1,"path":"types/README.md","ref":"types/README.md","articles":[{"title":"型を読む","level":"1.5.1","depth":2,"path":"types/reading_types.md","ref":"types/reading_types.md","articles":[]},{"title":"型の別名","level":"1.5.2","depth":2,"path":"types/type_aliases.md","ref":"types/type_aliases.md","articles":[]},{"title":"カスタム型","level":"1.5.3","depth":2,"path":"types/custom_types.md","ref":"types/custom_types.md","articles":[]},{"title":"パターンマッチ","level":"1.5.4","depth":2,"path":"types/pattern_matching.md","ref":"types/pattern_matching.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"name":"robots","content":"noindex","data":[]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"types/reading_types.md","mtime":"2018-11-12T03:18:13.205Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-12T03:18:45.867Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"型を読む","level":"1.5.1","depth":2,"next":{"title":"型の別名","level":"1.5.2","depth":2,"path":"types/type_aliases.md","ref":"types/type_aliases.md","articles":[]},"previous":{"title":"型","level":"1.5","depth":1,"path":"types/README.md","ref":"types/README.md","articles":[{"title":"型を読む","level":"1.5.1","depth":2,"path":"types/reading_types.md","ref":"types/reading_types.md","articles":[]},{"title":"型の別名","level":"1.5.2","depth":2,"path":"types/type_aliases.md","ref":"types/type_aliases.md","articles":[]},{"title":"カスタム型","level":"1.5.3","depth":2,"path":"types/custom_types.md","ref":"types/custom_types.md","articles":[]},{"title":"パターンマッチ","level":"1.5.4","depth":2,"path":"types/pattern_matching.md","ref":"types/pattern_matching.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"name":"robots","content":"noindex","data":[]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"types/reading_types.md","mtime":"2018-11-18T06:22:32.892Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-18T06:23:03.453Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
