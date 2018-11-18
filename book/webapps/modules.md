@@ -15,7 +15,7 @@ Elm にはコードベースをうまく拡大していくときに役に立つ*
 Elm のモジュールは、型を中心にして定義していくようにすると最もうまくいきます。`List`型に対する`List`モジュールがまさにそうなっています。そうなると、ブログサイトであれば、`Post`型を中心にしてモジュールを組み立てたくなる思います。たとえば次のようにモジュールを作ることができるでしょう。
 
 ```elm
-module Post exposing (Post, estimatedReadTime, encode, decode)
+module Post exposing (Post, estimatedReadTime, encode, decoder)
 
 import Json.Decode as D
 import Json.Encode as E

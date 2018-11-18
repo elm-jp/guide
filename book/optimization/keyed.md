@@ -31,7 +31,9 @@
 - ...
 
 
-<!-- But when you you change the sort order, all of these are going to be different! So you end up doing a lot of work on the DOM when you could have just shuffled some nodes around. -->
+<!--
+But when you change the sort order, all of these are going to be different! So you end up doing a lot of work on the DOM when you could have just shuffled some nodes around.
+-->
 
 しかし、並び替えの順序を変更したときは、これらの組のほとんどが違っていてそれぞれ差分処理が必要になるでしょう！　そして、ノードをシャッフルしたときなどでは、DOMに対して大量の操作を行うはめになります。
 

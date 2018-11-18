@@ -4,9 +4,9 @@
 # 型を読む
 
 <!--
-In the [Core Language](../core_language.md) section of this book, we ran a bunch of code in the REPL. Well, we are going to do it again, but now with an emphasis on the types that are getting spit out. So type `elm repl` in your terminal again. You should see this:
+In the [Core Language](/core_language.html) section of this book, we ran a bunch of code in the REPL. Well, we are going to do it again, but now with an emphasis on the types that are getting spit out. So type `elm repl` in your terminal again. You should see this:
 -->
-この本の[言語の基礎](../core_language.md)の節では、REPL で一連のコードを実行しました。 さて、私たちはもう一度やってみるつもりですが、今度は表示される型に注目していきましょう。 ターミナルに`elm repl`と入力してください。 このように表示されます:
+この本の[言語の基礎](/core_language.md)の節では、REPL で一連のコードを実行しました。 さて、私たちはもう一度やってみるつもりですが、今度は表示される型に注目していきましょう。 ターミナルに`elm repl`と入力してください。 このように表示されます:
 
 ```elm
 ---- Elm 0.19.0 ----------------------------------------------------------------
@@ -74,7 +74,6 @@ Let's see the type of some functions:
 関数の型を見てみましょう:
 
 ```elm
-> import String
 > String.length
 <function> : String -> Int
 ```
@@ -133,32 +132,44 @@ String.repeat : Int -> String -> String
 ## 型注釈（タイプアノテーション）
 
 <!--
-So far we have just let Elm figure out the types, but it also lets you write a *type annotation* on the line above a definition if you want. So when you are writing code, you can say things like this:
+So far we have just let Elm figure out the types, but it also lets you write a **type annotation** on the line above a definition if you want. So when you are writing code, you can say things like this:
 -->
-今のところElmに型を推論させているだけですが、必要ならば、定義の上の行に*型注釈*を書くこともできます。 つまり、次のようにコードを書くことができます:
+今のところElmに型を推論させているだけですが、必要ならば、定義の上の行に**型注釈**を書くこともできます。 つまり、次のようにコードを書くことができます:
 
 ```elm
 half : Float -> Float
 half n =
   n / 2
 
-divide : Float -> Float -> Float
-divide x y =
-  x / y
+-- half 256 == 128
+-- half "3" -- error!
 
-askVegeta : Int -> String
-askVegeta powerLevel =
-  if powerLevel > 9000 then
-    "It's over 9000!!!"
+hypotenuse : Float -> Float -> Float
+hypotenuse a b =
+  sqrt (a^2 + b^2)
 
-  else
-    "It is " ++ toString powerLevel ++ "."
+-- hypotenuse 3 4  == 5
+-- hypotenuse 5 12 == 13
+
+checkPower : Int -> String
+checkPower powerLevel =
+  if powerLevel > 9000 then "It's over 9000!!!" else "Meh"
+
+-- checkPower 9001 == "It's over 9000!!!"
+-- checkPower True -- error!
 ```
 
+Adding type annotations is not required, but it is definitely recommended! Benefits include:
+
+1. **Error Message Quality** &mdash; When you add a type annotation, it tells the compiler what you are _trying_ to do. Your implementation may have mistakes, and now the compiler can compare against your stated intent. &ldquo;You said argument `powerLevel` was an `Int`, but it is getting used as a `String`!&rdquo;
+2. **Documentation** &mdash; When you revisit code later (or when a colleague visits it for the first time) it can be really helpful to see exactly what is going in and out of the function without having to read the implementation super carefully.
+
+<!-- TODO -->
+
 <!--
-People can make mistakes in type annotations, so what happens if they say the wrong thing? The compiler still figures out the type on its own, and it checks that your annotation matches the real answer. In other words, the compiler will always verify that all the annotations you add are correct!
+People can make mistakes in type annotations, so what happens if they say the wrong thing?  The compiler still figures out the type on its own, and it checks that your annotation matches the real answer.  In other words, the compiler will always verify that all the annotations you add are correct!
 -->
-型注釈で間違いを犯す可能性がありますが、間違った型を書いたらどうなりますか？ コンパイラは関数の実装の型を推論し、型注釈が実際の型と一致するかどうかをチェックします。 つまり、コンパイラは追加したアノテーションが全て正しいことを常に確認します。
+型注釈で間違いを犯す可能性がありますが、実装した内容と一致しない型を書いたらどうなるでしょうか？ コンパイラはその実装内で使われている全ての型を推論し、型注釈が実際の型と一致するかどうかをチェックします。 つまり、コンパイラは追加された型注釈が全て正しいことを常に確認します。 それにより、わかりやすいエラーメッセージを出すだけではなく、型が実装の内容を示す _ドキュメントとしても_ 常に最新になっていることを担保できます！
 
 <!--
 > **Note:** Some folks feel that it is odd that the type annotation goes on the line above the actual definition. The reasoning is that it should be easy and noninvasive to add a type annotation *later*. This way you can turn a sloppy prototype into higher-quality code just by adding lines.
@@ -171,47 +182,58 @@ People can make mistakes in type annotations, so what happens if they say the wr
 ## 型変数（タイプバリアブル）
 
 <!--
-As you look through the functions in [`elm/core`][core], you will see some type signatures with lower-case letters in them. [`List.reverse`][reverse] is a good example:
+As you look through the functions in [`elm/core`][core], you will see some type signatures with lower-case letters in them.  We can check some of them out in `elm repl`:
 -->
-[`elm/core`][core]の関数を見ると、小文字の型シグネチャがいくつかあることがわかります。 [`List.reverse`][reverse]はちょうどよい例です:
+[`elm/core`][core]の関数を見ると、小文字の型シグネチャがいくつかあることがわかります。
+以下のように `elm repl` で実際に確かめることができます。
 > **訳注:** 型シグネチャは関数の引数の型と返り値の型の組み合わせのこと。
 
 ```elm
-List.reverse : List a -> List a
+> List.length
+<function> : List a -> Int
 ```
 
 <!--
-That lower-case `a` is called a **type variable**. It means we can use `List.reverse` as if it has type:
+Notice that lower-case `a` in the type? That is called a **type variable**.
+It can vary depending on how [`List.length`][length] is used:
 -->
-小文字の`a`は **型変数** と呼ばれるものです。 つまり`List.reverse`をこのような型を持つ関数として使えることを意味します:
+型の中に小文字の `a` があることに気づきましたか？ これは **型変数** と呼ばれるものです。
+この `a` が実際にどんな型になるかは、 `[List.length][length]` がどのように使われるかによって変わります。
 
-- `List String -> List String`
-- `List Float -> List Float`
-- `List Int -> List Int`
-- ...
-
-<!--
-The `a` can vary and match any type. The `List.reverse` function does not care. But once you decide that `a` is a `String` in the argument, it must also be a `String` in the result. That means `List.reverse` can never be `List String -> List Int`. All `a` values must match in any specific reversal!
--->
-`a`はどのような型にも変更できます。 `List.reverse`関数は`a`の型を気にしません。 しかし、 引数の型の`a`を`String`と決めると、返り値の型の`a`も`String`でなければなりません。 つまり、`List.reverse`の型は`List String -> List Int`になることはありません。 全ての`a`の値は一致しなければなりません！
-
-<!--
-> **Note:** Type variables must start with a lower-case letter, and they do not have to be just one character! Imagine we create a function that takes an argument and then gives it back without changes. This is often called the identity function:
--->
-> **Note:** 型変数は小文字で始まる必要がありますが、１文字である必要はありません！ 引数を１つ取り、それを変更せずに返す関数を作成するとします。 これはしばしばアイデンティティ関数と呼ばれます:
->
 ```elm
-identity : value -> value
-identity x =
-  x
+> List.length [1,1,2,3,5,8]
+6 : Int
+
+> List.length [ "a", "b", "c" ]
+3 : Int
+
+> List.length [ True, False ]
+2 : Int
 ```
->
-<!--
-> I wrote the type signature as `value -> value`, but it could also be `a -> a`. The only thing that matters is that the type of values going in matches the type of values going out!
--->
-> 型シグネチャを `value -> value`と書きましたが、`a -> a`でもかまいません。 重要なのは、関数に入る値の型と外に出る値の型が一致することだけです。
+
+We just want the length, so it does not matter what is in the list. So the type variable `a` is saying that we can match any type. Let&rsquo;s look at another common example:
+
+<!-- TODO -->
+
+```elm
+> List.reverse
+<function> : List a -> List a
+
+> List.reverse [ "a", "b", "c" ]
+["c","b","a"] : List String
+
+> List.reverse [ True, False ]
+[False,True] : List Bool
+```
+
+Again, the type variable `a` can vary depending on how [`List.reverse`][reverse] is used. But in this case, we have an `a` in the argument and in the result. This means that if you give a `List Int` you must get a `List Int` as well. Once we decide what `a` is, that’s what it is everywhere.
+<!-- TODO -->
+
+> **Note:** Type variables must start with a lower-case letter, but they can be full words. We could write the type of `List.length` as `List value -> Int` and we could write the type of `List.reverse` as `List element -> List element`. It is fine as long as they start with a lower-case letter. Type variables `a` and `b` are used by convention in many places, but some type annotations benefit from more specific names.
+<!-- TODO -->
 
 [core]: https://package.elm-lang.org/packages/elm/core/latest/
+[length]: https://package.elm-lang.org/packages/elm/core/latest/List#length
 [reverse]: https://package.elm-lang.org/packages/elm/core/latest/List#reverse
 
 
@@ -239,18 +261,22 @@ The full list of constrained type variables is:
 -->
 制約付き型変数の完全なリストは次の通りです:
 
-- `number` = `Int` or `Float`
-- `appendable` = `String` or `List a`
-- `compappend` = `String` or `List comparable`
-- `comparable` = `Int`, `Float`, `Char`, `String`, `comparable`な値のリストかタプル
-
 <!--
-- `comparable` = `Int`, `Float`, `Char`, `String`, lists and tuples of `comparable` values
+- `number` permits `Int` and `Float`
+- `appendable` permits `String` and `List a`
+- `comparable` permits `Int`, `Float`, `Char`, `String`, and lists/tuples of `comparable` values
+- `compappend` permits `String` and `List comparable`
 -->
 
+- `number` は `Int` か `Float` で埋められます
+- `appendable` は `String` か `List a` で埋められます
+- `comparable` は `Int`, `Float`, `Char`, `String`, そして `comparable` な値で構成されるリストまたはタプルで埋められます
+- `compappend` は `String` か `List comparable` で埋められます
+
+
 <!--
-These constrained type variables exist to make operations like `(+)` and `(<)` a bit more flexible.
+These constrained type variables exist to make operators like `(+)` and `(<)` a bit more flexible.
 -->
-これらの制約付き型変数は、`(+)`や`(<)`のような操作をより柔軟にするために存在します。
+これらの制約付き型変数は、`(+)`や`(<)`のような演算子をより柔軟に使えるように存在します。
 
 [negate]: https://package.elm-lang.org/packages/elm/core/latest/Basics#negate
