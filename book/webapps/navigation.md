@@ -203,11 +203,11 @@ type UrlRequest
 
 <!-- The `Internal` variant is for any link that stays on the same domain. So if you are browsing `https://example.com`, internal links include things like `settings#privacy`, `/home`, `https://example.com/home`, and `//example.com/home`. -->
 
-`Internal`ヴァリアントは同じドメイン内に留まるリンクがクリックされたときを表しています。たとえばもし`https://example.com`を閲覧しているなら、`settings#privacy`や`/home`、`https://example.com/home`、`//example.com/home`は内部リンクとなります。
+`Internal`バリアントは同じドメイン内に留まるリンクがクリックされたときを表しています。たとえばもし`https://example.com`を閲覧しているなら、`settings#privacy`や`/home`、`https://example.com/home`、`//example.com/home`は内部リンクとなります。
 
 <!-- The `External` variant is for any link that goes to a different domain. Links like `https://elm-lang.org/examples`, `https://static.example.com`, and `http://example.com/home` all go to a different domain. Notice that changing the protocol from `https` to `http` is considered a different domain! -->
 
-`External`ヴァリアントは異なるドメインへのリンクを表しています。`https://elm-lang.org/examples`や`https://static.example.com`、`http://example.com/home`などはすべて、異なるドメインへのリンクです。プロトコルが`https`から`http`へと変わるリンクは異なるドメインであると見なされることに注意してください！
+`External`バリアントは異なるドメインへのリンクを表しています。`https://elm-lang.org/examples`や`https://static.example.com`、`http://example.com/home`などはすべて、異なるドメインへのリンクです。プロトコルが`https`から`http`へと変わるリンクは異なるドメインであると見なされることに注意してください！
 
 <!-- Whichever link someone presses, our example program is going to create a `LinkClicked` message and send it to the `update` function. That is where we see most of the interesting new code! -->
 
