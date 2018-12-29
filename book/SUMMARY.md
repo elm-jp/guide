@@ -43,6 +43,7 @@
    * [Types as Bits](appendix/types_as_bits.md)
    * [Function Types](appendix/function_types.md)
 -->
+* [翻訳について](about_translation.md)
 * [はじめに](README.md)
 * [インストール](install.md)
 * [言語の基礎](core_language.md)
@@ -81,4 +82,3 @@
    * [集合としての型](appendix/types_as_sets.md)
    * [型のビット表現](appendix/types_as_bits.md)
    * [関数の型](appendix/function_types.md)
-* [翻訳について](about_translation.md)
