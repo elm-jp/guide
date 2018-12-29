@@ -27,7 +27,7 @@ hasDecentBio user =
 ```
 
 <!--
-That would be `{ name : String, bio : String } -> Bool` without the type annotation. **The main point of type aliases is to help us write shorter and clearer type annotations.** This becomes more important as your application grows. Say we have a `updateBio` function:
+That would be `{ name : String, bio : String } -> Bool` without the type alias. **The main point of type aliases is to help us write shorter and clearer type annotations.** This becomes more important as your application grows. Say we have a `updateBio` function:
 -->
 型の別名を使わずに書けば`{ name : String, bio : String } -> Bool`のようになります。 **型の別名の主なポイントは短く明確な型注釈を書くのを助けることです。** これはアプリケーションが成長するにつれてより重要になってきます。 `updateBio`関数があるとします:
 
