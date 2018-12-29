@@ -53,13 +53,9 @@ You can think of `Browser.element` as setting up a system like this:
 
 ![](diagrams/element.svg)
 
-In addition to producing `Html` values, our programs will also send `Cmd` and `Sub` values to the runtime system. In this world, our programms can **command** the runtime system to make an HTTP request or to generate a random number. They can also **subscribe** to the current time.
+In addition to producing `Html` values, our programs will also send `Cmd` and `Sub` values to the runtime system. In this world, our programs can **command** the runtime system to make an HTTP request or to generate a random number. They can also **subscribe** to the current time.
 <!-- TODO -->
 
-<!--
-Like before, you get to program in the nice Elm world, but these `Cmd` and `Sub` values can tell the runtime system to generate random values, ask about the current time, make HTTP requests, etc.
--->
-以前と同じように素晴らしいElmの世界の中でプログラムできますが、これらの`Cmd`と`Sub`の値により、ランタイムシステムに対して乱数を生成したり、現在の時刻を尋ねたり、HTTPリクエストを送信するよう指示することができるようになります。
 <!--
 I think commands and subscriptions make more sense when you start seeing examples, so let&rsquo;s do that!
 -->
@@ -89,10 +85,10 @@ I think commands and subscriptions make more sense when you start seeing example
 > - [`elm/json`](https://package.elm-lang.org/packages/elm/json/latest/)
 > - [`elm/random`](https://package.elm-lang.org/packages/elm/random/latest/)
 > - [`elm/time`](https://package.elm-lang.org/packages/elm/time/latest/)
+>
 <!--
 > There are tons of other packages on `package.elm-lang.org` though! So when you are making your own Elm programs locally, it will probably involve running some commands like this in the terminal:
 -->
->
 > その他にも非常に沢山のパッケージが`package.elm-lang.org`に存在します。ローカル環境で自分のElmプログラムを作る際には、次のようなコマンドをターミナル上で実行することになるでしょう：
 >
 >```bash
