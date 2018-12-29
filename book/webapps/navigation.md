@@ -1,40 +1,58 @@
-<!-- # Navigation -->
+<!--
+# Navigation
+-->
 
 # ナビゲーション
 
-<!-- We just saw how to serve one page, but say we are making a website like `package.elm-lang.org`. It has a bunch of pages (e.g. [search](https://package.elm-lang.org/), [README](https://package.elm-lang.org/packages/elm/core/latest/), [docs](https://package.elm-lang.org/packages/elm/core/latest/Maybe)) that all work differently. How does it do that? -->
+<!--
+We just saw how to serve one page, but say we are making a website like `package.elm-lang.org`. It has a bunch of pages (e.g. [search](https://package.elm-lang.org/), [README](https://package.elm-lang.org/packages/elm/core/latest/), [docs](https://package.elm-lang.org/packages/elm/core/latest/Maybe)) that all work differently. How does it do that?
+-->
 
 さきほどは単一のページをどのようにサーバから送信するのかを見てきましたが、そういえばここでは`package.elm-lang.org`のようなウェブサイトを作っているのでした。そのようなウェブサイトにはたくさんのページがあり(たとえば[検索](https://package.elm-lang.org/)や[README](https://package.elm-lang.org/packages/elm/core/latest/)、[ドキュメント](https://package.elm-lang.org/packages/elm/core/latest/Maybe))、それぞれ異なる動作をしています。このような URL の異なる複数のページを持つようなサイトを Elm で作るには、どのようにすればいいのでしょうか？
 
-<!-- ## Multiple Pages -->
+<!--
+## Multiple Pages
+-->
 
 ## 複数のページ
 
-<!-- The simple way would be to serve a bunch of different HTML files. Going to the home page? Load new HTML. Going to `elm/core` docs? Load new HTML. Going to `elm/json` docs? Load new HTML. -->
+<!--
+The simple way would be to serve a bunch of different HTML files. Going to the home page? Load new HTML. Going to `elm/core` docs? Load new HTML. Going to `elm/json` docs? Load new HTML.
+-->
 
 簡単な方法としては、ページごとにそれぞれ異なる HTML ファイルをサーバから送信するというものがあるでしょう。サイトのホームページに行きますか？それでは新しい HTML を読み込みましょう。今度は`elm/core`ドキュメントへ行きますか？では新しい HTML を読み込みましょう。次は`elm/json`へ行くのですか？では新しい HTML を読み込みます、というようにです。
 
-<!-- Until Elm 0.19, that is exactly what the package website did! It works. It is simple. But it has some weaknesses: -->
+<!--
+Until Elm 0.19, that is exactly what the package website did! It works. It is simple. But it has some weaknesses:
+-->
 
 Elm 0.19 まで、このパッケージウェブサイトがしていたことが、まさにそれでした！　これはうまく動きますし、シンプルです。でもいくつか弱点もあります。
 
-<!-- 1. **Blank Screens.** The screen goes white everytime you load new HTML. Can we do a nice transition instead?
-1. **Redundant Requests.** Each package has a single `docs.json` file, but it gets loaded each time you visit a module like [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) or [`Maybe`](https://package.elm-lang.org/packages/elm/core/latest/Maybe). Can we share the data between pages somehow?
-2. **Redundant Code.** The home page and the docs share a lot of functions, like `Html.text` and `Html.div`. Can this code be shared between pages? -->
+<!--
+1. **Blank Screens.** The screen goes white everytime you load new HTML. Can we do a nice transition instead?
+2. **Redundant Requests.** Each package has a single `docs.json` file, but it gets loaded each time you visit a module like [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) or [`Maybe`](https://package.elm-lang.org/packages/elm/core/latest/Maybe). Can we share the data between pages somehow?
+3. **Redundant Code.** The home page and the docs share a lot of functions, like `Html.text` and `Html.div`. Can this code be shared between pages?
+-->
 
 1. **空白の画面。**新しい HTML が読み込まれるたびに、画面は真っ白になります。代わりに滑らかな遷移をすることはできるでしょうか？
 2. **冗長なリクエスト。** どのパッケージもそのパッケージに含まれるすべてのモジュールのドキュメント情報をひとつにまとめて格納した`docs.json`ファイルを持っていますが、[`String`](https://package.elm-lang.org/packages/elm/core/latest/String)や[`Maybe`](https://package.elm-lang.org/packages/elm/core/latest/Maybe)のような各モジュールのページを移動するたびに毎回新しい HTML を読み込むと、この`docs.json`も繰り返し読み込まれます。どうにかしてこのデータを各ページで共有することはできないものでしょうか？
 3. **冗長なコード。**『サイトのホームページ』と『ドキュメント』は`Html.text`や`Html.div`といった多くの関数を共有しています。ページ間でこのコードを共有することはできるでしょうか？
 
-<!-- We can improve all three cases! The basic idea is to only load HTML once, and then be a bit tricky to handle URL changes. -->
+<!--
+We can improve all three cases! The basic idea is to only load HTML once, and then be a bit tricky to handle URL changes.
+-->
 
 これらすべての点を改良することができます！根本のアイデアは、HTML は一度だけ読み込み、URL の変更をちょっと巧妙に操るというものです。
 
-<!-- ## Single Page -->
+<!--
+## Single Page
+-->
 
 ## 単一のページ
 
-<!-- Instead of creating our program with `Browser.element` or `Browser.document`, we can create a [`Browser.application`](https://package.elm-lang.org/packages/elm/browser/latest/Browser#application) to avoid loading new HTML when the URL changes: -->
+<!--
+Instead of creating our program with `Browser.element` or `Browser.document`, we can create a [`Browser.application`](https://package.elm-lang.org/packages/elm/browser/latest/Browser#application) to avoid loading new HTML when the URL changes:
+-->
 
 URL が変わるたびに新たな HTML を読み込むのを避けるため、`Browser.element`や`Browser.document`を使ったプログラムを作成する代わりに、[`Browser.application`](https://package.elm-lang.org/packages/elm/browser/latest/Browser#application)を使うといいでしょう。
 
@@ -50,24 +68,34 @@ application :
   -> Program flags model msg
 ```
 
-<!-- It extends the functionality of `Browser.document` in three important scenarios. -->
+<!--
+It extends the functionality of `Browser.document` in three important scenarios.
+-->
 
 これは、次の３つの重要な状況において、`Browser.document`の機能を拡張するものです。
 
-<!-- **When the application starts**, `init` gets the current [`Url`][u] from the browsers navigation bar. This allows you to show different things depending on the `Url`. -->
+<!--
+**When the application starts**, `init` gets the current [`Url`][u] from the browsers navigation bar. This allows you to show different things depending on the `Url`.
+-->
 
 **アプリケーションが開始したとき**、`init`はブラウザのナビゲーションバーから現在の[`Url`][u]を取得します。これで、`Url`の内容に沿ってそれぞれ異なる表示をするということが可能になります。
 
-<!-- **When someone clicks a link**, like `<a href="/home">Home</a>`, it is intercepted as a [`UrlRequest`][ur]. So instead of loading new HTML with all the downsides, `onUrlRequest` creates a message for your `update` where you can decide exactly what to do next. You can save scroll position, persist data, change the URL yourself, etc. -->
+<!--
+**When someone clicks a link**, like `<a href="/home">Home</a>`, it is intercepted as a [`UrlRequest`][ur]. So instead of loading new HTML with all the downsides, `onUrlRequest` creates a message for your `update` where you can decide exactly what to do next. You can save scroll position, persist data, change the URL yourself, etc.
+-->
 
 `<a href="/home">Home</a>`のような**リンクをクリックしたとき**、それを[`UrlRequest`][ur]として傍受します。いろいろな欠点がある HTML の再読み込みをするのではなく、`onUrlRequest`は`update`へメッセージを送り、次に何をするのかを細かく決定することができるようにします。スクロール位置を保存したり、データを永続化したり、URL を自分自身で変更したりなどです。
 
-<!-- **When the URL changes**, the new `Url` is sent to `onUrlChange`.
-The resulting message goes to `update` where you can decide how to show the new page. -->
+<!--
+**When the URL changes**, the new `Url` is sent to `onUrlChange`.
+The resulting message goes to `update` where you can decide how to show the new page.
+-->
 
 **URL が変更されたとき、**新しい`Url`が`onUrlChange`へと送信されます。このメッセージは`update`へ送信され、そこで新しいページをどのように表示するのかを決定することができます。
 
-<!-- So rather than loading new HTML, these three additions give you full control over URL changes. Let’s see it in action! -->
+<!--
+So rather than loading new HTML, these three additions give you full control over URL changes. Let’s see it in action!
+-->
 
 これら３つの仕組みによって、新しい HTML を読み込むのではなく、URL の変更について完全な制御ができるようになります。それでは実際のコードを見て行きましょう！
 
@@ -77,11 +105,15 @@ The resulting message goes to `update` where you can decide how to show the new 
 [bnp]: https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation#pushUrl
 [bnl]: https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation#load
 
-<!-- ## Example -->
+<!--
+## Example
+-->
 
 ## 例
 
-<!-- We will start with the baseline `Browser.application` program. It just keeps track of the current URL. Skim through the code now! Pretty much all of the new and interesting stuff happens in the `update` function, and we will get into those details after the code: -->
+<!--
+We will start with the baseline `Browser.application` program. It just keeps track of the current URL. Skim through the code now! Pretty much all of the new and interesting stuff happens in the `update` function, and we will get into those details after the code:
+-->
 
 次のような`Browser.application`の基本的なプログラムをもとにしてはじめましょう。これは現在の URL を追跡していくだけのものです。コードを流し読みしてみましょう！`update`関数ではいろいろな新しいことや面白いことがたくさん起こっていますので、このコードを見たあとでそれらの詳細に踏み込んでいきましょう。
 
@@ -185,13 +217,17 @@ viewLink path =
   li [] [ a [ href path ] [ text path ] ]
 ```
 
-<!-- The `update` function can handle either `LinkClicked` or `UrlChanged` messages. There is a lot of new stuff in the `LinkClicked` branch, so we will focus on that first! -->
+<!--
+The `update` function can handle either `LinkClicked` or `UrlChanged` messages. There is a lot of new stuff in the `LinkClicked` branch, so we will focus on that first!
+-->
 
 この`update`関数では`LinkClicked`か`UrlChanged`のどちらかを扱うことができます。`LinkClicked`の分岐のほうには新しい要素がたくさんありますので、まずはそちらに注目していくことにしましょう！
 
 ## `UrlRequest`
 
-<!-- Whenever someone clicks a link like `<a href="/home">/home</a>`, it produces a `UrlRequest` value: -->
+<!--
+Whenever someone clicks a link like `<a href="/home">/home</a>`, it produces a `UrlRequest` value:
+-->
 
 `<a href="/home">/home</a>`のようなリンクがクリックされると、`UrlRequest`の値が生成されます。
 
@@ -201,21 +237,29 @@ type UrlRequest
   | External String
 ```
 
-<!-- The `Internal` variant is for any link that stays on the same domain. So if you are browsing `https://example.com`, internal links include things like `settings#privacy`, `/home`, `https://example.com/home`, and `//example.com/home`. -->
+<!--
+The `Internal` variant is for any link that stays on the same domain. So if you are browsing `https://example.com`, internal links include things like `settings#privacy`, `/home`, `https://example.com/home`, and `//example.com/home`.
+-->
 
 `Internal`バリアントは同じドメイン内に留まるリンクがクリックされたときを表しています。たとえばもし`https://example.com`を閲覧しているなら、`settings#privacy`や`/home`、`https://example.com/home`、`//example.com/home`は内部リンクとなります。
 
-<!-- The `External` variant is for any link that goes to a different domain. Links like `https://elm-lang.org/examples`, `https://static.example.com`, and `http://example.com/home` all go to a different domain. Notice that changing the protocol from `https` to `http` is considered a different domain! -->
+<!--
+The `External` variant is for any link that goes to a different domain. Links like `https://elm-lang.org/examples`, `https://static.example.com`, and `http://example.com/home` all go to a different domain. Notice that changing the protocol from `https` to `http` is considered a different domain!
+-->
 
 `External`バリアントは異なるドメインへのリンクを表しています。`https://elm-lang.org/examples`や`https://static.example.com`、`http://example.com/home`などはすべて、異なるドメインへのリンクです。プロトコルが`https`から`http`へと変わるリンクは異なるドメインであると見なされることに注意してください！
 
-<!-- Whichever link someone presses, our example program is going to create a `LinkClicked` message and send it to the `update` function. That is where we see most of the interesting new code! -->
+<!--
+Whichever link someone presses, our example program is going to create a `LinkClicked` message and send it to the `update` function. That is where we see most of the interesting new code!
+-->
 
 誰かがリンクを押すと、このサンプルプログラムは`LinkClicked`メッセージを生成し、それを`update`関数へと送信するでしょう。これでこの新しいコードの全体を確認できました！
 
 ### `LinkClicked`
 
-<!-- Most of our `update` logic is deciding what to do with these `UrlRequest` values: -->
+<!--
+Most of our `update` logic is deciding what to do with these `UrlRequest` values:
+-->
 
 この`update`関数の大部分では、これらの`UrlRequest`の値によって何を行うかが決定されます。
 
@@ -237,7 +281,9 @@ update msg model =
       )
 ```
 
-<!-- The particularly interesting functions are `Nav.load` and `Nav.pushUrl`. These are both from the [`Browser.Navigation`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation) module which is all about changing the URL in different ways. We are using the two most common functions from that module: -->
+<!--
+The particularly interesting functions are `Nav.load` and `Nav.pushUrl`. These are both from the [`Browser.Navigation`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation) module which is all about changing the URL in different ways. We are using the two most common functions from that module:
+-->
 
 特に興味深い関数は`Nav.load`と`Nav.pushUrl`です。これらはどちらも[`Browser.Navigation`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation)モジュールで定義されているものですが、それぞれ異なる方法で URL を変更します。このモジュールで最もよく使われるふたつの関数です。
 
@@ -249,7 +295,9 @@ update msg model =
 - [`load`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation#load)は新たな HTML を読み込みます。これは URL バーに URL を入力してエンターキーを押したのと同じです。`Model`に何が起こっていようがすべて投げ捨てて、新たなページ全体が読み込まれます。
 - [`pushUrl`](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Navigation#pushUrl)は URL を変更しますが、新たに HTML を読み込むことはしません。その代わり、`UrlChanged`メッセージを引き金にして、独自に動作を制御できます！これは『ブラウザ履歴』に URL を追加しますので、『進む』あるいは『戻る』ボタンを押したときもちゃんと動作します。
 
-<!-- So looking back at the `update` function, we can understand how it all fits together a bit better now. When the user clicks a `https://elm-lang.org` link, we get an `External` message and use `load` to load new HTML from those servers. But when the user clicks a `/home` link, we get an `Internal` message and use `pushUrl` to change the URL _without_ loading new HTML! -->
+<!--
+So looking back at the `update` function, we can understand how it all fits together a bit better now. When the user clicks a `https://elm-lang.org` link, we get an `External` message and use `load` to load new HTML from those servers. But when the user clicks a `/home` link, we get an `Internal` message and use `pushUrl` to change the URL _without_ loading new HTML!
+-->
 
 これで`update`関数を見に戻ってみると、これらを総合してどのように改良されたのかがわかるようになったと思います。ユーザが`https://elm-lang.org`へのリンクをクリックしたときは、`External`メッセージを受け取り、`load`関数を使って新しい HTML をサーバから読み込みます。それに対して、ユーザが`/home`へのリンクをクリックしたときは、`Internal`メッセージを受け取り、`pushUrl`関数を使って**新たな HTML を読み込むことなく**URL が変更されます。
 
@@ -265,15 +313,21 @@ update msg model =
 
 ## `UrlChanged`
 
-<!-- There are a couple ways to get `UrlChanged` messages. We just saw that `pushUrl` produces them, but pressing the browser `BACK` and `FORWARD` buttons produce them as well. And like I was saying in the notes a second ago, when you get a `LinkClicked` message, the `pushUrl` command may not be given immediately. -->
+<!--
+There are a couple ways to get `UrlChanged` messages. We just saw that `pushUrl` produces them, but pressing the browser `BACK` and `FORWARD` buttons produce them as well. And like I was saying in the notes a second ago, when you get a `LinkClicked` message, the `pushUrl` command may not be given immediately.
+-->
 
 `UrlChanged`メッセージを受け取る方法はいくつかあります。`pushUrl`がこれを生成することはこれまで見てきましたが、ブラウザの『戻る』や『進む』ボタンでも同じようにこのメッセージを生成します。そして先ほどの Note 1 で述べたように、`LinkClicked`メッセージを受け取ったからといって、`pushUrl`コマンドをすぐに実行するようなコードにはなっていないこともあります。
 
-<!-- So the nice thing about having a separate `UrlChanged` message is that it does not matter how or when the URL changed. All you need to know is that it did! -->
+<!--
+So the nice thing about having a separate `UrlChanged` message is that it does not matter how or when the URL changed. All you need to know is that it did!
+-->
 
 `UrlChanged` メッセージを `LinkClicked` やブラウザバックの動作などとは独立したメッセージにしておくことで、いつどのように URL が変更されたのかについては気にしないで常に「ページの遷移が実際に起こった後に何をするか」だけを考えればよくなります。
 
-<!-- We are just storing the new URL in our example here, but in a real web app, you need to parse the URL to figure out what content to show. That is what the next page is all about! -->
+<!--
+We are just storing the new URL in our example here, but in a real web app, you need to parse the URL to figure out what content to show. That is what the next page is all about!
+-->
 
 このサンプルでは新しい URL を保持しているだけですが、実際の Web アプリケーションでは、URL を構文解析してどんな内容を表示するのかをわかるようにする必要があります。これについては次のページで見ていきましょう！
 

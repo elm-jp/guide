@@ -140,7 +140,8 @@ In other words, **if your partial application is getting long, make it a helper 
 -->
 > **Note:** もしもこのアドバイスに従った結果、最終的に"あまりにも多くの"関数を定義してしまった場合、続く5個や10個の関数の概要を示すために関数に`-- REDUPLICATION`のようなコメントをつけることを推奨します。以前の例で`-- UPDATE`や`-- VIEW`などのコメントがついたものを示しましたが、これは私の全てのコードで使っている一般的なテクニックです。アドバイスに従ったらファイルがあまりに長くなっていくのではと心配しているなら、[The Life of a File](https://youtu.be/XpDsk374LDE)を見ることをおすすめします！
 
-<!-- 
+<!--
+
 ## Pipelines
 -->
 ## パイプライン
@@ -171,13 +172,19 @@ sanitize input =
     |> String.toInt
 ```
 
-<!-- So in this “pipeline” we pass the input to `String.trim` and then that gets passed along to `String.toInt`. -->
+<!--
+So in this “pipeline” we pass the input to `String.trim` and then that gets passed along to `String.toInt`.
+-->
 つまり上の"パイプライン"では`String.trim`に入力を渡して、そしてその結果を`String.toInt`に入力として渡しています。
 
-<!-- This is neat because it allows a “left-to-right” reading that many people like, but **pipelines can be overused!** When you have three or four steps, the code often gets clearer if you break out a top-level helper function. Now the transformation has a name. The arguments are named. It has a type annotation. It is much more self-documenting that way, and your teammates and your future self will appreciate it! Testing the logic gets easier too. -->
+<!--
+This is neat because it allows a “left-to-right” reading that many people like, but **pipelines can be overused!** When you have three or four steps, the code often gets clearer if you break out a top-level helper function. Now the transformation has a name. The arguments are named. It has a type annotation. It is much more self-documenting that way, and your teammates and your future self will appreciate it! Testing the logic gets easier too.
+-->
 パイプラインは多くの人が好むように、"左から右へ"読むことを可能にするため、コードをすっきりさせることができます。 しかし**パイプラインは過度に使われる可能性があります**。3、4つのパイプラインとなった場合トップレベルにヘルパー関数を書いた方がコードがより簡潔になる場合が多くあります。トップレベルに定義することで変換自体に関数名が付き、その引数にも名前が付けられ、型注釈も書くことになります。つまりソースコード自体がその意味するところを雄弁に語るようになり、チームメイトや将来の自分自身は感謝することでしょう！更にロジックをテストすることもより簡単になります。
 
-<!-- > **Note:** I personally prefer the `BEFORE`, but perhaps that is just because I learned functional programming in languages without pipes! -->
+<!--
+> **Note:** I personally prefer the `BEFORE`, but perhaps that is just because I learned functional programming in languages without pipes!
+-->
 > **Note:** 私は個人的にはむしろ`BEFORE`のほうが好きですが、これはおそらくパイプが無い言語で関数型プログラミングを学んだからでしょう！
 
 [pipe]: https://package.elm-lang.org/packages/elm/core/latest/Basics#|&gt;

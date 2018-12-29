@@ -1,8 +1,12 @@
-<!-- # Structuring Web Apps -->
+<!--
+# Structuring Web Apps
+-->
 
 # Webアプリケーションの構造化
 
-<!-- Like I was saying on the previous page, **all modules should be built around a central type.** So if I was making a web app for blog posts, I would start with modules like this: -->
+<!--
+Like I was saying on the previous page, **all modules should be built around a central type.** So if I was making a web app for blog posts, I would start with modules like this:
+-->
 
 前のページで述べたように、**すべてのモジュールはその中核となる型のまわりに組み立てられるべき**です。ブログ投稿のWebアプリケーションを作っているとすると、私なら次のようなモジュール構成で作り始めると思います。
 
@@ -11,39 +15,57 @@
 - `Page.Search`
 - `Page.Author`
 
-<!-- I would have a module for each page, centered around the `Model` type. Those modules follow The Elm Architecture with the typical `Model`, `init`, `update`, `view`, and whatever helper functions you need. From there, I would just keep growing those modules longer and longer. Keep adding the types and functions you need. If I ever notice that I created a custom type with a couple helper functions, I _might_ move that out into its own module. -->
+<!--
+I would have a module for each page, centered around the `Model` type. Those modules follow The Elm Architecture with the typical `Model`, `init`, `update`, `view`, and whatever helper functions you need. From there, I would just keep growing those modules longer and longer. Keep adding the types and functions you need. If I ever notice that I created a custom type with a couple helper functions, I _might_ move that out into its own module.
+-->
 
 `Model`型を中心にして、それぞれのページに対応するモジュールがあります。これらのモジュールはElmアーキテクチャに従っており、`Model`と`init`、`update`、`view`、それから必要に応じて作られた補助関数からなります。ここで、モジュールがどんどん長くなり続けるのに任せていますが、そのまま必要な型と関数を追加し続けます。もし自分がたくさんの補助関数を持つカスタム型を作ったことに気付いたら、そのとき初めてそれを別のモジュールへと切り出しても**構わない**といえるでしょう。
 
-<!-- Before we see some examples, I want to emphasize an important strategy. -->
+<!--
+Before we see some examples, I want to emphasize an important strategy.
+-->
 
 いくつか例を見ていく前に、ある重要な方針について強調しておきたいと思います。
 
-<!-- ## Do Not Plan Ahead -->
+<!--
+## Do Not Plan Ahead
+-->
 
 ## 予め計画を練ってはならない
 
-<!-- Notice that my `Page` modules do not make any guesses about the future. I do not try to define modules that can be used in multiple places. I do not try to share any functions. This is on purpose! -->
+<!--
+Notice that my `Page` modules do not make any guesses about the future. I do not try to define modules that can be used in multiple places. I do not try to share any functions. This is on purpose!
+-->
 
 ここで私は`Page.Home`モジュールや`Page.Search`モジュール、`Page.Author`モジュールの未来に対してどんな推測もしていないことに注目してください。複数の箇所から使うことができるようなモジュールを定義しようとはしていませんし、どんな関数も共有しようとはしていません。これは意図的なものです！
 
-<!-- Early in my projects, I always have these grand schemes of how everything will fit together. “The pages for editing and viewing posts both care about posts, so I will have a `Post` module!” But as I write my application, I find that only the viewing page should have a publication date. And I actually need to track editing differently to cache data when tabs are closed. And they actually need to be stored a bit differently on servers as a result. Etc. I end up turning `Post` into a big mess to handle all these competing concerns, and it ends up being worse for both pages. -->
+<!--
+Early in my projects, I always have these grand schemes of how everything will fit together. “The pages for editing and viewing posts both care about posts, so I will have a `Post` module!” But as I write my application, I find that only the viewing page should have a publication date. And I actually need to track editing differently to cache data when tabs are closed. And they actually need to be stored a bit differently on servers as a result. Etc. I end up turning `Post` into a big mess to handle all these competing concerns, and it ends up being worse for both pages.
+-->
 
 以前の私のプロジェクトでは、すべてをどのようにひとつに組み合わせるかという壮大な計画を練っていました。「このページは編集と投稿の閲覧で、どちらも投稿に関係しているから、`Post`モジュールが必要だな！」しかし私がアプリケーションを書いたとき、閲覧のページだけが公開日を持つということに気付きました。そして、編集中の記事内容は別の方法で管理して、タブを閉じたときにもデータが失われないように一時的に保存するようにする必要がありました。その結果、ページを開いたときにサーバー上のデータをページに表示する処理を、閲覧ページと編集ページでは少し異なるやり方にしなければなりませんでした。私はついに互いに絡み合う要素すべてを`Post`に制御させようとめちゃくちゃにしてしまい、ページは両方ともひどいものになってしまいました。
 
-<!-- By just starting with pages, it becomes much easier to see when things are **similar**, but not **the same**. The norm in user interfaces! So with editing and viewing posts, it seems plausible that we could end up with an `EditablePost` type and a `ViewablePost` type, each with different structure, helper functions, and JSON decoders. Maybe those types are complex enough to warrant their own module. Maybe not! I would just write the code and see what happens. -->
+<!--
+By just starting with pages, it becomes much easier to see when things are **similar**, but not **the same**. The norm in user interfaces! So with editing and viewing posts, it seems plausible that we could end up with an `EditablePost` type and a `ViewablePost` type, each with different structure, helper functions, and JSON decoders. Maybe those types are complex enough to warrant their own module. Maybe not! I would just write the code and see what happens.
+-->
 
 単にページから作り始めれば、それが**まったく同じ**ではなく**似ている**のだということがわかりやすくなります。これはユーザインターフェイスではよくあることなのです！　投稿の編集と閲覧というのは、どちらも異なる構造、補助関数、JSONデコーダを持ち、結果的にそれぞれ異なる構造を持つ`EditablePost`型と`ViewablePost`型になるというのは、うまくいっているように見えます。これらの型をそれぞれの独自のモジュールへと分割したほうがいいほど複雑になっているかもしれませんし、そこまでではないかもしれません！　私はただコードを書いて、何が起こるのかを見るだけです。
 
-<!-- This works because the compiler makes it really easy to do huge refactors. If I realize I got something majorly wrong across 20 files, I just fix it. -->
+<!--
+This works because the compiler makes it really easy to do huge refactors. If I realize I got something majorly wrong across 20 files, I just fix it.
+-->
 
 これがうまくいくのは、コンパイラが大規模なリファクタリングを本当に容易にしてくれるからです。もし20ファイルにも渡るような大規模な失敗をしたのにあとで気付いたとしても、私はただそれを修正するだけでいいのです。
 
-<!-- ## Examples -->
+<!--
+## Examples
+-->
 
 ## 例
 
-<!-- You can see examples of this structure in the following open-source projects: -->
+<!--
+You can see examples of this structure in the following open-source projects:
+-->
 
 次のオープンソースプロジェクトのディレクトリ構造が参考になります。
 

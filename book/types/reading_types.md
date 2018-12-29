@@ -163,18 +163,12 @@ Adding type annotations is not required, but it is definitely recommended! Benef
 
 1. **Error Message Quality** &mdash; When you add a type annotation, it tells the compiler what you are _trying_ to do. Your implementation may have mistakes, and now the compiler can compare against your stated intent. &ldquo;You said argument `powerLevel` was an `Int`, but it is getting used as a `String`!&rdquo;
 2. **Documentation** &mdash; When you revisit code later (or when a colleague visits it for the first time) it can be really helpful to see exactly what is going in and out of the function without having to read the implementation super carefully.
-
 <!-- TODO -->
 
 <!--
-People can make mistakes in type annotations, so what happens if they say the wrong thing?  The compiler still figures out the type on its own, and it checks that your annotation matches the real answer.  In other words, the compiler will always verify that all the annotations you add are correct!
+People can make mistakes in type annotations though, so what happens if the annotation does not match the implementation? The compiler figures out all the types on its own, and it checks that your annotation matches the real answer. In other words, the compiler will always verify that all the annotations you add are correct. So you get better error messages _and_ documentation always stays up to date!
 -->
 型注釈で間違いを犯す可能性がありますが、実装した内容と一致しない型を書いたらどうなるでしょうか？ コンパイラはその実装内で使われている全ての型を推論し、型注釈が実際の型と一致するかどうかをチェックします。 つまり、コンパイラは追加された型注釈が全て正しいことを常に確認します。 それにより、わかりやすいエラーメッセージを出すだけではなく、型が実装の内容を示す _ドキュメントとしても_ 常に最新になっていることを担保できます！
-
-<!--
-> **Note:** Some folks feel that it is odd that the type annotation goes on the line above the actual definition. The reasoning is that it should be easy and noninvasive to add a type annotation *later*. This way you can turn a sloppy prototype into higher-quality code just by adding lines.
--->
-> **Note:** 型注釈を関数定義の上の行に書くのは奇妙だと感じている人もいます。 型注釈を*後から*追加することが簡単で、関数定義に影響なく書けるようになっていなけれならない、というのが上の行に書く理由です。 このようにして１行追加するだけで、厄介なプロトタイプを高品質のコードに変えることができます。
 
 <!--
 ## Type Variables
@@ -182,7 +176,7 @@ People can make mistakes in type annotations, so what happens if they say the wr
 ## 型変数（タイプバリアブル）
 
 <!--
-As you look through the functions in [`elm/core`][core], you will see some type signatures with lower-case letters in them.  We can check some of them out in `elm repl`:
+As you look through the functions in [`elm/core`][core], you will see some type signatures with lower-case letters in them. We can check some of them out in `elm repl`:
 -->
 [`elm/core`][core]の関数を見ると、小文字の型シグネチャがいくつかあることがわかります。
 以下のように `elm repl` で実際に確かめることができます。
@@ -194,8 +188,7 @@ As you look through the functions in [`elm/core`][core], you will see some type 
 ```
 
 <!--
-Notice that lower-case `a` in the type? That is called a **type variable**.
-It can vary depending on how [`List.length`][length] is used:
+Notice that lower-case `a` in the type? That is called a **type variable**. It can vary depending on how [`List.length`][length] is used:
 -->
 型の中に小文字の `a` があることに気づきましたか？ これは **型変数** と呼ばれるものです。
 この `a` が実際にどんな型になるかは、 `[List.length][length]` がどのように使われるかによって変わります。
