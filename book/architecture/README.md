@@ -113,7 +113,7 @@ Your web app is going to need to deal with user input. This section will get you
 -->
 
   - ボタン
-  - テキスト入力
+  - テキストフィールド
   - チェックボックス
   - ラジオボタン
   - そのほか
