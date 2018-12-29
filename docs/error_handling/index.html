@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>フォーム · An Introduction to Elm</title>
+        <title>Error Handling · An Introduction to Elm</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -62,10 +62,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../types/" />
+    <link rel="next" href="maybe.html" />
     
     
-    <link rel="prev" href="text_fields.html" />
+    <link rel="prev" href="../types/pattern_matching.html" />
     
 
 
@@ -134,9 +134,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="./">
+        <li class="chapter " data-level="1.4" data-path="../architecture/">
             
-                <a href="./">
+                <a href="../architecture/">
             
                     
                     The Elm Architecture
@@ -148,9 +148,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="buttons.html">
+        <li class="chapter " data-level="1.4.1" data-path="../architecture/buttons.html">
             
-                <a href="buttons.html">
+                <a href="../architecture/buttons.html">
             
                     
                     ボタン
@@ -161,9 +161,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="text_fields.html">
+        <li class="chapter " data-level="1.4.2" data-path="../architecture/text_fields.html">
             
-                <a href="text_fields.html">
+                <a href="../architecture/text_fields.html">
             
                     
                     テキスト入力
@@ -174,9 +174,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.3" data-path="forms.html">
+        <li class="chapter " data-level="1.4.3" data-path="../architecture/forms.html">
             
-                <a href="forms.html">
+                <a href="../architecture/forms.html">
             
                     
                     フォーム
@@ -263,9 +263,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="../error_handling/">
+        <li class="chapter active" data-level="1.6" data-path="./">
             
-                <a href="../error_handling/">
+                <a href="./">
             
                     
                     Error Handling
@@ -277,9 +277,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="../error_handling/maybe.html">
+        <li class="chapter " data-level="1.6.1" data-path="maybe.html">
             
-                <a href="../error_handling/maybe.html">
+                <a href="maybe.html">
             
                     
                     Maybe
@@ -290,9 +290,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="../error_handling/result.html">
+        <li class="chapter " data-level="1.6.2" data-path="result.html">
             
-                <a href="../error_handling/result.html">
+                <a href="result.html">
             
                     
                     Result
@@ -680,7 +680,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >フォーム</a>
+        <a href=".." >Error Handling</a>
     </h1>
 </div>
 
@@ -695,155 +695,36 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="forms">Forms</h1>
-<hr>
-<h4 id="clone-the-code-or-follow-along-in-the-online-editor"><a href="https://github.com/evancz/elm-architecture-tutorial/" target="_blank">Clone the code</a> or follow along in the <a href="https://ellie-app.com/37gWB93n8jJa1" target="_blank">online editor</a>.</h4>
-<hr>
-<p>Here we will make a rudimentary form. It has a field for your name, a field for your password, and a field to verify that password. We will also do some very simple validation (do the two passwords match?) just because it is simple to add.</p>
-<p>The code is a bit longer in this case, but I still think it is valuable to look through it before you get into the description of what is going on.</p>
-<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Browser
-<span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (..)
-<span class="hljs-keyword">import</span> Html.Attributes <span class="hljs-keyword">exposing</span> (..)
-<span class="hljs-keyword">import</span> Html.Events <span class="hljs-keyword">exposing</span> (onInput)
+                                <h1 id="error-handling">Error Handling</h1>
+<p>One of the guarantees of Elm is that you will not see runtime errors in practice. This is partly because <strong>Elm treats errors as data</strong>. Rather than crashing, we model the possibility of failure explicitly with custom types. For example, say you want to turn user input into a age. You might create a custom type like this:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">MaybeAge</span>
+  = <span class="hljs-type">Age</span> <span class="hljs-type">Int</span>
+  | <span class="hljs-type">InvalidInput</span>
 
+<span class="hljs-title">toAge</span> : <span class="hljs-type">String</span> -&gt; <span class="hljs-type">MaybeAge</span>
+<span class="hljs-title">toAge</span> userInput =
+  ...
 
-
-<span class="hljs-comment">-- MAIN</span>
-
-
-<span class="hljs-title">main</span> =
-  <span class="hljs-type">Browser</span>.sandbox { init = init, update = update, view = view }
-
-
-
-<span class="hljs-comment">-- MODEL</span>
-
-
-<span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Model</span> =
-  { name : <span class="hljs-type">String</span>
-  , password : <span class="hljs-type">String</span>
-  , passwordAgain : <span class="hljs-type">String</span>
-  }
-
-
-<span class="hljs-title">init</span> : <span class="hljs-type">Model</span>
-<span class="hljs-title">init</span> =
-  <span class="hljs-type">Model</span> <span class="hljs-string">&quot;&quot;</span> <span class="hljs-string">&quot;&quot;</span> <span class="hljs-string">&quot;&quot;</span>
-
-
-
-<span class="hljs-comment">-- UPDATE</span>
-
-
-<span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
-  = <span class="hljs-type">Name</span> <span class="hljs-type">String</span>
-  | <span class="hljs-type">Password</span> <span class="hljs-type">String</span>
-  | <span class="hljs-type">PasswordAgain</span> <span class="hljs-type">String</span>
-
-
-<span class="hljs-title">update</span> : <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Model</span>
-<span class="hljs-title">update</span> msg model =
-  <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
-    <span class="hljs-type">Name</span> name -&gt;
-      { model | name = name }
-
-    <span class="hljs-type">Password</span> password -&gt;
-      { model | password = password }
-
-    <span class="hljs-type">PasswordAgain</span> password -&gt;
-      { model | passwordAgain = password }
-
-
-
-<span class="hljs-comment">-- VIEW</span>
-
-
-<span class="hljs-title">view</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
-<span class="hljs-title">view</span> model =
-  div []
-    [ viewInput <span class="hljs-string">&quot;text&quot;</span> <span class="hljs-string">&quot;Name&quot;</span> model.name <span class="hljs-type">Name</span>
-    , viewInput <span class="hljs-string">&quot;password&quot;</span> <span class="hljs-string">&quot;Password&quot;</span> model.password <span class="hljs-type">Password</span>
-    , viewInput <span class="hljs-string">&quot;password&quot;</span> <span class="hljs-string">&quot;Re-enter Password&quot;</span> model.passwordAgain <span class="hljs-type">PasswordAgain</span>
-    , viewValidation model
-    ]
-
-
-<span class="hljs-title">viewInput</span> : <span class="hljs-type">String</span> -&gt; <span class="hljs-type">String</span> -&gt; <span class="hljs-type">String</span> -&gt; (<span class="hljs-type">String</span> -&gt; msg) -&gt; <span class="hljs-type">Html</span> msg
-<span class="hljs-title">viewInput</span> t p v toMsg =
-  input [ type_ t, placeholder p, value v, onInput toMsg ] []
-
-
-<span class="hljs-title">viewValidation</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> msg
-<span class="hljs-title">viewValidation</span> model =
-  <span class="hljs-keyword">if</span> model.password == model.passwordAgain <span class="hljs-keyword">then</span>
-    div [ style <span class="hljs-string">&quot;color&quot;</span> <span class="hljs-string">&quot;green&quot;</span> ] [ text <span class="hljs-string">&quot;OK&quot;</span> ]
-  <span class="hljs-keyword">else</span>
-    div [ style <span class="hljs-string">&quot;color&quot;</span> <span class="hljs-string">&quot;red&quot;</span> ] [ text <span class="hljs-string">&quot;Passwords do not match!&quot;</span> ]
+<span class="hljs-comment">-- toAge &quot;24&quot; == Age 24</span>
+<span class="hljs-comment">-- toAge &quot;99&quot; == Age 99</span>
+<span class="hljs-comment">-- toAge &quot;ZZ&quot; == InvalidInput</span>
 </code></pre>
-<p>This is pretty similar to our <a href="text_fields.html">text field example</a>, just with more fields. Let&apos;s walk through how it came to be!</p>
-<p>As always, you start out by guessing at the <code>Model</code>. We know there are going to be three text fields, so let&apos;s just go with that:</p>
-<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Model</span> =
-  { name : <span class="hljs-type">String</span>
-  , password : <span class="hljs-type">String</span>
-  , passwordAgain : <span class="hljs-type">String</span>
-  }
-</code></pre>
-<p>Great, seems reasonable. We expect that each of these fields can be changed separately, so our messages should account for each of those scenarios.</p>
-<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
-  = <span class="hljs-type">Name</span> <span class="hljs-type">String</span>
-  | <span class="hljs-type">Password</span> <span class="hljs-type">String</span>
-  | <span class="hljs-type">PasswordAgain</span> <span class="hljs-type">String</span>
-</code></pre>
-<p>This means our <code>update</code> is pretty mechanical. Just update the relevant field:</p>
-<pre><code class="lang-elm"><span class="hljs-title">update</span> : <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Model</span>
-<span class="hljs-title">update</span> msg model =
-  <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
-    <span class="hljs-type">Name</span> name -&gt;
-      { model | name = name }
+<p>Instead of crashing on bad input, we say explicitly that the result may be an <code>Age 24</code> or an <code>InvalidInput</code>. No matter what input we get, we always produce one of these two variants. From there, we use pattern matching which will ensure that both possibilities are accounted for. No crashing!</p>
+<p>This kind of thing comes up all the time! For example, maybe you want to turn a bunch of user input into a <code>Post</code> to share with others. But what happens if they forget to add a title? Or there is no content in the post? We could model all these problems explicitly:</p>
+<pre><code>type MaybePost
+  = Post { title : String, content : String }
+  | NoTitle
+  | NoContent
 
-    <span class="hljs-type">Password</span> password -&gt;
-      { model | password = password }
+toPost : String -&gt; String -&gt; MaybePost
+toPost title content =
+  ...
 
-    <span class="hljs-type">PasswordAgain</span> password -&gt;
-      { model | passwordAgain = password }
-</code></pre>
-<p>We get a little bit fancier than normal in our <code>view</code> though.</p>
-<pre><code class="lang-elm"><span class="hljs-title">view</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
-<span class="hljs-title">view</span> model =
-  div []
-    [ viewInput <span class="hljs-string">&quot;text&quot;</span> <span class="hljs-string">&quot;Name&quot;</span> model.name <span class="hljs-type">Name</span>
-    , viewInput <span class="hljs-string">&quot;password&quot;</span> <span class="hljs-string">&quot;Password&quot;</span> model.password <span class="hljs-type">Password</span>
-    , viewInput <span class="hljs-string">&quot;password&quot;</span> <span class="hljs-string">&quot;Re-enter Password&quot;</span> model.passwordAgain <span class="hljs-type">PasswordAgain</span>
-    , viewValidation model
-    ]
-</code></pre>
-<p>We start by creating a <code>&lt;div&gt;</code> with four child nodes. But instead of using functions from <code>elm/html</code> directly, we call Elm functions to make our code more concise! We start with three calls to <code>viewInput</code>:</p>
-<pre><code class="lang-elm"><span class="hljs-title">viewInput</span> : <span class="hljs-type">String</span> -&gt; <span class="hljs-type">String</span> -&gt; <span class="hljs-type">String</span> -&gt; (<span class="hljs-type">String</span> -&gt; msg) -&gt; <span class="hljs-type">Html</span> msg
-<span class="hljs-title">viewInput</span> t p v toMsg =
-  input [ type_ t, placeholder p, value v, onInput toMsg ] []
-</code></pre>
-<p>So <code>viewInput &quot;text&quot; &quot;Name&quot; model.name Name</code> can create a node like <code>&lt;input type=&quot;text&quot; placeholder=&quot;Name&quot; value=&quot;Bill&quot;&gt;</code>. That node will also send messages like <code>Name &quot;Billy&quot;</code> to <code>update</code> on user input.</p>
-<p>The fourth entry is more interesting. It is a call to <code>viewValidation</code>:</p>
-<pre><code class="lang-elm"><span class="hljs-title">viewValidation</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> msg
-<span class="hljs-title">viewValidation</span> model =
-  <span class="hljs-keyword">if</span> model.password == model.passwordAgain <span class="hljs-keyword">then</span>
-    div [ style <span class="hljs-string">&quot;color&quot;</span> <span class="hljs-string">&quot;green&quot;</span> ] [ text <span class="hljs-string">&quot;OK&quot;</span> ]
-  <span class="hljs-keyword">else</span>
-    div [ style <span class="hljs-string">&quot;color&quot;</span> <span class="hljs-string">&quot;red&quot;</span> ] [ text <span class="hljs-string">&quot;Passwords do not match!&quot;</span> ]
-</code></pre>
-<p>This function first compares the two passwords. If they match, you get green text and a positive message. If they do not match, you get red text and a helpful message.</p>
-<p>These helper functions begin to show the benefits of having our HTML library be normal Elm code. We <em>could</em> put all that code into our <code>view</code>, but making helper functions is totally normal in Elm, even in view code. Is this getting hard to understand? Maybe I can break out a helper function!</p>
-<blockquote>
-<p><strong>Exercises:</strong> One cool thing about breaking <code>viewValidation</code> out is that it is pretty easy to augment. If you are messing with the code as you read through this (as you should be!) you should try to:</p>
-<ul>
-<li>Check that the password is longer than 8 characters.</li>
-<li>Make sure the password contains upper case, lower case, and numeric characters.</li>
-<li>Add an additional field for <code>age</code> and check that it is a number.</li>
-<li>Add a <code>Submit</code> button. Only show errors <em>after</em> it has been pressed.</li>
-</ul>
-<p>Be sure to use the helpers in the <a href="https://package.elm-lang.org/packages/elm/core/latest/String" target="_blank"><code>String</code></a> module if you try any of these! Also, we need to learn more before we start talking to servers, so make sure you read all the way to the HTTP part before trying that. It will be significantly easier with proper guidance!</p>
-<p><strong>Note:</strong> It seems like efforts to make generic validation libraries have not been too successful. I think the problem is that the checks are usually best captured by normal Elm functions. Take some args, give back a <code>Bool</code> or <code>Maybe</code>. E.g. Why use a library to check if two strings are equal? So as far as we know, the simplest code comes from writing the logic for your particular scenario without any special extras. So definitely give that a shot before deciding you need something more complex!</p>
-</blockquote>
+-- toPost &quot;hi&quot; &quot;sup?&quot; == Post { title = &quot;hi&quot;, content = &quot;sup?&quot; }
+-- toPost &quot;&quot;   &quot;&quot;     == NoTitle
+-- toPost &quot;hi&quot; &quot;&quot;     == NoContent
+</code></pre><p>Instead of just saying that the input is invalid, we are describing each of the ways things might have gone wrong. If we have a <code>viewPreview : MaybePost -&gt; Html msg</code> function to preview valid posts, now we can give more specific error messages in the preview area when something goes wrong!</p>
+<p>These kinds of situations are extremely common. It is often valuable to create a custom type for your exact situation, but in some of the simpler cases, you can use an off-the-shelf type instead. So the rest of this chapter explores the <code>Maybe</code> and <code>Result</code> types, showing how they can help you treat errors as data!</p>
 
                                 
                                 </section>
@@ -871,12 +752,12 @@
 
             
                 
-                <a href="text_fields.html" class="navigation navigation-prev " aria-label="Previous page: テキスト入力">
+                <a href="../types/pattern_matching.html" class="navigation navigation-prev " aria-label="Previous page: パターンマッチ">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../types/" class="navigation navigation-next " aria-label="Next page: 型">
+                <a href="maybe.html" class="navigation navigation-next " aria-label="Next page: Maybe">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -887,7 +768,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"フォーム","level":"1.4.3","depth":2,"next":{"title":"型","level":"1.5","depth":1,"path":"types/README.md","ref":"types/README.md","articles":[{"title":"型を読む","level":"1.5.1","depth":2,"path":"types/reading_types.md","ref":"types/reading_types.md","articles":[]},{"title":"型の別名","level":"1.5.2","depth":2,"path":"types/type_aliases.md","ref":"types/type_aliases.md","articles":[]},{"title":"カスタム型","level":"1.5.3","depth":2,"path":"types/custom_types.md","ref":"types/custom_types.md","articles":[]},{"title":"パターンマッチ","level":"1.5.4","depth":2,"path":"types/pattern_matching.md","ref":"types/pattern_matching.md","articles":[]}]},"previous":{"title":"テキスト入力","level":"1.4.2","depth":2,"path":"architecture/text_fields.md","ref":"architecture/text_fields.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"name":"robots","content":"noindex","data":[]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"architecture/forms.md","mtime":"2018-12-29T12:20:09.811Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-29T12:20:37.290Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Error Handling","level":"1.6","depth":1,"next":{"title":"Maybe","level":"1.6.1","depth":2,"path":"error_handling/maybe.md","ref":"error_handling/maybe.md","articles":[]},"previous":{"title":"パターンマッチ","level":"1.5.4","depth":2,"path":"types/pattern_matching.md","ref":"types/pattern_matching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"name":"robots","content":"noindex","data":[]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"error_handling/README.md","mtime":"2018-12-29T12:20:09.811Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-29T12:20:37.290Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
