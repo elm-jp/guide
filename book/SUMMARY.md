@@ -49,7 +49,7 @@
 * [言語の基礎](core_language.md)
 * [The Elm Architecture](architecture/README.md)
    * [ボタン](architecture/buttons.md)
-   * [テキスト入力](architecture/text_fields.md)
+   * [テキストフィールド](architecture/text_fields.md)
    * [フォーム](architecture/forms.md)
 * [型](types/README.md)
    * [型を読む](types/reading_types.md)

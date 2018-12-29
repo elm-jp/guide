@@ -45,7 +45,7 @@ Elm guide は初学者の方にも分かることを重視したドキュメン�
 |:-----------------:|:---------------:|
 | 型の別名          | type alias      |
 | オブジェクト指向  | object oriented |
-| テキスト入力      | text field      |
+| テキストフィールド| text field      |
 | カスタム型        | custom type     |
 | パターンマッチ    | pattern match   |
 | 相互運用          | interop         |
