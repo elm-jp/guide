@@ -41,7 +41,7 @@ A **bit** is little box that has two states. Zero or a one. On or off. Computer 
 Okay, so all we have is a bunch of bits. Now we need to represent _everything_ with that!
 -->
 
-たくさんのビットがあるとしましょう。ここでは、ビットだけを使って**ありとあらゆる値**を表現しなければなりません！
+コンピューターのメモリはビットで表現されているのだから、ビットだけを使って**ありとあらゆる値**を表現しなければなりません！
 
 <!--
 ## `Bool`
