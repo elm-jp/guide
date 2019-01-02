@@ -8,7 +8,7 @@
 The previous page showed the JavaScript needed to start an Elm program:
 -->
 
-先ほどのページでは、Elmのプログラムを起動するのにJavaSriptが必要であるということを説明しました。
+先ほどのページでは、次のようなJavaSriptを実行することで、Elmのプログラムを起動する必要があることを説明しました。
 
 ```elm
 var app = Elm.Main.init({
@@ -82,7 +82,7 @@ init currentTime =
 This means that Elm code gets immediate access to the flags you pass in from JavaScript. From there, you can put things in your model or run some commands. Whatever you need to do.
 -->
 
-つまりこれは、JavaScriptから渡されたフラグの値を、即座に`init`で受け取るようになったということです。`init`ではモデルの状態を変更したりコマンドを実行することもできます。必要なことは何でもです。
+つまりこれは、JavaScriptから渡されたフラグの値を、即座に`init`で受け取るようになったということです。`init`では、その受け取ったフラグの値をモデルの中に格納したり、何かコマンドを実行することもできます。必要なことは何でもできるのです。
 
 <!--
 ## Verifying Flags
@@ -129,7 +129,9 @@ Many folks always use a `Json.Decode.Value` because it gives them really precise
 The other supported types actually come from before we had figured out a way to do JSON decoders. If you choose to use them, there are some subtleties to be aware of. The following examples show the desired flag type, and then the sub-points show what would happen with a couple different JS values:
 -->
 
-これ以外の型は、以前説明したようなJSONデコーダを通じて受け取ります。もしこの方法を使うのなら、注意しなければならないことがいくつもあります。次の例では、渡そうとしているフラグの型それぞれついて、その型のいろいろなJavaScriptの値を渡すとそれぞれ何が起こるのかを示しています。
+これ以外の型をフラグとして受け取る場合も、以前説明したようなJSONデコーダを使います。もしこの方法を使うのなら、他にも注意しなければならないことがいろいろあります。
+
+次の例では、渡そうとしているフラグの型それぞれついて、いろいろなJavaScriptの値を渡すとそれぞれ何が起こるのかを示しています。
 
 - `init : Int -> ...`
   - `0` => `0`
@@ -157,5 +159,5 @@ The other supported types actually come from before we had figured out a way to 
 Note that when one of the conversions goes wrong, **you get an error on the JS side!** We are taking the “fail fast” policy. Rather than the error making its way through Elm code, it is reported as soon as possible. This is another reason why people like to use `Json.Decode.Value` for flags. Instead of getting an error in JS, the weird value goes through a decoder, guaranteeing that you implement some sort of fallback behavior.
 -->
 
-もしこのような変換がひとつでもうまくいかない場合は、**JavaScript側でエラーが起こる**ことに注意してください！　Elmでは『フェイルファスト』(fail fast)の原則をとっています。Elmコード側でエラーを起こすのではなく、可能な限り早く問題を報告するということです。これはフラグに`Json.Decode.Value`を使うのを好む人がいる理由のひとつにもなっています。JavaScript側でエラーが起きるより、デコーダでこの変な値を受け取ることで、何らかのフォールバックを実装されているのを保証するほうがいいということです。
+もしこのような変換がひとつでもうまくいかない場合は、**JavaScript側でエラーが起こる**ことに注意してください！　Elmでは『フェイルファスト』(fail fast)の原則をとっています。Elmコード側でエラーを起こすのではなく、可能な限り早く問題を報告するということです。これはフラグに`Json.Decode.Value`を使うのを好む人がいる理由のひとつにもなっています。JavaScript側でエラーが起きるより、デコーダでこの変な値を受け取ることで、何らかのフォールバックが実装されているのを保証するほうがいいということです。
 
