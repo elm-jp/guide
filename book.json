@@ -4,15 +4,14 @@
     "author": "Evan Czaplicki",
     "language": "ja",
     "root": "book",
-    "plugins": ["youtube","bulk-redirect","meta"],
+    "plugins": ["youtube","bulk-redirect","sitemap"],
     "pluginsConfig": {
-        "meta": {
-            "name": "robots",
-            "content": "noindex"
-        },
         "bulk-redirect": {
             "basepath": "/",
             "redirectsFile": "redirects.json"
+        },
+        "sitemap": {
+            "hostname": "https://guide.elm-lang.jp/"
         }
     }
 }
