@@ -695,8 +695,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="types-as-bits">Types as Bits</h1>
-<p>There are all sorts of types in Elm:</p>
+                                <!--
+# Types as Bits
+-->
+<h1 id="&#x578B;&#x306E;&#x30D3;&#x30C3;&#x30C8;&#x8868;&#x73FE;">&#x578B;&#x306E;&#x30D3;&#x30C3;&#x30C8;&#x8868;&#x73FE;</h1>
+<!--
+There are all sorts of types in Elm:
+-->
+<p>Elm&#x306B;&#x306F;&#x3055;&#x307E;&#x3056;&#x307E;&#x306A;&#x7A2E;&#x985E;&#x306E;&#x578B;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <ul>
 <li><code>Bool</code></li>
 <li><code>Int</code></li>
@@ -705,59 +711,149 @@
 <li><code>Maybe Int</code></li>
 <li>...</li>
 </ul>
-<p>We have a conceptual understanding of them by now, but how are they understood by a computer? How is <code>Maybe Int</code> stored on a hard disk?</p>
-<h2 id="bits">Bits</h2>
-<p>A <strong>bit</strong> is little box that has two states. Zero or a one. On or off. Computer memory is one super long sequence of bits.</p>
-<p>Okay, so all we have is a bunch of bits. Now we need to represent <em>everything</em> with that!</p>
-<h2 id="bool"><code>Bool</code></h2>
-<p>A <code>Bool</code> value can be either <code>True</code> or <code>False</code>. This corresponds exactly to a bit!</p>
-<h2 id="int"><code>Int</code></h2>
-<p>An <code>Int</code> value is some whole number like <code>0</code>, <code>1</code>, <code>2</code>, etc. You cannot fit that in a single bit, so the only other option is to use multiple bits. So normally, an <code>Int</code> would be a sequence of bits, like these:</p>
+<!--
+We have a conceptual understanding of them by now, but how are they understood by a computer? How is `Maybe Int` stored on a hard disk?
+-->
+<p>&#x3059;&#x3067;&#x306B;&#x79C1;&#x305F;&#x3061;&#x306F;&#x3053;&#x308C;&#x3089;&#x306E;&#x578B;&#x3092;&#x6982;&#x5FF5;&#x3068;&#x3057;&#x3066;&#x306F;&#x7406;&#x89E3;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x30B3;&#x30F3;&#x30D4;&#x30E5;&#x30FC;&#x30BF;&#x306F;&#x3053;&#x308C;&#x3092;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x7406;&#x89E3;&#x3057;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x3000;<code>Maybe Int</code>&#x306F;&#x30CF;&#x30FC;&#x30C9;&#x30C7;&#x30A3;&#x30B9;&#x30AF;&#x306B;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x683C;&#x7D0D;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;</p>
+<!--
+## Bits
+-->
+<h2 id="&#x30D3;&#x30C3;&#x30C8;&#x5217;">&#x30D3;&#x30C3;&#x30C8;&#x5217;</h2>
+<!--
+A **bit** is little box that has two states. Zero or a one. On or off. Computer memory is one super long sequence of bits.
+-->
+<p><strong>&#x30D3;&#x30C3;&#x30C8;</strong>&#x3068;&#x306F;&#x3001;0&#x307E;&#x305F;&#x306F;1&#x306E;&#x3069;&#x3061;&#x3089;&#x304B;&#x306E;&#x72B6;&#x614B;&#x3092;&#x3068;&#x308B;&#x3001;&#x5C0F;&#x3055;&#x306A;&#x7BB1;&#x306E;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;&#x30B3;&#x30F3;&#x30D4;&#x30E5;&#x30FC;&#x30BF;&#x306E;&#x30E1;&#x30E2;&#x30EA;&#x306F;&#x3001;&#x3053;&#x306E;&#x30D3;&#x30C3;&#x30C8;&#x304C;&#x3068;&#x3066;&#x3064;&#x3082;&#x306A;&#x304F;&#x9577;&#x304F;&#x9023;&#x306A;&#x3063;&#x305F;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<!--
+Okay, so all we have is a bunch of bits. Now we need to represent _everything_ with that!
+-->
+<p>&#x30B3;&#x30F3;&#x30D4;&#x30E5;&#x30FC;&#x30BF;&#x30FC;&#x306E;&#x30E1;&#x30E2;&#x30EA;&#x306F;&#x30D3;&#x30C3;&#x30C8;&#x3067;&#x8868;&#x73FE;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x306E;&#x3060;&#x304B;&#x3089;&#x3001;&#x30D3;&#x30C3;&#x30C8;&#x3060;&#x3051;&#x3092;&#x4F7F;&#x3063;&#x3066;<strong>&#x3042;&#x308A;&#x3068;&#x3042;&#x3089;&#x3086;&#x308B;&#x5024;</strong>&#x3092;&#x8868;&#x73FE;&#x3057;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;&#xFF01;</p>
+<!--
+## `Bool`
+-->
+<h2 id="bool&#x578B;"><code>Bool</code>&#x578B;</h2>
+<!--
+A `Bool` value can be either `True` or `False`. This corresponds exactly to a bit!
+-->
+<p><code>Bool</code>&#x306F;<code>True</code>&#x307E;&#x305F;&#x306F;<code>False</code>&#x306E;&#x3069;&#x3061;&#x3089;&#x304B;&#x3067;&#x3042;&#x308B;&#x3088;&#x3046;&#x306A;&#x5024;&#x306E;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x3061;&#x3087;&#x3046;&#x3069;&#x30D3;&#x30C3;&#x30C8;&#x306B;&#x305D;&#x306E;&#x307E;&#x307E;&#x5BFE;&#x5FDC;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x306D;&#xFF01;</p>
+<!--
+## `Int`
+-->
+<h2 id="int&#x578B;"><code>Int</code>&#x578B;</h2>
+<!--
+An `Int` value is some whole number like `0`, `1`, `2`, etc. You cannot fit that in a single bit, so the only other option is to use multiple bits. So normally, an `Int` would be a sequence of bits, like these:
+-->
+<p><code>Int</code>&#x578B;&#x306E;&#x5024;&#x3068;&#x306F;&#x3001;<code>0</code>&#x3084;<code>1</code>&#x3001;<code>2</code>&#x306A;&#x3069;&#x306E;&#x6570;&#x306E;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x5358;&#x4E00;&#x306E;&#x30D3;&#x30C3;&#x30C8;&#x3067;&#x3053;&#x308C;&#x3092;&#x8868;&#x3059;&#x3053;&#x3068;&#x306F;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x304B;&#x3089;&#x3001;&#x8907;&#x6570;&#x500B;&#x306E;&#x30D3;&#x30C3;&#x30C8;&#x3092;&#x4F7F;&#x3046;&#x4EE5;&#x5916;&#x306B;&#x9078;&#x629E;&#x80A2;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x901A;&#x5E38;&#x306F;&#x3001;<code>Int</code>&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x30D3;&#x30C3;&#x30C8;&#x306E;&#x5217;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <pre><code>00000000
 00000001
 00000010
 00000011
 ...
-</code></pre><p>We can arbitrarily assign meaning to each of these sequences. So maybe <code>00000000</code> is zero and <code>00000001</code> is one. Great! We can just start assigning numbers to bit sequences in ascending order. But eventually we will run out of bits...</p>
-<p>By some quick math, eight bits only allow (2^8 = 256) numbers. What about perfectly reasonable numbers like 9000 and 8004?</p>
-<p>The answer is to just add more bits. For a long time, people used 32 bits. That allowed for (2^32 = 4,294,967,296) numbers which covers the kinds of numbers humans typically think about. Computers these days support 64-bit integers, allowing for (2^64 = 18,446,744,073,709,551,616) numbers. That is a lot!</p>
-<blockquote>
-<p><strong>Note:</strong> If you are curious how addition works, learn about <a href="https://en.wikipedia.org/wiki/Two%27s_complement" target="_blank">two&#x2019;s complement</a>. It reveals that numbers are not assigned to bit sequences arbitrarily. For the sake of making addition as fast as possible, this particular way of assigning numbers works really well.</p>
-</blockquote>
-<h2 id="string"><code>String</code></h2>
-<p>The string <code>&quot;abc&quot;</code> is the sequence of characters <code>a</code> <code>b</code> <code>c</code>, so we will start by trying to represent characters as bits.</p>
-<p>One of the early ways of encoding characters is called <a href="https://en.wikipedia.org/wiki/ASCII" target="_blank">ASCII</a>. Just like with integers, they decided to list out a bunch of bit sequences and start assigning values arbitrarily:</p>
+</code></pre><!--
+We can arbitrarily assign meaning to each of these sequences. So maybe `00000000` is zero and `00000001` is one. Great! We can just start assigning numbers to bit sequences in ascending order. But eventually we will run out of bits...
+-->
+<p>&#x3053;&#x308C;&#x3089;&#x306E;&#x30D3;&#x30C3;&#x30C8;&#x5217;&#x306B;&#x3064;&#x3044;&#x3066;&#x3001;&#x81EA;&#x7531;&#x306B;&#x6570;&#x3092;&#x5272;&#x308A;&#x5F53;&#x3066;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;<code>00000000</code>&#x306F;0&#x3001;<code>00000001</code> &#x306F;1&#x3068;&#x3044;&#x3046;&#x3088;&#x3046;&#x306B;&#x3067;&#x3059;&#x3002;&#x7D20;&#x6674;&#x3089;&#x3057;&#x3044;&#x3067;&#x3059;&#x306D;&#xFF01;&#x3000;&#x3042;&#x3068;&#x306F;&#x6570;&#x3092;&#x30D3;&#x30C3;&#x30C8;&#x5217;&#x306B;&#x6607;&#x9806;&#x306B;&#x5272;&#x308A;&#x5F53;&#x3066;&#x3066;&#x3044;&#x304F;&#x3060;&#x3051;&#x3067;&#x3059;&#x304C;&#x3001;&#x305D;&#x306E;&#x3046;&#x3061;&#x3053;&#x308C;&#x3089;&#x306E;&#x30D3;&#x30C3;&#x30C8;&#x5217;&#x3067;&#x306F;&#x8DB3;&#x308A;&#x306A;&#x304F;&#x306A;&#x3063;&#x3066;&#x3057;&#x307E;&#x3046;&#x3067;&#x3057;&#x3087;&#x3046;&#x2026;&#x2026;&#x3002;</p>
+<!--
+By some quick math, eight bits only allow (2^8 = 256) numbers. What about perfectly reasonable numbers like 9000 and 8004?
+-->
+<p>&#x5358;&#x7D14;&#x8A08;&#x7B97;&#x3067;&#x306F;&#x3001;8&#x30D3;&#x30C3;&#x30C8;&#x3067;&#x306F; (2^8 = 256) &#x307E;&#x3067;&#x306E;&#x6570;&#x3057;&#x304B;&#x8868;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;9000&#x3084;8004&#x306E;&#x3088;&#x3046;&#x306A;&#x6570;&#x3082;&#x3082;&#x3061;&#x308D;&#x3093;&#x6570;&#x306B;&#x9055;&#x3044;&#x306A;&#x3044;&#x3067;&#x3059;&#x304C;&#x3001;&#x3053;&#x308C;&#x3089;&#x3092;&#x8868;&#x73FE;&#x3059;&#x308B;&#x306B;&#x306F;&#x3069;&#x3046;&#x3059;&#x308C;&#x3070;&#x3044;&#x3044;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;</p>
+<!--
+The answer is to just add more bits. For a long time, people used 32 bits. That allowed for (2^32 = 4,294,967,296) numbers which covers the kinds of numbers humans typically think about. Computers these days support 64-bit integers, allowing for (2^64 = 18,446,744,073,709,551,616) numbers. That is a lot!
+-->
+<p>&#x305D;&#x306E;&#x7B54;&#x3048;&#x3068;&#x306F;&#x3001;&#x3055;&#x3089;&#x306B;&#x30D3;&#x30C3;&#x30C8;&#x3092;&#x8DB3;&#x3059;&#x3060;&#x3051;&#x3067;&#x3059;&#x3002;&#x9577;&#x5E74;&#x3001;&#x4EBA;&#x3005;&#x306F; 32&#x30D3;&#x30C3;&#x30C8;&#x6570;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;32&#x30D3;&#x30C3;&#x30C8;&#x6570;&#x306F;&#x4EBA;&#x9593;&#x304C;&#x901A;&#x5E38;&#x6271;&#x3046;&#x3088;&#x3046;&#x306A; (2^32 = 4,294,967,296) &#x307E;&#x3067;&#x306E;&#x6570;&#x3092;&#x8868;&#x73FE;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x304C;&#x3001;&#x4ECA;&#x65E5;&#x306E;&#x30B3;&#x30F3;&#x30D4;&#x30E5;&#x30FC;&#x30BF;&#x306F; (2^64 = 18,446,744,073,709,551,616) &#x307E;&#x3067;&#x306E;&#x6570;&#x3092;&#x8868;&#x73FE;&#x3067;&#x304D;&#x308B;64&#x30D3;&#x30C3;&#x30C8;&#x6574;&#x6570;&#x3092;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x307E;&#x305F;&#x305A;&#x3044;&#x3076;&#x3093;&#x3068;&#x591A;&#x3044;&#x3067;&#x3059;&#x306D;&#xFF01;</p>
+<!--
+> **Note:** If you are curious how addition works, learn about [two’s complement](https://en.wikipedia.org/wiki/Two%27s_complement). It reveals that numbers are not assigned to bit sequences arbitrarily. For the sake of making addition as fast as possible, this particular way of assigning numbers works really well.
+-->
+<p><strong>Note:</strong> &#x3082;&#x3057;&#x66F4;&#x306B;&#x8A73;&#x3057;&#x304F;&#x77E5;&#x308A;&#x305F;&#x3044;&#x306E;&#x306A;&#x3089;&#x3001;<a href="https://ja.wikipedia.org/wiki/2%E3%81%AE%E8%A3%9C%E6%95%B0" target="_blank">2&#x306E;&#x88DC;&#x6570;</a>&#x306B;&#x3064;&#x3044;&#x3066;&#x5B66;&#x3093;&#x3067;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x6C7A;&#x3057;&#x3066;&#x6C17;&#x307E;&#x3050;&#x308C;&#x306B;&#x6570;&#x306B;&#x30D3;&#x30C3;&#x30C8;&#x5217;&#x3092;&#x5272;&#x308A;&#x5F53;&#x3066;&#x3066;&#x3044;&#x308B;&#x308F;&#x3051;&#x3067;&#x306F;&#x306A;&#x3044;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;&#x52A0;&#x7B97;&#x3092;&#x306A;&#x308B;&#x3079;&#x304F;&#x9AD8;&#x901F;&#x306B;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x3001;&#x3042;&#x308B;&#x898F;&#x5247;&#x306B;&#x5F93;&#x3063;&#x3066;&#x5DE7;&#x5999;&#x306B;&#x6570;&#x3092;&#x5272;&#x308A;&#x5F53;&#x3066;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<!--
+## `String`
+-->
+<h2 id="string&#x578B;"><code>String</code>&#x578B;</h2>
+<!--
+The string `"abc"` is the sequence of characters `a` `b` `c`, so we will start by trying to represent characters as bits.
+-->
+<p>&#x6587;&#x5B57;&#x5217;<code>&quot;abc&quot;</code>&#x306F;<code>a</code> <code>b</code> <code>c</code>&#x3068;&#x3044;&#x3046;&#x6587;&#x5B57;&#x304C;&#x9806;&#x756A;&#x306B;&#x4E26;&#x3093;&#x3060;&#x3082;&#x306E;&#x3067;&#x3059;&#x304B;&#x3089;&#x3001;&#x307E;&#x305A;&#x306F;&#x6587;&#x5B57;&#x3092;&#x30D3;&#x30C3;&#x30C8;&#x5217;&#x3067;&#x8868;&#x73FE;&#x3059;&#x308B;&#x3053;&#x3068;&#x304B;&#x3089;&#x59CB;&#x3081;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<!--
+One of the early ways of encoding characters is called [ASCII](https://en.wikipedia.org/wiki/ASCII). Just like with integers, they decided to list out a bunch of bit sequences and start assigning values arbitrarily:
+-->
+<p>&#x6587;&#x5B57;&#x3092;&#x7B26;&#x53F7;&#x5316;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3068;&#x3057;&#x3066;&#x3082;&#x3063;&#x3068;&#x3082;&#x521D;&#x671F;&#x304B;&#x3089;&#x3042;&#x308B;&#x3082;&#x306E;&#x306B;&#x3001;<a href="https://ja.wikipedia.org/wiki/ASCII" target="_blank">ASCII</a>&#x3068;&#x547C;&#x3070;&#x308C;&#x308B;&#x3082;&#x306E;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x3061;&#x3087;&#x3046;&#x3069;&#x6570;&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x3001;&#x5927;&#x91CF;&#x306E;&#x30D3;&#x30C3;&#x30C8;&#x5217;&#x3092;&#x4E26;&#x3079;&#x3066;&#x3001;&#x305D;&#x306E;&#x5148;&#x982D;&#x304B;&#x3089;&#x5024;&#x3092;&#x81EA;&#x7531;&#x306B;&#x5272;&#x308A;&#x5F53;&#x3066;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code>00000000
 00000001
 00000010
 00000011
 ...
-</code></pre><p>So every character needed to fit in eight bits, meaning only 256 characters could be represented! But if you only care about English, this actually works out pretty well. You need to cover 26 lower-case letters, 26 upper-case letters, and 10 numbers. That is 62. There is a bunch of room left for symbols and other weird stuff. You can see what they ended up with <a href="https://ascii.cl/" target="_blank">here</a>.</p>
-<p>We have an idea for characters now, but how will the computer know where the <code>String</code> ends and the next piece of data begins? It is all just bits. Characters look just like <code>Int</code> values really! So we need some way to mark the end.</p>
-<p>These days, languages tend to do this by storing the <strong>length</strong> of the string. So a string like <code>&quot;hello&quot;</code> might look something like <code>5</code> <code>h</code> <code>e</code> <code>l</code> <code>l</code> <code>o</code> in memory. So you know a <code>String</code> always starts with 32-bits representing the length. And whether the length is 0 or 9000, you know exactly where the characters end.</p>
-<blockquote>
-<p><strong>Note:</strong> At some point, folks wanted to cover languages besides English. This effort eventually resulted in the <a href="https://en.wikipedia.org/wiki/UTF-8" target="_blank">UTF-8</a> encoding. It is quite brilliant really, and I encourage you to learn about it. It turns out that &#x201C;get the 5th character&#x201D; is harder than it sounds!</p>
-</blockquote>
-<h2 id="int-int"><code>(Int, Int)</code></h2>
-<p>What about tuples? Well, <code>(Int, Int)</code> is two <code>Int</code> values, and each one is a sequence of bits. Let&#x2019;s just put those two sequences next to each other in memory and call it a day!</p>
-<h2 id="custom-types">Custom Types</h2>
-<p>A custom type is all about combining different types. Those different types may have all sorts of different shapes. We will start with the <code>Color</code> type:</p>
+</code></pre><!--
+So every character needed to fit in eight bits, meaning only 256 characters could be represented! But if you only care about English, this actually works out pretty well. You need to cover 26 lower-case letters, 26 upper-case letters, and 10 numbers. That is 62. There is a bunch of room left for symbols and other weird stuff. You can see what they ended up with [here](https://ascii.cl/).
+-->
+<p>&#x3053;&#x3053;&#x3067;&#x3069;&#x306E;&#x6587;&#x5B57;&#x3082;&#xFF18;&#x30D3;&#x30C3;&#x30C8;&#x306B;&#x53CE;&#x307E;&#x308B;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x305D;&#x308C;&#x306F;&#x3064;&#x307E;&#x308A;256&#x6587;&#x5B57;&#x307E;&#x3067;&#x3057;&#x304B;&#x8868;&#x73FE;&#x3067;&#x304D;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#xFF01;&#x3000;&#x82F1;&#x8A9E;&#x3060;&#x3051;&#x3092;&#x8003;&#x616E;&#x3059;&#x308B;&#x306A;&#x3089;&#x3001;&#x3053;&#x308C;&#x306F;&#x306A;&#x304B;&#x306A;&#x304B;&#x3046;&#x307E;&#x304F;&#x3044;&#x304D;&#x307E;&#x3059;&#x3002;26&#x500B;&#x306E;&#x5C0F;&#x6587;&#x5B57;&#x3068;26&#x6587;&#x5B57;&#x306E;&#x5927;&#x6587;&#x5B57;&#x3001;10&#x500B;&#x306E;&#x6570;&#x3060;&#x3051;&#x3092;&#x30AB;&#x30D0;&#x30FC;&#x3067;&#x304D;&#x308C;&#x3070;&#x3044;&#x3044;&#x306E;&#x3067;&#x3059;&#x304B;&#x3089;&#x3001;&#x305C;&#x3093;&#x3076;&#x3067;62&#x6587;&#x5B57;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x6B8B;&#x308A;&#x306E;&#x7A7A;&#x3044;&#x3066;&#x3044;&#x308B;&#x90E8;&#x5206;&#x306F;&#x3001;&#x8A18;&#x53F7;&#x3084;&#x4ED6;&#x306E;&#x3044;&#x308D;&#x3093;&#x306A;&#x5909;&#x306A;&#x3082;&#x306E;&#x306B;&#x5272;&#x308A;&#x5F53;&#x3066;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;&#x7D50;&#x5C40;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x304B;&#x306F;&#x3001;<a href="https://ascii.cl/" target="_blank">&#x3053;&#x3053;</a>&#x3067;&#x8A73;&#x3057;&#x304F;&#x898B;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<!--
+We have an idea for characters now, but how will the computer know where the `String` ends and the next piece of data begins? It is all just bits. Characters look just like `Int` values really! So we need some way to mark the end.
+-->
+<p>&#x3053;&#x308C;&#x3067;&#x6587;&#x5B57;&#x3092;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x8868;&#x73FE;&#x3059;&#x308C;&#x3070;&#x3044;&#x3044;&#x306E;&#x304B;&#x306F;&#x308F;&#x304B;&#x3063;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;<code>String</code>&#x306E;&#x7D42;&#x7AEF;&#x3068;&#x6B21;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x958B;&#x59CB;&#x304C;&#x3069;&#x3053;&#x306B;&#x3042;&#x308B;&#x306E;&#x304B;&#x306F;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x3059;&#x308C;&#x3070;&#x308F;&#x304B;&#x308B;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x3000;&#x3059;&#x3079;&#x3066;&#x306F;&#x305F;&#x3060;&#x306E;&#x30D3;&#x30C3;&#x30C8;&#x5217;&#x306A;&#x306E;&#x3067;&#x3059;&#x3002;&#x5B9F;&#x969B;&#x306B;&#x306F;&#x6587;&#x5B57;&#x3082;<code>Int</code>&#x5024;&#x3068;&#x307E;&#x3063;&#x305F;&#x304F;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;&#x3057;&#x304B;&#x898B;&#x3048;&#x306A;&#x3044;&#x306E;&#x3067;&#x3059;&#xFF01;&#x3000;&#x305D;&#x306E;&#x305F;&#x3081;&#x3001;&#x3069;&#x3053;&#x304C;&#x7D42;&#x7AEF;&#x306A;&#x306E;&#x304B;&#x3092;&#x898B;&#x5206;&#x3051;&#x308B;&#x4F55;&#x3089;&#x304B;&#x306E;&#x65B9;&#x6CD5;&#x304C;&#x5FC5;&#x8981;&#x3067;&#x3059;&#x3002;</p>
+<!--
+These days, languages tend to do this by storing the **length** of the string. So a string like `"hello"` might look something like `5` `h` `e` `l` `l` `o` in memory. So you know a `String` always starts with 32-bits representing the length. And whether the length is 0 or 9000, you know exactly where the characters end.
+-->
+<p>&#x6700;&#x8FD1;&#x3067;&#x306F;&#x3001;&#x6587;&#x5B57;&#x5217;&#x306E;<strong>&#x9577;&#x3055;</strong>&#x3092;&#x683C;&#x7D0D;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x3059;&#x308B;&#x8A00;&#x8A9E;&#x304C;&#x591A;&#x3044;&#x3067;&#x3059;&#x3002;<code>&quot;hello&quot;</code>&#x306E;&#x3088;&#x3046;&#x306A;&#x6587;&#x5B57;&#x5217;&#x306F;&#x3001;&#x30E1;&#x30E2;&#x30EA;&#x5185;&#x3067;&#x306F;<code>5</code> <code>h</code> <code>e</code> <code>l</code> <code>l</code> <code>o</code>&#x306E;&#x3088;&#x3046;&#x306B;&#x898B;&#x3048;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;<code>String</code>&#x306F;&#x5E38;&#x306B;&#x9577;&#x3055;&#x306E;32&#x30D3;&#x30C3;&#x30C8;&#x8868;&#x73FE;&#x3067;&#x59CB;&#x307E;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x3001;&#x6587;&#x5B57;&#x5217;&#x306E;&#x9577;&#x3055;&#x304C;0&#x3067;&#x3042;&#x308D;&#x3046;&#x3068;9000&#x3067;&#x3042;&#x308D;&#x3046;&#x3068;&#x3001;&#x6587;&#x5B57;&#x5217;&#x306E;&#x7D42;&#x7AEF;&#x304C;&#x3069;&#x3053;&#x306B;&#x3042;&#x308B;&#x306E;&#x304B;&#x3092;&#x6B63;&#x78BA;&#x306B;&#x77E5;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<!--
+> **Note:** At some point, folks wanted to cover languages besides English. This effort eventually resulted in the [UTF-8](https://en.wikipedia.org/wiki/UTF-8) encoding. It is quite brilliant really, and I encourage you to learn about it. It turns out that “get the 5th character” is harder than it sounds!
+-->
+<p><strong>Note:</strong> &#x4E2D;&#x306B;&#x306F;&#x3001;&#x82F1;&#x8A9E;&#x4EE5;&#x5916;&#x306E;&#x8A00;&#x8A9E;&#x3092;&#x30AB;&#x30D0;&#x30FC;&#x3057;&#x305F;&#x3044;&#x3068;&#x3044;&#x3046;&#x4EBA;&#x3082;&#x3044;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x3053;&#x308C;&#x306F;<a href="https://ja.wikipedia.org/wiki/UTF-8" target="_blank">UTF-8</a>&#x3068;&#x3044;&#x3046;&#x7B26;&#x53F7;&#x5316;&#x306B;&#x5F93;&#x3046;&#x3053;&#x3068;&#x3067;&#x5B9F;&#x73FE;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x672C;&#x5F53;&#x306B;&#x7D20;&#x6674;&#x3089;&#x3057;&#x3044;&#x3082;&#x306E;&#x3067;&#x3059;&#x306E;&#x3067;&#x3001;&#x305C;&#x3072;&#x5B66;&#x3093;&#x3067;&#x307F;&#x308B;&#x3053;&#x3068;&#x3092;&#x304A;&#x52E7;&#x3081;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x7B26;&#x53F7;&#x5316;&#x3067;&#x306F;&#x3001;&#x305F;&#x3068;&#x3048;&#x3070;&#x3042;&#x308B;&#x6587;&#x5B57;&#x5217;&#x306E;&#x300C;5&#x756A;&#x76EE;&#x306E;&#x6587;&#x5B57;&#x300D;&#x3092;&#x898B;&#x3064;&#x3051;&#x308B;&#x3088;&#x3046;&#x306A;&#x3053;&#x3068;&#x306F;&#x601D;&#x3063;&#x305F;&#x3088;&#x308A;&#x96E3;&#x3057;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#xFF01;</p>
+<!--
+## `(Int, Int)`
+-->
+<h2 id="int-int&#x578B;"><code>(Int, Int)</code>&#x578B;</h2>
+<!--
+What about tuples? Well, `(Int, Int)` is two `Int` values, and each one is a sequence of bits. Let’s just put those two sequences next to each other in memory and call it a day!
+-->
+<p>&#x30BF;&#x30D7;&#x30EB;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x3069;&#x3046;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x3000;<code>(Int, Int)</code>&#x306F;&#x3075;&#x305F;&#x3064;&#x306E;<code>Int</code>&#x5024;&#x3067;&#x3001;&#x305D;&#x306E;&#x305D;&#x308C;&#x305E;&#x308C;&#x304C;&#x30D3;&#x30C3;&#x30C8;&#x5217;&#x306B;&#x306A;&#x308B;&#x306E;&#x3067;&#x3057;&#x305F;&#x3002;&#x30E1;&#x30E2;&#x30EA;&#x5185;&#x3067;&#x3075;&#x305F;&#x3064;&#x306E;&#x30D3;&#x30C3;&#x30C8;&#x5217;&#x3092;&#x4E26;&#x3079;&#x3066;&#x914D;&#x7F6E;&#x3059;&#x308C;&#x3070;&#x3001;&#x305D;&#x308C;&#x3067;&#x51FA;&#x6765;&#x4E0A;&#x304C;&#x308A;&#x3067;&#x3059;&#x306D;&#xFF01;</p>
+<!--
+## Custom Types
+-->
+<h2 id="&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;">&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;</h2>
+<!--
+A custom type is all about combining different types. Those different types may have all sorts of different shapes. We will start with the `Color` type:
+-->
+<p>&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;&#x3068;&#x306F;&#x3064;&#x307E;&#x308A;&#x3001;&#x7570;&#x306A;&#x308B;&#x578B;&#x3069;&#x3046;&#x3057;&#x3092;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x3067;&#x3059;&#x3002;&#x7570;&#x306A;&#x308B;&#x578B;&#x306F;&#x305D;&#x308C;&#x305E;&#x308C;&#x7570;&#x306A;&#x3063;&#x305F;&#x69CB;&#x9020;&#x3092;&#x3057;&#x3066;&#x3044;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x307E;&#x305A;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;<code>Color</code>&#x578B;&#x306B;&#x3064;&#x3044;&#x3066;&#x8003;&#x3048;&#x3066;&#x307F;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Color</span> = <span class="hljs-type">Red</span> | <span class="hljs-type">Yellow</span> | <span class="hljs-type">Green</span>
 </code></pre>
-<p>We can assign each case a number: <code>Red = 0</code>, <code>Yellow = 1</code>, and <code>Green = 2</code>. Now we can use the <code>Int</code> representation. Here we only need two bits to cover all the possible cases, so <code>00</code> is red, <code>01</code> is yellow, <code>10</code> is green, and <code>11</code> is unused.</p>
-<p>But what about custom types that hold additional data? Like <code>Maybe Int</code>? The typical approach is to set aside some bits to &#x201C;tag&#x201D; the data, so we can decide that <code>Nothing = 0</code> and <code>Just = 1</code>. Here are some examples:</p>
+<!--
+We can assign each case a number: `Red = 0`, `Yellow = 1`, and `Green = 2`. Now we can use the `Int` representation. Here we only need two bits to cover all the possible cases, so `00` is red, `01` is yellow, `10` is green, and `11` is unused.
+-->
+<p><code>Red = 0</code>&#x3001;<code>Yellow = 1</code>&#x3001;<code>Green = 2</code>&#x3068;&#x3044;&#x3046;&#x3088;&#x3046;&#x306B;&#x3001;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x5834;&#x5408;&#x306B;&#x3064;&#x3044;&#x3066;&#x6570;&#x3092;&#x5272;&#x308A;&#x5F53;&#x3066;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;<code>Int</code>&#x306E;&#x8868;&#x73FE;&#x3092;&#x305D;&#x306E;&#x307E;&#x307E;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x3059;&#x3079;&#x3066;&#x306E;&#x5834;&#x5408;&#x3092;&#x7DB2;&#x7F85;&#x3059;&#x308B;&#x306B;&#x306F;2&#x30D3;&#x30C3;&#x30C8;&#x3042;&#x308C;&#x3070;&#x5341;&#x5206;&#x3067;&#x3001;<code>00</code>&#x306F;&#x8D64;&#x3001;<code>01</code>&#x306F;&#x9EC4;&#x8272;&#x3001;<code>10</code>&#x306F;&#x7DD1;&#x3001;<code>11</code>&#x306F;&#x672A;&#x4F7F;&#x7528;&#x3068;&#x3059;&#x308C;&#x3070;&#x3044;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<!--
+But what about custom types that hold additional data? Like `Maybe Int`? The typical approach is to set aside some bits to “tag” the data, so we can decide that `Nothing = 0` and `Just = 1`. Here are some examples:
+-->
+<p>&#x3057;&#x304B;&#x3057;&#x3001;<code>Maybe Int</code>&#x306E;&#x3088;&#x3046;&#x306A;&#x3001;&#x8FFD;&#x52A0;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x6301;&#x3064;&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x3069;&#x3046;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x3000;&#x5178;&#x578B;&#x7684;&#x306A;&#x65B9;&#x6CD5;&#x3068;&#x3057;&#x3066;&#x306F;&#x3001;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x30D3;&#x30C3;&#x30C8;&#x5217;&#x306B;&#x300C;&#x30BF;&#x30B0;&#x300D;&#x3092;&#x4ED8;&#x3051;&#x308B;&#x3068;&#x3044;&#x3046;&#x3082;&#x306E;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;<code>Nothing = 0</code>&#x3084;<code>Just = 1</code>&#x3068;&#x3044;&#x3046;&#x3088;&#x3046;&#x306B;&#x53D6;&#x308A;&#x6C7A;&#x3081;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x3001;&#x4F8B;&#x3092;&#x6319;&#x3052;&#x308B;&#x3068;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <ul>
 <li><code>Nothing</code> = <code>0</code></li>
 <li><code>Just 12</code> = <code>1</code> <code>00001100</code></li>
 <li><code>Just 16</code> = <code>1</code> <code>00010000</code></li>
 </ul>
-<p>A <code>case</code> expression always looks at that &#x201C;tag&#x201D; before deciding what to do next. If it sees a <code>0</code> it knows there is no more data. If it sees a <code>1</code> it knows it is followed by a sequence of bits representing the data.</p>
-<p>This &#x201C;tag&#x201D; idea is similar to putting the length at the beginning of <code>String</code> values. The values may be different sizes, but the code can always figure out where they start and end.</p>
-<h2 id="summary">Summary</h2>
-<p>Eventually, all values need to be represented in bits. This page gives a rough overview of how that actually works.</p>
-<p>Normally there is no real reason to think about this, but I found it to be helpful in deepening my understanding of custom types and <code>case</code> expressions. I hope it is helpful to you as well!</p>
+<!--
+A `case` expression always looks at that “tag” before deciding what to do next. If it sees a `0` it knows there is no more data. If it sees a `1` it knows it is followed by a sequence of bits representing the data.
+-->
+<p><code>case</code>&#x5F0F;&#x3067;&#x306F;&#x3053;&#x306E;&#x300C;&#x30BF;&#x30B0;&#x300D;&#x3092;&#x898B;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;&#x6B21;&#x306B;&#x4F55;&#x3092;&#x3059;&#x308B;&#x304B;&#x3092;&#x6C7A;&#x3081;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3082;&#x3057;&#x30BF;&#x30B0;&#x304C;<code>0</code>&#x306A;&#x3089;&#x3001;&#x305D;&#x308C;&#x4EE5;&#x4E0A;&#x30C7;&#x30FC;&#x30BF;&#x306F;&#x306A;&#x3044;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;&#x3082;&#x3057;&#x30BF;&#x30B0;&#x304C;<code>1</code>&#x306A;&#x3089;&#x3001;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x8868;&#x3059;&#x30D3;&#x30C3;&#x30C8;&#x5217;&#x304C;&#x305D;&#x306E;&#x5F8C;&#x308D;&#x306B;&#x7D9A;&#x304F;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<!--
+This “tag” idea is similar to putting the length at the beginning of `String` values. The values may be different sizes, but the code can always figure out where they start and end.
+-->
+<p>&#x3053;&#x306E;&#x300C;&#x30BF;&#x30B0;&#x300D;&#x306E;&#x30A2;&#x30A4;&#x30C7;&#x30A2;&#x306F;&#x3001;<code>String</code>&#x306E;&#x5024;&#x306E;&#x6700;&#x521D;&#x306B;&#x305D;&#x306E;&#x6587;&#x5B57;&#x5217;&#x306E;&#x9577;&#x3055;&#x3092;&#x7F6E;&#x304F;&#x306E;&#x3068;&#x4F3C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x30B5;&#x30A4;&#x30BA;&#x306F;&#x5024;&#x306B;&#x3088;&#x3063;&#x3066;&#x305D;&#x308C;&#x305E;&#x308C;&#x7570;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x304C;&#x3001;&#x3069;&#x3053;&#x304B;&#x3089;&#x59CB;&#x307E;&#x308A;&#x3069;&#x3053;&#x3067;&#x7D42;&#x308F;&#x308B;&#x306E;&#x304B;&#x306F;&#x30B3;&#x30FC;&#x30C9;&#x304B;&#x3089;&#x3044;&#x3064;&#x3067;&#x3082;&#x628A;&#x63E1;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<!--
+## Summary
+-->
+<h2 id="&#x307E;&#x3068;&#x3081;">&#x307E;&#x3068;&#x3081;</h2>
+<!--
+Eventually, all values need to be represented in bits. This page gives a rough overview of how that actually works.
+-->
+<p>&#x3053;&#x308C;&#x3067;&#x3001;&#x3042;&#x3089;&#x3086;&#x308B;&#x5024;&#x3092;&#x30D3;&#x30C3;&#x30C8;&#x5217;&#x3067;&#x8868;&#x73FE;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;&#x3053;&#x306E;&#x30DA;&#x30FC;&#x30B8;&#x3067;&#x306F;&#x3001;&#x30C7;&#x30FC;&#x30BF;&#x578B;&#x304C;&#x5185;&#x90E8;&#x3067;&#x306F;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x8868;&#x73FE;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x306E;&#x304B;&#x3092;&#x5927;&#x307E;&#x304B;&#x306B;&#x8AAC;&#x660E;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x305F;&#x3002;</p>
+<!--
+Normally there is no real reason to think about this, but I found it to be helpful in deepening my understanding of custom types and `case` expressions. I hope it is helpful to you as well!
+-->
+<p>&#x901A;&#x5E38;&#x306F;&#x578B;&#x306E;&#x30D3;&#x30C3;&#x30C8;&#x8868;&#x73FE;&#x306B;&#x3064;&#x3044;&#x3066;&#x8003;&#x3048;&#x306A;&#x304F;&#x3066;&#x3082;&#x3044;&#x3044;&#x306E;&#x3067;&#x3059;&#x304C;&#x3001;&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;&#x3084;<code>case</code>&#x5F0F;&#x306B;&#x3064;&#x3044;&#x3066;&#x306E;&#x81EA;&#x5206;&#x306E;&#x7406;&#x89E3;&#x3092;&#x6DF1;&#x3081;&#x3066;&#x3044;&#x304F;&#x306E;&#x306B;&#x4FBF;&#x5229;&#x306A;&#x306E;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x77E5;&#x8B58;&#x304C;&#x4F55;&#x304B;&#x306E;&#x5F79;&#x306B;&#x7ACB;&#x3064;&#x3053;&#x3068;&#x3092;&#x9858;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#xFF01;</p>
+<!--
+> **Note:** If you think this is interesting, it may be fun to learn more about garbage collection. I have found [The Garbage Collection Handbook](http://gchandbook.org/) to be an excellent resource on the topic!
+> 
+-->
 <blockquote>
-<p><strong>Note:</strong> If you think this is interesting, it may be fun to learn more about garbage collection. I have found <a href="http://gchandbook.org/" target="_blank">The Garbage Collection Handbook</a> to be an excellent resource on the topic!</p>
+<p><strong>Note:</strong> &#x3082;&#x3057;&#x3053;&#x308C;&#x306B;&#x8208;&#x5473;&#x3092;&#x6301;&#x3063;&#x305F;&#x306E;&#x306A;&#x3089;&#x3001;&#x30AC;&#x30FC;&#x30D9;&#x30FC;&#x30B8;&#x30B3;&#x30EC;&#x30AF;&#x30B7;&#x30E7;&#x30F3;&#x306B;&#x3064;&#x3044;&#x3066;&#x3082;&#x5B66;&#x3093;&#x3067;&#x307F;&#x308B;&#x3068;&#x9762;&#x767D;&#x3044;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x3053;&#x306E;&#x8A71;&#x984C;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;<a href="http://gchandbook.org/" target="_blank">The Garbage Collection Handbook</a>&#x304C;&#x512A;&#x308C;&#x305F;&#x8CC7;&#x6599;&#x3060;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#xFF01;</p>
 </blockquote>
 
                                 
@@ -802,7 +898,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"型のビット表現","level":"1.13.2","depth":2,"next":{"title":"関数の型","level":"1.13.3","depth":2,"path":"appendix/function_types.md","ref":"appendix/function_types.md","articles":[]},"previous":{"title":"集合としての型","level":"1.13.1","depth":2,"path":"appendix/types_as_sets.md","ref":"appendix/types_as_sets.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"name":"robots","content":"noindex","data":[]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"appendix/types_as_bits.md","mtime":"2018-12-29T14:37:37.464Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-29T14:38:03.490Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"型のビット表現","level":"1.13.2","depth":2,"next":{"title":"関数の型","level":"1.13.3","depth":2,"path":"appendix/function_types.md","ref":"appendix/function_types.md","articles":[]},"previous":{"title":"集合としての型","level":"1.13.1","depth":2,"path":"appendix/types_as_sets.md","ref":"appendix/types_as_sets.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","meta"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"meta":{"name":"robots","content":"noindex","data":[]},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"appendix/types_as_bits.md","mtime":"2019-01-04T12:47:39.845Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-04T12:48:15.311Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
