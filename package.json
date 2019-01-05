@@ -6,7 +6,9 @@
   "dependencies": {
     "gitbook-cli": "^2.3.2",
     "gitbook-plugin-bulk-redirect": "^0.2.1",
+    "gitbook-plugin-ga": "^1.0.1",
     "gitbook-plugin-meta": "^0.1.12",
+    "gitbook-plugin-sitemap": "^1.2.0",
     "gitbook-plugin-youtube": "^1.1.0",
     "pretranslate": "file:tool/pretranslate",
     "rimraf": "^2.6.2"
