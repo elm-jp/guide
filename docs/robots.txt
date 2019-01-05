@@ -22,7 +22,7 @@ Allow: /effects/$
 # Allow: /effects/random.html$
 Allow: /effects/time.html$
 Allow: /interop/$
-# Allow: /interop/flags.html$
+Allow: /interop/flags.html$
 # Allow: /interop/ports.html$
 Allow: /interop/custom_elements.html$
 Allow: /webapps/$
