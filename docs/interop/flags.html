@@ -689,24 +689,45 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="flags">Flags</h1>
-<p>The previous page showed the JavaScript needed to start an Elm program:</p>
+                                <!--
+# Flags
+-->
+<h1 id="&#x30D5;&#x30E9;&#x30B0;">&#x30D5;&#x30E9;&#x30B0;</h1>
+<!--
+The previous page showed the JavaScript needed to start an Elm program:
+-->
+<p>&#x5148;&#x307B;&#x3069;&#x306E;&#x30DA;&#x30FC;&#x30B8;&#x3067;&#x306F;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;JavaSript&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;Elm&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x8D77;&#x52D5;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3057;&#x305F;&#x3002;</p>
 <pre><code class="lang-elm"><span class="hljs-title">var</span> app = <span class="hljs-type">Elm</span>.<span class="hljs-type">Main</span>.init({
   node: document.getElementById(&apos;elm&apos;)
 });
 </code></pre>
-<p>It is possible to pass in some additional data though. For example, if we wanted to pass in the current time we could say:</p>
+<!--
+It is possible to pass in some additional data though. For example, if we wanted to pass in the current time we could say:
+-->
+<p>&#x3053;&#x3053;&#x3067;&#x306F;&#x3001;JavaScript&#x304B;&#x3089;Elm&#x3078;&#x3068;&#x8FFD;&#x52A0;&#x3067;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x6E21;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x3059;&#x308C;&#x3070;&#x3001;&#x73FE;&#x5728;&#x306E;&#x6642;&#x523B;&#x3092;&#x6E21;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-javascript"><span class="hljs-keyword">var</span> app = Elm.Main.init({
   node: <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;elm&apos;</span>),
   flags: <span class="hljs-built_in">Date</span>.now()
 });
 </code></pre>
-<p>We call this additional data <code>flags</code>. This allows you to customize the Elm program with all sorts of data!</p>
+<!--
+We call this additional data `flags`. This allows you to customize the Elm program with all sorts of data!
+-->
+<p>&#x3053;&#x306E;&#x8FFD;&#x52A0;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x306F;<strong>&#x30D5;&#x30E9;&#x30B0;</strong>(<code>flags</code>)&#x3068;&#x547C;&#x3070;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306B;&#x3088;&#x308A;&#x3001;&#x3044;&#x308D;&#x3044;&#x308D;&#x306A;&#x7A2E;&#x985E;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x306B;&#x57FA;&#x3065;&#x3044;&#x3066;&#x3001;Elm&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x30AB;&#x30B9;&#x30BF;&#x30DE;&#x30A4;&#x30BA;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<!--
+> **Note:** This additional data is called “flags” because it is kind of like command line flags. You can call `elm make src/Main.elm`, but you can add some flags like `--optimize` and `--output=main.js` to customize its behavior. Same sort of thing.
+-->
 <blockquote>
-<p><strong>Note:</strong> This additional data is called &#x201C;flags&#x201D; because it is kind of like command line flags. You can call <code>elm make src/Main.elm</code>, but you can add some flags like <code>--optimize</code> and <code>--output=main.js</code> to customize its behavior. Same sort of thing.</p>
+<p><strong>Note:</strong> &#x3053;&#x306E;&#x8FFD;&#x52A0;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x304C;&#x300E;&#x30D5;&#x30E9;&#x30B0;&#x300F;&#x3068;&#x547C;&#x3070;&#x308C;&#x3066;&#x3044;&#x308B;&#x306E;&#x306F;&#x3001;&#x305D;&#x308C;&#x304C;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x30E9;&#x30A4;&#x30F3;&#x30D5;&#x30E9;&#x30B0;&#x306E;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x3060;&#x304B;&#x3089;&#x3067;&#x3059;&#x3002;<code>elm make src/Main.elm</code>&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3068;&#x304D;&#x3001;<code>--optimize</code>&#x3084;<code>--output=main.js</code>&#x306E;&#x3088;&#x3046;&#x306A;&#x30D5;&#x30E9;&#x30B0;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x3066;&#x3001;&#x305D;&#x306E;&#x52D5;&#x4F5C;&#x3092;&#x30AB;&#x30B9;&#x30BF;&#x30DE;&#x30A4;&#x30BA;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x30D5;&#x30E9;&#x30B0;&#x3082;&#x305D;&#x308C;&#x3068;&#x4F3C;&#x305F;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;</p>
 </blockquote>
-<h2 id="handling-flags">Handling Flags</h2>
-<p>Just passing in JavaScript values is not enough. We need to handle them on the Elm side! The <a href="https://package.elm-lang.org/packages/elm/browser/latest/Browser#element" target="_blank"><code>Browser.element</code></a> function provides a way to handle flags with <code>init</code>:</p>
+<!--
+## Handling Flags
+-->
+<h2 id="&#x30D5;&#x30E9;&#x30B0;&#x306E;&#x64CD;&#x4F5C;">&#x30D5;&#x30E9;&#x30B0;&#x306E;&#x64CD;&#x4F5C;</h2>
+<!--
+Just passing in JavaScript values is not enough. We need to handle them on the Elm side! The [`Browser.element`][element] function provides a way to handle flags with `init`:
+-->
+<p>Elm&#x3067;&#x30D5;&#x30E9;&#x30B0;&#x3092;&#x6271;&#x3046;&#x306B;&#x306F;&#x3001;JavaScript&#x304B;&#x3089;&#x5024;&#x3092;&#x6E21;&#x3059;&#x3060;&#x3051;&#x3067;&#x306F;&#x4E0D;&#x5341;&#x5206;&#x3067;&#x3059;&#x3002;Elm&#x5074;&#x3067;&#x305D;&#x308C;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x304B;&#x3089;&#x3067;&#x3059;&#xFF01; <a href="https://package.elm-lang.org/packages/elm/browser/latest/Browser#element" target="_blank"><code>Browser.element</code></a>&#x95A2;&#x6570;&#x3092;&#x4F7F;&#x3046;&#x3068;&#x3001;<code>init</code>&#x3067;&#x30D5;&#x30E9;&#x30B0;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-elm"><span class="hljs-title">element</span> :
   { init : flags -&gt; ( model, <span class="hljs-type">Cmd</span> msg )
   , update : msg -&gt; model -&gt; ( model, <span class="hljs-type">Cmd</span> msg )
@@ -715,16 +736,34 @@
   }
   -&gt; <span class="hljs-type">Program</span> flags model msg
 </code></pre>
-<p>Notice that <code>init</code> has an argument called <code>flags</code>. So assuming we want to pass in the current time, we could write an <code>init</code> function like this:</p>
+<!--
+Notice that `init` has an argument called `flags`. So assuming we want to pass in the current time, we could write an `init` function like this:
+-->
+<p><code>init</code>&#x304C;<code>flag</code>&#x3068;&#x3044;&#x3046;&#x540D;&#x524D;&#x306E;&#x5F15;&#x6570;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x76EE;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x73FE;&#x5728;&#x306E;&#x6642;&#x523B;&#x3092;&#x6E21;&#x3057;&#x305F;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3060;&#x3063;&#x305F;&#x306E;&#x3067;&#x3001;<code>init</code>&#x95A2;&#x6570;&#x3092;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x66F8;&#x304F;&#x3068;&#x3044;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-elm"><span class="hljs-title">init</span> : <span class="hljs-type">Int</span> -&gt; ( <span class="hljs-type">Model</span>, <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span> )
 <span class="hljs-title">init</span> currentTime =
   ...
 </code></pre>
-<p>This means that Elm code gets immediate access to the flags you pass in from JavaScript. From there, you can put things in your model or run some commands. Whatever you need to do.</p>
-<h2 id="verifying-flags">Verifying Flags</h2>
-<p>But what happens if <code>init</code> says it takes an <code>Int</code> flag, but someone tries to initialize with <code>Elm.Main.init({ flags: &quot;haha, what now?&quot; })</code>?</p>
-<p>Elm checks for that sort of thing, making sure the flags are exactly what you expect. Without this check, you could pass in anything, leading to runtime errors in Elm!</p>
-<p>There are a bunch of types that can be given as flags:</p>
+<!--
+This means that Elm code gets immediate access to the flags you pass in from JavaScript. From there, you can put things in your model or run some commands. Whatever you need to do.
+-->
+<p>&#x3064;&#x307E;&#x308A;&#x3053;&#x308C;&#x306F;&#x3001;JavaScript&#x304B;&#x3089;&#x6E21;&#x3055;&#x308C;&#x305F;&#x30D5;&#x30E9;&#x30B0;&#x306E;&#x5024;&#x3092;&#x3001;&#x5373;&#x5EA7;&#x306B;<code>init</code>&#x3067;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x305F;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;<code>init</code>&#x3067;&#x306F;&#x3001;&#x305D;&#x306E;&#x53D7;&#x3051;&#x53D6;&#x3063;&#x305F;&#x30D5;&#x30E9;&#x30B0;&#x306E;&#x5024;&#x3092;&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x4E2D;&#x306B;&#x683C;&#x7D0D;&#x3057;&#x305F;&#x308A;&#x3001;&#x4F55;&#x304B;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x5FC5;&#x8981;&#x306A;&#x3053;&#x3068;&#x306F;&#x4F55;&#x3067;&#x3082;&#x3067;&#x304D;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<!--
+## Verifying Flags
+-->
+<h2 id="&#x30D5;&#x30E9;&#x30B0;&#x306E;&#x691C;&#x8A3C;">&#x30D5;&#x30E9;&#x30B0;&#x306E;&#x691C;&#x8A3C;</h2>
+<!--
+But what happens if `init` says it takes an `Int` flag, but someone tries to initialize with `Elm.Main.init({ flags: "haha, what now?" })`?
+-->
+<p>&#x3057;&#x304B;&#x3057;&#x3001;<code>Int</code>&#x3092;&#x30D5;&#x30E9;&#x30B0;&#x3068;&#x3057;&#x3066;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x3088;&#x3046;&#x306B;<code>init</code>&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x305F;&#x306B;&#x3082;&#x95A2;&#x308F;&#x3089;&#x305A;&#x3001;<code>Elm.Main.init({ flags: &quot;haha, what now?&quot; })</code>&#x3068;&#x3044;&#x3046;&#x3088;&#x3046;&#x306B;&#x521D;&#x671F;&#x5316;&#x3057;&#x3088;&#x3046;&#x3068;&#x3059;&#x308B;&#x3088;&#x3046;&#x306A;&#x4EBA;&#x304C;&#x3044;&#x305F;&#x3089;&#x3001;&#x3044;&#x3063;&#x305F;&#x3044;&#x4F55;&#x304C;&#x8D77;&#x3053;&#x308B;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;</p>
+<!--
+Elm checks for that sort of thing, making sure the flags are exactly what you expect. Without this check, you could pass in anything, leading to runtime errors in Elm!
+-->
+<p>Elm&#x306F;&#x305D;&#x306E;&#x3088;&#x3046;&#x306A;&#x5834;&#x5408;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3082;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3092;&#x884C;&#x3044;&#x3001;&#x30D5;&#x30E9;&#x30B0;&#x306E;&#x578B;&#x304C;&#x671F;&#x5F85;&#x3057;&#x3066;&#x3044;&#x305F;&#x901A;&#x308A;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x4FDD;&#x8A3C;&#x3057;&#x3066;&#x304F;&#x308C;&#x307E;&#x3059;&#x3002;&#x3082;&#x3057;&#x3053;&#x306E;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x304C;&#x306A;&#x3051;&#x308C;&#x3070;&#x3001;&#x3069;&#x3093;&#x306A;&#x30C7;&#x30FC;&#x30BF;&#x3067;&#x3082;&#x6E21;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x3066;&#x3057;&#x307E;&#x3044;&#x3001;Elm&#x5074;&#x3067;&#x306F;&#x5B9F;&#x884C;&#x6642;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x8D77;&#x304D;&#x3066;&#x3057;&#x307E;&#x3046;&#x3067;&#x3057;&#x3087;&#x3046;&#xFF01;</p>
+<!--
+There are a bunch of types that can be given as flags:
+-->
+<p>&#x30D5;&#x30E9;&#x30B0;&#x3068;&#x3057;&#x3066;&#x6E21;&#x3059;&#x3053;&#x3068;&#x306E;&#x3067;&#x304D;&#x308B;&#x578B;&#x306B;&#x306F;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x69D8;&#x3005;&#x306A;&#x578B;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <ul>
 <li><code>Bool</code></li>
 <li><code>Int</code></li>
@@ -737,8 +776,14 @@
 <li>records</li>
 <li><a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#Value" target="_blank"><code>Json.Decode.Value</code></a></li>
 </ul>
-<p>Many folks always use a <code>Json.Decode.Value</code> because it gives them really precise control. They can write a decoder to handle any weird scenarios in Elm code, recovering from unexpected data in a nice way.</p>
-<p>The other supported types actually come from before we had figured out a way to do JSON decoders. If you choose to use them, there are some subtleties to be aware of. The following examples show the desired flag type, and then the sub-points show what would happen with a couple different JS values:</p>
+<!--
+Many folks always use a `Json.Decode.Value` because it gives them really precise control. They can write a decoder to handle any weird scenarios in Elm code, recovering from unexpected data in a nice way.
+-->
+<p>&#x30D5;&#x30E9;&#x30B0;&#x3092;&#x53B3;&#x5BC6;&#x306B;&#x5236;&#x5FA1;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x3001;&#x5E38;&#x306B;<code>Json.Decode.Value</code>&#x3092;&#x4F7F;&#x3046;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x3044;&#x308B;&#x4EBA;&#x3082;&#x305F;&#x304F;&#x3055;&#x3093;&#x3044;&#x307E;&#x3059;&#x3002;&#x3069;&#x3093;&#x306A;&#x5909;&#x306A;&#x5024;&#x3067;&#x3042;&#x3063;&#x3066;&#x3082;&#x53D7;&#x3051;&#x53D6;&#x308A;&#x3001;&#x305D;&#x308C;&#x304C;&#x4E88;&#x60F3;&#x5916;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x3067;&#x3042;&#x3063;&#x3066;&#x3082;&#x3046;&#x307E;&#x304F;&#x4FEE;&#x6B63;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x3001;Elm&#x5074;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3067;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x3092;&#x66F8;&#x3044;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<!--
+The other supported types actually come from before we had figured out a way to do JSON decoders. If you choose to use them, there are some subtleties to be aware of. The following examples show the desired flag type, and then the sub-points show what would happen with a couple different JS values:
+-->
+<p>&#x524D;&#x8FF0;&#x306E;&#x30D5;&#x30E9;&#x30B0;&#x3068;&#x3057;&#x3066;&#x6E21;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x578B;&#x306E;&#x3046;&#x3061;&#x3001;<code>Json.Decode.Value</code> &#x4EE5;&#x5916;&#x306E;&#x578B;&#x306F;&#x3001;&#x4E8B;&#x524D;&#x306B;Elm&#x306E;&#x30E9;&#x30F3;&#x30BF;&#x30A4;&#x30E0;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x304C;&#x300C;&#x3069;&#x3046;&#x3084;&#x3063;&#x3066;JSON&#x3092;&#x30C7;&#x30B3;&#x30FC;&#x30C9;&#x3057;&#x305F;&#x3089;&#x826F;&#x3044;&#x304B;&#x300D;&#x3092;&#x7B97;&#x51FA;&#x3057;&#x3001;&#x5909;&#x63DB;&#x3055;&#x308C;&#x305F;&#x5024;&#x304C;&#x6E21;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x3082;&#x3057;&#x3053;&#x306E;&#x65B9;&#x6CD5;&#x3092;&#x4F7F;&#x3046;&#x306E;&#x306A;&#x3089;&#x3001;&#x3044;&#x304F;&#x3064;&#x304B;&#x6CE8;&#x610F;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x6B21;&#x306E;&#x4F8B;&#x3067;&#x306F;&#x3001;&#x6E21;&#x305D;&#x3046;&#x3068;&#x3057;&#x3066;&#x3044;&#x308B;&#x30D5;&#x30E9;&#x30B0;&#x306E;&#x578B;&#x305D;&#x308C;&#x305E;&#x308C;&#x306B;&#x3064;&#x3044;&#x3066;&#x3001;&#x3044;&#x308D;&#x3044;&#x308D;&#x306A;JavaScript&#x306E;&#x5024;&#x3092;&#x6E21;&#x3059;&#x3068;&#x305D;&#x308C;&#x305E;&#x308C;&#x4F55;&#x304C;&#x8D77;&#x3053;&#x308B;&#x306E;&#x304B;&#x3092;&#x793A;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <ul>
 <li><p><code>init : Int -&gt; ...</code></p>
 <ul>
@@ -771,7 +816,10 @@
 </ul>
 </li>
 </ul>
-<p>Note that when one of the conversions goes wrong, <strong>you get an error on the JS side!</strong> We are taking the &#x201C;fail fast&#x201D; policy. Rather than the error making its way through Elm code, it is reported as soon as possible. This is another reason why people like to use <code>Json.Decode.Value</code> for flags. Instead of getting an error in JS, the weird value goes through a decoder, guaranteeing that you implement some sort of fallback behavior.</p>
+<!--
+Note that when one of the conversions goes wrong, **you get an error on the JS side!** We are taking the “fail fast” policy. Rather than the error making its way through Elm code, it is reported as soon as possible. This is another reason why people like to use `Json.Decode.Value` for flags. Instead of getting an error in JS, the weird value goes through a decoder, guaranteeing that you implement some sort of fallback behavior.
+-->
+<p>&#x3082;&#x3057;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x5909;&#x63DB;&#x304C;&#x3072;&#x3068;&#x3064;&#x3067;&#x3082;&#x3046;&#x307E;&#x304F;&#x3044;&#x304B;&#x306A;&#x3044;&#x5834;&#x5408;&#x306F;&#x3001;<strong>JavaScript&#x5074;&#x3067;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x8D77;&#x3053;&#x308B;</strong>&#x3053;&#x3068;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#xFF01;&#x3000;Elm&#x3067;&#x306F;&#x300E;&#x30D5;&#x30A7;&#x30A4;&#x30EB;&#x30D5;&#x30A1;&#x30B9;&#x30C8;&#x300F;(fail fast)&#x306E;&#x539F;&#x5247;&#x3092;&#x3068;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;Elm&#x30B3;&#x30FC;&#x30C9;&#x5074;&#x3067;&#x30A8;&#x30E9;&#x30FC;&#x3092;&#x8D77;&#x3053;&#x3059;&#x306E;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;&#x53EF;&#x80FD;&#x306A;&#x9650;&#x308A;&#x65E9;&#x304F;&#x554F;&#x984C;&#x3092;&#x5831;&#x544A;&#x3059;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x30D5;&#x30E9;&#x30B0;&#x306B;<code>Json.Decode.Value</code>&#x3092;&#x4F7F;&#x3046;&#x306E;&#x3092;&#x597D;&#x3080;&#x4EBA;&#x304C;&#x3044;&#x308B;&#x7406;&#x7531;&#x306E;&#x3072;&#x3068;&#x3064;&#x306B;&#x3082;&#x306A;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;JavaScript&#x5074;&#x3067;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x8D77;&#x304D;&#x308B;&#x3088;&#x308A;&#x3001;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x3067;&#x3053;&#x306E;&#x5909;&#x306A;&#x5024;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x3053;&#x3068;&#x3067;&#x3001;&#x4F55;&#x3089;&#x304B;&#x306E;&#x30D5;&#x30A9;&#x30FC;&#x30EB;&#x30D0;&#x30C3;&#x30AF;&#x304C;&#x5B9F;&#x88C5;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x306E;&#x3092;&#x4FDD;&#x8A3C;&#x3059;&#x308B;&#x307B;&#x3046;&#x304C;&#x3044;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
 
                                 
                                 </section>
@@ -815,7 +863,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"フラグ","level":"1.9.1","depth":2,"next":{"title":"ポート","level":"1.9.2","depth":2,"path":"interop/ports.md","ref":"interop/ports.md","articles":[]},"previous":{"title":"JavaScriptとの相互運用","level":"1.9","depth":1,"path":"interop/README.md","ref":"interop/README.md","articles":[{"title":"フラグ","level":"1.9.1","depth":2,"path":"interop/flags.md","ref":"interop/flags.md","articles":[]},{"title":"ポート","level":"1.9.2","depth":2,"path":"interop/ports.md","ref":"interop/ports.md","articles":[]},{"title":"カスタムエレメンツ","level":"1.9.3","depth":2,"path":"interop/custom_elements.md","ref":"interop/custom_elements.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","sitemap"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"interop/flags.md","mtime":"2019-01-04T13:35:03.971Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-04T13:35:37.747Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"フラグ","level":"1.9.1","depth":2,"next":{"title":"ポート","level":"1.9.2","depth":2,"path":"interop/ports.md","ref":"interop/ports.md","articles":[]},"previous":{"title":"JavaScriptとの相互運用","level":"1.9","depth":1,"path":"interop/README.md","ref":"interop/README.md","articles":[{"title":"フラグ","level":"1.9.1","depth":2,"path":"interop/flags.md","ref":"interop/flags.md","articles":[]},{"title":"ポート","level":"1.9.2","depth":2,"path":"interop/ports.md","ref":"interop/ports.md","articles":[]},{"title":"カスタムエレメンツ","level":"1.9.3","depth":2,"path":"interop/custom_elements.md","ref":"interop/custom_elements.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","sitemap"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"interop/flags.md","mtime":"2019-01-05T18:41:41.181Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-05T18:42:10.761Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
