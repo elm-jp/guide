@@ -34,7 +34,7 @@ You can think of `Browser.sandbox` as setting up a system like this:
 We get to stay in the world of Elm, writing functions and transforming data. This hooks up to Elm&rsquo;s **runtime system**. The runtime system figures out how to render `Html` efficiently. Did anything change? What is the minimal DOM modification needed? It also figures out when someone clicks a button or types into a text field. It turns that into a `Msg` and feeds it into your Elm code.
 -->
 
-私達はElmの世界にとどまり、いくつもの関数を書きそしてデータを変換し、Elmの**ランタイムシステム**とつながります。このランタイムシステムは`Html`をどのように効率的に描画するのかを計算してくれます。例えば、なんらかの変化があったら、必要とされる最小限のDOMの変更はなにか？また、誰かがボタンをクリックした時や、テキストフィールドになにかをタイプした際にも計算し、その結果を`Msg`に変換した上であなたのElmコードに送り出します。
+我々はElmの世界（上図のブルーの部分）の中にとどまり、いろいろな関数を書いたりデータを変換したりします。そしてこの世界がElmのランタイムシステムとつながります。このランタイムシステムは`Html`をどのように効率的に描画するのかを計算してくれます。例えば、なんらかの変化があったら？必要とされる最小限のDOMの変更はなんでしょうか？また、誰かがボタンをクリックした時や、テキストフィールドになにかをタイプした際にも計算し、その結果を`Msg`に変換した上であなたのElmコードに送り出します。
 
 <!--
 By cleanly separating out all the DOM manipulation, it becomes possible to use extremely aggressive optimizations. So Elm&rsquo;s runtime system is a big part of why Elm is [one of the fastest options available][benchmark].
@@ -63,7 +63,7 @@ You can think of `Browser.element` as setting up a system like this:
 <!--
 In addition to producing `Html` values, our programs will also send `Cmd` and `Sub` values to the runtime system. In this world, our programs can **command** the runtime system to make an HTTP request or to generate a random number. They can also **subscribe** to the current time.
 -->
-このプログラムでは`Html`という値に加えて、`Cmd`と`Sub`なる値をランタイムシステムに送り出します。ここでは我々のプログラムがランタイムシステムに対してHTTPリクエストを送ったり乱数を生成するよう**指示**することができます。また現在時刻をランタイムシステムから**待ち受け**することもできます。
+このプログラムでは`Html`という値に加えて、`Cmd`と`Sub`なる値をランタイムシステムに送り出します。ここでは我々のプログラムがランタイムシステムに対してHTTPリクエストを送ったり乱数を生成するよう**指示**することができます。また現在時刻をランタイムシステムから待ち受けて我々のプログラムで使うこともできます。
 
 <!--
 I think commands and subscriptions make more sense when you start seeing examples, so let&rsquo;s do that!
@@ -86,7 +86,7 @@ I think commands and subscriptions make more sense when you start seeing example
 > - [`elm/html`](https://package.elm-lang.org/packages/elm/html/latest/)
 >
 <!--
-> But now we will start getting into some fancier ones:
+- But now we will start getting into some fancier ones:
 -->
 > 引き続きいくつかのさらにイカしたパッケージについて取り組んで行きましょう:
 >
@@ -116,3 +116,5 @@ elm install elm/random
 -->
 >
 > 続く例の中で我々が使用するパッケージについて触れていきますので、これらがどんな役割を果たすか判明するでしょう！
+>
+> **Note 3:**「指示する」を意味する英語のCommandが`Cmd`の語源です。英語のSubscriptionが`Sub`の語源で、主に定期購読と訳されますが、Elmでのイメージは外部から来るメッセージを定期的に待ち受けるところからから来ています 。
