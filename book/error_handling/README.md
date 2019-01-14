@@ -60,4 +60,4 @@ Instead of just saying that the input is invalid, we are describing each of the 
 These kinds of situations are extremely common. It is often valuable to create a custom type for your exact situation, but in some of the simpler cases, you can use an off-the-shelf type instead. So the rest of this chapter explores the `Maybe` and `Result` types, showing how they can help you treat errors as data!
 -->
 
-このような状況は極めて一般的です。`Maybe`みたいに汎用な型を使うのではなく、その場その場に合わせてカスタム型を作成したほうがしばしば有益ですが、より単純な場合には代わりに既製の型を使用することができます。それでこの章の残りの部分では`Maybe`型と`Result`型を新たに学び、この2つの型がどのようにエラーをデータとして扱うのを助けることができるかを示します！
+このような状況は極めて一般的です。その場その場に合わせてカスタム型を作成したほうがしばしば有益ですが、より単純な場合には代わりに既製の型を使用することができます。それでこの章の残りの部分では`Maybe`型と`Result`型を新たに学び、この2つの型がどのようにエラーをデータとして扱うのを助けることができるかを示します！
