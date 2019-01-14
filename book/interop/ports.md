@@ -8,7 +8,7 @@
 The previous two pages, we saw the JavaScript needed to start Elm programs and a way to pass in flags on initialization:
 -->
 
-先ほどのふたつのページでは、JavaScript が Elm プログラムを開始する必要があるということと、その初期化のときにフラグを渡す方法について見てきました。
+先ほどのふたつのページでは、Elmプログラムを開始するのに必要な JavaScript コードと、その初期化のときにフラグを渡す方法について見てきました。
 
 <!--
 ```elm
@@ -260,7 +260,7 @@ I want to add a couple notes about the examples we saw here:
 - **Sending `Json.Decode.Value` through ports is recommended, but not the only way.** Like with flags, certain core types can pass through ports as well. This is from the time before JSON decoders, and you can read about it more [here](/interop/flags.html#verifying-flags).
 -->
 
-- **ポートを通じて送信するのは `Json.Decode.Value` がお勧めですが、それが送信できる唯一のデータ型というわけではありません。**　フラグで見てきたように、`elm/core`に含まれる型のなかにもポートを通じて渡すことができるものがあります。これは JSONデコーダの前からなので、それについて詳しくは[こちら](/interop/flags.html#フラグの検証)を読んでみてください。
+- **ポートを通じて送信するのは `Json.Decode.Value` がお勧めですが、それが送信できる唯一のデータ型というわけではありません。**　フラグで見てきたように、`elm/core`に含まれる型のなかにもポートを通じて渡すことができるものがあります。これは Elm に JSON デコーダーが導入される前から存在しているもので、それについて詳しくは[こちら](/interop/flags.html#フラグの検証)を読んでみてください。
 
 <!--
 - **Ports are for applications.** A `port module` is available in applications, but not in packages. This ensures that application authors have the flexibility they need, but the package ecosystem is entirely written in Elm. I argued [here](https://groups.google.com/d/msg/elm-dev/1JW6wknkDIo/H9ZnS71BCAAJ) that this will help us build a much stronger ecosystem and community in the long run.
@@ -279,7 +279,7 @@ I hope this information will help you find ways to embed Elm in your existing Ja
 -->
 
 
-この情報が既存の JavaScript に Elm を埋めこむ方法を見つける助けになれば幸いです！　すべてを Elm で書き直す方法ほど魅力的ではないでしょうが、一部に Elm を埋め込むほうがより効率的な戦略であるということは歴史が示しています。
+この情報が既存の JavaScript に Elm を埋めこむ方法を見つける助けになれば幸いです！　すべてを Elm で書き直す方法ほど魅力的ではないでしょうが、一部に Elm を埋め込むほうがより効果的な戦略であるということは歴史が示しています。
 
 <!--
 > ## Aside: Design Considerations
@@ -307,7 +307,7 @@ I hope this information will help you find ways to embed Elm in your existing Ja
 > 言語の歴史の中でも、ポートは特別な存在です。言語間の相互作用については次のようなふたつの戦略がありましたが、Elmはこのどちらも選びませんでした。
 > 
 > 1. **完全な後方互換性。** 例えば C++ は C のスーパーセットであり、TypeScript は JavaScript のスーパーセットです。これはとても寛大なアプローチであり、極めて効果的な手法であることも実証されています。文字通り、誰もがその言語をすでに使っているのです。
-> 2. **外部関数インターフェイス(Foreign Function Interface, FFI)。** これは母体となる言語の関数への直接のバインディングを可能にします。例えば、Scala は Java の関数を直接呼ぶことができます。Closure/Java や Python/C、Haskell/C などの多くの言語が同様のアプローチをとっています。繰り返しになりますが、これもとても効率的であることが実証されています。
+> 2. **外部関数インターフェイス(Foreign Function Interface, FFI)。** これは母体となる言語の関数への直接のバインディングを可能にします。例えば、Scala は Java の関数を直接呼ぶことができます。Closure/Java や Python/C、Haskell/C などの多くの言語が同様のアプローチをとっています。繰り返しになりますが、これもとても効果的であることが実証されています。
 > 
 > これらの方針は魅力的ですが、主に次のふたつの理由により、Elm にとってはどちらも理想的とはいえませんでした。
 > 
