@@ -8,7 +8,7 @@
 One of the guarantees of Elm is that you will not see runtime errors in practice. This is partly because **Elm treats errors as data**. Rather than crashing, we model the possibility of failure explicitly with custom types. For example, say you want to turn user input into a age. You might create a custom type like this:
 -->
 
-Elmの安全性への保証の1つはランタイムエラーを実際に見ることはないということです。その理由としては **Elmはエラーをデータとして扱うということ** が挙げられます。エラーが起こってアプリケーション全体がクラッシュするよりは失敗の可能性を明示的にカスタム型にモデリングするほうが好まれます。例えば、ユーザからの入力を年齢に変換したいとしましょう。カスタム型をこのように作りましょう:
+Elmが保証してくれる安全性の1つに、ランタイムエラーを実際に見ることはないということがあります。その理由としては **Elmはエラーをデータとして扱うということ** が挙げられます。エラーが起こってアプリケーション全体がクラッシュするよりは失敗の可能性を明示的にカスタム型を使って表現するほうが好まれます。例えば、ユーザからの入力を年齢に変換したいとしましょう。カスタム型をこのように作りましょう:
 
 ```elm
 type MaybeAge
@@ -54,10 +54,10 @@ toPost title content =
 Instead of just saying that the input is invalid, we are describing each of the ways things might have gone wrong. If we have a `viewPreview : MaybePost -> Html msg` function to preview valid posts, now we can give more specific error messages in the preview area when something goes wrong!
 -->
 
-入力が無効であるというだけではなく、入力がどう間違っているかをそれぞれ表現しています。有効な投稿をプレビューするための`viewPreview：MaybePost -> Html msg`関数があれば、何か問題が発生したときにプレビュー領域にもっと具体的なエラーメッセージを表示できるようになりました！
+入力が無効であるというだけではなく、入力がどう間違っているかをそれぞれ表現しています。有効な投稿をプレビューするための`viewPreview：MaybePost -> Html msg`関数があれば、何か問題が発生したときにプレビュー領域にもっと具体的なエラーメッセージを表示できるようになります！
 
 <!--
 These kinds of situations are extremely common. It is often valuable to create a custom type for your exact situation, but in some of the simpler cases, you can use an off-the-shelf type instead. So the rest of this chapter explores the `Maybe` and `Result` types, showing how they can help you treat errors as data!
 -->
 
-このような状況は極めて一般的です。詳しい状況に合わせてカスタム型を作成することはしばしば有益ですが、より単純な場合には代わりに既製の型を使用することができます。それでこの章の残りの部分では`Maybe`型と`Result`型を探り、この2つの型がどのようにエラーをデータとして扱うのを助けることができるかを示します！
+このような状況は極めて一般的です。`Maybe`みたいに汎用な型を使うのではなく、その場その場に合わせてカスタム型を作成したほうがしばしば有益ですが、より単純な場合には代わりに既製の型を使用することができます。それでこの章の残りの部分では`Maybe`型と`Result`型を新たに学び、この2つの型がどのようにエラーをデータとして扱うのを助けることができるかを示します！
