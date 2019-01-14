@@ -8,7 +8,7 @@
 The previous two pages, we saw the JavaScript needed to start Elm programs and a way to pass in flags on initialization:
 -->
 
-先ほどのふたつのページでは、JavaScript が Elm プログラムを開始する必要があり、その初期化のときにフラグを渡す方法について見てきました。
+先ほどのふたつのページでは、JavaScript が Elm プログラムを開始する必要があるということと、その初期化のときにフラグを渡す方法について見てきました。
 
 <!--
 ```elm
@@ -54,7 +54,7 @@ We can give information to the Elm program, but only when it starts. What if you
 Elm allows you to pass messages between Elm and JavaScript through **ports**. Unlike the request/response pairs you see with HTTP, the messages sent through ports just go in one direction. It is like sending a letter. For example, banks in the United States send me hundreds of unsolicited letters, cajoling me to indebt myself to them so I will finally be happy. Those messages are all one-way. All letters are like that really. I may send a letter to my friend and she may reply, but there is nothing inherent about messages that demands request/response pairs. Point is, **Elm and JavaScript can communicate by sending these one-way messages through ports.**
 -->
 
-Elm では、**ポート**を通じて Elm と JavaScript のあいだのメッセージの受け渡しを行います。HTTPで見たようなリクエスト/レスポンスの組とは異なり、メッセージはポートを通じて一方向に送信されます。まるで手紙を郵送するみたいにです。例えば、アメリカ合衆国にある銀行が事前の承諾なしに私に大量の手紙を送り、やがて幸せになれますからと私を丸め込んで銀行からお金を借りさせようとします。これらのメッセージはまったくもって一方通行です。すべての手紙は、まさにこのようになっています。私は友達に手紙を送ることがあり、彼女はそれに対して返信するときもありますが、リクエスト/レスポンスの組を要求するメッセージに対して必ず返信しなければならないという決まりがあるわけではありません。ここで言いたいのは、**Elm と JavaScript は、ポートを通じて一方的に送信を行うことで、通信をすることができる**ということです。
+Elm では、**ポート**を通じて Elm と JavaScript のあいだのメッセージの受け渡しを行います。HTTPで見たようなリクエスト/レスポンスの組とは異なり、メッセージはポートを通じて一方向に送信されます。まるで手紙を郵送するみたいにです。例えば、アメリカ合衆国にある銀行は事前の承諾なしに私に大量の手紙を送り、やがて幸せになれますからと私を丸め込んで銀行からお金を借りさせようとします。これらのメッセージはまったくもって一方通行です。すべての手紙は、まさにこのようになっています。私が友達に手紙を送ったとき、彼女はそれに対して返信するときもしないときもありますが、それと同じように、メッセージのやり取りにおいて常にリクエスト/レスポンスを組にしないといけないという決まりがあるわけではありません。ここで言いたいのは、**Elm と JavaScript は、ポートを通じて互いに一方的に送信を行うことで、通信をすることができる**ということです。
 
 
 <!--
@@ -67,7 +67,7 @@ Elm では、**ポート**を通じて Elm と JavaScript のあいだのメッ�
 Say we want to use [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Storage) to cache some information. The solution is to set up a port that sends information out to JavaScript.
 -->
 
-何らかの情報のキャッシュをするために、[`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Storage)を使いたいとしましょう。それを実現するには、JavaScroipt へと情報を送出するポートを用意します。
+何らかの情報のキャッシュをするために、[`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Storage)を使いたいとしましょう。それを実現するには、JavaScript へと情報を送出するポートを用意します。
 
 <!--
 On the Elm side, this means defining the `port` like this:
@@ -94,7 +94,7 @@ The most important line is the `port` declaration. That creates a `cache` functi
 On the JavaScript side, we initialize the program like normal, but we then subscribe to all the outgoing `cache` messages:
 -->
 
-JavaScript 側では通常のようにプログラムを初期化しますが、そのあとで外向きの `cache` メッセージをすべて購読 ( subscribe ) するようにします。
+JavaScript 側では通常のようにプログラムを初期化しますが、そのあとで外向きの `cache` メッセージをすべて待ち受ける ( subscribe ) ようにします。
 
 ```javascript
 var app = Elm.Main.init({
@@ -109,7 +109,7 @@ app.ports.cache.subscribe(function(data) {
 Commands like `cache (E.int 42)` send values to anyone subscribing to the `cache` port in JavaScript. So the JS code would get `42` as `data` and cache it in `localStorage`.
 -->
 
-`cache (E.int 42)` のようなコマンドは、JavaScript でこの `cache` ポートを購読している相手にその値を送信します。JavaScript コードは `data` として `42` を受け取り、それを `localStorage` にキャッシュします。
+`cache (E.int 42)` のようなコマンドは、JavaScript でこの `cache` ポートに対して待ち受けている相手にその値を送信します。JavaScript コードは `data` として `42` を受け取り、それを `localStorage` にキャッシュします。
 
 <!--
 In most programs that want to cache information like this, you communicate with JavaScript in two ways:
@@ -139,11 +139,11 @@ So there are only _outgoing_ messages for this interaction with JS. And I would 
 > **Note 3:** Once you `subscribe` to outgoing port messages, you can `unsubscribe` as well. It works like `addEventListener` and `removeEventListener`, also requiring reference-equality of functions to work.
 -->
 
-> **Note 1:** ここではポートを `setItem` 関数へと結び付けているわけではありません！　それはよくある間違いです。**重要なのは、LocalStorage API をひとつの関数で一度にカバーしない**ということです。このコマンドは何らかのキャッシュを行うように要求するものです。この JavaScript コードは LocalStorage や IndexedDB、WebSQL など、どれでも選んで使うことができます。そこでは、「JavaScriptの関数それぞれをポートにするべきだろうか？」と考えるのではなく、「JavaScriptで要求を達成するには何が必要か？」を考えるようにしてください。ここではキャッシュについて考えてきましたが、おしゃれなレストランでも同じことが言えます。あなたは自分が食べたいものを決めることができますが、その料理をどのようにして準備するかまで事細かに指定したりはしないでしょう。あなたの高水準なメッセージ(あなたの注文)がキッチンへと伝えられ、 その結果として具体的なメッセージ(飲み物や前菜、主菜、デザートなど)を受け取ります。**うまく設計されたポートは関心をきれいに分離する**というのがポイントです。Elmはそれがどのような要求であれビューを担当し、JavaScript はそれがどのような要求であれキャッシュを担当する、というように関心を分離できるのです。
+> **Note 1:** ここではポートを `setItem` 関数へと結び付けているわけではありません！　それはよくある間違いです。**重要なのは、LocalStorage API のそれぞれの関数を一対一でポートに対応させない**ということです。このポートは何らかのキャッシュを行うように要求するためのものです。この JavaScript コードは LocalStorage や IndexedDB、WebSQL など、どれでも選んで使うことができます。そこでは、「JavaScriptの関数それぞれをポートにするべきだろうか？」と考えるのではなく、「JavaScriptで要求を達成するには何が必要か？」を考えるようにしてください。ここではキャッシュについて考えてきましたが、おしゃれなレストランでも同じようなことが言えます。あなたは自分が食べたいものを決めることができますが、その料理をどのようにして準備するかまで事細かに指定したりはしないでしょう。あなたの大まかなメッセージ(あなたの注文)がキッチンへと伝えられ、 その結果として具体的なメッセージ(飲み物や前菜、主菜、デザートなど)を受け取ります。**うまく設計されたポートは関心をきれいに分離する**というのがポイントです。JavaScript 側のキャッシュの仕組みとは無関係に Elm はビューを管理し、Elmがどのようにビューを表示しているかに関係なく JavaScript はキャッシュを管理する、というように関心を分離できるのです。
 > 
 > **Note 2:** Elm の LocalStorage パッケージは今のところ存在しませんので、LocalStorage を Elm から使う方法の現時点でのお勧めは、まさにここで説明したようにポートを使うことです。Elm で直接サポートをする予定がないものだろうかと気になっている人はいますし、それを強く切望している人もいます！　そのことについては、[ここ](https://github.com/elm/projects/blob/master/roadmap.md#where-is-the-localstorage-package)に書いているつもりです。
 > 
-> **Note 3:** いったん外向きのメッセージの `subscribe` を行うと、同様に購読を停止する `unsubscribe` もできるようになります。これは `addEventListener` と `removeEventListener` のように動きますが、これがうまく動作するためには関数の参照の等価性が必要となります。
+> **Note 3:** いったん外向きのメッセージの `subscribe` を行うと、同様に待ち受けを停止する `unsubscribe` もできるようになります。これは `addEventListener` や `removeEventListener` と似たような動作をし、`unsubscribe` すると `subscribe` で登録した関数のうち参照が等価なものの待ちうけが停止されます。
 
 <!--
 ## Incoming Messages
@@ -155,7 +155,7 @@ So there are only _outgoing_ messages for this interaction with JS. And I would 
 Say we are creating a chat room in JavaScript, and we are curious to try out Elm a bit. Pretty much every company that uses Elm today, started by converting just one element to try it out. Does it work nice? Does the team like it? If so, great, try more elements! If not, no big deal, revert and use the technologies that work best for you!
 -->
 
-JavaScript でチャットルームを作っているとして、Elm を試すことにもちょっと興味があるとしましょう。現在 Elm を使っているほとんどの企業では、まずはひとつの HTML の要素だけを Elm に置き換えて試すことから始めています。これはうまくいくのでしょうか？　私たちのチームはこれを気に入るのでしょうか？　もしうまくいったのであれば、それは素晴らしいことです。もっと他のいろんな要素についても Elm への置き換えを試してみてください。置き換えがうまくいかなかったとしても、それはたいしたことはありません。元に戻して、あなたにとって最もうまくいく技術を使ってください！
+JavaScript でチャットルームを作っているとして、ほんの一部でもいいのでぜひとも Elm の導入を試してみたいと思っているとしましょう。現在 Elm を使っているほとんどの企業では、まずはひとつのビューの要素だけを Elm に置き換えて試すことから始めています。これはうまくいくのでしょうか？　あなたのチームはこれを気に入るでしょうか？　もしうまくいったのであれば、それは素晴らしいことです。もっと他のいろんな要素についても Elm への置き換えを試してみてください。置き換えがうまくいかなかったとしても、それはたいしたことはありません。元に戻して、あなたにとって最もうまくいく技術を使ってください！
 
 <!--
 So when we look at our chat room app, we decide to convert an element that shows all active users. That means Elm needs to know about any changes to the active users list. Well, that sort of thing happens through ports!
@@ -185,7 +185,7 @@ port activeUsers : (E.Value -> msg) -> Sub msg
 Again, the important line is the `port` declaration. It creates a `activeUsers` function, and if we subscribe to `activeUsers Changed`, we will get a `Msg` whenever folks send values in from JavaScript.
 -->
 
-繰り返しになりますが、重要な行は、この `port` の宣言のところです。この宣言は `activeUsers` 関数を作りますが、`activeUsers Changed` に対して購読をしておくと、誰かが JavaScript から値を送信するたびに `Msg` を受け取ることになります。
+繰り返しになりますが、重要な行はこの `port` の宣言のところです。この宣言は `activeUsers` 関数を作りますが、`activeUsers Changed` のようにしてサブスクリプションを登録しておくと、誰かが JavaScript から値を送信するたびに `Msg` を受け取ることになります。
 
 <!--
 On the JavaScript side, we initialize the program like normal, but now we are able to send messages to any `activeUsers` subscriptions:
@@ -236,7 +236,7 @@ Now you may be wondering, why send the _entire_ list though? Why not just say wh
 Instead, I chose a design that makes synchronization errors impossible. JavaScript owns the state. All the Elm code does is get the complete list and display it. If the Elm code needs to change the list for some reason, it cannot! JavaScript owns the state. Instead, I would send a message out to JavaScript asking for specific changes. Point is, **state should be owned by Elm or by JavaScript, never both.** This dramatically reduces the risk of synchronization errors. Many folks who struggle with ports fall into this trap of never really deciding who owns the state. Be wary!
 -->
 
-私ならそうしたアプローチをとるのはやめて、そのような同期エラーがそもそも起こりえないような設計を選びます。JavaScript が状態を管理します。Elmコードが行うのは、完全なリストを受け取り、それを表示することだけです。もし何らかの理由で Elm コードがリストを変更する必要があったとしても、それは不可能です！　状態を管理しているのは JavaScript なのです。その代わりに、その何らかの変更を知らせるようなメッセージを JavaScript へと送信するようにします。**状態は Elm か JavaScript のどちらか一方だけが管理するべきで、その両方が管理してはいけない**、というのがポイントです。これは同期エラーの危険を劇的に小さくします。多くの人がポートで躓いており、誰が状態を管理するのかを明確にしないというこの罠に陥っています。油断しないでください！　　　　　
+私ならそうしたアプローチをとるのはやめて、そのような同期エラーがそもそも起こりえないような設計を選びます。JavaScript が状態を管理します。Elmコードが行うのは、完全なリストを受け取り、それを表示することだけです。もし何らかの理由で Elm コードがリストを変更する必要があったとしても、それは不可能です！　状態を管理しているのは JavaScript なのです。その代わりに、何らかの変更を起こすようにというメッセージを JavaScript へと送信するようにします。**状態は Elm か JavaScript のどちらか一方だけが管理するべきで、その両方が管理してはいけない**、というのがポイントです。これは同期エラーの危険を劇的に小さくします。ポートでつまずいている人たちの多くが、誰が状態を管理するのかを明確にしないというこの罠に陥っています。油断しないでください！　　　　　
 
 <!--
 ## Notes
@@ -254,13 +254,13 @@ I want to add a couple notes about the examples we saw here:
 - **All `port` declarations must appear in a `port module`.** It is probably best to organize all your ports into one `port module` so it is easier to see the interface all in one place.
 -->
 
-- **すべての `port` は `port module` の中で宣言されなくてはいけません。**  ひとつの `port module` の中にすべてのポートをまとめてしまうのが、おそらく最善でしょう。
+- **すべての `port` は `port module` の中で宣言されなくてはいけません。**  ひとつの `port module` の中にすべてのポートをまとめてしまうのがおそらく最善で、ひとつの場所にすべての JavaScript とのインターフェイスがあったほうがより把握しやすいでしょう。
 
 <!--
 - **Sending `Json.Decode.Value` through ports is recommended, but not the only way.** Like with flags, certain core types can pass through ports as well. This is from the time before JSON decoders, and you can read about it more [here](/interop/flags.html#verifying-flags).
 -->
 
-- **ポートを通じて送信するのは `Json.Decode.Value` がお勧めですが、それが送信できる唯一のデータ型というわけではありません。**　フラグで見てきたように、中核となる型のなかにもポートを通じて渡すことができるものがあります。これは JSONデコーダの前からなので、それについて詳しくは[こちら](/interop/flags.html#verifying-flags)を読んでみてください。
+- **ポートを通じて送信するのは `Json.Decode.Value` がお勧めですが、それが送信できる唯一のデータ型というわけではありません。**　フラグで見てきたように、`elm/core`に含まれる型のなかにもポートを通じて渡すことができるものがあります。これは JSONデコーダの前からなので、それについて詳しくは[こちら](/interop/flags.html#フラグの検証)を読んでみてください。
 
 <!--
 - **Ports are for applications.** A `port module` is available in applications, but not in packages. This ensures that application authors have the flexibility they need, but the package ecosystem is entirely written in Elm. I argued [here](https://groups.google.com/d/msg/elm-dev/1JW6wknkDIo/H9ZnS71BCAAJ) that this will help us build a much stronger ecosystem and community in the long run.
@@ -306,17 +306,17 @@ I hope this information will help you find ways to embed Elm in your existing Ja
 > 
 > 言語の歴史の中でも、ポートは特別な存在です。言語間の相互作用については次のようなふたつの戦略がありましたが、Elmはこのどちらも選びませんでした。
 > 
-> 1. **完全な後方互換性。** 例えば C++ は C のスーパーセットであり、TypeScript は JavaScript のスーパーセットです。これはとても寛大なアプローチであり、極めて効率的であることも実証されています。その名の通り、誰もがその言語をすでに使っているのです。
+> 1. **完全な後方互換性。** 例えば C++ は C のスーパーセットであり、TypeScript は JavaScript のスーパーセットです。これはとても寛大なアプローチであり、極めて効果的な手法であることも実証されています。文字通り、誰もがその言語をすでに使っているのです。
 > 2. **外部関数インターフェイス(Foreign Function Interface, FFI)。** これは母体となる言語の関数への直接のバインディングを可能にします。例えば、Scala は Java の関数を直接呼ぶことができます。Closure/Java や Python/C、Haskell/C などの多くの言語が同様のアプローチをとっています。繰り返しになりますが、これもとても効率的であることが実証されています。
 > 
-> これらの方針は興味深いものですが、主に次のふたつの理由により、Elm にとってはどちらも理想的とはいえませんでした。
+> これらの方針は魅力的ですが、主に次のふたつの理由により、Elm にとってはどちらも理想的とはいえませんでした。
 > 
-> 1. **安全性の欠如。** Elmの最も良いところのひとつは、さまざまな問題についてそれをまるごと心配しなくていいということです。しかし、もしどんなパッケージでも JavaScript を直接使うことができるとしたら、その安全性はすべて台無しになってしまいます。このパッケージは実行時エラーを起こすでしょうか？　それはどんなとき？　こちらが渡したデータをそのパッケージが変更することはあるのでしょうか？　その変更を検出する必要はあるのでしょうか？　そのパッケージは副作用を持つのでしょうか？　サードパーティのサーバへとメッセージを送信することはあるのでしょうか？ 多くのユーザが Elm に特に惹きつけられているのは、これ以上このようなことに頭を悩ませる必要がないからなのです。
+> 1. **安全性の保証の欠如。** Elmの最も良いところのひとつは、さまざまな問題についてそれをまるごと心配しなくていいということです。しかし、もしどんなパッケージでも JavaScript を直接使うことができるとしたら、その安全性はすべて台無しになってしまいます。このパッケージは実行時エラーを起こすでしょうか？　それはどんなとき？　こちらが渡したデータをそのパッケージが変更することはあるのでしょうか？　その変更を検出する必要はあるのでしょうか？　そのパッケージは副作用を持つのでしょうか？　サードパーティのサーバへとメッセージを送信することはあるのでしょうか？ 多くのユーザが Elm に特に惹きつけられているのは、これ以上このようなことに頭を悩ませる必要がないからなのです。
 > 2. **パッケージの氾濫。** JavaScript の API を Elm へ直接複製したいという要求は極めて強いです。`elm/html` が導入される前の２年のあいだ、もしそれが可能であれば、きっと誰かが jQuery のバインディングを作るだろうと確信していました。より伝統的な相互作用の設計を採用している静的型付け関数型言語では、すでにパッケージの氾濫が起こっています。私が知る限り、パッケージの氾濫は JavaScript へとコンパイルする言語に特有の現象です。たとえば Python のような言語ではこのような圧力はそれほど高くないことから、私が思うに、この欠点を生み出しているのは JavaScript のその独自の文化やエコシステムの歴史ではないでしょうか。
 > 
-> これらの落とし穴を考えると、Elm の最も良い部分を維持しつつ、JavaScript でやってきたことも可能にするポートは、興味深いものではないかと思います。素晴らしいでしょう！　その一方で Elmは、JavaScript のエコシステムを取り込むことで、より迅速にライブラリを増やすというようなことはできません。長い目で見たとしたら、このことは Elm の強さの要になるのではないかと考えています。結果として次のことが言えます。
+> これらの落とし穴を考えると、Elm の最も良い部分を維持しつつ、JavaScript でやってきたことも可能にするポートは、とても魅力的ではないかと思います。素晴らしいでしょう！　その一方で Elmは、JavaScript のエコシステムを取り込むことで、より迅速にライブラリを増やすというようなことはできません。長い目で見たとしたら、このことは Elm の強さの要になるのではないかと考えています。結果として次のことが言えます。
 > 
 > 1. **パッケージは Elm のために設計されます。** Elm コミュニティのメンバーがより経験を積んで信頼できるようになったので、The Elm Architecture とエコシステム全体をシームレスに動作させる、レイアウトとデータ可視化への新しいアプローチが散見されるようになってきています。このほかの様々な種類の問題についても、このような革新が起こり続けるように期待しています！
-> 2. **パッケージはポータブルです。** もしいつかコンパイラが x86 や WebAssembly を出力するようになったとしたら、エコシステム全体は引き続き動作し続けますが、実行速度は速くなります！　ポートはすべてのパッケージが全体を Elm で書かれていることを保証しており、JavaScript 以外のコンパイラターゲットも実現可能であるように Elm は設計されているのです。
+> 2. **パッケージはポータブルです。** もしいつかコンパイラが x86 や WebAssembly を出力するようになったとしたら、エコシステム全体は引き続き動作し続けますが、実行速度は速くなります！　ポートの仕組みはすべてのパッケージが全体を Elm で書かれていることを保証しており、JavaScript 以外のコンパイラターゲットも実現可能であるように Elm は設計されているのです。
 > 
-> これが長く険しい道のりになることは間違いありませんが、Elm は更に30年は長生きできるようになるでしょう。数十年のあいだチームや企業をサポートする必要があるので、20年から30年先に Elm がどうなっているのかを見据えて考えたとき、このポートによるトレードオフはとても期待できるのではないかと思っています！　私の講演、[What is Success?](https://youtu.be/uGlzRt-FYto)はちょっとスロウスタートですが、この事についてより深く踏み込んでいます。
+> これが長く険しい道のりになることは間違いありませんが、プログラミング言語は30年以上に渡って使われ続けるものです。数十年のあいだチームや企業をサポートする必要があるので、20年から30年先に Elm がどうなっているのかを見据えて考えたとき、このポートによるトレードオフはとても期待できるのではないかと思っています！　私の講演、[What is Success?](https://youtu.be/uGlzRt-FYto)はちょっとスロースタートですが、この事についてより深く踏み込んでいます。
