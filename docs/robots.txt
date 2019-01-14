@@ -13,7 +13,7 @@ Allow: /types/reading_types.html$
 Allow: /types/type_aliases.html$
 # Allow: /types/custom_types.html$
 Allow: /types/pattern_matching.html$
-# Allow: /error_handling/$
+Allow: /error_handling/$
 # Allow: /error_handling/maybe.html$
 # Allow: /error_handling/result.html$
 Allow: /effects/$
