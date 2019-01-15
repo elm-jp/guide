@@ -129,7 +129,8 @@ Many folks always use a `Json.Decode.Value` because it gives them really precise
 The other supported types actually come from before we had figured out a way to do JSON decoders. If you choose to use them, there are some subtleties to be aware of. The following examples show the desired flag type, and then the sub-points show what would happen with a couple different JS values:
 -->
 
-前述のフラグとして渡すことができる型のうち、`Json.Decode.Value` 以外の型は、事前にElmのランタイムシステムが「どうやってJSONをデコードしたら良いか」を算出し、変換された値が渡されます。もしこの方法を使うのなら、いくつか注意することがあります。次の例では、渡そうとしているフラグの型それぞれについて、いろいろなJavaScriptの値を渡すとそれぞれ何が起こるのかを示しています。
+`JSON.Decode.Value` 以外の型をフラグとして渡す機能は、実はJSONデコーダーを使う方法が発明されるよりも前の時代に使われていたものです。
+これらの型をフラグとして渡すには、いくつか注意しないといけないことがあります。次の例では、渡そうとしているフラグの型それぞれについて、いろいろなJavaScriptの値を渡すとそれぞれ何が起こるのかを示しています。
 
 - `init : Int -> ...`
   - `0` => `0`
