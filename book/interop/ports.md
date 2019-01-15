@@ -272,7 +272,7 @@ I want to add a couple notes about the examples we saw here:
 - **Ports are about creating strong boundaries!** Definitely do not try to make a port for every JS function you need. You may really like Elm and want to do everything in Elm no matter the cost, but ports are not designed for that. Instead, focus on questions like “who owns the state?” and use one or two ports to send messages back and forth. If you are in a complex scenario, you can even simulate `Msg` values by sending JS like `{ tag: "active-users-changed", list: ... }` where you have a tag for all the variants of information you might send across.
 -->
 
-- **ポートは強い境界を作成するようなものです。** 必要なすべての JavaScript 関数についてポートを作成しようするのは、絶対にやめてください。あなたは本当に Elm が大好きで、どんな犠牲を払ってでもすべてを Elm でやろうとしているのかも知れませんが、ポートはそのようには設計されていないのです。その代わりに、「この状態を所有しているのは誰？」というような質問に焦点を合わせて、ひとつかふたつのポートを使ってメッセージを送受信してみてください。もしあなたがもっと複雑なシナリオに直面しているのであれば、送信しようとしている情報のすべてのヴァリアントについてのタグを持つ、 `{ tag: "active-users-changed", list: ... }` のような JavaScript を送信することで、 `Msg` の値をシミュレートしてみてもいいでしょう。
+- **ポートは強い境界を作成するようなものです。** 必要なすべての JavaScript 関数についてポートを作成しようするのは、絶対にやめてください。あなたは本当に Elm が大好きで、どんなコストを支払ってでもすべてを Elm でやろうとしているのかも知れませんが、ポートはそのようには設計されていないのです。その代わりに、「この状態を所有しているのは誰？」というような問題に焦点を合わせて、ひとつかふたつのポートを使ってメッセージを送受信してみてください。もしあなたがもっと複雑なシナリオに直面しているのであれば、送信しようとしている情報のすべてのバリアントについてのタグを持つ、 `{ tag: "active-users-changed", list: ... }` のような JavaScript を送信することで、 `Msg` の値をシミュレートしてみてもいいでしょう。
 
 <!--
 I hope this information will help you find ways to embed Elm in your existing JavaScript! It is not as glamorous as doing a full-rewrite in Elm, but history has shown that it is a much more effective strategy.
