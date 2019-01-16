@@ -196,7 +196,7 @@ As you look through the functions in [`elm/core`][core], you will see some type 
 <!--
 Notice that lower-case `a` in the type? That is called a **type variable**. It can vary depending on how [`List.length`][length] is used:
 -->
-型の中に小文字 `a`があることに気づきましたか？これは **型変数** と呼ばれるものです。この`a`が実際にどんな型になるかは、`[List.length][length]`がどのように使われるかによって変わります。
+型の中に小文字`a`があることに気づきましたか？これは **型変数** と呼ばれるものです。この`a`が実際にどんな型になるかは、[`List.length`][length]がどのように使われるかによって変わります。
 
 ```elm
 > List.length [1,1,2,3,5,8]
