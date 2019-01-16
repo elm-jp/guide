@@ -46,19 +46,28 @@ toName user =
 -- toName (Visitor "kate95")    == "kate95"
 ```
 
+<!--
 The `case` expression allows us to branch based on which variant we happen to see, so whether we see Thomas or Kate, we always know how to show their name.
-<!-- TODO -->
+-->
+`case`式は見えるバリアントに基づいて処理を分岐できます。なので`Regular`のトーマスが来ようが`Visitor`のケイトが来ようが名前の表示の仕方は常にわかっています。
+
+> **訳注** 上記の「見えるバリアント」とは同モジュール内で定義されているバリアントや、他モジュールからバリアントごと公開されているカスタム型のバリアントを指します。他モジュールがバリアントを公開していない場合、そのカスタム型はパターンマッチで分岐して処理することができません。
 
 <!--
 And if we try invalid arguments like `toName (Visitar "kate95")` or `toName Anonymous`, the compiler tells us about it immediately. This means many simple mistakes can be fixed in seconds, rather than making it to users and costing a lot more time overall.
 -->
-そしてもし、`toName (Visitar "kate95")`　や `toName Anonymous`  のような不正な引数を与えた場合には、コンパイラがそのことについてすぐに教えてくれるでしょう。
-つまり、多くの単純なミスは、あまり時間をかけなくても、数秒で修正できるでしょう。
+そしてもし、`toName (Visitar "kate95")`　や `toName Anonymous` のような不正な引数を与えた場合には、コンパイラがそのことについてすぐに教えてくれるでしょう。
+Elmでは単純なミスをリリースしてユーザにまで届けてしまって、バグ修正にビジネス全体でもっと多大な時間をかけてしまうことありません。大概のミスは数秒で修正できるでしょう。
 
+<!--
 ## Wild Cards
+-->
+## ワイルドカード
 
+<!--
 The `toName` function we just defined works great, but notice that the `age` is not used in the implementation? When some of the associated data is unused, it is common to use a “wild card” instead of giving it a name:
-<!-- TODO -->
+-->
+上で定義した`toName`関数はうまく動きますが、`age`の値を実装内で使っていませんよね？使っていない関連データには名前を付ける代わりに「ワイルドカード」を使うのが普通です。
 
 ```elm
 toName : User -> String
@@ -71,6 +80,7 @@ toName user =
       name
 ```
 
+<!--
 The `_` acknowledges the data there, but also saying explicitly that nobody is using it.
-
-<!-- TODO -->
+-->
+`_`はそこに値があることは認めて、誰もその値を使わないことを意味します。
