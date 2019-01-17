@@ -83,4 +83,4 @@ toName user =
 <!--
 The `_` acknowledges the data there, but also saying explicitly that nobody is using it.
 -->
-`_`はそこに値があることは認めて、誰もその値を使わないことを意味します。
+`_`はそこになんらかの値があることを示しつつも、実際にはその値が特に使われていないことを表現しています。
