@@ -11,7 +11,7 @@ Allow: /architecture/$
 Allow: /types/$
 Allow: /types/reading_types.html$
 Allow: /types/type_aliases.html$
-# Allow: /types/custom_types.html$
+Allow: /types/custom_types.html$
 Allow: /types/pattern_matching.html$
 # Allow: /error_handling/$
 # Allow: /error_handling/maybe.html$
