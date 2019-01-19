@@ -13,7 +13,7 @@ Allow: /types/reading_types.html$
 Allow: /types/type_aliases.html$
 # Allow: /types/custom_types.html$
 Allow: /types/pattern_matching.html$
-# Allow: /error_handling/$
+Allow: /error_handling/$
 Allow: /error_handling/maybe.html$
 # Allow: /error_handling/result.html$
 Allow: /effects/$
@@ -23,7 +23,7 @@ Allow: /effects/$
 Allow: /effects/time.html$
 Allow: /interop/$
 Allow: /interop/flags.html$
-# Allow: /interop/ports.html$
+Allow: /interop/ports.html$
 Allow: /interop/custom_elements.html$
 Allow: /webapps/$
 Allow: /webapps/navigation.html$
@@ -38,6 +38,8 @@ Allow: /optimization/asset_size.html$
 Allow: /appendix/types_as_sets.html$
 Allow: /appendix/types_as_bits.html$
 Allow: /appendix/function_types.html$
+Allow: /gitbook/*
+Allow: /sitemap.xml$
 
 # Sitemap
 Sitemap: https://guide.elm-lang.jp/sitemap.xml

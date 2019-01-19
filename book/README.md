@@ -96,7 +96,7 @@ Forget what you have heard about functional programming. Fancy words, weird idea
   - Automatically enforced semantic versioning for all Elm packages.
 -->
 まず「関数型プログラミング」について今までに聞いた話をすべて忘れてください。
-なんだかよくわからない用語を使ったり、今まで見たことないような特殊な考え方だったり、実際にアプリケーションを作るのには向いていなかったり...
+なんだかよくわからない用語を使ったり、今まで見たことないような特殊な考え方だったり、実際にアプリケーションを作ろうと思ってもまともなツールがそろってなかったり...
 反吐が出ますね。
 
 Elm はもっと実用的な以下のものを実現するために手段として関数型の考え方を使っているだけです。

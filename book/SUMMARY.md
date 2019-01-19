@@ -56,7 +56,7 @@
    * [型の別名](types/type_aliases.md)
    * [カスタム型](types/custom_types.md)
    * [パターンマッチ](types/pattern_matching.md)
-* [Error Handling](error_handling/README.md)
+* [エラーハンドリング](error_handling/README.md)
    * [Maybe](error_handling/maybe.md)
    * [Result](error_handling/result.md)
 * [コマンドとサブスクリプション](effects/README.md)
