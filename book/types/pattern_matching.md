@@ -49,15 +49,13 @@ toName user =
 <!--
 The `case` expression allows us to branch based on which variant we happen to see, so whether we see Thomas or Kate, we always know how to show their name.
 -->
-`case`式は見えるバリアントに基づいて処理を分岐できます。なので`Regular`のトーマスが来ようが`Visitor`のケイトが来ようが名前の表示の仕方は常にわかっています。
-
-> **訳注** 上記の「見えるバリアント」とは同モジュール内で定義されているバリアントや、他モジュールからバリアントごと公開されているカスタム型のバリアントを指します。他モジュールがバリアントを公開していない場合、そのカスタム型はパターンマッチで分岐して処理することができません。
+`case`式は渡されたバリアントごとに処理を分岐できます。なので`Regular`のトーマスが来ようが`Visitor`のケイトが来ようが名前の表示の仕方は常にわかっています。
 
 <!--
 And if we try invalid arguments like `toName (Visitar "kate95")` or `toName Anonymous`, the compiler tells us about it immediately. This means many simple mistakes can be fixed in seconds, rather than making it to users and costing a lot more time overall.
 -->
 そしてもし、`toName (Visitar "kate95")`　や `toName Anonymous` のような不正な引数を与えた場合には、コンパイラがそのことについてすぐに教えてくれるでしょう。
-Elmでは単純なミスをリリースしてユーザにまで届けてしまって、バグ修正にビジネス全体でもっと多大な時間をかけてしまうことありません。大概のミスは数秒で修正できるでしょう。
+これによって多くの単純なミスが数秒で修正でき、プログラマーが自分でミスを見つけないといけないような言語と比べて全体の開発時間を大いに削減できるのです。
 
 <!--
 ## Wild Cards
