@@ -384,7 +384,7 @@ It is often useful to update the values in a record.
 It is important to notice that we do not make *destructive* updates. When we update some fields of `bill` we actually create a new record rather than overwriting the existing one. Elm makes this efficient by sharing as much content as possible. If you update one of ten fields, the new record will share the nine unchanged values.
 -->
 
-この構文ではレコードの**破壊的な更新**をしているのではないことに注意してください。`bill`のフィールドを更新したとき、実際には既存のレコードを上書きしているのではなく、新たなレコードが作成されています。効率のため、Elmは新しいレコードの内容を古いレコードとなるべく共有しようとします。もし10個のフィールドのうちのひとつを更新したとしたら、変更されていない残りの9個の値は新しいレコードも共有します。
+この構文ではレコードの**破壊的な更新**をしているのではないことに注意してください。`bill`のフィールドを更新したとき、実際には既存のレコードを上書きしているのではなく、新たなレコードが作成されています。効率のため、Elmは新しいレコードの内容を古いレコードとなるべく共有しようとします。つまり10個のフィールドのうちひとつを更新したとしたら、残り9個の変更されていないフィールドはコピーされるのではなく、新しいレコードと古いレコードで共有される形になります。
 
 
 <!--
