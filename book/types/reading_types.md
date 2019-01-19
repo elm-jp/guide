@@ -169,7 +169,7 @@ Adding type annotations is not required, but it is definitely recommended! Benef
 2. **Documentation** &mdash; When you revisit code later (or when a colleague visits it for the first time) it can be really helpful to see exactly what is going in and out of the function without having to read the implementation super carefully.
 -->
 1. **エラーメッセージの質** &mdash; 型注釈を書いておけば、あなたがそのコードで何を_しようと_しているかを型注釈がコンパイラに教えてくれます。あなたの実装は間違っているかもしれません。そして今コンパイラはあなたが型注釈で記述した意図と実装を比較してくれます。コンパイラ「あなたは引数`powerLevel`が`Int`だと言いましたが、`String`として使われるようになっています！」
-2. **ドキュメント作成** &mdash; あとでコードを見直すとき（または同僚が初めて読むとき）、実装を非常に注意深く読む必要なくその関数に何が入って何が出ていくかを正確に理解するのに型注釈は本当に役に立ちます。
+2. **ドキュメントとしての効用** &mdash; あとでコードを見直すとき（または同僚が初めて読むとき）、実装を非常に注意深く読む必要なくその関数に何が入って何が出ていくかを正確に理解するのに型注釈は本当に役に立ちます。
 
 <!--
 People can make mistakes in type annotations though, so what happens if the annotation does not match the implementation? The compiler figures out all the types on its own, and it checks that your annotation matches the real answer. In other words, the compiler will always verify that all the annotations you add are correct. So you get better error messages _and_ documentation always stays up to date!
