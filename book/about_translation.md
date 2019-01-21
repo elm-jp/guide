@@ -81,3 +81,4 @@ Elm guide は初学者の方にも分かることを重視したドキュメン�
 <!-- | 節 | section | -->
 <!-- | ウェブアプリケーション | webapp          | -->
 <!-- | The Elm Architecture | The Elm Architecture | -->
+<!-- | 言語の基礎 | Core Language | -->
