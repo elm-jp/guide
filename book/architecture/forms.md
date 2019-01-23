@@ -224,7 +224,7 @@ These helper functions begin to show the benefits of having our HTML library be 
 > Be sure to use the helpers in the [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) module if you try any of these! Also, we need to learn more before we start talking to servers, so make sure you read all the way to the HTTP part before trying that. It will be significantly easier with proper guidance!
 -->
 
-> **演習:** `viewValidation`を分割する利点は、簡単に機能を追加できることです。もし、これを読みながらコードいじっているなら(なるべくそうしましょう！)次の機能を追加してみてください。
+> **練習問題:** `viewValidation`を分割する利点は、簡単に機能を追加できることです。もし、これを読みながらコードいじっているなら(なるべくそうしましょう！)次の機能を追加してみてください。
 >
 > - パスワードが8文字より長いか確認する。
 > - パスワードが大文字、小文字、数字を含むか確認する。
