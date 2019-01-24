@@ -34,7 +34,7 @@ Allow: /optimization/$
 Allow: /optimization/lazy.html$
 Allow: /optimization/keyed.html$
 Allow: /optimization/asset_size.html$
-# Allow: /next_steps.html$
+Allow: /next_steps.html$
 Allow: /appendix/types_as_sets.html$
 Allow: /appendix/types_as_bits.html$
 Allow: /appendix/function_types.html$
