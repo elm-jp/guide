@@ -60,4 +60,4 @@ There are meetups [all over the world](https://www.elmlog.com/meetup_groups). We
 
 [^1]: 訳注：Elm-jp コミュニティは、日本語で Elm について気軽に相談できる場所として [discord](https://discordapp.com/invite/4j2MxCg) を提供しています。 ぜひこちらをご活用ください。
 
-[^2]: 訳注: 東京でのミートアップは不定期に [connpass](https://elm-tokyo.connpass.com/) 上で告知されています。また、前述の [discord](https://discordapp.com/invite/m9Ew6fR) でもイベントの告知がされますので、ぜひチェックしてください！
+[^2]: 訳注: 東京でのミートアップは不定期に [connpass](https://elm-tokyo.connpass.com/) 上で告知されています。また、前述の [discord](https://discordapp.com/invite/4j2MxCg) でもイベントの告知がされますので、ぜひチェックしてください！
