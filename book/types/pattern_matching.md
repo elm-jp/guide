@@ -46,19 +46,26 @@ toName user =
 -- toName (Visitor "kate95")    == "kate95"
 ```
 
+<!--
 The `case` expression allows us to branch based on which variant we happen to see, so whether we see Thomas or Kate, we always know how to show their name.
-<!-- TODO -->
+-->
+`case`式は渡されたバリアントごとに処理を分岐できます。なので`Regular`のトーマスが来ようが`Visitor`のケイトが来ようが名前の表示の仕方は常にわかっています。
 
 <!--
 And if we try invalid arguments like `toName (Visitar "kate95")` or `toName Anonymous`, the compiler tells us about it immediately. This means many simple mistakes can be fixed in seconds, rather than making it to users and costing a lot more time overall.
 -->
-そしてもし、`toName (Visitar "kate95")`　や `toName Anonymous`  のような不正な引数を与えた場合には、コンパイラがそのことについてすぐに教えてくれるでしょう。
-つまり、多くの単純なミスは、あまり時間をかけなくても、数秒で修正できるでしょう。
+そしてもし、`toName (Visitar "kate95")`　や `toName Anonymous` のような不正な引数を与えた場合には、コンパイラがそのことについてすぐに教えてくれるでしょう。
+これによって多くの単純なミスが数秒で修正でき、プログラマーが自分でミスを見つけないといけないような言語と比べて全体の開発時間を大いに削減できるのです。
 
+<!--
 ## Wild Cards
+-->
+## ワイルドカード
 
+<!--
 The `toName` function we just defined works great, but notice that the `age` is not used in the implementation? When some of the associated data is unused, it is common to use a “wild card” instead of giving it a name:
-<!-- TODO -->
+-->
+上で定義した`toName`関数はうまく動きますが、`age`の値を実装内で使っていませんよね？使っていない関連データには名前を付ける代わりに「ワイルドカード」を使うのが普通です。
 
 ```elm
 toName : User -> String
@@ -71,6 +78,7 @@ toName user =
       name
 ```
 
+<!--
 The `_` acknowledges the data there, but also saying explicitly that nobody is using it.
-
-<!-- TODO -->
+-->
+`_`はそこになんらかの値があることを示しつつも、実際にはその値が特に使われていないことを表現しています。

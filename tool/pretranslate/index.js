@@ -25,10 +25,13 @@ function main (file, { dictionary }) {
   const dict = parseDictionary(dictContent);
   const content = fs.readFileSync(file, 'utf8');
   const pretranslated = group(content)
-    .map(modifyParagraph)
-    .map((ps) => ps.join('\n'))
-    .map(appendTranslation.bind(null, dict))
-    .join('\n\n');
+    .map((ps) => {
+      if (isDictHeader(ps[0] || "")) return [''].concat(ps).join('\n');
+      if ((ps[0] || "").trim().startsWith('```')) return ps.join('\n');
+      if ((ps[0] || "").trim().startsWith('<!--')) return ps.join('\n');
+      return appendTranslation(dict, modifyParagraph(ps).join('\n')).concat('\n');
+    })
+    .join('\n');
   fs.writeFile(file, pretranslated, 'utf8', function (err) {
     if (err) {
       throw err;
@@ -45,19 +48,29 @@ function main (file, { dictionary }) {
  *  // => [["foo", "bar"], ["baz"], ["```elm", "  a = 34", "", "b = 12", "```"]]
  */
 function group (content) {
-  const {curr, acc} = content.split('\n').reduce( ({curr, acc, incode}, str) => {
-    if (str.trim().startsWith('```')) {
-      if (incode) {
-        return {curr : curr.concat(str), acc, incode: !incode};
-      }
-      return {curr: [str], acc: acc.concat([curr]), incode:!incode};
+  const def = {curr: [], acc: [], incode: false, incomment: false};
+  const {curr, acc} = content.split('\n').reduce( ({curr, acc, incode, incomment}, str) => {
+    if (isDictHeader(str)) {
+      return {...def, curr: [str], acc: acc.concat([curr]), incode, incomment};
     }
-    if (str.trim() === '' && !incode) {
+    if (!incode && str.trim().startsWith('<!--')) {
+      return {...def, curr: [str], acc: acc.concat([curr]), incomment: true};
+    }
+    if (!incode && str.trim().endsWith('-->')) {
+      return {...def, acc: acc.concat([curr.concat(str)])};
+    }
+    if (!incomment && str.trim().startsWith('```')) {
+      if (incode) {
+        return {...def, acc: acc.concat([curr.concat(str)])};
+      }
+      return {...def, curr: [str], acc: acc.concat([curr]), incode: true};
+    }
+    if (!incode && !incomment && str.trim() === "") {
       return {curr: [], acc: acc.concat([curr]), incode};
     }
-    return {curr : curr.concat(str), acc, incode};
-  }, {curr: [], acc: [], incode: false});
-  return acc.concat([curr]);
+    return {...def, curr: curr.concat(str), acc, incode, incomment};
+  }, def);
+  return acc.concat([curr]).filter((a) => a.length !== 0);
 }
 
 /** Modify given paragraph
@@ -66,14 +79,10 @@ function group (content) {
  * @example
  *  modifyParagraph([])
  *  // => []
- *  modifyParagraph([ "  ```elm", "    foo : Int", "    foo = bar", "    bar = 32", "  ```" ])
- *  // =>           [ "  ```elm", "    foo : Int", "    foo = bar", "    bar = 32", "  ```" ]
  *  modifyParagraph([ "foo", "bar", "baz" ])
  *  // =>   [ "<!--", "foo", "bar", "baz", "-->" ]
  */
 function modifyParagraph (para) {
-  if (para[0] === void 0) return para;
-  if (para[0].trim().startsWith('```')) return para;
   return ["<!--"].concat(para).concat(["-->"]);
 }
 
@@ -102,23 +111,28 @@ function appendTranslation (dict, para) {
 /**
  * @returns {Array.<Array<string>>}
  * @example
- *  parseDictionary("foo\nbar\n|訳語|原文|\n|:----|----:|\n| 型の別名| type alias |\n|  カスタム型  | custom types|\nbazbar\nbazbaz")
+ *  parseDictionary("foo\nbar\n<!--|Translated|Original|-->\n|:----|----:|\n| 型の別名| type alias |\n|  カスタム型  | custom types|\nbazbar\nbazbaz")
  *  // => [["型の別名", "type alias"], ["カスタム型", "custom types"]]
  */
 function parseDictionary (content) {
-  return content.split('\n').reduce(({indict, dict}, r) => {
+  const def = { indict: false, inbody: false, dict: [] };
+  const ret = content.split('\n').reduce(({indict, inbody, dict}, r) => {
     const matched = trContents(r);
     if (matched === null) {
-      return { indict: false, dict };
+      return { ...def, dict };
     }
-    if (matched[0] === '訳語' && matched[1] === '原文') {
-      return { indict: true, dict };
+    if (matched[0] === '<Translated>' && matched[1] === '<Original>') {
+      return { ...def, indict: true, dict };
     }
     if (/:*-+:?/.test(matched[0])) {
-      return { indict, dict };
+      return { ...def, indict, inbody: true, dict };
     }
-    return { indict, dict: dict.concat([matched]) };
-  }, { indict: false , dict: [] }).dict;
+    if (!indict || !inbody) {
+      return { ...def, indict, dict };
+    }
+    return { indict, inbody, dict: dict.concat([matched]) };
+  }, def).dict;
+  return ret;
 }
 
 /**
@@ -144,3 +158,16 @@ function trContents (row) {
   if (matches === null) return null;
   return [matches[1].trim(), matches[2].trim()];
 }
+
+/**
+ * Check if the line is header of translation table.
+ * @param {string} row
+ * @returns {bool}
+ * @example
+ *  isDictHeader("  <!-- | <Translated>   |<Original>  | -->")
+ *  // => true
+ */
+function isDictHeader (row) {
+  return /.*\| *<Translated> *\| *<Original> *\|.*/.test(row);
+}
+
