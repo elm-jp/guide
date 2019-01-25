@@ -35,6 +35,10 @@ $ npx pretranslate ./book/your_file_to_translate
 
 対訳表自体は手動で更新が必要です。重要そうな単語を訳した際に都度対訳表に追加してください。
 
+### 翻訳の方針
+
+翻訳の方針については[翻訳について](https://github.com/elm-jp/guide/blob/master/book/about_translation.md)を事前にご確認ください。
+
 ### 翻訳しようと決めたら
 
 せっかく翻訳していただいたのに、実は同時に他の人が同じところを翻訳していて先にPRを出されちゃったらすごくもったいないですよね？
@@ -54,7 +58,6 @@ $ git push origin ${your_branch_name}
 ## ローカル環境で確認する
 
 まず下記のコマンドで依存するプログラムをインストールします。
-(`yarn` はもうオワコンやーん)
 
 ```bash
 $ npm i
@@ -75,7 +78,7 @@ Serving book on http://localhost:4000
 
 ## 本番環境へのデプロイ
 
-masterへのコミット権限がある人がやってください。
+いまはCIが自動でやっていますが、念のため記載しておきます。
 
 ```bash
 $ git checkout master

@@ -122,7 +122,7 @@ We create an empty `<div>`. We want our Elm program to take over that node entir
 空の`<div>`要素を作りました。このノードの制御は、Elmプログラムに完全に任せたいところです。これがもっと大きなアプリケーションで、ほかのたくさんの要素に囲まれていたとしても、問題ありません！
 
 <!--
-The `<script>` tag then inializes our Elm program. We grab the `node` we want to take over, and give it to `Elm.Main.init` which starts our program.
+The `<script>` tag then initializes our Elm program. We grab the `node` we want to take over, and give it to `Elm.Main.init` which starts our program.
 -->
 それから、`<script>`タグでElmプログラムを初期化しています。Elmに任せたいノードを取得し、プログラムを開始する`Elm.Main.init`関数に渡します。
 
