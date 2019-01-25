@@ -211,7 +211,8 @@ This function first compares the two passwords. If they match, you get green tex
 These helper functions begin to show the benefits of having our HTML library be normal Elm code. We _could_ put all that code into our `view`, but making helper functions is totally normal in Elm, even in view code. Is this getting hard to understand? Maybe I can break out a helper function!
 -->
 
-こうした補助関数みると、HTMLライブラリを通常のElmコードにする利点がわかります。私たちはあらゆるコードを `view` に書けますが、その中に補助関数を作るのさえもElmでは普通のことです。難しかった?じゃあ、補助関数についてはこれくらいにしようかな。
+こうした補助関数をみると、HTMLのシンタックスをそのまま用いるのではなく、現状のように通常のElmコードでHTMLを表現できるHTMLライブラリの利点がわかります。すべてのコードをベタ書きでviewに書くことももちろんできますが、Elmにおいて補助関数をつくって部品をくくりだすことはいたって普通のことですので、view関数のコードだろうが補助関数を使えば良いんです。理解するのが難しくなってきた？そしたらこのあたりの説明も、全部ここにベタ書きするんじゃなくて「補助関数」として別の節に分けて書いたほうが良いのかもしれないですね！
+
 
 <!--
 > **Exercises:** One cool thing about breaking `viewValidation` out is that it is pretty easy to augment. If you are messing with the code as you read through this (as you should be!) you should try to:
