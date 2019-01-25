@@ -20,13 +20,13 @@ So far we have seen a bunch of types like `Bool`, `Int`, and `String`. But how d
 Say we are making a chat room. Everyone needs a name, but maybe some users do not have a permanent account. They just give a name each time they show up.
 -->
 
-例えば、チャットルームを作っているとします。全員に名前が必要だと思いましたが、永続的なアカウントを作らない人もいるかもしれません。そういう人にはチャットルームに入る度に単に名前を付けてもらうことにしましょう。
+例えば、チャットルームを作っているとします。全員に名前が必要ですが、永続的なアカウントを作らない人もいるかもしれません。そういう人にはチャットルームに入る度に名前を付けてもらうことにしましょう。
 
 <!--
 We can describe this situation by defining a `UserStatus` type, listing all the possible variations:
 -->
 
-`UserStatus`型を定義し全ての可能性を列挙することで、この状況を表現することができます:
+`UserStatus`型を定義し全ての可能なバリアントを列挙することで、この状況を表現することができます:
 
 ```elm
 type UserStatus = Regular | Visitor
@@ -143,13 +143,13 @@ We have four variants. Some variants have no associated data, others have a bunc
 ## Modeling
 -->
 
-## モデリング
+## 型の設計
 
 <!--
 Custom types become extremely powerful when you start modeling situations very precisely. For example, if you are waiting for some data to load, you might want to model it with a custom type like this:
 -->
 
-ある状況を非常に厳密にモデリングし始めるのにカスタム型は極めて強力です。例えばもし何かデータをロードされるのを待っているとしたら、その状況をこのようにカスタム型でモデリングしたいかもしれません：
+ある状況を非常に厳密に表現し始めるのにカスタム型は極めて強力です。例えばもし何かデータをロードされるのを待っているとしたら、その状況をこのようにカスタム型で表現したいかもしれません：
 
 ```elm
 type Profile
@@ -162,16 +162,16 @@ type Profile
 So you can start in the `Loading` state and then transition to `Failure` or `Success` depending on what happens. This makes it really simple to write a `view` function that always shows something reasonable when data is loading.
 -->
 
-Profile のデータの状態を`Loading`から始めて、フェッチに失敗したら`Failure`、成功したら`Success`というように何が起こったかに応じて状態を遷移させることができます。このようなモデリングは`view`関数を書くのを本当にシンプルにします。データの状態がカスタム型で表現されているので`view`関数はデータをロードしているときも常に妥当な見た目を表示することができます。
+Profile のデータの状態を`Loading`から始めて、フェッチに失敗したら`Failure`、成功したら`Success`というように何が起こったかに応じて状態を遷移させることができます。このような設計は`view`関数を書くのを本当にシンプルにします。データの状態がカスタム型で表現されているので`view`関数はデータをロードしているときも常に妥当な見た目を表示することができます。
 
 <!--
 Now we know how to create custom types, the next section will show how to use them!
 -->
 
-ここまででカスタム型を作り方を知りました。次の節ではそれの使い方を学びましょう！
+ここまででカスタム型の作り方を知りました。次の節ではそれの使い方を学びましょう！
 
 <!--
 > **Note: Custom types are the most important feature in Elm.** They have a lot of depth, especially once you get in the habit of trying to model scenarios more precisely. I tried to share some of this depth in [Types as Sets](/appendix/types_as_sets.html) and [Types as Bits](/appendix/types_as_bits.html) in the appendix. I hope you find them helpful!
 -->
 
-> **Note: カスタム型は Elm で最も重要な機能です。** 特に一度でもより厳密にシナリオをモデリングしようとする習慣を持てば、カスタム型に非常に深みを感じるでしょう。わたしはこの深みを付録の[集合としての型](/appendix/types_as_sets.html)や[型のビット表現](/appendix/types_as_bits.html)で共有しようと試みています。助けになれば幸いです！
+> **Note: カスタム型は Elm で最も重要な機能です。** 特に一度でもより厳密にシナリオを設計しようとする習慣を持てば、カスタム型に非常に深みを感じるでしょう。わたしはこの深みを付録の[集合としての型](/appendix/types_as_sets.html)や[型のビット表現](/appendix/types_as_bits.html)で共有しようと試みています。助けになれば幸いです！
