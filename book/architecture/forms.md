@@ -18,13 +18,13 @@
 Here we will make a rudimentary form. It has a field for your name, a field for your password, and a field to verify that password. We will also do some very simple validation (do the two passwords match?) just because it is simple to add.
 -->
 
-ここでは基本的なフォームを作成します。名前、パスワード、パスワード(確認用)のフィールドを持ったフォームです。パスワードとパスワード(確認用)が一致しているかどうかもチェックします。
+ここでは基本的なフォームを作成します。名前、パスワード、パスワード(確認用)のフィールドを持ったフォームです。単に追加するのが簡単なので、パスワードとパスワード(確認用)が単純に一致しているかどうかもチェックします。
 
 <!--
 The code is a bit longer in this case, but I still think it is valuable to look through it before you get into the description of what is going on.
 -->
 
-今回は少し長いですが、説明に入る前にコードに目を通してみてください。
+今回のコードは少し長いですが、各コードがどう動くかの説明の前に、コードに目を通しておくことは価値があることだと思います。
 
 
 ```elm
@@ -110,12 +110,12 @@ viewValidation model =
 <!--
 This is pretty similar to our [text field example](text_fields.md), just with more fields. Let's walk through how it came to be!
 -->
-フィールドが複数ある点を除けば、[テキストフォールド](text_fields.md)で紹介したコードによく似ています。どこがどうなっているのか、一つずつ見ていきましょう！
+フィールドが複数ある点を除けば、[テキストフィールド](text_fields.md)で紹介したコードによく似ています。どこがどうなっているのか、一つずつ見ていきましょう！
 
 <!--
 As always, you start out by guessing at the `Model`. We know there are going to be three text fields, so let's just go with that:
 -->
-いつものように、モデルを考えることからはじめます。3つテキストフォールドがあるので、こんな感じです。
+いつものように、モデルを考えることからはじめます。3つテキストフィールドがあるので、こんな感じです。
 
 ```elm
 type alias Model =
@@ -128,7 +128,7 @@ type alias Model =
 Great, seems reasonable. We expect that each of these fields can be changed separately, so our messages should account for each of those scenarios.
 -->
 
-とってもいいですね。フォールドごとに値を変更できるようにしたいので、それぞれのシナリオをメッセージで説明します。
+とってもいいですね。フィールドごとに値を変更できるようにしたいので、それぞれのシナリオをメッセージで説明します。
 
 ```elm
 type Msg
@@ -140,7 +140,7 @@ type Msg
 This means our `update` is pretty mechanical. Just update the relevant field:
 -->
 
-このコードを見ると `update`の処理がとても機械的なことがわかります。関連するテキストフィールドを更新するだけです。
+このコードを見ると `update`の処理がとても機械的なことがわかります。対応するテキストフィールドを更新するだけです。
 
 ```elm
 update : Msg -> Model -> Model
@@ -175,7 +175,7 @@ view model =
 We start by creating a `<div>` with four child nodes. But instead of using functions from `elm/html` directly, we call Elm functions to make our code more concise! We start with three calls to `viewInput`:
 -->
 
-まず、4つ子ノードを持つ `<div>`を作ります。 ただし、直接 `elm / html`の関数を使う代わりに、`viewInput`を三回呼び出します。これはコードをより簡潔にするためのElm関数です。
+まず、4つの子ノードを持つ `<div>`を作ります。 ただし、直接 `elm/html`の関数を使う代わりに、`viewInput`を三回呼び出します。これはコードをより簡潔にするためのElm関数です。
 
 ```elm
 viewInput : String -> String -> String -> (String -> msg) -> Html msg
@@ -185,13 +185,13 @@ viewInput t p v toMsg =
 <!--
 So `viewInput "text" "Name" model.name Name` can create a node like `<input type="text" placeholder="Name" value="Bill">`. That node will also send messages like `Name "Billy"` to `update` on user input.
 -->
-`viewInput "text" "Name" model.name Name`と書くことでノードを作れます。これは、HTMLで `<input type="text" placeholder="Name" value="Bill">` と書くのと同じです。このノードはユーザーの入力時に、 `Name "Billy"` のようなメッセージを `update` に送ります。
+`viewInput "text" "Name" model.name Name`と書くことでノードを作れます。これは、HTMLで `<input type="text" placeholder="Name" value="Bill">` と書くのと同じようなものです。このノードはユーザーの入力時に、 `Name "Billy"` のようなメッセージを `update` に送ります。
 
 <!--
 The fourth entry is more interesting. It is a call to `viewValidation`:
 -->
 
-4つ目はもっと面白いです。 `viewValidation` の呼び出しです。
+4つ目のノードはもっと面白いです。 `viewValidation` の呼び出しです。
 
 ```elm
 viewValidation : Model -> Html msg
@@ -205,7 +205,7 @@ viewValidation model =
 This function first compares the two passwords. If they match, you get green text and a positive message. If they do not match, you get red text and a helpful message.
 -->
 
-この関数はまず、二つのパスワードを比較します。一致すると、緑色の文字でポジティブなメッセージを表示します。一致しない場合は、赤色の文字で注意メッセージを表示します。
+この関数はまず、二つのパスワードを比較します。一致すると、緑色の文字でポジティブなメッセージを表示します。一致しない場合は、赤色の文字で有用なメッセージを表示します。
 
 <!--
 These helper functions begin to show the benefits of having our HTML library be normal Elm code. We _could_ put all that code into our `view`, but making helper functions is totally normal in Elm, even in view code. Is this getting hard to understand? Maybe I can break out a helper function!
@@ -238,4 +238,4 @@ These helper functions begin to show the benefits of having our HTML library be 
 > **Note:** It seems like efforts to make generic validation libraries have not been too successful. I think the problem is that the checks are usually best captured by normal Elm functions. Take some args, give back a `Bool` or `Maybe`. E.g. Why use a library to check if two strings are equal? So as far as we know, the simplest code comes from writing the logic for your particular scenario without any special extras. So definitely give that a shot before deciding you need something more complex!
 -->
 
-> **Note:** 包括的な検証用ライブラリを作成するのはおすすめしません。こうした検証は、通常のElm関数によって実現可能なものがほとんどです。いくつかの引数をとって、`Bool` か `Maybe` を返せばいいのです。例えば、二つの文字列が等しいかどうかを、ライブラリを使って検証するのはなぜですか。おそらく、特定のシナリオのためのロジックを記述するのに、特別な拡張ライブラリは必要ありません。複雑な方法が必要だと判断する前に、もっと単純な方法が無いか試してみてください。
+> **Note:** 包括的なバリデーションライブラリを作成するのはおすすめしません。こうしたチェックは、通常のElm関数によって実現可能なものがほとんどです。いくつかの引数をとって、`Bool` か `Maybe` を返せばいいのです。例えば、二つの文字列が等しいかどうかをチェックするのに、ライブラリを使うのはなぜですか？あなたが実現したいシナリオのロジックを記述する場合、特別な拡張ライブラリを使わないもっと単純な書き方があるはずです。複雑な方法が必要だと判断する前に、それより単純な他の方法が無いか試してみてください！
