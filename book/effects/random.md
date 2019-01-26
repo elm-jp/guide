@@ -1,15 +1,28 @@
+<!--
 # Random
+-->
 
+<!--
 ---
 #### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://ellie-app.com/37gXN5G4T2sa1).
 ---
+-->
 
+<!--
 So far we have only seen commands to make HTTP requests, but we can command other things as well, like generating random values! So we are going to make an app that rolls dice, producing a random number between 1 and 6.
+-->
+Command: コマンド
 
+<!--
 We need the [`elm/random`][readme] package for this. The [`Random`][random] module in particular. Let&rsquo;s start by just looking at all the code:
+-->
 
+<!--
 [readme]: https://package.elm-lang.org/packages/elm/random/latest
 [random]: https://package.elm-lang.org/packages/elm/random/latest/Random
+-->
+
+
 
 ```elm
 import Browser
@@ -90,19 +103,35 @@ view model =
     , button [ onClick Roll ] [ text "Roll" ]
     ]
 ```
+type alias: 型の別名
+Subscription: サブスクリプション
 
+<!--
 The new thing here is command issued in the `update` function:
+-->
+Command: コマンド
+
+
 
 ```elm
 Random.generate NewFace (Random.int 1 6)
 ```
 
+<!--
 Generating random values works a bit different than in languages like JavaScript, Python, Java, etc. So let&rsquo;s see how it works in Elm!
+-->
 
 
+
+<!--
 ## Random Generators
+-->
 
+<!--
 The core idea is that we have random `Generator` that describes _how_ to generate a random value. For example:
+-->
+
+
 
 ```elm
 import Random
@@ -120,22 +149,41 @@ usuallyTrue =
   Random.weighted (80, True) [ (20, False) ]
 ```
 
+<!--
 So here we have three random generators. The `roll` generator is saying it will produce an `Int`, and more specifically, it will produce an integer between `1` and `6` inclusive. Likewise, the `usuallyTrue` generator is saying it will produce a `Bool`, and more specifically, it will be true 80% of the time.
+-->
 
+<!--
 The point is that we are not actually generating the values yet. We are just describing _how_ to generate them. From there you use the [`Random.generate`][gen] to turn it into a command:
+-->
+Command: コマンド
+
+
 
 ```elm
 generate : (a -> msg) -> Generator a -> Cmd msg
 ```
 
+<!--
 When the command is performed, the `Generator` produces some value, and then that gets turned into a message for your `update` function. So in our example, the `Generator` produces a value between 1 and 6, and then it gets turned into a message like `NewFace 1` or `NewFace 4`. That is all we need to know to get our random dice rolls, but generators can do quite a bit more!
+-->
+Command: コマンド
 
+<!--
 [gen]: https://package.elm-lang.org/packages/elm/random/latest/Random#generate
+-->
 
 
+
+<!--
 ## Combining Generators
+-->
 
+<!--
 Once we have some simple generators like `probability` and `usuallyTrue`, we can start snapping them together with functions like [`map3`](https://package.elm-lang.org/packages/elm/random/latest/Random#map3). Imagine we want to make a simple slot machine. We could create a generator like this:
+-->
+
+
 
 ```elm
 import Random
@@ -156,14 +204,23 @@ spin : Random.Generator Spin
 spin =
   Random.map3 Spin symbol symbol symbol
 ```
+type alias: 型の別名
 
+<!--
 We first create `Symbol` to describe the pictures that can appear on the slot machine. We then create a random generator that generates each symbol with equal probability.
+-->
 
+<!--
 From there we use `map3` to combine them into a new `spin` generator. It says to generate three symbols and then put them together into a `Spin`.
+-->
 
+<!--
 The point here is that from small building blocks, we can create a `Generator` that describes pretty complex behavior. And then from our application, we just have to say something like `Random.generate NewSpin spin` to get the next random value.
+-->
 
 
+
+<!--
 > **Exercises:** Here are a few ideas to make the example code on this page a bit more interesting!
 >
 >   - Instead of showing a number, show the die face as an image.
@@ -171,6 +228,10 @@ The point here is that from small building blocks, we can create a `Generator` t
 >   - Create a weighted die with [`Random.weighted`][weighted].
 >   - Add a second die and have them both roll at the same time.
 >   - Have the dice flip around randomly before they settle on a final value.
+-->
 
+<!--
 [svg]: https://package.elm-lang.org/packages/elm/svg/latest/
 [weighted]: https://package.elm-lang.org/packages/elm/random/latest/Random#weighted
+-->
+
