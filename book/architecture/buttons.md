@@ -139,7 +139,7 @@ Another thing to notice is that `div` and `button` are just normal Elm functions
 <!--
 There is also something a bit deeper going on here. **The view code is entirely declarative**. We take in a `Model` and produce some `Html`. That is it. There is no need to mutate the DOM manually. Elm takes care of that behind the scenes. This gives Elm [much more leeway to make optimizations](https://elm-lang.org/blog/blazing-fast-html) and ends up making rendering *faster* overall. So you write less code and the code runs faster. The best kind of abstraction!
 -->
-もう少し掘り下げます。**view部分のコードはすべて宣言的に書かれます。**`Model`を受け取り`Html`を生成する、それだけです。書き手がDOMに直接触れる必要もありません。Elmはそれを隠してうまくやってくれます。こうすることでElmに[最適化する裁量を十二分に与えることができ](https://elm-lang.org/blog/blazing-fast-html)、その結果、全体のレンダリングを*速く*することになります。少ないコードを書くだけでそのコードは速く動作するのです。抽象化は最高ですね！
+もう少し掘り下げます。**view部分のコードはすべて宣言的に書かれます。**`Model`を受け取り`Html`を生成する、それだけです。書き手がDOMに直接触れる必要もありません。Elmはそれを隠してうまくやってくれます。こうすることでElmに[最適化する裁量を十二分に与えることができ](https://elm-lang.org/blog/blazing-fast-html)、その結果、全体のレンダリングを*速く*することになります。少ないコードを書くだけでそのコードは速く動作するのです。抽象化によるすごい効果です！
 
 <!--
 This pattern is the essence of The Elm Architecture. Every example we see from now on will be a slight variation on this basic pattern: `Model`, `update`, `view`.
