@@ -5,16 +5,16 @@ Allow: /$
 Allow: /install.html$
 Allow: /core_language.html$
 Allow: /architecture/$
-# Allow: /architecture/buttons.html$
+Allow: /architecture/buttons.html$
 # Allow: /architecture/text_fields.html$
 # Allow: /architecture/forms.html$
 Allow: /types/$
 Allow: /types/reading_types.html$
 Allow: /types/type_aliases.html$
-# Allow: /types/custom_types.html$
+Allow: /types/custom_types.html$
 Allow: /types/pattern_matching.html$
 Allow: /error_handling/$
-# Allow: /error_handling/maybe.html$
+Allow: /error_handling/maybe.html$
 # Allow: /error_handling/result.html$
 Allow: /effects/$
 # Allow: /effects/http.html$
@@ -23,7 +23,7 @@ Allow: /effects/$
 Allow: /effects/time.html$
 Allow: /interop/$
 Allow: /interop/flags.html$
-# Allow: /interop/ports.html$
+Allow: /interop/ports.html$
 Allow: /interop/custom_elements.html$
 Allow: /webapps/$
 Allow: /webapps/navigation.html$
@@ -34,10 +34,12 @@ Allow: /optimization/$
 Allow: /optimization/lazy.html$
 Allow: /optimization/keyed.html$
 Allow: /optimization/asset_size.html$
-# Allow: /next_steps.html$
+Allow: /next_steps.html$
 Allow: /appendix/types_as_sets.html$
 Allow: /appendix/types_as_bits.html$
 Allow: /appendix/function_types.html$
+Allow: /gitbook/*
+Allow: /sitemap.xml$
 
 # Sitemap
 Sitemap: https://guide.elm-lang.jp/sitemap.xml

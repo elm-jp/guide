@@ -131,7 +131,7 @@ Read <https://elm-lang.org/0.19.0/repl> to learn more: exit, help, imports, etc.
 $
 ```
 
-`elm repl`は&ldquo;Core Language&rdquo;の節で使います。詳しい使い方は[こちら](https://elm-lang.org/0.19.0/repl)をご覧ください。
+`elm repl`は&ldquo;言語の基礎&rdquo;の節で使います。詳しい使い方は[こちら](https://elm-lang.org/0.19.0/repl)をご覧ください。
 
 
 <!--
