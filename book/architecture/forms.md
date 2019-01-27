@@ -233,7 +233,7 @@ These helper functions begin to show the benefits of having our HTML library be 
 > - `年齢`のフィールドを追加して、入力値が数字かどうかを確認する。
 > - `提出`ボタンを追加する。ボタンが押された *後* 、エラーがあれば表示する。
 >
->上記を試す際は、 [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) モジュールを必ず使用しましょう。また、サーバーとの通信を行う前にまだ学ぶことがあります。試すのはHTTPのパートまで読んでからにしましょう。適切なガイダンスのおかげで、かなり簡単なはずです。
+>上記を試す際は、 [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) モジュールに含まれる補助関数を必ず使用しましょう！ また、サーバーとの通信を行う前にまだ学ぶことがあります。試すのはHTTPのパートまで読んでからにしましょう。適切に順を追って説明していくので、かなり簡単になるはずです。
 
 <!--
 > **Note:** It seems like efforts to make generic validation libraries have not been too successful. I think the problem is that the checks are usually best captured by normal Elm functions. Take some args, give back a `Bool` or `Maybe`. E.g. Why use a library to check if two strings are equal? So as far as we know, the simplest code comes from writing the logic for your particular scenario without any special extras. So definitely give that a shot before deciding you need something more complex!
