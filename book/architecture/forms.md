@@ -115,7 +115,7 @@ This is pretty similar to our [text field example](text_fields.md), just with mo
 <!--
 As always, you start out by guessing at the `Model`. We know there are going to be three text fields, so let's just go with that:
 -->
-いつものように、モデルを考えることからはじめます。3つテキストフィールドがあるので、こんな感じです。
+いつものように、モデルを考えることからはじめます。 3つのテキストフィールドが作られることが分かっているので、このようにします。
 
 ```elm
 type alias Model =
