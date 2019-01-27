@@ -175,7 +175,7 @@ view model =
 We start by creating a `<div>` with four child nodes. But instead of using functions from `elm/html` directly, we call Elm functions to make our code more concise! We start with three calls to `viewInput`:
 -->
 
-まず、4つの子ノードを持つ `<div>`を作ります。 ただし、直接 `elm/html`の関数を使う代わりに、`viewInput`を三回呼び出します。これはコードをより簡潔にするためのElm関数です。
+まず、4つの子ノードを持つ `<div>`を作ります。 ただし、`elm/html`の関数を直接使うのではなく、よりコードを完結にするために自分で定義したElmの関数を呼んでいます。以下のように定義した `viewInput` が最初に3つ並んでいますね。
 
 ```elm
 viewInput : String -> String -> String -> (String -> msg) -> Html msg
