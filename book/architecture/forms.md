@@ -24,7 +24,7 @@ Here we will make a rudimentary form. It has a field for your name, a field for 
 The code is a bit longer in this case, but I still think it is valuable to look through it before you get into the description of what is going on.
 -->
 
-今回のコードは少し長いですが、各コードがどう動くかの説明の前に、コードに目を通しておくことは価値があることだと思います。
+今回のコードは少し長いですが、各コードがどう動くかの説明の前に、やはりコードに目を通しておくことは価値があることだと思います。
 
 
 ```elm
