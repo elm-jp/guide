@@ -199,6 +199,7 @@ viewValidation model =
   if model.password == model.passwordAgain then
     div [ style "color" "green" ] [ text "OK" ]
   else
+    -- 訳注: "Passwords do not match!" は "パスワードが一致しません!" の意味です。
     div [ style "color" "red" ] [ text "Passwords do not match!" ]
 ```
 <!--
