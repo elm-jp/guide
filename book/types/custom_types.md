@@ -83,7 +83,7 @@ The data is attached directly to the variant, so there is no need for the record
 Another benefit of this approach is that each variant can have different associated data. Say that `Regular` users gave their age when they signed up. There is no nice way to capture that with records, but when you define your own custom type it is no problem. We add some associated data to the `Regular` variant:
 -->
 
-この方法の別の利点は各バリアントには別の関連データを持たせられることです。`Regular`なユーザがサインアップのときに年齢を登録することを考えてみてください。これをレコードでどうにかするいい方法はありませんが、カスタム型を自分で定義するなら問題はありません。`Regular`バリアントに他の関連データを追加してみましょう：
+この方法の別の利点は各バリアントには別の関連データを持たせられることです。`Regular`なユーザがサインアップのときに年齢を登録することを考えてみてください。これをレコードでどうにかするいい方法はありませんが、カスタム型を自分で定義するなら何の問題もなく行えます。`Regular`バリアントに他の関連データを追加してみましょう：
 
 ```elm
 type User
@@ -137,7 +137,7 @@ type Msg
 We have four variants. Some variants have no associated data, others have a bunch. Notice that `ReceivedMessage` actually has a record as associated data. That is totally fine. Any type can be associated data! This allows you to describe interactions in your application very precisely.
 -->
 
-4 つのバリアントがあります。いくつかのバリアントは関連データを持っていません。他のバリアントは関連データを持っています。`ReceivedMessage`が実際に関連データとしてレコードを持っていることに気づきましたか？これはまったく問題ありません。どんな型も関連データにすることができます！どんな型も関連データにすることができるため、どのユーザーからどんなメッセージを受けたかなど、ただの String や User の組み合わせでは何を意味するのか曖昧になってしまうような情報も非常に厳密に記述することができます。
+この型には 4 つのバリアントがあり、関連データを持つバリアントと持たないバリアントがあります。他のバリアントは関連データを持っています。`ReceivedMessage`が実際に関連データとしてレコードを持っていることに気づきましたか？これはまったく問題ありません。どんな型も関連データにすることができます！どんな型も関連データにすることができるため、どのユーザーからどんなメッセージを受けたかなど、ただの String や User の組み合わせでは何を意味するのか曖昧になってしまうような情報も非常に厳密に記述することができます。
 
 <!--
 ## Modeling
