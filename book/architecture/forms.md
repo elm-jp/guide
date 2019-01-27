@@ -205,7 +205,7 @@ viewValidation model =
 This function first compares the two passwords. If they match, you get green text and a positive message. If they do not match, you get red text and a helpful message.
 -->
 
-この関数はまず、二つのパスワードを比較します。一致すると、緑色の文字でポジティブなメッセージを表示します。一致しない場合は、赤色の文字で有用なメッセージを表示します。
+この関数はまず、二つのパスワードを比較します。一致すると、緑色の文字で入力に問題がないことを示すメッセージを表示します。一方、一致しない場合は赤色の文字でエラーを修正するために役立つメッセージを表示します。
 
 <!--
 These helper functions begin to show the benefits of having our HTML library be normal Elm code. We _could_ put all that code into our `view`, but making helper functions is totally normal in Elm, even in view code. Is this getting hard to understand? Maybe I can break out a helper function!
