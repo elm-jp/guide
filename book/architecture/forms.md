@@ -128,7 +128,7 @@ type alias Model =
 Great, seems reasonable. We expect that each of these fields can be changed separately, so our messages should account for each of those scenarios.
 -->
 
-とってもいいですね。フィールドごとに値を変更できるようにしたいので、それぞれのシナリオをメッセージで説明します。
+とってもいいですね。ちゃんと書けているように見えます。これらのフィールドはそれぞれ別々に変更されるはずですから、今回のメッセージはこれら3つのフィールドの変更という処理を説明するようなものになるはずです。
 
 ```elm
 type Msg
