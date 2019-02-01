@@ -124,7 +124,7 @@ String.repeat : Int -> String -> String
 <!--
 > Giving two arguments like `String.repeat 3 "ha"` will produce `"hahaha"`. It works to think of `->` as a weird way to separate arguments, but I explain the real reasoning [here](/appendix/function_types.md). It is pretty neat!
 -->
-> `String.repeat 3 "ha"`、このように２つ引数を与えると`"hahaha"`が生成されます。`->`を引数のセパレータとして考えるのは奇妙に思えますが、本当の理由は[ここで](/appendix/function_types.md)説明しています。それはとてもすっきりした説明です！
+> `String.repeat 3 "ha"`、このように２つ引数を与えると`"hahaha"`が生成されます。`->`を引数の区切り文字として考えるのは奇妙に思えますが、本当の理由は[ここで](/appendix/function_types.md)説明しています。それはとてもすっきりした説明です！
 
 <!--
 ## Type Annotations
