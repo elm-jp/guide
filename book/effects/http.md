@@ -122,7 +122,7 @@ Some parts of this should be familiar from previous examples of The Elm Architec
 <!--
 The new parts extend the core pattern we saw before with some changes in `init` and `update`, and the addition of `subscription`.
 -->
-新しい部分は、これまで見てきた中核となるパターンの`init`および`update`関数の中の変更に伴う拡張と`subscription`の追加になります。
+新しい部分は`init`と`update`へのいくつかの変更と`subscription`の追加を伴い、今まで見てきた中心となるパターンを拡張します。
 
 <!--
 ## `init`
