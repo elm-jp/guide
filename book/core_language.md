@@ -35,7 +35,7 @@ The REPL prints out the type of every result, but **we will leave the type annot
 We will cover [values](#values), [functions](#functions), [lists](#lists), [tuples](#tuples), and [records](#records). These building blocks all correspond pretty closely with structures in languages like JavaScript, Python, and Java.
 -->
 
-ここでは[値](#values)や[関数](#functions)、[リスト](#lists)、[タプル](#tuples)、[レコード](#records)を取り扱います。これらの言語の要素はいずれも、JavaScriptやPython、Javaのような言語にある構造とよく似たものです。
+ここでは[値](#値)や[関数](#関数)、[リスト](#リスト)、[タプル](#タプル)、[レコード](#レコード)を取り扱います。これらの言語の要素はいずれも、JavaScriptやPython、Javaのような言語にある構造とよく似たものです。
 
 <!--
 ## Values
