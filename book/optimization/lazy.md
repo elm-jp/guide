@@ -250,7 +250,7 @@ Notice that the text input, entries, and controls are all in separate lazy nodes
 テキスト入力、エントリ、コントロールは、それぞれ別々の遅延ノードの中にあることに注目してください。どのように文字を入力しても、エントリやコントロールに対しては仮想DOMノードを構築することなく、入力したい文字を自由に入力することができます。これらは変更されていないからです！　つまり、最初のアドバイスとしては、**アプリケーションの根本に遅延ノードを使ってみましょう**。
 
 <!--
-It can also be useful to use lazy in long lists of items. In the TodoMVC app, it is all about adding entries to your todo list. You could conceivable have hundreds of entries, but they change very infrequently. This is a great candidate for laziness! By switching `viewEntry entry` to `lazy viewEntry entry` we can skip a bunch of allocation that is very rarely useful. So the second tip is **try to use lazy nodes on repeated structures where each individual item change infrequently.**
+It can also be useful to use lazy in long lists of items. In the TodoMVC app, it is all about adding entries to your todo list. You could conceivable have hundreds of entries, but they change very infrequently. This is a great candidate for laziness! By switching `viewEntry entry` to `lazy viewEntry entry` we can skip a bunch of allocation that is very rarely useful. So the second tip is **try to use lazy nodes on repeated structures where each individual item changes infrequently.**
 -->
 
 アイテムの長いリストでも遅延ノードは有効かもしれません。TodoMVCアプリケーションでやっていることは、TODOリストへ項目を追加することだけです。数百もの項目を持つことが考えられますが、それらが変更されることはめったにありません。これは遅延性を使うちょうどいい候補となります！　`viewEntry entry`を`lazy viewEntry entry`へと変えることで、めったに役に立たないたくさんの処理をスキップすることができます。つまり、ふたつめのアドバイスは、**個々の要素がめったに変更されないような、繰り返しの構造に対して遅延ノードを使ってみてください。**

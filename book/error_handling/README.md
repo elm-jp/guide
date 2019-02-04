@@ -5,7 +5,7 @@
 # エラーハンドリング
 
 <!--
-One of the guarantees of Elm is that you will not see runtime errors in practice. This is partly because **Elm treats errors as data**. Rather than crashing, we model the possibility of failure explicitly with custom types. For example, say you want to turn user input into a age. You might create a custom type like this:
+One of the guarantees of Elm is that you will not see runtime errors in practice. This is partly because **Elm treats errors as data**. Rather than crashing, we model the possibility of failure explicitly with custom types. For example, say you want to turn user input into an age. You might create a custom type like this:
 -->
 
 Elmが保証してくれる安全性の1つに、ランタイムエラーを実際に見ることはないということがあります。その理由としては **Elmはエラーをデータとして扱うということ** が挙げられます。エラーが起こってアプリケーション全体がクラッシュするよりは失敗の可能性を明示的にカスタム型を使って表現するほうが好まれます。例えば、ユーザからの入力を年齢に変換したいとしましょう。カスタム型をこのように作りましょう:
