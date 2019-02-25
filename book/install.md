@@ -26,12 +26,12 @@ After installing through any of those routes, you will have the `elm` binary ava
 
   * Mac &mdash; [インストーラー][mac]
   * Windows &mdash; [インストーラー][win]
-  * Linux &mdash; [インストールガイド][linux]
+  * プラットフォームによらない方法 &mdash; [バイナリを直接ダウンロード][gh] または [npm][]
 
 [mac]: https://github.com/elm/compiler/releases/download/0.19.0/installer-for-mac.pkg
 [win]: https://github.com/elm/compiler/releases/download/0.19.0/installer-for-windows.exe
-[linux]: https://gist.github.com/evancz/442b56717b528f913d1717f2342a295d
 [npm]: https://www.npmjs.com/package/elm
+[gh]: https://github.com/elm/compiler/releases/tag/0.19.0
 
 上記いずれかの方法でElmをインストールすると、`elm`コマンドがターミナルから利用できるようになります。
 
