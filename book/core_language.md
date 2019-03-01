@@ -233,7 +233,7 @@ Lists are one of the most common data structures in Elm. They hold a sequence of
 Lists can hold many values. Those values must all have the same type. Here are a few examples that use functions from the [`List`][list] module:
 -->
 
-リストは複数の値を持つことができますが、それらの値はすべて同じ型を持っていなければなりません。例として、[`List`][list]モジュールから幾つかの関数を見てみましょう。
+リストは複数の値を持つことができますが、それらの値はすべて同じ型を持っていなければなりません。例として、[`List`][list]モジュールからいくつかの関数を見てみましょう。
 
 [list]: https://package.elm-lang.org/packages/elm/core/latest/List
 
@@ -405,7 +405,7 @@ It is important to notice that we do not make *destructive* updates. When we upd
 
 > ### レコードとオブジェクトの比較
 >
-> ElmのレコードはJavaScriptのオブジェクトと**似ています**が、幾つか重要な違いもあります。レコードには次のような特徴があります。
+> ElmのレコードはJavaScriptのオブジェクトと**似ています**が、いくつか重要な違いもあります。レコードには次のような特徴があります。
 >
 > - 存在しないフィールドにアクセスすることはできません。
 > - フィールドが `undefined` や `null`　になることもありません。

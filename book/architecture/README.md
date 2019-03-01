@@ -122,7 +122,7 @@ Your web app is going to need to deal with user input. This section will get you
 We will go through a few examples that build knowledge gradually, so go in order!
 -->
 
-幾つかの例を見ながら徐々に知識を深めていきますので、それではこの順番で進めていきましょう！
+いくつかの例を見ながら徐々に知識を深めていきますので、それではこの順番で進めていきましょう！
 
 
 <!--
