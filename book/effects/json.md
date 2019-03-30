@@ -156,7 +156,7 @@ This example is pretty similar to the last one:
 - `view`関数では取得された猫のGIF画像を表示します！
 
 <!--
-The main diferrence is in the `getRandomCatGif` definition. Instead of using `Http.expectString`, we have switched to `Http.expectJson`. What is the deal with that?
+The main difference is in the `getRandomCatGif` definition. Instead of using `Http.expectString`, we have switched to `Http.expectJson`. What is the deal with that?
 -->
 前節との主な違いは`getRandomCatGif`関数の定義にあります。`Http.expectString`関数を使用する代わりに、`Http.expectJson`に切り替えました。これはどういうことでしょうか？
 
