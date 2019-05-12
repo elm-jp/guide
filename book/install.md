@@ -26,12 +26,12 @@ After installing through any of those routes, you will have the `elm` binary ava
 
   * Mac &mdash; [インストーラー][mac]
   * Windows &mdash; [インストーラー][win]
-  * Linux &mdash; [インストールガイド][linux]
+  * プラットフォームによらない方法 &mdash; [バイナリを直接ダウンロード][gh] または [npm][]
 
 [mac]: https://github.com/elm/compiler/releases/download/0.19.0/installer-for-mac.pkg
 [win]: https://github.com/elm/compiler/releases/download/0.19.0/installer-for-windows.exe
-[linux]: https://gist.github.com/evancz/442b56717b528f913d1717f2342a295d
 [npm]: https://www.npmjs.com/package/elm
+[gh]: https://github.com/elm/compiler/releases/tag/0.19.0
 
 上記いずれかの方法でElmをインストールすると、`elm`コマンドがターミナルから利用できるようになります。
 
@@ -114,7 +114,7 @@ We will be using `elm repl` in the upcoming &ldquo;Core Language&rdquo; section,
 -->
 
 ### `elm repl`
-`elm repl` はターミナル上でElmの式を試すために使えます。
+`elm repl` はターミナル上でElmの式を試すために使えます。[^1]
 
 ```elm
 $ elm repl
@@ -226,3 +226,5 @@ Next we are going to learn the basics of Elm!
 `elm`コマンドでは様々なことができますが、全てを覚えようとする必要はありません。`elm --help`コマンドや`elm repl --help`コマンドを使うことで、いつでもこの章で紹介したコマンドの詳細情報を確認できます。
 
 次は、Elmの基本について学びましょう！
+
+[^1]: 訳注: `elm repl`を実行するにはnode.jsおよびnpmが必要です。フロントエンド開発ではほぼ必須のツールですので、インストールしていない環境の方は[公式ページ](https://nodejs.org/ja/)からインストールしてください。node.jsをインストールすれば一緒にnpmもインストールされます。

@@ -17,7 +17,7 @@
   "scripts": {
     "install": "gitbook install",
     "start": "gitbook serve",
-    "build": "rimraf _book && rimraf docs && gitbook build && mv _book docs && rimraf docs/**/*.md",
+    "build": "rimraf _book && rimraf docs && gitbook build && mv _book docs && rimraf docs/**/*.md && sed -i 's/検索すると入力/検索/g' docs/*.html docs/**/*.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

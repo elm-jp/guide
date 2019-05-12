@@ -155,10 +155,14 @@ This example is pretty similar to the last one:
 - `update`関数では、新しいGIF画像が得られる時の`GotGif`メッセージを処理します。成功か失敗かにかかわらず、続くコマンドがないことを示すCmd.noneを返しています。また、誰かがボタンが押した際に発生する`MorePlease`メッセージも処理し、ランダムな猫の画像を更に取得するためのコマンドを発行しています。
 - `view`関数では取得された猫のGIF画像を表示します！
 
+<<<<<<< HEAD
 <!--
-The main difference is in the `getRandomCatGif` definition. Instead of using `Http.expectString`, we have switched to `Http.expectJson`. What is the deal with that?
+The main diferrence is in the `getRandomCatGif` definition. Instead of using `Http.expectString`, we have switched to `Http.expectJson`. What is the deal with that?
 -->
 前節との主な違いは`getRandomCatGif`関数の定義にあります。`Http.expectString`関数を使用する代わりに、`Http.expectJson`に切り替えました。これはどういうことでしょうか？
+=======
+The main difference is in the `getRandomCatGif` definition. Instead of using `Http.expectString`, we have switched to `Http.expectJson`. What is the deal with that?
+>>>>>>> evan/master
 
 
 <!--
