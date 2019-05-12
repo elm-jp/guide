@@ -101,7 +101,7 @@ type Error
 From there we can show nicer error messages as we discussed before, but we can also try to recover from the failure! If we see a `Timeout` it may work to wait a little while and try again. Whereas if we see a `BadStatus 404` then there is no point in trying again.
 -->
 
-それからこの節で話してきたとおり素敵なエラーメッセージを表示して、その失敗から復旧を試みましょう。エラーが`Timeout`だったら、少し待ってリクエストしなおせばうまくいくでしょう。一方`BadStatus 404`だったらリクエストしなおす意味はないでしょう。
+ここでも先ほどの「エラーを通知する」の例でお見せしたようにより良いエラーメッセージを見せることができますが、それだけではなくエラーが起きたときの対処に使うこともできます。エラーが`Timeout`だったら、少し待ってリクエストしなおせばうまくいくでしょう。一方`BadStatus 404`だったらリクエストしなおす意味はないでしょう。
 
 <!--
 The next chapter shows how to actually make HTTP requests, so we will run into the `Result` and `Error` types again very soon!
