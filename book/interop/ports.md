@@ -248,7 +248,7 @@ Instead, I chose a design that makes synchronization errors impossible. JavaScri
 I want to add a couple notes about the examples we saw here:
 -->
 
-先ほど見てきた例について、ここで幾つか補足を付け加えておきたいと思います。
+先ほど見てきた例について、ここでいくつか補足を付け加えておきたいと思います。
 
 <!--
 - **All `port` declarations must appear in a `port module`.** It is probably best to organize all your ports into one `port module` so it is easier to see the interface all in one place.
