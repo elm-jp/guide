@@ -689,16 +689,34 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="result">Result</h1>
-<p>The <code>Maybe</code> type can help with simple functions that may fail, but it does not tell you <em>why</em> it failed. Imagine if a compiler just said <code>Nothing</code> if anything was wrong with your program. Good luck figuring out what went wrong!</p>
-<p>This is where the <a href="https://package.elm-lang.org/packages/elm-lang/core/latest/Result#Result" target="_blank"><code>Result</code></a> type becomes helpful. It is defined like this:</p>
+                                <!--
+# Result
+-->
+<h1 id="result">Result</h1>
+<!--
+The `Maybe` type can help with simple functions that may fail, but it does not tell you _why_ it failed. Imagine if a compiler just said `Nothing` if anything was wrong with your program. Good luck figuring out what went wrong!
+-->
+<p><code>Maybe</code>&#x578B;&#x306F;&#x5931;&#x6557;&#x3059;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x306A;&#x3044;&#x5358;&#x7D14;&#x306A;&#x95A2;&#x6570;&#x306B;&#x306F;&#x5F79;&#x306B;&#x7ACB;&#x3061;&#x307E;&#x3059;&#x304C;&#x3001; <em>&#x306A;&#x305C;</em> &#x5931;&#x6557;&#x3057;&#x305F;&#x304B;&#x306F;&#x6559;&#x3048;&#x3066;&#x304F;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x3042;&#x306A;&#x305F;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306B;&#x4F55;&#x304B;&#x554F;&#x984C;&#x304C;&#x3042;&#x3063;&#x3066;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C;<code>Nothing</code>&#x3068;&#x3057;&#x304B;&#x8A00;&#x3063;&#x3066;&#x304F;&#x308C;&#x306A;&#x304B;&#x3063;&#x305F;&#x3089;&#x3069;&#x3046;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x4F55;&#x304C;&#x554F;&#x984C;&#x3060;&#x3063;&#x305F;&#x306E;&#x304B;&#x8ABF;&#x3079;&#x3066;&#x904B;&#x826F;&#x304F;&#x5206;&#x304B;&#x308B;&#x3068;&#x3044;&#x3044;&#x3067;&#x3059;&#x306D;&#xFF01;</p>
+<!--
+This is where the [`Result`][Result] type becomes helpful. It is defined like this:
+-->
+<p>&#x3053;&#x3093;&#x306A;&#x3068;&#x304D;<a href="https://package.elm-lang.org/packages/elm-lang/core/latest/Result#Result" target="_blank"><code>Result</code></a>&#x578B;&#x304C;&#x5F79;&#x306B;&#x7ACB;&#x3061;&#x307E;&#x3059;&#x3002;<code>Result</code>&#x578B;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x307E;&#x3059;:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Result</span> error value
   = <span class="hljs-type">Ok</span> value
   | <span class="hljs-type">Err</span> error
 </code></pre>
-<p>The point of this type is to give additional information when things go wrong. It is really helpful for error reporting and error recovery!</p>
-<h2 id="error-reporting">Error Reporting</h2>
-<p>Perhaps we have a website where people input their age. We could check that the age is reasonable with a function like this:</p>
+<!--
+The point of this type is to give additional information when things go wrong. It is really helpful for error reporting and error recovery!
+-->
+<p>&#x3053;&#x306E;&#x578B;&#x306E;&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x306F;&#x3001;&#x554F;&#x984C;&#x304C;&#x8D77;&#x3053;&#x3063;&#x305F;&#x3068;&#x304D;&#x306B;&#x554F;&#x984C;&#x304C;&#x8D77;&#x3053;&#x3063;&#x305F;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3060;&#x3051;&#x3067;&#x306F;&#x306A;&#x304F;&#x3055;&#x3089;&#x306A;&#x308B;&#x60C5;&#x5831;&#x3092;&#x63D0;&#x4F9B;&#x3067;&#x304D;&#x308B;&#x3068;&#x3053;&#x308D;&#x306B;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x60C5;&#x5831;&#x306F;&#x30A8;&#x30E9;&#x30FC;&#x3092;&#x901A;&#x77E5;&#x3057;&#x305F;&#x308A;&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x5BFE;&#x51E6;&#x3057;&#x305F;&#x308A;&#x3059;&#x308B;&#x306E;&#x306B;&#x3068;&#x3066;&#x3082;&#x5F79;&#x306B;&#x7ACB;&#x3061;&#x307E;&#x3059;&#x3002;</p>
+<!--
+## Error Reporting
+-->
+<h2 id="&#x30A8;&#x30E9;&#x30FC;&#x3092;&#x901A;&#x77E5;&#x3059;&#x308B;">&#x30A8;&#x30E9;&#x30FC;&#x3092;&#x901A;&#x77E5;&#x3059;&#x308B;</h2>
+<!--
+Perhaps we have a website where people input their age. We could check that the age is reasonable with a function like this:
+-->
+<p>&#x3072;&#x3087;&#x3063;&#x3068;&#x3057;&#x305F;&#x3089;&#x3001;&#x6211;&#x3005;&#x306F;&#x5E74;&#x9F62;&#x3092;&#x5165;&#x529B;&#x3059;&#x308B;&#x30B5;&#x30A4;&#x30C8;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x5165;&#x529B;&#x3055;&#x308C;&#x305F;&#x5E74;&#x9F62;&#x304C;&#x7121;&#x52B9;&#x306A;&#x5024;&#x3067;&#x306F;&#x306A;&#x3044;&#x304B;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x95A2;&#x6570;&#x3067;&#x78BA;&#x8A8D;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;:</p>
 <pre><code class="lang-elm"><span class="hljs-title">isReasonableAge</span> : <span class="hljs-type">String</span> -&gt; <span class="hljs-type">Result</span> <span class="hljs-type">String</span> <span class="hljs-type">Int</span>
 <span class="hljs-title">isReasonableAge</span> input =
   <span class="hljs-keyword">case</span> <span class="hljs-type">String</span>.toInt input <span class="hljs-keyword">of</span>
@@ -720,9 +738,18 @@
 <span class="hljs-comment">-- isReasonableAge &quot;24&quot;  == Ok 24</span>
 <span class="hljs-comment">-- isReasonableAge &quot;150&quot; == Err ...</span>
 </code></pre>
-<p>Not only can we check the age, but we can also show people error messages depending on the particulars of their input. This kind of feedback is much better than <code>Nothing</code>!</p>
-<h2 id="error-recovery">Error Recovery</h2>
-<p>The <code>Result</code> type can also help you recover from errors. One place you see this is when making HTTP requests. Say we want to show the full text of <em>Anna Karenina</em> by Leo Tolstoy. Our HTTP request results in a <code>Result Error String</code> to capture the fact that the request may succeed with the full text, or it may fail in a bunch of different ways:</p>
+<!--
+Not only can we check the age, but we can also show people error messages depending on the particulars of their input. This kind of feedback is much better than `Nothing`!
+-->
+<p>&#x5E74;&#x9F62;&#x3092;&#x78BA;&#x8A8D;&#x3059;&#x308B;&#x3060;&#x3051;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;&#x30E6;&#x30FC;&#x30B6;&#x306B;&#x500B;&#x3005;&#x306E;&#x5165;&#x529B;&#x306B;&#x5FDC;&#x3058;&#x3066;&#x30A8;&#x30E9;&#x30FC;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x30D5;&#x30A3;&#x30FC;&#x30C9;&#x30D0;&#x30C3;&#x30AF;&#x306F;&#x305F;&#x3060;<code>Nothing</code>&#x3092;&#x8FD4;&#x3059;&#x3088;&#x308A;&#x3068;&#x3066;&#x3082;&#x3088;&#x3044;&#x3067;&#x3059;&#x3002;</p>
+<!--
+## Error Recovery
+-->
+<h2 id="&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x5BFE;&#x51E6;&#x3059;&#x308B;">&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x5BFE;&#x51E6;&#x3059;&#x308B;</h2>
+<!--
+The `Result` type can also help you recover from errors. One place you see this is when making HTTP requests. Say we want to show the full text of _Anna Karenina_ by Leo Tolstoy. Our HTTP request results in a `Result Error String` to capture the fact that the request may succeed with the full text, or it may fail in a bunch of different ways:
+-->
+<p><code>Result</code>&#x578B;&#x306F;&#x30A8;&#x30E9;&#x30FC;&#x306B;&#x5BFE;&#x51E6;&#x3059;&#x308B;&#x306E;&#x306B;&#x3082;&#x5F79;&#x306B;&#x7ACB;&#x3061;&#x307E;&#x3059;&#x3002;&#x5F79;&#x306B;&#x7ACB;&#x3063;&#x3066;&#x3044;&#x308B;&#x5834;&#x6240;&#x306E;1&#x3064;&#x3068;&#x3057;&#x3066;HTTP&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3092;&#x4F5C;&#x308B;&#x3068;&#x3053;&#x308D;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x30EC;&#x30D5;&#x30FB;&#x30C8;&#x30EB;&#x30B9;&#x30C8;&#x30A4;&#x306B;&#x3088;&#x308B;&#x5C0F;&#x8AAC;&#x3001; <em>&#x30A2;&#x30F3;&#x30CA;&#x30FB;&#x30AB;&#x30EC;&#x30FC;&#x30CB;&#x30CA;</em> &#x306E;&#x5168;&#x6587;&#x3092;&#x8868;&#x793A;&#x3057;&#x305F;&#x3044;&#x3068;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x3053;&#x308C;&#x3092;&#x8868;&#x73FE;&#x3057;&#x3088;&#x3046;&#x3068;&#x3059;&#x308B;&#x3068;&#x3001;HTTP&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x306F;&#x7D50;&#x679C;&#x7684;&#x306B;<code>Result Error String</code>&#x3068;&#x3044;&#x3046;&#x578B;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x578B;&#x306F;&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x304C;&#x6210;&#x529F;&#x3057;&#x3066;&#x5168;&#x6587;&#x3092;&#x5F97;&#x3089;&#x308C;&#x308B;&#x304B;&#x3001;&#x3055;&#x307E;&#x3056;&#x307E;&#x306A;&#x7406;&#x7531;&#x3067;&#x5931;&#x6557;&#x3059;&#x308B;&#x304B;&#x3092;&#x6355;&#x6349;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Error</span>
   = <span class="hljs-type">BadUrl</span> <span class="hljs-type">String</span>
   | <span class="hljs-type">Timeout</span>
@@ -734,8 +761,14 @@
 <span class="hljs-comment">-- Err Timeout        : Result Error String</span>
 <span class="hljs-comment">-- Err NetworkError   : Result Error String</span>
 </code></pre>
-<p>From there we can show nicer error messages as we discussed before, but we can also try to recover from the failure! If we see a <code>Timeout</code> it may work to wait a little while and try again. Whereas if we see a <code>BadStatus 404</code> then there is no point in trying again.</p>
-<p>The next chapter shows how to actually make HTTP requests, so we will run into the <code>Result</code> and <code>Error</code> types again very soon!</p>
+<!--
+From there we can show nicer error messages as we discussed before, but we can also try to recover from the failure! If we see a `Timeout` it may work to wait a little while and try again. Whereas if we see a `BadStatus 404` then there is no point in trying again.
+-->
+<p>&#x3053;&#x3053;&#x3067;&#x3082;&#x5148;&#x307B;&#x3069;&#x306E;&#x300C;&#x30A8;&#x30E9;&#x30FC;&#x3092;&#x901A;&#x77E5;&#x3059;&#x308B;&#x300D;&#x306E;&#x4F8B;&#x3067;&#x304A;&#x898B;&#x305B;&#x3057;&#x305F;&#x3088;&#x3046;&#x306B;&#x3088;&#x308A;&#x826F;&#x3044;&#x30A8;&#x30E9;&#x30FC;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x898B;&#x305B;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x304C;&#x3001;&#x305D;&#x308C;&#x3060;&#x3051;&#x3067;&#x306F;&#x306A;&#x304F;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x8D77;&#x304D;&#x305F;&#x3068;&#x304D;&#x306E;&#x5BFE;&#x51E6;&#x306B;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x30A8;&#x30E9;&#x30FC;&#x304C;<code>Timeout</code>&#x3060;&#x3063;&#x305F;&#x3089;&#x3001;&#x5C11;&#x3057;&#x5F85;&#x3063;&#x3066;&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3057;&#x306A;&#x304A;&#x305B;&#x3070;&#x3046;&#x307E;&#x304F;&#x3044;&#x304F;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x4E00;&#x65B9;<code>BadStatus 404</code>&#x3060;&#x3063;&#x305F;&#x3089;&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3057;&#x306A;&#x304A;&#x3059;&#x610F;&#x5473;&#x306F;&#x306A;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<!--
+The next chapter shows how to actually make HTTP requests, so we will run into the `Result` and `Error` types again very soon!
+-->
+<p>&#x6B21;&#x306E;&#x7AE0;&#x3067;&#x306F;&#x5B9F;&#x969B;&#x306B;HTTP&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x306E;&#x4F5C;&#x308A;&#x65B9;&#x3092;&#x898B;&#x305B;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x3002;&#x306A;&#x306E;&#x3067;&#x3059;&#x3050;&#x3055;&#x307E;<code>Result</code>&#x578B;&#x3068;<code>Error</code>&#x578B;&#x306B;&#x518D;&#x4F1A;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3088;&#xFF01;</p>
 
                                 
                                 </section>
@@ -779,7 +812,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Result","level":"1.7.2","depth":2,"next":{"title":"コマンドとサブスクリプション","level":"1.8","depth":1,"path":"effects/README.md","ref":"effects/README.md","articles":[{"title":"HTTP","level":"1.8.1","depth":2,"path":"effects/http.md","ref":"effects/http.md","articles":[]},{"title":"JSON","level":"1.8.2","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},{"title":"Random","level":"1.8.3","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},{"title":"Time","level":"1.8.4","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]}]},"previous":{"title":"Maybe","level":"1.7.1","depth":2,"path":"error_handling/maybe.md","ref":"error_handling/maybe.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","ga","sitemap"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"ga":{"configuration":"auto","token":"UA-131798240-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"error_handling/result.md","mtime":"2019-05-12T14:59:39.220Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-12T15:00:15.410Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Result","level":"1.7.2","depth":2,"next":{"title":"コマンドとサブスクリプション","level":"1.8","depth":1,"path":"effects/README.md","ref":"effects/README.md","articles":[{"title":"HTTP","level":"1.8.1","depth":2,"path":"effects/http.md","ref":"effects/http.md","articles":[]},{"title":"JSON","level":"1.8.2","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},{"title":"Random","level":"1.8.3","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},{"title":"Time","level":"1.8.4","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]}]},"previous":{"title":"Maybe","level":"1.7.1","depth":2,"path":"error_handling/maybe.md","ref":"error_handling/maybe.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","ga","sitemap"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"ga":{"configuration":"auto","token":"UA-131798240-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"error_handling/result.md","mtime":"2019-05-13T02:21:17.007Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-13T02:21:51.827Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
