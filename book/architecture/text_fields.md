@@ -13,7 +13,7 @@
 -->
 
 ---
-#### [ソースコードを複製](https://github.com/evancz/elm-architecture-tutorial/) または [オンラインエディタ](https://ellie-app.com/37gW7sj9wPVa1) を参照してください。
+#### [サンプルコードをダウンロード](https://github.com/evancz/elm-architecture-tutorial/) するか [オンラインエディタ](https://ellie-app.com/37gW7sj9wPVa1) で試してください。
 ---
 
 <!--
@@ -106,13 +106,13 @@ type alias Model =
 <!--
 This time I chose to represent the model as a record. (You can read more about records [here](https://guide.elm-lang.org/core_language.html#records) and [here](https://elm-lang.org/docs/records).) For now, the record stores the user input in the `content` field.
 -->
-今回モデルをレコードとして表現することにしました（[こちら](https://guide.elm-lang.org/core_language.html#records) や [こちら](https://elm-lang.org/docs/records) でレコードについて詳しく説明しています）。このレコードはユーザーの入力を `content` というフィールドで保持します。
+今回モデルをレコードとして表現することにしました（[こちら](https://guide.elm-lang.jp/core_language.html#records) や [こちら](https://elm-lang.org/docs/records) でレコードについて詳しく説明しています）。このレコードはユーザーの入力を `content` というフィールドで保持します。
 
 <!--
 > **Note:** You may be wondering, why bother having a record if it only holds one entry? Couldn't you just use the string directly? Sure! But starting with a record makes it easy to add more fields as our app gets more complicated. When the time comes where we want *two* text inputs, we will have to do much less fiddling around.
 -->
 
-> **注意:** 一つのフィールドしか無いのになぜレコードにするのか疑問に思う方もいるかも知れません。文字列をそのまま使ってもよいのでは無いでしょうか。もちろんそれでも構いません。しかしレコードにしておくことでアプリケーションが複雑になるに連れてフィールドを追加するのが用意になります。 *2つの* テキスト入力をしたくなったとしても、より小さな変更で済むようになります。
+> **注意:** 一つのフィールドしか無いのになぜレコードにするのか疑問に思う方もいるかも知れません。文字列をそのまま使ってもよいのでは無いでしょうか。もちろんそれでも構いません。しかし最初からレコードにしておくことでアプリケーションが複雑になってもフィールドを追加するのは簡単です。 *2つの* テキスト入力をしたくなったとしても、より小さな変更で済むようになります。
 
 <!--
 Okay, so we have our model. Now in this app there is only one kind of message really. The user can change the contents of the text field.
@@ -145,7 +145,7 @@ update msg model =
 When we receive new content, we use the record update syntax to update the contents of `content`.
 -->
 
-テキスト入力の内容を受け取ると、レコード更新構文で `content` の内容を更新します。
+テキスト入力の内容を受け取ると、レコードを更新する構文によって `content` の内容を更新します。
 
 <!--
 Finally we need to say how to view our application:
@@ -170,7 +170,7 @@ We create a `<div>` with two children.
 <!--
 The interesting child is the `<input>` node. In addition to the `placeholder` and `value` attributes, it uses `onInput` to declare what messages should be sent when the user types into this input.
 -->
-注目すべきは `<input>` 要素です。 `placeholder` 属性や `value` 属性に加えて、 ユーザーがテキスト入力に文字を入力したときにメッセージを送信することを定義する `onInput` があります。
+注目すべきは `<input>` 要素です。 `placeholder` 属性や `value` 属性に加えて、 ユーザーがテキスト入力に文字を入力したときにどのようなメッセージを送信するか定義する `onInput` があります。
 
 <!--
 This `onInput` function is kind of interesting. It takes one argument, in this case the `Change` function which was created when we declared the `Msg` type:
