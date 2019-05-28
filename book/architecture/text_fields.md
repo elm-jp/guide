@@ -13,7 +13,7 @@
 -->
 
 ---
-#### [サンプルコードをダウンロード](https://github.com/evancz/elm-architecture-tutorial/) するか [オンラインエディタ](https://ellie-app.com/37gW7sj9wPVa1) で試してください。
+#### [サンプルコード](https://github.com/evancz/elm-architecture-tutorial/) をダウンロードするか [オンラインエディタ](https://ellie-app.com/37gW7sj9wPVa1) で試してください。
 ---
 
 <!--
