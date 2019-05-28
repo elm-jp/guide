@@ -1,0 +1,823 @@
+
+<!DOCTYPE HTML>
+<html lang="ja" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>エラーハンドリング · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="maybe.html" />
+    
+    
+    <link rel="prev" href="../types/pattern_matching.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="検索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../about_translation.html">
+            
+                <a href="../about_translation.html">
+            
+                    
+                    翻訳について
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../install.html">
+            
+                <a href="../install.html">
+            
+                    
+                    インストール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../core_language.html">
+            
+                <a href="../core_language.html">
+            
+                    
+                    言語の基礎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    ボタン
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    テキストフィールド
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    フォーム
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    型を読む
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    型の別名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    カスタム型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    パターンマッチ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    エラーハンドリング
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="maybe.html">
+            
+                <a href="maybe.html">
+            
+                    
+                    Maybe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="result.html">
+            
+                <a href="result.html">
+            
+                    
+                    Result
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../effects/">
+            
+                <a href="../effects/">
+            
+                    
+                    コマンドとサブスクリプション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../effects/http.html">
+            
+                <a href="../effects/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../effects/json.html">
+            
+                <a href="../effects/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../effects/random.html">
+            
+                <a href="../effects/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../effects/time.html">
+            
+                <a href="../effects/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../interop/">
+            
+                <a href="../interop/">
+            
+                    
+                    JavaScriptとの相互運用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../interop/flags.html">
+            
+                <a href="../interop/flags.html">
+            
+                    
+                    フラグ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../interop/ports.html">
+            
+                <a href="../interop/ports.html">
+            
+                    
+                    ポート
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../interop/custom_elements.html">
+            
+                <a href="../interop/custom_elements.html">
+            
+                    
+                    カスタムエレメンツ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Webアプリケーション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    ナビゲーションする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URLをパースする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    モジュール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    モジュールの構造化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    最適化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    アセットサイズ縮小化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    次への一歩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" >
+            
+                <span>
+            
+                    
+                    付録
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../appendix/types_as_sets.html">
+            
+                <a href="../appendix/types_as_sets.html">
+            
+                    
+                    集合としての型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../appendix/types_as_bits.html">
+            
+                <a href="../appendix/types_as_bits.html">
+            
+                    
+                    型のビット表現
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../appendix/function_types.html">
+            
+                <a href="../appendix/function_types.html">
+            
+                    
+                    関数の型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBookで公開 
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >エラーハンドリング</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+# Error Handling
+-->
+<h1 id="&#x30A8;&#x30E9;&#x30FC;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;">&#x30A8;&#x30E9;&#x30FC;&#x30CF;&#x30F3;&#x30C9;&#x30EA;&#x30F3;&#x30B0;</h1>
+<!--
+One of the guarantees of Elm is that you will not see runtime errors in practice. This is partly because **Elm treats errors as data**. Rather than crashing, we model the possibility of failure explicitly with custom types. For example, say you want to turn user input into an age. You might create a custom type like this:
+-->
+<p>Elm&#x304C;&#x4FDD;&#x8A3C;&#x3057;&#x3066;&#x304F;&#x308C;&#x308B;&#x5B89;&#x5168;&#x6027;&#x306E;1&#x3064;&#x306B;&#x3001;&#x30E9;&#x30F3;&#x30BF;&#x30A4;&#x30E0;&#x30A8;&#x30E9;&#x30FC;&#x3092;&#x5B9F;&#x969B;&#x306B;&#x898B;&#x308B;&#x3053;&#x3068;&#x306F;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x7406;&#x7531;&#x3068;&#x3057;&#x3066;&#x306F; <strong>Elm&#x306F;&#x30A8;&#x30E9;&#x30FC;&#x3092;&#x30C7;&#x30FC;&#x30BF;&#x3068;&#x3057;&#x3066;&#x6271;&#x3046;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;</strong> &#x304C;&#x6319;&#x3052;&#x3089;&#x308C;&#x307E;&#x3059;&#x3002;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x8D77;&#x3053;&#x3063;&#x3066;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x5168;&#x4F53;&#x304C;&#x30AF;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x3059;&#x308B;&#x3088;&#x308A;&#x306F;&#x5931;&#x6557;&#x306E;&#x53EF;&#x80FD;&#x6027;&#x3092;&#x660E;&#x793A;&#x7684;&#x306B;&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x8868;&#x73FE;&#x3059;&#x308B;&#x307B;&#x3046;&#x304C;&#x597D;&#x307E;&#x308C;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x3001;&#x30E6;&#x30FC;&#x30B6;&#x304B;&#x3089;&#x306E;&#x5165;&#x529B;&#x3092;&#x5E74;&#x9F62;&#x306B;&#x5909;&#x63DB;&#x3057;&#x305F;&#x3044;&#x3068;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;&#x3092;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x4F5C;&#x308A;&#x307E;&#x3057;&#x3087;&#x3046;:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">MaybeAge</span>
+  = <span class="hljs-type">Age</span> <span class="hljs-type">Int</span>
+  | <span class="hljs-type">InvalidInput</span>
+
+<span class="hljs-title">toAge</span> : <span class="hljs-type">String</span> -&gt; <span class="hljs-type">MaybeAge</span>
+<span class="hljs-title">toAge</span> userInput =
+  ...
+
+<span class="hljs-comment">-- toAge &quot;24&quot; == Age 24</span>
+<span class="hljs-comment">-- toAge &quot;99&quot; == Age 99</span>
+<span class="hljs-comment">-- toAge &quot;ZZ&quot; == InvalidInput</span>
+</code></pre>
+<!--
+Instead of crashing on bad input, we say explicitly that the result may be an `Age 24` or an `InvalidInput`. No matter what input we get, we always produce one of these two variants. From there, we use pattern matching which will ensure that both possibilities are accounted for. No crashing!
+-->
+<p>&#x9593;&#x9055;&#x3063;&#x305F;&#x5165;&#x529B;&#x3067;&#x30AF;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x3059;&#x308B;&#x4EE3;&#x308F;&#x308A;&#x306B;&#x3001;&#x7D50;&#x679C;&#x304C;<code>Age 24</code>&#x307E;&#x305F;&#x306F;<code>InvalidInput</code>&#x306B;&#x306A;&#x308B;&#x3053;&#x3068;&#x3092;&#x660E;&#x793A;&#x7684;&#x306B;&#x8868;&#x73FE;&#x3057;&#x307E;&#x3059;&#x3002;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x5165;&#x529B;&#x304C;&#x5F97;&#x3089;&#x308C;&#x3066;&#x3082;&#x3001;&#x5E38;&#x306B;2&#x3064;&#x306E;&#x30D0;&#x30EA;&#x30A2;&#x30F3;&#x30C8;&#x3046;&#x3061;&#x306E;1&#x3064;&#x3092;&#x751F;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x304B;&#x3089;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x4E21;&#x65B9;&#x306E;&#x53EF;&#x80FD;&#x6027;&#x304C;&#x78BA;&#x5B9F;&#x306B;&#x51E6;&#x7406;&#x3055;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;&#x30AF;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x306F;&#x3057;&#x307E;&#x305B;&#x3093;&#xFF01;</p>
+<!--
+This kind of thing comes up all the time! For example, maybe you want to turn a bunch of user input into a `Post` to share with others. But what happens if they forget to add a title? Or there is no content in the post? We could model all these problems explicitly:
+-->
+<p>&#x3053;&#x3046;&#x3044;&#x3046;&#x554F;&#x984C;&#x306B;&#x306F;&#x5E38;&#x306B;&#x906D;&#x9047;&#x3057;&#x307E;&#x3059;&#xFF01;&#x4F8B;&#x3048;&#x3070;&#x3001;&#x4ED6;&#x306E;&#x4EBA;&#x3068;&#x5171;&#x6709;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x3001;&#x30E6;&#x30FC;&#x30B6;&#x304B;&#x3089;&#x306E;&#x5927;&#x91CF;&#x306E;&#x5165;&#x529B;&#x3092;<code>Post</code>&#x578B;&#x306B;&#x5909;&#x63DB;&#x3057;&#x305F;&#x3044;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x30BF;&#x30A4;&#x30C8;&#x30EB;&#x3092;&#x5165;&#x529B;&#x3059;&#x308B;&#x306E;&#x3092;&#x5FD8;&#x308C;&#x305F;&#x3089;&#x3069;&#x3046;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x3082;&#x3057;&#x304F;&#x306F;&#x305D;&#x306E;&#x6295;&#x7A3F;&#x306B;&#x4E2D;&#x8EAB;&#x304C;&#x306A;&#x304B;&#x3063;&#x305F;&#x3089;&#xFF1F;&#x3059;&#x3079;&#x3066;&#x306E;&#x554F;&#x984C;&#x3092;&#x660E;&#x793A;&#x7684;&#x306B;&#x30E2;&#x30C7;&#x30EA;&#x30F3;&#x30B0;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;:</p>
+<pre><code>type MaybePost
+  = Post { title : String, content : String }
+  | NoTitle
+  | NoContent
+
+toPost : String -&gt; String -&gt; MaybePost
+toPost title content =
+  ...
+
+-- toPost &quot;hi&quot; &quot;sup?&quot; == Post { title = &quot;hi&quot;, content = &quot;sup?&quot; }
+-- toPost &quot;&quot;   &quot;&quot;     == NoTitle
+-- toPost &quot;hi&quot; &quot;&quot;     == NoContent
+</code></pre><!--
+Instead of just saying that the input is invalid, we are describing each of the ways things might have gone wrong. If we have a `viewPreview : MaybePost -> Html msg` function to preview valid posts, now we can give more specific error messages in the preview area when something goes wrong!
+-->
+<p>&#x5165;&#x529B;&#x304C;&#x7121;&#x52B9;&#x3067;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x3060;&#x3051;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;&#x5165;&#x529B;&#x304C;&#x3069;&#x3046;&#x9593;&#x9055;&#x3063;&#x3066;&#x3044;&#x308B;&#x304B;&#x3092;&#x305D;&#x308C;&#x305E;&#x308C;&#x8868;&#x73FE;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x6709;&#x52B9;&#x306A;&#x6295;&#x7A3F;&#x3092;&#x30D7;&#x30EC;&#x30D3;&#x30E5;&#x30FC;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;<code>viewPreview&#xFF1A;MaybePost -&gt; Html msg</code>&#x95A2;&#x6570;&#x304C;&#x3042;&#x308C;&#x3070;&#x3001;&#x4F55;&#x304B;&#x554F;&#x984C;&#x304C;&#x767A;&#x751F;&#x3057;&#x305F;&#x3068;&#x304D;&#x306B;&#x30D7;&#x30EC;&#x30D3;&#x30E5;&#x30FC;&#x9818;&#x57DF;&#x306B;&#x3082;&#x3063;&#x3068;&#x5177;&#x4F53;&#x7684;&#x306A;&#x30A8;&#x30E9;&#x30FC;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x8868;&#x793A;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#xFF01;</p>
+<!--
+These kinds of situations are extremely common. It is often valuable to create a custom type for your exact situation, but in some of the simpler cases, you can use an off-the-shelf type instead. So the rest of this chapter explores the `Maybe` and `Result` types, showing how they can help you treat errors as data!
+-->
+<p>&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x72B6;&#x6CC1;&#x306F;&#x6975;&#x3081;&#x3066;&#x4E00;&#x822C;&#x7684;&#x3067;&#x3059;&#x3002;&#x305D;&#x306E;&#x5834;&#x305D;&#x306E;&#x5834;&#x306B;&#x5408;&#x308F;&#x305B;&#x3066;&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x305F;&#x307B;&#x3046;&#x304C;&#x3057;&#x3070;&#x3057;&#x3070;&#x6709;&#x76CA;&#x3067;&#x3059;&#x304C;&#x3001;&#x3088;&#x308A;&#x5358;&#x7D14;&#x306A;&#x5834;&#x5408;&#x306B;&#x306F;&#x4EE3;&#x308F;&#x308A;&#x306B;&#x65E2;&#x88FD;&#x306E;&#x578B;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x3067;&#x3053;&#x306E;&#x7AE0;&#x306E;&#x6B8B;&#x308A;&#x306E;&#x90E8;&#x5206;&#x3067;&#x306F;<code>Maybe</code>&#x578B;&#x3068;<code>Result</code>&#x578B;&#x3092;&#x65B0;&#x305F;&#x306B;&#x5B66;&#x3073;&#x3001;&#x3053;&#x306E;2&#x3064;&#x306E;&#x578B;&#x304C;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x30A8;&#x30E9;&#x30FC;&#x3092;&#x30C7;&#x30FC;&#x30BF;&#x3068;&#x3057;&#x3066;&#x6271;&#x3046;&#x306E;&#x3092;&#x52A9;&#x3051;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x304B;&#x3092;&#x793A;&#x3057;&#x307E;&#x3059;&#xFF01;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../types/pattern_matching.html" class="navigation navigation-prev " aria-label="Previous page: パターンマッチ">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="maybe.html" class="navigation navigation-next " aria-label="Next page: Maybe">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"エラーハンドリング","level":"1.7","depth":1,"next":{"title":"Maybe","level":"1.7.1","depth":2,"path":"error_handling/maybe.md","ref":"error_handling/maybe.md","articles":[]},"previous":{"title":"パターンマッチ","level":"1.6.4","depth":2,"path":"types/pattern_matching.md","ref":"types/pattern_matching.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","ga","sitemap"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"ga":{"configuration":"auto","token":"UA-131798240-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"error_handling/README.md","mtime":"2019-05-13T02:21:17.007Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-13T02:21:51.827Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

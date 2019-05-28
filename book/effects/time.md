@@ -9,10 +9,9 @@
 <!--
 Now we are going to make a digital clock. (Analog will be an exercise!)
 
-So far we have focused on commands. With the randomness example, we commanded the runtime system to give us a random value, but that is sort of a weird pattern for a clock. We _always_ want to know the current time. This is where **subscriptions** come in!
+So far we have focused on commands. With the HTTP and randomness examples, we commanded Elm to do specific work immediately, but that is sort of a weird pattern for a clock. We _always_ want to know the current time. This is where **subscriptions** come in!
 
-After you read through the code, we will talk about how we are using the [`elm/time`][time]
- package here:
+After you read through the code, we will talk about how we are using the [`elm/time`][time] package here:
 -->
 まずはデジタル時計を作って見ましょう（アナログ時計は今後の課題です！）
 
@@ -186,9 +185,9 @@ subscriptions model =
 ```
 
 <!--
-We are using the [`Time.every`][every] function here:
+We are using the [`Time.every`][every] function:
 -->
-ここでは、[`Time.every`][every]関数を使っています：
+[`Time.every`][every]関数を使っています：
 
 [every]: https://package.elm-lang.org/packages/elm/time/latest/Time#every
 
@@ -205,7 +204,7 @@ That is the basic pattern of any subscription. You give some configuration, and 
 -->
 この関数は2つの引数を取ります：
 
-1. ミリ秒単位での時間間隔。`1000`と言えば毎秒を意味します。`60 * 1000`とすれば毎分、`5 * 50 * 1000`とすれば5分毎と言う事も出来ます。
+1. ミリ秒単位での時間間隔。`1000`と言えば毎秒を意味します。`60 * 1000`とすれば毎分、`5 * 60 * 1000`とすれば5分毎と言う事も出来ます。
 2. 現時刻をある`Msg`に変換する関数、すなわち毎秒ごとに、現時刻が`update`関数のための`Tick <time>`メッセージに変換されていきます。
 
 これがサブスクリプションの基本的なパターンです。何らかの設定を与え、どのように`Msg`の値を発行するか記述します。悪くないでしょ！

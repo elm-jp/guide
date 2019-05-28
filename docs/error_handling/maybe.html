@@ -1,0 +1,949 @@
+
+<!DOCTYPE HTML>
+<html lang="ja" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Maybe · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="result.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="検索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../about_translation.html">
+            
+                <a href="../about_translation.html">
+            
+                    
+                    翻訳について
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../install.html">
+            
+                <a href="../install.html">
+            
+                    
+                    インストール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../core_language.html">
+            
+                <a href="../core_language.html">
+            
+                    
+                    言語の基礎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    ボタン
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    テキストフィールド
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    フォーム
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    型を読む
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    型の別名
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    カスタム型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    パターンマッチ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    エラーハンドリング
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.7.1" data-path="maybe.html">
+            
+                <a href="maybe.html">
+            
+                    
+                    Maybe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="result.html">
+            
+                <a href="result.html">
+            
+                    
+                    Result
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../effects/">
+            
+                <a href="../effects/">
+            
+                    
+                    コマンドとサブスクリプション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../effects/http.html">
+            
+                <a href="../effects/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../effects/json.html">
+            
+                <a href="../effects/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../effects/random.html">
+            
+                <a href="../effects/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../effects/time.html">
+            
+                <a href="../effects/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../interop/">
+            
+                <a href="../interop/">
+            
+                    
+                    JavaScriptとの相互運用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../interop/flags.html">
+            
+                <a href="../interop/flags.html">
+            
+                    
+                    フラグ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../interop/ports.html">
+            
+                <a href="../interop/ports.html">
+            
+                    
+                    ポート
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../interop/custom_elements.html">
+            
+                <a href="../interop/custom_elements.html">
+            
+                    
+                    カスタムエレメンツ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Webアプリケーション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    ナビゲーションする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URLをパースする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    モジュール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    モジュールの構造化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    最適化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    アセットサイズ縮小化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    次への一歩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" >
+            
+                <span>
+            
+                    
+                    付録
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../appendix/types_as_sets.html">
+            
+                <a href="../appendix/types_as_sets.html">
+            
+                    
+                    集合としての型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../appendix/types_as_bits.html">
+            
+                <a href="../appendix/types_as_bits.html">
+            
+                    
+                    型のビット表現
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../appendix/function_types.html">
+            
+                <a href="../appendix/function_types.html">
+            
+                    
+                    関数の型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBookで公開 
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Maybe</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+# Maybe
+-->
+<h1 id="maybe">Maybe</h1>
+<!--
+As you work more with Elm, you will start seeing the [`Maybe`][Maybe] type quite frequently. It is defined like this:
+-->
+<p>Elm&#x3092;&#x3088;&#x304F;&#x66F8;&#x304F;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x3068;<a href="https://package.elm-lang.org/packages/elm-lang/core/latest/Maybe#Maybe" target="_blank"><code>Maybe</code></a>&#x578B;&#x3092;&#x975E;&#x5E38;&#x306B;&#x983B;&#x7E41;&#x306B;&#x307F;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;<code>Maybe</code>&#x306F;&#x4EE5;&#x4E0B;&#x3088;&#x3046;&#x306B;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Maybe</span> a
+  = <span class="hljs-type">Just</span> a
+  | <span class="hljs-type">Nothing</span>
+
+<span class="hljs-comment">-- Just 3.14 : Maybe Float</span>
+<span class="hljs-comment">-- Just &quot;hi&quot; : Maybe String</span>
+<span class="hljs-comment">-- Just True : Maybe Bool</span>
+<span class="hljs-comment">-- Nothing   : Maybe a</span>
+</code></pre>
+<!--
+This is a type with two variants. You either have `Nothing` or you have `Just` a value. The type variable makes it possible to have a `Maybe Float` and `Maybe String` depending on the particular value.
+-->
+<p><code>Maybe</code>&#x306F;2&#x3064;&#x306E;&#x30D0;&#x30EA;&#x30A2;&#x30F3;&#x30C8;&#x3092;&#x6301;&#x3064;&#x578B;&#x3067;&#x3059;&#x3002;&#x3064;&#x307E;&#x308A;&#x4F55;&#x3082;&#x6301;&#x3063;&#x3066;&#x3044;&#x306A;&#x3044;&#xFF08;=<code>Nothing</code>&#xFF09;&#x304B;&#x3001;&#x3061;&#x3087;&#x3046;&#x3069;&#xFF08;=<code>Just</code>&#xFF09;1&#x3064;&#x306E;&#x5024;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;&#x304B;&#x3001;&#x3067;&#x3059;&#x3002;<code>Maybe a</code>&#x306E;&#x578B;&#x5909;&#x6570;&#x306F;&#x5177;&#x4F53;&#x7684;&#x306A;&#x5024;&#x6B21;&#x7B2C;&#x3067;<code>Maybe Float</code>&#x3084;<code>Maybe String</code>&#x3068;&#x3044;&#x3063;&#x305F;&#x578B;&#x3092;&#x6301;&#x3064;&#x3053;&#x3068;&#x3092;&#x53EF;&#x80FD;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<!--
+This can be handy in two main scenarios: partial functions and optional fields.
+-->
+<p><code>Maybe</code>&#x306B;&#x306F;&#x4E3B;&#x306B;2&#x3064;&#x306E;&#x4F7F;&#x3044;&#x307F;&#x3061;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x90E8;&#x5206;&#x95A2;&#x6570;&#x3068;&#x5165;&#x529B;&#x304C;&#x4EFB;&#x610F;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3067;&#x5F79;&#x7ACB;&#x3061;&#x307E;&#x3059;&#x3002;</p>
+<!--
+## Partial Functions
+-->
+<h2 id="&#x90E8;&#x5206;&#x95A2;&#x6570;">&#x90E8;&#x5206;&#x95A2;&#x6570;</h2>
+<!--
+Sometimes you want a function that gives an answer for some inputs, but not others. Many people run into this with [`String.toFloat`][toFloat] when trying to convert user input into numbers. Open up `elm repl` to see it in action:
+-->
+<p>&#x3042;&#x308B;&#x5165;&#x529B;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x306F;&#x7B54;&#x3048;&#x3092;&#x4E0E;&#x3048;&#x308B;&#x304C;&#x4ED6;&#x306B;&#x306F;&#x4E0E;&#x3048;&#x306A;&#x3044;&#x95A2;&#x6570;&#x304C;&#x6B32;&#x3057;&#x3044;&#x5834;&#x5408;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x591A;&#x304F;&#x306E;&#x4EBA;&#x304C;&#x305D;&#x3046;&#x3044;&#x3046;&#x95A2;&#x6570;&#x306B;&#x906D;&#x9047;&#x3059;&#x308B;&#x306E;&#x306F;&#x3001;&#x30E6;&#x30FC;&#x30B6;&#x304B;&#x3089;&#x306E;&#x5165;&#x529B;&#x3092;&#x6570;&#x5024;&#x306B;&#x5909;&#x63DB;&#x3057;&#x3088;&#x3046;&#x3068;&#x3057;&#x3066;<a href="https://package.elm-lang.org/packages/elm-lang/core/latest/String#toFloat" target="_blank"><code>String.toFloat</code></a>&#x95A2;&#x6570;&#x3092;&#x4F7F;&#x304A;&#x3046;&#x3068;&#x3057;&#x305F;&#x3068;&#x304D;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x5B9F;&#x969B;&#x306B;<code>elm repl</code>&#x3092;&#x958B;&#x3044;&#x3066;&#x78BA;&#x8A8D;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;:</p>
+<pre><code class="lang-elm">&gt; <span class="hljs-type">String</span>.toFloat
+&lt;function&gt; : <span class="hljs-type">String</span> -&gt; <span class="hljs-type">Maybe</span> <span class="hljs-type">Float</span>
+
+&gt; <span class="hljs-type">String</span>.toFloat <span class="hljs-string">&quot;3.1415&quot;</span>
+<span class="hljs-type">Just</span> <span class="hljs-number">3.1415</span> : <span class="hljs-type">Maybe</span> <span class="hljs-type">Float</span>
+
+&gt; <span class="hljs-type">String</span>.toFloat <span class="hljs-string">&quot;abc&quot;</span>
+<span class="hljs-type">Nothing</span> : <span class="hljs-type">Maybe</span> <span class="hljs-type">Float</span>
+</code></pre>
+<!--
+Not all strings make sense as numbers, so this function models that explicitly. Can a string be turned into a float? Maybe! From there we can pattern match on the resulting data and continue as appropriate.
+-->
+<p>&#x3059;&#x3079;&#x3066;&#x306E;&#x6587;&#x5B57;&#x5217;&#x304C;&#x6570;&#x5024;&#x3068;&#x3057;&#x3066;&#x610F;&#x5473;&#x3092;&#x306A;&#x3059;&#x308F;&#x3051;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x3053;&#x306E;&#x95A2;&#x6570;&#x306F;&#x305D;&#x308C;&#x3092;&#x660E;&#x793A;&#x7684;&#x306B;&#x8868;&#x73FE;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x6587;&#x5B57;&#x5217;&#x3092;float&#x306B;&#x5909;&#x63DB;&#x3067;&#x304D;&#x307E;&#x3059;&#x304B;&#xFF1F;&#x591A;&#x5206;&#xFF08;=Maybe&#xFF09;&#xFF01;&#x5909;&#x63DB;&#x3057;&#x305F;&#x3089;&#x3001;&#x305D;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3057;&#x3066;&#x9069;&#x5207;&#x306B;&#x51E6;&#x7406;&#x3092;&#x7D9A;&#x3051;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<!--
+> **Exercise:** I wrote a little program [here](https://ellie-app.com/3P9hcDhdsc5a1) that converts from Celsius to Fahrenheit. Try refactoring the `view` code in different ways. Can you put a red border around invalid input? Can you add more conversions? Fahrenheit to Celsius? Inches to Meters?
+-->
+<blockquote>
+<p><strong>&#x6F14;&#x7FD2;:</strong> &#x6442;&#x6C0F;&#x304B;&#x3089;&#x83EF;&#x6C0F;&#x306B;&#x5909;&#x63DB;&#x3059;&#x308B;&#x5C0F;&#x3055;&#x306A;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;<a href="https://ellie-app.com/3P9hcDhdsc5a1" target="_blank">&#x3053;&#x3053;</a>&#x306B;&#x66F8;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x3055;&#x307E;&#x3056;&#x307E;&#x306A;&#x65B9;&#x6CD5;&#x3067;<code>view</code>&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x3057;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x7121;&#x52B9;&#x306A;&#x5165;&#x529B;&#x306E;&#x5468;&#x308A;&#x306B;&#x8D64;&#x3044;&#x67A0;&#x3092;&#x4ED8;&#x3051;&#x308B;&#x3053;&#x3068;&#x306F;&#x3067;&#x304D;&#x307E;&#x3059;&#x304B;&#xFF1F;&#x4ED6;&#x306E;&#x5909;&#x63DB;&#x3092;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x304B;&#x3002;&#x83EF;&#x6C0F;&#x304B;&#x3089;&#x6442;&#x6C0F;&#xFF1F;&#x30A4;&#x30F3;&#x30C1;&#x304B;&#x3089;&#x30E1;&#x30FC;&#x30C8;&#x30EB;&#xFF1F;</p>
+</blockquote>
+<!--
+## Optional Fields
+-->
+<h2 id="&#x5165;&#x529B;&#x304C;&#x4EFB;&#x610F;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;">&#x5165;&#x529B;&#x304C;&#x4EFB;&#x610F;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;</h2>
+<!--
+Another place you commonly see `Maybe` values is in records with optional fields.
+-->
+<p>&#x3082;&#x3046;1&#x3064;&#x306E;<code>Maybe</code>&#x306E;&#x5024;&#x304C;&#x3088;&#x304F;&#x51FA;&#x3066;&#x304F;&#x308B;&#x5834;&#x6240;&#x306F;&#x5165;&#x529B;&#x304C;&#x4EFB;&#x610F;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3092;&#x6301;&#x3064;&#x30EC;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x4E2D;&#x3067;&#x3059;&#x3002;</p>
+<!--
+For example, say we are running a social networking website. Connecting people, friendship, etc. You know the spiel. The Onion outlined our real goals best back in 2011: [mine as much data as possible for the CIA](https://www.theonion.com/cias-facebook-program-dramatically-cut-agencys-costs-1819594988). And if we want *all* the data, we need to ease people into it. Let them add it later. Add features that encourage them to share more and more information over time.
+-->
+<p>&#x4F8B;&#x3048;&#x3070;&#x3001;&#x4EBA;&#x304C;&#x3064;&#x306A;&#x304C;&#x3063;&#x305F;&#x308A;&#x3001;&#x53CB;&#x9054;&#x306B;&#x306A;&#x3063;&#x305F;&#x308A;&#x3059;&#x308B;SNS&#x3092;&#x904B;&#x55B6;&#x3057;&#x3066;&#x3044;&#x308B;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;&#x305F;&#x3068;&#x3048;&#x3070; The spiel &#x306E;&#x3088;&#x3046;&#x306A;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;The onion &#x306F;2011&#x5E74;&#x3054;&#x308D;&#x306B;<a href="https://www.theonion.com/cias-facebook-program-dramatically-cut-agencys-costs-1819594988" target="_blank">&#x300C;&#x79C1;&#x9054;&#x304C;&#x76EE;&#x6307;&#x3059;&#x672C;&#x5F53;&#x306E;&#x30B4;&#x30FC;&#x30EB;&#x306F;CIA&#x306E;&#x305F;&#x3081;&#x306B;&#x3067;&#x304D;&#x308B;&#x3060;&#x3051;&#x591A;&#x304F;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x63A1;&#x6398;&#x3059;&#x308B;&#x3053;&#x3068;&#x3060;&#x300D;</a>&#x3068;&#x305D;&#x306E;&#x6982;&#x8981;&#x3092;&#x8A18;&#x4E8B;&#x3067;&#x516C;&#x958B;&#x3057;&#x307E;&#x3057;&#x305F;&#x3002;&#x3082;&#x3057;&#x4E16;&#x306E;&#x4E2D;&#x306E; <em>&#x3042;&#x3089;&#x3086;&#x308B;</em> &#x30C7;&#x30FC;&#x30BF;&#x304C;&#x6B32;&#x3057;&#x3044;&#x306E;&#x306A;&#x3089;&#x3001;&#x4EBA;&#x3005;&#x3092;&#x307E;&#x305A;SNS&#x306B;&#x5F15;&#x304D;&#x8FBC;&#x3080;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x60C5;&#x5831;&#x306F;&#x5F8C;&#x304B;&#x3089;&#x8A2D;&#x5B9A;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;SNS&#x306B;&#x53C2;&#x52A0;&#x3057;&#x305F;&#x4EBA;&#x305F;&#x3061;&#x304C;&#x81EA;&#x7136;&#x306B;&#x81EA;&#x5206;&#x304B;&#x3089;&#x60C5;&#x5831;&#x3092;&#x3069;&#x3093;&#x3069;&#x3093;&#x30B7;&#x30A7;&#x30A2;&#x3057;&#x305F;&#x304F;&#x306A;&#x3063;&#x3066;&#x3057;&#x307E;&#x3046;&#x3088;&#x3046;&#x306A;&#x6A5F;&#x80FD;&#x3092;&#x3064;&#x3051;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<!--
+So let's start with a simple model of a user. They must have a name, but we are going to make the age optional.
+-->
+<p>&#x305D;&#x308C;&#x3067;&#x306F;&#x5358;&#x7D14;&#x306A;&#x30E6;&#x30FC;&#x30B6;&#x306E;&#x30E2;&#x30C7;&#x30EB;&#x304B;&#x3089;&#x59CB;&#x3081;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x30E6;&#x30FC;&#x30B6;&#x306F;&#x5FC5;&#x305A;&#x540D;&#x524D;&#x3092;&#x6301;&#x305F;&#x306A;&#x3051;&#x308C;&#x3070;&#x306A;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x3057;&#x304B;&#x3057;&#x5E74;&#x9F62;&#x306F;&#x7701;&#x7565;&#x53EF;&#x80FD;&#x306B;&#x3057;&#x3088;&#x3046;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">User</span> =
+  { name : <span class="hljs-type">String</span>
+  , age : <span class="hljs-type">Maybe</span> <span class="hljs-type">Int</span>
+  }
+</code></pre>
+<!--
+Now say Sue creates an account, but decides not to provide her birthday:
+-->
+<p>&#x30B9;&#x30FC;&#xFF08;Sue&#xFF09;&#x304C;&#x30A2;&#x30AB;&#x30A6;&#x30F3;&#x30C8;&#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x306B;&#x3057;&#x305F;&#x304C;&#x3001;&#x8A95;&#x751F;&#x65E5;&#x306F;&#x63D0;&#x4F9B;&#x3057;&#x306A;&#x3044;&#x3068;&#x6C7A;&#x3081;&#x305F;&#x3068;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;:</p>
+<pre><code class="lang-elm"><span class="hljs-title">sue</span> : <span class="hljs-type">User</span>
+<span class="hljs-title">sue</span> =
+  { name = <span class="hljs-string">&quot;Sue&quot;</span>, age = <span class="hljs-type">Nothing</span> }
+</code></pre>
+<!--
+Sue’s friends cannot wish her a happy birthday though. I wonder if they _really_ care about her... Later Tom creates a profile and *does* give his age:
+-->
+<p>&#x30B9;&#x30FC;&#x306E;&#x53CB;&#x9054;&#x306F;&#x5F7C;&#x5973;&#x306E;&#x8A95;&#x751F;&#x65E5;&#x3092;&#x795D;&#x3046;&#x3053;&#x3068;&#x306F;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;&#x5F7C;&#x5973;&#x306E;&#x53CB;&#x9054;&#x306F;&#x8A95;&#x751F;&#x65E5;&#x3092;&#x77E5;&#x3089;&#x305A;&#x306B;&#x30B9;&#x30FC;&#x3092;&#x5927;&#x5207;&#x306B;&#x3067;&#x304D;&#x308B;&#x306E;&#x3060;&#x308D;&#x3046;&#x304B;&#x2026;&#x2026;&#x3002;&#x5F8C;&#x306B;&#x30C8;&#x30E0;&#xFF08;Tom&#xFF09;&#x304C;&#x30D7;&#x30ED;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x3001; <em>&#x5E74;&#x9F62;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x307E;&#x3057;&#x305F;</em> &#x3002;</p>
+<pre><code class="lang-elm"><span class="hljs-title">tom</span> : <span class="hljs-type">User</span>
+<span class="hljs-title">tom</span> =
+  { name = <span class="hljs-string">&quot;Tom&quot;</span>, age = <span class="hljs-type">Just</span> <span class="hljs-number">24</span> }
+</code></pre>
+<!--
+Great, that will be nice on his birthday. But more importantly, Tom is part of a valuable demographic! The advertisers will be pleased.
+-->
+<p>&#x7D20;&#x6674;&#x3089;&#x3057;&#x3044;&#x3001;&#x3053;&#x308C;&#x3067;&#x8A95;&#x751F;&#x65E5;&#x306B;&#x306F;&#x3044;&#x3044;&#x3053;&#x3068;&#x304C;&#x3042;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x3057;&#x304B;&#x3057;&#x3082;&#x3063;&#x3068;&#x91CD;&#x8981;&#x306A;&#x3053;&#x3068;&#x306F;&#x3001;&#x30C8;&#x30E0;&#x304C;&#x4ECA;&#x3084;&#x8CB4;&#x91CD;&#x306A;&#x4EBA;&#x53E3;&#x7D71;&#x8A08;&#x30C7;&#x30FC;&#x30BF;&#x306E;&#x4E00;&#x90E8;&#x306B;&#x306A;&#x3063;&#x305F;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x5E83;&#x544A;&#x4E3B;&#x306F;&#x559C;&#x3076;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<!--
+Alright, so now that we have some users, how can we market alcohol to them without breaking any laws? People would probably be mad if we market to people under 21, so let's check for that:
+-->
+<p>&#x3055;&#x3066;&#x3001;&#x4ECA;&#x3067;&#x306F;&#x30E6;&#x30FC;&#x30B6;&#x304C;&#x4F55;&#x4EBA;&#x304B;&#x3044;&#x307E;&#x3059;&#x3002;&#x6CD5;&#x5F8B;&#x3092;&#x7834;&#x3089;&#x305A;&#x306B;&#x30A2;&#x30EB;&#x30B3;&#x30FC;&#x30EB;&#x3092;&#x8CA9;&#x58F2;&#x3059;&#x308B;&#x306B;&#x306F;&#x3069;&#x3046;&#x3057;&#x305F;&#x3089;&#x3044;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;&#x3082;&#x3057;21&#x6B73;&#x672A;&#x6E80;&#x306E;&#x4EBA;&#x306B;&#x58F2;&#x308A;&#x51FA;&#x305D;&#x3046;&#x3068;&#x3057;&#x305F;&#x3089;&#x3001;&#x4EBA;&#x3005;&#x306F;&#x304A;&#x305D;&#x3089;&#x304F;&#x6012;&#x308A;&#x72C2;&#x3046;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x306A;&#x306E;&#x3067;&#x5E74;&#x9F62;&#x3092;&#x3061;&#x3083;&#x3093;&#x3068;&#x78BA;&#x8A8D;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;:</p>
+<blockquote>
+<p><strong>&#x8A33;&#x6CE8;:</strong> &#x30A2;&#x30E1;&#x30EA;&#x30AB;&#x3067;&#x306F;&#x4E00;&#x90E8;&#x3092;&#x9664;&#x304D;&#x98F2;&#x9152;&#x53EF;&#x80FD;&#x5E74;&#x9F62;&#x306F;21&#x6B73;&#x304B;&#x3089;&#x3067;&#x3059;&#x3002;</p>
+</blockquote>
+<pre><code class="lang-elm"><span class="hljs-title">canBuyAlcohol</span> : <span class="hljs-type">User</span> -&gt; <span class="hljs-type">Bool</span>
+<span class="hljs-title">canBuyAlcohol</span> user =
+  <span class="hljs-keyword">case</span> user.age <span class="hljs-keyword">of</span>
+    <span class="hljs-type">Nothing</span> -&gt;
+      <span class="hljs-type">False</span>
+
+    <span class="hljs-type">Just</span> age -&gt;
+      age &gt;= <span class="hljs-number">21</span>
+</code></pre>
+<!--
+Notice that the `Maybe` type forces us to pattern match on the users age. It is actually impossible to write code where you forget that users may not have an age. Elm makes sure of it! Now we can advertise alcohol confident that we are not influencing minors directly! Only their older peers.
+-->
+<p><code>Maybe</code>&#x578B;&#x306F;&#x30E6;&#x30FC;&#x30B6;&#x306E;&#x5E74;&#x9F62;&#x3092;&#x4F7F;&#x3046;&#x3068;&#x304D;&#x306B;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3059;&#x308B;&#x306E;&#x3092;&#x5F37;&#x3044;&#x308B;&#x3053;&#x3068;&#x306B;&#x6CE8;&#x610F;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x30E6;&#x30FC;&#x30B6;&#x304C;&#x5E74;&#x9F62;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x306A;&#x3044;&#x53EF;&#x80FD;&#x6027;&#x304C;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x5FD8;&#x308C;&#x305F;&#x3088;&#x3046;&#x306A;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F8;&#x304F;&#x3053;&#x3068;&#x306F;Elm&#x3067;&#x306F;&#x5B9F;&#x969B;&#x306B;&#x4E0D;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;Elm&#x306F;&#x305D;&#x308C;&#x3092;&#x4FDD;&#x8A3C;&#x3057;&#x307E;&#x3059;&#xFF01;&#x3053;&#x308C;&#x3067;&#x672A;&#x6210;&#x5E74;&#x8005;&#x306B;&#x76F4;&#x63A5;&#x5F71;&#x97FF;&#x3092;&#x4E0E;&#x3048;&#x3066;&#x3044;&#x306A;&#x3044;&#x3068;&#x78BA;&#x4FE1;&#x3057;&#x3066;&#x30A2;&#x30EB;&#x30B3;&#x30FC;&#x30EB;&#x3092;&#x5BA3;&#x4F1D;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x6210;&#x4EBA;&#x6E08;&#x307F;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x306B;&#x3060;&#x3051;&#x5BA3;&#x4F1D;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<!--
+## Avoiding Overuse
+-->
+<h2 id="&#x4F7F;&#x3044;&#x3059;&#x304E;&#x3092;&#x907F;&#x3051;&#x308B;">&#x4F7F;&#x3044;&#x3059;&#x304E;&#x3092;&#x907F;&#x3051;&#x308B;</h2>
+<!--
+This `Maybe` type is quite useful, but there are limits. Beginners are particularly prone to getting excited about `Maybe` and using it everywhere, even though a custom type would be more appropriate.
+-->
+<p>&#x3053;&#x306E;<code>Maybe</code>&#x578B;&#x306F;&#x975E;&#x5E38;&#x306B;&#x4FBF;&#x5229;&#x3067;&#x3059;&#x304C;&#x3001;&#x9650;&#x754C;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002; &#x305F;&#x3068;&#x3048;&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;&#x3067;&#x30A8;&#x30E9;&#x30FC;&#x3092;&#x8868;&#x73FE;&#x3059;&#x308B;&#x306E;&#x304C;&#x3088;&#x308A;&#x9069;&#x5207;&#x306A;&#x5834;&#x5408;&#x3067;&#x3042;&#x3063;&#x3066;&#x3082;&#x3001;&#x521D;&#x5FC3;&#x8005;&#x306F;&#x7279;&#x306B;<code>Maybe</code>&#x578B;&#x306B;&#x8208;&#x596E;&#x3057;&#x3066;&#x3001;&#x3044;&#x305F;&#x308B;&#x3068;&#x3053;&#x308D;&#x3067;&#x305D;&#x308C;&#x3092;&#x4F7F;&#x7528;&#x3059;&#x308B;&#x50BE;&#x5411;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<!--
+For example, say we have an exercise app where we compete against our friends. You start with a list of your friend’s names, but you can load more fitness information about them later. You might be tempted to model it like this:
+-->
+<p>&#x4F8B;&#x3048;&#x3070;&#x3001;&#x53CB;&#x9054;&#x3068;&#x7AF6;&#x4E89;&#x3059;&#x308B;&#x30A8;&#x30AF;&#x30B5;&#x30B5;&#x30A4;&#x30BA;&#x30A2;&#x30D7;&#x30EA;&#x304C;&#x3042;&#x308B;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;&#x6700;&#x521D;&#x306B;&#x53CB;&#x9054;&#x306E;&#x540D;&#x524D;&#x306E;&#x30EA;&#x30B9;&#x30C8;&#x3092;&#x53D6;&#x3063;&#x3066;&#x304D;&#x3066;&#x304A;&#x3044;&#x3066;&#x3001;&#x5FC5;&#x8981;&#x306B;&#x306A;&#x3063;&#x305F;&#x3089;&#x5F8C;&#x304B;&#x3089;&#x305D;&#x306E;&#x53CB;&#x9054;&#x306E;&#x30D5;&#x30A3;&#x30C3;&#x30C8;&#x30CD;&#x30B9;&#x60C5;&#x5831;&#x3092;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x72B6;&#x6CC1;&#x3092;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x30E2;&#x30C7;&#x30EA;&#x30F3;&#x30B0;&#x3057;&#x305F;&#x304F;&#x306A;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Friend</span> =
+  { name : <span class="hljs-type">String</span>
+  , age : <span class="hljs-type">Maybe</span> <span class="hljs-type">Int</span>
+  , height : <span class="hljs-type">Maybe</span> <span class="hljs-type">Float</span>
+  , weight : <span class="hljs-type">Maybe</span> <span class="hljs-type">Float</span>
+  }
+</code></pre>
+<!--
+All the information is there, but you are not really modeling the way your particular application works. It would be much more precise to model it like this instead:
+-->
+<p>&#x3059;&#x3079;&#x3066;&#x306E;&#x60C5;&#x5831;&#x304C;&#x305D;&#x3053;&#x306B;&#x8868;&#x73FE;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x7279;&#x5B9A;&#x306E;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x3069;&#x3046;&#x52D5;&#x4F5C;&#x3059;&#x308B;&#x304B;&#x3092;&#x672C;&#x5F53;&#x306B;&#x30E2;&#x30C7;&#x30EA;&#x30F3;&#x30B0;&#x3057;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;&#x4EE3;&#x308F;&#x308A;&#x306B;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x30E2;&#x30C7;&#x30EA;&#x30F3;&#x30B0;&#x3059;&#x308B;&#x65B9;&#x304C;&#x306F;&#x308B;&#x304B;&#x306B;&#x6B63;&#x78BA;&#x3067;&#x3059;:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Friend</span>
+  = <span class="hljs-type">Less</span> <span class="hljs-type">String</span>
+  | <span class="hljs-type">More</span> <span class="hljs-type">String</span> <span class="hljs-type">Info</span>
+
+<span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Info</span> =
+  { age : <span class="hljs-type">Int</span>
+  , height : <span class="hljs-type">Float</span>
+  , weight : <span class="hljs-type">Float</span>
+  }
+</code></pre>
+<!--
+This new model is capturing much more about your application. There are only two real situations. Either you have just the name, or you have the name and a bunch of information. In your view code, you just think about whether you are showing a `Less` or `More` view of the friend. You do not have to answer questions like &ldquo;what if I have an `age` but not a `weight`?&rdquo; That is not possible with our more precise type!
+-->
+<p>&#x3053;&#x306E;&#x65B0;&#x3057;&#x3044;&#x30E2;&#x30C7;&#x30EB;&#x306F;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x306B;&#x3064;&#x3044;&#x3066;&#x3082;&#x3063;&#x3068;&#x591A;&#x304F;&#x306E;&#x3053;&#x3068;&#x3092;&#x6349;&#x3048;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x5B9F;&#x969B;&#x306E;&#x72B6;&#x6CC1;&#x306F;2&#x3064;&#x3057;&#x304B;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x540D;&#x524D;&#x3060;&#x3051;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;&#x304B;&#x3001;&#x3042;&#x308B;&#x3044;&#x306F;&#x540D;&#x524D;&#x3068;&#x305F;&#x304F;&#x3055;&#x3093;&#x306E;&#x60C5;&#x5831;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;&#x304B;&#x306E;&#x3069;&#x3061;&#x3089;&#x304B;&#x3067;&#x3059;&#x3002;view&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3067;&#x306F;&#x3001;&#x3082;&#x306F;&#x3084;&#x5358;&#x306B;<code>Friend</code>&#x578B;&#x306E;<code>Less</code>&#x304B;<code>More</code>&#x306E;&#x3069;&#x3061;&#x3089;&#x306E;view&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&#x304B;&#x306B;&#x3064;&#x3044;&#x3066;&#x8003;&#x3048;&#x308B;&#x3060;&#x3051;&#x3067;&#x3059;&#x3002;&#x201C;&#x79C1;&#x304C;&#x5E74;&#x9F62;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x3066;&#x4F53;&#x91CD;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x306A;&#x3044;&#x5834;&#x5408;&#x306F;&#x3069;&#x3046;&#x3059;&#x308C;&#x3070;&#x3044;&#x3044;&#x306E;&#x304B;&#x201D;&#x3068;&#x3044;&#x3046;&#x3088;&#x3046;&#x306A;&#x7591;&#x554F;&#x306B;&#x7B54;&#x3048;&#x308B;&#x5FC5;&#x8981;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x305D;&#x306E;&#x3088;&#x3046;&#x306A;&#x72B6;&#x6CC1;&#x306F;&#x3053;&#x306E;&#x3001;&#x3088;&#x308A;&#x6B63;&#x78BA;&#x306A;&#x578B;&#x3067;&#x306F;&#x4E0D;&#x53EF;&#x80FD;&#x3067;&#x3059;&#xFF01;</p>
+<!--
+Point is, if you find yourself using `Maybe` everywhere, it is worth examining your `type` and `type alias` definitions to see if you can find a more precise representation. This often leads to a lot of nice refactors in your update and view code!
+-->
+<p>&#x30DD;&#x30A4;&#x30F3;&#x30C8;&#x306F;&#x3001;&#x3069;&#x3053;&#x304B;&#x3067;<code>Maybe</code>&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x3092;&#x898B;&#x3064;&#x3051;&#x305F;&#x3089;&#x3001;&#x3088;&#x308A;&#x6B63;&#x78BA;&#x306A;&#x8868;&#x73FE;&#x3092;&#x898B;&#x3064;&#x3051;&#x3089;&#x308C;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x307F;&#x308B;&#x305F;&#x3081;&#x306B;<code>type</code>&#x3068;<code>type alias</code>&#x3092;&#x4F7F;&#x3063;&#x305F;&#x578B;&#x306E;&#x5B9A;&#x7FA9;&#x3092;&#x8ABF;&#x3079;&#x308B;&#x4FA1;&#x5024;&#x304C;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x3057;&#x3070;&#x3057;&#x3070;update&#x3068;view&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x305F;&#x304F;&#x3055;&#x3093;&#x306E;&#x7D20;&#x6674;&#x3089;&#x3057;&#x3044;&#x30EA;&#x30D5;&#x30A1;&#x30AF;&#x30BF;&#x30EA;&#x30F3;&#x30B0;&#x3092;&#x5C0E;&#x304D;&#x307E;&#x3059;&#xFF01;</p>
+<!--
+> ## Aside: Connection to `null` references
+>
+> The inventor of `null` references, Tony Hoare, described them like this:
+>
+> > I call it my billion-dollar mistake. It was the invention of the null reference in 1965. At that time, I was designing the first comprehensive type system for references in an object oriented language (ALGOL W). My goal was to ensure that all use of references should be absolutely safe, with checking performed automatically by the compiler. But I couldn't resist the temptation to put in a null reference, simply because it was so easy to implement. This has led to innumerable errors, vulnerabilities, and system crashes, which have probably caused a billion dollars of pain and damage in the last forty years.
+>
+> That design makes failure **implicit**. Any time you think you have a `String` you just might have a `null` instead. Should you check? Did the person giving you the value check? Maybe it will be fine? Maybe it will crash your server? I guess we will find out later!
+>
+> Elm avoids these problems by not having `null` references at all. We instead use custom types like `Maybe` to make failure **explicit**. This way there are never any surprises. A `String` is always a `String`, and when you see a `Maybe String`, the compiler will ensure that both variants are accounted for. This way you get the same flexibility, but without the surprise crashes.
+-->
+<blockquote>
+<h2 id="&#x4F59;&#x8AC7;-null&#x53C2;&#x7167;&#x3068;&#x95A2;&#x9023;&#x3057;&#x3066;">&#x4F59;&#x8AC7;: <code>null</code>&#x53C2;&#x7167;&#x3068;&#x95A2;&#x9023;&#x3057;&#x3066;</h2>
+<p><code>null</code>&#x53C2;&#x7167;&#x306E;&#x767A;&#x660E;&#x8005;&#x3067;&#x3042;&#x308B;Tony Hoare&#x306F;&#x3001;<code>null</code>&#x53C2;&#x7167;&#x3092;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x8FF0;&#x61D0;&#x3057;&#x307E;&#x3057;&#x305F;&#x3002;</p>
+<blockquote>
+<p>&#x305D;&#x308C;&#x306F;10&#x5104;&#x30C9;&#x30EB;&#x76F8;&#x5F53;&#x306E;&#x904E;&#x3061;&#x3060;&#x3063;&#x305F;&#x3068;&#x79C1;&#x306F;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;&#x305D;&#x308C;&#x3068;&#x306F;1965&#x5E74;&#x306E;null&#x53C2;&#x7167;&#x306E;&#x767A;&#x660E;&#x3067;&#x3059;&#x3002;&#x5F53;&#x6642;&#x3001;&#x79C1;&#x306F;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x6307;&#x5411;&#x8A00;&#x8A9E;&#xFF08;ALGOL W&#xFF09;&#x3067;&#x306E;&#x53C2;&#x7167;&#x306E;&#x305F;&#x3081;&#x306E;&#x6700;&#x521D;&#x306E;&#x5305;&#x62EC;&#x7684;&#x306A;&#x578B;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3092;&#x8A2D;&#x8A08;&#x3057;&#x3066;&#x3044;&#x307E;&#x3057;&#x305F;&#x3002;&#x79C1;&#x306E;&#x76EE;&#x6A19;&#x306F;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x53C2;&#x7167;&#x306E;&#x4F7F;&#x7528;&#x304C;&#x3059;&#x3079;&#x3066;&#x7D76;&#x5BFE;&#x306B;&#x5B89;&#x5168;&#x3067;&#x3042;&#x308B;&#x3068;&#x4FDD;&#x8A3C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x79C1;&#x306F;null&#x53C2;&#x7167;&#x3092;&#x5165;&#x308C;&#x308B;&#x3068;&#x3044;&#x3046;&#x8A98;&#x60D1;&#x306B;&#x8010;&#x3048;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3067;&#x3057;&#x305F;&#x3002;&#x305D;&#x308C;&#x306F;&#x5358;&#x306B;&#x5B9F;&#x88C5;&#x304C;&#x3068;&#x3066;&#x3082;&#x7C21;&#x5358;&#x3060;&#x3063;&#x305F;&#x304B;&#x3089;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x306B;&#x3088;&#x308A;&#x3001;&#x7121;&#x6570;&#x306E;&#x30A8;&#x30E9;&#x30FC;&#x3001;&#x8106;&#x5F31;&#x6027;&#x3001;&#x304A;&#x3088;&#x3073;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x30AF;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x304C;&#x767A;&#x751F;&#x3057;&#x3001;&#x904E;&#x53BB;40&#x5E74;&#x9593;&#x3067;&#x304A;&#x305D;&#x3089;&#x304F;&#x6570;&#x5341;&#x5104;&#x30C9;&#x30EB;&#x3082;&#x306E;&#x75DB;&#x307F;&#x3068;&#x640D;&#x5BB3;&#x304C;&#x767A;&#x751F;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+</blockquote>
+<p>&#x305D;&#x306E;&#x8A2D;&#x8A08;&#x306F;&#x5931;&#x6557;&#x3092; <strong>&#x6697;&#x9ED9;&#x7684;</strong> &#x306B;&#x3057;&#x307E;&#x3059;&#x3002;&#x3042;&#x306A;&#x305F;&#x304C;<code>String</code>&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;&#x3068;&#x601D;&#x3063;&#x3066;&#x3044;&#x308B;&#x3068;&#x304D;&#x306F;&#x3001;&#x3044;&#x3064;&#x3060;&#x3063;&#x3066;&#x4EE3;&#x308F;&#x308A;&#x306B;<code>null</code>&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;&#x3060;&#x3051;&#x306A;&#x306E;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x3042;&#x306A;&#x305F;&#x81EA;&#x8EAB;&#x304C;null&#x304B;&#x3069;&#x3046;&#x304B;&#x78BA;&#x8A8D;&#x3059;&#x3079;&#x304D;&#x306A;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x305D;&#x308C;&#x3068;&#x3082;&#x305D;&#x306E;&#x5024;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x305F;&#x4EBA;&#x304C;&#x4E8B;&#x524D;&#x306B;null&#x3067;&#x306A;&#x3044;&#x3053;&#x3068;&#x3092;&#x78BA;&#x8A8D;&#x3057;&#x3066;&#x304A;&#x3044;&#x3066;&#x304F;&#x308C;&#x305F;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x591A;&#x5206;&#x5927;&#x4E08;&#x592B;&#xFF1F;&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x3092;&#x30AF;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x3059;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x306A;&#x3044;&#xFF1F;&#x305D;&#x308C;&#x3089;&#x306E;&#x30EA;&#x30B9;&#x30AF;&#x306F;&#x5B9F;&#x969B;&#x306B;&#xFF08;&#x7A81;&#x7136;&#x30AF;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x3057;&#x305F;&#x308A;&#x3057;&#x3066;&#xFF09;&#x554F;&#x984C;&#x3068;&#x3057;&#x3066;&#x3042;&#x3089;&#x308F;&#x308C;&#x3066;&#x521D;&#x3081;&#x3066;&#x6C17;&#x3065;&#x304F;&#x3067;&#x3057;&#x3087;&#x3046;&#xFF01;</p>
+<p>Elm&#x306F;<code>null</code>&#x53C2;&#x7167;&#x3092;&#x307E;&#x3063;&#x305F;&#x304F;&#x6301;&#x305F;&#x306A;&#x3044;&#x3053;&#x3068;&#x3067;&#x3053;&#x308C;&#x3089;&#x306E;&#x554F;&#x984C;&#x3092;&#x56DE;&#x907F;&#x3057;&#x307E;&#x3059;&#x3002;&#x4EE3;&#x308F;&#x308A;&#x306B;&#x5931;&#x6557;&#x3092; <strong>&#x660E;&#x793A;&#x7684;</strong> &#x306B;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B; <code>Maybe</code>&#x306E;&#x3088;&#x3046;&#x306A;&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;&#x3092;&#x4F7F;&#x7528;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x65B9;&#x6CD5;&#x306B;&#x9A5A;&#x304F;&#x3088;&#x3046;&#x306A;&#x3053;&#x3068;&#x306F;&#x4F55;&#x3082;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;<code>String</code>&#x306F;&#x5E38;&#x306B;<code>String</code>&#x3067;&#x3042;&#x308A;&#x3001;<code>Maybe String</code>&#x304C;&#x3042;&#x308C;&#x3070;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x306F;&#x4E21;&#x65B9;&#x306E;&#x30D0;&#x30EA;&#x30A2;&#x30F3;&#x30C8;&#x304C;&#x9069;&#x5207;&#x306B;&#x51E6;&#x7406;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x3092;&#x4FDD;&#x8A3C;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;null&#x53C2;&#x7167;&#x3068;&#x540C;&#x3058;&#x67D4;&#x8EDF;&#x6027;&#x3092;&#x5F97;&#x3089;&#x308C;&#x307E;&#x304C;&#x3001;&#x7A81;&#x7136;&#x30AF;&#x30E9;&#x30C3;&#x30B7;&#x30E5;&#x3059;&#x308B;&#x3088;&#x3046;&#x306A;&#x3053;&#x3068;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: エラーハンドリング">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="result.html" class="navigation navigation-next " aria-label="Next page: Result">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Maybe","level":"1.7.1","depth":2,"next":{"title":"Result","level":"1.7.2","depth":2,"path":"error_handling/result.md","ref":"error_handling/result.md","articles":[]},"previous":{"title":"エラーハンドリング","level":"1.7","depth":1,"path":"error_handling/README.md","ref":"error_handling/README.md","articles":[{"title":"Maybe","level":"1.7.1","depth":2,"path":"error_handling/maybe.md","ref":"error_handling/maybe.md","articles":[]},{"title":"Result","level":"1.7.2","depth":2,"path":"error_handling/result.md","ref":"error_handling/result.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","ga","sitemap"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"ga":{"configuration":"auto","token":"UA-131798240-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"error_handling/maybe.md","mtime":"2019-05-13T02:21:17.007Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-13T02:21:51.827Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

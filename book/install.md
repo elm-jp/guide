@@ -10,12 +10,12 @@
 
   * Mac &mdash; [installer][mac]
   * Windows &mdash; [installer][win]
-  * Linux &mdash; [instructions][linux]
+  * Anywhere &mdash; [direct download][gh] or [npm][]
 
 [mac]: https://github.com/elm/compiler/releases/download/0.19.0/installer-for-mac.pkg
 [win]: https://github.com/elm/compiler/releases/download/0.19.0/installer-for-windows.exe
-[linux]: https://gist.github.com/evancz/442b56717b528f913d1717f2342a295d
 [npm]: https://www.npmjs.com/package/elm
+[gh]: https://github.com/elm/compiler/releases/tag/0.19.0
 
 After installing through any of those routes, you will have the `elm` binary available in your terminal!
 
@@ -26,16 +26,16 @@ After installing through any of those routes, you will have the `elm` binary ava
 
   * Mac &mdash; [インストーラー][mac]
   * Windows &mdash; [インストーラー][win]
-  * Linux &mdash; [インストールガイド][linux]
+  * プラットフォームによらない方法 &mdash; [バイナリを直接ダウンロード][gh] または [npm][]
 
 [mac]: https://github.com/elm/compiler/releases/download/0.19.0/installer-for-mac.pkg
 [win]: https://github.com/elm/compiler/releases/download/0.19.0/installer-for-windows.exe
-[linux]: https://gist.github.com/evancz/442b56717b528f913d1717f2342a295d
 [npm]: https://www.npmjs.com/package/elm
+[gh]: https://github.com/elm/compiler/releases/tag/0.19.0
 
 上記いずれかの方法でElmをインストールすると、`elm`コマンドがターミナルから利用できるようになります。
 
-> **トラブルシューティング** *全て*を学ぶための最も手っ取り早い方法は、Elmコミュニティにいる人々と会話することです。Elmコミュニティはフレンドリーに、そして喜んで手助けをします！もしインストールに行き詰まったり何か見たこともない事態に遭遇したときは、[Elm Slack](http://elmlang.herokuapp.com/)(英語)や[elm-jp Discord](https://discordapp.com/invite/m9Ew6fR)(日本語)に参加して質問してください。特にElmの学習中や利用中にわからないことがあったときは、そのことについて質問しに来てください。うまく質問して時間を節約しましょう。行動あるのみです！
+> **トラブルシューティング** *全て*を学ぶための最も手っ取り早い方法は、Elmコミュニティにいる人々と会話することです。Elmコミュニティはフレンドリーに、そして喜んで手助けをします！もしインストールに行き詰まったり何か見たこともない事態に遭遇したときは、[Elm Slack](http://elmlang.herokuapp.com/)(英語)や[elm-jp Discord](https://discordapp.com/invite/4j2MxCg)(日本語)に参加して質問してください。特にElmの学習中や利用中にわからないことがあったときは、そのことについて質問しに来てください。うまく質問して時間を節約しましょう。行動あるのみです！
 
 
 <!--
@@ -114,7 +114,7 @@ We will be using `elm repl` in the upcoming &ldquo;Core Language&rdquo; section,
 -->
 
 ### `elm repl`
-`elm repl` はターミナル上でElmの式を試すために使えます。
+`elm repl` はターミナル上でElmの式を試すために使えます。[^1]
 
 ```elm
 $ elm repl
@@ -131,7 +131,7 @@ Read <https://elm-lang.org/0.19.0/repl> to learn more: exit, help, imports, etc.
 $
 ```
 
-`elm repl`は&ldquo;Core Language&rdquo;の節で使います。詳しい使い方は[こちら](https://elm-lang.org/0.19.0/repl)をご覧ください。
+`elm repl`は&ldquo;言語の基礎&rdquo;の節で使います。詳しい使い方は[こちら](https://elm-lang.org/0.19.0/repl)をご覧ください。
 
 
 <!--
@@ -226,3 +226,5 @@ Next we are going to learn the basics of Elm!
 `elm`コマンドでは様々なことができますが、全てを覚えようとする必要はありません。`elm --help`コマンドや`elm repl --help`コマンドを使うことで、いつでもこの章で紹介したコマンドの詳細情報を確認できます。
 
 次は、Elmの基本について学びましょう！
+
+[^1]: 訳注: `elm repl`を実行するにはnode.jsおよびnpmが必要です。フロントエンド開発ではほぼ必須のツールですので、インストールしていない環境の方は[公式ページ](https://nodejs.org/ja/)からインストールしてください。node.jsをインストールすれば一緒にnpmもインストールされます。

@@ -7,5 +7,6 @@ PRを出す時は以下の内容をご確認ください。
 
 - [ ] 原文をコメントアウトしてその直下に訳を記入する
 - [ ] 事前に `npm start` で正しくレンダリングできていることを確認する
+- [ ] 翻訳の方針について[翻訳について](https://github.com/elm-jp/guide/blob/master/book/about_translation.md)を確認した
 
 This PR closes #XX (対応するissue番号に変えてください)
