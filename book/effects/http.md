@@ -14,17 +14,17 @@
 <!--
 It is often helpful to grab information from elsewhere on the internet.
 -->
-インターネット上から情報を引き出すということがしばし役に立ちます。
+しばしば、インターネット上のどこかにある情報を取得して自分のアプリケーションに表示したいこともあるでしょう。
 
 <!--
 For example, say we want to load the full text of _Public Opinion_ by Walter Lippmann. Published in 1922, this book provides a historical perspective on the rise of mass media and its implications for democracy. For our purposes here, we will focus on how to use the [`elm/http`][http] package to get this book into our app!
 -->
-例えば、1992年に発行されたWalter Lippmann著の_Public Opinion_（この本はマスメディアとそれが示唆する民主主義についての歴史的展望を与えてくれます）の全文を取り込みたいとします。この節での目的は[`elm/http`][http]パッケージを使って、この本の内容を我々のアプリケーションに取り込む方法になります！
+例えば、1992年に発行されたWalter Lippmann著の_Public Opinion_（この本はマスメディアの興りとそれが民主主義に与えた影響についての歴史的な視点を与えてくれます）の全文を取り込みたいとします。この節では[elm/http][http]パッケージを使い、この本の内容をアプリケーションに取り込む方法を中心に見ていきます。
 
 <!--
 Let&rsquo;s start by just looking at all the code. There are some new things, but do not worry. We will go through it all!
 -->
-まずは一通りコード全体に目を通してください。いくつか新しい事柄がありますが心配無用です。順を追って見ていきましょう！
+まずは一通りコード全体に目を通してください。このコードにはいくつかの新しいことがありますが心配は無用です。順を追って見ていきましょう！
 
 [http]: https://package.elm-lang.org/packages/elm/http/latest
 
@@ -117,12 +117,12 @@ view model =
 <!--
 Some parts of this should be familiar from previous examples of The Elm Architecture. We still have a `Model` of our application. We still have an `update` that reacts to messages. We still have a `view` function that shows everything on screen.
 -->
-これまでにThe Elm Architectureの例を見てきましたので、このコードのある程度については馴染みがあるかと思います。これまでどおり、アプリケーションの`Model`があり、メッセージに応答するための`update`関数があり、そして全てを画面に描画するための`view`関数があります。
+これまでにThe Elm Architectureの例を見てきましたので、このコードのある程度については馴染み深いはずです。これまでと同じくアプリケーションの`Model`、メッセージに応答するための`update`関数、そして全てを画面に描画するための`view`関数があります。
 
 <!--
 The new parts extend the core pattern we saw before with some changes in `init` and `update`, and the addition of `subscription`.
 -->
-新しい部分は`init`と`update`へのいくつかの変更と`subscription`の追加を伴い、今まで見てきた中心となるパターンを拡張します。
+今まで見てきた上記のような基本のパターンに対して、`init`と`update`にいくつか変更が加えられ、また`subscription`が追加されています。
 
 <!--
 ## `init`
@@ -132,8 +132,7 @@ The new parts extend the core pattern we saw before with some changes in `init` 
 <!--
 The `init` function describes how to initialize our program:
 -->
-この`init`関数は我々のプログラムをどのように初期化するかを記述しています:
-
+この`init`関数にはプログラムをどのように初期化するかを記述します：
 
 ```elm
 init : () -> (Model, Cmd Msg)
@@ -149,18 +148,17 @@ init _ =
 <!--
 Like always, we have to produce the initial `Model`, but now we are also producing some **command** of what we want to do immediately. That command will eventually produce a `Msg` that gets fed into the `update` function.
 -->
-これまでどおりに初期値としての`Model`を返す必要がありますが、直ちに実行したいなんらかの**コマンド**も同時に返します。コマンドは最終的には`update`関数に渡される`Msg`を返します。
+これまでどおりに`Model`の初期値を返す必要がありますが、ここではただちに実行したいなんらかの**コマンド**も同時に返しています。ここで返しているコマンドは最終的には`update`関数に渡される`Msg`を返します。
 
 <!--
 Our book website starts in the `Loading` state, and we want to GET the full text of our book. When making a GET request with [`Http.get`][get], we specify the `url` of the data we want to fetch, and we specify what we `expect` that data to be. So in our case, the `url` is pointing at some data on the Project Gutenberg website, and we `expect` it to be a big `String` we can show on screen.
 -->
-本の内容を表示する我々のウェブサイトは`Loading`の状態から始まり、本の全文を取得（GET）する事を要求します。[`Http.get`][get]によってGETリクエストを構築する際には、取得したい本のデータがある`url`を指定し、そしてどんなデータになることを期待(`expect`)するかを指定します。我々の場合、`url`には Project Gutenberg のウェブサイト上にあるデータを指定し、そのデータが文字列(`String`)であることを`expect`します。
+この本の内容を表示するウェブサイトは読み込み中(`Loading`)の状態からはじまり、その本の全文を取得（GET）したいとします。[`Http.get`][get]によってGETリクエストを構築する際に、取得したい本のデータがある`url`と、どんなデータになることを期待(`expect`)するかを指定します。今回のケースでは、指定した`url`は Project Gutenberg のウェブサイト上のとあるデータを指し示していて、そのデータが画面に表示できる長い文字列(`String`)であることを期待(`expect`)しています。
 
 <!--
 The `Http.expectString GotText` line is saying a bit more than that we `expect` a `String` though. It is also saying that when we get a response, it should be turned into a `GotText` message:
 -->
-ただし、この`Http.expectString GotText`の部分は、`expect`するのは単なる`String`以上の何かであると示しています。また、あるレスポンスを受け取ったときに、`GotText`というメッセージに変換されなければならない事を示しています。
-
+ただし、この `Http.expectString GotText` の行は単にここでは文字列(`String`)を期待している(`expect`)と言っているだけではありません。なにかレスポンスを受け取った時に、以下のような `GotText` というメッセージに変換されるはずだとも言っているのです。
 
 ```elm
 type Msg
@@ -174,17 +172,14 @@ type Msg
 <!--
 Notice that we are using the `Result` type from a couple sections back. This allows us to fully account for the possible failures in our `update` function. Speaking of `update` functions...
 -->
-いくつか前の節にて`Result`型を使った事を思い出してください。これにより`update`関数の中で失敗の可能性についても完全に捉えることが可能となります。`update`関数といえば...
+いくつか前の節であつかった`Result`型を使っていますね？これにより`update`関数の中でありうる全ての失敗を完全に捉えることが可能となります。これは`update`関数の話のついでの余談ですが...
 
 [get]: https://package.elm-lang.org/packages/elm/http/latest/Http#get
 
 <!--
 > **Note:** If you are wondering why `init` is a function (and why we are ignoring the argument) we will talk about it in the upcoming chapter on JavaScript interop! (Preview: the argument lets us get information from JS on initialization.)
 -->
-**Note:** もしあなたが、なぜ`init`が関数であるのか(そしてなぜ引数を無視しているのか)という事に疑問を抱いたら、続く JavaScriptとの相互運用 の章にて説明します！（予告: この引数により初期化時にJSから情報を受け取ることができます）
-
-
-
+**Note:** ここでなぜ`init`が関数であるのか(そしてなぜその引数を無視するのか)という事に疑問を抱いたかもしれません。それについては後ほどの JavaScriptとの相互運用 の章にて説明します！（予告: この引数により初期化時にJSから情報を受け取ることができます）
 
 <!--
 ## `update`
@@ -194,8 +189,7 @@ Notice that we are using the `Result` type from a couple sections back. This all
 <!--
 Our `update` function is returning a bit more information as well:
 -->
-我々の`update`関数も同様にもう少しの情報を返します:
-
+今回の例では`update`関数も`init`のようにもう少し追加の情報を返します:
 
 ```elm
 update : Msg -> Model -> (Model, Cmd Msg)
@@ -213,30 +207,29 @@ update msg model =
 <!--
 Looking at the type signature, we see that we are not just returning an updated model. We are _also_ producing a **command** of what we want Elm to do.
 -->
-型シグネチャを見てみると、単に更新されたモデルが返されるだけでないことがわかります。ここでも _やはり_ Elmに実行して欲しい事を指示する**コマンド**を返します。
+この型注釈に注目すると、単に更新されたモデルを返しているだけではなく、Elmに実行してほしいことを指示するための**コマンド** _も_ あわせて返していることがわかります。
 
 <!--
 Moving on to the implementation, we pattern match on messages like normal. When a `GotText` message comes in, we inspect the `Result` of our HTTP request and update our model depending on whether it was a success or failure. The new part is that we also provide a command.
 -->
-実装では通常通りにメッセージに対してパターンマッチを行っています。`GotText`メッセージが来たときに、HTTPリクエストの`Result`の値を調べ、その結果が成功か失敗かによって我々のモデルを更新します。新しい部分は、ここでもやはりコマンドを返していることです。
+その実装ではこれまでと同じくメッセージに対してのパターンマッチを行っています。メッセージが`GotText`の場合に、HTTPリクエストの結果を示す`Result`型の値を調べ、その結果が成功か失敗かによってモデルを更新していまます。新しい部分はコマンドも返していることです。
 
 <!--
 So in the case that we got the full text successfully, we say `Cmd.none` to indicate that there is no more work to do. We already got the full text!
 -->
-つまり、全文の取得に成功した場合には`Cmd.none`としてこれ以上は何もしなくて良いことを示します。すでに全文を取得済みなのですから！
+つまり全文の取得に成功した場合には、これ以上は何もしなくて良いことを示す`Cmd.none`を返しています。すでに全文を取得済みなのですから！
 
 <!--
 And in the case that there was some error, we also say `Cmd.none` and just give up. The text of the book did not load. If we wanted to get fancier, we could pattern match on the [`Http.Error`][Error] and retry the request if we got a timeout or something.
 -->
-そしてなんらかのエラーがあった場合には、やはり`Cmd.none`としてギブアップしてしまいます。本の内容を読み込むことができませんでしたので。もしより良い物にしたいのなら[`Http.Error`][Error]に対してパターンマッチを行い、タイムアウトなどのエラーであれば再度トライすることも可能です。
+一方、なんらかのエラーがあった場合には、やはり`Cmd.none`を返してここでは単純にギブアップしています。その結果、画面上に本の内容は表示されません。もしより良い物にしたいのなら[`Http.Error`][Error]に対してパターンマッチを行い、タイムアウトなどのエラーであればリクエストの送信を再度トライすることも可能です。
 
 <!--
 The point here is that however we decide to update our model, we are also free to issue new commands. I need more data! I want a random number! Etc.
 -->
-この`update`関数で大事なことは、モデルの更新をするかどうかを決めるだけでなく、新しいコマンドを発行する事も自由なのです。もっとデータが必要だ！とか乱数がほしい！だとか。
+この`update`関数で大事なことは、どのようにモデルの更新をするかを決定するだけでなく、新しいコマンドを発行することもできるということです。もっとデータが必要だ！とか乱数がほしい！などと。
 
 [Error]: https://package.elm-lang.org/packages/elm/http/latest/Http#Error
-
 
 
 <!--
@@ -247,9 +240,7 @@ The point here is that however we decide to update our model, we are also free t
 <!--
 The other new thing in this program is the `subscription` function. It lets you look at the `Model` and decide if you want to subscribe to certain information. In our example, we say `Sub.none` to indicate that we do not need to subscribe to anything, but we will soon see an example of a clock where we want to subscribe to the current time!
 -->
-このプログラムにおけるもう一つの新しい部分は`subscrption`関数になります。`Model`の情報から判断して何らかの情報に対する待ち受けするかどうかを決めることができます。我々の例では`Sub.none`として何も待ち受けする必要がないことを示していますが、後ほど現在時刻に対する待ち受けをする時計という例を見ることになるでしょう。
-
-
+このプログラムにおけるもう一つの新しい部分は`subscrption`関数になります。`Model`の情報から判断して何らかの情報に対する待ち受けするかどうかを決めることができます。今回の例では`Sub.none`として何も待ち受けする必要がないことを示していますが、後ほど現在時刻を待ち受ける必要がある時計の例を見ていきます。
 
 <!--
 ## Summary
@@ -259,11 +250,11 @@ The other new thing in this program is the `subscription` function. It lets you 
 <!--
 When we create a program with `Browser.element`, we set up a system like this:
 -->
-`Browser.element`を使ってプログラムを作ると、システムは以下のように構成されます:
+`Browser.element`を使ってつくるプログラムでは、システムは以下のような構成となります:
 
 ![](diagrams/element.svg)
 
 <!--
 We get the ability to issue **commands** from `init` and `update`. This allows us to do things like make HTTP requests whenever we want. We also get the ability to **subscribe** to interesting information. (We will see an example of subscriptions later!)
 -->
-我々は`init`および`update`関数から**コマンド**を発行する方法を習得しました。これによりHTTPリクエストを送信するといったような事を、必要なときにできるようになりました。また、関心のある情報を**待ち受け**する方法も習得しました（後ほどサブスクリプションに関する例を見るでしょう！）。
+`init`と`update`関数から**コマンド**を発行することができるようになりました。これによりHTTPリクエストの送信といったようなことをいつでもできます。また、なにか意味ある情報を**待ち受け**することもできるようになりました（後ほどの節でサブスクリプションに関する例をあつかいます！）。
