@@ -191,4 +191,4 @@ This function is used to tag whatever is currently in the text field. So let's s
 So now we have a simple text field that can reverse user input. Neat! Now on to putting a bunch of text fields together into a more traditional form.
 -->
 
-これでユーザーの入力を逆さまにするシンプルなテキスト入力を作成できました。すっきりしています！次は複数のテキスト入力を持つ伝統的なフォームを作ります。
+これでユーザーの入力を逆さまにするシンプルなテキスト入力を作成できました。すっきりしています！次は複数のテキスト入力を持つ昔からよくあるようなフォームを作ります。
