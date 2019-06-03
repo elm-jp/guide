@@ -689,13 +689,28 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="http">HTTP</h1>
+                                <!--
+# HTTP
+-->
+<h1 id="http">HTTP</h1>
+<!--
+#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://ellie-app.com/3SYRVMrLnGHa1).
+-->
 <hr>
-<h4 id="clone-the-code-or-follow-along-in-the-online-editor"><a href="https://github.com/evancz/elm-architecture-tutorial/" target="_blank">Clone the code</a> or follow along in the <a href="https://ellie-app.com/3SYRVMrLnGHa1" target="_blank">online editor</a>.</h4>
+<h4 id="&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x304B;&#x30AA;&#x30F3;&#x30E9;&#x30A4;&#x30F3;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x3067;&#x8A66;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;"><a href="https://github.com/evancz/elm-architecture-tutorial/" target="_blank">&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30B3;&#x30FC;&#x30C9;</a>&#x3092;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x304B;<a href="https://ellie-app.com/3SYRVMrLnGHa1" target="_blank">&#x30AA;&#x30F3;&#x30E9;&#x30A4;&#x30F3;&#x30A8;&#x30C7;&#x30A3;&#x30BF;</a>&#x3067;&#x8A66;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</h4>
 <hr>
-<p>It is often helpful to grab information from elsewhere on the internet.</p>
-<p>For example, say we want to load the full text of <em>Public Opinion</em> by Walter Lippmann. Published in 1922, this book provides a historical perspective on the rise of mass media and its implications for democracy. For our purposes here, we will focus on how to use the <a href="https://package.elm-lang.org/packages/elm/http/latest" target="_blank"><code>elm/http</code></a> package to get this book into our app!</p>
-<p>Let&#x2019;s start by just looking at all the code. There are some new things, but do not worry. We will go through it all!</p>
+<!--
+It is often helpful to grab information from elsewhere on the internet.
+-->
+<p>&#x3057;&#x3070;&#x3057;&#x3070;&#x3001;&#x30A4;&#x30F3;&#x30BF;&#x30FC;&#x30CD;&#x30C3;&#x30C8;&#x4E0A;&#x306E;&#x3069;&#x3053;&#x304B;&#x306B;&#x3042;&#x308B;&#x60C5;&#x5831;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x3066;&#x81EA;&#x5206;&#x306E;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x306B;&#x8868;&#x793A;&#x3057;&#x305F;&#x3044;&#x3053;&#x3068;&#x3082;&#x3042;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<!--
+For example, say we want to load the full text of _Public Opinion_ by Walter Lippmann. Published in 1922, this book provides a historical perspective on the rise of mass media and its implications for democracy. For our purposes here, we will focus on how to use the [`elm/http`][http] package to get this book into our app!
+-->
+<p>&#x4F8B;&#x3048;&#x3070;&#x3001;1992&#x5E74;&#x306B;&#x767A;&#x884C;&#x3055;&#x308C;&#x305F;Walter Lippmann&#x8457;&#x306E;<em>Public Opinion</em>&#xFF08;&#x3053;&#x306E;&#x672C;&#x306F;&#x30DE;&#x30B9;&#x30E1;&#x30C7;&#x30A3;&#x30A2;&#x306E;&#x8208;&#x308A;&#x3068;&#x305D;&#x308C;&#x304C;&#x6C11;&#x4E3B;&#x4E3B;&#x7FA9;&#x306B;&#x4E0E;&#x3048;&#x305F;&#x5F71;&#x97FF;&#x306B;&#x3064;&#x3044;&#x3066;&#x306E;&#x6B74;&#x53F2;&#x7684;&#x306A;&#x8996;&#x70B9;&#x3092;&#x4E0E;&#x3048;&#x3066;&#x304F;&#x308C;&#x307E;&#x3059;&#xFF09;&#x306E;&#x5168;&#x6587;&#x3092;&#x53D6;&#x308A;&#x8FBC;&#x307F;&#x305F;&#x3044;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x7BC0;&#x3067;&#x306F;<a href="https://package.elm-lang.org/packages/elm/http/latest" target="_blank">elm/http</a>&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3092;&#x4F7F;&#x3044;&#x3001;&#x3053;&#x306E;&#x672C;&#x306E;&#x5185;&#x5BB9;&#x3092;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x306B;&#x53D6;&#x308A;&#x8FBC;&#x3080;&#x65B9;&#x6CD5;&#x3092;&#x4E2D;&#x5FC3;&#x306B;&#x898B;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<!--
+Let&rsquo;s start by just looking at all the code. There are some new things, but do not worry. We will go through it all!
+-->
+<p>&#x307E;&#x305A;&#x306F;&#x4E00;&#x901A;&#x308A;&#x30B3;&#x30FC;&#x30C9;&#x5168;&#x4F53;&#x306B;&#x76EE;&#x3092;&#x901A;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x3053;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x306F;&#x3044;&#x304F;&#x3064;&#x304B;&#x306E;&#x65B0;&#x3057;&#x3044;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x5FC3;&#x914D;&#x306F;&#x7121;&#x7528;&#x3067;&#x3059;&#x3002;&#x9806;&#x3092;&#x8FFD;&#x3063;&#x3066;&#x898B;&#x3066;&#x3044;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#xFF01;</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Browser
 <span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Html</span>, text, pre)
 <span class="hljs-keyword">import</span> Http
@@ -779,10 +794,22 @@
     <span class="hljs-type">Success</span> fullText -&gt;
       pre [] [ text fullText ]
 </code></pre>
-<p>Some parts of this should be familiar from previous examples of The Elm Architecture. We still have a <code>Model</code> of our application. We still have an <code>update</code> that reacts to messages. We still have a <code>view</code> function that shows everything on screen.</p>
-<p>The new parts extend the core pattern we saw before with some changes in <code>init</code> and <code>update</code>, and the addition of <code>subscription</code>.</p>
+<!--
+Some parts of this should be familiar from previous examples of The Elm Architecture. We still have a `Model` of our application. We still have an `update` that reacts to messages. We still have a `view` function that shows everything on screen.
+-->
+<p>&#x3053;&#x308C;&#x307E;&#x3067;&#x306B;The Elm Architecture&#x306E;&#x4F8B;&#x3092;&#x898B;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x306E;&#x3067;&#x3001;&#x3053;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x3042;&#x308B;&#x7A0B;&#x5EA6;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x99B4;&#x67D3;&#x307F;&#x6DF1;&#x3044;&#x306F;&#x305A;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x307E;&#x3067;&#x3068;&#x540C;&#x3058;&#x304F;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x306E;<code>Model</code>&#x3001;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x306B;&#x5FDC;&#x7B54;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;<code>update</code>&#x95A2;&#x6570;&#x3001;&#x305D;&#x3057;&#x3066;&#x5168;&#x3066;&#x3092;&#x753B;&#x9762;&#x306B;&#x63CF;&#x753B;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;<code>view</code>&#x95A2;&#x6570;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<!--
+The new parts extend the core pattern we saw before with some changes in `init` and `update`, and the addition of `subscription`.
+-->
+<p>&#x4ECA;&#x307E;&#x3067;&#x898B;&#x3066;&#x304D;&#x305F;&#x4E0A;&#x8A18;&#x306E;&#x3088;&#x3046;&#x306A;&#x57FA;&#x672C;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x3001;<code>init</code>&#x3068;<code>update</code>&#x306B;&#x3044;&#x304F;&#x3064;&#x304B;&#x5909;&#x66F4;&#x304C;&#x52A0;&#x3048;&#x3089;&#x308C;&#x3001;&#x307E;&#x305F;<code>subscription</code>&#x304C;&#x8FFD;&#x52A0;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<!--
+## `init`
+-->
 <h2 id="init"><code>init</code></h2>
-<p>The <code>init</code> function describes how to initialize our program:</p>
+<!--
+The `init` function describes how to initialize our program:
+-->
+<p>&#x3053;&#x306E;<code>init</code>&#x95A2;&#x6570;&#x306B;&#x306F;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3092;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x521D;&#x671F;&#x5316;&#x3059;&#x308B;&#x304B;&#x3092;&#x8A18;&#x8FF0;&#x3057;&#x307E;&#x3059;&#xFF1A;</p>
 <pre><code class="lang-elm"><span class="hljs-title">init</span> : () -&gt; (<span class="hljs-type">Model</span>, <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>)
 <span class="hljs-title">init</span> _ =
   ( <span class="hljs-type">Loading</span>
@@ -792,9 +819,18 @@
       }
   )
 </code></pre>
-<p>Like always, we have to produce the initial <code>Model</code>, but now we are also producing some <strong>command</strong> of what we want to do immediately. That command will eventually produce a <code>Msg</code> that gets fed into the <code>update</code> function.</p>
-<p>Our book website starts in the <code>Loading</code> state, and we want to GET the full text of our book. When making a GET request with <a href="https://package.elm-lang.org/packages/elm/http/latest/Http#get" target="_blank"><code>Http.get</code></a>, we specify the <code>url</code> of the data we want to fetch, and we specify what we <code>expect</code> that data to be. So in our case, the <code>url</code> is pointing at some data on the Project Gutenberg website, and we <code>expect</code> it to be a big <code>String</code> we can show on screen.</p>
-<p>The <code>Http.expectString GotText</code> line is saying a bit more than that we <code>expect</code> a <code>String</code> though. It is also saying that when we get a response, it should be turned into a <code>GotText</code> message:</p>
+<!--
+Like always, we have to produce the initial `Model`, but now we are also producing some **command** of what we want to do immediately. That command will eventually produce a `Msg` that gets fed into the `update` function.
+-->
+<p>&#x3053;&#x308C;&#x307E;&#x3067;&#x3069;&#x304A;&#x308A;&#x306B;<code>Model</code>&#x306E;&#x521D;&#x671F;&#x5024;&#x3092;&#x8FD4;&#x3059;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x3053;&#x3067;&#x306F;&#x305F;&#x3060;&#x3061;&#x306B;&#x5B9F;&#x884C;&#x3057;&#x305F;&#x3044;&#x306A;&#x3093;&#x3089;&#x304B;&#x306E;<strong>&#x30B3;&#x30DE;&#x30F3;&#x30C9;</strong>&#x3082;&#x540C;&#x6642;&#x306B;&#x8FD4;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3053;&#x3053;&#x3067;&#x8FD4;&#x3057;&#x3066;&#x3044;&#x308B;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F;&#x6700;&#x7D42;&#x7684;&#x306B;&#x306F;<code>update</code>&#x95A2;&#x6570;&#x306B;&#x6E21;&#x3055;&#x308C;&#x308B;<code>Msg</code>&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<!--
+Our book website starts in the `Loading` state, and we want to GET the full text of our book. When making a GET request with [`Http.get`][get], we specify the `url` of the data we want to fetch, and we specify what we `expect` that data to be. So in our case, the `url` is pointing at some data on the Project Gutenberg website, and we `expect` it to be a big `String` we can show on screen.
+-->
+<p>&#x3053;&#x306E;&#x672C;&#x306E;&#x5185;&#x5BB9;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&#x30A6;&#x30A7;&#x30D6;&#x30B5;&#x30A4;&#x30C8;&#x306F;&#x8AAD;&#x307F;&#x8FBC;&#x307F;&#x4E2D;(<code>Loading</code>)&#x306E;&#x72B6;&#x614B;&#x304B;&#x3089;&#x306F;&#x3058;&#x307E;&#x308A;&#x3001;&#x305D;&#x306E;&#x672C;&#x306E;&#x5168;&#x6587;&#x3092;&#x53D6;&#x5F97;&#xFF08;GET&#xFF09;&#x3057;&#x305F;&#x3044;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;<a href="https://package.elm-lang.org/packages/elm/http/latest/Http#get" target="_blank"><code>Http.get</code></a>&#x306B;&#x3088;&#x3063;&#x3066;GET&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3092;&#x69CB;&#x7BC9;&#x3059;&#x308B;&#x969B;&#x306B;&#x3001;&#x53D6;&#x5F97;&#x3057;&#x305F;&#x3044;&#x672C;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x304C;&#x3042;&#x308B;<code>url</code>&#x3068;&#x3001;&#x3069;&#x3093;&#x306A;&#x30C7;&#x30FC;&#x30BF;&#x306B;&#x306A;&#x308B;&#x3053;&#x3068;&#x3092;&#x671F;&#x5F85;(<code>expect</code>)&#x3059;&#x308B;&#x304B;&#x3092;&#x6307;&#x5B9A;&#x3057;&#x307E;&#x3059;&#x3002;&#x4ECA;&#x56DE;&#x306E;&#x30B1;&#x30FC;&#x30B9;&#x3067;&#x306F;&#x3001;&#x6307;&#x5B9A;&#x3057;&#x305F;<code>url</code>&#x306F; Project Gutenberg &#x306E;&#x30A6;&#x30A7;&#x30D6;&#x30B5;&#x30A4;&#x30C8;&#x4E0A;&#x306E;&#x3068;&#x3042;&#x308B;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x6307;&#x3057;&#x793A;&#x3057;&#x3066;&#x3044;&#x3066;&#x3001;&#x305D;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x304C;&#x753B;&#x9762;&#x306B;&#x8868;&#x793A;&#x3067;&#x304D;&#x308B;&#x9577;&#x3044;&#x6587;&#x5B57;&#x5217;(<code>String</code>)&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x671F;&#x5F85;(<code>expect</code>)&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<!--
+The `Http.expectString GotText` line is saying a bit more than that we `expect` a `String` though. It is also saying that when we get a response, it should be turned into a `GotText` message:
+-->
+<p>&#x305F;&#x3060;&#x3057;&#x3001;&#x3053;&#x306E; <code>Http.expectString GotText</code> &#x306E;&#x884C;&#x306F;&#x5358;&#x306B;&#x3053;&#x3053;&#x3067;&#x306F;&#x6587;&#x5B57;&#x5217;(<code>String</code>)&#x3092;&#x671F;&#x5F85;&#x3057;&#x3066;&#x3044;&#x308B;(<code>expect</code>)&#x3068;&#x8A00;&#x3063;&#x3066;&#x3044;&#x308B;&#x3060;&#x3051;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x306A;&#x306B;&#x304B;&#x30EC;&#x30B9;&#x30DD;&#x30F3;&#x30B9;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x3063;&#x305F;&#x6642;&#x306B;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A; <code>GotText</code> &#x3068;&#x3044;&#x3046;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x306B;&#x5909;&#x63DB;&#x3055;&#x308C;&#x308B;&#x306F;&#x305A;&#x3060;&#x3068;&#x3082;&#x8A00;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
   = <span class="hljs-type">GotText</span> (<span class="hljs-type">Result</span> <span class="hljs-type">Http</span>.<span class="hljs-type">Error</span> <span class="hljs-type">String</span>)
 
@@ -802,12 +838,22 @@
 <span class="hljs-comment">-- GotText (Err Http.NetworkError)</span>
 <span class="hljs-comment">-- GotText (Err (Http.BadStatus 404))</span>
 </code></pre>
-<p>Notice that we are using the <code>Result</code> type from a couple sections back. This allows us to fully account for the possible failures in our <code>update</code> function. Speaking of <code>update</code> functions...</p>
-<blockquote>
-<p><strong>Note:</strong> If you are wondering why <code>init</code> is a function (and why we are ignoring the argument) we will talk about it in the upcoming chapter on JavaScript interop! (Preview: the argument lets us get information from JS on initialization.)</p>
-</blockquote>
+<!--
+Notice that we are using the `Result` type from a couple sections back. This allows us to fully account for the possible failures in our `update` function. Speaking of `update` functions...
+-->
+<p>&#x3044;&#x304F;&#x3064;&#x304B;&#x524D;&#x306E;&#x7BC0;&#x3067;&#x3042;&#x3064;&#x304B;&#x3063;&#x305F;<code>Result</code>&#x578B;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x306D;&#xFF1F;&#x3053;&#x308C;&#x306B;&#x3088;&#x308A;<code>update</code>&#x95A2;&#x6570;&#x306E;&#x4E2D;&#x3067;&#x3042;&#x308A;&#x3046;&#x308B;&#x5168;&#x3066;&#x306E;&#x5931;&#x6557;&#x3092;&#x5B8C;&#x5168;&#x306B;&#x6349;&#x3048;&#x308B;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;<code>update</code>&#x95A2;&#x6570;&#x306E;&#x8A71;&#x306E;&#x3064;&#x3044;&#x3067;&#x306E;&#x4F59;&#x8AC7;&#x3067;&#x3059;&#x304C;...</p>
+<!--
+> **Note:** If you are wondering why `init` is a function (and why we are ignoring the argument) we will talk about it in the upcoming chapter on JavaScript interop! (Preview: the argument lets us get information from JS on initialization.)
+-->
+<p><strong>Note:</strong> &#x3053;&#x3053;&#x3067;&#x306A;&#x305C;<code>init</code>&#x304C;&#x95A2;&#x6570;&#x3067;&#x3042;&#x308B;&#x306E;&#x304B;(&#x305D;&#x3057;&#x3066;&#x306A;&#x305C;&#x305D;&#x306E;&#x5F15;&#x6570;&#x3092;&#x7121;&#x8996;&#x3059;&#x308B;&#x306E;&#x304B;)&#x3068;&#x3044;&#x3046;&#x4E8B;&#x306B;&#x7591;&#x554F;&#x3092;&#x62B1;&#x3044;&#x305F;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x305D;&#x308C;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x5F8C;&#x307B;&#x3069;&#x306E; JavaScript&#x3068;&#x306E;&#x76F8;&#x4E92;&#x904B;&#x7528; &#x306E;&#x7AE0;&#x306B;&#x3066;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3059;&#xFF01;&#xFF08;&#x4E88;&#x544A;: &#x3053;&#x306E;&#x5F15;&#x6570;&#x306B;&#x3088;&#x308A;&#x521D;&#x671F;&#x5316;&#x6642;&#x306B;JS&#x304B;&#x3089;&#x60C5;&#x5831;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#xFF09;</p>
+<!--
+## `update`
+-->
 <h2 id="update"><code>update</code></h2>
-<p>Our <code>update</code> function is returning a bit more information as well:</p>
+<!--
+Our `update` function is returning a bit more information as well:
+-->
+<p>&#x4ECA;&#x56DE;&#x306E;&#x4F8B;&#x3067;&#x306F;<code>update</code>&#x95A2;&#x6570;&#x3082;<code>init</code>&#x306E;&#x3088;&#x3046;&#x306B;&#x3082;&#x3046;&#x5C11;&#x3057;&#x8FFD;&#x52A0;&#x306E;&#x60C5;&#x5831;&#x3092;&#x8FD4;&#x3057;&#x307E;&#x3059;:</p>
 <pre><code class="lang-elm"><span class="hljs-title">update</span> : <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">Model</span> -&gt; (<span class="hljs-type">Model</span>, <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>)
 <span class="hljs-title">update</span> msg model =
   <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
@@ -819,17 +865,47 @@
         <span class="hljs-type">Err</span> _ -&gt;
           (<span class="hljs-type">Failure</span>, <span class="hljs-type">Cmd</span>.none)
 </code></pre>
-<p>Looking at the type signature, we see that we are not just returning an updated model. We are <em>also</em> producing a <strong>command</strong> of what we want Elm to do.</p>
-<p>Moving on to the implementation, we pattern match on messages like normal. When a <code>GotText</code> message comes in, we inspect the <code>Result</code> of our HTTP request and update our model depending on whether it was a success or failure. The new part is that we also provide a command.</p>
-<p>So in the case that we got the full text successfully, we say <code>Cmd.none</code> to indicate that there is no more work to do. We already got the full text!</p>
-<p>And in the case that there was some error, we also say <code>Cmd.none</code> and just give up. The text of the book did not load. If we wanted to get fancier, we could pattern match on the <a href="https://package.elm-lang.org/packages/elm/http/latest/Http#Error" target="_blank"><code>Http.Error</code></a> and retry the request if we got a timeout or something.</p>
-<p>The point here is that however we decide to update our model, we are also free to issue new commands. I need more data! I want a random number! Etc.</p>
+<!--
+Looking at the type signature, we see that we are not just returning an updated model. We are _also_ producing a **command** of what we want Elm to do.
+-->
+<p>&#x3053;&#x306E;&#x578B;&#x6CE8;&#x91C8;&#x306B;&#x6CE8;&#x76EE;&#x3059;&#x308B;&#x3068;&#x3001;&#x5358;&#x306B;&#x66F4;&#x65B0;&#x3055;&#x308C;&#x305F;&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x8FD4;&#x3057;&#x3066;&#x3044;&#x308B;&#x3060;&#x3051;&#x3067;&#x306F;&#x306A;&#x304F;&#x3001;Elm&#x306B;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x307B;&#x3057;&#x3044;&#x3053;&#x3068;&#x3092;&#x6307;&#x793A;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;<strong>&#x30B3;&#x30DE;&#x30F3;&#x30C9;</strong> <em>&#x3082;</em> &#x3042;&#x308F;&#x305B;&#x3066;&#x8FD4;&#x3057;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<!--
+Moving on to the implementation, we pattern match on messages like normal. When a `GotText` message comes in, we inspect the `Result` of our HTTP request and update our model depending on whether it was a success or failure. The new part is that we also provide a command.
+-->
+<p>&#x305D;&#x306E;&#x5B9F;&#x88C5;&#x3067;&#x306F;&#x3053;&#x308C;&#x307E;&#x3067;&#x3068;&#x540C;&#x3058;&#x304F;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x306E;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3092;&#x884C;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x304C;<code>GotText</code>&#x306E;&#x5834;&#x5408;&#x306B;&#x3001;HTTP&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x306E;&#x7D50;&#x679C;&#x3092;&#x793A;&#x3059;<code>Result</code>&#x578B;&#x306E;&#x5024;&#x3092;&#x8ABF;&#x3079;&#x3001;&#x305D;&#x306E;&#x7D50;&#x679C;&#x304C;&#x6210;&#x529F;&#x304B;&#x5931;&#x6557;&#x304B;&#x306B;&#x3088;&#x3063;&#x3066;&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x66F4;&#x65B0;&#x3057;&#x3066;&#x3044;&#x307E;&#x307E;&#x3059;&#x3002;&#x65B0;&#x3057;&#x3044;&#x90E8;&#x5206;&#x306F;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3082;&#x8FD4;&#x3057;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
+<!--
+So in the case that we got the full text successfully, we say `Cmd.none` to indicate that there is no more work to do. We already got the full text!
+-->
+<p>&#x3064;&#x307E;&#x308A;&#x5168;&#x6587;&#x306E;&#x53D6;&#x5F97;&#x306B;&#x6210;&#x529F;&#x3057;&#x305F;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x3053;&#x308C;&#x4EE5;&#x4E0A;&#x306F;&#x4F55;&#x3082;&#x3057;&#x306A;&#x304F;&#x3066;&#x826F;&#x3044;&#x3053;&#x3068;&#x3092;&#x793A;&#x3059;<code>Cmd.none</code>&#x3092;&#x8FD4;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3059;&#x3067;&#x306B;&#x5168;&#x6587;&#x3092;&#x53D6;&#x5F97;&#x6E08;&#x307F;&#x306A;&#x306E;&#x3067;&#x3059;&#x304B;&#x3089;&#xFF01;</p>
+<!--
+And in the case that there was some error, we also say `Cmd.none` and just give up. The text of the book did not load. If we wanted to get fancier, we could pattern match on the [`Http.Error`][Error] and retry the request if we got a timeout or something.
+-->
+<p>&#x4E00;&#x65B9;&#x3001;&#x306A;&#x3093;&#x3089;&#x304B;&#x306E;&#x30A8;&#x30E9;&#x30FC;&#x304C;&#x3042;&#x3063;&#x305F;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x3084;&#x306F;&#x308A;<code>Cmd.none</code>&#x3092;&#x8FD4;&#x3057;&#x3066;&#x3053;&#x3053;&#x3067;&#x306F;&#x5358;&#x7D14;&#x306B;&#x30AE;&#x30D6;&#x30A2;&#x30C3;&#x30D7;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x7D50;&#x679C;&#x3001;&#x753B;&#x9762;&#x4E0A;&#x306B;&#x672C;&#x306E;&#x5185;&#x5BB9;&#x306F;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x3082;&#x3057;&#x3088;&#x308A;&#x826F;&#x3044;&#x7269;&#x306B;&#x3057;&#x305F;&#x3044;&#x306E;&#x306A;&#x3089;<a href="https://package.elm-lang.org/packages/elm/http/latest/Http#Error" target="_blank"><code>Http.Error</code></a>&#x306B;&#x5BFE;&#x3057;&#x3066;&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;&#x3092;&#x884C;&#x3044;&#x3001;&#x30BF;&#x30A4;&#x30E0;&#x30A2;&#x30A6;&#x30C8;&#x306A;&#x3069;&#x306E;&#x30A8;&#x30E9;&#x30FC;&#x3067;&#x3042;&#x308C;&#x3070;&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x306E;&#x9001;&#x4FE1;&#x3092;&#x518D;&#x5EA6;&#x30C8;&#x30E9;&#x30A4;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;&#x3067;&#x3059;&#x3002;</p>
+<!--
+The point here is that however we decide to update our model, we are also free to issue new commands. I need more data! I want a random number! Etc.
+-->
+<p>&#x3053;&#x306E;<code>update</code>&#x95A2;&#x6570;&#x3067;&#x5927;&#x4E8B;&#x306A;&#x3053;&#x3068;&#x306F;&#x3001;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x30E2;&#x30C7;&#x30EB;&#x306E;&#x66F4;&#x65B0;&#x3092;&#x3059;&#x308B;&#x304B;&#x3092;&#x6C7A;&#x5B9A;&#x3059;&#x308B;&#x3060;&#x3051;&#x3067;&#x306A;&#x304F;&#x3001;&#x65B0;&#x3057;&#x3044;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x767A;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x3082;&#x3063;&#x3068;&#x30C7;&#x30FC;&#x30BF;&#x304C;&#x5FC5;&#x8981;&#x3060;&#xFF01;&#x3068;&#x304B;&#x4E71;&#x6570;&#x304C;&#x307B;&#x3057;&#x3044;&#xFF01;&#x306A;&#x3069;&#x3068;&#x3002;</p>
+<!--
+## `subscription`
+-->
 <h2 id="subscription"><code>subscription</code></h2>
-<p>The other new thing in this program is the <code>subscription</code> function. It lets you look at the <code>Model</code> and decide if you want to subscribe to certain information. In our example, we say <code>Sub.none</code> to indicate that we do not need to subscribe to anything, but we will soon see an example of a clock where we want to subscribe to the current time!</p>
-<h2 id="summary">Summary</h2>
-<p>When we create a program with <code>Browser.element</code>, we set up a system like this:</p>
+<!--
+The other new thing in this program is the `subscription` function. It lets you look at the `Model` and decide if you want to subscribe to certain information. In our example, we say `Sub.none` to indicate that we do not need to subscribe to anything, but we will soon see an example of a clock where we want to subscribe to the current time!
+-->
+<p>&#x3053;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306B;&#x304A;&#x3051;&#x308B;&#x3082;&#x3046;&#x4E00;&#x3064;&#x306E;&#x65B0;&#x3057;&#x3044;&#x90E8;&#x5206;&#x306F;<code>subscrption</code>&#x95A2;&#x6570;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;<code>Model</code>&#x306E;&#x60C5;&#x5831;&#x304B;&#x3089;&#x5224;&#x65AD;&#x3057;&#x3066;&#x4F55;&#x3089;&#x304B;&#x306E;&#x60C5;&#x5831;&#x306B;&#x5BFE;&#x3059;&#x308B;&#x5F85;&#x3061;&#x53D7;&#x3051;&#x3059;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3092;&#x6C7A;&#x3081;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x4ECA;&#x56DE;&#x306E;&#x4F8B;&#x3067;&#x306F;<code>Sub.none</code>&#x3068;&#x3057;&#x3066;&#x4F55;&#x3082;&#x5F85;&#x3061;&#x53D7;&#x3051;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x306A;&#x3044;&#x3053;&#x3068;&#x3092;&#x793A;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x5F8C;&#x307B;&#x3069;&#x73FE;&#x5728;&#x6642;&#x523B;&#x3092;&#x5F85;&#x3061;&#x53D7;&#x3051;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x6642;&#x8A08;&#x306E;&#x4F8B;&#x3092;&#x898B;&#x3066;&#x3044;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<!--
+## Summary
+-->
+<h2 id="&#x30B5;&#x30DE;&#x30EA;&#x30FC;">&#x30B5;&#x30DE;&#x30EA;&#x30FC;</h2>
+<!--
+When we create a program with `Browser.element`, we set up a system like this:
+-->
+<p><code>Browser.element</code>&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3064;&#x304F;&#x308B;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3067;&#x306F;&#x3001;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306F;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306A;&#x69CB;&#x6210;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;:</p>
 <p><img src="diagrams/element.svg" alt=""></p>
-<p>We get the ability to issue <strong>commands</strong> from <code>init</code> and <code>update</code>. This allows us to do things like make HTTP requests whenever we want. We also get the ability to <strong>subscribe</strong> to interesting information. (We will see an example of subscriptions later!)</p>
+<!--
+We get the ability to issue **commands** from `init` and `update`. This allows us to do things like make HTTP requests whenever we want. We also get the ability to **subscribe** to interesting information. (We will see an example of subscriptions later!)
+-->
+<p><code>init</code>&#x3068;<code>update</code>&#x95A2;&#x6570;&#x304B;&#x3089;<strong>&#x30B3;&#x30DE;&#x30F3;&#x30C9;</strong>&#x3092;&#x767A;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;&#x3053;&#x308C;&#x306B;&#x3088;&#x308A;HTTP&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x306E;&#x9001;&#x4FE1;&#x3068;&#x3044;&#x3063;&#x305F;&#x3088;&#x3046;&#x306A;&#x3053;&#x3068;&#x3092;&#x3044;&#x3064;&#x3067;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x306A;&#x306B;&#x304B;&#x610F;&#x5473;&#x3042;&#x308B;&#x60C5;&#x5831;&#x3092;<strong>&#x5F85;&#x3061;&#x53D7;&#x3051;</strong>&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#xFF08;&#x5F8C;&#x307B;&#x3069;&#x306E;&#x7BC0;&#x3067;&#x30B5;&#x30D6;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;&#x306B;&#x95A2;&#x3059;&#x308B;&#x4F8B;&#x3092;&#x3042;&#x3064;&#x304B;&#x3044;&#x307E;&#x3059;&#xFF01;&#xFF09;&#x3002;</p>
 
                                 
                                 </section>
@@ -873,7 +949,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"HTTP","level":"1.8.1","depth":2,"next":{"title":"JSON","level":"1.8.2","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},"previous":{"title":"コマンドとサブスクリプション","level":"1.8","depth":1,"path":"effects/README.md","ref":"effects/README.md","articles":[{"title":"HTTP","level":"1.8.1","depth":2,"path":"effects/http.md","ref":"effects/http.md","articles":[]},{"title":"JSON","level":"1.8.2","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},{"title":"Random","level":"1.8.3","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},{"title":"Time","level":"1.8.4","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","ga","sitemap"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"ga":{"configuration":"auto","token":"UA-131798240-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"effects/http.md","mtime":"2019-05-13T02:21:17.007Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-13T02:21:51.827Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"HTTP","level":"1.8.1","depth":2,"next":{"title":"JSON","level":"1.8.2","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},"previous":{"title":"コマンドとサブスクリプション","level":"1.8","depth":1,"path":"effects/README.md","ref":"effects/README.md","articles":[{"title":"HTTP","level":"1.8.1","depth":2,"path":"effects/http.md","ref":"effects/http.md","articles":[]},{"title":"JSON","level":"1.8.2","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},{"title":"Random","level":"1.8.3","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},{"title":"Time","level":"1.8.4","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","ga","sitemap"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"ga":{"configuration":"auto","token":"UA-131798240-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"effects/http.md","mtime":"2019-06-03T00:39:20.379Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-03T00:39:51.724Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
