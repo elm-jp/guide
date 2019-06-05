@@ -6,7 +6,7 @@ Allow: /install.html$
 Allow: /core_language.html$
 Allow: /architecture/$
 Allow: /architecture/buttons.html$
-# Allow: /architecture/text_fields.html$
+Allow: /architecture/text_fields.html$
 Allow: /architecture/forms.html$
 Allow: /types/$
 Allow: /types/reading_types.html$
