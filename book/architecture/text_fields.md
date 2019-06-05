@@ -185,7 +185,7 @@ Change : String -> Msg
 <!--
 This function is used to tag whatever is currently in the text field. So let's say the text field currently holds `glad` and the user types `e`. This triggers an `input` event, so we will get the message `Change "glade"` in our `update` function.
 -->
-この関数は与えられた文字列が現在テキスト入力に入力されているものであることを明示的にするために使用されます。例えば、テキスト入力に `glad` が入力されていて、ユーザーが続けて `e` を入力したとします。この時 `input` イベントが発行され、 `update` 関数で `Change "glade"` メッセージを受け取ることになります。
+この関数は現在テキスト入力に入力されている文字列にくっつけてメッセージにするために使われます。例えば、テキスト入力に `glad` が入力されていて、ユーザーが続けて `e` を入力したとします。この時 `input` イベントが発行され、 `update` 関数で `Change "glade"` メッセージを受け取ることになります。
 
 <!--
 So now we have a simple text field that can reverse user input. Neat! Now on to putting a bunch of text fields together into a more traditional form.
