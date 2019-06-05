@@ -112,7 +112,7 @@ This time I chose to represent the model as a record. (You can read more about r
 > **Note:** You may be wondering, why bother having a record if it only holds one entry? Couldn't you just use the string directly? Sure! But starting with a record makes it easy to add more fields as our app gets more complicated. When the time comes where we want *two* text inputs, we will have to do much less fiddling around.
 -->
 
-> **注意:** 一つのフィールドしか無いのになぜレコードにするのか疑問に思う方もいるかも知れません。文字列をそのまま使ってもよいのでは無いでしょうか。もちろんそれでも構いません。しかし最初からレコードにしておくことでアプリケーションが複雑になってもフィールドを追加するのは簡単です。 *2つの* テキスト入力をしたくなったとしても、より小さな変更で済むようになります。
+> **注意:** 一つのフィールドしか無いのになぜレコードにするのか疑問に思う方もいるかも知れません。文字列をそのまま使ってもよいのでは無いでしょうか。もちろんそれでも構いません。しかし最初からレコードにしておくことでアプリケーションが複雑になってもフィールドを追加するのは簡単になります。 *2つの* テキスト入力をしたくなったとしても、より小さな変更で済むようになります。
 
 <!--
 Okay, so we have our model. Now in this app there is only one kind of message really. The user can change the contents of the text field.
