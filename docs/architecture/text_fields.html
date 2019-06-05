@@ -689,12 +689,28 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="text-fields">Text Fields</h1>
+                                <!--
+# Text Fields
+-->
+<h1 id="&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x5165;&#x529B;">&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x5165;&#x529B;</h1>
+<!--
+
+---
+#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://ellie-app.com/37gW7sj9wPVa1).
+---
+
+-->
 <hr>
-<h4 id="clone-the-code-or-follow-along-in-the-online-editor"><a href="https://github.com/evancz/elm-architecture-tutorial/" target="_blank">Clone the code</a> or follow along in the <a href="https://ellie-app.com/37gW7sj9wPVa1" target="_blank">online editor</a>.</h4>
+<h4 id="&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30B3;&#x30FC;&#x30C9;-&#x3092;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x304B;-&#x30AA;&#x30F3;&#x30E9;&#x30A4;&#x30F3;&#x30A8;&#x30C7;&#x30A3;&#x30BF;-&#x3067;&#x8A66;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;"><a href="https://github.com/evancz/elm-architecture-tutorial/" target="_blank">&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30B3;&#x30FC;&#x30C9;</a> &#x3092;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x304B; <a href="https://ellie-app.com/37gW7sj9wPVa1" target="_blank">&#x30AA;&#x30F3;&#x30E9;&#x30A4;&#x30F3;&#x30A8;&#x30C7;&#x30A3;&#x30BF;</a> &#x3067;&#x8A66;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</h4>
 <hr>
-<p>We are about to create a simple app that reverses the contents of a text field.</p>
-<p>Again this is a pretty short program, so I have included the whole thing here. Skim through to get an idea of how everything fits together. Right after that we will get into the details!</p>
+<!--
+We are about to create a simple app that reverses the contents of a text field.
+-->
+<p>&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x5165;&#x529B;&#x306E;&#x5185;&#x5BB9;&#x3092;&#x9006;&#x3055;&#x307E;&#x306B;&#x8868;&#x793A;&#x3059;&#x308B;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x4F5C;&#x308A;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<!--
+Again this is a pretty short program, so I have included the whole thing here. Skim through to get an idea of how everything fits together. Right after that we will get into the details!
+-->
+<p>&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x307E;&#x3059;&#x304C;&#x3001;&#x3068;&#x3066;&#x3082;&#x77ED;&#x3044;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306A;&#x306E;&#x3067;&#x5168;&#x3066;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x3053;&#x3053;&#x306B;&#x63B2;&#x8F09;&#x3057;&#x307E;&#x3059;&#x3002;&#x307E;&#x305A;&#x306F;&#x5168;&#x4F53;&#x304C;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x69CB;&#x6210;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x304B;&#x3092;&#x7406;&#x89E3;&#x3057;&#x3001;&#x305D;&#x306E;&#x5F8C;&#x306B;&#x8A73;&#x7D30;&#x306B;&#x3064;&#x3044;&#x3066;&#x898B;&#x3066;&#x3044;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Browser
 <span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Html</span>, <span class="hljs-type">Attribute</span>, div, input, text)
 <span class="hljs-keyword">import</span> Html.Attributes <span class="hljs-keyword">exposing</span> (..)
@@ -749,29 +765,53 @@
     , div [] [ text (<span class="hljs-type">String</span>.reverse model.content) ]
     ]
 </code></pre>
-<p>This code is a slight variant of the counter from the previous section. You set up a model. You define some messages. You say how to <code>update</code>. You make your <code>view</code>. The difference is just in how we filled this skeleton in. Let&apos;s walk through that!</p>
-<p>As always, you start by guessing at what your <code>Model</code> should be. In our case, we know we are going to have to keep track of whatever the user has typed into the text field. We need that information so we know how to render the reversed text.</p>
+<!--
+This code is a slight variant of the counter from the previous section. You set up a model. You define some messages. You say how to `update`. You make your `view`. The difference is just in how we filled this skeleton in. Let's walk through that!
+-->
+<p>&#x3053;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306F;&#x524D;&#x306E;&#x7BC0;&#x3067;&#x8AAC;&#x660E;&#x3057;&#x305F;&#x30AB;&#x30A6;&#x30F3;&#x30BF;&#x30FC;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x5C11;&#x3057;&#x3060;&#x3051;&#x5909;&#x3048;&#x305F;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x8A2D;&#x5B9A;&#x3057;&#x3001;&#x5E7E;&#x3064;&#x304B;&#x306E;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x3001; <code>update</code> &#x306E;&#x3084;&#x308A;&#x65B9;&#x3001; <code>view</code> &#x306E;&#x4F5C;&#x308A;&#x65B9;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x307E;&#x3059;&#x3002;&#x524D;&#x306E;&#x7BC0;&#x3068;&#x306E;&#x9055;&#x3044;&#x306F;&#x305D;&#x308C;&#x3089;&#x306E;&#x9AA8;&#x683C;&#x306E;&#x4E2D;&#x8EAB;&#x3092;&#x3069;&#x3046;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x304B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x5177;&#x4F53;&#x7684;&#x306B;&#x898B;&#x3066;&#x3044;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<!--
+As always, you start by guessing at what your `Model` should be. In our case, we know we are going to have to keep track of whatever the user has typed into the text field. We need that information so we know how to render the reversed text.
+-->
+<p>&#x4F8B;&#x306B;&#x3088;&#x3063;&#x3066; <code>Model</code> &#x304C;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x3079;&#x304D;&#x304B;&#x8003;&#x3048;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x4ECA;&#x56DE;&#x306E;&#x5834;&#x5408;&#x3001;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x304C;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x5165;&#x529B;&#x306B;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x6587;&#x5B57;&#x3092;&#x5165;&#x529B;&#x3057;&#x305F;&#x304B;&#x3092;&#x8FFD;&#x5F93;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3060;&#x308D;&#x3046;&#x3001;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x304C;&#x308F;&#x304B;&#x308A;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x305D;&#x306E;&#x60C5;&#x5831;&#x304C;&#x3042;&#x308C;&#x3070;&#x9006;&#x3055;&#x307E;&#x306E;&#x6587;&#x5B57;&#x5217;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Model</span> =
   { content : <span class="hljs-type">String</span>
   }
 </code></pre>
-<p>This time I chose to represent the model as a record. (You can read more about records <a href="https://guide.elm-lang.org/core_language.html#records" target="_blank">here</a> and <a href="https://elm-lang.org/docs/records" target="_blank">here</a>.) For now, the record stores the user input in the <code>content</code> field.</p>
+<!--
+This time I chose to represent the model as a record. (You can read more about records [here](https://guide.elm-lang.org/core_language.html#records) and [here](https://elm-lang.org/docs/records).) For now, the record stores the user input in the `content` field.
+-->
+<p>&#x4ECA;&#x56DE;&#x30E2;&#x30C7;&#x30EB;&#x3092;&#x30EC;&#x30B3;&#x30FC;&#x30C9;&#x3068;&#x3057;&#x3066;&#x8868;&#x73FE;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x3057;&#x307E;&#x3057;&#x305F;&#xFF08;<a href="https://guide.elm-lang.jp/core_language.html#records" target="_blank">&#x3053;&#x3061;&#x3089;</a> &#x3084; <a href="https://elm-lang.org/docs/records" target="_blank">&#x3053;&#x3061;&#x3089;</a> &#x3067;&#x30EC;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x3064;&#x3044;&#x3066;&#x8A73;&#x3057;&#x304F;&#x8AAC;&#x660E;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#xFF09;&#x3002;&#x3053;&#x306E;&#x30EC;&#x30B3;&#x30FC;&#x30C9;&#x306F;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x5165;&#x529B;&#x3092; <code>content</code> &#x3068;&#x3044;&#x3046;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3067;&#x4FDD;&#x6301;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<!--
+> **Note:** You may be wondering, why bother having a record if it only holds one entry? Couldn't you just use the string directly? Sure! But starting with a record makes it easy to add more fields as our app gets more complicated. When the time comes where we want *two* text inputs, we will have to do much less fiddling around.
+-->
 <blockquote>
-<p><strong>Note:</strong> You may be wondering, why bother having a record if it only holds one entry? Couldn&apos;t you just use the string directly? Sure! But starting with a record makes it easy to add more fields as our app gets more complicated. When the time comes where we want <em>two</em> text inputs, we will have to do much less fiddling around.</p>
+<p><strong>&#x6CE8;&#x610F;:</strong> &#x4E00;&#x3064;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3057;&#x304B;&#x7121;&#x3044;&#x306E;&#x306B;&#x306A;&#x305C;&#x30EC;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x3059;&#x308B;&#x306E;&#x304B;&#x7591;&#x554F;&#x306B;&#x601D;&#x3046;&#x65B9;&#x3082;&#x3044;&#x308B;&#x304B;&#x3082;&#x77E5;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x6587;&#x5B57;&#x5217;&#x3092;&#x305D;&#x306E;&#x307E;&#x307E;&#x4F7F;&#x3063;&#x3066;&#x3082;&#x3088;&#x3044;&#x306E;&#x3067;&#x306F;&#x7121;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;&#x3082;&#x3061;&#x308D;&#x3093;&#x305D;&#x308C;&#x3067;&#x3082;&#x69CB;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;&#x3057;&#x304B;&#x3057;&#x6700;&#x521D;&#x304B;&#x3089;&#x30EC;&#x30B3;&#x30FC;&#x30C9;&#x306B;&#x3057;&#x3066;&#x304A;&#x304F;&#x3053;&#x3068;&#x3067;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304C;&#x8907;&#x96D1;&#x306B;&#x306A;&#x3063;&#x3066;&#x3082;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3092;&#x8FFD;&#x52A0;&#x3059;&#x308B;&#x306E;&#x306F;&#x7C21;&#x5358;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002; <em>2&#x3064;&#x306E;</em> &#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x5165;&#x529B;&#x3092;&#x3057;&#x305F;&#x304F;&#x306A;&#x3063;&#x305F;&#x3068;&#x3057;&#x3066;&#x3082;&#x3001;&#x3088;&#x308A;&#x5C0F;&#x3055;&#x306A;&#x5909;&#x66F4;&#x3067;&#x6E08;&#x3080;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 </blockquote>
-<p>Okay, so we have our model. Now in this app there is only one kind of message really. The user can change the contents of the text field.</p>
+<!--
+Okay, so we have our model. Now in this app there is only one kind of message really. The user can change the contents of the text field.
+-->
+<p>&#x30AA;&#x30FC;&#x30B1;&#x30FC;&#x3002;&#x30E2;&#x30C7;&#x30EB;&#x304C;&#x51FA;&#x6765;&#x307E;&#x3057;&#x305F;&#x3002;&#x3053;&#x306E;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3067;&#x306F;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x306E;&#x7A2E;&#x985E;&#x306F;&#x4E00;&#x3064;&#x3060;&#x3051;&#x3067;&#x3059;&#x3002;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306F;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x5165;&#x529B;&#x306E;&#x5185;&#x5BB9;&#x3092;&#x5909;&#x66F4;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x51FA;&#x6765;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
   = <span class="hljs-type">Change</span> <span class="hljs-type">String</span>
 </code></pre>
-<p>This means our update function just has to handle this one case:</p>
+<!--
+This means our update function just has to handle this one case:
+-->
+<p>&#x30A2;&#x30C3;&#x30D7;&#x30C7;&#x30FC;&#x30C8;&#x95A2;&#x6570;&#x306F;&#x3053;&#x306E;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3060;&#x3051;&#x3092;&#x53D6;&#x308A;&#x6271;&#x3048;&#x3070;&#x3088;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;:</p>
 <pre><code class="lang-elm"><span class="hljs-title">update</span> : <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Model</span>
 <span class="hljs-title">update</span> msg model =
   <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
     <span class="hljs-type">Change</span> newContent -&gt;
       { model | content = newContent }
 </code></pre>
-<p>When we receive new content, we use the record update syntax to update the contents of <code>content</code>.</p>
-<p>Finally we need to say how to view our application:</p>
+<!--
+When we receive new content, we use the record update syntax to update the contents of `content`.
+-->
+<p>&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x5165;&#x529B;&#x306E;&#x5185;&#x5BB9;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x3068;&#x3001;&#x30EC;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x66F4;&#x65B0;&#x3059;&#x308B;&#x69CB;&#x6587;&#x306B;&#x3088;&#x3063;&#x3066; <code>content</code> &#x306E;&#x5185;&#x5BB9;&#x3092;&#x66F4;&#x65B0;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<!--
+Finally we need to say how to view our application:
+-->
+<p>&#x6700;&#x5F8C;&#x306B;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x8868;&#x793A;&#x3059;&#x308B;&#x304B;&#x5B9A;&#x7FA9;&#x3057;&#x307E;&#x3059;:</p>
 <pre><code class="lang-elm"><span class="hljs-title">view</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
 <span class="hljs-title">view</span> model =
   div []
@@ -779,13 +819,28 @@
     , div [] [ text (<span class="hljs-type">String</span>.reverse model.content) ]
     ]
 </code></pre>
-<p>We create a <code>&lt;div&gt;</code> with two children.</p>
-<p>The interesting child is the <code>&lt;input&gt;</code> node. In addition to the <code>placeholder</code> and <code>value</code> attributes, it uses <code>onInput</code> to declare what messages should be sent when the user types into this input.</p>
-<p>This <code>onInput</code> function is kind of interesting. It takes one argument, in this case the <code>Change</code> function which was created when we declared the <code>Msg</code> type:</p>
+<!--
+We create a `<div>` with two children.
+-->
+<p>&#xFF12;&#x3064;&#x306E;&#x5B50;&#x8981;&#x7D20;&#x3092;&#x3082;&#x3064; <code>&lt;div&gt;</code> &#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<!--
+The interesting child is the `<input>` node. In addition to the `placeholder` and `value` attributes, it uses `onInput` to declare what messages should be sent when the user types into this input.
+-->
+<p>&#x6CE8;&#x76EE;&#x3059;&#x3079;&#x304D;&#x306F; <code>&lt;input&gt;</code> &#x8981;&#x7D20;&#x3067;&#x3059;&#x3002; <code>placeholder</code> &#x5C5E;&#x6027;&#x3084; <code>value</code> &#x5C5E;&#x6027;&#x306B;&#x52A0;&#x3048;&#x3066;&#x3001; &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x304C;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x5165;&#x529B;&#x306B;&#x6587;&#x5B57;&#x3092;&#x5165;&#x529B;&#x3057;&#x305F;&#x3068;&#x304D;&#x306B;&#x3069;&#x306E;&#x3088;&#x3046;&#x306A;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x9001;&#x4FE1;&#x3059;&#x308B;&#x304B;&#x5B9A;&#x7FA9;&#x3059;&#x308B; <code>onInput</code> &#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<!--
+This `onInput` function is kind of interesting. It takes one argument, in this case the `Change` function which was created when we declared the `Msg` type:
+-->
+<p>&#x3053;&#x306E; <code>onInput</code> &#x95A2;&#x6570;&#x306F;&#x8208;&#x5473;&#x6DF1;&#x3044;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;&#x4E00;&#x3064;&#x306E;&#x5F15;&#x6570;&#x3092;&#x53D6;&#x308B;&#x306E;&#x3067;&#x3059;&#x304C;&#x3001;&#x4ECA;&#x56DE;&#x306E;&#x5834;&#x5408;&#x306F; <code>Msg</code> &#x3092;&#x6C7A;&#x3081;&#x308B;&#x3068;&#x304D;&#x306B;&#x5B9A;&#x7FA9;&#x3057;&#x305F; <code>Change</code> &#x95A2;&#x6570;&#x3092;&#x5F15;&#x6570;&#x3068;&#x3057;&#x3066;&#x53D7;&#x3051;&#x53D6;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <pre><code class="lang-elm"><span class="hljs-type">Change</span> : <span class="hljs-type">String</span> -&gt; <span class="hljs-type">Msg</span>
 </code></pre>
-<p>This function is used to tag whatever is currently in the text field. So let&apos;s say the text field currently holds <code>glad</code> and the user types <code>e</code>. This triggers an <code>input</code> event, so we will get the message <code>Change &quot;glade&quot;</code> in our <code>update</code> function.</p>
-<p>So now we have a simple text field that can reverse user input. Neat! Now on to putting a bunch of text fields together into a more traditional form.</p>
+<!--
+This function is used to tag whatever is currently in the text field. So let's say the text field currently holds `glad` and the user types `e`. This triggers an `input` event, so we will get the message `Change "glade"` in our `update` function.
+-->
+<p>&#x3053;&#x306E;&#x95A2;&#x6570;&#x306F;&#x73FE;&#x5728;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x5165;&#x529B;&#x306B;&#x5165;&#x529B;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x6587;&#x5B57;&#x5217;&#x306B;&#x304F;&#x3063;&#x3064;&#x3051;&#x3066;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x306B;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x3001;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x5165;&#x529B;&#x306B; <code>glad</code> &#x304C;&#x5165;&#x529B;&#x3055;&#x308C;&#x3066;&#x3044;&#x3066;&#x3001;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x304C;&#x7D9A;&#x3051;&#x3066; <code>e</code> &#x3092;&#x5165;&#x529B;&#x3057;&#x305F;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x6642; <code>input</code> &#x30A4;&#x30D9;&#x30F3;&#x30C8;&#x304C;&#x767A;&#x884C;&#x3055;&#x308C;&#x3001; <code>update</code> &#x95A2;&#x6570;&#x3067; <code>Change &quot;glade&quot;</code> &#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<!--
+So now we have a simple text field that can reverse user input. Neat! Now on to putting a bunch of text fields together into a more traditional form.
+-->
+<p>&#x3053;&#x308C;&#x3067;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306E;&#x5165;&#x529B;&#x3092;&#x9006;&#x3055;&#x307E;&#x306B;&#x3059;&#x308B;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x5165;&#x529B;&#x3092;&#x4F5C;&#x6210;&#x3067;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x3059;&#x3063;&#x304D;&#x308A;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#xFF01;&#x6B21;&#x306F;&#x8907;&#x6570;&#x306E;&#x30C6;&#x30AD;&#x30B9;&#x30C8;&#x5165;&#x529B;&#x3092;&#x6301;&#x3064;&#x6614;&#x304B;&#x3089;&#x3088;&#x304F;&#x3042;&#x308B;&#x3088;&#x3046;&#x306A;&#x30D5;&#x30A9;&#x30FC;&#x30E0;&#x3092;&#x4F5C;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 
                                 
                                 </section>
@@ -829,7 +884,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"テキストフィールド","level":"1.5.2","depth":2,"next":{"title":"フォーム","level":"1.5.3","depth":2,"path":"architecture/forms.md","ref":"architecture/forms.md","articles":[]},"previous":{"title":"ボタン","level":"1.5.1","depth":2,"path":"architecture/buttons.md","ref":"architecture/buttons.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","ga","sitemap"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"ga":{"configuration":"auto","token":"UA-131798240-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"architecture/text_fields.md","mtime":"2019-06-03T00:40:49.934Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-03T00:41:17.752Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"テキストフィールド","level":"1.5.2","depth":2,"next":{"title":"フォーム","level":"1.5.3","depth":2,"path":"architecture/forms.md","ref":"architecture/forms.md","articles":[]},"previous":{"title":"ボタン","level":"1.5.1","depth":2,"path":"architecture/buttons.md","ref":"architecture/buttons.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","ga","sitemap"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"ga":{"configuration":"auto","token":"UA-131798240-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"architecture/text_fields.md","mtime":"2019-06-05T03:52:57.632Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-05T03:53:54.989Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
