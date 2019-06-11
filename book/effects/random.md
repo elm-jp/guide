@@ -11,12 +11,12 @@
 <!--
 So far we have only seen commands to make HTTP requests, but we can command other things as well, like generating random values! So we are going to make an app that rolls dice, producing a random number between 1 and 6.
 -->
-これまで見てきたコマンドはHTTPリクエストを送るためのコマンドだけでしたが、ランダムな値を生成するというような様々なコマンドを発することができます。この節では1から6の間でランダムな数字を生成するアプリケーションを作っていきましょう。
+これまで見てきたコマンドはHTTPリクエストを送るためのコマンドだけでしたが、ランダムな値を生成するというような他のコマンドを発行することができます。この節では1から6のランダムな数字を生成するサイコロアプリケーションを作っていきましょう。
 
 <!--
 We need the [`elm/random`][readme] package for this. The [`Random`][random] module in particular. Let&rsquo;s start by just looking at all the code:
 -->
-ここではパッケージ[`elm/random`][readme]が必要となます。特に[`Random`][random]モジュールが重要となります。まずはコード全体を見ていきましょう：
+ここではパッケージ[`elm/random`][readme]が必要となります。特に[`Random`][random]モジュールが重要となります。まずはコード全体を見ていきましょう：
 
 [readme]: https://package.elm-lang.org/packages/elm/random/latest
 [random]: https://package.elm-lang.org/packages/elm/random/latest/Random
@@ -179,7 +179,7 @@ When the command is performed, the `Generator` produces some value, and then tha
 <!--
 Once we have some simple generators like `probability` and `usuallyTrue`, we can start snapping them together with functions like [`map3`](https://package.elm-lang.org/packages/elm/random/latest/Random#map3). Imagine we want to make a simple slot machine. We could create a generator like this:
 -->
-`probability` や `usuallyTrue`といったシンプルな乱数生成器を一度用意すれば、それらを[`map3`](https://package.elm-lang.org/packages/elm/random/latest/Random#map3)のような関数によって結合することができるようになってきます。例えば次のような乱数生成器を作ることができます：
+`probability` や `usuallyTrue`といったシンプルな乱数生成器を一度用意すれば、それらを[`map3`](https://package.elm-lang.org/packages/elm/random/latest/Random#map3)のような関数によって結合することができるようになってきます。シンプルなスロットマシーンを作りたくなったとしましょう。例えば次のような乱数生成器を作ることができます：
 
 
 ```elm
@@ -210,12 +210,12 @@ We first create `Symbol` to describe the pictures that can appear on the slot ma
 <!--
 From there we use `map3` to combine them into a new `spin` generator. It says to generate three symbols and then put them together into a `Spin`.
 -->
-次に`map3`関数を使ってこの乱数生成器を結合した上で、新たな乱数生成器`spin`を作ります。三つの絵柄を生成しそれらを`Spin`型の値にまとめるということを示しています。
+次に`map3`関数を使ってこの乱数生成器を結合して新たな乱数生成器`spin`を作ります。三つの絵柄を生成しそれらを`Spin`型の値にまとめるということを示しています。
 
 <!--
 The point here is that from small building blocks, we can create a `Generator` that describes pretty complex behavior. And then from our application, we just have to say something like `Random.generate NewSpin spin` to get the next random value.
 -->
-ここで大事な点は、小さな構成要素から始めてとても複雑なふるまいをする`Generator`を生成できるということです。また、我々のアプリケーションで次の乱数値を得るためには`Random.generate NewSpin spin`のように呼び出すだけでよいのです。
+ここで大事な点は、小さな構成要素から始めてとても複雑なふるまいをする`Generator`を生成できるということです。また、サイコロアプリケーションから分かる通り、新しい乱数値を得るためには`Random.generate NewSpin spin`のように呼び出すだけでよいのです。
 
 <!--
 > **Exercises:** Here are a few ideas to make the example code on this page a bit more interesting!
@@ -232,7 +232,6 @@ The point here is that from small building blocks, we can create a `Generator` t
 >   - サイコロの面を画像で表示する代わりに、[`elm/svg`][svg]を使って実際に描いてみましょう。
 >   - 目の偏ったサイコロを[`Random.weighted`][weighted]で作ってみましょう。
 >   - 2個目のサイコロを追加して、2つを同時に振ってみましょう。
-￥
 >   - サイコロの目が決まる前に、ランダムにサイコロの目が切り替わるようにしてみましょう。
 
 [svg]: https://package.elm-lang.org/packages/elm/svg/latest/
