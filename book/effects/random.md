@@ -11,7 +11,7 @@
 <!--
 So far we have only seen commands to make HTTP requests, but we can command other things as well, like generating random values! So we are going to make an app that rolls dice, producing a random number between 1 and 6.
 -->
-これまで見てきたコマンドはHTTPリクエストを送るためのコマンドだけでしたが、ランダムな値を生成するというような他のコマンドを発行することができます。この節では1から6のランダムな数字を生成するサイコロアプリケーションを作っていきましょう。
+これまで見てきたコマンドはHTTPリクエストを送るためのコマンドだけでしたが、ランダムな値を生成するというような他のコマンドを発行することもできます。この節ではサイコロを振って1から6のランダムな数字を生成するアプリケーションを作っていきましょう。
 
 <!--
 We need the [`elm/random`][readme] package for this. The [`Random`][random] module in particular. Let&rsquo;s start by just looking at all the code:
@@ -150,7 +150,7 @@ usuallyTrue =
 <!--
 So here we have three random generators. The `roll` generator is saying it will produce an `Int`, and more specifically, it will produce an integer between `1` and `6` inclusive. Likewise, the `usuallyTrue` generator is saying it will produce a `Bool`, and more specifically, it will be true 80% of the time.
 -->
-ここでは三つの乱数生成器が定義されています。乱数生成器`roll`関数は`Int`型の値を生成すると定義されており、より正確に言うならば`1`から`6`までの間の整数を生成すると定義されています。同様に、乱数生成器`usuallyTrue`関数は`Bool`型の値を生成すると定義されており、より正確に言うと80%の場合は真となります。
+ここでは3つの乱数生成器が定義されています。乱数生成器`roll`関数は`Int`型の値を生成すると定義されており、より正確に言うならば`1`から`6`までの間の整数を生成すると定義されています。同様に、乱数生成器`usuallyTrue`関数は`Bool`型の値を生成すると定義されており、実装としては80%の確率で真となります。
 
 <!--
 The point is that we are not actually generating the values yet. We are just describing _how_ to generate them. From there you use the [`Random.generate`][gen] to turn it into a command:
@@ -165,7 +165,7 @@ generate : (a -> msg) -> Generator a -> Cmd msg
 <!--
 When the command is performed, the `Generator` produces some value, and then that gets turned into a message for your `update` function. So in our example, the `Generator` produces a value between 1 and 6, and then it gets turned into a message like `NewFace 1` or `NewFace 4`. That is all we need to know to get our random dice rolls, but generators can do quite a bit more!
 -->
-このコマンドが実行されると、`Generator`は何らかの値を生成し、あなたのコードの`update`関数で処理されるメッセージに変換されます。我々の例では`Generator`は1から6の間の値を生成し、`NewFace 1`や`NewFace 4`などのメッセージに変換されます。サイコロを振る際に必要なのはこれで全てですが、乱数生成器にはもっと様々な使い方があります！
+このコマンドが実行されると、`Generator`は何らかの値を生成し、あなたのコードの`update`関数で処理されるメッセージに変換されます。我々の例では`Generator`は1から6の間の値を生成し、`NewFace 1`や`NewFace 4`などのメッセージに変換されます。ランダムなサイコロの目を得るために必要なのはこれで全てですが、乱数生成器にはもっと様々な使い方があります！
 
 [gen]: https://package.elm-lang.org/packages/elm/random/latest/Random#generate
 
@@ -210,7 +210,7 @@ We first create `Symbol` to describe the pictures that can appear on the slot ma
 <!--
 From there we use `map3` to combine them into a new `spin` generator. It says to generate three symbols and then put them together into a `Spin`.
 -->
-次に`map3`関数を使ってこの乱数生成器を結合して新たな乱数生成器`spin`を作ります。三つの絵柄を生成しそれらを`Spin`型の値にまとめるということを示しています。
+次に`map3`関数を使ってこの乱数生成器を結合して新たな乱数生成器`spin`を作ります。3つの絵柄を生成しそれらを`Spin`型の値にまとめるということを示しています。
 
 <!--
 The point here is that from small building blocks, we can create a `Generator` that describes pretty complex behavior. And then from our application, we just have to say something like `Random.generate NewSpin spin` to get the next random value.
@@ -226,11 +226,11 @@ The point here is that from small building blocks, we can create a `Generator` t
 >   - Add a second die and have them both roll at the same time.
 >   - Have the dice flip around randomly before they settle on a final value.
 -->
-> **練習問題：** この例のコードをもう少し楽しいものにするために幾つかのアイデアがあります！
+> **練習問題：** この例のコードをもう少し楽しいものにするためにいくつかのアイデアがあります！
 >
 >   - 数字の代わりにサイコロの面を画像で表示してみましょう。
 >   - サイコロの面を画像で表示する代わりに、[`elm/svg`][svg]を使って実際に描いてみましょう。
->   - 目の偏ったサイコロを[`Random.weighted`][weighted]で作ってみましょう。
+>   - 出る目の確率が偏ったサイコロを[`Random.weighted`][weighted]で作ってみましょう。
 >   - 2個目のサイコロを追加して、2つを同時に振ってみましょう。
 >   - サイコロの目が決まる前に、ランダムにサイコロの目が切り替わるようにしてみましょう。
 
