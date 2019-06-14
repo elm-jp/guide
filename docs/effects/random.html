@@ -691,10 +691,19 @@
                                 
                                 <h1 id="random">Random</h1>
 <hr>
-<h4 id="clone-the-code-or-follow-along-in-the-online-editor"><a href="https://github.com/evancz/elm-architecture-tutorial/" target="_blank">Clone the code</a> or follow along in the <a href="https://ellie-app.com/37gXN5G4T2sa1" target="_blank">online editor</a>.</h4>
+<!--
+#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://ellie-app.com/37gXN5G4T2sa1).
+-->
+<h3 id="&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x304B;&#x30AA;&#x30F3;&#x30E9;&#x30A4;&#x30F3;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x3067;&#x8A66;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;"><a href="(https:/github.com/evancz/elm-architecture-tutorial">&#x30B5;&#x30F3;&#x30D7;&#x30EB;&#x30B3;&#x30FC;&#x30C9;</a>&#x3092;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x304B;<a href="https://ellie-app.com/37gXN5G4T2sa1" target="_blank">&#x30AA;&#x30F3;&#x30E9;&#x30A4;&#x30F3;&#x30A8;&#x30C7;&#x30A3;&#x30BF;</a>&#x3067;&#x8A66;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</h3>
 <hr>
-<p>So far we have only seen commands to make HTTP requests, but we can command other things as well, like generating random values! So we are going to make an app that rolls dice, producing a random number between 1 and 6.</p>
-<p>We need the <a href="https://package.elm-lang.org/packages/elm/random/latest" target="_blank"><code>elm/random</code></a> package for this. The <a href="https://package.elm-lang.org/packages/elm/random/latest/Random" target="_blank"><code>Random</code></a> module in particular. Let&#x2019;s start by just looking at all the code:</p>
+<!--
+So far we have only seen commands to make HTTP requests, but we can command other things as well, like generating random values! So we are going to make an app that rolls dice, producing a random number between 1 and 6.
+-->
+<p>&#x3053;&#x308C;&#x307E;&#x3067;&#x898B;&#x3066;&#x304D;&#x305F;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F;HTTP&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3092;&#x9001;&#x308B;&#x305F;&#x3081;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3060;&#x3051;&#x3067;&#x3057;&#x305F;&#x304C;&#x3001;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;&#x5024;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x3068;&#x3044;&#x3046;&#x3088;&#x3046;&#x306A;&#x4ED6;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x767A;&#x884C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x7BC0;&#x3067;&#x306F;&#x30B5;&#x30A4;&#x30B3;&#x30ED;&#x3092;&#x632F;&#x3063;&#x3066;1&#x304B;&#x3089;6&#x306E;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;&#x6570;&#x5B57;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3092;&#x4F5C;&#x3063;&#x3066;&#x3044;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<!--
+We need the [`elm/random`][readme] package for this. The [`Random`][random] module in particular. Let&rsquo;s start by just looking at all the code:
+-->
+<p>&#x3053;&#x3053;&#x3067;&#x306F;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;<a href="https://package.elm-lang.org/packages/elm/random/latest" target="_blank"><code>elm/random</code></a>&#x304C;&#x5FC5;&#x8981;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x7279;&#x306B;<a href="https://package.elm-lang.org/packages/elm/random/latest/Random" target="_blank"><code>Random</code></a>&#x30E2;&#x30B8;&#x30E5;&#x30FC;&#x30EB;&#x304C;&#x91CD;&#x8981;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x307E;&#x305A;&#x306F;&#x30B3;&#x30FC;&#x30C9;&#x5168;&#x4F53;&#x3092;&#x898B;&#x3066;&#x3044;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#xFF1A;</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Browser
 <span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (..)
 <span class="hljs-keyword">import</span> Html.Events <span class="hljs-keyword">exposing</span> (..)
@@ -773,12 +782,24 @@
     , button [ onClick <span class="hljs-type">Roll</span> ] [ text <span class="hljs-string">&quot;Roll&quot;</span> ]
     ]
 </code></pre>
-<p>The new thing here is command issued in the <code>update</code> function:</p>
+<!--
+The new thing here is command issued in the `update` function:
+-->
+<p>&#x3053;&#x3053;&#x3067;&#x306E;&#x65B0;&#x3057;&#x3044;&#x90E8;&#x5206;&#x306F;<code>update</code>&#x95A2;&#x6570;&#x306E;&#x4E2D;&#x3067;&#x767A;&#x884C;&#x3055;&#x308C;&#x308B;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3067;&#x3059;&#xFF1A;</p>
 <pre><code class="lang-elm"><span class="hljs-type">Random</span>.generate <span class="hljs-type">NewFace</span> (<span class="hljs-type">Random</span>.int <span class="hljs-number">1</span> <span class="hljs-number">6</span>)
 </code></pre>
-<p>Generating random values works a bit different than in languages like JavaScript, Python, Java, etc. So let&#x2019;s see how it works in Elm!</p>
-<h2 id="random-generators">Random Generators</h2>
-<p>The core idea is that we have random <code>Generator</code> that describes <em>how</em> to generate a random value. For example:</p>
+<!--
+Generating random values works a bit different than in languages like JavaScript, Python, Java, etc. So let&rsquo;s see how it works in Elm!
+-->
+<p>&#x4E71;&#x6570;&#x751F;&#x6210;&#x306E;&#x65B9;&#x6CD5;&#x306F;JavaScript&#x3001;Python&#x3001;Java&#x3084;&#x305D;&#x306E;&#x4ED6;&#x306E;&#x8A00;&#x8A9E;&#x3068;&#x306F;&#x3084;&#x3084;&#x7570;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;Elm&#x306E;&#x5834;&#x5408;&#x306B;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x304B;&#x898B;&#x3066;&#x3044;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#xFF01;</p>
+<!--
+## Random Generators
+-->
+<h2 id="&#x4E71;&#x6570;&#x751F;&#x6210;&#x5668;">&#x4E71;&#x6570;&#x751F;&#x6210;&#x5668;</h2>
+<!--
+The core idea is that we have random `Generator` that describes _how_ to generate a random value. For example:
+-->
+<p>&#x3053;&#x3053;&#x3067;&#x4E2D;&#x5FC3;&#x3068;&#x306A;&#x308B;&#x6982;&#x5FF5;&#x306F;&#x3001;&#x4E71;&#x6570;&#x751F;&#x6210;&#x306E;<em>&#x65B9;&#x6CD5;</em>&#x304C;&#x8A18;&#x8FF0;&#x3055;&#x308C;&#x305F;&#x4E71;&#x6570;&#x751F;&#x6210;&#x5668;<code>Generator</code>&#x3092;&#x4F7F;&#x3046;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#xFF1A;</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Random
 
 <span class="hljs-title">probability</span> : <span class="hljs-type">Random</span>.<span class="hljs-type">Generator</span> <span class="hljs-type">Float</span>
@@ -793,13 +814,28 @@
 <span class="hljs-title">usuallyTrue</span> =
   <span class="hljs-type">Random</span>.weighted (<span class="hljs-number">80</span>, <span class="hljs-type">True</span>) [ (<span class="hljs-number">20</span>, <span class="hljs-type">False</span>) ]
 </code></pre>
-<p>So here we have three random generators. The <code>roll</code> generator is saying it will produce an <code>Int</code>, and more specifically, it will produce an integer between <code>1</code> and <code>6</code> inclusive. Likewise, the <code>usuallyTrue</code> generator is saying it will produce a <code>Bool</code>, and more specifically, it will be true 80% of the time.</p>
-<p>The point is that we are not actually generating the values yet. We are just describing <em>how</em> to generate them. From there you use the <a href="https://package.elm-lang.org/packages/elm/random/latest/Random#generate" target="_blank"><code>Random.generate</code></a> to turn it into a command:</p>
+<!--
+So here we have three random generators. The `roll` generator is saying it will produce an `Int`, and more specifically, it will produce an integer between `1` and `6` inclusive. Likewise, the `usuallyTrue` generator is saying it will produce a `Bool`, and more specifically, it will be true 80% of the time.
+-->
+<p>&#x3053;&#x3053;&#x3067;&#x306F;3&#x3064;&#x306E;&#x4E71;&#x6570;&#x751F;&#x6210;&#x5668;&#x304C;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x4E71;&#x6570;&#x751F;&#x6210;&#x5668;<code>roll</code>&#x95A2;&#x6570;&#x306F;<code>Int</code>&#x578B;&#x306E;&#x5024;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x3068;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x304A;&#x308A;&#x3001;&#x5B9F;&#x88C5;&#x3068;&#x3057;&#x3066;&#x306F;<code>1</code>&#x304B;&#x3089;<code>6</code>&#x307E;&#x3067;&#x306E;&#x6574;&#x6570;&#x306E;&#x5024;&#x3092;&#x751F;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;&#x540C;&#x69D8;&#x306B;&#x3001;&#x4E71;&#x6570;&#x751F;&#x6210;&#x5668;<code>usuallyTrue</code>&#x95A2;&#x6570;&#x306F;<code>Bool</code>&#x578B;&#x306E;&#x5024;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x3068;&#x5B9A;&#x7FA9;&#x3055;&#x308C;&#x3066;&#x304A;&#x308A;&#x3001;&#x5B9F;&#x88C5;&#x3068;&#x3057;&#x3066;&#x306F;80%&#x306E;&#x78BA;&#x7387;&#x3067;&#x771F;&#x3068;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<!--
+The point is that we are not actually generating the values yet. We are just describing _how_ to generate them. From there you use the [`Random.generate`][gen] to turn it into a command:
+-->
+<p>&#x5927;&#x4E8B;&#x306A;&#x70B9;&#x306F;&#x3053;&#x306E;&#x6BB5;&#x968E;&#x3067;&#x306F;&#x5024;&#x306E;&#x751F;&#x6210;&#x306F;&#x5B9F;&#x969B;&#x306B;&#x306F;&#x884C;&#x308F;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x305D;&#x306E;&#x5024;&#x3092;&#x751F;&#x6210;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;<em>&#x65B9;&#x6CD5;</em>&#x304C;&#x304C;&#x8A18;&#x8FF0;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3060;&#x3051;&#x3067;&#x3059;&#x3002;&#x305D;&#x3053;&#x304B;&#x3089;<a href="https://package.elm-lang.org/packages/elm/random/latest/Random#generate" target="_blank"><code>Random.generate</code></a>&#x3092;&#x4F7F;&#x3063;&#x3066;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306B;&#x5909;&#x63DB;&#x3057;&#x307E;&#x3059;&#xFF1A;</p>
 <pre><code class="lang-elm"><span class="hljs-title">generate</span> : (a -&gt; msg) -&gt; <span class="hljs-type">Generator</span> a -&gt; <span class="hljs-type">Cmd</span> msg
 </code></pre>
-<p>When the command is performed, the <code>Generator</code> produces some value, and then that gets turned into a message for your <code>update</code> function. So in our example, the <code>Generator</code> produces a value between 1 and 6, and then it gets turned into a message like <code>NewFace 1</code> or <code>NewFace 4</code>. That is all we need to know to get our random dice rolls, but generators can do quite a bit more!</p>
-<h2 id="combining-generators">Combining Generators</h2>
-<p>Once we have some simple generators like <code>probability</code> and <code>usuallyTrue</code>, we can start snapping them together with functions like <a href="https://package.elm-lang.org/packages/elm/random/latest/Random#map3" target="_blank"><code>map3</code></a>. Imagine we want to make a simple slot machine. We could create a generator like this:</p>
+<!--
+When the command is performed, the `Generator` produces some value, and then that gets turned into a message for your `update` function. So in our example, the `Generator` produces a value between 1 and 6, and then it gets turned into a message like `NewFace 1` or `NewFace 4`. That is all we need to know to get our random dice rolls, but generators can do quite a bit more!
+-->
+<p>&#x3053;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x304C;&#x5B9F;&#x884C;&#x3055;&#x308C;&#x308B;&#x3068;&#x3001;<code>Generator</code>&#x306F;&#x4F55;&#x3089;&#x304B;&#x306E;&#x5024;&#x3092;&#x751F;&#x6210;&#x3057;&#x3001;&#x3042;&#x306A;&#x305F;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x306E;<code>update</code>&#x95A2;&#x6570;&#x3067;&#x51E6;&#x7406;&#x3055;&#x308C;&#x308B;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x306B;&#x5909;&#x63DB;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x6211;&#x3005;&#x306E;&#x4F8B;&#x3067;&#x306F;<code>Generator</code>&#x306F;1&#x304B;&#x3089;6&#x306E;&#x9593;&#x306E;&#x5024;&#x3092;&#x751F;&#x6210;&#x3057;&#x3001;<code>NewFace 1</code>&#x3084;<code>NewFace 4</code>&#x306A;&#x3069;&#x306E;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x306B;&#x5909;&#x63DB;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;&#x30B5;&#x30A4;&#x30B3;&#x30ED;&#x306E;&#x76EE;&#x3092;&#x5F97;&#x308B;&#x305F;&#x3081;&#x306B;&#x5FC5;&#x8981;&#x306A;&#x306E;&#x306F;&#x3053;&#x308C;&#x3067;&#x5168;&#x3066;&#x3067;&#x3059;&#x304C;&#x3001;&#x4E71;&#x6570;&#x751F;&#x6210;&#x5668;&#x306B;&#x306F;&#x3082;&#x3063;&#x3068;&#x69D8;&#x3005;&#x306A;&#x4F7F;&#x3044;&#x65B9;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#xFF01;</p>
+<!--
+## Combining Generators
+-->
+<h2 id="&#x4E71;&#x6570;&#x751F;&#x6210;&#x5668;&#x306E;&#x7D50;&#x5408;">&#x4E71;&#x6570;&#x751F;&#x6210;&#x5668;&#x306E;&#x7D50;&#x5408;</h2>
+<!--
+Once we have some simple generators like `probability` and `usuallyTrue`, we can start snapping them together with functions like [`map3`](https://package.elm-lang.org/packages/elm/random/latest/Random#map3). Imagine we want to make a simple slot machine. We could create a generator like this:
+-->
+<p><code>probability</code> &#x3084; <code>usuallyTrue</code>&#x3068;&#x3044;&#x3063;&#x305F;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;&#x4E71;&#x6570;&#x751F;&#x6210;&#x5668;&#x3092;&#x4E00;&#x5EA6;&#x7528;&#x610F;&#x3059;&#x308C;&#x3070;&#x3001;&#x305D;&#x308C;&#x3089;&#x3092;<a href="https://package.elm-lang.org/packages/elm/random/latest/Random#map3" target="_blank"><code>map3</code></a>&#x306E;&#x3088;&#x3046;&#x306A;&#x95A2;&#x6570;&#x306B;&#x3088;&#x3063;&#x3066;&#x7D50;&#x5408;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x3066;&#x304D;&#x307E;&#x3059;&#x3002;&#x30B7;&#x30F3;&#x30D7;&#x30EB;&#x306A;&#x30B9;&#x30ED;&#x30C3;&#x30C8;&#x30DE;&#x30B7;&#x30FC;&#x30F3;&#x3092;&#x4F5C;&#x308A;&#x305F;&#x304F;&#x306A;&#x3063;&#x305F;&#x3068;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x4E71;&#x6570;&#x751F;&#x6210;&#x5668;&#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#xFF1A;</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Random
 
 <span class="hljs-keyword">type</span> <span class="hljs-type">Symbol</span> = <span class="hljs-type">Cherry</span> | <span class="hljs-type">Seven</span> | <span class="hljs-type">Bar</span> | <span class="hljs-type">Grapes</span>
@@ -818,17 +854,35 @@
 <span class="hljs-title">spin</span> =
   <span class="hljs-type">Random</span>.map3 <span class="hljs-type">Spin</span> symbol symbol symbol
 </code></pre>
-<p>We first create <code>Symbol</code> to describe the pictures that can appear on the slot machine. We then create a random generator that generates each symbol with equal probability.</p>
-<p>From there we use <code>map3</code> to combine them into a new <code>spin</code> generator. It says to generate three symbols and then put them together into a <code>Spin</code>.</p>
-<p>The point here is that from small building blocks, we can create a <code>Generator</code> that describes pretty complex behavior. And then from our application, we just have to say something like <code>Random.generate NewSpin spin</code> to get the next random value.</p>
+<!--
+We first create `Symbol` to describe the pictures that can appear on the slot machine. We then create a random generator that generates each symbol with equal probability.
+-->
+<p>&#x6700;&#x521D;&#x306B;&#x30B9;&#x30ED;&#x30C3;&#x30C8;&#x30DE;&#x30B7;&#x30FC;&#x30F3;&#x306E;&#x7D75;&#x67C4;&#x3092;&#x8868;&#x3059;&#x305F;&#x3081;&#x306E;<code>Symbol</code>&#x578B;&#x3092;&#x7528;&#x610F;&#x3057;&#x307E;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066;&#x540C;&#x3058;&#x78BA;&#x7387;&#x3067;&#x305D;&#x308C;&#x305E;&#x308C;&#x306E;&#x7D75;&#x67C4;&#x3092;&#x8FD4;&#x3059;&#x4E71;&#x6570;&#x751F;&#x6210;&#x5668;&#x3092;&#x4F5C;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<!--
+From there we use `map3` to combine them into a new `spin` generator. It says to generate three symbols and then put them together into a `Spin`.
+-->
+<p>&#x6B21;&#x306B;<code>map3</code>&#x95A2;&#x6570;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3053;&#x306E;&#x4E71;&#x6570;&#x751F;&#x6210;&#x5668;&#x3092;&#x7D50;&#x5408;&#x3057;&#x3066;&#x65B0;&#x305F;&#x306A;&#x4E71;&#x6570;&#x751F;&#x6210;&#x5668;<code>spin</code>&#x3092;&#x4F5C;&#x308A;&#x307E;&#x3059;&#x3002;3&#x3064;&#x306E;&#x7D75;&#x67C4;&#x3092;&#x751F;&#x6210;&#x3057;&#x305D;&#x308C;&#x3089;&#x3092;<code>Spin</code>&#x578B;&#x306E;&#x5024;&#x306B;&#x307E;&#x3068;&#x3081;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3092;&#x793A;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<!--
+The point here is that from small building blocks, we can create a `Generator` that describes pretty complex behavior. And then from our application, we just have to say something like `Random.generate NewSpin spin` to get the next random value.
+-->
+<p>&#x3053;&#x3053;&#x3067;&#x5927;&#x4E8B;&#x306A;&#x70B9;&#x306F;&#x3001;&#x5C0F;&#x3055;&#x306A;&#x69CB;&#x6210;&#x8981;&#x7D20;&#x304B;&#x3089;&#x59CB;&#x3081;&#x3066;&#x3068;&#x3066;&#x3082;&#x8907;&#x96D1;&#x306A;&#x3075;&#x308B;&#x307E;&#x3044;&#x3092;&#x3059;&#x308B;<code>Generator</code>&#x3092;&#x751F;&#x6210;&#x3067;&#x304D;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x30B5;&#x30A4;&#x30B3;&#x30ED;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x304B;&#x3089;&#x5206;&#x304B;&#x308B;&#x901A;&#x308A;&#x3001;&#x65B0;&#x3057;&#x3044;&#x4E71;&#x6570;&#x5024;&#x3092;&#x5F97;&#x308B;&#x305F;&#x3081;&#x306B;&#x306F;<code>Random.generate NewSpin spin</code>&#x306E;&#x3088;&#x3046;&#x306B;&#x547C;&#x3073;&#x51FA;&#x3059;&#x3060;&#x3051;&#x3067;&#x3088;&#x3044;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<!--
+> **Exercises:** Here are a few ideas to make the example code on this page a bit more interesting!
+>
+>   - Instead of showing a number, show the die face as an image.
+>   - Instead of showing an image of a die face, use [`elm/svg`][svg] to draw it yourself.
+>   - Create a weighted die with [`Random.weighted`][weighted].
+>   - Add a second die and have them both roll at the same time.
+>   - Have the dice flip around randomly before they settle on a final value.
+-->
 <blockquote>
-<p><strong>Exercises:</strong> Here are a few ideas to make the example code on this page a bit more interesting!</p>
+<p><strong>&#x7DF4;&#x7FD2;&#x554F;&#x984C;&#xFF1A;</strong> &#x3053;&#x306E;&#x4F8B;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x3082;&#x3046;&#x5C11;&#x3057;&#x697D;&#x3057;&#x3044;&#x3082;&#x306E;&#x306B;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x3044;&#x304F;&#x3064;&#x304B;&#x306E;&#x30A2;&#x30A4;&#x30C7;&#x30A2;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#xFF01;</p>
 <ul>
-<li>Instead of showing a number, show the die face as an image.</li>
-<li>Instead of showing an image of a die face, use <a href="https://package.elm-lang.org/packages/elm/svg/latest/" target="_blank"><code>elm/svg</code></a> to draw it yourself.</li>
-<li>Create a weighted die with <a href="https://package.elm-lang.org/packages/elm/random/latest/Random#weighted" target="_blank"><code>Random.weighted</code></a>.</li>
-<li>Add a second die and have them both roll at the same time.</li>
-<li>Have the dice flip around randomly before they settle on a final value.</li>
+<li>&#x6570;&#x5B57;&#x306E;&#x4EE3;&#x308F;&#x308A;&#x306B;&#x30B5;&#x30A4;&#x30B3;&#x30ED;&#x306E;&#x9762;&#x3092;&#x753B;&#x50CF;&#x3067;&#x8868;&#x793A;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</li>
+<li>&#x30B5;&#x30A4;&#x30B3;&#x30ED;&#x306E;&#x9762;&#x3092;&#x753B;&#x50CF;&#x3067;&#x8868;&#x793A;&#x3059;&#x308B;&#x4EE3;&#x308F;&#x308A;&#x306B;&#x3001;<a href="https://package.elm-lang.org/packages/elm/svg/latest/" target="_blank"><code>elm/svg</code></a>&#x3092;&#x4F7F;&#x3063;&#x3066;&#x5B9F;&#x969B;&#x306B;&#x63CF;&#x3044;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</li>
+<li>&#x51FA;&#x308B;&#x76EE;&#x306E;&#x78BA;&#x7387;&#x304C;&#x504F;&#x3063;&#x305F;&#x30B5;&#x30A4;&#x30B3;&#x30ED;&#x3092;<a href="https://package.elm-lang.org/packages/elm/random/latest/Random#weighted" target="_blank"><code>Random.weighted</code></a>&#x3067;&#x4F5C;&#x3063;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</li>
+<li>2&#x500B;&#x76EE;&#x306E;&#x30B5;&#x30A4;&#x30B3;&#x30ED;&#x3092;&#x8FFD;&#x52A0;&#x3057;&#x3066;&#x3001;2&#x3064;&#x3092;&#x540C;&#x6642;&#x306B;&#x632F;&#x3063;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</li>
+<li>&#x30B5;&#x30A4;&#x30B3;&#x30ED;&#x306E;&#x76EE;&#x304C;&#x6C7A;&#x307E;&#x308B;&#x524D;&#x306B;&#x3001;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306B;&#x30B5;&#x30A4;&#x30B3;&#x30ED;&#x306E;&#x76EE;&#x304C;&#x5207;&#x308A;&#x66FF;&#x308F;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</li>
 </ul>
 </blockquote>
 
@@ -874,7 +928,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Random","level":"1.8.3","depth":2,"next":{"title":"Time","level":"1.8.4","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]},"previous":{"title":"JSON","level":"1.8.2","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","ga","sitemap"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"ga":{"configuration":"auto","token":"UA-131798240-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"effects/random.md","mtime":"2019-06-05T05:24:45.263Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-05T05:25:17.015Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Random","level":"1.8.3","depth":2,"next":{"title":"Time","level":"1.8.4","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]},"previous":{"title":"JSON","level":"1.8.2","depth":2,"path":"effects/json.md","ref":"effects/json.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","bulk-redirect","ga","sitemap"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"ga":{"configuration":"auto","token":"UA-131798240-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"effects/random.md","mtime":"2019-06-14T05:51:08.124Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-14T05:51:45.400Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
