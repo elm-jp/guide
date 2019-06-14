@@ -150,7 +150,7 @@ usuallyTrue =
 <!--
 So here we have three random generators. The `roll` generator is saying it will produce an `Int`, and more specifically, it will produce an integer between `1` and `6` inclusive. Likewise, the `usuallyTrue` generator is saying it will produce a `Bool`, and more specifically, it will be true 80% of the time.
 -->
-ここでは3つの乱数生成器が定義されています。乱数生成器`roll`関数は`Int`型の値を生成すると定義されており、より正確に言うならば`1`から`6`までの間の整数を生成すると定義されています。同様に、乱数生成器`usuallyTrue`関数は`Bool`型の値を生成すると定義されており、実装としては80%の確率で真となります。
+ここでは3つの乱数生成器が定義されています。乱数生成器`roll`関数は`Int`型の値を生成すると定義されており、実装としては`1`から`6`までの整数の値を生成します。同様に、乱数生成器`usuallyTrue`関数は`Bool`型の値を生成すると定義されており、実装としては80%の確率で真となります。
 
 <!--
 The point is that we are not actually generating the values yet. We are just describing _how_ to generate them. From there you use the [`Random.generate`][gen] to turn it into a command:
