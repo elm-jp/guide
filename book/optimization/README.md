@@ -11,7 +11,7 @@ There are two major types of optimization in Elm. Optimizing performance and opt
 Elmの最適化は、大きくふたつのタイプにわかれます。パフォーマンスについての最適化と、アセットサイズについての最適化です。
 
 <!--
-- **Performance** &mdash; The slowest thing in browsers is the DOM. By a huge margin. I have done a lot of profiling to speed up Elm applications, and most things have no noticable impact. Using better data structures? Negligible. Caching the results of computations in my model? Negligible _and_ my code is worse now. The only thing that makes a big difference is using `Html.Lazy` and `Html.Keyed` to do fewer DOM operations.
+- **Performance** &mdash; The slowest thing in browsers is the DOM. By a huge margin. I have done a lot of profiling to speed up Elm applications, and most things have no noticeable impact. Using better data structures? Negligible. Caching the results of computations in my model? Negligible _and_ my code is worse now. The only thing that makes a big difference is using `Html.Lazy` and `Html.Keyed` to do fewer DOM operations.
 -->
 
 **パフォーマンス** &mdash; ブラウザで一番遅いのはDOMです。ここには大きな最適化の余地があります。私はElmアプリケーションを高速化するためにプロファイリングをたくさんしてきましたが、ほとんどはあまり目に見える効果がありませんでした。もっと良いデータ型を使うのはどうでしょうか？モデルに応じて、計算の結果をキャッシュするのは？ほとんど効果はなく、コードが悪化するだけでした。唯一大きな違いがあったのは、`Html.Lazy`と`Html.Keyed`を使ってDOM操作を減らすことだけでした。
