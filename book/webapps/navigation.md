@@ -29,7 +29,7 @@ Until Elm 0.19, that is exactly what the package website did! It works. It is si
 Elm 0.19 まで、このパッケージウェブサイトがしていたことが、まさにそれでした！　これはうまく動きますし、シンプルです。でもいくつか弱点もあります。
 
 <!--
-1. **Blank Screens.** The screen goes white everytime you load new HTML. Can we do a nice transition instead?
+1. **Blank Screens.** The screen goes white every time you load new HTML. Can we do a nice transition instead?
 2. **Redundant Requests.** Each package has a single `docs.json` file, but it gets loaded each time you visit a module like [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) or [`Maybe`](https://package.elm-lang.org/packages/elm/core/latest/Maybe). Can we share the data between pages somehow?
 3. **Redundant Code.** The home page and the docs share a lot of functions, like `Html.text` and `Html.div`. Can this code be shared between pages?
 -->

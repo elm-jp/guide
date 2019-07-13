@@ -139,7 +139,7 @@ init : () -> (Model, Cmd Msg)
 init _ =
   ( Loading
   , Http.get
-      { url = "http://www.gutenberg.org/cache/epub/6456/pg6456.txt"
+      { url = "https://elm-lang.org/assets/public-opinion.txt"
       , expect = Http.expectString GotText
       }
   )
@@ -151,9 +151,9 @@ Like always, we have to produce the initial `Model`, but now we are also produci
 これまでどおりに`Model`の初期値を返す必要がありますが、ここではただちに実行したいなんらかの**コマンド**も同時に返しています。ここで返しているコマンドは最終的には`update`関数に渡される`Msg`を返します。
 
 <!--
-Our book website starts in the `Loading` state, and we want to GET the full text of our book. When making a GET request with [`Http.get`][get], we specify the `url` of the data we want to fetch, and we specify what we `expect` that data to be. So in our case, the `url` is pointing at some data on the Project Gutenberg website, and we `expect` it to be a big `String` we can show on screen.
+Our book website starts in the `Loading` state, and we want to GET the full text of our book. When making a GET request with [`Http.get`][get], we specify the `url` of the data we want to fetch, and we specify what we `expect` that data to be. So in our case, the `url` is pointing at some data on the Elm website, and we `expect` it to be a big `String` we can show on screen.
 -->
-この本の内容を表示するウェブサイトは読み込み中(`Loading`)の状態からはじまり、その本の全文を取得（GET）したいとします。[`Http.get`][get]によってGETリクエストを構築する際に、取得したい本のデータがある`url`と、どんなデータになることを期待(`expect`)するかを指定します。今回のケースでは、指定した`url`は Project Gutenberg のウェブサイト上のとあるデータを指し示していて、そのデータが画面に表示できる長い文字列(`String`)であることを期待(`expect`)しています。
+この本の内容を表示するウェブサイトは読み込み中(`Loading`)の状態からはじまり、その本の全文を取得（GET）したいとします。[`Http.get`][get]によってGETリクエストを構築する際に、取得したい本のデータがある`url`と、どんなデータになることを期待(`expect`)するかを指定します。今回のケースでは、指定した`url`は Elm のウェブサイト上のとあるデータを指し示していて、そのデータが画面に表示できる長い文字列(`String`)であることを期待(`expect`)しています。
 
 <!--
 The `Http.expectString GotText` line is saying a bit more than that we `expect` a `String` though. It is also saying that when we get a response, it should be turned into a `GotText` message:

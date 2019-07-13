@@ -141,7 +141,7 @@ routeParser =
 ```
 
 <!--
-The `</>` and `<?>` operators let us to write parsers that look quite like the actual URLs we want to parse. And adding `Url.Parser.Query` allowed us to handle query parameters like `?q=seiza`.
+The `</>` and `<?>` operators let us write parsers that look quite like the actual URLs we want to parse. And adding `Url.Parser.Query` allowed us to handle query parameters like `?q=seiza`.
 -->
 
 `</>`演算子や`<?>`演算子を使うと、パースしようとしている実際のURLによく似た形で、パーサを書くことができます。`Url.Parser.Query`を追加すると、`?q=seiza`というようなクエリパラメータを扱うことができるようになります。
