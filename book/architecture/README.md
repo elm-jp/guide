@@ -132,7 +132,7 @@ We will go through a few examples that build knowledge gradually, so go in order
 ## 本書を読み進めるためにあたって
 
 <!--
-In the last section we used `elm repl` to get comfortable with Elm expressions. In this section, we are switching to creating Elm files of our own. You can do that in [the online editor](https://ellie-app.com/new), or if you have Elm [installed](/install.html), you can follow [these simple instructions](https://github.com/evancz/elm-architecture-tutorial#run-the-examples) to get everything working on your computer!
+In the last section we used `elm repl` to get comfortable with Elm expressions. In this section, we are switching to creating Elm files of our own. You can do that in [the online editor](https://elm-lang.org/try), or if you have Elm [installed](/install.html), you can follow [these simple instructions](https://github.com/evancz/elm-architecture-tutorial#run-the-examples) to get everything working on your computer!
 -->
 
-先ほどの節では、Elmの式に慣れるために`elm repl`を使いました。この章からは、自分自身のElmファイルを作るように切り替えていきます。[オンラインエディタ](https://ellie-app.com/new)でも構いませんが、もしElmの[インストールを済ませた](/install.html)なら、[これらの簡単な指示](https://github.com/evancz/elm-architecture-tutorial#run-the-examples)に従うことで、あなたのコンピュータ上ですべての作業をすることもできます！
+先ほどの節では、Elmの式に慣れるために`elm repl`を使いました。この章からは、自分自身のElmファイルを作るように切り替えていきます。[オンラインエディタ](https://elm-lang.org/try)でも構いませんが、もしElmの[インストールを済ませた](/install.html)なら、[これらの簡単な指示](https://github.com/evancz/elm-architecture-tutorial#run-the-examples)に従うことで、あなたのコンピュータ上ですべての作業をすることもできます！

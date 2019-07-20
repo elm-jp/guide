@@ -1,11 +1,4 @@
 <!--
-> **Note:** If you do not want to install yet, you can follow along anyway. Most sections can be done in an online editor!
--->
-
-> **お知らせ:** まだElmをインストールしたくない場合は、インストールをしないままでも構いません。ほとんどの節ではオンラインエディタで完結できます。
-
-
-<!--
 # Install
 
   * Mac &mdash; [installer][mac]
@@ -18,8 +11,6 @@
 [gh]: https://github.com/elm/compiler/releases/tag/0.19.0
 
 After installing through any of those routes, you will have the `elm` binary available in your terminal!
-
-> **Troubleshooting:** The fastest way to learn *anything* is to talk with other people in the Elm community. We are friendly and happy to help! So if you get stuck during installation or encounter something weird, visit [the Elm Slack](http://elmlang.herokuapp.com/) and ask about it. In fact, if you run into something confusing at any point while learning or using Elm, come ask us about it. You can save yourself hours. Just do it!
 -->
 
 # インストール
@@ -35,49 +26,18 @@ After installing through any of those routes, you will have the `elm` binary ava
 
 上記いずれかの方法でElmをインストールすると、`elm`コマンドがターミナルから利用できるようになります。
 
-> **トラブルシューティング** *全て*を学ぶための最も手っ取り早い方法は、Elmコミュニティにいる人々と会話することです。Elmコミュニティはフレンドリーに、そして喜んで手助けをします！もしインストールに行き詰まったり何か見たこともない事態に遭遇したときは、[Elm Slack](http://elmlang.herokuapp.com/)(英語)や[elm-jp Discord](https://discordapp.com/invite/4j2MxCg)(日本語)に参加して質問してください。特にElmの学習中や利用中にわからないことがあったときは、そのことについて質問しに来てください。うまく質問して時間を節約しましょう。行動あるのみです！
-
-
 <!--
-## Configure Your Editor
-
-Using Elm is way nicer when you have a code editor to help you out. There are Elm plugins for at least the following editors:
-
-  * [Atom](https://atom.io/packages/language-elm)
-  * [Brackets](https://github.com/lepinay/elm-brackets)
-  * [Emacs](https://github.com/jcollard/elm-mode)
-  * [IntelliJ](https://github.com/klazuka/intellij-elm)
-  * [Light Table](https://github.com/rundis/elm-light)
-  * [Sublime Text](https://packagecontrol.io/packages/Elm%20Language%20Support)
-  * [Vim](https://github.com/ElmCast/elm-vim)
-  * [VS Code](https://github.com/sbrink/vscode-elm)
-
-If you do not have an editor at all, [Sublime Text](https://www.sublimetext.com/) is a great one to get started with!
-
-You may also want to try out [elm-format][] which makes your code pretty!
-
-[elm-format]: https://github.com/avh4/elm-format
+> **Troubleshooting:**
+>
+> 1. If you are having trouble, just skip this for now! You can try out a bunch of sections of this book with the [the online editor](https://elm-lang.org/try), and you can always come back to this later!
+> 2. The fastest way to learn *anything* is to talk with other people in the Elm community. We are friendly and happy to help! Try visiting [the Elm Slack](https://elmlang.herokuapp.com/) and asking about your problem. In fact, if you run into something confusing at any point, come ask about it as well!
 -->
 
-
-## エディタの設定
-
-エディタがあるとElmが書きやすくなります。少なくとも以下のエディタにはElmプラグインが用意されています。
-
-  * [Atom](https://atom.io/packages/language-elm)
-  * [Brackets](https://github.com/lepinay/elm-brackets)
-  * [Emacs](https://github.com/jcollard/elm-mode)
-  * [IntelliJ](https://github.com/klazuka/intellij-elm)
-  * [Light Table](https://github.com/rundis/elm-light)
-  * [Sublime Text](https://packagecontrol.io/packages/Elm%20Language%20Support)
-  * [Vim](https://github.com/ElmCast/elm-vim)
-  * [VS Code](https://github.com/sbrink/vscode-elm)
-
-まだどのエディタもインストールしていない場合は、[Sublime Text](https://www.sublimetext.com/)が入門に最適です。
-
-また、コードを美しくする[elm-format][]を試してみるのも良いでしょう。
-
-[elm-format]: https://github.com/avh4/elm-format
+> **トラブルシューティング**
+>
+> 1. If you are having trouble, just skip this for now! You can try out a bunch of sections of this book with the [the online editor](https://elm-lang.org/try), and you can always come back to this later!
+> 2. The fastest way to learn *anything* is to talk with other people in the Elm community. We are friendly and happy to help! Try visiting [the Elm Slack](https://elmlang.herokuapp.com/) and asking about your problem. In fact, if you run into something confusing at any point, come ask about it as well!
+<!-- TODO -->
 
 <!--
 ## Terminal Tools
@@ -160,7 +120,7 @@ elm reactor
 サーバーが[`http://localhost:8000`](http://localhost:8000)で起動します。ここでは任意のElmファイルを確認することができます。`examples/01-button.elm`を確認してみてください。
 
 <!--
-## `elm make`
+### `elm make`
 
 `elm make` builds Elm projects. It can compile Elm code to HTML or JavaScript. It is the most general way to compile Elm code, so if your project becomes too advanced for `elm reactor`, you will want to start using `elm make` directly.
 
@@ -226,5 +186,50 @@ Next we are going to learn the basics of Elm!
 `elm`コマンドでは様々なことができますが、全てを覚えようとする必要はありません。`elm --help`コマンドや`elm repl --help`コマンドを使うことで、いつでもこの章で紹介したコマンドの詳細情報を確認できます。
 
 次は、Elmの基本について学びましょう！
+
+<!--
+> #### Configure Your Editor?
+>
+> It can be tricky to set up some of these editors, so feel free to skip over this for now! You can go far with just [the online editor](https://elm-lang.org/try).
+>
+> Here are some of the community maintained plugins for Elm:
+>
+>  * [Atom](https://atom.io/packages/language-elm)
+>  * [Brackets](https://github.com/lepinay/elm-brackets)
+>  * [Emacs](https://github.com/jcollard/elm-mode)
+>  * [IntelliJ](https://github.com/klazuka/intellij-elm)
+>  * [Light Table](https://github.com/rundis/elm-light)
+>  * [Sublime Text](https://packagecontrol.io/packages/Elm%20Language%20Support)
+>  * [Vim](https://github.com/ElmCast/elm-vim)
+>  * [VS Code](https://github.com/sbrink/vscode-elm)
+>
+> If you do not have an editor at all, [Sublime Text](https://www.sublimetext.com/) is a great one to get started with!
+>
+> You may also want to try out [`elm-format`][elm-format] which makes your code pretty!
+
+[elm-format]: https://github.com/avh4/elm-format
+-->
+
+<!-- TODO -->
+> ## エディタを設定したい？
+>
+> It can be tricky to set up some of these editors, so feel free to skip over this for now! You can go far with just [the online editor](https://elm-lang.org/try).
+>
+> Here are some of the community maintained plugins for Elm:
+>
+>  * [Atom](https://atom.io/packages/language-elm)
+>  * [Brackets](https://github.com/lepinay/elm-brackets)
+>  * [Emacs](https://github.com/jcollard/elm-mode)
+>  * [IntelliJ](https://github.com/klazuka/intellij-elm)
+>  * [Light Table](https://github.com/rundis/elm-light)
+>  * [Sublime Text](https://packagecontrol.io/packages/Elm%20Language%20Support)
+>  * [Vim](https://github.com/ElmCast/elm-vim)
+>  * [VS Code](https://github.com/sbrink/vscode-elm)
+>
+> まだどのエディタもインストールしていない場合は、[Sublime Text](https://www.sublimetext.com/)が入門に最適です。
+>
+> また、コードを整形する [`elm-format`][elm-format] を試してみるのも良いでしょう。
+
+[elm-format]: https://github.com/avh4/elm-format
 
 [^1]: 訳注: `elm repl`を実行するにはnode.jsおよびnpmが必要です。フロントエンド開発ではほぼ必須のツールですので、インストールしていない環境の方は[公式ページ](https://nodejs.org/ja/)からインストールしてください。node.jsをインストールすれば一緒にnpmもインストールされます。
