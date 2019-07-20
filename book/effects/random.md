@@ -2,9 +2,9 @@
 
 ---
 <!--
-#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://ellie-app.com/37gXN5G4T2sa1).
+#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://elm-lang.org/examples/numbers).
 -->
-### [サンプルコード]((https://github.com/evancz/elm-architecture-tutorial/)をダウンロードするか[オンラインエディタ](https://ellie-app.com/37gXN5G4T2sa1)で試してください。
+### [サンプルコード]((https://github.com/evancz/elm-architecture-tutorial/)をダウンロードするか[オンラインエディタ](https://elm-lang.org/examples/numbers)で試してください。
 ---
 
 

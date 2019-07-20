@@ -44,9 +44,9 @@ Of course *I* think Elm is good, so look for yourself.
 そのために簡単な Elm のプログラムをお見せします。
 
 <!--
-Here is [a simple counter](https://ellie-app.com/new). If you look at the code, it just lets you increment and decrement the counter:
+Here is [a simple counter](https://elm-lang.org/examples/buttons). If you look at the code, it just lets you increment and decrement the counter:
 -->
-以下のコードは[カウンターのサンプル](https://ellie-app.com/new)です。
+以下のコードは[カウンターのサンプル](https://elm-lang.org/examples/buttons)です。
 このコードは、カウンターをインクリメント(+1)したりデクリメント(-1)したりするものです。
 
 ```elm

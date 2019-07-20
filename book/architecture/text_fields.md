@@ -7,13 +7,13 @@
 <!--
 
 ---
-#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://ellie-app.com/37gW7sj9wPVa1).
+#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://elm-lang.org/examples/text-fields).
 ---
 
 -->
 
 ---
-#### [サンプルコード](https://github.com/evancz/elm-architecture-tutorial/) をダウンロードするか [オンラインエディタ](https://ellie-app.com/37gW7sj9wPVa1) で試してください。
+#### [サンプルコード](https://github.com/evancz/elm-architecture-tutorial/) をダウンロードするか [オンラインエディタ](https://elm-lang.org/examples/text-fields) で試してください。
 ---
 
 <!--
