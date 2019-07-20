@@ -35,9 +35,9 @@ After installing through any of those routes, you will have the `elm` binary ava
 
 > **トラブルシューティング**
 >
-> 1. If you are having trouble, just skip this for now! You can try out a bunch of sections of this book with the [the online editor](https://elm-lang.org/try), and you can always come back to this later!
-> 2. The fastest way to learn *anything* is to talk with other people in the Elm community. We are friendly and happy to help! Try visiting [the Elm Slack](https://elmlang.herokuapp.com/) and asking about your problem. In fact, if you run into something confusing at any point, come ask about it as well!
-<!-- TODO -->
+> 1. もし何かトラブルが起きたら、いったんインストールは後回しにしてしまいましょう！ この本の節のかなりの部分は[オンラインエディタ](https://elm-lang.org/try)を使って試すことができ、あとでいつでもまたここに戻ってくることができます！
+> 2. *なにか* を学ぶための一番の近道は、Elmコミュニティの人たちと話してみることです。コミュニティのメンバーはみんなフレンドリーで喜んで助けてくれます！ [ElmのSlack](https://elmlang.herokuapp.com/) であなたが抱えている問題について聞いてみてください。どこかに何かわからないことがあったら、それについてもぜひ聞きにきてください！
+(訳注: elm-jpでは日本語でElmについてやりとりできるdiscordを用意していますので、ぜひ[招待リンク](https://discordapp.com/invite/4j2MxCg)から参加して感想をお聞かせください)
 
 <!--
 ## Terminal Tools
@@ -210,12 +210,11 @@ Next we are going to learn the basics of Elm!
 [elm-format]: https://github.com/avh4/elm-format
 -->
 
-<!-- TODO -->
-> ## エディタを設定したい？
+> ## エディターを設定したい？
 >
-> It can be tricky to set up some of these editors, so feel free to skip over this for now! You can go far with just [the online editor](https://elm-lang.org/try).
+> 以下に挙げるエディターの中には、Elmを書きやすいように設定するのがちょっとトリッキーなものも含まれているので、いったんスキップしていただいても問題ありません！ [オンラインエディタ](https://elm-lang.org/try)を使えばそのまま進めていくことができます。
 >
-> Here are some of the community maintained plugins for Elm:
+> コミュニティがメンテナンスしているElm用プラグインがいくつかあります。
 >
 >  * [Atom](https://atom.io/packages/language-elm)
 >  * [Brackets](https://github.com/lepinay/elm-brackets)
@@ -226,7 +225,7 @@ Next we are going to learn the basics of Elm!
 >  * [Vim](https://github.com/ElmCast/elm-vim)
 >  * [VS Code](https://github.com/sbrink/vscode-elm)
 >
-> まだどのエディタもインストールしていない場合は、[Sublime Text](https://www.sublimetext.com/)が入門に最適です。
+> まだどのエディターもインストールしていない場合は、[Sublime Text](https://www.sublimetext.com/)が入門に最適です。
 >
 > また、コードを整形する [`elm-format`][elm-format] を試してみるのも良いでしょう。
 
