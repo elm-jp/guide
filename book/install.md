@@ -27,17 +27,11 @@ After installing through any of those routes, you will have the `elm` binary ava
 上記いずれかの方法でElmをインストールすると、`elm`コマンドがターミナルから利用できるようになります。
 
 <!--
-> **Troubleshooting:**
->
-> 1. If you are having trouble, just skip this for now! You can try out a bunch of sections of this book with the [the online editor](https://elm-lang.org/try), and you can always come back to this later!
-> 2. The fastest way to learn *anything* is to talk with other people in the Elm community. We are friendly and happy to help! Try visiting [the Elm Slack](https://elmlang.herokuapp.com/) and asking about your problem. In fact, if you run into something confusing at any point, come ask about it as well!
+**Note:** If you are having trouble, just skip installation for now! You can go through a lot of this book with the [the online editor](https://elm-lang.org/try), and if you are having fun, you can always try installing again later!
 -->
 
-> **トラブルシューティング**
->
-> 1. もし何かトラブルが起きたら、いったんインストールは後回しにしてしまいましょう！ この本の節のかなりの部分は[オンラインエディタ](https://elm-lang.org/try)を使って試すことができ、あとでいつでもまたここに戻ってくることができます！
-> 2. *なにか* を学ぶための一番の近道は、Elmコミュニティの人たちと話してみることです。コミュニティのメンバーはみんなフレンドリーで喜んで助けてくれます！ [ElmのSlack](https://elmlang.herokuapp.com/) であなたが抱えている問題について聞いてみてください。どこかに何かわからないことがあったら、それについてもぜひ聞きにきてください！
-(訳注: elm-jpでは日本語でElmについてやりとりできるdiscordを用意していますので、ぜひ[招待リンク](https://discordapp.com/invite/4j2MxCg)から参加して感想をお聞かせください)
+<!-- TODO -->
+**Note:** もし何かトラブルが起きたら、いったんインストールは後回しにしてしまいましょう！ You can go through a lot of this book with the [the online editor](https://elm-lang.org/try), and if you are having fun, you can always try installing again later!
 
 <!--
 ## Terminal Tools
@@ -93,6 +87,9 @@ $
 
 `elm repl`は&ldquo;言語の基礎&rdquo;の節で使います。詳しい使い方は[こちら](https://elm-lang.org/0.19.0/repl)をご覧ください。
 
+<!-- TODO -->
+
+> **Note:** `elm repl` works by compiling code to JavaScript, so make sure you have [Node.js](http://nodejs.org/) installed. We use that to evaluate code.
 
 <!--
 ### `elm reactor`

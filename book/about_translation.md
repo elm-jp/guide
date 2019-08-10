@@ -10,7 +10,7 @@
 ## 原文のバージョン
 
 この翻訳はできる限り英語版の更新に追従するように努めていますが、ボランティアで運営されているため更新が追いつかないこともあります。
-[翻訳がベースとしているバージョンと英語版の最新バージョンとの差分](https://github.com/evancz/guide.elm-lang.org/compare/50024a579b0ddaf5167eb24e3b55eecfaaa6d34b...master)をご確認ください。
+[翻訳がベースとしているバージョンと英語版の最新バージョンとの差分](https://github.com/evancz/guide.elm-lang.org/compare/430f602c54300e71d6363cbc36cd98d25341c11b...master)をご確認ください。
 
 "There isn’t anything to compare." と表示されていれば翻訳が最新の英語版に対応していることを意味します。
 
