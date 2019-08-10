@@ -30,8 +30,7 @@ After installing through any of those routes, you will have the `elm` binary ava
 **Note:** If you are having trouble, just skip installation for now! You can go through a lot of this book with the [the online editor](https://elm-lang.org/try), and if you are having fun, you can always try installing again later!
 -->
 
-<!-- TODO -->
-**Note:** もし何かトラブルが起きたら、いったんインストールは後回しにしてしまいましょう！ You can go through a lot of this book with the [the online editor](https://elm-lang.org/try), and if you are having fun, you can always try installing again later!
+**Note:** もし何かトラブルが起きたら、いったんインストールは後回しにしてしまいましょう！ このガイドのほとんどの部分は[オンラインエディタ](https://elm-lang.org/try)を使って進めることができますし、もしトラブルを解決することが苦でないのなら、後でいつでもインストールに再挑戦すれば良いのです！
 
 <!--
 ## Terminal Tools
@@ -87,9 +86,7 @@ $
 
 `elm repl`は&ldquo;言語の基礎&rdquo;の節で使います。詳しい使い方は[こちら](https://elm-lang.org/0.19.0/repl)をご覧ください。
 
-<!-- TODO -->
-
-> **Note:** `elm repl` works by compiling code to JavaScript, so make sure you have [Node.js](http://nodejs.org/) installed. We use that to evaluate code.
+> **Note:** `elm repl` はElmのコードを裏でJavaScriptに変換しながら動いています。そのため、`elm repl`がそのJavaScriptのコードを実行するために使う[Node.js](http://nodejs.org/)を事前にインストールしておく必要があります。
 
 <!--
 ### `elm reactor`
