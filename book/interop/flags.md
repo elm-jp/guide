@@ -8,7 +8,7 @@
 The previous page showed the JavaScript needed to start an Elm program:
 -->
 
-先ほどのページでは、次のようなJavaSriptを実行することで、Elmのプログラムを起動する必要があることを説明しました。
+先ほどのページでは、次のようなJavaScriptを実行することで、Elmのプログラムを起動する必要があることを説明しました。
 
 ```elm
 var app = Elm.Main.init({
