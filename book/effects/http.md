@@ -212,7 +212,7 @@ Looking at the type signature, we see that we are not just returning an updated 
 <!--
 Moving on to the implementation, we pattern match on messages like normal. When a `GotText` message comes in, we inspect the `Result` of our HTTP request and update our model depending on whether it was a success or failure. The new part is that we also provide a command.
 -->
-その実装ではこれまでと同じくメッセージに対してのパターンマッチを行っています。メッセージが`GotText`の場合に、HTTPリクエストの結果を示す`Result`型の値を調べ、その結果が成功か失敗かによってモデルを更新していまます。新しい部分はコマンドも返していることです。
+その実装ではこれまでと同じくメッセージに対してのパターンマッチを行っています。メッセージが`GotText`の場合に、HTTPリクエストの結果を示す`Result`型の値を調べ、その結果が成功か失敗かによってモデルを更新しています。新しい部分はコマンドも返していることです。
 
 <!--
 So in the case that we got the full text successfully, we say `Cmd.none` to indicate that there is no more work to do. We already got the full text!
