@@ -6,11 +6,6 @@ guide.elm-lang.org 日本語化プロジェクト
 
 たまに大元のプロジェクトの変更をマージします。
 
-## 進捗
-
-`robots.txt` でコメントアウトされているページはまだ翻訳が公開されていません。
-`robots.txt` で検索エンジンによるクロールを禁止することで、コピーコンテンツと見なされて順位が低下するのを防いでいます。
-
 ## 翻訳に貢献する
 
 え？ 貢献してくれるんですか？！
@@ -85,3 +80,57 @@ $ git checkout master
 $ npm run build
 $ git add docs && git commit -m 'Update docs' && git push origin master
 ```
+
+## 原文の更新に追従する
+
+原文も更新されているので、ときどき更新に追従しないといけません。
+
+原文に追従する際は、`git` のちからを借りて基本的に以下のフローにそって手作業でがんばります。
+
+1. 事前にEvanの元リポジトリを別の `remote` として登録しておく
+
+```
+$ git remote add evan github:evancz/guide.elm-lang.org.git
+$ git remote -v
+evan	github:evancz/guide.elm-lang.org.git (fetch)
+evan	github:evancz/guide.elm-lang.org.git (push)
+origin	github:elm-jp/guide.git (fetch)
+origin	github:elm-jp/guide.git (push)
+```
+
+2. 最新の `evan/origin` をfetchして日本語版のmasterにマージしたブランチを作成する
+
+```
+$ git checkout master
+$ git pull origin master
+$ git fetch evan
+$ git checkout -b merge-evan
+$ git merge evan/master
+```
+
+この段階でめっちゃコンフリクトが起きるので頑張ってうんしょうんしょと解決する。
+事前に[どこが変更されているか](https://guide.elm-lang.jp/about_translation.html#%E5%8E%9F%E6%96%87%E3%81%AE%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3)を確認しておくと、変なマージをしてしまうのを防げます。
+
+typoやちょっとした変更であればこの場で変更を翻訳に反映させてしまいますが、大きな変更の場合は変更部分のみ原文に置き換え、
+上部に `<!-- TODO -->` と記載しておきます。
+あとで誰かがそこの翻訳をしてくれることでしょう。
+
+例:
+
+```
+<!--
+This sentence is not modified by this change.
+-->
+
+ここの文章は特に変わりなく昔からあるものです。
+
+<!--
+This sentence is inserted anew.
+-->
+
+<!-- TODO -->
+This sentence is inserted anew.
+
+```
+
+マージ後に、`about_translation.md` の「 翻訳がベースとしているバージョンと英語版の最新バージョンとの差分」のところのURLを最新のものに変更してください。
