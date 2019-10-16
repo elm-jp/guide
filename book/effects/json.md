@@ -5,9 +5,9 @@
 
 ---
 <!--
-#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://elm-lang.org/examples/cat-gifs).
+#### Follow along in [the online editor](https://elm-lang.org/examples/cat-gifs).
 -->
-#### [サンプルコード](https://github.com/evancz/elm-architecture-tutorial/)をダウンロードするか[オンラインエディタ](https://elm-lang.org/examples/cat-gifs)で試してください。
+#### [オンラインエディタ](https://elm-lang.org/examples/cat-gifs)で試してください。
 ---
 
 <!--

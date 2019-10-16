@@ -35,7 +35,7 @@ This kind of thing comes up all the time! For example, maybe you want to turn a 
 
 こういう問題には常に遭遇します！例えば、他の人と共有するために、ユーザからの大量の入力を`Post`型に変換したいとします。しかし、タイトルを入力するのを忘れたらどうなるでしょうか？もしくはその投稿に中身がなかったら？すべての問題を明示的にモデリングしましょう:
 
-```
+```elm
 type MaybePost
   = Post { title : String, content : String }
   | NoTitle

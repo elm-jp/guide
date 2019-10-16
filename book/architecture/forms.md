@@ -7,10 +7,10 @@
 ---
 
 <!--
-#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://elm-lang.org/examples/forms).
+#### Follow along in [the online editor](https://elm-lang.org/examples/forms).
 -->
 
-#### [サンプルコード](https://github.com/evancz/elm-architecture-tutorial/)をダウンロードするか[オンラインエディタ](https://elm-lang.org/examples/forms)で試してください。
+#### [オンラインエディタ](https://elm-lang.org/examples/forms)で試してください。
 
 ---
 

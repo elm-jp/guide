@@ -80,25 +80,51 @@ The data is attached directly to the variant, so there is no need for the record
 名前のデータはバリアントに直接付与されたので、レコード型はもう必要ありません。
 
 <!--
-Another benefit of this approach is that each variant can have different associated data. Say that `Regular` users gave their age when they signed up. There is no nice way to capture that with records, but when you define your own custom type it is no problem. We add some associated data to the `Regular` variant:
+Another benefit of this approach is that each variant can have different associated data. Say that `Regular` users gave their age when they signed up. There is no nice way to capture that with records, but when you define your own custom type it is no problem. Let's add some associated data to the `Regular` variant in an interactive example:
 -->
 
 この方法の別の利点は各バリアントには別の関連データを持たせられることです。`Regular`なユーザがサインアップのときに年齢を登録することを考えてみてください。これをレコードでどうにかするいい方法はありませんが、カスタム型を自分で定義するなら何の問題もなく行えます。`Regular`バリアントに他の関連データを追加してみましょう：
 
-```elm
-type User
-  = Regular String Int
-  | Visitor String
-
-thomas = Regular "Thomas" 44
-kate95 = Visitor "kate95"
-```
+{% replWithTypes %}
+[
+  {
+    "add-type": "User",
+    "input": "type User\n  = Regular String Int\n  | Visitor String\n"
+  },
+  {
+    "input": "Regular",
+    "value": "\u001b[36m<function>\u001b[0m",
+    "type_": "String -> Int -> User"
+  },
+  {
+    "input": "Visitor",
+    "value": "\u001b[36m<function>\u001b[0m",
+    "type_": "String -> User"
+  },
+  {
+    "input": "Regular \"Thomas\" 44",
+    "value": "\u001b[96mRegular\u001b[0m \u001b[93m\"Thomas\"\u001b[0m \u001b[95m44\u001b[0m",
+    "type_": "User"
+  },
+  {
+    "input": "Visitor \"kate95\"",
+    "value": "\u001b[96mVisitor\u001b[0m \u001b[93m\"kate95\"\u001b[0m",
+    "type_": "User"
+  }
+]
+{% endreplWithTypes %}
 
 <!--
-The different variants of a type can diverge quite dramatically. For example, maybe we add location for `Regular` users so we can suggest regional chat rooms. Add more associated data! Or maybe we want to have anonymous users. Add a third variant called `Anonymous`. Maybe we end up with:
+Try defining a `Regular` visitor with a name and age ⬆️
 -->
+<!-- TODO -->
+Try defining a `Regular` visitor with a name and age ⬆️
 
-ある型において、各バリアントはそれぞれまったく異なる構造をとることができます。例えば、`Regular`ユーザに地域ローカルなチャットルームを提供するために現在地を追加することがあるかもしれません。更なる関連データを追加しましょう！また、匿名ユーザの機能が欲しくなるかもしれません。3 つ目の`Anonymous`バリアントを追加しましょう。最終的にこうなります：
+<!--
+We only added an age, but variants of a type can diverge quite dramatically. For example, maybe we want to add location for `Regular` users so we can suggest regional chat rooms. Add more associated data! Or maybe we want to have anonymous users. Add a third variant called `Anonymous`. Maybe we end up with:
+-->
+<!-- TODO -->
+We only added an age, but variants of a type can diverge quite dramatically. For example, maybe we want to add location for `Regular` users so we can suggest regional chat rooms. Add more associated data! Or maybe we want to have anonymous users. Add a third variant called `Anonymous`. Maybe we end up with:
 
 ```elm
 type User

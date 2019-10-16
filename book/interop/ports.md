@@ -11,7 +11,7 @@ The previous two pages, we saw the JavaScript needed to start Elm programs and a
 先ほどのふたつのページでは、Elmプログラムを開始するのに必要な JavaScript コードと、その初期化のときにフラグを渡す方法について見てきました。
 
 <!--
-```elm
+```javascript
 // initialize
 var app = Elm.Main.init({
   node: document.getElementById('elm')

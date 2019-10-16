@@ -74,7 +74,7 @@ You can see examples of this structure in the following open-source projects:
 
 <!--
 
-> ## Aside: Culture Shock
+> ## Culture Shock
 >
 > Folks coming from JavaScript tend to bring habits, expectations, and anxieties that are specific to JavaScript. They are legitimately important in that context, but they can cause some pretty severe troubles when transferred to Elm.
 >
@@ -107,12 +107,12 @@ You can see examples of this structure in the following open-source projects:
 >
 > It would be odd to start using Elm and wonder "how do I structure my application with objects?" There are no objects in Elm! Folks in the community would recommend using custom types and functions instead.
 >
-> Thinking in terms of components encourages you create modules based on the visual design of your application. “There is a sidebar, so I need a `Sidebar` module.” It would be way easier to just make a `viewSidebar` function and pass it whatever arguments it needs. It probably does not even have any state. Maybe one or two fields? Just put it in the `Model` you already have. If it really is worth splitting out into its own module, you will know because you will have a custom type with a bunch of relevant helper functions!
+> Thinking in terms of components encourages you to create modules based on the visual design of your application. “There is a sidebar, so I need a `Sidebar` module.” It would be way easier to just make a `viewSidebar` function and pass it whatever arguments it needs. It probably does not even have any state. Maybe one or two fields? Just put it in the `Model` you already have. If it really is worth splitting out into its own module, you will know because you will have a custom type with a bunch of relevant helper functions!
 >
 > Point is, writing a `viewSidebar` function **does not** mean you need to create a corresponding `update` and `Model` to go with it. Resist this instinct. **Just write the helper functions you need.**
 -->
 
-> ## 余談：カルチャーショック
+> ## カルチャーショック
 >
 > JavaScriptからやってきた人たちは、JavaScript特有の習慣や思い込み、不安も持ち込んでしまいがちです。それらは状況によっては正しく重要ですが、Elmに引っ越してきたときにかなり重大なトラブルを引き起こすこともあります。
 >

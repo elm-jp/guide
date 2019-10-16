@@ -4,11 +4,11 @@
 # HTTP
 
 <!--
-#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://elm-lang.org/examples/book).
+#### Follow along in [the online editor](https://elm-lang.org/examples/book).
 -->
 
 ---
-#### [サンプルコード](https://github.com/evancz/elm-architecture-tutorial/)をダウンロードするか[オンラインエディタ](https://elm-lang.org/examples/book)で試してください。
+#### [オンラインエディタ](https://elm-lang.org/examples/book)で試してください。
 ---
 
 <!--
