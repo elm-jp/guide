@@ -240,7 +240,7 @@ The point here is that however we decide to update our model, we are also free t
 <!--
 The other new thing in this program is the `subscription` function. It lets you look at the `Model` and decide if you want to subscribe to certain information. In our example, we say `Sub.none` to indicate that we do not need to subscribe to anything, but we will soon see an example of a clock where we want to subscribe to the current time!
 -->
-このプログラムにおけるもう一つの新しい部分は`subscrption`関数になります。`Model`の情報から判断して何らかの情報に対する待ち受けするかどうかを決めることができます。今回の例では`Sub.none`として何も待ち受けする必要がないことを示していますが、後ほど現在時刻を待ち受ける必要がある時計の例を見ていきます。
+このプログラムにおけるもう一つの新しい部分は`subscription`関数になります。`Model`の情報から判断して何らかの情報に対する待ち受けするかどうかを決めることができます。今回の例では`Sub.none`として何も待ち受けする必要がないことを示していますが、後ほど現在時刻を待ち受ける必要がある時計の例を見ていきます。
 
 <!--
 ## Summary
