@@ -36,6 +36,9 @@ isOldEnoughToVote user =
 So all we are doing is making an **alias** for a long type. **Type aliases help us write shorter and clearer type annotations.** This becomes more important as your application grows. Say we have a `celebrateBirthday` function:
 -->
 <!-- TODO -->
+<!-- 元の文章：
+型の別名を使わずに書けば`{ name : String, bio : String } -> Bool`のようになります。 **型の別名の主なポイントは短く明確な型注釈を書くのを助けることです。** これはアプリケーションが成長するにつれてより重要になってきます。 `updateBio`関数があるとします:
+-->
 So all we are doing is making an **alias** for a long type. **Type aliases help us write shorter and clearer type annotations.** This becomes more important as your application grows. Say we have a `celebrateBirthday` function:
 
 ```elm
@@ -54,6 +57,9 @@ celebrateBirthday user =
 It is much nicer to read with the type alias, and this is only for a record with two fields! Imagine we need to add fields as our application grows. When we use type aliases, we could add 10 or 100 fields to the `User` type alias without needing to make any changes to our `celebrateBirthday` function. Nice!
 -->
 <!-- TODO -->
+<!-- 元の文章：
+まず、型の別名を使わない型注釈について考えてみましょう。 今度はアプリケーションが成長するにつれてユーザを表すフィールドが増えることを想像しましょう。 10個や100個のフィールドを`User`型に追加するかもしれません。 しかし`updateBio`関数に変更を加える必要はありません。 やったね！
+-->
 It is much nicer to read with the type alias, and this is only for a record with two fields! Imagine we need to add fields as our application grows. When we use type aliases, we could add 10 or 100 fields to the `User` type alias without needing to make any changes to our `celebrateBirthday` function. Nice!
 
 
@@ -97,9 +103,16 @@ Try creating another user or creating a type alias of your own ⬆️
 Note that the order of arguments in the record constructor match the order of fields in the type alias!
 -->
 <!-- TODO -->
+<!-- 元の文章：
+引数は型の別名の定義に現れる順になります。 これはかなり便利です。
+-->
 Note that the order of arguments in the record constructor match the order of fields in the type alias!
 
 <!--
 And again, **this is only for records.** Making type aliases for other types will not result in a constructor.
 -->
-**この機能はレコード型のためだけのものです。** その他の型に別名を付けてもコンストラクタは生成されません。
+<!-- TODO -->
+<!-- 元の文章：
+この機能はレコード型のためだけのものです。 レコード型ではない型に別名を付けてもコンストラクタは生成されません。
+-->
+And again, **this is only for records.** Making type aliases for other types will not result in a constructor.

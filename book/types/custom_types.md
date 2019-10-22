@@ -82,8 +82,11 @@ The data is attached directly to the variant, so there is no need for the record
 <!--
 Another benefit of this approach is that each variant can have different associated data. Say that `Regular` users gave their age when they signed up. There is no nice way to capture that with records, but when you define your own custom type it is no problem. Let's add some associated data to the `Regular` variant in an interactive example:
 -->
-
+<!-- TODO -->
+<!-- 元の文章：
 この方法の別の利点は各バリアントには別の関連データを持たせられることです。`Regular`なユーザがサインアップのときに年齢を登録することを考えてみてください。これをレコードでどうにかするいい方法はありませんが、カスタム型を自分で定義するなら何の問題もなく行えます。`Regular`バリアントに他の関連データを追加してみましょう：
+-->
+Another benefit of this approach is that each variant can have different associated data. Say that `Regular` users gave their age when they signed up. There is no nice way to capture that with records, but when you define your own custom type it is no problem. Let's add some associated data to the `Regular` variant in an interactive example:
 
 {% replWithTypes %}
 [

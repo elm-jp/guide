@@ -4,7 +4,7 @@
     "author": "Evan Czaplicki",
     "language": "ja",
     "root": "book",
-    "plugins": ["youtube","bulk-redirect","-sharing"],
+    "plugins": ["youtube","bulk-redirect","ga","sitemap","-sharing"],
     "pluginsConfig": {
         "bulk-redirect": {
             "basepath": "/",

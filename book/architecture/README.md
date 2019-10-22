@@ -8,12 +8,18 @@
 The Elm Architecture is a pattern for architecting interactive programs, like webapps and games.
 -->
 <!-- TODO -->
+<!-- 元の文章：
+The Elm Architecture は、ウェブアプリケーションを構築するためのシンプルなパターンです。モジュール性やコードの再利用性、テストのしやすさなどに優れています。つまり、複雑なアプリケーションを作るときでも、安心してリファクタリングしたり機能を追加できるようにしてくれるのです。
+-->
 The Elm Architecture is a pattern for architecting interactive programs, like webapps and games.
 
 <!--
 This architecture seems to emerge naturally in Elm. Rather than someone inventing it, early Elm programmers kept discovering the same basic patterns in their code. It was kind of spooky to see people ending up with well-architected code without planning ahead!
 -->
 <!-- TODO -->
+<!-- 元の文章：
+このアーキテクチャは、Elmの歴史の中から自然に生まれてきました。誰かがこれを「発明した」というより、コードの中にこの基本的なパターンが常にあることを初期のElmプログラマが発見したということです。チームで開発している人たちも、The Elm Architecture は新人開発者の教育に特に適していると考えています。The Elm Architecture に従えば、それだけでコードはより良く設計されるようになります。このように、気がついたらおばけみたいにすっと現れていたパターンなのです。
+-->
 This architecture seems to emerge naturally in Elm. Rather than someone inventing it, early Elm programmers kept discovering the same basic patterns in their code. It was kind of spooky to see people ending up with well-architected code without planning ahead!
 
 <!--
@@ -32,6 +38,9 @@ So The Elm Architecture is easy in Elm, but it is useful in any front-end projec
 The logic of every Elm program breaks into three parts:
 -->
 <!-- TODO -->
+<!-- 元の文章：
+どんなElmプログラムも、次の３つの要素に明確に分割することができるでしょう。
+-->
 The logic of every Elm program breaks into three parts:
 
 <!--
@@ -48,6 +57,9 @@ The logic of every Elm program breaks into three parts:
 So I always start with the following skeleton and fill in details for my particular case.
 -->
 <!-- TODO -->
+<!-- 元の文章：
+このパターンはとても信頼性が高いので、私はいつも次のような骨組みから始めて、プロジェクトごとの振る舞いに応じて詳細を埋めていくようにしています。
+-->
 So I always start with the following skeleton and fill in details for my particular case.
 
 ```elm
@@ -79,8 +91,11 @@ view model =
 <!--
 That is the essence of The Elm Architecture. We will proceed by filling in this skeleton with increasingly interesting logic.
 -->
-
-これが The Elm Architecture の本質なのです。ここからは、面白いロジックでこの骨組みをだんだんと埋めていくことで、説明を進めていきましょう。
+<!-- TODO -->
+<!-- 元の文章：
+まさしくこれが The Elm Architecture の本質なのです！　ここからは、面白いロジックでこの骨組みをだんだんと埋めていくことで、説明を進めていきましょう。
+-->
+That is the essence of The Elm Architecture. We will proceed by filling in this skeleton with increasingly interesting logic.
 
 <!--
 # The Elm Architecture + User Input

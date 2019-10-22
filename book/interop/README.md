@@ -7,6 +7,9 @@
 By now we have seen **The Elm Architecture**, **types**, **commands**, **subscriptions**, and we even have Elm installed locally.
 -->
 <!-- TODO -->
+<!-- 元の文章：
+ここまでElmについてのたくさんの事柄を見てきました。**The Elm Architecture**を学び、**型**について学び、**コマンド**と**サブスクリプション**を使って外の世界とやり取りする方法を学びました。いい調子です！
+-->
 By now we have seen **The Elm Architecture**, **types**, **commands**, **subscriptions**, and we even have Elm installed locally.
 
 <!--

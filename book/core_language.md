@@ -330,7 +330,11 @@ Try making your own list and using functions like `List.length` ⬆️
 <!--
 And remember, all elements of the list must have the same type!
 -->
-繰り返しますが、リストのすべての要素は同じ型を持っていなければならないことに注意してください！
+<!-- TODO -->
+<!-- 元の文章：
+繰り返しますが、リストのすべての要素は同じ型を持っていなければならないことに注意してください。
+-->
+And remember, all elements of the list must have the same type!
 
 
 <!--
@@ -342,8 +346,11 @@ And remember, all elements of the list must have the same type!
 <!--
 Tuples are another useful data structure. A tuple can hold two or three values, and each value can have any type. A common use is if you need to return more than one value from a function. The following function gets a name and gives a message for the user:
 -->
-
-タプルはリストとはまた異なった便利なデータ構造です。タプルは２つまたは３つの値を保持することができ、それらの値の型はそれぞれ別々にすることができます。典型的な使いかたとしては、関数からふたつ以上の値を返す必要があるときです。次の関数は名前を受け取り、ユーザにメッセージを返します。
+<!-- TODO -->
+<!-- 元の文章
+タプルはリストとはまた異なった便利なデータ構造です。タプルは固定された個数の値を保持することができ、それらの値の型はそれぞれ別々にすることができます。典型的な使いかたとしては、関数からふたつ以上の値を返す必要があるときです。次の関数は名前を受け取り、ユーザにメッセージを返します。
+-->
+Tuples are another useful data structure. A tuple can hold two or three values, and each value can have any type. A common use is if you need to return more than one value from a function. The following function gets a name and gives a message for the user:
 
 {% repl %}
 [

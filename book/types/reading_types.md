@@ -7,6 +7,9 @@
 In the [Core Language](/core_language.html) section of this book, we went through a bunch of interactive examples to get a feeling for the language. Well, we are going to do it again, but with a new question in mind. What **type** of value is that?
 -->
 <!-- TODO -->
+<!-- 元の文章：
+このガイドの[言語の基礎](/core_language.md)の節では、REPLでコードをいろいろ実行しました。 さて、もう一度REPLでコードを試していこうと思いますが、今度は表示される型に注目していきましょう。 ターミナルに`elm repl`と入力してください。 このように表示されます:
+-->
 In the [Core Language](/core_language.html) section of this book, we went through a bunch of interactive examples to get a feeling for the language. Well, we are going to do it again, but with a new question in mind. What **type** of value is that?
 
 
@@ -83,7 +86,7 @@ You can read these types as:
 
 1. We have a `List` filled with `String` values.
 2. We have a `List` filled with `Float` values.
---->
+-->
 <!-- TODO -->
 You can read these types as:
 
@@ -148,12 +151,18 @@ So we start with a `String -> Int` function and give it a `String` argument. Thi
 What happens when you do not give a `String` though? Try entering `String.length [1,2,3]` or `String.length True` to see what happens ⬆️
 -->
 <!-- TODO -->
+<!-- 元の文章：
+`String`以外を与えたら何が起こるでしょうか？
+-->
 What happens when you do not give a `String` though? Try entering `String.length [1,2,3]` or `String.length True` to see what happens ⬆️
 
 <!--
 You will find that a `String -> Int` function *must* get a `String` argument!
 -->
 <!-- TODO -->
+<!-- 元の文章：
+`String -> Int`の関数は*必ず*`String`型の値を引数にしなくてはなりません！
+-->
 You will find that a `String -> Int` function *must* get a `String` argument!
 
 <!--

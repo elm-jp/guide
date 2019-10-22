@@ -44,8 +44,11 @@ This can be handy in two main scenarios: partial functions and optional fields.
 <!--
 Sometimes you want a function that gives an answer for some inputs, but not others. Many people run into this with [`String.toFloat`][toFloat] when trying to convert user input into numbers. Let's see it in action:
 -->
-
-ある入力に対しては答えを与えるが他には与えない関数が欲しい場合があります。多くの人がそういう関数に遭遇するのは、ユーザからの入力を数値に変換しようとして[`String.toFloat`][toFloat]関数を使おうとしたときでしょう。実際に見てみましょう:
+<!-- TODO -->
+<!-- 元の文章：
+ある入力に対しては答えを与えるが他には与えない関数が欲しい場合があります。多くの人がそういう関数に遭遇するのは、ユーザからの入力を数値に変換しようとして[`String.toFloat`][toFloat]関数を使おうとしたときでしょう。実際に`elm repl`を開いて確認してみましょう:
+-->
+Sometimes you want a function that gives an answer for some inputs, but not others. Many people run into this with [`String.toFloat`][toFloat] when trying to convert user input into numbers. Let's see it in action:
 
 {% replWithTypes %}
 [
