@@ -66,13 +66,10 @@ Try running this command to create an `elm.json` file and a `src/` directory:
 
 <!--
 - [`elm.json`](https://github.com/elm/compiler/blob/master/docs/elm.json/application.md) describes your project.
--->
-<!-- TODO -->
-- [`elm.json`](https://github.com/elm/compiler/blob/master/docs/elm.json/application.md) describes your project.
-<!--
 - `src/` holds all of your Elm files.
 -->
 <!-- TODO -->
+- [`elm.json`](https://github.com/elm/compiler/blob/master/docs/elm.json/application.md) describes your project.
 - `src/` holds all of your Elm files.
 
 <!--
