@@ -16,7 +16,7 @@
   "devDependencies": {},
   "scripts": {
     "install": "gitbook install",
-    "start": "gitbook serve",
+    "start": "gitbook --port 8007 serve",
     "build": "rimraf _book && rimraf docs && gitbook build && mv _book docs && rimraf docs/**/*.md && sed -i 's/検索すると入力/検索/g' docs/*.html docs/**/*.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

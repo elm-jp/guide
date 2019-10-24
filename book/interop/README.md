@@ -4,9 +4,13 @@
 # JavaScriptとの相互運用
 
 <!--
-We have seen quite a bit of Elm so far! We learned **The Elm Architecture**. We learned about **types**. We learned how to interact with the outside world through **commands** and **subscriptions**. Things are going well!
+By now we have seen **The Elm Architecture**, **types**, **commands**, **subscriptions**, and we even have Elm installed locally.
 -->
+<!-- TODO -->
+<!-- 元の文章：
 ここまでElmについてのたくさんの事柄を見てきました。**The Elm Architecture**を学び、**型**について学び、**コマンド**と**サブスクリプション**を使って外の世界とやり取りする方法を学びました。いい調子です！
+-->
+By now we have seen **The Elm Architecture**, **types**, **commands**, **subscriptions**, and we even have Elm installed locally.
 
 <!--
 But what happens when you need to do something in JavaScript? Maybe there is a JavaScript library you absolutely need? Maybe you want to embed Elm in an existing JavaScript application? Etc. This chapter will outline all the available options: flags, ports, and custom elements.

@@ -6,36 +6,17 @@
 # 言語の基礎
 
 <!--
-This section will walk you through Elm's simple core language.
+Let's start by getting a feeling for Elm code!
 -->
-
-この節では、Elmの言語の基礎についてざっと見ていきましょう。
+<!-- TODO -->
+Let's start by getting a feeling for Elm code!
 
 <!--
-This works best when you follow along, so after [installing](install.md), run `elm repl` in the terminal. You should see something like this:
+The goal here is to become familiar with **values** and **functions** so you will be more confident reading Elm code when we get to the larger examples later on.
 -->
+<!-- TODO -->
+The goal here is to become familiar with **values** and **functions** so you will be more confident reading Elm code when we get to the larger examples later on.
 
-以下の説明の流れをたどっていくときには、REPLを使って実際に手を動かしながら読み進めていくと理解しやすいので、[インストール](install.md)が終わったらターミナルで`elm repl`を実行してみてください。ターミナルに次のようなものが表示されるはずです。
-
-```elm
----- Elm 0.19.0 ----------------------------------------------------------------
-Read <https://elm-lang.org/0.19.0/repl> to learn more: exit, help, imports, etc.
---------------------------------------------------------------------------------
->
-```
-
-<!--
-The REPL prints out the type of every result, but **we will leave the type annotations off in this tutorial** for the sake of introducing concepts gradually.
--->
-
-このREPLは入力のたびにその結果の型を出力してくれますが、Elmの概念を徐々に導入していけるように、**このチュートリアルでは型注釈は省略することにします。**
-
-
-<!--
-We will cover [values](#values), [functions](#functions), [lists](#lists), [tuples](#tuples), and [records](#records). These building blocks all correspond pretty closely with structures in languages like JavaScript, Python, and Java.
--->
-
-ここでは[値](#値)や[関数](#関数)、[リスト](#リスト)、[タプル](#タプル)、[レコード](#レコード)を取り扱います。これらの言語の要素はいずれも、JavaScriptやPython、Javaのような言語にある構造とよく似たものです。
 
 <!--
 ## Values
@@ -43,57 +24,79 @@ We will cover [values](#values), [functions](#functions), [lists](#lists), [tupl
 
 ## 値
 
+<!--
+The smallest building block in Elm is called a **value**. This includes things like `42`, `True`, and `"Hello!"`.
+-->
+<!-- TODO -->
+The smallest building block in Elm is called a **value**. This includes things like `42`, `True`, and `"Hello!"`.
 
 <!--
-Let's get started with some strings:
+Let's start by looking at numbers:
 -->
+<!-- TODO -->
+Let's start by looking at numbers:
 
-まずは文字列から始めましょう。
-
-```elm
-> "hello"
-"hello"
-
-> "hello" ++ "world"
-"helloworld"
-
-> "hello" ++ " world"
-"hello world"
-```
+{% repl %}
+[
+	{
+		"input": "1 + 1",
+		"value": "\u001b[95m2\u001b[0m",
+		"type_": "number"
+	}
+]
+{% endrepl %}
 
 <!--
-Elm uses the `(++)` operator to put strings together. Notice that both strings are preserved exactly as is when they are put together so when we combine `"hello"` and `"world"` the result has no spaces.
+All the examples on this page are interactive, so click on this black box ⬆️ and the cursor should start blinking. Type in `2 + 2` and press the ENTER key. It should print out `4`. You should be able to interact with any of the examples on this page the same way!
 -->
-
-Elmでは文字列の連結に`(++)`演算子を使います。これらの文字列は厳密にそのまま連結されることに注意してください。`"hello"`と`"world"`を連結したとき、その結果には空白文字は含まれません。
+<!-- TODO -->
+All the examples on this page are interactive, so click on this black box ⬆️ and the cursor should start blinking. Type in `2 + 2` and press the ENTER key. It should print out `4`. You should be able to interact with any of the examples on this page the same way!
 
 <!--
-Math looks normal too:
+Try typing in things like `30 * 60 * 1000` and `2 ^ 4`. It should work just like a calculator!
 -->
-
-数式の見た目はごく普通です。
-
-```elm
-> 2 + 3 * 4
-14
-
-> (2 + 3) * 4
-20
-```
+<!-- TODO -->
+Try typing in things like `30 * 60 * 1000` and `2 ^ 4`. It should work just like a calculator!
 
 <!--
-Unlike JavaScript, Elm makes a distinction between integers and floating point numbers. Just like Python 3, there is both floating point division `(/)` and integer division `(//)`.
+Doing math is fine and all, but it is surprisingly uncommon in most programs! It is much more common to work with **strings** like this:
 -->
+<!-- TODO -->
+Doing math is fine and all, but it is surprisingly uncommon in most programs! It is much more common to work with **strings** like this:
 
-JavaScriptとは異なり、Elmは整数と浮動小数点数を区別します。ちょうどPython 3と同じように、浮動小数点数の除算`(/)`と整数の除算`(//)`の両方が別々に存在します。
+{% repl %}
+[
+	{
+		"input": "\"hello\"",
+		"value": "\u001b[93m\"hello\"\u001b[0m",
+		"type_": "String"
+	},
+	{
+		"input": "\"butter\" ++ \"fly\"",
+		"value": "\u001b[93m\"butterfly\"\u001b[0m",
+		"type_": "String"
+	}
+]
+{% endrepl %}
 
-```elm
-> 9 / 2
-4.5
+<!--
+Try putting some strings together with the `(++)` operator ⬆️
+-->
+<!-- TODO -->
+Try putting some strings together with the `(++)` operator ⬆️
 
-> 9 // 2
-4
-```
+<!--
+These primitive values get more interesting when we start writing functions to transform them!
+-->
+<!-- TODO -->
+These primitive values get more interesting when we start writing functions to transform them!
+
+<!--
+> **Note:** You can learn more about operators like [`(+)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#+) and [`(/)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#/) and [`(++)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#++) in the documentation for the [`Basics`](https://package.elm-lang.org/packages/elm/core/latest/Basics) module. It is worth reading through all the docs in that package at some point!
+-->
+<!-- TODO -->
+> **Note:** You can learn more about operators like [`(+)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#+) and [`(/)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#/) and [`(++)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#++) in the documentation for the [`Basics`](https://package.elm-lang.org/packages/elm/core/latest/Basics) module. It is worth reading through all the docs in that package at some point!
+
 
 <!--
 ## Functions
@@ -102,58 +105,107 @@ JavaScriptとは異なり、Elmは整数と浮動小数点数を区別します�
 ## 関数
 
 <!--
-Let's start by writing a function `isNegative` that takes in some number and checks if it is less than zero. The result will be `True` or `False`.
+A **function** is a way to transform values. Take in one value, and produce another.
 -->
-
-引数にとった数がゼロよりも小さいかどうかを調べる、`isNegative`関数を書いてみましょう。この関数の結果は、`True`か`False`になるでしょう。
-
-```elm
-> isNegative n = n < 0
-<function>
-
-> isNegative 4
-False
-
-> isNegative -7
-True
-
-> isNegative (-3 * -4)
-False
-```
+<!-- TODO -->
+A **function** is a way to transform values. Take in one value, and produce another.
 
 <!--
-Notice that function application looks different than in languages like JavaScript and Python and Java. Instead of wrapping all arguments in parentheses and separating them with commas, we use spaces to apply the function. So `(add(3,4))` becomes `(add 3 4)` which ends up avoiding a bunch of parens and commas as things get bigger. Ultimately, this looks much cleaner once you get used to it! The [elm/html][html] package is a good example of how this keeps things feeling light.
+For example, here is a `greet` function that takes in a name and says hello:
 -->
+<!-- TODO -->
+For example, here is a `greet` function that takes in a name and says hello:
 
-JavaScriptやPython、Javaのような言語とは関数適用の見た目が異なっていることに注目してください。括弧の中にすべての引数をカンマで区切って書くのではなく、関数を適用するのには単に空白を使います。そのため、`(add(3,4))`は`(add 3 4)`になり、結果として括弧やカンマをたくさん書いてコードが長くなるのを避けることができるのです。いったんこれに慣れてしまえば、括弧やカンマを使う構文よりもずっと読みやすく感じられるようになるはずです！　[elm/html][html]パッケージを見ると、この関数適用の構文のお陰でコードが読みやすく保たれているのがわかると思います。
-
-[html]: https://elm-lang.org/blog/blazing-fast-html-round-two
+{% repl %}
+[
+	{
+		"add-decl": "greet",
+		"input": "greet name =\n  \"Hello \" ++ name ++ \"!\"\n",
+		"value": "\u001b[36m<function>\u001b[0m",
+		"type_": "String -> String"
+	},
+	{
+		"input": "greet \"Alice\"",
+		"value": "\u001b[93m\"Hello Alice!\"\u001b[0m",
+		"type_": "String"
+	},
+	{
+		"input": "greet \"Bob\"",
+		"value": "\u001b[93m\"Hello Bob!\"\u001b[0m",
+		"type_": "String"
+	}
+]
+{% endrepl %}
 
 <!--
-You can also define _anonymous functions_ like this:
+Try greeting someone else, like `"Stokely"` or `"Kwame"` ⬆️
 -->
-
-**無名関数**を使えば、この関数を次のように定義することもできます。
-
-```elm
-> \n -> n < 0
-<function>
-
-> (\n -> n < 0) 4
-False
-```
+<!-- TODO -->
+Try greeting someone else, like `"Stokely"` or `"Kwame"` ⬆️
 
 <!--
-This anonymous function is the same as `isNegative`, it just is not named! Also, the parentheses in `(\n -> n < 0) 4` are important. After the arrow, Elm is just going to keep reading code as long as it can. The parentheses put bounds on this, indicating where the function body ends. This helps Elm know that `4` is an argument to the function.
+The values passed in to the function are commonly called **arguments**, so you could say "`greet` is a function that takes one argument."
 -->
-
-名前が付いていないだけで、この無名関数は`isNegative`と同じものです。また、`(\n -> n < 0) 4`に付けられた括弧は重要です。矢印に続けて、Elmはなるべく長くコードを読み続けようとします。この括弧はその範囲を制限し、関数本体がどこで終わるのかを示しているのです。これによってElmは`4`が関数の引数であるとわかるのです。
+<!-- TODO -->
+The values passed in to the function are commonly called **arguments**, so you could say "`greet` is a function that takes one argument."
 
 <!--
-> **Note:** The backslash that starts anonymous functions is supposed to look like a lambda `λ` if you squint. This is a possibly ill-conceived wink to the intellectual history that led to languages like Elm.
+Okay, now that greetings are out of the way, how about an `madlib` function that takes _two_ arguments?
 -->
+<!-- TODO -->
+Okay, now that greetings are out of the way, how about an `madlib` function that takes _two_ arguments?
 
-> **Note:** 目を細めて見ると、無名関数の先頭のバックスラッシュはラムダ(`λ`)と似ているように見えると思います。これはひょっとしたら、Elmのような言語を産んだ数学の歴史的背景を、何気なく覗き見てしまっているのかもしれませんね。
+{% repl %}
+[
+	{
+		"add-decl": "madlib",
+		"input": "madlib animal adjective =\n  \"The ostentatious \" ++ animal ++ \" wears \" ++ adjective ++ \" shorts.\"\n",
+		"value": "\u001b[36m<function>\u001b[0m",
+		"type_": "String -> String -> String"
+	},
+	{
+		"input": "madlib \"cat\" \"ergonomic\"",
+		"value": "\u001b[93m\"The ostentatious cat wears ergonomic shorts.\"\u001b[0m",
+		"type_": "String"
+	},
+	{
+		"input": "madlib (\"butter\" ++ \"fly\") \"metallic\"",
+		"value": "\u001b[93m\"The ostentatious butterfly wears metallic shorts.\"\u001b[0m",
+		"type_": "String"
+	}
+]
+{% endrepl %}
+
+<!--
+Try giving two arguments to the `madlib` function ⬆️
+-->
+<!-- TODO -->
+Try giving two arguments to the `madlib` function ⬆️
+
+<!--
+Notice how we used parentheses to group `"butter" ++ "fly"` together in the second example. Each argument needs to be a primitive value like `"cat"` or it needs to be in parentheses!
+-->
+<!-- TODO -->
+Notice how we used parentheses to group `"butter" ++ "fly"` together in the second example. Each argument needs to be a primitive value like `"cat"` or it needs to be in parentheses!
+
+<!--
+> **Note:** People coming from languages like JavaScript may be surprised that functions look different here:
+-->
+<!-- TODO -->
+> **Note:** People coming from languages like JavaScript may be surprised that functions look different here:
+>
+>     madlib "cat" "ergonomic"                  -- Elm
+>     madlib("cat", "ergonomic")                // JavaScript
+>
+>     madlib ("butter" ++ "fly") "metallic"      -- Elm
+>     madlib("butter" + "fly", "metallic")       // JavaScript
+>
+<!--
+> This can be surprising at first, but this style ends up using fewer parentheses and commas. It makes the language feel really clean and minimal once you get used to it!
+-->
+<!-- TODO -->
+> This can be surprising at first, but this style ends up using fewer parentheses and commas. It makes the language feel really clean and minimal once you get used to it!
+
 
 <!--
 ## If Expressions
@@ -167,55 +219,39 @@ When you want to have conditional behavior in Elm, you use an if-expression.
 
 Elmで条件に応じて振る舞いを変えたいなら、if式を使うといいでしょう。
 
-```elm
-> if True then "hello" else "world"
-"hello"
+<!--
+Let's make a new `greet` function that is appropriately respectful to president Abraham Lincoln:
+-->
+<!-- TODO -->
+Let's make a new `greet` function that is appropriately respectful to president Abraham Lincoln:
 
-> if False then "hello" else "world"
-"world"
-```
+{% repl %}
+[
+	{
+		"add-decl": "greet",
+		"input": "greet name =\n  if name == \"Abraham Lincoln\" then\n    \"Greetings Mr. President!\"\n  else\n    \"Hey!\"\n",
+		"value": "\u001b[36m<function>\u001b[0m",
+		"type_": "String -> String"
+	},
+	{
+		"input": "greet \"Tom\"",
+		"value": "\u001b[93m\"Hey!\"\u001b[0m",
+		"type_": "String"
+	},
+	{
+		"input": "greet \"Abraham Lincoln\"",
+		"value": "\u001b[93m\"Greetings Mr. President!\"\u001b[0m",
+		"type_": "String"
+	}
+]
+{% endrepl %}
 
 <!--
-The keywords `if` `then` `else` are used to separate the conditional and the two branches so we do not need any parentheses or curly braces.
+There are probably other cases to cover, but that will do for now!
 -->
+<!-- TODO -->
+There are probably other cases to cover, but that will do for now!
 
-この`if`と`then`、`else`という予約語は、条件部分とふたつの分岐部分を区切るのに使われており、丸括弧や波括弧を使う必要はまったくありません。
-
-<!--
-Elm does not have a notion of &ldquo;truthiness&rdquo; so numbers and strings and lists cannot be used as boolean values. If we try it out, Elm will tell us that we need to work with a real boolean value.
--->
-
-Elmは"truthiness"の概念を持たず、数や文字列、リストを真偽値として使うことはできません。もしそうしようとすると、本当の真偽値を使う必要があることをElmは教えてくれます。
-
-<!--
-Now let's make a function that tells us if a number is over 9000.
--->
-
-次は9000より大きい数であるかどうかを教えてくれる関数を作ってみましょう。
-
-```elm
-> over9000 powerLevel = \
-|   if powerLevel > 9000 then "It's over 9000!!!" else "meh"
-<function>
-
-> over9000 42
-"meh"
-
-> over9000 100000
-"It's over 9000!!!"
-```
-
-<!--
-Using a backslash in the REPL lets us split things on to multiple lines. We use this in the definition of `over9000` above. Furthermore, it is best practice to always bring the body of a function down a line. It makes things a lot more uniform and easy to read, so you want to do this with all the functions and values you define in normal code.
--->
-
-REPLでバックスラッシュを使うと、1行のコードを複数行に分割して入力することができます。上の`over9000`の定義でこれを使っていますね。それから、関数の本体でいつも1行下げるのはElmの良い習慣です。こうすると一貫性があり読むのが楽になるので、通常はコード中のすべての関数や値についてこのように字下げしたくなると思います。
-
-<!--
-> **Note:** Make sure that you add a whitespace before the second line of the function. Elm has a "syntactically significant whitespace" meaning that indentation is a part of its syntax.
--->
-
-> **Note:** 関数の二行目の先頭には、空白文字を追加するようにしてください。「構文として意味のある空白」、つまりElmはその構文の一部としてインデントを持っているのです。
 
 <!--
 ## Lists
@@ -237,37 +273,68 @@ Lists can hold many values. Those values must all have the same type. Here are a
 
 [list]: https://package.elm-lang.org/packages/elm/core/latest/List
 
-```elm
-> names = [ "Alice", "Bob", "Chuck" ]
-["Alice","Bob","Chuck"]
-
-> List.isEmpty names
-False
-
-> List.length names
-3
-
-> List.reverse names
-["Chuck","Bob","Alice"]
-
-> numbers = [1,4,3,2]
-[1,4,3,2]
-
-> List.sort numbers
-[1,2,3,4]
-
-> double n = n * 2
-<function>
-
-> List.map double numbers
-[2,8,6,4]
-```
+{% repl %}
+[
+	{
+		"add-decl": "names",
+		"input": "names =\n  [ \"Alice\", \"Bob\", \"Chuck\" ]\n",
+		"value": "[\u001b[93m\"Alice\"\u001b[0m,\u001b[93m\"Bob\"\u001b[0m,\u001b[93m\"Chuck\"\u001b[0m]",
+		"type_": "List String"
+	},
+	{
+		"input": "List.isEmpty names",
+		"value": "\u001b[96mFalse\u001b[0m",
+		"type_": "Bool"
+	},
+	{
+		"input": "List.length names",
+		"value": "\u001b[95m3\u001b[0m",
+		"type_": "String"
+	},
+	{
+		"input": "List.reverse names",
+		"value": "[\u001b[93m\"Chuck\"\u001b[0m,\u001b[93m\"Bob\"\u001b[0m,\u001b[93m\"Alice\"\u001b[0m]",
+		"type_": "List String"
+	},
+	{
+		"add-decl": "numbers",
+		"input": "numbers =\n  [4,3,2,1]\n",
+		"value": "[\u001b[95m4\u001b[0m,\u001b[95m3\u001b[0m,\u001b[95m2\u001b[0m,\u001b[95m1\u001b[0m]",
+		"type_": "List number"
+	},
+	{
+		"input": "List.sort numbers",
+		"value": "[\u001b[95m1\u001b[0m,\u001b[95m2\u001b[0m,\u001b[95m3\u001b[0m,\u001b[95m4\u001b[0m]",
+		"type_": "List number"
+	},
+	{
+		"add-decl": "increment",
+		"input": "increment n =\n  n + 1\n",
+		"value": "\u001b[36m<function>\u001b[0m",
+		"type_": "number -> number"
+	},
+	{
+		"input": "List.map increment numbers",
+		"value": "[\u001b[95m5\u001b[0m,\u001b[95m4\u001b[0m,\u001b[95m3\u001b[0m,\u001b[95m2\u001b[0m]",
+		"type_": "List number"
+	}
+]
+{% endrepl %}
 
 <!--
-Again, all elements of the list must have the same type.
+Try making your own list and using functions like `List.length` ⬆️
 -->
+<!-- TODO -->
+Try making your own list and using functions like `List.length` ⬆️
 
+<!--
+And remember, all elements of the list must have the same type!
+-->
+<!-- TODO -->
+<!-- 元の文章：
 繰り返しますが、リストのすべての要素は同じ型を持っていなければならないことに注意してください。
+-->
+And remember, all elements of the list must have the same type!
 
 
 <!--
@@ -277,23 +344,29 @@ Again, all elements of the list must have the same type.
 ## タプル
 
 <!--
-Tuples are another useful data structure. A tuple can hold a fixed number of values, and each value can have any type. A common use is if you need to return more than one value from a function. The following function gets a name and gives a message for the user:
+Tuples are another useful data structure. A tuple can hold two or three values, and each value can have any type. A common use is if you need to return more than one value from a function. The following function gets a name and gives a message for the user:
 -->
-
+<!-- TODO -->
+<!-- 元の文章
 タプルはリストとはまた異なった便利なデータ構造です。タプルは固定された個数の値を保持することができ、それらの値の型はそれぞれ別々にすることができます。典型的な使いかたとしては、関数からふたつ以上の値を返す必要があるときです。次の関数は名前を受け取り、ユーザにメッセージを返します。
+-->
+Tuples are another useful data structure. A tuple can hold two or three values, and each value can have any type. A common use is if you need to return more than one value from a function. The following function gets a name and gives a message for the user:
 
-```elm
-> import String
-
-> goodName name = \
-|   if String.length name <= 20 then \
-|     (True, "name accepted!") \
-|   else \
-|     (False, "name was too long; please limit it to 20 characters")
-
-> goodName "Tom"
-(True, "name accepted!")
-```
+{% repl %}
+[
+	{
+		"add-decl": "isGoodName",
+		"input": "isGoodName name =\n  if String.length name <= 20 then\n    (True, \"name accepted!\")\n  else\n    (False, \"name was too long; please limit it to 20 characters\")\n",
+		"value": "\u001b[36m<function>\u001b[0m",
+		"type_": "String -> ( Bool, String )"
+	},
+	{
+		"input": "isGoodName \"Tom\"",
+		"value": "(\u001b[96mTrue\u001b[0m, \u001b[93m\"name accepted!\"\u001b[0m)",
+		"type_": "( Bool, String )"
+	}
+]
+{% endrepl %}
 
 <!--
 This can be quite handy, but when things start becoming more complicated, it is often best to use records instead of tuples.
@@ -309,110 +382,141 @@ This can be quite handy, but when things start becoming more complicated, it is 
 ## レコード
 
 <!--
-A record is a fixed set of key-value pairs, similar to objects in JavaScript or Python. You will find that they are extremely common and useful in Elm! Let's see some basic examples.
+A **record** can hold many values, and each value is associated with a name.
 -->
-
-レコードはJavaScriptやPythonのオブジェクトに似たデータ型で、レコードは任意個のフィールドを持っていて、それぞれのフィールドに値を格納したり、フィールドから値を取り出すことができます。ただしElmのレコードのフィールドは固定されていて、レコードに動的にフィールドを付け加えたり取り除いたりすることはできません。レコードはElmではとても頻繁に使われる便利なものであることがすぐにわかるでしょう！　いくつか簡単な例を見ていきます。
-
-```elm
-> point = { x = 3, y = 4 }
-{ x = 3, y = 4 }
-
-> point.x
-3
-
-> bill = { name = "Gates", age = 62 }
-{ age = 62, name = "Gates" }
-
-> bill.name
-"Gates"
-```
+<!-- TODO -->
+A **record** can hold many values, and each value is associated with a name.
 
 <!--
-So we can create records using curly braces and access fields using a dot. Elm also has a version of record access that works like a function. By starting the variable with a dot, you are saying *please access the field with the following name*. This means that `.name` is a function that gets the `name` field of the record.
+Here is a record that represents British economist John A. Hobson:
 -->
+<!-- TODO -->
+Here is a record that represents British economist John A. Hobson:
 
-波括弧を使うとレコードを作ることができ、フィールドにアクセスするにはドットを使います。Elmのレコードアクセスには、関数のように振る舞う別の構文もあります。変数名の先頭にドットを付けると、「次の名前でフィールドにアクセスしてください」と言っていることになります。`.name`はレコードの`name`フィールドを取り出す関数であるという意味です。
-
-
-```elm
-> .name bill
-"Gates"
-
-> List.map .name [bill,bill,bill]
-["Gates","Gates","Gates"]
-```
+{% repl %}
+[
+	{
+		"add-decl": "john",
+		"input": "john =\n  { first = \"John\"\n  , last = \"Hobson\"\n  , age = 81\n  }\n",
+		"value": "{ \u001b[37mage\u001b[0m = \u001b[95m81\u001b[0m, \u001b[37mfirst\u001b[0m = \u001b[93m\"John\"\u001b[0m, \u001b[37mlast\u001b[0m = \u001b[93m\"Hobson\"\u001b[0m }",
+		"type_": "{ age : number, first : String, last : String }"
+	},
+	{
+		"input": "john.last",
+		"value": "\u001b[93m\"Hobson\"\u001b[0m",
+		"type_": "String"
+	}
+]
+{% endrepl %}
 
 <!--
-When it comes to making functions with records, you can do some pattern matching to make things a bit lighter.
+We defined a record with three **fields** containing information about John's name and age.
 -->
-
-関数がレコードを引数にとるときは、パターンマッチを使えば少しコードをわかりやすくすることができます。
-
-```elm
-> under70 {age} = age < 70
-<function>
-
-> under70 bill
-True
-
-> under70 { species = "Triceratops", age = 68000000 }
-False
-```
+<!-- TODO -->
+We defined a record with three **fields** containing information about John's name and age.
 
 <!--
-So we can pass any record in as long as it has an `age` field that holds a number.
+Try accessing other fields like `john.age` ⬆️
 -->
-
-数値型の`age`フィールドを持っているレコードであれば、どんなレコードであっても渡すことができます。
+<!-- TODO -->
+Try accessing other fields like `john.age` ⬆️
 
 <!--
-It is often useful to update the values in a record.
+You can also access record fields by using a "field access function" like this:
 -->
+<!-- TODO -->
+You can also access record fields by using a "field access function" like this:
 
-レコードが持つ値を更新するときに便利な、次のような構文もあります。
-
-```elm
-> { bill | name = "Nye" }
-{ age = 62, name = "Nye" }
-
-> { bill | age = 22 }
-{ age = 22, name = "Gates" }
-```
+{% repl %}
+[
+	{
+		"add-decl": "john",
+		"input": "john = { first = \"John\", last = \"Hobson\", age = 81 }",
+		"value": "{ \u001b[37mage\u001b[0m = \u001b[95m81\u001b[0m, \u001b[37mfirst\u001b[0m = \u001b[93m\"John\"\u001b[0m, \u001b[37mlast\u001b[0m = \u001b[93m\"Hobson\"\u001b[0m }",
+		"type_": "{ age : number, first : String, last : String }"
+	},
+	{
+		"input": ".last john",
+		"value": "\u001b[93m\"Hobson\"\u001b[0m",
+		"type_": "String"
+	},
+	{
+		"input": "List.map .last [john,john,john]",
+		"value": "[\u001b[93m\"Hobson\"\u001b[0m,\u001b[93m\"Hobson\"\u001b[0m,\u001b[93m\"Hobson\"\u001b[0m]",
+		"type_": "List String"
+	}
+]
+{% endrepl %}
 
 <!--
-It is important to notice that we do not make *destructive* updates. When we update some fields of `bill` we actually create a new record rather than overwriting the existing one. Elm makes this efficient by sharing as much content as possible. If you update one of ten fields, the new record will share the nine unchanged values.
+It is often useful to **update** values in a record:
 -->
+<!-- TODO -->
+It is often useful to **update** values in a record:
 
-この構文ではレコードの**破壊的な更新**をしているのではないことに注意してください。`bill`のフィールドを更新したとき、実際には既存のレコードを上書きしているのではなく、新たなレコードが作成されています。効率のため、Elmは新しいレコードの内容を古いレコードとなるべく共有しようとします。つまり10個のフィールドのうちひとつを更新したとしたら、残り9個の変更されていないフィールドはコピーされるのではなく、新しいレコードと古いレコードで共有される形になります。
-
+{% repl %}
+[
+	{
+		"add-decl": "john",
+		"input": "john = { first = \"John\", last = \"Hobson\", age = 81 }",
+		"value": "{ \u001b[37mage\u001b[0m = \u001b[95m81\u001b[0m, \u001b[37mfirst\u001b[0m = \u001b[93m\"John\"\u001b[0m, \u001b[37mlast\u001b[0m = \u001b[93m\"Hobson\"\u001b[0m }",
+		"type_": "{ age : number, first : String, last : String }"
+	},
+	{
+		"input": "{ john | last = \"Adams\" }",
+		"value": "{ \u001b[37mage\u001b[0m = \u001b[95m81\u001b[0m, \u001b[37mfirst\u001b[0m = \u001b[93m\"John\"\u001b[0m, \u001b[37mlast\u001b[0m = \u001b[93m\"Adams\"\u001b[0m }",
+		"type_": "{ age : number, first : String, last : String }"
+	},
+	{
+		"input": "{ john | age = 22 }",
+		"value": "{ \u001b[37mage\u001b[0m = \u001b[95m22\u001b[0m, \u001b[37mfirst\u001b[0m = \u001b[93m\"John\"\u001b[0m, \u001b[37mlast\u001b[0m = \u001b[93m\"Hobson\"\u001b[0m }",
+		"type_": "{ age : number, first : String, last : String }"
+	}
+]
+{% endrepl %}
 
 <!--
-> ### Records vs Objects
->
-> Records in Elm are *similar* to objects in JavaScript, but there are some important differences. With records:
->
-> - You cannot ask for a field that does not exist.
-> - No field will ever be `undefined` or `null`.
-> - You cannot create recursive records with a `this` or `self` keyword.
->
-> Elm encourages a strict separation of data and logic, and the ability to say `this` is primarily used to break this separation. This is a systemic problem in Object Oriented languages that Elm is purposely avoiding.
->
-> Records also support [structural typing][st] which means records in Elm can be used in any situation as long as the necessary fields exist. This gives us flexibility without compromising reliability.
-
-[st]: https://en.wikipedia.org/wiki/Structural_type_system "Structural Types"
+If you wanted to say these expressions out loud, you would say something like, "I want a new version of John where his last name is Adams" or "john where the age is 22".
 -->
+<!-- TODO -->
+If you wanted to say these expressions out loud, you would say something like, "I want a new version of John where his last name is Adams" or "john where the age is 22".
 
-> ### レコードとオブジェクトの比較
->
-> ElmのレコードはJavaScriptのオブジェクトと**似ています**が、いくつか重要な違いもあります。レコードには次のような特徴があります。
->
-> - 存在しないフィールドにアクセスすることはできません。
-> - フィールドが `undefined` や `null`　になることもありません。
-> - `this` や `self` キーワードを使って再帰的なレコードを作ることはできません。
->
-> Elmではデータとロジックを厳格に分離することが推奨されますが、この分離を破壊するのは主に `this` だと言って差し支えないでしょう。これはオブジェクト指向言語のシステム上の問題であり、Elmはこの問題を意図的に避けています。
->
-> レコードは[構造的部分型][st]も提供しており、Elmでは必要なフィールドが存在している限りは、そのレコードを関数の引数などとして使うことができます。これにより、信頼性について妥協することなく、柔軟性も得ることができるのです。
+<!--
+Notice that when we update some fields of `john` we create a whole new record. It does not overwrite the existing one. Elm makes this efficient by sharing as much content as possible. If you update one of ten fields, the new record will share the nine unchanged values.
+-->
+<!-- TODO -->
+Notice that when we update some fields of `john` we create a whole new record. It does not overwrite the existing one. Elm makes this efficient by sharing as much content as possible. If you update one of ten fields, the new record will share the nine unchanged values.
 
-[st]: https://en.wikipedia.org/wiki/Structural_type_system "Structural Types"
+<!--
+So a function to update ages might look like this:
+-->
+<!-- TODO -->
+So a function to update ages might look like this:
+
+{% repl %}
+[
+	{
+		"add-decl": "celebrateBirthday",
+		"input": "celebrateBirthday person =\n  { person | age = person.age + 1 }\n",
+		"value": "\u001b[36m<function>\u001b[0m",
+		"type_": "{ a | age : number } -> { a | age : number }"
+	},
+	{
+		"add-decl": "john",
+		"input": "john = { first = \"John\", last = \"Hobson\", age = 81 }",
+		"value": "{ \u001b[37mage\u001b[0m = \u001b[95m81\u001b[0m, \u001b[37mfirst\u001b[0m = \u001b[93m\"John\"\u001b[0m, \u001b[37mlast\u001b[0m = \u001b[93m\"Hobson\"\u001b[0m }",
+		"type_": "{ age : number, first : String, last : String }"
+	},
+	{
+		"input": "celebrateBirthday john",
+		"value": "{ \u001b[37mage\u001b[0m = \u001b[95m82\u001b[0m, \u001b[37mfirst\u001b[0m = \u001b[93m\"John\"\u001b[0m, \u001b[37mlast\u001b[0m = \u001b[93m\"Hobson\"\u001b[0m }",
+		"type_": "{ age : number, first : String, last : String }"
+	}
+]
+{% endrepl %}
+
+<!--
+Updating record fields like this is really common, so we will see a lot more of it in the next section!
+-->
+<!-- TODO -->
+Updating record fields like this is really common, so we will see a lot more of it in the next section!

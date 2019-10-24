@@ -38,23 +38,48 @@ String.repeat : Int -> (String -> String)
 ```
 
 <!--
-It is a function that takes an `Int` and then produces _another_ function. So if we go into `elm repl` we can see this in action:
+It is a function that takes an `Int` and then produces _another_ function. Let's see this in action:
 -->
+<!-- TODO -->
+<!-- 元の文章：
 これは`Int`を受け取って _新たな_ 関数を作る関数です。`elm repl`で実行してみると、以下のように動くことが分かります:
+-->
+It is a function that takes an `Int` and then produces _another_ function. Let's see this in action:
 
-```elm
-> String.repeat 4
-<function> : String -> String
-
-> String.repeat 4 "ha"
-"hahahaha" : String
-
-> String.join "|"
-<function> : List String -> String
-
-> String.join "|" ["red","yellow","green"]
-"red|yellow|green" : String
-```
+{% replWithTypes %}
+[
+	{
+		"input": "String.repeat",
+		"value": "\u001b[36m<function>\u001b[0m",
+		"type_": "Int -> String -> String"
+	},
+	{
+		"input": "String.repeat 4",
+		"value": "\u001b[36m<function>\u001b[0m",
+		"type_": "String -> String"
+	},
+	{
+		"input": "String.repeat 4 \"ha\"",
+		"value": "\u001b[93m\"hahahaha\"\u001b[0m",
+		"type_": "String"
+	},
+	{
+		"input": "String.join",
+		"value": "\u001b[36m<function>\u001b[0m",
+		"type_": "String -> List String -> String"
+	},
+	{
+		"input": "String.join \"|\"",
+		"value": "\u001b[36m<function>\u001b[0m",
+		"type_": "List String -> String"
+	},
+	{
+		"input": "String.join \"|\" [\"red\",\"yellow\",\"green\"]",
+		"value": "\u001b[93m\"red|yellow|green\"\u001b[0m",
+		"type_": "String"
+	}
+]
+{% endreplWithTypes %}
 
 <!--
 So conceptually, **every function accepts one argument.** It may return another function that accepts one argument. Etc. At some point it will stop returning functions.

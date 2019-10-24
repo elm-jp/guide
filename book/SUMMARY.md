@@ -5,7 +5,6 @@
 
 <!--
 * [Introduction](README.md)
-* [Install](install.md)
 * [Core Language](core_language.md)
 * [The Elm Architecture](architecture/README.md)
    * [Buttons](architecture/buttons.md)
@@ -24,6 +23,9 @@
    * [JSON](effects/json.md)
    * [Random](effects/random.md)
    * [Time](effects/time.md)
+* [Installation](install/README.md)
+   * [Code Editor](install/editor.md)
+   * [Elm](install/elm.md)
 * [JavaScript Interop](interop/README.md)
    * [Flags](interop/flags.md)
    * [Ports](interop/ports.md)
@@ -45,7 +47,6 @@
 -->
 * [翻訳について](about_translation.md)
 * [はじめに](README.md)
-* [インストール](install.md)
 * [言語の基礎](core_language.md)
 * [The Elm Architecture](architecture/README.md)
    * [ボタン](architecture/buttons.md)
@@ -64,6 +65,10 @@
    * [JSON](effects/json.md)
    * [Random](effects/random.md)
    * [Time](effects/time.md)
+* [インストール](install/README.md)
+   <!-- TODO -->
+   * [Code Editor](install/editor.md)
+   * [Elm](install/elm.md)
 * [JavaScriptとの相互運用](interop/README.md)
    * [フラグ](interop/flags.md)
    * [ポート](interop/ports.md)

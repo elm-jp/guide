@@ -4,18 +4,18 @@
 # ボタン
 
 <!--
-#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://elm-lang.org/examples/buttons).
+#### Follow along in [the online editor](https://elm-lang.org/examples/buttons).
 -->
 
 ---
-#### [サンプルコード](https://github.com/evancz/elm-architecture-tutorial/)をダウンロードするか[オンラインエディタ](https://elm-lang.org/examples/buttons)で試してください。
+#### [オンラインエディタ](https://elm-lang.org/examples/buttons)で試してください。
 ---
 
 
 <!--
-Our first example is a simple counter that can be incremented or decremented. I find that it can be helpful to see the entire program in one place, so here it is! We will break it down afterwards.
+Our first example is a counter that can be incremented or decremented. I find that it can be helpful to see the entire program in one place, so here it is! We will break it down afterwards.
 -->
-最初の例はインクリメントやデクリメントを行うシンプルなカウンタの作成です。プログラムすべてを一箇所にまとめて置けば読みやすいでしょう、用意しておきました！あとでひとつひとつ詳細をみていきます。
+最初の例はインクリメントやデクリメントを行うカウンタの作成です。プログラムすべてを一箇所にまとめて置けば読みやすいでしょう、用意しておきました！あとでひとつひとつ詳細をみていきます。
 
 ```elm
 import Browser

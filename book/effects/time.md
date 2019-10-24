@@ -2,9 +2,9 @@
 
 ---
 <!--
-#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://elm-lang.org/examples/time).
+#### Follow along in [the online editor](https://elm-lang.org/examples/time).
 -->
-#### [サンプルコード](https://github.com/evancz/elm-architecture-tutorial/)をダウンロードするか[オンラインエディタ](https://elm-lang.org/examples/time)で試してください。
+#### [オンラインエディタ](https://elm-lang.org/examples/time)で試してください。
 ---
 <!--
 Now we are going to make a digital clock. (Analog will be an exercise!)
