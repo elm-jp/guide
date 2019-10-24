@@ -90,7 +90,11 @@ The code can definitely look unfamiliar at first, so we will get into how this e
 <!--
 ## Why a functional *language*?
 -->
+<!-- TODO -->
+<!-- 元の文章：
 ## なぜ関数型を採用しているか
+-->
+## Why a functional *language*?
 
 <!--
 You can get some benefits from programming in a functional *style*, but there are some things you can only get from a functional *language* like Elm:
