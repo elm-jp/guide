@@ -242,11 +242,15 @@ People can make mistakes in type annotations though, so what happens if the anno
 ## 型変数（タイプバリアブル）
 
 <!--
-As you look through the functions in [`elm/core`][core], you will see some type signatures with lower-case letters in them. We can check some of them out in `elm repl`:
+As you look through more Elm code, you will start to see type annotations with lower-case letters in them. A common example is the `List.length` function:
 -->
+<!-- TODO -->
+<!-- 元の文章：
 [`elm/core`][core]の関数を見ると、小文字の型シグネチャがいくつかあることがわかります。
 以下のように`elm repl`で実際に確かめることができます。
 > **訳注:** 型シグネチャは関数の引数の型と返り値の型の組み合わせのこと。
+-->
+As you look through more Elm code, you will start to see type annotations with lower-case letters in them. A common example is the `List.length` function:
 
 {% replWithTypes %}
 [
@@ -321,7 +325,6 @@ Again, the type variable `a` can vary depending on how [`List.reverse`][reverse]
 
 > **Note:** 型変数は小文字から始めなければなりませんが、完全な単語でも構いません。つまり例のように1文字の変数でなくても問題ありません。`List.length`の型を`List value -> Int`とも書けますし、`List.reverse`の型は`List element -> List element`とも書けます。小文字で始まっていれば大丈夫です。型変数の`a`や`b`といった1文字のものは慣例によりいたるところで使われていますが、より具体的な名前を付けたほうがいい場合もあります。
 
-[core]: https://package.elm-lang.org/packages/elm/core/latest/
 [length]: https://package.elm-lang.org/packages/elm/core/latest/List#length
 [reverse]: https://package.elm-lang.org/packages/elm/core/latest/List#reverse
 
@@ -332,9 +335,13 @@ Again, the type variable `a` can vary depending on how [`List.reverse`][reverse]
 ## 制約付き型変数
 
 <!--
-There are a few “constrained” type variables. The most common example is probably the `number` type. The [`negate`][negate] function uses it:
+There is a special variant of type variables in Elm called **constrained** type variables. The most common example is the `number` type. The [`negate`](https://package.elm-lang.org/packages/elm/core/latest/Basics#negate) function uses it:
 -->
+<!-- TODO -->
+<!-- 元の文章：
 いくつか"制約付き"の型変数があります。最も一般的な例はおそらく`number`型です。[`negate`][negate]関数は`number`を使用します：
+-->
+There is a special variant of type variables in Elm called **constrained** type variables. The most common example is the `number` type. The [`negate`](https://package.elm-lang.org/packages/elm/core/latest/Basics#negate) function uses it:
 
 {% replWithTypes %}
 [
@@ -349,9 +356,9 @@ There are a few “constrained” type variables. The most common example is pro
 Try expressions like `negate 3.1415` and `negate (round 3.1415)` and `negate "hi"` ⬆️
 
 <!--
-Normally type variables can get filled in with anything, but `number` can only be filled in by `Int` and `Float` values. It constrains the possibilities.
+Normally type variables can get filled in with anything, but `number` can only be filled in by `Int` and `Float` values. It _constrains_ the possibilities.
 -->
-通常、型変数にはどんな型でも当てはめることができますが、`number`には`Int`か`Float`しか当てはめられません。制約は型変数の可能性を制限します。
+通常、型変数にはどんな型でも当てはめることができますが、`number`には`Int`か`Float`しか当てはめられません。制約は型変数の可能性を_制限_します。
 
 <!--
 The full list of constrained type variables is:
@@ -376,4 +383,8 @@ These constrained type variables exist to make operators like `(+)` and `(<)` a 
 -->
 これらの制約付き型変数は、`(+)`や`(<)`のような演算子をより柔軟に使えるようにするために存在しています。
 
-[negate]: https://package.elm-lang.org/packages/elm/core/latest/Basics#negate
+<!--
+By now we have covered types for values and functions pretty well, but what does this look like when we start wanting more complex data structures?
+-->
+<!-- TODO -->
+By now we have covered types for values and functions pretty well, but what does this look like when we start wanting more complex data structures?

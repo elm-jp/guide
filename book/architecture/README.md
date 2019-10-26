@@ -35,99 +35,50 @@ So The Elm Architecture is easy in Elm, but it is useful in any front-end projec
 ## 基本的なパターン
 
 <!--
-The logic of every Elm program breaks into three parts:
+Elm programs always look something like this:
 -->
 <!-- TODO -->
-<!-- 元の文章：
-どんなElmプログラムも、次の３つの要素に明確に分割することができるでしょう。
+Elm programs always look something like this:
+
+<!--
+![Diagram of The Elm Architecture](buttons.svg)
 -->
-The logic of every Elm program breaks into three parts:
+<!-- TODO -->
+![Diagram of The Elm Architecture](buttons.svg)
+
+<!--
+The Elm program produces HTML to show on screen, and then the computer sends back messages of what is going on. "They clicked a button!"
+-->
+<!-- TODO -->
+The Elm program produces HTML to show on screen, and then the computer sends back messages of what is going on. "They clicked a button!"
+
+<!--
+What happens within the Elm program though? It always breaks into three parts:
+-->
+<!-- TODO -->
+What happens within the Elm program though? It always breaks into three parts:
 
 <!--
   * **Model** &mdash; the state of your application
-  * **Update** &mdash; a way to update your state
-  * **View** &mdash; a way to view your state as HTML
--->
-
-  * **Model** &mdash; アプリケーションの状態
-  * **Update** &mdash; 状態を更新する方法
-  * **View** &mdash; HTMLとして状態を閲覧する方法
-
-<!--
-So I always start with the following skeleton and fill in details for my particular case.
+  * **View** &mdash; a way to turn your state into HTML
+  * **Update** &mdash; a way to update your state based on messages
 -->
 <!-- TODO -->
-<!-- 元の文章：
-このパターンはとても信頼性が高いので、私はいつも次のような骨組みから始めて、プロジェクトごとの振る舞いに応じて詳細を埋めていくようにしています。
--->
-So I always start with the following skeleton and fill in details for my particular case.
-
-```elm
-import Html exposing (..)
-
-
--- MODEL
-
-type alias Model = { ... }
-
-
--- UPDATE
-
-type Msg = ...
-
-update : Msg -> Model -> Model
-update msg model =
-  ...
-
-
--- VIEW
-
-view : Model -> Html Msg
-view model =
-  ...
-
-```
+  * **Model** &mdash; the state of your application
+  * **View** &mdash; a way to turn your state into HTML
+  * **Update** &mdash; a way to update your state based on messages
 
 <!--
-That is the essence of The Elm Architecture. We will proceed by filling in this skeleton with increasingly interesting logic.
+These three concepts are the core of **The Elm Architecture**.
 -->
 <!-- TODO -->
-<!-- 元の文章：
-まさしくこれが The Elm Architecture の本質なのです！　ここからは、面白いロジックでこの骨組みをだんだんと埋めていくことで、説明を進めていきましょう。
--->
-That is the essence of The Elm Architecture. We will proceed by filling in this skeleton with increasingly interesting logic.
+These three concepts are the core of **The Elm Architecture**.
 
 <!--
-# The Elm Architecture + User Input
+The next few examples are going to show how to use this pattern for user input, like buttons and text fields. It will make this much more concrete!
 -->
-
-# The Elm Architecture  + ユーザ入力
-
-<!--
-Your web app is going to need to deal with user input. This section will get you familiar with The Elm Architecture in the context of things like:
--->
-
-ウェブアプリケーションではユーザからの入力を扱う必要があるでしょう。この節では、次のような内容について、The Elm Architecture に慣れるようにしていきます。
-
-<!--
-  - Buttons
-  - Text Fields
-  - Check Boxes
-  - Radio Buttons
-  - etc.
--->
-
-  - ボタン
-  - テキストフィールド
-  - チェックボックス
-  - ラジオボタン
-  - そのほか
-
-<!--
-We will go through a few examples that build knowledge gradually, so go in order!
--->
-
-いくつかの例を見ながら徐々に知識を深めていきますので、それではこの順番で進めていきましょう！
+<!-- TODO -->
+The next few examples are going to show how to use this pattern for user input, like buttons and text fields. It will make this much more concrete!
 
 
 <!--
@@ -137,15 +88,14 @@ We will go through a few examples that build knowledge gradually, so go in order
 ## 本書を読み進めるためにあたって
 
 <!--
-The following examples are all available in the online editor:
+The examples are all available in the online editor:
 
 [![online editor](try.png)](https://elm-lang.org/try)
 
 This editor shows hints in the top left corner:
 -->
-
 <!-- TODO -->
-The following examples are all available in the online editor:
+The examples are all available in the online editor:
 
 [![online editor](try.png)](https://elm-lang.org/try)
 
@@ -156,8 +106,7 @@ This editor shows hints in the top left corner:
 </video>
 
 <!--
-Hopefully this will be helpful as you work through the upcoming examples!
+Be sure to try out the hints if you run into something confusing!
 -->
-
 <!-- TODO -->
-Hopefully this will be helpful as you work through the upcoming examples!
+Be sure to try out the hints if you run into something confusing!
