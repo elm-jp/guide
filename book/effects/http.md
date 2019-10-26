@@ -173,7 +173,7 @@ Notice that we are using the `Result` type from a couple sections back. This all
 <!--
 > **Note:** If you are wondering why `init` is a function (and why we are ignoring the argument) we will talk about it in the upcoming chapter on JavaScript interop! (Preview: the argument lets us get information from JS on initialization.)
 -->
-**Note:** ここでなぜ`init`が関数であるのか(そしてなぜその引数を無視するのか)という事に疑問を抱いたかもしれません。それについては後ほどの JavaScriptとの相互運用 の章にて説明します！（予告: この引数により初期化時にJSから情報を受け取ることができます）
+> **Note:** ここでなぜ`init`が関数であるのか(そしてなぜその引数を無視するのか)という事に疑問を抱いたかもしれません。それについては後ほどの JavaScriptとの相互運用 の章にて説明します！（予告: この引数により初期化時にJSから情報を受け取ることができます）
 
 <!--
 ## `update`

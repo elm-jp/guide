@@ -203,7 +203,7 @@ view model =
 <!--
 In previous examples we were using `input` and `div` directly. Why did we stop?
 -->
-<-- TODO -->
+<!-- TODO -->
 In previous examples we were using `input` and `div` directly. Why did we stop?
 
 <!--
