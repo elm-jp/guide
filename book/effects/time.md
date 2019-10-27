@@ -1,25 +1,21 @@
 # Time
 
----
-<!--
-#### Follow along in [the online editor](https://elm-lang.org/examples/time).
--->
-#### [オンラインエディタ](https://elm-lang.org/examples/time)で試してください。
----
 <!--
 Now we are going to make a digital clock. (Analog will be an exercise!)
 
 So far we have focused on commands. With the HTTP and randomness examples, we commanded Elm to do specific work immediately, but that is sort of a weird pattern for a clock. We _always_ want to know the current time. This is where **subscriptions** come in!
-
-After you read through the code, we will talk about how we are using the [`elm/time`][time] package here:
 -->
 まずはデジタル時計を作って見ましょう（アナログ時計は今後の課題です！）
 
 これまでは、コマンドに注目してきました。乱数に関する例では、ランダムな値をよこすようランタイムシステムに対してコマンドを発行しましたが、時計の例の場合には奇妙な感じのパターンとなってしまいます。現在の時刻を _常に_ 知りたいのです。ここで **サブスクリプション** が登場します。
 
-あなたが以下のコードに一通り目を通した後に、どのように[`elm/time`][time]パッケージを使用するかを説明していきます：
+<!--
+Start by clicking the blue "Edit" button and looking through the code a bit in the online editor.
+-->
+<!-- TODO -->
+Start by clicking the blue "Edit" button and looking through the code a bit in the online editor.
 
-[time]: https://package.elm-lang.org/packages/elm/time/latest/
+<div class="edit-link"><a href="https://elm-lang.org/examples/time">Edit</a></div>
 
 ```elm
 import Browser
@@ -104,11 +100,18 @@ view model =
   in
   h1 [] [ text (hour ++ ":" ++ minute ++ ":" ++ second) ]
 ```
-<!-- 
-Let&rsquo;s go through the new stuff.
--->
 
+<!-- 
+The new stuff is all coming from the [`elm/time`][time] package. Let&rsquo;s go through these parts!
+-->
+<!-- TODO -->
+<!-- 元の文章：
 新しく導入された部分を見ていきましょう。
+-->
+The new stuff is all coming from the [`elm/time`][time] package. Let&rsquo;s go through these parts!
+
+[time]: https://package.elm-lang.org/packages/elm/time/latest/
+
 
 <!-- 
 ## `Time.Posix` and `Time.Zone`

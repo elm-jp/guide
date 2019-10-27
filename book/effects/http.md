@@ -4,30 +4,24 @@
 # HTTP
 
 <!--
-#### Follow along in [the online editor](https://elm-lang.org/examples/book).
--->
-
----
-#### [オンラインエディタ](https://elm-lang.org/examples/book)で試してください。
----
-
-<!--
 It is often helpful to grab information from elsewhere on the internet.
 -->
 しばしば、インターネット上のどこかにある情報を取得して自分のアプリケーションに表示したいこともあるでしょう。
 
 <!--
-For example, say we want to load the full text of _Public Opinion_ by Walter Lippmann. Published in 1922, this book provides a historical perspective on the rise of mass media and its implications for democracy. For our purposes here, we will focus on how to use the [`elm/http`][http] package to get this book into our app!
+For example, say we want to load the full text of _Public Opinion_ by Walter Lippmann. Published in 1922, this book provides a historical perspective on the rise of mass media and its implications for democracy. For our purposes here, we will focus on how to use the [`elm/http`][http] package to get this book into our program!
 -->
-例えば、1992年に発行されたWalter Lippmann著の_Public Opinion_（この本はマスメディアの興りとそれが民主主義に与えた影響についての歴史的な視点を与えてくれます）の全文を取り込みたいとします。この節では[elm/http][http]パッケージを使い、この本の内容をアプリケーションに取り込む方法を中心に見ていきます。
+例えば、1992年に発行されたWalter Lippmann著の_Public Opinion_（この本はマスメディアの興りとそれが民主主義に与えた影響についての歴史的な視点を与えてくれます）の全文を取り込みたいとします。この節では[elm/http][http]パッケージを使い、この本の内容をプログラムに取り込む方法を中心に見ていきます。
 
 <!--
-Let&rsquo;s start by just looking at all the code. There are some new things, but do not worry. We will go through it all!
+Click the blue "Edit" button to look through this program in the online editor. You will probably see the screen say "Loading..." before the full book shows up. **Click the blue button now!**
 -->
-まずは一通りコード全体に目を通してください。このコードにはいくつかの新しいことがありますが心配は無用です。順を追って見ていきましょう！
+<!-- TODO -->
+Click the blue "Edit" button to look through this program in the online editor. You will probably see the screen say "Loading..." before the full book shows up. **Click the blue button now!**
 
 [http]: https://package.elm-lang.org/packages/elm/http/latest
 
+<div class="edit-link"><a href="https://elm-lang.org/examples/book">Edit</a></div>
 
 ```elm
 import Browser
@@ -179,7 +173,7 @@ Notice that we are using the `Result` type from a couple sections back. This all
 <!--
 > **Note:** If you are wondering why `init` is a function (and why we are ignoring the argument) we will talk about it in the upcoming chapter on JavaScript interop! (Preview: the argument lets us get information from JS on initialization.)
 -->
-**Note:** ここでなぜ`init`が関数であるのか(そしてなぜその引数を無視するのか)という事に疑問を抱いたかもしれません。それについては後ほどの JavaScriptとの相互運用 の章にて説明します！（予告: この引数により初期化時にJSから情報を受け取ることができます）
+> **Note:** ここでなぜ`init`が関数であるのか(そしてなぜその引数を無視するのか)という事に疑問を抱いたかもしれません。それについては後ほどの JavaScriptとの相互運用 の章にて説明します！（予告: この引数により初期化時にJSから情報を受け取ることができます）
 
 <!--
 ## `update`
