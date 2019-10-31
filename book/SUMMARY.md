@@ -66,8 +66,7 @@
    * [Random](effects/random.md)
    * [Time](effects/time.md)
 * [インストール](install/README.md)
-   <!-- TODO -->
-   * [Code Editor](install/editor.md)
+   * [コードエディター](install/editor.md)
    * [Elm](install/elm.md)
 * [JavaScriptとの相互運用](interop/README.md)
    * [フラグ](interop/flags.md)
