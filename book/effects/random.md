@@ -155,7 +155,7 @@ So here we have three random generators. The `roll` generator is saying it will 
 <!--
 The point is that we are not actually generating the values yet. We are just describing _how_ to generate them. From there you use the [`Random.generate`][gen] to turn it into a command:
 -->
-大事な点はこの段階では値の生成は実際には行われていないということです。その値を生成するための_方法_がが記述されているだけです。そこから[`Random.generate`][gen]を使ってコマンドに変換します：
+大事な点はこの段階では値の生成は実際には行われていないということです。その値を生成するための_方法_が記述されているだけです。そこから[`Random.generate`][gen]を使ってコマンドに変換します：
 
 
 ```elm
