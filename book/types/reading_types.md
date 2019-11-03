@@ -48,7 +48,7 @@ Click on this black box ⬆️ and the cursor should start blinking. Type in `3.
 <!--
 Okay, but what is going on here exactly? Each entry shows value along with what **type** of value it happens to be. You can read these examples out loud like this:
 -->
-さて、ここでは一体何が起こっているのでしょうか？各エントリには値に加えてその値の **型** が表示されています。これらは次のように読み上げることができます：
+さて、ここでは正確には一体何が起こっているのでしょうか？出力行には値に加えてその値の **型** が表示されています。これらは次のように読み上げることができます：
 
 - 値`"hello"`は`String`型です。
 - 値`False`は`Bool`型です。
