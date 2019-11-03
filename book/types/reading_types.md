@@ -50,6 +50,12 @@ Okay, but what is going on here exactly? Each entry shows value along with what 
 -->
 さて、ここでは正確には一体何が起こっているのでしょうか？出力行には値に加えてその値の **型** が表示されています。これらは次のように読み上げることができます：
 
+<!--
+- The value `"hello"` is a `String`.
+- The value `False` is a `Bool`.
+- The value `3` is an `Int`.
+- The value `3.1415` is a `Float`.
+-->
 - 値`"hello"`は`String`型です。
 - 値`False`は`Bool`型です。
 - 値`3`は`Int`型です。
