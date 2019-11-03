@@ -125,7 +125,7 @@ Try entering `round` or `sqrt` to see some other function types ⬆️
 <!--
 The `String.length` function has type `String -> Int`. This means it *must* take in a `String` argument, and it will definitely return an `Int` value. So let's try giving it an argument:
 -->
-`String.length`関数は`String -> Int`という型を持っています。これは、*必ず*`String`型の引数を１つ受け取り`Int`型の値を返すことを意味しています。さぁ、実際に引数を与えてみましょう：
+`String.length`関数は`String -> Int`という型を持っています。これは、*必ず*`String`型の引数を１つ受け取り、絶対に`Int`型の値を返すことを意味しています。さぁ、実際に引数を与えてみましょう：
 
 {% replWithTypes %}
 [
