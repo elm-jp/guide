@@ -150,7 +150,7 @@ What happens when you do not give a `String` though? Try entering `String.length
 <!--
 You will find that a `String -> Int` function *must* get a `String` argument!
 -->
-`String -> Int`の関数は*必ず*`String`型の値を引数にしなくてはならないことが確認できたでしょう！
+`String -> Int`の関数は`String`型の値を引数に*しなくてはならない*ことが理解できたでしょう！
 
 <!--
 > **Note:** Functions that take multiple arguments end up having more and more arrows. For example, here is a function that takes two arguments:
