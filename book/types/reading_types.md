@@ -43,7 +43,7 @@ Let's enter some simple expressions and see what happens:
 Click on this black box ⬆️ and the cursor should start blinking. Type in `3.1415` and press the ENTER key. It should print out `3.1415` followed by the type `Float`.
 -->
 
-この黒い部分 ⬆️ をクリックするとカーソルが点滅し始めます。`3.1415`と入力してエンターキーを押してください。すると`3.1415`と更にその後に`Float`と出力されるはずです。
+この黒い部分 ⬆️ をクリックするとカーソルが点滅し始めます。`3.1415`と入力してエンターキーを押してください。すると、型である`Float`が付加されて`3.1415`が出力されるはずです。
 
 <!--
 Okay, but what is going on here exactly? Each entry shows value along with what **type** of value it happens to be. You can read these examples out loud like this:
