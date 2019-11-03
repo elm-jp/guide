@@ -231,7 +231,7 @@ People can make mistakes in type annotations though, so what happens if the anno
 <!--
 As you look through more Elm code, you will start to see type annotations with lower-case letters in them. A common example is the `List.length` function:
 -->
-より多くのElmのコードを見てみると、小文字の型注釈があることがわかるでしょう。一般的な例として`List.length`関数が挙げられます：
+より多くのElmのコードに目を通すようになると、小文字の型注釈を目にし始めるでしょう。一般的な例として`List.length`関数が挙げられます：
 
 {% replWithTypes %}
 [
