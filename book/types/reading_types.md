@@ -64,7 +64,7 @@ Okay, but what is going on here exactly? Each entry shows value along with what 
 <!--
 Elm is able to figure out the type of any value you enter! Let's see what happens with lists:
 -->
-Elmはあなたが入力した値の型を見つけ出すことができます！今度はリストの動作を確認してみましょう：
+Elmはあなたが入力したどんな値の型も推論することができます！今度はリストの動作を確認してみましょう：
 
 {% replWithTypes %}
 [
