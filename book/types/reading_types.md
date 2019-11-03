@@ -363,4 +363,4 @@ These constrained type variables exist to make operators like `(+)` and `(<)` a 
 <!--
 By now we have covered types for values and functions pretty well, but what does this look like when we start wanting more complex data structures?
 -->
-ここまでで値と関数の型については非常によくカバーしてきましたが、より複雑なデータ構造が必要になり始めたら型はどのようなるでしょうか？
+ここまでで値と関数の型については非常によく網羅してきましたが、より複雑なデータ構造が必要になり始めたら型はどのようなるでしょうか？
