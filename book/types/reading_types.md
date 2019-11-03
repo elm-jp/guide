@@ -6,7 +6,7 @@
 <!--
 In the [Core Language](/core_language.html) section of this book, we went through a bunch of interactive examples to get a feeling for the language. Well, we are going to do it again, but with a new question in mind. What **type** of value is that?
 -->
-このガイドの[言語の基礎](/core_language.md)の節では、言語の雰囲気を掴むために多くのインタラクティブな例を試しました。さて、もう一度例を試していこうと思いますが、今度は新しい疑問について注目しましょう。この値の **型** はなんだろうか？
+このガイドの[言語の基礎](/core_language.md)の節では、言語の雰囲気を掴むために多くのインタラクティブな例を試しました。さて、もう一度例を試していこうと思いますが、今度は新たな問いを念頭に置いてやっていきましょう。つまり、この値の **型** はなんだろうか？ということです。
 
 
 <!--
