@@ -4,20 +4,24 @@
   "description": "Japanese version of guide.elm-lang.org",
   "main": "index.js",
   "dependencies": {
+    "cpx": "1.5.0",
     "gitbook-cli": "^2.3.2",
     "gitbook-plugin-bulk-redirect": "^0.2.1",
     "gitbook-plugin-ga": "^1.0.1",
     "gitbook-plugin-meta": "^0.1.12",
     "gitbook-plugin-sitemap": "^1.2.0",
     "gitbook-plugin-youtube": "^1.1.0",
+    "gitbook-plugin-elm-repl": "file:repl",
     "pretranslate": "file:tool/pretranslate",
     "rimraf": "^2.6.2"
   },
   "devDependencies": {},
   "scripts": {
-    "install": "gitbook install",
+    "postinstall": "npm run install-gitbook && npm run install-repl",
+    "install-gitbook": "sed -i 's/,\"elm-repl\"//' book.json && gitbook install && sed -i 's/\"youtube\"/\"youtube\",\"elm-repl\"/' book.json",
+    "install-repl": "cd repl && npm link && npm i && npm run build && cd ../ && npm link gitbook-plugin-elm-repl",
     "start": "gitbook --port 8007 serve",
-    "build": "rimraf _book && rimraf docs && gitbook build && mv _book docs && rimraf docs/**/*.md && sed -i 's/検索すると入力/検索/g' docs/*.html docs/**/*.html",
+    "build": "rimraf _book && rimraf docs && gitbook build && mv _book docs && rimraf docs/**/*.md && sed -i 's/検索すると入力/検索/g' docs/*.html docs/**/*.html && cpx favicon.ico _book/gitbook/images/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
