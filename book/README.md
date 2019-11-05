@@ -100,7 +100,7 @@ You can get some benefits from programming in a functional *style*, but there ar
 <!--
 No combination of JS libraries can give you all of these guarantees. They come from the design of the language itself! And thanks to these guarantees, it is quite common for Elm programmers to say they never felt so **confident** while programming. Confident to add features quickly. Confident to refactor thousands of lines. But without the background anxiety that you missed something important!
 -->
-JSをそのまま使ったら、どんなライブラリを使って工夫しても、これらすべてを実現できるとは言いがたいでしょう。これらは言語自体の設計によるものです！これらが保証されているおかげで、プログラミングに**自信**がないと言うことがElmプログラマーには珍しくありません。機能を素早く追加することには自信があります。数千行をリファクタリングすることには自信があります。けれど何か重要なものを見落としたという不安はありません！
+JSをそのまま使ったら、どんなライブラリを使って工夫しても、これらすべてを実現できるとは言いがたいでしょう。これらは言語自体の設計によるものです！これらが保証されているおかげで、今までこんなにも**自信**を持ってプログラミングできたことはない、と言うことがElmプログラマーには珍しくありません。自信を持って素早く機能を追加しますし、自信を持って数千行をリファクタリングします。それでも、何か大事なところを見落とす心配はないのです！
 
 <!--
 I have put a huge emphasis on making Elm easy to learn and use, so all I ask is that you give Elm a shot and see what you think. I hope you will be pleasantly surprised!
