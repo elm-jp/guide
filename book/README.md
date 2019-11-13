@@ -95,7 +95,7 @@ You can get some benefits from programming in a functional *style*, but there ar
   - 実用上ランタイムエラーがでない
   - とてもわかりやすい親切なエラーメッセージ
   - 信頼性の高いリファクタリング
-  - すべてのElmパッケージにおいて、決められたルールに則って自動的にバージョン番号が付与されている
+  - すべてのElmパッケージは自動的にセマンティックバージョニングが強制されている
 
 <!--
 No combination of JS libraries can give you all of these guarantees. They come from the design of the language itself! And thanks to these guarantees, it is quite common for Elm programmers to say they never felt so **confident** while programming. Confident to add features quickly. Confident to refactor thousands of lines. But without the background anxiety that you missed something important!
