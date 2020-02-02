@@ -62,7 +62,7 @@ So now we can track if someone is a `Regular` with an account or a `Visitor` who
 Rather than creating a custom type and a type alias, we can represent all this with just a single custom type. The `Regular` and `Visitor` variants each have an associated data. In our case, the associated data is a `String` value:
 -->
 
-上述のようにカスタム型と型の別名を作成するのではなく、すべてを単一のカスタム型で表すことができます。`Regular`と`Visitor`のバリアントにはそれぞれ関連するデータを持たせることができます。今回の場合、関連するデータは`String`の値です：
+上述のようにカスタム型と型エイリアスを1つずつ作成するのではなく、すべてを単一のカスタム型で表すことができます。`Regular`と`Visitor`のバリアントにはそれぞれ関連するデータを持たせることができます。今回の場合、関連するデータは`String`の値です：
 
 ```elm
 type User
