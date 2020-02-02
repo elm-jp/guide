@@ -1,12 +1,12 @@
 <!--
 # Type Aliases
 -->
-# 型の別名（タイプエイリアス）
+# 型エイリアス
 
 <!--
 Elm allows you to create a **type alias**. An alias is just a shorter name for some other type. It looks like this:
 -->
-Elmでは **型の別名（タイプエイリアス）** を作ることができます。 別名は単に他の型の短い名前です。 このように定義できます:
+Elmでは **型エイリアス** を作ることができます。 型エイリアスというのは単に他の型に短い名前をつけたものです。 このように定義できます:
 
 ```elm
 type alias User =
@@ -29,7 +29,7 @@ hasDecentBio user =
 <!--
 That would be `{ name : String, bio : String } -> Bool` without the type alias. **The main point of type aliases is to help us write shorter and clearer type annotations.** This becomes more important as your application grows. Say we have a `updateBio` function:
 -->
-型の別名を使わずに書けば`{ name : String, bio : String } -> Bool`のようになります。 **型の別名の主なポイントは短く明確な型注釈を書くのを助けることです。** これはアプリケーションが成長するにつれてより重要になってきます。 `updateBio`関数があるとします:
+型エイリアスを使わずに書けば`{ name : String, bio : String } -> Bool`のようになります。 **型エイリアスの主なポイントは短く明確な型注釈を書くのを助けることです。** これはアプリケーションが成長するにつれてより重要になってきます。 `updateBio`関数があるとします:
 
 ```elm
 updateBio : String -> User -> User
@@ -41,7 +41,7 @@ updateBio bio user =
 First, think about the type signature without a type alias! Now, imagine that as our application grows we add more fields to represent a user. We could add 10 or 100 fields to the `User` type alias, and we do not need any changes to our `updateBio` function. Nice!
 -->
 
-まず、型の別名を使わない型注釈について考えてみましょう。 今度はアプリケーションが成長するにつれてユーザを表すフィールドが増えることを想像しましょう。 10個や100個のフィールドを`User`型に追加するかもしれません。 しかし`updateBio`関数に変更を加える必要はありません。 やったね！
+まず、型エイリアスを使わない型注釈について考えてみましょう。 今度はアプリケーションが成長するにつれてユーザを表すフィールドが増えることを想像しましょう。 10個や100個のフィールドを`User`型に追加するかもしれません。 しかし`updateBio`関数に変更を加える必要はありません。 やったね！
 
 <!--
 ## Record Constructors
@@ -51,7 +51,7 @@ First, think about the type signature without a type alias! Now, imagine that as
 <!--
 When you create a type alias specifically for a record, it also generates a **record constructor**. So if we define a `User` type alias in `elm repl` we could start building records like this:
 -->
-レコード用に型の別名を作成すると、 **レコードコンストラクタ**も一緒に生成されます。 つまり`elm repl`で`User`型を定義したら、このようにレコードを作れます:
+レコード用に型エイリアスを作成すると、 **レコードコンストラクタ**も一緒に生成されます。 つまり`elm repl`で`User`型を定義したら、このようにレコードを作れます:
 
 ```elm
 > type alias User = { name : String, bio : String }
@@ -63,9 +63,9 @@ When you create a type alias specifically for a record, it also generates a **re
 <!--
 The arguments are in the order they appear in the type alias declaration. This can be pretty handy.
 -->
-引数は型の別名の定義に現れる順になります。 これはかなり便利です。
+引数は型エイリアスの定義に現れる順になります。 これはかなり便利です。
 
 <!--
 And again, this is only for records. Making type aliases for non-record types will not result in a constructor.
 -->
-この機能はレコード型のためだけのものです。 レコード型ではない型に別名を付けてもコンストラクタは生成されません。
+この機能はレコード型のためだけのものです。 レコード型ではない型のための型エイリアスを作成してもコンストラクタは生成されません。
