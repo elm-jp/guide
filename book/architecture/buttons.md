@@ -79,7 +79,7 @@ Now that you have poked around the code a little bit, you may have some question
 <!--
 The `main` value is special in Elm. It describes what gets shown on screen. In this case, we are going to initialize our application with the `init` value, the `view` function is going to show everything on screen, and user input is going to be fed into the `update` function. Think of this as the high-level description of our program.
 -->
-`main`はElmでは特別な値で、画面に何を表示するかを記述します。この例では、アプリケーションを`init`で初期化して、`view`関数ですべてを画面に表示し、ユーザーからの入力を`update`関数に渡します。これがプログラムの概要だと考えてください。
+`main`はElmでは特別な値で、画面に何を表示するかを記述します。この例では、アプリケーションを`init`で初期化して、`view`関数ですべてを画面に表示し、ユーザーからの入力を`update`関数に渡します。これがプログラムの大まかな概要だと考えてください。
 
 
 ## Model
