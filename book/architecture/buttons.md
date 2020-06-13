@@ -72,7 +72,7 @@ Now that you have poked around the code a little bit, you may have some question
 <!--
 > **Note:** The code here uses [type annotations](/types/reading_types.html), [type aliases](/types/type_aliases.html), and [custom types](/types/custom_types.html). The point of this section is to get a feeling for The Elm Architecture though, so we will not cover them until a bit later. I encourage you to peek ahead if you are getting stuck on these aspects!
 -->
-> **Note:** ここでのコードは[型注釈](/types/reading_types.html)、 [型エイリアス](/types/type_aliases.html)、[カスタム型](/types/custom_types.html)を使用しています。このセクションのポイントはThe Elm Architectureの雰囲気をつかむことなので、これらはもう少し後で取り上げます。もしこういった面で行き詰まっているならば先のセクションを覗いてみることをおすすめします！
+> **Note:** ここのコードは[型注釈](/types/reading_types.html)と [型エイリアス](/types/type_aliases.html)、[カスタム型](/types/custom_types.html)を使用しています。この節のポイントはThe Elm Architectureの雰囲気をつかむことなので、これらはもう少し後で取り上げます。もしこういった面で行き詰まっているならば上記の節を覗いてみることをおすすめします！
 
 ## Main
 
