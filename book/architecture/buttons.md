@@ -140,7 +140,7 @@ This function takes in the `Model` as an argument. It outputs HTML. So we are sa
 <!--
 Notice that we have an `onClick` handler for each button. These are saying: **when someone clicks, generate a message**. So the plus button is generating an `Increment` message. What is that and where does it go? To the `update` function!
 -->
-各ボタンに`onClick`ハンドラがあることに注目してください。**クリックするとメッセージを生成する**ということです。プラスボタンは`Increment`メッセージを生成しています。これは何で、どこに行くのでしょうか？`update`関数に行きます！
+各ボタンに`onClick`ハンドラーがあることに注目してください。**クリックするとメッセージを生成する**ということです。つまりこのプラスボタンは`Increment`メッセージを生成しています。これは何で、どこに行くのでしょうか？`update`関数に行きます！
 
 
 ## Update
