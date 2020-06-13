@@ -183,7 +183,7 @@ If you get an `Increment` message, you increment the model. If you get a `Decrem
 <!--
 So whenever we get a message, we run it through `update` to get a new model. We then call `view` to figure out how to show the new model on screen. Then repeat! User input generates a message, `update` the model, `view` it on screen. Etc.
 -->
-メッセージを受け取るたびに`update`を実行して新しいモデルを取得します。次に`view`を呼び出して新しいモデルを画面に表示しようとします。これの繰り返しです！。ユーザーからの入力はメッセージを生成し、`update`はモデルを更新し、`view`はそれを画面に表示する、などです。
+つまりメッセージを受け取るたびに`update`に渡して実行して新しいモデルを取得します。次に`view`を呼び出して新しいモデルを画面にどう表示するか計算します。それから繰り返します！ユーザーからの入力はメッセージを生成して、`update`はモデルを`更新`して、`view`はそれを画面に`表示`して……。
 
 
 <!--
