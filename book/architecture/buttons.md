@@ -120,7 +120,7 @@ The initial value is zero, and it will go up and down as people press different 
 <!--
 We have a model, but how do we show it on screen? That is the role of the `view` function:
 -->
-モデルはありますが、それを画面に表示するにはどうすればいいでしょうか？それは`view`関数の役割です。
+モデルは用意しました。ですがそれを画面に表示するにはどうすればいいでしょうか？それは`view`関数の役割です。
 
 ```elm
 view : Model -> Html Msg
