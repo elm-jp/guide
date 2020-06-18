@@ -82,17 +82,20 @@ The `main` value is special in Elm. It describes what gets shown on screen. In t
 `main`はElmでは特別な値で、画面に何を表示するかを記述します。この例では、アプリケーションを`init`で初期化して、`view`関数ですべてを画面に表示し、ユーザーからの入力を`update`関数に渡します。これがプログラムの大まかな概要だと考えてください。
 
 
+<!--
 ## Model
+-->
+## モデル
 
 <!--
 Data modeling is extremely important in Elm. The point of the **model** is to capture all the details about your application as data.
 -->
-Elmではデータモデリングが非常に重要です。**モデル**のポイントは、アプリケーションに関するすべての詳細をデータとして取り込むことです。
+Elmでは、アプリケーションの状態をプログラムが扱える形にする**モデル化**が非常に重要です。**モデル**のポイントは、アプリケーションに関する情報を全てくまなくデータとして表現できるようにすることです。
 
 <!--
 To make a counter, we need to keep track of a number that is going up and down. That means our model is really small this time:
 -->
-カウンターを作るためには、増えたり減ったりする数を把握しておく必要がありますね。よって、今回のモデルは本当に小さなものとなります。
+カウンターを作るためには、増えたり減ったりする数を把握しておく必要がありますね。このケースでは、モデルが本当に小さなものになります。
 
 ```elm
 type alias Model = Int
@@ -101,7 +104,7 @@ type alias Model = Int
 <!--
 We just need an `Int` value to track the current count. We can see that in our initial value:
 -->
-現在のカウントを追跡するためには`Int`型の値が必要です。これは初期値で確認できます。
+現在のカウントを把握しておくためには`Int`型の値だけが必要です。これは初期値で確認できます。
 
 ```elm
 init : Model
@@ -120,7 +123,7 @@ The initial value is zero, and it will go up and down as people press different 
 <!--
 We have a model, but how do we show it on screen? That is the role of the `view` function:
 -->
-モデルは用意しました。ですがそれを画面に表示するにはどうすればいいでしょうか？それは`view`関数の役割です。
+これでモデルが用意できましたが、モデルの内容を画面に表示するにはどうすればいいでしょうか？それは`view`関数の役割です。
 
 ```elm
 view : Model -> Html Msg
@@ -135,12 +138,12 @@ view model =
 <!--
 This function takes in the `Model` as an argument. It outputs HTML. So we are saying that we want to show a decrement button, the current count, and an increment button.
 -->
-この関数は`Model`を引数として受け取り、HTMLを出力します。デクリメントボタン、現在のカウント、インクリメントボタンを表示したいというわけです。
+このviewという関数は`Model`を引数として受け取り、HTMLを出力します。ここでは、マイナスボタン、現在のカウント、プラスボタンを表示させることになります。
 
 <!--
 Notice that we have an `onClick` handler for each button. These are saying: **when someone clicks, generate a message**. So the plus button is generating an `Increment` message. What is that and where does it go? To the `update` function!
 -->
-各ボタンに`onClick`ハンドラーがあることに注目してください。**クリックするとメッセージを生成する**ということです。つまりこのプラスボタンは`Increment`メッセージを生成しています。これは何で、どこに行くのでしょうか？`update`関数に行きます！
+各ボタンに`onClick`ハンドラーがあることに注目してください。**クリックするとメッセージを生成する**ということです。つまりこのプラスボタンは`Increment`メッセージを生成しています。メッセージを生成するとはどういうことでしょうか、そして生成されたメッセージはどこに行くのでしょうか？`update`関数に行きます！
 
 
 ## Update
@@ -148,12 +151,12 @@ Notice that we have an `onClick` handler for each button. These are saying: **wh
 <!--
 The `update` function describes how our `Model` will change over time.
 -->
-`update`関数は`Model`が時間の経過とともにどのように変化するかを記述します。
+`update`関数は、各種イベントで生成されたメッセージをきっかけとして、`Model`が各場面でどのように変化するかを記述するものです。
 
 <!--
 We define two messages that it might receive:
 -->
-受け取る可能性のある2つのメッセージを定義します。
+たとえば今回の例では、update関数は以下のように定義されている2つのメッセージを受け取る可能性があります。
 
 ```elm
 type Msg = Increment | Decrement
@@ -183,18 +186,18 @@ If you get an `Increment` message, you increment the model. If you get a `Decrem
 <!--
 So whenever we get a message, we run it through `update` to get a new model. We then call `view` to figure out how to show the new model on screen. Then repeat! User input generates a message, `update` the model, `view` it on screen. Etc.
 -->
-つまりメッセージを受け取るたびに`update`に渡して実行して新しいモデルを取得します。次に`view`を呼び出して新しいモデルを画面にどう表示するか計算します。それから繰り返します！ユーザーからの入力はメッセージを生成して、`update`はモデルを`更新`して、`view`はそれを画面に`表示`して……。
+つまり何かメッセージを受け取るたびに`update`に渡して実行して新しいモデルを取得します。次に`view`を呼び出して新しいモデルを画面にどう表示するか計算します。これがその後も繰り返されていきます！つまり、view によって表示された画面でユーザーが何か操作を行うとまたメッセージが生成され、それをupdate関数が受け取ってモデルを更新（update）し、viewがそのモデルを元にまた画面を表示（view）します。
 
 
 <!--
 ## Overview
 -->
-## 概要
+## 全体像
 
 <!--
 Now that you have seen all the parts of an Elm program, it may be a bit easier to see how they fit into the diagram we saw earlier:
 -->
-これでElmのプログラムのすべてのパーツを見たわけですが、先ほど見た図にどのように当てはまるかを見てみると、もう少しわかりやすいかもしれません。
+これでElmのプログラムのすべてのパーツを見たわけですが、先ほど見た図のどこにどれが対応するかを整理してみると、もう少しわかりやすいかもしれません。
 
 <!--
 ![Diagram of The Elm Architecture](buttons.svg)
@@ -204,7 +207,7 @@ Now that you have seen all the parts of an Elm program, it may be a bit easier t
 <!--
 Elm starts by rendering the initial value on screen. From there you enter into this loop:
 -->
-Elmは初期値を画面に表示することから始まります。そこからこのループに入ります。
+Elmは初期値を画面に描画することから始まります。そこから以下のループに入ります。
 
 <!--
 1. Wait for user input.
@@ -232,6 +235,10 @@ This is the essence of The Elm Architecture. Every example we see from now on wi
 > 1. Add a `Reset` variant to the `Msg` type
 > 2. Add a `Reset` branch in the `update` function
 > 3. Add a button in the `view` function.
+>
+> You can edit the example in the online editor [here](https://elm-lang.org/examples/buttons).
+>
+> If that goes well, try adding another button to increment by steps of 10.
 -->
 > **演習:** カウンターをゼロにリセットするボタンを追加してみましょう
 >
@@ -239,12 +246,6 @@ This is the essence of The Elm Architecture. Every example we see from now on wi
 > 2. `update`関数に`Reset`の分岐を追加します
 > 3. `view`関数にボタンを追加します
 >
-<!--
-> You can edit the example in the online editor [here](https://elm-lang.org/examples/buttons).
--->
-> このサンプルを[こちら](https://elm-lang.org/examples/buttons)のオンラインエディタで編集できます。
+> このサンプルは[こちら](https://elm-lang.org/examples/buttons)のオンラインエディタで編集できます。
 >
-<!--
-> If that goes well, try adding another button to increment by steps of 10.
--->
 > これがうまくいったら、10ずつ増えるボタンを追加してみてください。
