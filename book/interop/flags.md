@@ -1,38 +1,40 @@
 <!--
 # Flags
 -->
-
 # フラグ
 
-<!--
-The previous page showed the JavaScript needed to start an Elm program:
--->
+<!-- TODO -->
 
-先ほどのページでは、次のようなJavaScriptを実行することで、Elmのプログラムを起動する必要があることを説明しました。
+Flags are a way to pass values into Elm on initialization.
 
-```elm
-var app = Elm.Main.init({
-  node: document.getElementById('elm')
-});
+Common uses are passing in API keys, environment variables, and user data. This can be handy if you generate the HTML dynamically. They can also help us load cached information in [this `localStorage` example](https://github.com/elm-community/js-integration-examples/tree/master/localStorage).
+
+
+## Flags in HTML
+
+The HTML is basically the same as before, but with an additional `flags` argument to the `Elm.Main.init()` function
+
+```html
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Main</title>
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <div id="myapp"></div>
+  <script>
+  var app = Elm.Main.init({
+    node: document.getElementById('myapp'),
+    flags: Date.now()
+  });
+  </script>
+</body>
+</html>
 ```
-<!--
-It is possible to pass in some additional data though. For example, if we wanted to pass in the current time we could say:
--->
 
-ここでは、JavaScriptからElmへと追加でデータを渡すことができます。たとえば、次のようにすれば、現在の時刻を渡すことができます。
-
-```javascript
-var app = Elm.Main.init({
-  node: document.getElementById('elm'),
-  flags: Date.now()
-});
-```
-
-<!--
-We call this additional data `flags`. This allows you to customize the Elm program with all sorts of data!
--->
-
-この追加のデータは**フラグ**(`flags`)と呼ばれています。これにより、いろいろな種類のデータに基づいて、Elmプログラムをカスタマイズすることができるようになるのです。
+In this example we are passing in the current time in milliseconds, but any JS value that can be JSON decoded can be given as a flag.
 
 <!--
 > **Note:** This additional data is called “flags” because it is kind of like command line flags. You can call `elm make src/Main.elm`, but you can add some flags like `--optimize` and `--output=main.js` to customize its behavior. Same sort of thing.
@@ -40,49 +42,68 @@ We call this additional data `flags`. This allows you to customize the Elm progr
 
 > **Note:** この追加のデータが『フラグ』と呼ばれているのは、それがコマンドラインフラグのようなものだからです。`elm make src/Main.elm`を実行するとき、`--optimize`や`--output=main.js`のようなフラグを追加して、その動作をカスタマイズすることができます。フラグもそれと似たようなものです。
 
-<!--
-## Handling Flags
--->
+<!-- TODO -->
 
-## フラグの操作
+## Flags in Elm
 
-<!--
-Just passing in JavaScript values is not enough. We need to handle them on the Elm side! The [`Browser.element`][element] function provides a way to handle flags with `init`:
--->
-
-Elmでフラグを扱うには、JavaScriptから値を渡すだけでは不十分です。Elm側でそれを受け取る必要があるからです！ [`Browser.element`][element]関数を使うと、`init`でフラグを受け取ることができるようになります。
+To handle flags on the Elm side, you need to modify your `init` function a bit:
 
 ```elm
-element :
-  { init : flags -> ( model, Cmd msg )
-  , update : msg -> model -> ( model, Cmd msg )
-  , subscriptions : model -> Subs msg
-  , view : model -> Html msg
-  }
-  -> Program flags model msg
-```
+module Main exposing (..)
 
-[element]: https://package.elm-lang.org/packages/elm/browser/latest/Browser#element
-
-<!--
-Notice that `init` has an argument called `flags`. So assuming we want to pass in the current time, we could write an `init` function like this:
--->
+import Browser
+import Html exposing (Html, text)
 
 
-`init`が`flag`という名前の引数を持っていることに注目してください。現在の時刻を渡したいということだったので、`init`関数を次のように書くといいでしょう。
+-- MAIN
+
+main : Program Int Model Msg
+main =
+  Browser.element
+    { init = init
+    , view = view
+    , update = update
+    , subscriptions = subscriptions
+    }
 
 
-```elm
+-- MODEL
+
+type alias Model = { currentTime : Int }
+
 init : Int -> ( Model, Cmd Msg )
 init currentTime =
-  ...
+  ( { currentTime = currentTime }
+  , Cmd.none
+  )
+
+
+-- UPDATE
+
+type Msg = NoOp
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update _ model =
+  ( model, Cmd.none )
+
+
+-- VIEW
+
+view : Model -> Html Msg
+view model =
+  text (String.fromInt model.currentTime)
+
+
+-- SUBSCRIPTIONS
+
+subscriptions : Model -> Sub Msg
+subscriptions _ =
+  Sub.none
 ```
 
-<!--
-This means that Elm code gets immediate access to the flags you pass in from JavaScript. From there, you can put things in your model or run some commands. Whatever you need to do.
--->
+The only important here is the `init` function says it takes an `Int` argument. This is how Elm code gets immediate access to the flags you pass in from JavaScript. From there, you can put things in your model or run some commands. Whatever you need to do.
 
-つまりこれは、JavaScriptから渡されたフラグの値を、即座に`init`で受け取るようになったということです。`init`では、その受け取ったフラグの値をモデルの中に格納したり、何かコマンドを実行することもできます。必要なことは何でもできるのです。
+I recommend checking out [this `localStorage` example](https://github.com/elm-community/js-integration-examples/tree/master/localStorage) for a more interesting use of flags!
 
 <!--
 ## Verifying Flags
