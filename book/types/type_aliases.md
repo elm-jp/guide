@@ -124,7 +124,6 @@ Note that the order of arguments in the record constructor match the order of fi
 -->
 <!-- TODO -->
 <!-- 元の文章：
-引数は型の別名の定義に現れる順になります。 これはかなり便利です。
 引数は型エイリアスの定義に現れる順になります。 これはかなり便利です。
 -->
 Note that the order of arguments in the record constructor match the order of fields in the type alias!
