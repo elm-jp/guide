@@ -55,7 +55,7 @@
    * [フォーム](architecture/forms.md)
 * [型](types/README.md)
    * [型を読む](types/reading_types.md)
-   * [型の別名](types/type_aliases.md)
+   * [型エイリアス](types/type_aliases.md)
    * [カスタム型](types/custom_types.md)
    * [パターンマッチ](types/pattern_matching.md)
 * [エラーハンドリング](error_handling/README.md)

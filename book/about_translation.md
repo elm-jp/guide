@@ -52,7 +52,7 @@ Elm guide は初学者の方にも分かることを重視したドキュメン�
 <!-- | <Translated> | <Original> | DO NOT REMOVE OR CHANGE THIS LINE -->
 | 訳語              | 原文            |
 |:-----------------:|:---------------:|
-| 型の別名          | type alias      |
+| 型エイリアス      | type alias      |
 | オブジェクト指向  | object oriented |
 | テキストフィールド| text field      |
 | カスタム型        | custom type     |
