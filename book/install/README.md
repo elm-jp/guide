@@ -22,7 +22,6 @@ The next two pages will show how to get Elm working in your **editor** and then 
 <!--
 **Troubleshooting:** Things can sometimes go wrong with installation, so if you run into any trouble, please ask about it in a [community forum](https://elm-lang.org/community)! Talking through an install problem can usually save you a lot of time, and people are happy to help out. Please ask for help!
 -->
-**トラブルシューティング：** ときどきインストールがうまくいかないことがありますので、何か問題が発生したときは、[コミュニティフォーラム](https://elm-lang.org/community)で相談してください！ インストールの問題について相談することで多くの場合大幅な時間の節約ができますし、みんな喜んで協力してくれます。 ぜひ相談してみてください！[^1]
+**トラブルシューティング：** ときどきインストールがうまくいかないことがありますので、何か問題が発生したときは、[コミュニティフォーラム](https://elm-lang.org/community)で相談してください！[^1]インストールの問題について相談することで多くの場合大幅な時間の節約ができますし、みんな喜んで協力してくれます。 ぜひ相談してみてください！
 
 [^1]: 訳注：Elm-jp コミュニティは、日本語で Elm について気軽に相談できる場所として [discord](https://discordapp.com/invite/4j2MxCg) を提供しています。 ぜひこちらをご活用ください。
-
