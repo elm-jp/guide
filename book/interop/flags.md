@@ -3,16 +3,25 @@
 -->
 # フラグ
 
-<!-- TODO -->
-
+<!--
 Flags are a way to pass values into Elm on initialization.
+-->
+フラグは初期化と同時にElmになんらかの値を渡す方法です。
 
+<!--
 Common uses are passing in API keys, environment variables, and user data. This can be handy if you generate the HTML dynamically. They can also help us load cached information in [this `localStorage` example](https://github.com/elm-community/js-integration-examples/tree/master/localStorage).
+-->
+よくある使い方は、APIキーや、環境変数、それにユーザーが作ったデータを渡したいときなどでしょう。フラグは、HTMLを動的に生成したいときにはとても便利です。また、[この`localStorage`の例](https://github.com/elm-community/js-integration-examples/tree/master/localStorage)のように、キャッシュからデータを読み取るときにも役に立ってくれます。
 
-
+<!--
 ## Flags in HTML
+-->
+## HTMLでのフラグ
 
+<!--
 The HTML is basically the same as before, but with an additional `flags` argument to the `Elm.Main.init()` function
+-->
+このHTMLは前のページに出てきたものと基本的に同じですが、`Elm.Main.init()`関数に追加の引数`flags`を渡しているところが違っています。
 
 ```html
 <html>
@@ -34,7 +43,10 @@ The HTML is basically the same as before, but with an additional `flags` argumen
 </html>
 ```
 
+<!--
 In this example we are passing in the current time in milliseconds, but any JS value that can be JSON decoded can be given as a flag.
+-->
+この例では現在時刻をミリ秒として渡していますが、JSONとしてデコードできるものであれば、どんなJavaScriptの値でもフラグに使うことができます。
 
 <!--
 > **Note:** This additional data is called “flags” because it is kind of like command line flags. You can call `elm make src/Main.elm`, but you can add some flags like `--optimize` and `--output=main.js` to customize its behavior. Same sort of thing.
@@ -42,11 +54,15 @@ In this example we are passing in the current time in milliseconds, but any JS v
 
 > **Note:** この追加のデータが『フラグ』と呼ばれているのは、それがコマンドラインフラグのようなものだからです。`elm make src/Main.elm`を実行するとき、`--optimize`や`--output=main.js`のようなフラグを追加して、その動作をカスタマイズすることができます。フラグもそれと似たようなものです。
 
-<!-- TODO -->
-
+<!--
 ## Flags in Elm
+-->
+## Elmでのフラグ
 
+<!--
 To handle flags on the Elm side, you need to modify your `init` function a bit:
+-->
+Elmの側でフラグを扱うために、`init`関数に少し手を加える必要があります:
 
 ```elm
 module Main exposing (..)
@@ -101,9 +117,15 @@ subscriptions _ =
   Sub.none
 ```
 
+<!--
 The only important here is the `init` function says it takes an `Int` argument. This is how Elm code gets immediate access to the flags you pass in from JavaScript. From there, you can put things in your model or run some commands. Whatever you need to do.
+-->
+ここで重要なポイントはただ一つ、`init`関数が引数として`Int`の値を受け取っていることです。Elmでは、このようにJavaScriptの世界から渡されたフラグを、すぐにそのまま利用できるのです。フラグを受け取った後は、モデルに入れておくこともできますし、コマンドを実行するのに使ってもいいのです。あなたが必要なだけ、何にでも使うことができます。
 
+<!--
 I recommend checking out [this `localStorage` example](https://github.com/elm-community/js-integration-examples/tree/master/localStorage) for a more interesting use of flags!
+-->
+もっと面白いフラグの使い方を知りたいなら、[この`localStorage`の例](https://github.com/elm-community/js-integration-examples/tree/master/localStorage)を見てみてください！
 
 <!--
 ## Verifying Flags
@@ -180,4 +202,3 @@ Note that when one of the conversions goes wrong, **you get an error on the JS s
 -->
 
 もしこのような変換がひとつでもうまくいかない場合は、**JavaScript側でエラーが起こる**ことに注意してください！　Elmでは『フェイルファスト』(fail fast)の原則をとっています。Elmコード側でエラーを起こすのではなく、可能な限り早く問題を報告するということです。これはフラグに`Json.Decode.Value`を使うのを好む人がいる理由のひとつにもなっています。JavaScript側でエラーが起きるより、デコーダでこの変な値を受け取ることで、何らかのフォールバックが実装されているのを保証するほうがいいということです。
-
