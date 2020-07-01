@@ -1,7 +1,7 @@
 <!--
 # Install Elm
 -->
-# Elmのインストール
+# Elmをインストールする
 
 <!--
 The previous page described how to install a code editor for Elm, so the next step is to obtain an executable file named `elm`. Here are the **install** links:
@@ -211,4 +211,3 @@ I have been using it for over a decade now, and I still cannot remember how to c
 Now that we have our editor set up and `elm` available in the terminal, let's get back to learning Elm!
 -->
 これでエディターの設定が完了し、ターミナルで`elm`コマンドを使えるようになりましたので、Elmの学習に戻りましょう！
-
