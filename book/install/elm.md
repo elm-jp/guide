@@ -92,7 +92,7 @@ Now try creating a file called `src/Main.elm` in your editor, and copying in the
 <!--
 `elm reactor` helps you build Elm projects without messing with the terminal too much. You just run it at the root of your project, like this:
 -->
-`elm reactor`を使うと、ターミナルを頻繁に操作しなくてもElmプロジェクトをビルドできます。例えば次の例のように、プロジェクトのルートディレクトリで以下のコマンドを入力してみてください。
+`elm reactor`を使うと、ターミナルで毎度ごちゃごちゃ頑張らなくてもElmプロジェクトをビルドできます。次のように、プロジェクトのルートディレクトリで以下のコマンドを入力してみてください。
 
 ```bash
 elm reactor
