@@ -6,7 +6,7 @@
 <!--
 The previous page described how to install a code editor for Elm, so the next step is to obtain an executable file named `elm`. Here are the **install** links:
 -->
-前のページでは、Elm用のコードエディターをインストールする方法を説明しましたので、次は`elm` という実行可能ファイルを取得します。こちらが**インストール**用のリンクです。
+前のページでは、Elm用のコードエディターをインストールする方法を説明しました。次は`elm` という実行可能ファイルを取得してみましょう。こちらが**インストール**用のリンクです。
 
 <!--
 - **Mac** - [installer](https://github.com/elm/compiler/releases/download/0.19.1/installer-for-mac.pkg)
