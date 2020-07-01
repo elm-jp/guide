@@ -158,7 +158,7 @@ Elmのパッケージは全て[`package.elm-lang.org`](https://package.elm-lang.
 <!--
 Say you look around and decide you need [`elm/http`][http] and [`elm/json`][json] to make some HTTP requests. You can get them set up in your project with the following commands:
 -->
-例えばHTTPリクエストを組み立てるために[`elm/http`][http]パッケージと[`elm/json`][json]パッケージをプロジェクトに追加したいときは、以下のコマンドでインストールすることができます。
+例えばHTTPリクエストを組み立てるためにパッケージを探して[`elm/http`][http]パッケージと[`elm/json`][json]パッケージをプロジェクトに追加したいと思ったら、以下のコマンドでインストールすることができます。
 
 ```bash
 elm install elm/http
