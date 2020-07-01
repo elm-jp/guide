@@ -365,7 +365,9 @@ Here are some simple guidelines and common pitfalls:
 
 - **ポートはアプリケーションのためのものです。** `port module` はアプリケーションでは使えますが、パッケージでは使えません。このことは、アプリケーションの作者が必要な柔軟性を持つ一方で、パッケージエコシステムは全体が Elm で書かれていることを保証します。長い目で見ると、これがとても強固なエコシステムとコミュニティを構築するのを助けてくれます。JavaScriptとの相互運用に関するこの制限について、Elmが得たもの、手放したものは何であるのかということを、1つずつ[次の節](/interop/limits.html)で解説しています。
 
+<!--
 - **Ports can be dead code eliminated.** Elm has quite aggressive [dead code elimination](https://en.wikipedia.org/wiki/Dead_code_elimination), and it will remove ports that are not used within Elm code. The compiler does not know what goes on in JavaScript, so try to hook things up in Elm before JavaScript.
+-->
 
 - **ポートは最適化によって消されることがあります。** Elmコンパイラーはとても積極的に[到達不能コードの除去](https://en.wikipedia.org/wiki/Dead_code_elimination)による最適化を行っており、Elmコードの中で一度も呼び出されていないポートは、コンパイル後のJavaScriptから取り除かれてしまいます。コンパイラーはJavaScript側のコードで起きることを関知しないので、JavaScriptよりも先にまずElmコードを準備するようにしましょう。
 
