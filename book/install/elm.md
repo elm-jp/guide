@@ -193,7 +193,7 @@ You can always run `elm --help` to get a full outline of what `elm` is capable o
 <!--
 You can also run commands like `elm make --help` and `elm repl --help` to get hints about a specific command. This is great if you want to check which flags are available and what they do.
 -->
-また、`elm make --help`や`elm repl --help`のようにコマンドを実行して、特定のコマンドに関するヒントを得ることもできます。これは、どのフラグが利用可能か、何をするコマンドなのかを確認したいときに便利です。
+また、`elm make --help`や`elm repl --help`のようにコマンドを実行して、各コマンドに関するヒントを得ることもできます。これはどのフラグが利用可能か、何をするコマンドなのかを確認したいときに便利です。
 
 <!--
 **Second**, do not worry if it takes some time to get comfortable with the terminal in general.
