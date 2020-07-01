@@ -138,7 +138,7 @@ Try running these commands on your `src/Main.elm` file.
 <!--
 This is the most general way to compile Elm code. It is extremely useful once your project becomes too advanced for `elm reactor`.
 -->
-`elm make`はElmのコードをコンパイルする最も一般的な方法です。`elm reactor`では不十分なほどプロジェクトが複雑になってしまった場合にとても役に立ちます。
+`elm make`はElmのコードをコンパイルする最も一般的な方法です。プロジェクトが`elm reactor`でコンパイルするには高度過ぎるようになったら極めて有用です。
 
 <!--
 This command produces the same messages you have been seeing in the online editor and with `elm reactor`. Years of work has gone into them so far, but please report any unhelpful messages [here](https://github.com/elm/error-message-catalog/issues). I am sure there are ways to improve!
