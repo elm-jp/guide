@@ -30,7 +30,7 @@ After installation is complete, open up the terminal on your computer. It may be
 <!--
 Start by navigating to your desktop in the terminal:
 -->
-ターミナルでデスクトップに移動することから始めます。
+まずはターミナルでデスクトップに移動しましょう。
 
 <!--
 ```bash
