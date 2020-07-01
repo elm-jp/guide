@@ -70,7 +70,7 @@ elm init
 <!--
 Try running this command to create an `elm.json` file and a `src/` directory:
 -->
-このコマンドを実行して、`elm.json`ファイルと`src/`ディレクトリを作ってみてください。
+このコマンドを実行してみましょう。`elm.json`というファイルと、`src/`というディレクトリが作成されるはずです。
 
 <!--
 - [`elm.json`](https://github.com/elm/compiler/blob/master/docs/elm.json/application.md) describes your project.
