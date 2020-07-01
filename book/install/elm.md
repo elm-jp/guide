@@ -188,7 +188,7 @@ This adds these dependencies into your `elm.json` file, making these packages av
 <!--
 You can always run `elm --help` to get a full outline of what `elm` is capable of.
 -->
-`elm --help`を使うことで、いつでも`elm`コマンドの使い方の全てを確認できます。
+`elm --help`を使うことで、いつでも`elm`コマンドでできる全てのことについて、概要を確認できます。
 
 <!--
 You can also run commands like `elm make --help` and `elm repl --help` to get hints about a specific command. This is great if you want to check which flags are available and what they do.
