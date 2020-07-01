@@ -157,10 +157,6 @@ type Msg
   | Recv String
 
 
--- Use the `sendMessage` port when someone presses ENTER or clicks
--- the "Send" button. Check out index.html to see the corresponding
--- JS where this is piped into a WebSocket.
---
 -- ユーザーがエンターキーを押すか、「送信」ボタンをクリックしたとき、
 -- `sendMessage`ポートを呼び出しています。これがどんなふうに
 -- WebSocketとつながっているのか、index.htmlにあるJavaScriptと対応させてみてください。
@@ -188,10 +184,6 @@ update msg model =
 -- SUBSCRIPTIONS
 
 
--- Subscribe to the `messageReceiver` port to hear about messages coming in
--- from JS. Check out the index.html file to see how this is hooked up to a
--- WebSocket.
---
 -- `messageReceiver`ポートを使って、JavaScriptから送られるメッセージを待ち受けています。
 -- どうやってWebSocketとつながっているのかは、index.htmlファイルを見てください。
 --
