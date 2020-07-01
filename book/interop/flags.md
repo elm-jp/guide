@@ -11,7 +11,7 @@ Flags are a way to pass values into Elm on initialization.
 <!--
 Common uses are passing in API keys, environment variables, and user data. This can be handy if you generate the HTML dynamically. They can also help us load cached information in [this `localStorage` example](https://github.com/elm-community/js-integration-examples/tree/master/localStorage).
 -->
-よくある使い方は、APIキーや、環境変数、それにユーザーが作ったデータを渡したいときなどでしょう。フラグは、HTMLを動的に生成したいときにはとても便利です。また、[この`localStorage`の例](https://github.com/elm-community/js-integration-examples/tree/master/localStorage)のように、キャッシュからデータを読み取るときにも役に立ってくれます。
+よくある使い方は、APIキーや、環境変数、それにユーザーが作ったデータを渡したいときなどでしょう。フラグは、HTMLを動的に生成したいときにはとても便利です。また、[この`localStorage`の例](https://github.com/elm-community/js-integration-examples/tree/master/localStorage)のようにキャッシュからデータを読み取るときにも役立ちます。
 
 <!--
 ## Flags in HTML
@@ -21,7 +21,7 @@ Common uses are passing in API keys, environment variables, and user data. This 
 <!--
 The HTML is basically the same as before, but with an additional `flags` argument to the `Elm.Main.init()` function
 -->
-このHTMLは前のページに出てきたものと基本的に同じですが、`Elm.Main.init()`関数に追加の引数`flags`を渡しているところが違っています。
+このHTMLは前のページに出てきたものと基本的に同じですが、`Elm.Main.init()`関数に追加の引数`flags`を渡しているところが違います。
 
 ```html
 <html>
@@ -120,7 +120,7 @@ subscriptions _ =
 <!--
 The only important here is the `init` function says it takes an `Int` argument. This is how Elm code gets immediate access to the flags you pass in from JavaScript. From there, you can put things in your model or run some commands. Whatever you need to do.
 -->
-ここで重要なポイントはただ一つ、`init`関数が引数として`Int`の値を受け取っていることです。Elmでは、このようにJavaScriptの世界から渡されたフラグを、すぐにそのまま利用できるのです。フラグを受け取った後は、モデルに入れておくこともできますし、コマンドを実行するのに使ってもいいのです。あなたが必要なだけ、何にでも使うことができます。
+ここで重要なポイントはただ一つ、`init`関数が引数として`Int`を受け取っていることです。このように、JavaScriptの世界から渡されたフラグはElmからすぐにそのまま利用できます。フラグを受け取った後は、モデルに入れておく、コマンドを実行するなど、必要なもの何にでも使うことができます。
 
 <!--
 I recommend checking out [this `localStorage` example](https://github.com/elm-community/js-integration-examples/tree/master/localStorage) for a more interesting use of flags!
