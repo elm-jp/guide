@@ -101,7 +101,7 @@ elm reactor
 <!--
 This starts a server at [`http://localhost:8000`](http://localhost:8000). You can navigate to any Elm file and see what it looks like. Run `elm reactor`, follow the localhost link, and try to check out your `src/Main.elm` file!
 -->
-サーバーが[`http://localhost:8000`](http://localhost:8000)で起動します。ここでは任意のElmファイルを確認することができます。`elm reactor`を実行して、localhostへのリンクを開き、`src/Main.elm`ファイルを確認してみてください！
+サーバーが[`http://localhost:8000`](http://localhost:8000)で起動します。このサイトではどのElmファイルにも移動できて、どんな感じになるか見ることができます。`elm reactor`を実行して、localhostへのリンクを開き、`src/Main.elm`ファイルを確認してみてください！
 
 
 <br>
