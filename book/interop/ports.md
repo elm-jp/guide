@@ -28,7 +28,7 @@ Ports are probably most commonly used for [`WebSockets`](https://github.com/elm-
 Here we have pretty much the same HTML we have been using on the previous pages, but with a bit of extra JavaScript code in there. We create a connection to `wss://echo.websocket.org` that just repeats back whatever you send it. You can see in the [live example](https://ellie-app.com/8yYgw7y7sM2a1) that this lets us make the skeleton of a chat room:
 -->
 
-以前のページに出てきたHTMLとほとんど同じですが、少しだけJavaScriptが追加されています。ここで`wss://echo.websocket.org`との接続を作っていますが、これは送ったものを何でもそのまま返してくるWebSocketサーバーです。[こちらのデモ](https://ellie-app.com/8yYgw7y7sM2a1)から、このコードで最小限のチャットルームが動いている様子を見ることができます。
+以前のページに出てきたHTMLとほとんど同じですが、少しだけJavaScriptが追加されています。ここで接続している`wss://echo.websocket.org`は、送ったものを何でもそのまま返してくるWebSocketサーバーです。[こちらのデモ](https://ellie-app.com/8yYgw7y7sM2a1)から、このコードで最小限のチャットルームが動いている様子を見ることができます。
 
 ```html
 <!DOCTYPE HTML>
@@ -274,13 +274,13 @@ app.ports.sendMessage.subscribe(function(message) {
 This JavaScript code is subscribed to all of the outgoing messages. You can `subscribe` multiple functions and `unsubscribe` functions by reference, but we generally recommend keeping things static.
 -->
 
-このJavaScriptコードはElmから送られた外向きのメッセージをすべて受け取っています。`subscribe`を何度も使って1つのポートからのメッセージを複数のコールバックで待ち受けることも、登録したコールバック関数の参照を使って`unsubscribe`を呼び出し、待ち受けをやめることもできますが、ふつうは一度登録したあとで変更しないほうがよいでしょう。
+このJavaScriptコードは`sendMessage`から送られてくる外向きのあらゆるメッセージを待ち構えています。`subscribe`には複数の関数を渡すことができ、また、登録した関数の参照を使って`unsubscribe`を呼び出して待ち受けをやめることもできますが、ふつうは一度登録したあとで変更しないほうがよいでしょう。
 
 <!--
 We also recommend sending out richer messages, rather than making lots of individual ports. Maybe that means having a custom type in Elm that represents everything you might need to tell JS, and then using [`Json.Encode`](https://package.elm-lang.org/packages/elm/json/latest/Json-Encode) to send it out to a single JS subscription. Many people find that this creates a cleaner separation of concerns. The Elm code clearly owns some state, and the JS clearly owns other state.
 -->
 
-それから、たくさんのポートを使って単純なメッセージをいくつもやりとりするよりも、1つのメッセージの情報量を増やしましょう。例えば、ElmからはJavaScript側で必要なものを詰め込んだカスタム型を[`Json.Encode`](https://package.elm-lang.org/packages/elm/json/latest/Json-Encode)で変換して送り、JavaScriptではコールバックを1つだけ使ってメッセージを受け取る、というやり方があります。多くの開発者が、そのほうが関心事をきれいに分離できると言っています。ElmとJavaScriptのどちらの側でも、それぞれが管理する状態をはっきりさせておくのです。
+それから、たくさんのポートを使って単純なメッセージをいくつもやりとりするよりも、1つのメッセージの情報量を増やしましょう。例えば、Elm側ではJavaScriptで必要になりそうなものを全部1つのカスタム型に詰め込んでおき、[`Json.Encpde`](https://package.elm-lang.org/packages/elm/json/latest/Json-Encode)を使って変換して、JavaScript側で待ち構えている単一の関数に向けて送る、などです。多くの開発者が、そのほうが関心事をきれいに分離できると言っています。ElmとJavaScriptのどちらの側でも、それぞれが管理する状態をはっきりさせておくのです。
 
 
 <!--
@@ -363,13 +363,13 @@ Here are some simple guidelines and common pitfalls:
 - **Ports are for applications.** A `port module` is available in applications, but not in packages. This ensures that application authors have the flexibility they need, but the package ecosystem is entirely written in Elm. We think this will create a stronger ecosystem and community in the long run, and we get into the tradeoffs in depth in the upcoming section on the [limits](/interop/limits.html) of Elm/JS interop.
 -->
 
-- **ポートはアプリケーションのためのものです。** `port module` はアプリケーションでは使えますが、パッケージでは使えません。このことは、アプリケーションの作者が必要な柔軟性を持つ一方で、パッケージエコシステムは全体が Elm で書かれていることを保証します。長い目で見ると、これがとても強固なエコシステムとコミュニティを構築するのを助けてくれます。JavaScriptとの相互運用に関するこの制限について、Elmが得たもの、手放したものは何であるのかということを、1つずつ[次の節](/interop/limits.html)で解説しています。
+- **ポートはアプリケーションのためのものです。** `port module` はアプリケーションでは使えますが、パッケージでは使えません。このことは、アプリケーションの作者が必要な柔軟性を持つ一方で、パッケージエコシステムは全体が Elm で書かれていることを保証します。長い目で見ると、これがとても強固なエコシステムとコミュニティを構築するのを助けてくれます。JavaScriptとの相互運用に関するこの[制限事項](/interop/limits.html)によって、Elmが何を得て何を失ったのか、次の節で詳しく解説しています。
 
 <!--
 - **Ports can be dead code eliminated.** Elm has quite aggressive [dead code elimination](https://en.wikipedia.org/wiki/Dead_code_elimination), and it will remove ports that are not used within Elm code. The compiler does not know what goes on in JavaScript, so try to hook things up in Elm before JavaScript.
 -->
 
-- **ポートは最適化によって消されることがあります。** Elmコンパイラーはとても積極的に[到達不能コードの除去](https://en.wikipedia.org/wiki/Dead_code_elimination)による最適化を行っており、Elmコードの中で一度も呼び出されていないポートは、コンパイル後のJavaScriptから取り除かれてしまいます。コンパイラーはJavaScript側のコードで起きることを関知しないので、JavaScriptよりも先にまずElmコードを準備するようにしましょう。
+- **ポートは最適化によって消されることがあります。** Elmコンパイラーはとても積極的に[デッドコード除去](https://en.wikipedia.org/wiki/Dead_code_elimination)による最適化を行っており、Elmコードの中で一度も呼び出されていないポートは、コンパイル後のJavaScriptから取り除かれてしまいます。コンパイラーはJavaScript側のコードで起きることを関知しないので、JavaScriptよりも先にまずElmコードを準備するようにしましょう。
 
 <!--
 I hope this information will help you find ways to embed Elm in your existing JavaScript! It is not as glamorous as doing a full-rewrite in Elm, but history has shown that it is a much more effective strategy.
