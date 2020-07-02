@@ -240,7 +240,7 @@ Okay, but what is going on with the `port` declarations for `sendMessage` and `m
 ## Outgoing Messages (`Cmd`)
 -->
 
-## 外側へ送るメッセージ（`Cmd`）
+## 外向きのメッセージ（`Cmd`）
 
 <!--
 The `sendMessage` declaration lets us send messages out of Elm.
@@ -287,7 +287,7 @@ We also recommend sending out richer messages, rather than making lots of indivi
 ## Incoming Messages (`Sub`)
 -->
 
-## 外側から送られてくるメッセージ（`Sub`）
+## 内向きのメッセージ（`Sub`）
 
 <!--
 The `messageReceiver` declaration lets us listen for messages coming in to Elm.
