@@ -133,7 +133,7 @@ elm make src/Main.elm --optimize --output=elm.js
 <!--
 Try running these commands on your `src/Main.elm` file.
 -->
-これらのコマンドを`src/Main.elm`ファイルで実行してみてください。
+これらのコマンドをローカルにある`src/Main.elm`ファイルに対して実行してみてください。
 
 <!--
 This is the most general way to compile Elm code. It is extremely useful once your project becomes too advanced for `elm reactor`.
