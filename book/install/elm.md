@@ -61,7 +61,7 @@ The next step is to get familiar with `elm` command. I personally had a really h
 <!--
 You can start an Elm project by running:
 -->
-実行するとElmのプロジェクトを開始できます。
+以下のコマンドを実行すると、Elmのアプリケーションやライブラリを作成するために必要なファイルが自動的に生成されます。
 
 ```bash
 elm init
