@@ -126,7 +126,7 @@ elm make src/Main.elm --optimize --output=elm.js
 # ブラウザで開くことができるindex.htmlファイルを作成します。
 elm make src/Main.elm
 
-# 自前のHTMLドキュメントで読み込むために最適化されたJSファイルを作成します。
+# 自前のHTMLドキュメントに埋め込むための最適化されたJSファイルを作成します。
 elm make src/Main.elm --optimize --output=elm.js
 ```
 
