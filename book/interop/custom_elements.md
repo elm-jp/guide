@@ -23,7 +23,7 @@ Webページのローカライズと国際化を題材に、カスタムエレ�
 ## Creating Custom Elements
 -->
 
-## Custom Elementsの作成
+## カスタムエレメンツの作成
 
 <!--
 Say we want to localize dates, but that is not accessible in Elm core packages yet. Maybe you want to write a function that localizes dates:
