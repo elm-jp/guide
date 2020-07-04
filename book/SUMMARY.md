@@ -73,6 +73,7 @@
    * [フラグ](interop/flags.md)
    * [ポート](interop/ports.md)
    * [カスタムエレメンツ](interop/custom_elements.md)
+   * [制限事項](interop/limits.md)
 * [Webアプリケーション](webapps/README.md)
    * [ナビゲーションする](webapps/navigation.md)
    * [URLをパースする](webapps/url_parsing.md)
