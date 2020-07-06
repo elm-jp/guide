@@ -23,6 +23,7 @@ It can be tricky to get an editor set up, so for the purpose of this guide, I am
 -->
 エディターの設定が面倒なものもありますので、このガイド向けにはSublime Textを取り上げて設定方法をご紹介します。この内容がプログラミング初心者の方々の役に立つことや、すでにお気に入りのコードエディターをお持ちの方の補助として役立つことを願っています。
 
+
 ## Sublime Text
 
 <!--
@@ -43,6 +44,7 @@ It can be tricky to get an editor set up, so for the purpose of this guide, I am
 After going through those steps, it should be possible to open Elm files with syntax highlighting. Keywords like `import` and `type` should be colorful so the code is easier to read.
 -->
 上記の手順を実施すると、構文の強調表示がなされた状態でElmファイルを開けるはずです。 `import`や`type`のような予約語がカラフルに表示され、それによってコードがより読みやすくなります。
+
 
 <!--
 > **Note:** There are alternatives! Community members have created editor plugins for Atom, Emacs, IntelliJ, Vim, VS Code, and many more. We try to keep [this page](https://github.com/elm/editor-plugins) up to date with all the options!
