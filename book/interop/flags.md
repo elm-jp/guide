@@ -11,7 +11,7 @@ Flags are a way to pass values into Elm on initialization.
 <!--
 Common uses are passing in API keys, environment variables, and user data. This can be handy if you generate the HTML dynamically. They can also help us load cached information in [this `localStorage` example](https://github.com/elm-community/js-integration-examples/tree/master/localStorage).
 -->
-よくある使い方は、APIキーや、環境変数、それにユーザーが作ったデータを渡したいときなどでしょう。フラグは、HTMLを動的に生成したいときにはとても便利です。また、[この`localStorage`の例](https://github.com/elm-community/js-integration-examples/tree/master/localStorage)のようにキャッシュからデータを読み取るときにも役立ちます。
+よくある使い方は、APIキーや、環境変数、それにユーザーが作ったデータを渡したいときなどでしょう。フラグは、なんらかの値に応じて最初に表示するHTMLを動的に生成したいときに便利です。また、[この`localStorage`の例](https://github.com/elm-community/js-integration-examples/tree/master/localStorage)のようにウェブブラウザーに一時的に保存されたデータを読み取るときにも役立ちます。
 
 <!--
 ## Flags in HTML
