@@ -106,12 +106,10 @@ I want to call attention to the important lines here:
 - `<body>` - We need to do two things here. First, we create a `<div>` that want our Elm program to take over. Maybe it is within a larger application, surrounded by tons of other stuff? That is fine! Second, we have a `<script>` to initializes our Elm program. Here we call the `Elm.Main.init()` function to start our program, passing in the `node` we want to take over.
 
 Now that we know how to embed Elm programs in an HTML document, it is time to start exploring the three interop options: flags, ports, and custom elements!
-
-> **Note:** This is a normal HTML file, so you can put whatever you want in it! Many people load additional JS and CSS files in the `<head>`. That means it is totally fine to write your CSS by hand or to generate it somehow. Add something like `<link rel="stylesheet" href="whatever-you-want.css">` in your `<head>` and you have access to it. (There are some great options for specifying your CSS all _within_ Elm as well, but that is a whole other topic!)
 -->
 
 - `<head>` ではコンパイルした`main.js`を読み込んでいます。この行は必須です！Elmから`Main`という名前でコンパイルしたモジュールは、JavaScriptから`Elm.Main.init()`という関数として使うことができます。もし、Elmの`Home`というモジュールをコンパイルしたなら、`Elm.Home.init()`関数になる、というぐあいです。
-- `<body>` では2つのことを行ないます。最初に、Elmに制御させるための`<div>`を作ります。Elmが操作できるのはこの `<div>` の中に限られていますので、もしこれが他のたくさんの要素に囲まれた大きなアプリケーションの中だったとしても、心配は要りません！ 次に、Elmを初期化するための`<script>`タグがあります。ここで`Elm.Main.init()`関数を呼び出し、`node`という引数にElmに制御させたい要素を渡してプログラムを開始します。
+- `<body>` では2つのことを行ないます。最初に、Elmに制御させるための`<div>`を作ります。Elmが操作できるのはこの `<div>` の中に限られていますので、もしこれが他のたくさんの要素に囲まれた大きなアプリケーションの中だったとしても心配は要りません！ 次に、Elmを初期化するための`<script>`タグがあります。ここで`Elm.Main.init()`関数を呼び出し、`node`という引数にElmに制御させたい要素を渡してプログラムを開始します。
 
 さあ、HTMLドキュメントの中にElmプログラムを組み込むやりかたを学んだところで、いよいよJavaScriptとやり取りする3つの方法、フラグ、ポート、カスタムエレメンツについて見ていきましょう！
 
