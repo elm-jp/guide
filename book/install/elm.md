@@ -143,7 +143,7 @@ This is the most general way to compile Elm code. It is extremely useful once yo
 <!--
 This command produces the same messages you have been seeing in the online editor and with `elm reactor`. Years of work has gone into them so far, but please report any unhelpful messages [here](https://github.com/elm/error-message-catalog/issues). I am sure there are ways to improve!
 -->
-このコマンドを実行すると、オンラインエディターや`elm reactor`で表示されたものと同じメッセージが表示されます。これまでに年単位の時間をメッセージの改善に費やしてきましたが、わかりにくいメッセージがありましたら[こちら](https://github.com/elm/error-message-catalog/issues)に報告してください。きっと改善できると思います！
+このコマンドを実行すると、オンラインエディターや`elm reactor`で表示されたものと同じメッセージが表示されます。これまでに年単位の時間をメッセージの改善に費やしてきましたがわかりにくいメッセージがありましたら[こちら](https://github.com/elm/error-message-catalog/issues)に報告してください。きっと改善できると思います！
 
 
 <br>
