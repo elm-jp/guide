@@ -11,7 +11,7 @@ Flags are a way to pass values into Elm on initialization.
 <!--
 Common uses are passing in API keys, environment variables, and user data. This can be handy if you generate the HTML dynamically. They can also help us load cached information in [this `localStorage` example](https://github.com/elm-community/js-integration-examples/tree/master/localStorage).
 -->
-よくある使い方は、APIキーや、環境変数、それにユーザーが作ったデータを渡したいときなどでしょう。フラグは、なんらかの値に応じて最初に表示するHTMLを動的に生成したいときに便利です。また、[この`localStorage`の例](https://github.com/elm-community/js-integration-examples/tree/master/localStorage)のようにウェブブラウザーに一時的に保存されたデータを読み取るときにも役立ちます。
+よくある使い方は、APIキーや、環境変数、それにユーザーが作ったデータを渡したいときなどでしょう。Elmでコマンドやメッセージを発行しない最初のレンダリング時に、フラグの値に応じて動的にHTMLを生成することができます。また、[この`localStorage`の例](https://github.com/elm-community/js-integration-examples/tree/master/localStorage)のようにウェブブラウザーに保存されたデータを読み取るときにも役立ちます。
 
 <!--
 ## Flags in HTML
@@ -46,7 +46,7 @@ The HTML is basically the same as before, but with an additional `flags` argumen
 <!--
 In this example we are passing in the current time in milliseconds, but any JS value that can be JSON decoded can be given as a flag.
 -->
-この例では現在時刻をミリ秒として渡していますが、JSONとしてデコードできるものであれば、どんなJavaScriptの値でもフラグに使うことができます。
+この例では現在時刻をミリ秒として渡していますが、JSONとしてデコードできるものであればどんなJavaScriptの値でもフラグに使うことができます。
 
 <!--
 > **Note:** This additional data is called “flags” because it is kind of like command line flags. You can call `elm make src/Main.elm`, but you can add some flags like `--optimize` and `--output=main.js` to customize its behavior. Same sort of thing.
@@ -120,7 +120,7 @@ subscriptions _ =
 <!--
 The only important here is the `init` function says it takes an `Int` argument. This is how Elm code gets immediate access to the flags you pass in from JavaScript. From there, you can put things in your model or run some commands. Whatever you need to do.
 -->
-ここで重要なポイントはただ一つ、`init`関数が引数として`Int`を受け取っていることです。このように、JavaScriptの世界から渡されたフラグはElmからすぐにそのまま利用できます。フラグを受け取った後は、モデルに入れておく、コマンドを実行するなど、必要なもの何にでも使うことができます。
+ここで重要なポイントはただ一つ、`init`関数が引数として`Int`を受け取っていることです。このように、JavaScriptの世界から渡されたフラグはElmからすぐにそのまま利用できます。フラグを受け取った後は、モデルに入れておいたり、コマンドを実行するのに使ったり、必要なら何にでも使うことができます。
 
 <!--
 I recommend checking out [this `localStorage` example](https://github.com/elm-community/js-integration-examples/tree/master/localStorage) for a more interesting use of flags!
