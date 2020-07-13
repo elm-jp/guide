@@ -1,5 +1,3 @@
-<!-- TODO -->
-
 <!--
 # Ports
 -->
@@ -274,13 +272,13 @@ app.ports.sendMessage.subscribe(function(message) {
 This JavaScript code is subscribed to all of the outgoing messages. You can `subscribe` multiple functions and `unsubscribe` functions by reference, but we generally recommend keeping things static.
 -->
 
-このJavaScriptコードは`sendMessage`から送られてくる外向きのあらゆるメッセージを待ち構えています。`subscribe`には複数の関数を渡すことができ、また、登録した関数の参照を使って`unsubscribe`を呼び出して待ち受けをやめることもできますが、ふつうは一度登録したあとで変更しないほうがよいでしょう。
+このJavaScriptコードは`sendMessage`から送られてくる外向きのあらゆるメッセージを待ち構えています。もしたくさんのポートを使っているなら、そのそれぞれについて`subscribe`を呼び出すことができます。`subscribe`でメッセージを受け取るJavaScriptの関数は複数あっても構いません。また、登録した関数の参照を渡すことでメッセージの受け取りを停止させる`unsubscribe`もありますが、ふつうは一度登録したあとで変更しないほうがよいでしょう。
 
 <!--
 We also recommend sending out richer messages, rather than making lots of individual ports. Maybe that means having a custom type in Elm that represents everything you might need to tell JS, and then using [`Json.Encode`](https://package.elm-lang.org/packages/elm/json/latest/Json-Encode) to send it out to a single JS subscription. Many people find that this creates a cleaner separation of concerns. The Elm code clearly owns some state, and the JS clearly owns other state.
 -->
 
-それから、たくさんのポートを使って単純なメッセージをいくつもやりとりするよりも、1つのメッセージの情報量を増やしましょう。例えば、Elm側ではJavaScriptで必要になりそうなものを全部1つのカスタム型に詰め込んでおき、[`Json.Encpde`](https://package.elm-lang.org/packages/elm/json/latest/Json-Encode)を使って変換して、JavaScript側で待ち構えている単一の関数に向けて送る、などです。多くの開発者が、そのほうが関心事をきれいに分離できると言っています。ElmとJavaScriptのどちらの側でも、それぞれが管理する状態をはっきりさせておくのです。
+もう1つの注意点として、JavaScriptの関数の1つ1つに対応するたくさんのポートを使うのではなく、必要な情報をすべて持たせたリッチなメッセージを使うほうが好ましいです。例えば、Elmの側ではカスタム型で送りたいデータを表現し、[`Json.Encode`](https://package.elm-lang.org/packages/elm/json/latest/Json-Encode)で変換して送ります。JavaScript側ではそのメッセージだけを処理する関数を1つ用意して待ち構えておくのです。多くの開発者が、そのほうが関心事をきれいに分離できると言っています。ElmとJavaScriptのどちらの側でも、それぞれが管理する状態をはっきりさせておくのです。
 
 
 <!--
@@ -309,7 +307,7 @@ We are saying we are going to receive `String` values, but again, we can listen 
 Again we can use `messageReceiver` like any other function. In our case we call `messageReceiver Recv` when defining our `subscriptions` because we want to hear about any incoming messages from JavaScript. This will let us get messages like `Recv "how are you?"` in our `update` function.
 -->
 
-`messageReceiver`もまた、他の関数と同じように使えます。この例では`subscriptions`関数の定義でJavaScriptからのメッセージを待ち受けるために`messageReceiver Recv`を呼び出しています。こうすることで、`update`関数の中で`Recv "how are you?"`のようなメッセージを受け取ることができます。
+`messageReceiver`もまた、他の関数と同じように使えます。この例では`subscriptions`の定義においてJavaScriptからのメッセージを待ち受けるために`messageReceiver Recv`を呼び出しています。こうすることで、`update`関数の中で`Recv "how are you?"`のようなメッセージを受け取ることができます。
 
 <!--
 On the JavaScript side, we are able to send things to this port whenever we want:
@@ -327,7 +325,7 @@ socket.addEventListener("message", function(event) {
 We happen to be sending whenever the websocket gets a message, but you could send at other times as well. Maybe we are getting messages from another data source as well. That is fine, and Elm does not need to know anything about it! Just send the strings through the relevant port.
 -->
 
-今回はたまたまWebSocketが受信したのと同じタイミングでデータをElmに送っていますが、別のタイミングで送ることもできます。もしかすると、WebSocketと一緒に他のデータの供給源を使うことがあるかもしれません。その場合でも、Elmは何の問題もなく扱うことができますし、メッセージをいつ受け取るのか予め知っておく必要もありません！ただ型の合うポートに文字列を送るだけでいいのです。
+今回はたまたまWebSocketが受信したのと同じタイミングでデータをElmに送っていますが、別のタイミングで送ることもできます。もしかすると、WebSocketから送られてくるデータと一緒に他の場所にあるデータも使うかもしれませんが、その場合でもElmは何の問題もなく扱うことができます。データがどこから取得されたのか、メッセージをいつ受け取るのか、といったことを予め知っておく必要はありません！ただ型の合うポートに文字列を送るだけでいいのです。
 
 <!--
 ## Notes
