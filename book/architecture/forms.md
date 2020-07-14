@@ -7,14 +7,15 @@
 <!--
 Now we will make a rudimentary form. It has a field for your name, a field for your password, and a field to verify that password. We will also do some very simple validation to check if the passwords match.
 -->
-<!-- TODO -->
-Now we will make a rudimentary form. It has a field for your name, a field for your password, and a field to verify that password. We will also do some very simple validation to check if the passwords match.
+
+ここでは基本的なフォームを作成します。名前、パスワード、パスワード(確認用)のフィールドを持ったフォームです。また「2つのパスワードが一致しているか」という簡単な入力の検証も行います。
+
 
 <!--
 I included the full program below. Click the blue "Edit" button to mess with it in the online editor. Try introducing a typo to see some error messages. Try misspelling a record field like `password` or a function like `placeholder`. **Click the blue button now!**
 -->
-<!-- TODO -->
-I included the full program below. Click the blue "Edit" button to mess with it in the online editor. Try introducing a typo to see some error messages. Try misspelling a record field like `password` or a function like `placeholder`. **Click the blue button now!**
+
+プログラムの全体像をここに載せます。青い "Edit" ボタンをクリックして、オンラインエディタでこのコードをお好きなように触ってみてください。レコードのフィールド名にある `password` や `placholder` 関数の名前などをわざと打ち間違えて、コンパイラーのエラーメッセージを見てみましょう。**今すぐ青いボタンをクリック！**
 
 <div class="edit-link"><a href="https://elm-lang.org/examples/forms">Edit</a></div>
 
@@ -102,22 +103,16 @@ viewValidation model =
 <!--
 This is pretty similar to our [text field example](text_fields.md) but with more fields.
 -->
-<!-- TODO -->
-<!-- 元の文章：
-フィールドが複数ある点を除けば、[テキストフィールド](text_fields.md)で紹介したコードによく似ています。どこがどうなっているのか、一つずつ見ていきましょう！
--->
-This is pretty similar to our [text field example](text_fields.md) but with more fields.
+
+フィールドが複数ある点を除けば、[テキストフィールド](text_fields.md)で紹介したコードによく似ています。
 
 # Model
 
 <!--
 I always start out by guessing at the `Model`. We know there are going to be three text fields, so let's just go with that:
 -->
-<!-- TODO -->
-<!-- 元の文章：
+
 いつものように、モデルを考えることからはじめます。 3つのテキストフィールドが作られることが分かっているので、このようにします。
--->
-I always start out by guessing at the `Model`. We know there are going to be three text fields, so let's just go with that:
 
 ```elm
 type alias Model =
@@ -130,8 +125,8 @@ type alias Model =
 <!--
 I usually try to start with a minimal model, maybe with just one field. I then attempt to write the `view` and `update` functions. That often reveals that I need to add more to my `Model`. Building the model gradually like this means I can have a working program through the development process. It may not have all the features yet, but it is getting there!
 -->
-<!-- TODO -->
-I usually try to start with a minimal model, maybe with just one field. I then attempt to write the `view` and `update` functions. That often reveals that I need to add more to my `Model`. Building the model gradually like this means I can have a working program through the development process. It may not have all the features yet, but it is getting there!
+
+最初は最低限のモデルから始めましょう。用意するフィールドは1つだけでも構いません。そのあとで `view` と `update` 関数に取りかかります。すると大概、モデルを拡張しなければならないことが明らかになります。こんなふうにモデルを少しずつ組み立ててることで、開発プロセスの間ずっと、ちゃんと動作するプログラムを相手にすることができます。作成中のプログラムはまだすべての機能を備えてはいませんが、少しずつそこに近づけていくのです。
 
 
 ## Update
@@ -139,8 +134,8 @@ I usually try to start with a minimal model, maybe with just one field. I then a
 <!--
 Sometimes you have a pretty good idea of what the basic update code will look like. We know we need to be able to change our three fields, so we need messages for each case.
 -->
-<!-- TODO -->
-Sometimes you have a pretty good idea of what the basic update code will look like. We know we need to be able to change our three fields, so we need messages for each case.
+
+ときには `update` をどんな風に作ればいいかアイデアが浮かんでいることもあるでしょう。私たちのモデルには変更したいフィールドが3つあり、それぞれのフィールドに対応するメッセージが必要です。
 
 ```elm
 type Msg
@@ -152,8 +147,8 @@ type Msg
 <!--
 This means our `update` needs a case for all three variations:
 -->
-<!-- TODO -->
-This means our `update` needs a case for all three variations:
+
+メッセージが3種類あるということは `update` にも対応する3つの分岐が必要そうです。
 
 ```elm
 update : Msg -> Model -> Model
@@ -172,8 +167,8 @@ update msg model =
 <!--
 Each case uses the record update syntax to make sure the appropriate field is transformed. This is similar to the previous example, except with more cases.
 -->
-<!-- TODO -->
-Each case uses the record update syntax to make sure the appropriate field is transformed. This is similar to the previous example, except with more cases.
+
+パターンマッチの3つの分岐のそれぞれで、レコード更新構文を使って適切なフィールドだけを変更しています。分岐が増えたこと以外は前の節に出てきた例とよく似ていますね。
 
 <!--
 We get a little bit fancier than normal in our `view` though.
@@ -186,8 +181,8 @@ We get a little bit fancier than normal in our `view` though.
 <!--
 This `view` function is using **helper functions** to make things a bit more organized:
 -->
-<!-- TODO -->
-This `view` function is using **helper functions** to make things a bit more organized:
+
+`view` 関数では、まとまりのあるコードにするために補助関数を使っています。
 
 ```elm
 view : Model -> Html Msg
@@ -203,20 +198,20 @@ view model =
 <!--
 In previous examples we were using `input` and `div` directly. Why did we stop?
 -->
-<!-- TODO -->
-In previous examples we were using `input` and `div` directly. Why did we stop?
+
+以前の例では直接 `input` や `div` を使っていました。どうしてここではそうしないのでしょうか？
 
 <!--
 The neat thing about HTML in Elm is that `input` and `div` are just normal functions. They take (1) a list of attributes and (2) a list of child nodes. **Since we are using normal Elm functions, we have the full power of Elm to help us build our views!** We can refactor repetitive code out into customized helper functions. That is exactly what we are doing here!
 -->
-<!-- TODO -->
-The neat thing about HTML in Elm is that `input` and `div` are just normal functions. They take (1) a list of attributes and (2) a list of child nodes. **Since we are using normal Elm functions, we have the full power of Elm to help us build our views!** We can refactor repetitive code out into customized helper functions. That is exactly what we are doing here!
+
+ElmでHTMLを書くときに素敵なのは、`input` や `div` などが全てごく普通の関数だということです。これらの関数は引数として (1) 属性のリストと、(2) 子ノードのリストを受け取ります。普通の関数を使っているおかげで、ビューを組み立てるときにもElmの力を余すことなく使えるのです！ まさにここでやっているように、繰り返し使うコードは補助関数に切り出してリファクタリングすることができます。
 
 <!--
 So our `view` function has three calls to `viewInput`:
 -->
-<!-- TODO -->
-So our `view` function has three calls to `viewInput`:
+
+`view` 関数では3回 `viewInput` を呼び出しています。
 
 ```elm
 viewInput : String -> String -> String -> (String -> msg) -> Html msg
@@ -227,8 +222,8 @@ viewInput t p v toMsg =
 <!--
 This means that writing `viewInput "text" "Name" "Bill" Name` in Elm would turn into an HTML value like `<input type="text" placeholder="Name" value="Bill">` when shown on screen.
 -->
-<!-- TODO -->
-This means that writing `viewInput "text" "Name" "Bill" Name` in Elm would turn into an HTML value like `<input type="text" placeholder="Name" value="Bill">` when shown on screen.
+
+Elmで `viewInput "text" "Name" "Bill" Name` と書いたとき、画面に表示されるHTMLは `<input type="text" placeholder="Name" value="Bill">` のようになります。
 
 <!--
 The fourth entry is more interesting. It is a call to `viewValidation`:
@@ -254,43 +249,24 @@ This function first compares the two passwords. If they match, you get green tex
 <!--
 These helper functions begin to show the benefits of having our HTML library be normal Elm code. We _could_ put all that code into our `view`, but making helper functions is totally normal in Elm, even in view code. "Is this getting hard to understand? Maybe I can break out a helper function!"
 -->
-<!-- TODO -->
-<!-- 元の文章：
-こうした補助関数をみると、HTMLのシンタックスをそのまま用いるのではなく、現状のように通常のElmコードでHTMLを表現できるHTMLライブラリの利点がわかります。すべてのコードをベタ書きでviewに書くことももちろんできますが、Elmにおいて補助関数をつくって部品をくくりだすことはいたって普通のことですので、view関数のコードだろうが補助関数を使えば良いんです。理解するのが難しくなってきた？そしたらこのあたりの説明も、全部ここにベタ書きするんじゃなくて「補助関数」として別の節に分けて書いたほうが良いのかもしれないですね！
--->
-These helper functions begin to show the benefits of having our HTML library be normal Elm code. We _could_ put all that code into our `view`, but making helper functions is totally normal in Elm, even in view code. "Is this getting hard to understand? Maybe I can break out a helper function!"
+
+こうした補助関数をみると、HTMLのシンタックスをそのまま用いるのではなく、現状のように通常のElmコードでHTMLを表現できるHTMLライブラリの利点がわかります。すべてのコードをベタ書きでviewに書くことももちろんできますが、Elmにおいて補助関数をつくって部品をくくりだすことはいたって普通のことですので、view関数のコードだろうが補助関数を使えば良いんです。「コードがわかりづらくなってきたら、補助関数に分けてみよう！」と考えてみましょう。
 
 <!--
 > **Exercises:** Go look at this example in the online editor [here](https://elm-lang.org/examples/forms). Try to add the following features to the `viewValidation` helper function:
--->
-<!-- TODO -->
-<!-- 元の文章：
-> **練習問題:** `viewValidation`を分割する利点は、簡単に機能を追加できることです。もし、これを読みながらコードいじっているなら(なるべくそうしましょう！)次の機能を追加してみてください。
--->
-> **Exercises:** Go look at this example in the online editor [here](https://elm-lang.org/examples/forms). Try to add the following features to the `viewValidation` helper function:
->
-<!--
 >  - Check that the password is longer than 8 characters.
 >  - Make sure the password contains upper case, lower case, and numeric characters.
+> Use the functions from the [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) module for these exercises!
 -->
+> **練習問題:** [ここ](https://elm-lang.org/examples/forms)からオンラインエディタを開いてこのコードを表示し、補助関数の `viewValidation` に次の機能を追加してみてください。
 > - パスワードが8文字より長いか確認する。
 > - パスワードが大文字、小文字、数字を含むか確認する。
 >
-<!--
-> Use the functions from the [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) module for these exercises!
--->
-<!-- TODO -->
-<!-- 元の文章：
->上記を試す際は、 [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) モジュールに含まれる補助関数を必ず使用しましょう！ また、サーバーとの通信を行う前にまだ学ぶことがあります。試すのはHTTPのパートまで読んでからにしましょう。適切に順を追って説明していくので、かなり簡単になるはずです。
--->
-> Use the functions from the [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) module for these exercises!
->
+> この問題を解くときは [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) モジュールに用意された関数を使いましょう。
 <!--
 > **Warning:** We need to learn a lot more before we start sending HTTP requests. Keep reading all the way to the section on HTTP before trying it yourself. It will be significantly easier with proper guidance!
 -->
-<!-- TODO -->
-> **Warning:** We need to learn a lot more before we start sending HTTP requests. Keep reading all the way to the section on HTTP before trying it yourself. It will be significantly easier with proper guidance!
->
+> **注意:** HTTPリクエストを扱う前にまだ学ぶことがあります。試すのはHTTPのパートまで読んでからにしましょう。適切に順を追って説明していくので、かなり簡単になるはずです。
 <!--
 > **Note:** It seems like efforts to make generic validation libraries have not been too successful. I think the problem is that the checks are usually best captured by normal Elm functions. Take some args, give back a `Bool` or `Maybe`. E.g. Why use a library to check if two strings are equal? So as far as we know, the simplest code comes from writing the logic for your particular scenario without any special extras. So definitely give that a shot before deciding you need something more complex!
 -->
