@@ -258,7 +258,7 @@ These helper functions begin to show the benefits of having our HTML library be 
 >  - Make sure the password contains upper case, lower case, and numeric characters.
 > Use the functions from the [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) module for these exercises!
 -->
-> **練習問題:** [ここ](https://elm-lang.org/examples/forms)からオンラインエディタを開いてこのコードを表示し、補助関数の `viewValidation` に次の機能を追加してみてください。
+> **練習問題:** [ここ](https://elm-lang.org/examples/forms)からオンラインエディタを開いてこの例のコードを表示し、補助関数の `viewValidation` に次の機能を追加してみてください。
 > - パスワードが8文字より長いか確認する。
 > - パスワードが大文字、小文字、数字を含むか確認する。
 >
