@@ -263,10 +263,12 @@ These helper functions begin to show the benefits of having our HTML library be 
 > - パスワードが大文字、小文字、数字を含むか確認する。
 >
 > この問題を解くときは [`String`](https://package.elm-lang.org/packages/elm/core/latest/String) モジュールに用意された関数を使いましょう。
+
 <!--
 > **Warning:** We need to learn a lot more before we start sending HTTP requests. Keep reading all the way to the section on HTTP before trying it yourself. It will be significantly easier with proper guidance!
 -->
 > **注意:** HTTPリクエストを扱う前にまだ学ぶことがあります。試すのはHTTPのパートまで読んでからにしましょう。適切に順を追って説明していくので、かなり簡単になるはずです。
+
 <!--
 > **Note:** It seems like efforts to make generic validation libraries have not been too successful. I think the problem is that the checks are usually best captured by normal Elm functions. Take some args, give back a `Bool` or `Maybe`. E.g. Why use a library to check if two strings are equal? So as far as we know, the simplest code comes from writing the logic for your particular scenario without any special extras. So definitely give that a shot before deciding you need something more complex!
 -->
