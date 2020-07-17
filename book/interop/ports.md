@@ -278,7 +278,7 @@ This JavaScript code is subscribed to all of the outgoing messages. You can `sub
 We also recommend sending out richer messages, rather than making lots of individual ports. Maybe that means having a custom type in Elm that represents everything you might need to tell JS, and then using [`Json.Encode`](https://package.elm-lang.org/packages/elm/json/latest/Json-Encode) to send it out to a single JS subscription. Many people find that this creates a cleaner separation of concerns. The Elm code clearly owns some state, and the JS clearly owns other state.
 -->
 
-もう1つの注意点として、JavaScriptの関数の1つ1つに対応するたくさんのポートを使うのではなく、必要な情報をすべて持たせたリッチなメッセージを使うほうが好ましいです。例えば、Elmの側ではカスタム型で送りたいデータを表現し、[`Json.Encode`](https://package.elm-lang.org/packages/elm/json/latest/Json-Encode)で変換して送ります。JavaScript側ではそのメッセージだけを処理する関数を1つ用意して待ち構えておくのです。多くの開発者が、そのほうが関心事をきれいに分離できると言っています。ElmとJavaScriptのどちらの側でも、それぞれが管理する状態をはっきりさせておくのです。
+もう1つの注意点として、JavaScriptの関数の1つ1つに対応するたくさんのポートを使うのではなく、必要な情報をすべて持たせたリッチなメッセージを使うほうが好ましいです。例えば、Elmの側ではカスタム型で送りたいデータを表現し、[`Json.Encode`](https://package.elm-lang.org/packages/elm/json/latest/Json-Encode)で変換して送ります。そしてJavaScriptでは、そのメッセージだけを処理する関数を1つ用意して待ち構えておきます。多くの開発者が、そのほうが関心事をきれいに分離できると言っています。ElmとJavaScriptのどちらの側でも、それぞれが管理する状態をはっきりさせておくのです。
 
 
 <!--
@@ -325,7 +325,7 @@ socket.addEventListener("message", function(event) {
 We happen to be sending whenever the websocket gets a message, but you could send at other times as well. Maybe we are getting messages from another data source as well. That is fine, and Elm does not need to know anything about it! Just send the strings through the relevant port.
 -->
 
-今回はたまたまWebSocketが受信したのと同じタイミングでデータをElmに送っていますが、別のタイミングで送ることもできます。もしかすると、WebSocketから送られてくるデータと一緒に他の場所にあるデータも使うかもしれませんが、その場合でもElmは何の問題もなく扱うことができます。データがどこから取得されたのか、メッセージをいつ受け取るのか、といったことを予め知っておく必要はありません！ただ型の合うポートに文字列を送るだけでいいのです。
+今回はたまたまWebSocketが受信したのと同じタイミングでデータをElmに送っていますが、別のタイミングで送ることもできます。もしかすると、WebSocketから送られてくるデータと一緒に他の場所にあるデータも使うかもしれませんが、その場合でもElmは何の問題もなく扱うことができます。データがどこから取得されたのか、メッセージをいつ受け取るのか、といったことを予め知っておく必要はありません！受け取ったものを対応するポートに送るだけでいいのです。
 
 <!--
 ## Notes
