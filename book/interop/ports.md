@@ -337,7 +337,7 @@ We happen to be sending whenever the websocket gets a message, but you could sen
 **Ports are about creating strong boundaries!** Definitely do not try to make a port for every JS function you need. You may really like Elm and want to do everything in Elm no matter the cost, but ports are not designed for that. Instead, focus on questions like “who owns the state?” and use one or two ports to send messages back and forth. If you are in a complex scenario, you can even simulate `Msg` values by sending JS like `{ tag: "active-users-changed", list: ... }` where you have a tag for all the variants of information you might send across.
 -->
 
-**ポートを作ることでElmとJavaScriptの間に強い結びつきが生まれます！** 欲しいJavaScriptの関数すべてに1対1で対応するポートを作るようなことは絶対に避けるべきです。あなたはElmが大好きで、何もかもElmの中で解決したいと考えているかもしれませんが、ポートはそのために作られた道具ではありません。代わりに、「誰が状態を管理しているのか？」というような疑問に焦点を当てて、メッセージの受け渡しに使うポートを1つか2つだけ使うようにしましょう。もし複雑なシナリオの中でポートを使う必要があるなら、JavaScriptに送るメッセージとして`{ tag: "active-users-changed", list: ... }`のような値を使い、カスタム型が取りうる選択肢をメッセージの中にタグとして埋め込むことで、Elm側の`Msg`を再現することもできます。
+**ポートはElmとJavaScriptを強く結合させます！** 欲しいJavaScriptの関数すべてに1対1で対応するポートを作るようなことは絶対に避けるべきです。あなたはElmが大好きで、何もかもElmの中で解決したいと考えているかもしれませんが、ポートはそのために作られた道具ではありません。そうではなく、 Elm と JavaScript が受け持つべき責務について「状態を管理するのはどちらか？」というふうに問いかけて、1つか2つだけのポートを使ってメッセージをやりとりしましょう。もし複雑なシナリオでポートを使う必要があるなら、JavaScriptへ送るメッセージの中に、カスタム型が取りうる選択肢を `{ tag: "active-users-changed", list: ... }` のようにタグとして埋め込むことで、Elm側の`Msg`を再現することもできます。
 
 <!--
 Here are some simple guidelines and common pitfalls:
@@ -349,7 +349,7 @@ Here are some simple guidelines and common pitfalls:
 - **Sending `Json.Encode.Value` through ports is recommended.** Like with flags, certain core types can pass through ports as well. This is from the time before JSON decoders, and you can read about it more [here](/interop/flags.html#verifying-flags).
 -->
 
-- **`Json.Encode.Value`型の値はポートでやり取りするのに向いています。** フラグで見てきたように、`elm/core`に含まれる型のなかにもポートを通じて渡すことができるものがあります。これは Elm に JSON デコーダーが導入される前から存在しているもので、それについて詳しくは[こちら](/interop/flags.html#フラグの検証)を読んでみてください。
+- **`Json.Encode.Value`型の値はポートでやり取りするのに向いています。** そのほかにも、フラグの例で見たように`elm/core`に含まれる型にもポートを通して渡せるものがあります。これは Elm に JSON デコーダーが導入される前から存在しているものです。詳しくは[こちら](/interop/flags.html#フラグの検証)を読んでみてください。
 
 <!--
 - **All `port` declarations must appear in a `port module`.** It is probably best to organize all your ports into one `port module` so it is easier to see the interface all in one place.
@@ -361,18 +361,18 @@ Here are some simple guidelines and common pitfalls:
 - **Ports are for applications.** A `port module` is available in applications, but not in packages. This ensures that application authors have the flexibility they need, but the package ecosystem is entirely written in Elm. We think this will create a stronger ecosystem and community in the long run, and we get into the tradeoffs in depth in the upcoming section on the [limits](/interop/limits.html) of Elm/JS interop.
 -->
 
-- **ポートはアプリケーションのためのものです。** `port module` はアプリケーションでは使えますが、パッケージでは使えません。このことは、アプリケーションの作者が必要な柔軟性を持つ一方で、パッケージエコシステムは全体が Elm で書かれていることを保証します。長い目で見ると、これがとても強固なエコシステムとコミュニティを構築するのを助けてくれます。JavaScriptとの相互運用に関するこの[制限事項](/interop/limits.html)によって、Elmが何を得て何を失ったのか、次の節で詳しく解説しています。
+- **ポートはアプリケーションのためのものです。** `port module` はアプリケーションでは使えますが、パッケージでは使えません。こうすることで、アプリケーションを作るときには必要に応じて JavaScript を使えるよう融通を効かせながら、同時にパッケージエコシステムは全体が Elm で書かれていることを保証できます。長い目で見ると、これが強固なエコシステムとコミュニティを構築する助けになります。JavaScriptとの相互運用に関するこの[制限事項](/interop/limits.html)によって、Elmが何を得て何を失ったのか、次の節で詳しく解説しています。
 
 <!--
 - **Ports can be dead code eliminated.** Elm has quite aggressive [dead code elimination](https://en.wikipedia.org/wiki/Dead_code_elimination), and it will remove ports that are not used within Elm code. The compiler does not know what goes on in JavaScript, so try to hook things up in Elm before JavaScript.
 -->
 
-- **ポートは最適化によって消されることがあります。** Elmコンパイラーはとても積極的に[デッドコード除去](https://en.wikipedia.org/wiki/Dead_code_elimination)による最適化を行っており、Elmコードの中で一度も呼び出されていないポートは、コンパイル後のJavaScriptから取り除かれてしまいます。コンパイラーはJavaScript側のコードで起きることを関知しないので、JavaScriptよりも先にまずElmコードを準備するようにしましょう。
+- **ポートは最適化によって消されることがあります。** Elmコンパイラーはとても積極的に[デッドコード除去](https://en.wikipedia.org/wiki/Dead_code_elimination)による最適化を行っており、Elmコードの中で一度も呼び出されていないポートは、コンパイル後のJavaScriptから取り除かれてしまいます。ElmのコンパイラーはJavaScript側のコードで起きることを関知しないので、JavaScript側でポートを使うコードを準備するよりも先に、Elmコード内でそのポートを使うコードを書くようにしましょう。
 
 <!--
 I hope this information will help you find ways to embed Elm in your existing JavaScript! It is not as glamorous as doing a full-rewrite in Elm, but history has shown that it is a much more effective strategy.
 -->
 
-ここで学んだ内容を使えば、既存のJavaScriptにElmを組み込んで共存させることもできます。それはあまり魅力的な方法に思えないかもしれませんが、ときにはアプリケーション全体をElmで作り直すよりずっと効果的だということを、過去の実績が証明しています。
+ここで学んだ内容を使えば、既存のJavaScriptにElmを組み込んで共存させることもできます。アプリケーション全体をElmで書き直すことに比べればあまり魅力的に思えないかもしれませんが、作り直すよりずっと効果的だということを、過去の実績が証明しています。
 
 
