@@ -337,7 +337,7 @@ We happen to be sending whenever the websocket gets a message, but you could sen
 **Ports are about creating strong boundaries!** Definitely do not try to make a port for every JS function you need. You may really like Elm and want to do everything in Elm no matter the cost, but ports are not designed for that. Instead, focus on questions like “who owns the state?” and use one or two ports to send messages back and forth. If you are in a complex scenario, you can even simulate `Msg` values by sending JS like `{ tag: "active-users-changed", list: ... }` where you have a tag for all the variants of information you might send across.
 -->
 
-**ポートはElmとJavaScriptを強く結合させます！** 欲しいJavaScriptの関数すべてに1対1で対応するポートを作るようなことは絶対に避けるべきです。あなたはElmが大好きで、何もかもElmの中で解決したいと考えているかもしれませんが、ポートはそのために作られた道具ではありません。そうではなく、 Elm と JavaScript が受け持つべき責務について「状態を管理するのはどちらか？」というふうに問いかけて、1つか2つだけのポートを使ってメッセージをやりとりしましょう。もし複雑なシナリオでポートを使う必要があるなら、JavaScriptへ送るメッセージの中に、カスタム型が取りうる選択肢を `{ tag: "active-users-changed", list: ... }` のようにタグとして埋め込むことで、Elm側の`Msg`を再現することもできます。
+**ポートはElmとJavaScriptを強く結合させます！** 欲しいJavaScriptの関数すべてに1対1で対応するポートを作るようなことは絶対に避けるべきです。あなたはElmが大好きで、何もかもElmの中で解決したいと考えているかもしれませんが、ポートはそのために作られた道具ではありません。そうではなく、 Elm と JavaScript が受け持つべき責務を、例えば「状態を管理するのはどちらか？」というぐあいに、1つずつ取り上げて問いかけてみましょう。そして1つか2つだけのポートを使い、責務を果たすために過不足のないメッセージをやりとりしましょう。もし複雑なシナリオでポートを使う必要があるなら、JavaScriptへ送るメッセージの中に、カスタム型が取りうる選択肢を `{ tag: "active-users-changed", list: ... }` のようにタグとして埋め込むことで、Elm側の`Msg`を再現することができます。
 
 <!--
 Here are some simple guidelines and common pitfalls:
