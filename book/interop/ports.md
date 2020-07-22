@@ -361,18 +361,16 @@ Here are some simple guidelines and common pitfalls:
 - **Ports are for applications.** A `port module` is available in applications, but not in packages. This ensures that application authors have the flexibility they need, but the package ecosystem is entirely written in Elm. We think this will create a stronger ecosystem and community in the long run, and we get into the tradeoffs in depth in the upcoming section on the [limits](/interop/limits.html) of Elm/JS interop.
 -->
 
-- **ポートはアプリケーションのためのものです。** `port module` はアプリケーションでは使えますが、パッケージでは使えません。こうすることで、アプリケーションを作るときには必要に応じて JavaScript を使えるよう融通を効かせながら、同時にパッケージエコシステムは全体が Elm で書かれていることを保証できます。長い目で見ると、これが強固なエコシステムとコミュニティを構築する助けになります。JavaScriptとの相互運用に関するこの[制限事項](/interop/limits.html)によって、Elmが何を得て何を失ったのか、次の節で詳しく解説しています。
+- **ポートはアプリケーションのためのものです。** `port module` はアプリケーションでは使えますが、パッケージでは使えません。こうすることで、アプリケーションを作るときには必要に応じて JavaScript を使えるよう融通を効かせながら、公開されているパッケージはすべて Elm で書かれていることを保証しているのです。長い目で見ると、これが強固なエコシステムとコミュニティを構築する助けになります。JavaScriptとの相互運用に関するこの[制限事項](/interop/limits.html)によって、Elmが何を得て何を失ったのか、次の節で詳しく解説しています。
 
 <!--
 - **Ports can be dead code eliminated.** Elm has quite aggressive [dead code elimination](https://en.wikipedia.org/wiki/Dead_code_elimination), and it will remove ports that are not used within Elm code. The compiler does not know what goes on in JavaScript, so try to hook things up in Elm before JavaScript.
 -->
 
-- **ポートは最適化によって消されることがあります。** Elmコンパイラーはとても積極的に[デッドコード除去](https://en.wikipedia.org/wiki/Dead_code_elimination)による最適化を行っており、Elmコードの中で一度も呼び出されていないポートは、コンパイル後のJavaScriptから取り除かれてしまいます。ElmのコンパイラーはJavaScript側のコードで起きることを関知しないので、JavaScript側でポートを使うコードを準備するよりも先に、Elmコード内でそのポートを使うコードを書くようにしましょう。
+- **ポートは最適化によって消されることがあります。** Elmコンパイラーはとても積極的に[デッドコード除去](https://en.wikipedia.org/wiki/Dead_code_elimination)による最適化を行っており、Elmコードの中で一度も呼び出されていないポートは、コンパイル後のJavaScriptから取り除かれてしまいます。Elmのコンパイラーは、JavaScript側のコードがポートを使っていることを知らないのです。JavaScriptでポートを使ったコードを書く前に、まずElmの側でそのポートを使うようにしましょう。
 
 <!--
 I hope this information will help you find ways to embed Elm in your existing JavaScript! It is not as glamorous as doing a full-rewrite in Elm, but history has shown that it is a much more effective strategy.
 -->
 
 ここで学んだ内容を使えば、既存のJavaScriptにElmを組み込んで共存させることもできます。アプリケーション全体をElmで書き直すことに比べればあまり魅力的に思えないかもしれませんが、作り直すよりずっと効果的だということを、過去の実績が証明しています。
-
-
