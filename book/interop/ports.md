@@ -75,7 +75,7 @@ socket.addEventListener("message", function(event) {
 We call `Elm.Main.init()` like in all of our interop examples, but this time we are actually using the resulting `app` object. We are subscribing to the `sendMessage` port and we are sending to the `messageReceiver` port.
 -->
 
-この章の他の例と同じように`Elm.Main.init()`関数を呼んでいますが、今回はその戻り値の`app`オブジェクトを利用します。`sendMessage`ポートでElmからのメッセージを待ち受けつつ、`messageReceiver`ポートを使ってElmへデータを送信します。
+この「JavaScriptとの相互運用」の章に出てくる他の例と同じように`Elm.Main.init()`関数を呼んでいますが、今回はその戻り値の`app`オブジェクトを利用します。`sendMessage`ポートでElmからのメッセージを待ち受けつつ、`messageReceiver`ポートを使ってElmへデータを送信します。
 
 <!--
 Those correspond to code written on the Elm side.
