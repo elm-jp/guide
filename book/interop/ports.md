@@ -373,4 +373,4 @@ Here are some simple guidelines and common pitfalls:
 I hope this information will help you find ways to embed Elm in your existing JavaScript! It is not as glamorous as doing a full-rewrite in Elm, but history has shown that it is a much more effective strategy.
 -->
 
-ここで学んだ内容を使えば、既存のJavaScriptにElmを組み込んで共存させることもできます。アプリケーション全体をElmで書き直すことに比べればあまり魅力的に思えないかもしれませんが、作り直すよりずっと効果的だということを、過去の実績が証明しています。
+既にJavaScriptで書かれたアプリケーションを運用しているなら、ぜひともこの節で学んだ知識を使って、JavaScriptの中にElmを組み込む方法を模索してみてください。ElmとJavaScriptを共存させるという考え方はあまり魅力的に思えないかもしれません。しかし、このやり方はサービスの運用やプロジェクトの管理を円滑にするという点で、全体をElmで書き直すよりずっと大きな効果を示すことがわかっており、実績に裏打ちされた戦略なのです。
