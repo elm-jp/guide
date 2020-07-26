@@ -225,13 +225,13 @@ ifIsEnter msg =
 Notice that the first line says `port module` rather than just `module`. This makes it possible to define ports in a given module. The compiler gives a hint about this if it is needed, so hopefully no one gets too stuck on that!
 -->
 
-最初の行でただの`module`の代わりに`port module`と書いていることに気をつけましょう。これで、モジュールの中でポートを定義できるようになります。もし忘れてしまってもコンパイラーがヒントを表示してくれるので、ここでつまづく人は少ないでしょう。
+最初の行でただの`module`の代わりに`port module`と書いていることに気をつけましょう。これでモジュールの中でポートを定義できるようになります。もし忘れてしまってもコンパイラーがヒントを表示してくれるので、ここでつまづく人は少ないでしょう。
 
 <!--
 Okay, but what is going on with the `port` declarations for `sendMessage` and `messageReceiver`?
 -->
 
-さて、`sendMessage`と`messageReceiver`の`port`の宣言では、いったい何が起きているのでしょうか？
+さて、`sendMessage`と`messageReceiver`の`port`の宣言ではいったい何が起きているのでしょうか？
 
 <!--
 ## Outgoing Messages (`Cmd`)
@@ -243,7 +243,7 @@ Okay, but what is going on with the `port` declarations for `sendMessage` and `m
 The `sendMessage` declaration lets us send messages out of Elm.
 -->
 
-`sendMessage`は、Elmから外の世界へメッセージを送るために使います。
+`sendMessage`はElmから外の世界へメッセージを送るために使います。
 
 ```elm
 port sendMessage : String -> Cmd msg
