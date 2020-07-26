@@ -232,7 +232,7 @@ Notice that the first line says `port module` rather than just `module`. This ma
 Okay, but what is going on with the `port` declarations for `sendMessage` and `messageReceiver`?
 -->
 
-さて、`sendMessage`と`messageReceiver`の`port`の宣言では、いったい何が起きているのでしょうか？
+さて、`sendMessage`と`messageReceiver`の`port`の宣言ではいったい何が起きているのでしょうか？
 
 <!--
 ## Outgoing Messages (`Cmd`)
