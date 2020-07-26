@@ -26,7 +26,7 @@ Ports are probably most commonly used for [`WebSockets`](https://github.com/elm-
 Here we have pretty much the same HTML we have been using on the previous pages, but with a bit of extra JavaScript code in there. We create a connection to `wss://echo.websocket.org` that just repeats back whatever you send it. You can see in the [live example](https://ellie-app.com/8yYgw7y7sM2a1) that this lets us make the skeleton of a chat room:
 -->
 
-以前のページに出てきたHTMLとほとんど同じですが、少しだけJavaScriptが追加されています。ここで接続している`wss://echo.websocket.org`は、送ったものを何でもそのまま返してくるWebSocketサーバーです。[こちらのデモ](https://ellie-app.com/8yYgw7y7sM2a1)から、このコードで最小限のチャットルームが動いている様子を見ることができます。
+以前のページに出てきたHTMLとほとんど同じですが、少しだけJavaScriptが追加されています。ここで接続している`wss://echo.websocket.org`は、送ったものを何でもそのまま返してくるWebSocketサーバーです。[こちらのデモ](https://ellie-app.com/8yYgw7y7sM2a1)から、このコードでチャットルームを作るための骨組みを見ることができます。
 
 ```html
 <!DOCTYPE HTML>
@@ -93,7 +93,7 @@ Those correspond to code written on the Elm side.
 Check out the lines that use the `port` keyword in the corresponding Elm file. This is how we define the ports that we just saw on the JavaScript side.
 -->
 
-こちらが対応するElmのコードです。特に、予約語の`port`が使われている行に注意してみてください。さっき見たばかりのJavaScript側のコードに出てきたポートは、Elmではこんなふうに定義されています。
+こちらが対応するElmのコードです。特に、予約語の`port`が使われている行に注意してみてください。さっきJavaScript側でポートが使われているところを見ましたが、そのポートをElmではこんなふうに定義します。
 
 ```elm
 port module Main exposing (..)
@@ -155,9 +155,8 @@ type Msg
   | Recv String
 
 
--- ユーザーがエンターキーを押すか、「送信」ボタンをクリックしたとき、
--- `sendMessage`ポートを呼び出しています。これがどんなふうに
--- WebSocketとつながっているのか、index.htmlにあるJavaScriptと対応させてみてください。
+-- ユーザーがエンターキーを押すか、Send ボタンをクリックしたとき、`sendMessage`ポートを使っています。
+-- これがどんなふうにWebSocketとつながっているのかindex.htmlにあるJavaScriptと対応させてみてください。
 --
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
