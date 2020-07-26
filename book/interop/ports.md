@@ -271,13 +271,40 @@ app.ports.sendMessage.subscribe(function(message) {
 This JavaScript code is subscribed to all of the outgoing messages. You can `subscribe` multiple functions and `unsubscribe` functions by reference, but we generally recommend keeping things static.
 -->
 
-このJavaScriptコードは`sendMessage`から送られてくる外向きのあらゆるメッセージを待ち構えています。もしたくさんのポートを使っているなら、そのそれぞれについて`subscribe`を呼び出すことができます。`subscribe`でメッセージを受け取るJavaScriptの関数は複数あっても構いません。また、登録した関数の参照を渡すことでメッセージの受け取りを停止させる`unsubscribe`もありますが、ふつうは一度登録したあとで変更しないほうがよいでしょう。
+このJavaScriptコードは`sendMessage`から送られてくる外向きのあらゆるメッセージを待ち構えています。もしそうしたければ複数の関数を`subscribe`に登録することができます。
+
+```javascript
+var foo = function(message) {...};
+var bar = function(message) {...};
+
+app.ports.sendMessage.subscribe(foo);
+app.ports.sendMessage.subscribe(bar);
+```
+
+> 注: JavaScriptの他の関数と同じように1度の`subscribe`で複数の関数を登録することはできません。
+>
+> ```javascript
+> // これは2つ目以降の引数は無視されます
+> app.ports.sendMessage.subscribe(foo, bar);
+> ```
+
+また、登録した関数の参照を渡すことでメッセージの受け取りを停止させる`unsubscribe`もあります。
+
+```javascript
+var foo = function(message) {...};
+
+app.ports.sendMessage.subscribe(foo);
+...
+app.ports.sendMessage.unsubscribe(foo);
+```
+
+ですが、ふつうは一度登録したあとで変更せず静的に扱うのがよいでしょう。
 
 <!--
 We also recommend sending out richer messages, rather than making lots of individual ports. Maybe that means having a custom type in Elm that represents everything you might need to tell JS, and then using [`Json.Encode`](https://package.elm-lang.org/packages/elm/json/latest/Json-Encode) to send it out to a single JS subscription. Many people find that this creates a cleaner separation of concerns. The Elm code clearly owns some state, and the JS clearly owns other state.
 -->
 
-もう1つの注意点として、JavaScriptの関数の1つ1つに対応するたくさんのポートを使うのではなく、必要な情報をすべて持たせたリッチなメッセージを使うほうが好ましいです。例えば、Elmの側ではカスタム型で送りたいデータを表現し、[`Json.Encode`](https://package.elm-lang.org/packages/elm/json/latest/Json-Encode)で変換して送ります。そしてJavaScriptでは、そのメッセージだけを処理する関数を1つ用意して待ち構えておきます。多くの開発者が、そのほうが関心事をきれいに分離できると言っています。ElmとJavaScriptのどちらの側でも、それぞれが管理する状態をはっきりさせておくのです。
+もう1つポートを定義するときに大切なことがあります。JavaScriptの関数を逐語的にポートで定義して、必要に応じてたくさんのポートを使い分けるのはいい方法ではありません。それよりもポートを通して送るメッセージのほうをリッチにして、ポート自体は抽象度を高めて数を少なくしておくほうが好ましいでしょう。例えば、Elmの側ではカスタム型で送りたいデータを表現し、[`Json.Encode`](https://package.elm-lang.org/packages/elm/json/latest/Json-Encode)で変換して送ります。そしてJavaScriptでは、そのメッセージを処理する専用の関数を書いて待ち構えておくのです。多くの開発者が、そのほうが関心事をきれいに分離できると言っています。ElmにはElmの、JavaScriptにはJavaScriptの管理するべき状態がはっきりとあるはずです。
 
 
 <!--
@@ -290,7 +317,7 @@ We also recommend sending out richer messages, rather than making lots of indivi
 The `messageReceiver` declaration lets us listen for messages coming in to Elm.
 -->
 
-`messageReceiver`は、Elmの外の世界から送られてくるメッセージを待ち受けるために使います。
+`messageReceiver`はElmの外の世界から送られてくるメッセージを待ち受けるために使います。
 
 ```elm
 port messageReceiver : (String -> msg) -> Sub msg
@@ -324,7 +351,7 @@ socket.addEventListener("message", function(event) {
 We happen to be sending whenever the websocket gets a message, but you could send at other times as well. Maybe we are getting messages from another data source as well. That is fine, and Elm does not need to know anything about it! Just send the strings through the relevant port.
 -->
 
-今回はたまたまWebSocketが受信したのと同じタイミングでデータをElmに送っていますが、別のタイミングで送ることもできます。もしかすると、WebSocketから送られてくるデータと一緒に他の場所にあるデータも使うかもしれませんが、その場合でもElmは何の問題もなく扱うことができます。データがどこから取得されたのか、メッセージをいつ受け取るのか、といったことを予め知っておく必要はありません！受け取ったものを対応するポートに送るだけでいいのです。
+今回はたまたまWebSocketが受信したのと同じタイミングでデータをElmに送っていますが、別のタイミングで送りたくなることがあるかもしれません。もしかすると、WebSocketから送られてくるデータと一緒に他の場所にあるデータを使うかもしれません。その場合もElmは「データがどこから取得されたのか」「メッセージをいつ受け取るのか」といったことを予め知っておく必要はありません！　ただJavaScript側でデータを整形し、対応するポートに送るだけでいいのです。
 
 <!--
 ## Notes
@@ -336,7 +363,7 @@ We happen to be sending whenever the websocket gets a message, but you could sen
 **Ports are about creating strong boundaries!** Definitely do not try to make a port for every JS function you need. You may really like Elm and want to do everything in Elm no matter the cost, but ports are not designed for that. Instead, focus on questions like “who owns the state?” and use one or two ports to send messages back and forth. If you are in a complex scenario, you can even simulate `Msg` values by sending JS like `{ tag: "active-users-changed", list: ... }` where you have a tag for all the variants of information you might send across.
 -->
 
-**ポートはElmとJavaScriptを強く結合させます！** 欲しいJavaScriptの関数すべてに1対1で対応するポートを作るようなことは絶対に避けるべきです。あなたはElmが大好きで、何もかもElmの中で解決したいと考えているかもしれませんが、ポートはそのために作られた道具ではありません。そうではなく、 Elm と JavaScript が受け持つべき責務を、例えば「状態を管理するのはどちらか？」というぐあいに、1つずつ取り上げて問いかけてみましょう。そして1つか2つだけのポートを使い、責務を果たすために過不足のないメッセージをやりとりしましょう。もし複雑なシナリオでポートを使う必要があるなら、JavaScriptへ送るメッセージの中に、カスタム型が取りうる選択肢を `{ tag: "active-users-changed", list: ... }` のようにタグとして埋め込むことで、Elm側の`Msg`を再現することができます。
+**ポートはElmとJavaScriptを強く結合させます！** 欲しいJavaScriptの関数すべてに1対1で対応するポートを作るようなことは絶対に避けるべきです。あなたはElmが大好きで、何もかもElmの中で解決したいと考えているかもしれませんが、ポートはそのために作られた道具ではありません。誤った使いかたをしないためには、 Elm と JavaScript が受け持つべき責務を、例えば「状態を管理するのはどちらか？」というぐあいに1つずつ取り上げて問いかけてみましょう。そして1つか2つだけのポートを使い、責務を果たすために過不足のないメッセージをやりとりしましょう。もし複雑なシナリオでポートを使う必要があるなら、JavaScriptへ送るメッセージの中に、カスタム型が取りうる選択肢を `{ tag: "active-users-changed", list: ... }` のようにタグとして埋め込むことで、Elm側の`Msg`を再現することができます。
 
 <!--
 Here are some simple guidelines and common pitfalls:
@@ -360,7 +387,7 @@ Here are some simple guidelines and common pitfalls:
 - **Ports are for applications.** A `port module` is available in applications, but not in packages. This ensures that application authors have the flexibility they need, but the package ecosystem is entirely written in Elm. We think this will create a stronger ecosystem and community in the long run, and we get into the tradeoffs in depth in the upcoming section on the [limits](/interop/limits.html) of Elm/JS interop.
 -->
 
-- **ポートはアプリケーションのためのものです。** `port module` はアプリケーションでは使えますが、パッケージでは使えません。こうすることで、アプリケーションを作るときには必要に応じて JavaScript を使えるよう融通を効かせながら、公開されているパッケージはすべて Elm で書かれていることを保証しているのです。長い目で見ると、これが強固なエコシステムとコミュニティを構築する助けになります。JavaScriptとの相互運用に関するこの[制限事項](/interop/limits.html)によって、Elmが何を得て何を失ったのか、次の節で詳しく解説しています。
+- **ポートはアプリケーションのためのものです。** `port module` はアプリケーションでは使えますが、パッケージでは使えません。こうすることで、アプリケーションを作るときには必要に応じて JavaScript を使えるよう融通を効かせながらも、公開されているパッケージはすべて Elm で書かれていることを保証しているのです。長い目で見ると、これが強固なエコシステムとコミュニティを構築する助けになります。JavaScriptとの相互運用に関するこの[制限事項](/interop/limits.html)によって、Elmが何を得て何を失ったのか、次の節で詳しく解説しています。
 
 <!--
 - **Ports can be dead code eliminated.** Elm has quite aggressive [dead code elimination](https://en.wikipedia.org/wiki/Dead_code_elimination), and it will remove ports that are not used within Elm code. The compiler does not know what goes on in JavaScript, so try to hook things up in Elm before JavaScript.
