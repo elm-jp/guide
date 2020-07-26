@@ -244,7 +244,7 @@ Okay, but what is going on with the `port` declarations for `sendMessage` and `m
 The `sendMessage` declaration lets us send messages out of Elm.
 -->
 
-`sendMessage`は、Elmから外の世界へメッセージを送るために使います。
+`sendMessage`はElmから外の世界へメッセージを送るために使います。
 
 ```elm
 port sendMessage : String -> Cmd msg
