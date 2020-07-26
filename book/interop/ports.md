@@ -226,7 +226,7 @@ ifIsEnter msg =
 Notice that the first line says `port module` rather than just `module`. This makes it possible to define ports in a given module. The compiler gives a hint about this if it is needed, so hopefully no one gets too stuck on that!
 -->
 
-最初の行でただの`module`の代わりに`port module`と書いていることに気をつけましょう。これで、モジュールの中でポートを定義できるようになります。もし忘れてしまってもコンパイラーがヒントを表示してくれるので、ここでつまづく人は少ないでしょう。
+最初の行でただの`module`の代わりに`port module`と書いていることに気をつけましょう。これでモジュールの中でポートを定義できるようになります。もし忘れてしまってもコンパイラーがヒントを表示してくれるので、ここでつまづく人は少ないでしょう。
 
 <!--
 Okay, but what is going on with the `port` declarations for `sendMessage` and `messageReceiver`?
