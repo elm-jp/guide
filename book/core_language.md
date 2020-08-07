@@ -86,7 +86,7 @@ These primitive values get more interesting when we start writing functions to t
 > **Note:** You can learn more about operators like [`(+)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#+) and [`(/)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#/) and [`(++)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#++) in the documentation for the [`Basics`](https://package.elm-lang.org/packages/elm/core/latest/Basics) module. It is worth reading through all the docs in that package at some point!
 -->
 > **Note:** [`Basics`](https://package.elm-lang.org/packages/elm/core/latest/Basics)モジュールのドキュメントを参照することで、[`(+)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#+)、[`(/)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#/)、[`(++)`](https://package.elm-lang.org/packages/elm/core/latest/Basics#++)
-などの演算子についてより詳しく知ることができます。どこかのタイミングで、coreパッケージのすべてのドキュメントに目を通しておくと良いでしょう！
+などの演算子についてより詳しく知ることができます。どこかのタイミングで、Basicsモジュールのすべてのドキュメントに目を通しておくと良いでしょう！
 
 
 <!--
@@ -362,7 +362,7 @@ This can be quite handy, but when things start becoming more complicated, it is 
 <!--
 A **record** can hold many values, and each value is associated with a name.
 -->
-**レコード**は多くの値を保持できて、値は名前に関連付けられています。
+**レコード**は多くの値を保持でき、さらに、それぞれの値は名前に関連付けられています。
 
 <!--
 Here is a record that represents British economist John A. Hobson:
@@ -388,7 +388,7 @@ Here is a record that represents British economist John A. Hobson:
 <!--
 We defined a record with three **fields** containing information about John's name and age.
 -->
-ジョンの名前と年齢に関する情報を含む3つの**フィールド**でレコードを定義しました。
+ジョンの名前と年齢に関する3つの**フィールド**を持つレコードを定義しました。
 
 <!--
 Try accessing other fields like `john.age` ⬆️
@@ -450,17 +450,17 @@ It is often useful to **update** values in a record:
 <!--
 If you wanted to say these expressions out loud, you would say something like, "I want a new version of John where his last name is Adams" or "john where the age is 22".
 -->
-上記の式を大きな声で言うとしたら「性がAdamsになった新しいバージョンのjohnのが欲しい」とか「年齢が22歳のjohn」などと言いますよね。
+上記の式を声に出して読み上げるとしたら「姓がAdamsになった新しいバージョンのjohnのが欲しい」とか「年齢が22歳のjohn」などと言いますよね。
 
 <!--
 Notice that when we update some fields of `john` we create a whole new record. It does not overwrite the existing one. Elm makes this efficient by sharing as much content as possible. If you update one of ten fields, the new record will share the nine unchanged values.
 -->
-`john`の一部のフィールドを更新すると、まったく新しいレコードが作成されることに注意してください。既存のレコードを上書きしません。Elmはできるだけ多くの内容を共有することによって効率的にレコードの更新を行います。10個あるフィールドの1つを更新するとき、新しいレコードは変更されていない9つの値を共有します。
+`john`の一部のフィールドを更新すると、まったく新しいレコードが作成されることに注意してください。既存のレコードにあるフィールドが上書きされることはありません。Elmはできるだけ多くの内容を共有することによって効率的にレコードの更新を行います。10個あるフィールドの1つを更新するとき、新しいレコードは変更されていない9つの値を既存のレコードと共有します。
 
 <!--
 So a function to update ages might look like this:
 -->
-したがって、年齢を更新する関数は次のようになると思います。
+これらを踏まえて年齢を更新する関数を書いてみると次のようになるでしょう。
 
 {% repl %}
 [
@@ -487,4 +487,4 @@ So a function to update ages might look like this:
 <!--
 Updating record fields like this is really common, so we will see a lot more of it in the next section!
 -->
-このようにしてレコードのフィールドを更新することは本当によくあります。以降の節ではさらに多くの例を見ていきます！
+このようにしてレコードのフィールドを更新することは本当によくあります。次の章ではさらに多くの例を見ていきます！
