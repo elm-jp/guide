@@ -8,7 +8,7 @@
 As you work more with Elm, you will start seeing the [`Maybe`][Maybe] type quite frequently. It is defined like this:
 -->
 
-Elmをよく書くようになると[`Maybe`][Maybe]型を非常に頻繁にみるようになります。`Maybe`は以下ように定義されています:
+Elmをよく書くようになると[`Maybe`][Maybe]型を非常に頻繁にみるようになります。`Maybe`は以下のように定義されています:
 
 ```elm
 type Maybe a
@@ -44,11 +44,8 @@ This can be handy in two main scenarios: partial functions and optional fields.
 <!--
 Sometimes you want a function that gives an answer for some inputs, but not others. Many people run into this with [`String.toFloat`][toFloat] when trying to convert user input into numbers. Let's see it in action:
 -->
-<!-- TODO -->
-<!-- 元の文章：
-ある入力に対しては答えを与えるが他には与えない関数が欲しい場合があります。多くの人がそういう関数に遭遇するのは、ユーザからの入力を数値に変換しようとして[`String.toFloat`][toFloat]関数を使おうとしたときでしょう。実際に`elm repl`を開いて確認してみましょう:
--->
-Sometimes you want a function that gives an answer for some inputs, but not others. Many people run into this with [`String.toFloat`][toFloat] when trying to convert user input into numbers. Let's see it in action:
+
+ある入力に対しては答えを与えるが他には与えない関数が欲しい場合があります。多くの人がそういう関数に遭遇するのは、ユーザからの入力を数値に変換しようとして[`String.toFloat`][toFloat]関数を使おうとしたときでしょう。実際に動いているところを見てみましょう。
 
 {% replWithTypes %}
 [
@@ -73,8 +70,8 @@ Sometimes you want a function that gives an answer for some inputs, but not othe
 <!--
 Try calling `String.toFloat` with other strings to see what happens ⬆️
 -->
-<!-- TODO -->
-Try calling `String.toFloat` with other strings to see what happens ⬆️
+
+`String.toFloat` を他のいろいろな文字列で呼び出してみて、何が起きるか見てみてください⬆️
 
 <!--
 Not all strings make sense as numbers, so this function models that explicitly. Can a string be turned into a float? Maybe! From there we can pattern match on the resulting data and continue as appropriate.
