@@ -11,11 +11,8 @@ We just saw an example that uses HTTP to get the content of a book. That is grea
 <!--
 So our next example shows how to fetch some JSON data, allowing us to press a button to show random cat GIFs. Click the blue "Edit" button and look through the program a bit. Try not to only look at the cats! **Click the blue button now!**
 -->
-<!-- TODO -->
-<!-- 元の文章：
-続く我々の例では、JSONデータをどのように取得するかについて紹介します。ボタンを押すとランダムな猫のGIF画像を表示することができます。
--->
-So our next example shows how to fetch some JSON data, allowing us to press a button to show random cat GIFs. Click the blue "Edit" button and look through the program a bit. Try not to only look at the cats! **Click the blue button now!**
+
+そこで、次の例では JSON データを取得する方法を紹介します。これを利用して「押すとランダムな猫の GIF 画像を表示するボタン」を作ることができます。青い "Edit" ボタンをクリックしてこのプログラムに目を通してみてください。猫ばかり見ていてはいけませんよ！ **今すぐ青いボタンをクリック！**
 
 <div class="edit-link"><a href="https://elm-lang.org/examples/cat-gifs">Edit</a></div>
 
