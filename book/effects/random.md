@@ -8,8 +8,8 @@ So far we have only seen commands to make HTTP requests, but we can command othe
 <!--
 Click the blue "Edit" button to see this example in action. Generate a couple random numbers, and look through the code to try to figure out how it works. **Click the blue button now!**
 -->
-<!-- TODO -->
-Click the blue "Edit" button to see this example in action. Generate a couple random numbers, and look through the code to try to figure out how it works. **Click the blue button now!**
+
+青い "Edit" ボタンをクリックしてこの節の例が動いている様子を見てみましょう。実際にいくつかランダムな値を生成してみてください。それからコードに目を通してどんな仕組みになっているのか調べてみましょう。**今すぐ青いボタンをクリック！**
 
 <div class="edit-link"><a href="https://elm-lang.org/examples/numbers">Edit</a></div>
 
@@ -118,8 +118,8 @@ Generating random values works a bit different than in languages like JavaScript
 <!--
 We are using the [`elm/random`][readme] package for this. The [`Random`][random] module in particular.
 -->
-<!-- TODO -->
-We are using the [`elm/random`][readme] package for this. The [`Random`][random] module in particular.
+
+乱数を生成するには [`elm/random`][readme] パッケージにある [`Random`][random] モジュールを使います。
 
 [readme]: https://package.elm-lang.org/packages/elm/random/latest
 [random]: https://package.elm-lang.org/packages/elm/random/latest/Random
