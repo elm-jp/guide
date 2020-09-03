@@ -83,7 +83,7 @@ The data is attached directly to the variant, so there is no need for the record
 Another benefit of this approach is that each variant can have different associated data. Say that `Regular` users gave their age when they signed up. There is no nice way to capture that with records, but when you define your own custom type it is no problem. Let's add some associated data to the `Regular` variant in an interactive example:
 -->
 
-この方法の別の利点は、各バリアントごとに他のバリアントとは異なる関連データを持たせられることです。アカウントを持っているユーザーである`Regular`ユーザーがサインアップのときに年齢を登録することを考えてみてください。レコードではこのようなケースをうまく取り扱うことができませんが、カスタム型を自分で定義するなら何の問題もなく行えます。年齢を登録できるようにするために`Regular`バリアントに関連データを追加しましょう。次の対話形式の例を見てください：
+この方法の別の利点は、各バリアントごとに他のバリアントとは異なる専用のデータを持たせられることです。アカウントを持っているユーザーである`Regular`ユーザーがサインアップのときに年齢を登録することを考えてみてください。レコードではこのようなケースをうまく取り扱うことができませんが、カスタム型を自分で定義するなら何の問題もなく行えます。年齢を登録できるようにするために`Regular`バリアントに関連するデータを追加しましょう。次の対話形式の例を見てください：
 
 {% replWithTypes %}
 [
@@ -124,7 +124,7 @@ Try defining a `Regular` visitor with a name and age ⬆️
 We only added an age, but variants of a type can diverge quite dramatically. For example, maybe we want to add location for `Regular` users so we can suggest regional chat rooms. Add more associated data! Or maybe we want to have anonymous users. Add a third variant called `Anonymous`. Maybe we end up with:
 -->
 
-上記の例では年齢を追加しただけですが、型のバリアントはかなり劇的に分岐することがあります。例えば、地域のチャットルームを提案できるようにするために`Regular`ユーザーに所在地を追加したくなるかもしれません。その場合は関連データを追加します！あるいは匿名ユーザーを用意したくなるかもしれません。`Anonymous`という第三のバリアントを追加します。おそらく最終的には次のようになります:
+上記の例では年齢を追加しただけですが、型のバリアントはかなり劇的に分岐することがあります。例えば、地域のチャットルームを提案できるようにするために`Regular`ユーザーに所在地を追加したくなるかもしれません。その場合は`Regular`バリアントに関連するデータを追加します！あるいは匿名ユーザーを用意したくなるかもしれません。`Anonymous`という3つめのバリアントを追加します。おそらく最終的には次のようになります:
 
 ```elm
 type User
@@ -163,7 +163,7 @@ type Msg
 We have four variants. Some variants have no associated data, others have a bunch. Notice that `ReceivedMessage` actually has a record as associated data. That is totally fine. Any type can be associated data! This allows you to describe interactions in your application very precisely.
 -->
 
-この型には 4 つのバリアントがあり、関連データを持つバリアントと持たないバリアントがあります。他のバリアントは関連データを持っています。`ReceivedMessage`が実際に関連データとしてレコードを持っていることに気づきましたか？これはまったく問題ありません。どんな型も関連データにすることができます！どんな型も関連データにすることができるため、どのユーザーからどんなメッセージを受けたかなど、ただの String や User の組み合わせでは何を意味するのか曖昧になってしまうような情報も非常に厳密に記述することができます。
+この型には4つのバリアントがあり、関連するデータを持つバリアントと持たないバリアントがあります。`ReceivedMessage`が実は関連するデータとしてレコードを持っていることに気づきましたか？これはまったく問題ありません。どんな型でも関連するデータとして持つことができます！そのため、どのユーザーからどんなメッセージを受けたかなど、ただの String や User の組み合わせでは何を意味するのか曖昧になってしまうような情報も非常に厳密に記述することができます。
 
 <!--
 ## Modeling
