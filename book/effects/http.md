@@ -16,8 +16,8 @@ For example, say we want to load the full text of _Public Opinion_ by Walter Lip
 <!--
 Click the blue "Edit" button to look through this program in the online editor. You will probably see the screen say "Loading..." before the full book shows up. **Click the blue button now!**
 -->
-<!-- TODO -->
-Click the blue "Edit" button to look through this program in the online editor. You will probably see the screen say "Loading..." before the full book shows up. **Click the blue button now!**
+
+青い "Edit" ボタンをクリックしてオンラインエディターでこのプログラムを見てみましょう。Public Opinion の全文が完全に読み込まれるまで画面には "Loading..." と表示されます。**今すぐ青いボタンをクリック！**
 
 [http]: https://package.elm-lang.org/packages/elm/http/latest
 

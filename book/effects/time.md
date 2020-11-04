@@ -12,8 +12,8 @@ So far we have focused on commands. With the HTTP and randomness examples, we co
 <!--
 Start by clicking the blue "Edit" button and looking through the code a bit in the online editor.
 -->
-<!-- TODO -->
-Start by clicking the blue "Edit" button and looking through the code a bit in the online editor.
+
+まず青い "Edit" ボタンをクリックしてオンラインエディターでコードに目を通すところから始めましょう。
 
 <div class="edit-link"><a href="https://elm-lang.org/examples/time">Edit</a></div>
 
@@ -104,11 +104,8 @@ view model =
 <!-- 
 The new stuff is all coming from the [`elm/time`][time] package. Let&rsquo;s go through these parts!
 -->
-<!-- TODO -->
-<!-- 元の文章：
-新しく導入された部分を見ていきましょう。
--->
-The new stuff is all coming from the [`elm/time`][time] package. Let&rsquo;s go through these parts!
+
+新しく出てきたものはすべて [`elm/time`][time] パッケージに由来しています。その部分を取り上げて見ていきましょう！
 
 [time]: https://package.elm-lang.org/packages/elm/time/latest/
 

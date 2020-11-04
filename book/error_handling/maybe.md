@@ -8,7 +8,7 @@
 As you work more with Elm, you will start seeing the [`Maybe`][Maybe] type quite frequently. It is defined like this:
 -->
 
-Elmをよく書くようになると[`Maybe`][Maybe]型を非常に頻繁にみるようになります。`Maybe`は以下ように定義されています:
+Elmをよく書くようになると[`Maybe`][Maybe]型を非常に頻繁にみるようになります。`Maybe`は以下のように定義されています:
 
 ```elm
 type Maybe a
@@ -44,11 +44,8 @@ This can be handy in two main scenarios: partial functions and optional fields.
 <!--
 Sometimes you want a function that gives an answer for some inputs, but not others. Many people run into this with [`String.toFloat`][toFloat] when trying to convert user input into numbers. Let's see it in action:
 -->
-<!-- TODO -->
-<!-- 元の文章：
-ある入力に対しては答えを与えるが他には与えない関数が欲しい場合があります。多くの人がそういう関数に遭遇するのは、ユーザからの入力を数値に変換しようとして[`String.toFloat`][toFloat]関数を使おうとしたときでしょう。実際に`elm repl`を開いて確認してみましょう:
--->
-Sometimes you want a function that gives an answer for some inputs, but not others. Many people run into this with [`String.toFloat`][toFloat] when trying to convert user input into numbers. Let's see it in action:
+
+ある入力に対しては答えを与えるが他には与えない関数が欲しい場合があります。多くの人がそういう関数に遭遇するのは、ユーザからの入力を数値に変換しようとして[`String.toFloat`][toFloat]関数を使おうとしたときでしょう。実際に動いているところを見てみましょう。
 
 {% replWithTypes %}
 [
@@ -73,8 +70,8 @@ Sometimes you want a function that gives an answer for some inputs, but not othe
 <!--
 Try calling `String.toFloat` with other strings to see what happens ⬆️
 -->
-<!-- TODO -->
-Try calling `String.toFloat` with other strings to see what happens ⬆️
+
+`String.toFloat` を他のいろいろな文字列で呼び出してみて、何が起きるか見てみてください⬆️
 
 <!--
 Not all strings make sense as numbers, so this function models that explicitly. Can a string be turned into a float? Maybe! From there we can pattern match on the resulting data and continue as appropriate.
@@ -256,4 +253,4 @@ Point is, if you find yourself using `Maybe` everywhere, it is worth examining y
 >
 > その設計は失敗を **暗黙的** にします。あなたが`String`を持っていると思っているときは、いつだって代わりに`null`を持っているだけなのかもしれません。あなた自身がnullかどうか確認すべきなのでしょうか？それともその値を作成した人が事前にnullでないことを確認しておいてくれたのでしょうか？多分大丈夫？サーバーをクラッシュするかもしれない？それらのリスクは実際に（突然クラッシュしたりして）問題としてあらわれて初めて気づくでしょう！
 >
-> Elmは`null`参照をまったく持たないことでこれらの問題を回避します。代わりに失敗を **明示的** にするために `Maybe`のようなカスタム型を使用します。この方法に驚くようなことは何もありません。`String`は常に` String`であり、`Maybe String`があればコンパイラは両方のバリアントが適切に処理されていることを保証します。このようにしてnull参照と同じ柔軟性を得られまが、突然クラッシュするようなことはありません。
+> Elmは`null`参照をまったく持たないことでこれらの問題を回避します。代わりに失敗を **明示的** にするために `Maybe`のようなカスタム型を使用します。この方法に驚くようなことは何もありません。`String`は常に` String`であり、`Maybe String`があればコンパイラは両方のバリアントが適切に処理されていることを保証します。このようにしてnull参照と同じ柔軟性を得られますが、突然クラッシュするようなことはありません。

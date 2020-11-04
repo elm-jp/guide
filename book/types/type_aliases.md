@@ -1,14 +1,14 @@
 <!--
 # Type Aliases
 -->
-# 型の別名（タイプエイリアス）
+# 型エイリアス
 
 <!--
 Type annotations can start to get long. This might be a real problem if you have records with many fields! This is the core motivation for type aliases. A **type alias** is a shorter name for a type. For example, you could create a `User` alias like this:
 -->
 <!-- TODO -->
 <!-- 元の文章：
-Elmでは **型の別名（タイプエイリアス）** を作ることができます。 別名は単に他の型の短い名前です。 このように定義できます:
+Elmでは **型エイリアス** を作ることができます。 型エイリアスというのは単に他の型に短い名前をつけたものです。 このように定義できます:
 -->
 Type annotations can start to get long. This might be a real problem if you have records with many fields! This is the core motivation for type aliases. A **type alias** is a shorter name for a type. For example, you could create a `User` alias like this:
 
@@ -48,7 +48,7 @@ These two definitions are equivalent, but the one with a type alias is shorter a
 -->
 <!-- TODO -->
 <!-- 元の文章：
-型の別名を使わずに書けば`{ name : String, bio : String } -> Bool`のようになります。 **型の別名の主なポイントは短く明確な型注釈を書くのを助けることです。** これはアプリケーションが成長するにつれてより重要になってきます。 `updateBio`関数があるとします:
+型エイリアスを使わずに書けば`{ name : String, bio : String } -> Bool`のようになります。 **型エイリアスの主なポイントは短く明確な型注釈を書くのを助けることです。** これはアプリケーションが成長するにつれてより重要になってきます。 `updateBio`関数があるとします:
 -->
 These two definitions are equivalent, but the one with a type alias is shorter and easier to read. So all we are doing is making an **alias** for a long type.
 
@@ -78,7 +78,7 @@ The main benefit of using a type alias for this is when we write the type annota
 -->
 <!-- TODO -->
 <!-- 元の文章：
-まず、型の別名を使わない型注釈について考えてみましょう。 今度はアプリケーションが成長するにつれてユーザを表すフィールドが増えることを想像しましょう。 10個や100個のフィールドを`User`型に追加するかもしれません。 しかし`updateBio`関数に変更を加える必要はありません。 やったね！
+まず、型エイリアスを使わない型注釈について考えてみましょう。 今度はアプリケーションが成長するにつれてユーザを表すフィールドが増えることを想像しましょう。 10個や100個のフィールドを`User`型に追加するかもしれません。 しかし`updateBio`関数に変更を加える必要はありません。 やったね！
 -->
 The main benefit of using a type alias for this is when we write the type annotations for the `update` and `view` functions. Writing `Msg -> Model -> Model` is so much nicer than the fully expanded version! It has the added benefit that we can add fields to our model without needing to change any type annotations.
 
@@ -91,7 +91,7 @@ The main benefit of using a type alias for this is when we write the type annota
 <!--
 When you create a type alias specifically for a record, it also generates a **record constructor**. So if we define a `User` type alias, we can start building records like this:
 -->
-レコード用に型の別名を作成すると、 **レコードコンストラクタ**も一緒に生成されます。 つまり`User`型を定義したら、このようにレコードを作れます:
+レコード用に型エイリアスを作成すると、 **レコードコンストラクタ**も一緒に生成されます。 つまり`elm repl`で`User`型を定義したら、このようにレコードを作れます:
 
 {% replWithTypes %}
 [
@@ -124,7 +124,7 @@ Note that the order of arguments in the record constructor match the order of fi
 -->
 <!-- TODO -->
 <!-- 元の文章：
-引数は型の別名の定義に現れる順になります。 これはかなり便利です。
+引数は型エイリアスの定義に現れる順になります。 これはかなり便利です。
 -->
 Note that the order of arguments in the record constructor match the order of fields in the type alias!
 
@@ -133,6 +133,6 @@ And again, **this is only for records.** Making type aliases for other types wil
 -->
 <!-- TODO -->
 <!-- 元の文章：
-この機能はレコード型のためだけのものです。 レコード型ではない型に別名を付けてもコンストラクタは生成されません。
+この機能はレコード型のためだけのものです。 レコード型ではない型のための型エイリアスを作成してもコンストラクタは生成されません。
 -->
 And again, **this is only for records.** Making type aliases for other types will not result in a constructor.

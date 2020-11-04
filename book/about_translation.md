@@ -10,7 +10,7 @@
 ## 原文のバージョン
 
 この翻訳はできる限り英語版の更新に追従するように努めていますが、ボランティアで運営されているため更新が追いつかないこともあります。
-[翻訳がベースとしているバージョンと英語版の最新バージョンとの差分](https://github.com/evancz/guide.elm-lang.org/compare/0d1272b45a45d22e950377f9e17f8c5b99f5155e...master)をご確認ください。
+[翻訳がベースとしているバージョンと英語版の最新バージョンとの差分](https://github.com/evancz/guide.elm-lang.org/compare/4109eae8b0bad3d0e315e8ded97becfa6dc4d17f...master)をご確認ください。
 
 "There isn’t anything to compare." と表示されていれば翻訳が最新の英語版に対応していることを意味します。
 
@@ -52,7 +52,7 @@ Elm guide は初学者の方にも分かることを重視したドキュメン�
 <!-- | <Translated> | <Original> | DO NOT REMOVE OR CHANGE THIS LINE -->
 | 訳語              | 原文            |
 |:-----------------:|:---------------:|
-| 型の別名          | type alias      |
+| 型エイリアス      | type alias      |
 | オブジェクト指向  | object oriented |
 | テキストフィールド| text field      |
 | カスタム型        | custom type     |
@@ -77,6 +77,7 @@ Elm guide は初学者の方にも分かることを重視したドキュメン�
 | 制約付き型変数 | constrained type variable |
 | 部分関数 | partial function |
 | 属性 | attribute |
+| ハンドラー | handler |
 | インタラクティブ | interactive |
 <!-- | ソースコード自身がその意味するところを雄弁に語るようになります | self-documenting | -->
 <!-- | ソースコード自身がその意味するところを雄弁に語るようになります | self-documented | -->

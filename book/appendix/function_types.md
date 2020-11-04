@@ -40,11 +40,8 @@ String.repeat : Int -> (String -> String)
 <!--
 It is a function that takes an `Int` and then produces _another_ function. Let's see this in action:
 -->
-<!-- TODO -->
-<!-- 元の文章：
-これは`Int`を受け取って _新たな_ 関数を作る関数です。`elm repl`で実行してみると、以下のように動くことが分かります:
--->
-It is a function that takes an `Int` and then produces _another_ function. Let's see this in action:
+
+これは`Int`を受け取って _新たな_ 関数を作る関数です。動いているところを見てみましょう:
 
 {% replWithTypes %}
 [
