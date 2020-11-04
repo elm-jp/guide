@@ -6,11 +6,7 @@
 <!--
 In the [Core Language](/core_language.html) section of this book, we went through a bunch of interactive examples to get a feeling for the language. Well, we are going to do it again, but with a new question in mind. What **type** of value is that?
 -->
-<!-- TODO -->
-<!-- 元の文章：
-このガイドの[言語の基礎](/core_language.md)の節では、REPLでコードをいろいろ実行しました。 さて、もう一度REPLでコードを試していこうと思いますが、今度は表示される型に注目していきましょう。 ターミナルに`elm repl`と入力してください。 このように表示されます:
--->
-In the [Core Language](/core_language.html) section of this book, we went through a bunch of interactive examples to get a feeling for the language. Well, we are going to do it again, but with a new question in mind. What **type** of value is that?
+このガイドの[言語の基礎](/core_language.md)の節では、言語の雰囲気を掴むために多くのインタラクティブな例をざっと見てきました。さて、もう一度例を見ていこうと思いますが、今度は新たな問いを念頭に置いてやっていきましょう。つまり、この値の **型** はなんだろうか？ということです。
 
 
 <!--
@@ -46,25 +42,29 @@ Let's enter some simple expressions and see what happens:
 <!--
 Click on this black box ⬆️ and the cursor should start blinking. Type in `3.1415` and press the ENTER key. It should print out `3.1415` followed by the type `Float`.
 -->
-<!-- TODO -->
-Click on this black box ⬆️ and the cursor should start blinking. Type in `3.1415` and press the ENTER key. It should print out `3.1415` followed by the type `Float`.
+
+この黒い部分 ⬆️ をクリックするとカーソルが点滅し始めます。`3.1415`と入力してエンターキーを押してください。すると、型である`Float`が付加されて`3.1415`が出力されるはずです。
 
 <!--
 Okay, but what is going on here exactly? Each entry shows value along with what **type** of value it happens to be. You can read these examples out loud like this:
 -->
-<!-- TODO -->
-Okay, but what is going on here exactly? Each entry shows value along with what **type** of value it happens to be. You can read these examples out loud like this:
+さて、ここでは正確には一体何が起こっているのでしょうか？それぞれには入力値に加えてその値がどのような **型** の値になったかが表示されています。これらは次のように読み上げることができます：
 
+<!--
 - The value `"hello"` is a `String`.
 - The value `False` is a `Bool`.
 - The value `3` is an `Int`.
 - The value `3.1415` is a `Float`.
+-->
+- 値`"hello"`は`String`型です。
+- 値`False`は`Bool`型です。
+- 値`3`は`Int`型です。
+- 値`3.1415`は`Float`型です。
 
 <!--
 Elm is able to figure out the type of any value you enter! Let's see what happens with lists:
 -->
-<!-- TODO -->
-Elm is able to figure out the type of any value you enter! Let's see what happens with lists:
+Elmはあなたが入力したどんな値の型も推論することができます！今度はリストの動作を確認してみましょう：
 
 {% replWithTypes %}
 [
@@ -87,18 +87,15 @@ You can read these types as:
 1. We have a `List` filled with `String` values.
 2. We have a `List` filled with `Float` values.
 -->
-<!-- TODO -->
-You can read these types as:
+これらの型は次のように読みます：
 
-1. We have a `List` filled with `String` values.
-2. We have a `List` filled with `Float` values.
+1. `String`型の値の要素を持つ`List`型
+2. `Float`型の値の要素を持つ`List`型
 
 <!--
 The **type** is a rough description of the particular value we are looking at.
 -->
-<!-- TODO -->
-The **type** is a rough description of the particular value we are looking at.
-
+**型** は私たちが注目している値の大まかな説明になります。
 
 <!--
 ## Functions
@@ -123,14 +120,12 @@ Let's see the type of some functions:
 <!--
 Try entering `round` or `sqrt` to see some other function types ⬆️
 -->
-<!-- TODO -->
-Try entering `round` or `sqrt` to see some other function types ⬆️
+`round`や`sqrt`を入力して他の関数の型を見てみましょう ⬆️
 
 <!--
 The `String.length` function has type `String -> Int`. This means it *must* take in a `String` argument, and it will definitely return an `Int` value. So let's try giving it an argument:
 -->
-<!-- TODO -->
-The `String.length` function has type `String -> Int`. This means it *must* take in a `String` argument, and it will definitely return an `Int` value. So let's try giving it an argument:
+`String.length`関数は`String -> Int`という型を持っています。これは、*必ず*`String`型の引数を１つ受け取り、絶対に`Int`型の値を返すことを意味しています。さぁ、実際に引数を与えてみましょう：
 
 {% replWithTypes %}
 [
@@ -150,20 +145,12 @@ So we start with a `String -> Int` function and give it a `String` argument. Thi
 <!--
 What happens when you do not give a `String` though? Try entering `String.length [1,2,3]` or `String.length True` to see what happens ⬆️
 -->
-<!-- TODO -->
-<!-- 元の文章：
-`String`以外を与えたら何が起こるでしょうか？
--->
-What happens when you do not give a `String` though? Try entering `String.length [1,2,3]` or `String.length True` to see what happens ⬆️
+`String`以外を与えたら何が起こるでしょうか？`String.length [1,2,3]`と入力するか`String.length True`と入力して動作を見てみましょう ⬆️
 
 <!--
 You will find that a `String -> Int` function *must* get a `String` argument!
 -->
-<!-- TODO -->
-<!-- 元の文章：
-`String -> Int`の関数は*必ず*`String`型の値を引数にしなくてはなりません！
--->
-You will find that a `String -> Int` function *must* get a `String` argument!
+`String -> Int`の関数は`String`型の値を引数に*しなくてはならない*ことが理解できたでしょう！
 
 <!--
 > **Note:** Functions that take multiple arguments end up having more and more arrows. For example, here is a function that takes two arguments:
@@ -244,13 +231,7 @@ People can make mistakes in type annotations though, so what happens if the anno
 <!--
 As you look through more Elm code, you will start to see type annotations with lower-case letters in them. A common example is the `List.length` function:
 -->
-<!-- TODO -->
-<!-- 元の文章：
-[`elm/core`][core]の関数を見ると、小文字の型シグネチャがいくつかあることがわかります。
-以下のように`elm repl`で実際に確かめることができます。
-> **訳注:** 型シグネチャは関数の引数の型と返り値の型の組み合わせのこと。
--->
-As you look through more Elm code, you will start to see type annotations with lower-case letters in them. A common example is the `List.length` function:
+より多くのElmのコードに目を通すようになると、小文字の型注釈を目にし始めるでしょう。よくある例として`List.length`関数が挙げられます：
 
 {% replWithTypes %}
 [
@@ -337,11 +318,7 @@ Again, the type variable `a` can vary depending on how [`List.reverse`][reverse]
 <!--
 There is a special variant of type variables in Elm called **constrained** type variables. The most common example is the `number` type. The [`negate`](https://package.elm-lang.org/packages/elm/core/latest/Basics#negate) function uses it:
 -->
-<!-- TODO -->
-<!-- 元の文章：
-いくつか"制約付き"の型変数があります。最も一般的な例はおそらく`number`型です。[`negate`][negate]関数は`number`を使用します：
--->
-There is a special variant of type variables in Elm called **constrained** type variables. The most common example is the `number` type. The [`negate`](https://package.elm-lang.org/packages/elm/core/latest/Basics#negate) function uses it:
+Elmには **制約付き** 型変数と呼ばれる特殊な型変数があります。最もよく使われる例は`number`型です。[`negate`][negate]関数は`number`を使用します：
 
 {% replWithTypes %}
 [
@@ -386,5 +363,4 @@ These constrained type variables exist to make operators like `(+)` and `(<)` a 
 <!--
 By now we have covered types for values and functions pretty well, but what does this look like when we start wanting more complex data structures?
 -->
-<!-- TODO -->
-By now we have covered types for values and functions pretty well, but what does this look like when we start wanting more complex data structures?
+ここまでで値と関数の型については非常によく網羅してきましたが、より複雑なデータ構造が必要になり始めたら型はどのようになるでしょうか？
