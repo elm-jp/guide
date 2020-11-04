@@ -6,7 +6,7 @@
 <!--
 In the [Core Language](/core_language.html) section of this book, we went through a bunch of interactive examples to get a feeling for the language. Well, we are going to do it again, but with a new question in mind. What **type** of value is that?
 -->
-このガイドの[言語の基礎](/core_language.md)の節では、言語の雰囲気を掴むために多くのインタラクティブな例を試しました。さて、もう一度例を試していこうと思いますが、今度は新たな問いを念頭に置いてやっていきましょう。つまり、この値の **型** はなんだろうか？ということです。
+このガイドの[言語の基礎](/core_language.md)の節では、言語の雰囲気を掴むために多くのインタラクティブな例をざっと見てきました。さて、もう一度例を見ていこうと思いますが、今度は新たな問いを念頭に置いてやっていきましょう。つまり、この値の **型** はなんだろうか？ということです。
 
 
 <!--
@@ -48,7 +48,7 @@ Click on this black box ⬆️ and the cursor should start blinking. Type in `3.
 <!--
 Okay, but what is going on here exactly? Each entry shows value along with what **type** of value it happens to be. You can read these examples out loud like this:
 -->
-さて、ここでは正確には一体何が起こっているのでしょうか？出力行には値に加えてその値の **型** が表示されています。これらは次のように読み上げることができます：
+さて、ここでは正確には一体何が起こっているのでしょうか？それぞれは入力値に加えてその値がどのような **型** の値になったか表示されています。これらは次のように読み上げることができます：
 
 <!--
 - The value `"hello"` is a `String`.
@@ -231,7 +231,7 @@ People can make mistakes in type annotations though, so what happens if the anno
 <!--
 As you look through more Elm code, you will start to see type annotations with lower-case letters in them. A common example is the `List.length` function:
 -->
-より多くのElmのコードに目を通すようになると、小文字の型注釈を目にし始めるでしょう。一般的な例として`List.length`関数が挙げられます：
+より多くのElmのコードに目を通すようになると、小文字の型注釈を目にし始めるでしょう。よくある例として`List.length`関数が挙げられます：
 
 {% replWithTypes %}
 [
@@ -318,7 +318,7 @@ Again, the type variable `a` can vary depending on how [`List.reverse`][reverse]
 <!--
 There is a special variant of type variables in Elm called **constrained** type variables. The most common example is the `number` type. The [`negate`](https://package.elm-lang.org/packages/elm/core/latest/Basics#negate) function uses it:
 -->
-Elmには **制約付き** 型変数と呼ばれる特殊な型変数があります。最も一般的な例は`number`型です。[`negate`][negate]関数は`number`を使用します：
+Elmには **制約付き** 型変数と呼ばれる特殊な型変数があります。最もよく使われる例は`number`型です。[`negate`][negate]関数は`number`を使用します：
 
 {% replWithTypes %}
 [
