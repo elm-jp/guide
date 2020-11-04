@@ -48,7 +48,7 @@ Click on this black box ⬆️ and the cursor should start blinking. Type in `3.
 <!--
 Okay, but what is going on here exactly? Each entry shows value along with what **type** of value it happens to be. You can read these examples out loud like this:
 -->
-さて、ここでは正確には一体何が起こっているのでしょうか？それぞれは入力値に加えてその値がどのような **型** の値になったか表示されています。これらは次のように読み上げることができます：
+さて、ここでは正確には一体何が起こっているのでしょうか？それぞれには入力値に加えてその値がどのような **型** の値になったかが表示されています。これらは次のように読み上げることができます：
 
 <!--
 - The value `"hello"` is a `String`.
