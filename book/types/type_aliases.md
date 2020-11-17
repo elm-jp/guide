@@ -6,7 +6,7 @@
 <!--
 Type annotations can start to get long. This might be a real problem if you have records with many fields! This is the core motivation for type aliases. A **type alias** is a shorter name for a type. For example, you could create a `User` alias like this:
 -->
-型注釈は時として長ったらしくなってしまうものです。例えば、フィールドがいくつもあるようなレコードを使っているような場合に実際に困ったことになります。主にこのような問題を解決するために、型エイリアスが存在します。**型エイリアス**とはある型につけた短い別名のことです。例えば、`User`という型エイリアスを以下のように作成したりします。
+型注釈は時として長ったらしくなってしまうものです。例えば、フィールドがいくつもあるレコードを使っているような場合に実際に困ったことになります。主にこのような問題を解決するために、型エイリアスが存在します。**型エイリアス**とはある型につけた短い別名のことです。例えば、`User`という型エイリアスを以下のように作成したりします。
 
 ```elm
 type alias User =
