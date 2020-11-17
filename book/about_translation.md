@@ -71,6 +71,7 @@ Elm guide は初学者の方にも分かることを重視したドキュメン�
 | 型注釈 | type annotation |
 | タプル | tuple |
 | レコード | record |
+| レコードコンストラクター | record constructor |
 | 無名関数 | anonymous function |
 | 予約語 | keyword |
 | 構造的部分型 | structural typing |
