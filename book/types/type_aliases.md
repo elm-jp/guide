@@ -97,7 +97,7 @@ When you create a type alias specifically for a record, it also generates a **re
 ]
 {% endreplWithTypes %}
 
-別のユーザを作成したり、自分で型エイリアスを作ってみたりしてください⬆️
+別のユーザーを作成したり、自分で型エイリアスを作ってみたりしてください⬆️
 
 <!--
 Note that the order of arguments in the record constructor match the order of fields in the type alias!
