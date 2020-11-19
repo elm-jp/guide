@@ -112,7 +112,7 @@ This is pretty similar to our [text field example](text_fields.md) but with more
 I always start out by guessing at the `Model`. We know there are going to be three text fields, so let's just go with that:
 -->
 
-いつものように、モデルを考えることからはじめます。 3つのテキストフィールドが作られることが分かっているので、このようにします。
+いつものように、モデルを考えることからはじめます。3つのテキストフィールドが作られることが分かっているので、このようにします。
 
 ```elm
 type alias Model =
@@ -135,7 +135,7 @@ I usually try to start with a minimal model, maybe with just one field. I then a
 Sometimes you have a pretty good idea of what the basic update code will look like. We know we need to be able to change our three fields, so we need messages for each case.
 -->
 
-ときには `update` をどんな風に作ればいいかアイデアが浮かんでいることもあるでしょう。私たちのモデルには変更したいフィールドが3つあり、それぞれのフィールドに対応するメッセージが必要です。
+これは `update` がおおまかにどんな形になるか、よいアイデアが浮かびやすい例ですね。間違いなく「1つの名前、2つのパスワード」からなる3つのフィールドを変更できるようにしておきたいので、それぞれのフィールドに対応するメッセージが必要です。
 
 ```elm
 type Msg
