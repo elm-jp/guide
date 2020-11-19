@@ -135,7 +135,7 @@ We create a `<div>` with two children. The interesting child is the `<input>` no
 - `value` is the current content of this `<input>`
 - `onInput` sends messages when the user types in this `<input>` node
 -->
-<!-- TODO -->
+
 - `placeholder` はフィールドに何も入力されていないときに表示されるテキストです。
 - `value` はこの `<input>` に実際に入力されている内容です。
 - `onInput` はユーザーがこの `<input>` の中で文字をタイプするたびにメッセージを送信します。
@@ -189,7 +189,7 @@ When we receive a message that the `<input>` node has changed, we update the `co
 3. `{ content = "bar" }`
 4. `{ content = "bard" }`
 -->
-<!-- TODO -->
+
 1. `{ content = "b" }`
 2. `{ content = "ba" }`
 3. `{ content = "bar" }`
@@ -199,12 +199,12 @@ When we receive a message that the `<input>` node has changed, we update the `co
 We need to track this information explicitly in our model, otherwise there is no way to show the reversed text in our `view` function!
 -->
 
-モデルでは、入力内容が変化したという情報を明示的に追跡しておく必要があります。そうしないと、`view` 関数で逆さまの文字列を表示することができません！
+このアプリケーションでは、入力が変化したことをひとつ残らず追跡し、新しい状態をモデルに保存しておかなくてはなりません。そうしないと `view` 関数で逆さまの文字列を表示することができません！
 
 <!--
 > **Exercise:** Go to the example in the online editor [here](https://elm-lang.org/examples/text-fields) and show the length of the `content` in your `view` function. Use the [`String.length`](https://package.elm-lang.org/packages/elm/core/latest/String#length) function!
 -->
-<!-- TODO -->
+
 > **演習:** [ここ](https://elm-lang.org/examples/text-fields)からオンラインエディタへ行き、モデルの `content` に保持している文字列の長さを `view` 関数の中で表示させてみましょう。文字列の長さを取得するには [`String.length`](https://package.elm-lang.org/packages/elm/core/latest/String#length) 関数を使います。
 >
 <!--
