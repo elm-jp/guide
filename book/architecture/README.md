@@ -104,4 +104,4 @@ This editor shows hints in the top left corner:
 Be sure to try out the hints if you run into something confusing!
 -->
 
-何かわからなくなってしまったときは、忘れずにヒントを見てみましょう！
+なにかわからないことがあったときは、忘れずにヒントを見てみましょう！
