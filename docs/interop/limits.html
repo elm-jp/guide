@@ -1,0 +1,887 @@
+
+<!DOCTYPE HTML>
+<html lang="ja" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>制限事項 · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../webapps/" />
+    
+    
+    <link rel="prev" href="custom_elements.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="検索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../about_translation.html">
+            
+                <a href="../about_translation.html">
+            
+                    
+                    翻訳について
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../core_language.html">
+            
+                <a href="../core_language.html">
+            
+                    
+                    言語の基礎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    ボタン
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    テキストフィールド
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    フォーム
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    型を読む
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    型エイリアス
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    カスタム型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    パターンマッチ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../error_handling/">
+            
+                <a href="../error_handling/">
+            
+                    
+                    エラーハンドリング
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../error_handling/maybe.html">
+            
+                <a href="../error_handling/maybe.html">
+            
+                    
+                    Maybe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../error_handling/result.html">
+            
+                <a href="../error_handling/result.html">
+            
+                    
+                    Result
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../effects/">
+            
+                <a href="../effects/">
+            
+                    
+                    コマンドとサブスクリプション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../effects/http.html">
+            
+                <a href="../effects/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../effects/json.html">
+            
+                <a href="../effects/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../effects/random.html">
+            
+                <a href="../effects/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../effects/time.html">
+            
+                <a href="../effects/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../install/">
+            
+                <a href="../install/">
+            
+                    
+                    インストール
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../install/editor.html">
+            
+                <a href="../install/editor.html">
+            
+                    
+                    コードエディター
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../install/elm.html">
+            
+                <a href="../install/elm.html">
+            
+                    
+                    Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    JavaScriptとの相互運用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="flags.html">
+            
+                <a href="flags.html">
+            
+                    
+                    フラグ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="ports.html">
+            
+                <a href="ports.html">
+            
+                    
+                    ポート
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="custom_elements.html">
+            
+                <a href="custom_elements.html">
+            
+                    
+                    カスタムエレメンツ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9.4" data-path="limits.html">
+            
+                <a href="limits.html">
+            
+                    
+                    制限事項
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Webアプリケーション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    ナビゲーションする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URLをパースする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    モジュール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    モジュールの構造化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    最適化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    アセットサイズ縮小化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    次への一歩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" >
+            
+                <span>
+            
+                    
+                    付録
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../appendix/types_as_sets.html">
+            
+                <a href="../appendix/types_as_sets.html">
+            
+                    
+                    集合としての型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../appendix/types_as_bits.html">
+            
+                <a href="../appendix/types_as_bits.html">
+            
+                    
+                    型のビット表現
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../appendix/function_types.html">
+            
+                <a href="../appendix/function_types.html">
+            
+                    
+                    関数の型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBookで公開 
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >制限事項</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+# The Limits of Elm/JS Interop
+-->
+<h1 id="&#x5236;&#x9650;&#x4E8B;&#x9805;">&#x5236;&#x9650;&#x4E8B;&#x9805;</h1>
+<!-- 
+Many languages have a Foreign Function Interface (FFI) that allows direct bindings functions in the host language. For example, Scala can call Java functions directly. Same with Clojure/Java, Python/C, Haskell/C, and many others.
+-->
+<p>&#x30DB;&#x30B9;&#x30C8;&#x3068;&#x306A;&#x308B;&#x8A00;&#x8A9E;&#x3068;&#x5B9F;&#x884C;&#x74B0;&#x5883;&#x3092;&#x5171;&#x6709;&#x3059;&#x308B;&#x8A00;&#x8A9E;&#x306F;&#x3001;&#x591A;&#x304F;&#x304C;&#x5916;&#x90E8;&#x95A2;&#x6570;&#x30A4;&#x30F3;&#x30BF;&#x30FC;&#x30D5;&#x30A7;&#x30A4;&#x30B9;&#xFF08;Foreign Function Interface, FFI&#xFF09;&#x3068;&#x547C;&#x3070;&#x308C;&#x308B;&#x3001;&#x30DB;&#x30B9;&#x30C8;&#x8A00;&#x8A9E;&#x306E;&#x95A2;&#x6570;&#x3092;&#x76F4;&#x63A5;&#x547C;&#x3073;&#x51FA;&#x3059;&#x305F;&#x3081;&#x306E;&#x4ED5;&#x7D44;&#x307F;&#x3092;&#x5099;&#x3048;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x3001;Scala &#x306F; Java &#x306E;&#x95A2;&#x6570;&#x3092;&#x76F4;&#x63A5;&#x547C;&#x3076;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x4ED6;&#x306B;&#x3082; Clojure/Java &#x3084; Python/C&#x3001;Haskell/C &#x306A;&#x3069;&#x540C;&#x69D8;&#x306E;&#x4F8B;&#x304C;&#x591A;&#x304F;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<!-- 
+**Elm does not have a traditional Foreign Function Interface with JavaScript.** It is not possible to call arbitrary JavaScript functions at any time. This has tradeoffs that some people really love, but it is not for everyone! If you are evaluating Elm for commercial use, I highly encourage you to look through [these interop examples](https://github.com/elm-community/js-integration-examples) to get a feeling for whether flags, ports, and custom elements can cover everything you need. -->
+<p><strong>Elm&#x306F;JavaScript&#x306B;&#x5BFE;&#x3059;&#x308B;FFI&#x306E;&#x4ED5;&#x7D44;&#x307F;&#x3092;&#x63D0;&#x4F9B;&#x3057;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;</strong> &#x597D;&#x304D;&#x306A;&#x6642;&#x306B;&#x597D;&#x304D;&#x306A;JavaScript&#x306E;&#x95A2;&#x6570;&#x3092;&#x547C;&#x3073;&#x51FA;&#x3059;&#x65B9;&#x6CD5;&#x306F;&#x5B58;&#x5728;&#x3057;&#x306A;&#x3044;&#x306E;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x6C7A;&#x65AD;&#x306B;&#x3088;&#x3063;&#x3066;Elm&#x306F;&#x3055;&#x307E;&#x3056;&#x307E;&#x306A;&#x9577;&#x6240;&#x3092;&#x5F97;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x540C;&#x6642;&#x306B;&#x8986;&#x3059;&#x3053;&#x3068;&#x306E;&#x3067;&#x304D;&#x306A;&#x3044;&#x5236;&#x7D04;&#x3082;&#x751F;&#x307E;&#x308C;&#x307E;&#x3057;&#x305F;&#x3002;&#x3053;&#x308C;&#x3089;&#x3092;&#x597D;&#x307E;&#x3057;&#x3044;&#x5229;&#x70B9;&#x3068;&#x3057;&#x3066;&#x5927;&#x3044;&#x306B;&#x6C17;&#x306B;&#x5165;&#x308B;&#x4EBA;&#x3082;&#x3044;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3057;&#x3001;&#x5230;&#x5E95;&#x53D7;&#x3051;&#x5165;&#x308C;&#x3089;&#x308C;&#x306A;&#x3044;&#x3068;&#x3044;&#x3046;&#x4EBA;&#x3082;&#x3044;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;Elm&#x3092;&#x4ED5;&#x4E8B;&#x3067;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3092;&#x691C;&#x8A0E;&#x3057;&#x3066;&#x3044;&#x308B;&#x306A;&#x3089;&#x3001;&#x30D5;&#x30E9;&#x30B0;&#x3001;&#x30DD;&#x30FC;&#x30C8;&#x3068;&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x30A8;&#x30EC;&#x30E1;&#x30F3;&#x30C4;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3042;&#x306A;&#x305F;&#x306E;&#x8981;&#x6C42;&#x3092;&#x6E80;&#x305F;&#x305B;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3001;<a href="https://github.com/elm-community/js-integration-examples" target="_blank">JavaScript&#x3068;&#x306E;&#x76F8;&#x4E92;&#x904B;&#x7528;&#x306E;&#x4F8B;</a>&#x3092;&#x898B;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<!--
+Why does Elm make a different choice than other languages on this?
+-->
+<p>FFI&#x306B;&#x3064;&#x3044;&#x3066;&#x3001;Elm&#x304C;&#x4ED6;&#x306E;&#x8A00;&#x8A9E;&#x3068;&#x7570;&#x306A;&#x308B;&#x9078;&#x629E;&#x3092;&#x3057;&#x305F;&#x306E;&#x306F;&#x306A;&#x305C;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;</p>
+<!--
+## Tradeoffs
+-->
+<h2 id="&#x30C8;&#x30EC;&#x30FC;&#x30C9;&#x30AA;&#x30D5;">&#x30C8;&#x30EC;&#x30FC;&#x30C9;&#x30AA;&#x30D5;</h2>
+<!--
+Ports are somewhat of an outlier in the history of languages. There are two common interop strategies, and Elm did neither of them:
+-->
+<p>&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x8A00;&#x8A9E;&#x306E;&#x6B74;&#x53F2;&#x306E;&#x4E2D;&#x3067;&#x3082;&#x3001;&#x30DD;&#x30FC;&#x30C8;&#x306F;&#x7279;&#x5225;&#x306A;&#x5B58;&#x5728;&#x3067;&#x3059;&#x3002;&#x4E00;&#x822C;&#x7684;&#x306B;&#x3001;&#x7570;&#x306A;&#x308B;&#x8A00;&#x8A9E;&#x3092;&#x76F8;&#x4E92;&#x904B;&#x7528;&#x3059;&#x308B;&#x3084;&#x308A;&#x65B9;&#x3068;&#x3057;&#x3066;&#x6B21;&#x306B;&#x7D39;&#x4ECB;&#x3059;&#x308B;&#x3075;&#x305F;&#x3064;&#x306E;&#x6226;&#x7565;&#x306E;&#x3069;&#x3061;&#x3089;&#x304B;&#x3072;&#x3068;&#x3064;&#x304C;&#x7528;&#x3044;&#x3089;&#x308C;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;Elm&#x306F;&#x3069;&#x3061;&#x3089;&#x3082;&#x9078;&#x3073;&#x307E;&#x305B;&#x3093;&#x3067;&#x3057;&#x305F;&#x3002;</p>
+<!--
+1. **Full backwards compatibility.** For example, C++ is a superset of C, and TypeScript is a superset of JavaScript. This is the most permissive approach, and it has proven extremely effective. By definition, everyone is using your language already.
+2. **Foreign function interface (FFI)** This allows direct bindings to functions in the host language. For example, Scala can call Java functions directly. Same with Clojure/Java, Python/C, Haskell/C, and many others. Again, this has proven quite effective.
+
+These paths are attractive for faster adoption and greater flexibility, but they are not ideal for Elm for two main reasons:
+-->
+<ol>
+<li><strong>&#x5B8C;&#x5168;&#x306A;&#x5F8C;&#x65B9;&#x4E92;&#x63DB;&#x6027;&#x3002;</strong> &#x4F8B;&#x3048;&#x3070; C++ &#x306F; C &#x306E;&#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30BB;&#x30C3;&#x30C8;&#x3067;&#x3042;&#x308A;&#x3001;TypeScript &#x306F; JavaScript &#x306E;&#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30BB;&#x30C3;&#x30C8;&#x3067;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x3068;&#x3066;&#x3082;&#x5BDB;&#x5927;&#x306A;&#x30A2;&#x30D7;&#x30ED;&#x30FC;&#x30C1;&#x3067;&#x3042;&#x308A;&#x3001;&#x6975;&#x3081;&#x3066;&#x52B9;&#x679C;&#x7684;&#x306A;&#x624B;&#x6CD5;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3082;&#x5B9F;&#x8A3C;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x30B9;&#x30FC;&#x30D1;&#x30FC;&#x30BB;&#x30C3;&#x30C8;&#x3067;&#x3042;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x306F;&#x3001;&#x8AB0;&#x3082;&#x304C;&#x305D;&#x306E;&#x8A00;&#x8A9E;&#x3092;&#x3059;&#x3067;&#x306B;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</li>
+<li><strong>&#x5916;&#x90E8;&#x95A2;&#x6570;&#x30A4;&#x30F3;&#x30BF;&#x30FC;&#x30D5;&#x30A7;&#x30A4;&#x30B9;&#xFF08;Foreign Function Interface, FFI&#xFF09;&#x3002;</strong> &#x3053;&#x308C;&#x306F;&#x30DB;&#x30B9;&#x30C8;&#x8A00;&#x8A9E;&#x306E;&#x95A2;&#x6570;&#x3092;&#x76F4;&#x63A5;&#x547C;&#x3073;&#x51FA;&#x3059;&#x305F;&#x3081;&#x306E;&#x4ED5;&#x7D44;&#x307F;&#x3067;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;&#x3001;Scala &#x306F; Java &#x306E;&#x95A2;&#x6570;&#x3092;&#x76F4;&#x63A5;&#x547C;&#x3076;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;Clojure/Java &#x3084; Python/C&#x3001;Haskell/C &#x306A;&#x3069;&#x306E;&#x591A;&#x304F;&#x306E;&#x8A00;&#x8A9E;&#x304C;&#x540C;&#x69D8;&#x306E;&#x30A2;&#x30D7;&#x30ED;&#x30FC;&#x30C1;&#x3092;&#x3068;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x308C;&#x3082;&#x3068;&#x3066;&#x3082;&#x52B9;&#x679C;&#x7684;&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x304C;&#x5B9F;&#x8A3C;&#x3055;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</li>
+</ol>
+<p>&#x3053;&#x308C;&#x3089;&#x3075;&#x305F;&#x3064;&#x306E;&#x624B;&#x6CD5;&#x306F;&#x3001;&#x8A00;&#x8A9E;&#x306B;&#x67D4;&#x8EDF;&#x6027;&#x3092;&#x4E0E;&#x3048;&#x3001;&#x3088;&#x308A;&#x65E9;&#x304F;&#x666E;&#x53CA;&#x3055;&#x305B;&#x308B;&#x3068;&#x3044;&#x3046;&#x70B9;&#x3067;&#x306F;&#x9B45;&#x529B;&#x7684;&#x3067;&#x3059;&#x304C;&#x3001;&#x4E3B;&#x306B;&#x6B21;&#x306E;&#x3075;&#x305F;&#x3064;&#x306E;&#x7406;&#x7531;&#x306B;&#x3088;&#x308A;&#x3001;Elm &#x306B;&#x3068;&#x3063;&#x3066;&#x306F;&#x3069;&#x3061;&#x3089;&#x3082;&#x7406;&#x60F3;&#x7684;&#x3068;&#x306F;&#x3044;&#x3048;&#x307E;&#x305B;&#x3093;&#x3067;&#x3057;&#x305F;&#x3002;</p>
+<!--
+1. **Losing Guarantees.** One of the best things about Elm is that there are entire categories of problems you just do not have to worry about. There are no surprise exceptions to catch, and functions cannot mutate data in surprising ways. I think this is the core value of Elm over alternative languages, but if we can call JS directly, all that goes away. Does this package produce runtime exceptions? When? Will it mutate the values I give to it? Do I need to detect that? Does the package have side-effects? Will it send messages to some 3rd party servers? Log passwords? A decent chunk of Elm users are drawn to the language specifically because they do not have to think like that anymore.
+2. **Package Flooding.** There is quite high demand to directly copy JavaScript APIs into Elm. In the two years before `elm/html` existed, I am sure someone would have contributed jQuery bindings if it was possible. This has already happened in the typed functional languages that compile to JS, but have more traditional interop designs. As far as I know, package flooding is somewhat unique to compile-to-JS languages. The pressure is not nearly as high in Python for example, so I think that downside is a product of the unique culture and history of the JavaScript ecosystem.
+-->
+<ol>
+<li><strong>&#x5B89;&#x5168;&#x6027;&#x306E;&#x4FDD;&#x8A3C;&#x306E;&#x6B20;&#x5982;&#x3002;</strong> Elm&#x306E;&#x3059;&#x3070;&#x3089;&#x3057;&#x3044;&#x70B9;&#x306E;&#x3072;&#x3068;&#x3064;&#x306F;&#x3001;Elm&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x308B;&#x3060;&#x3051;&#x3067;&#x3001;&#x3042;&#x308B;&#x7A2E;&#x306E;&#x554F;&#x984C;&#x306B;&#x3064;&#x3044;&#x3066;&#x306F;&#x4E00;&#x5207;&#x982D;&#x3092;&#x60A9;&#x307E;&#x305B;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x306A;&#x304F;&#x306A;&#x308B;&#x3068;&#x3044;&#x3046;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x4E88;&#x671F;&#x3057;&#x306A;&#x3044;&#x4F8B;&#x5916;&#x304C;&#x9001;&#x51FA;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x3082;&#x306A;&#x3051;&#x308C;&#x3070;&#x3001;&#x95A2;&#x6570;&#x304C;&#x610F;&#x56F3;&#x305B;&#x305A;&#x30C7;&#x30FC;&#x30BF;&#x306B;&#x7834;&#x58CA;&#x7684;&#x5909;&#x66F4;&#x3092;&#x52A0;&#x3048;&#x308B;&#x65B9;&#x6CD5;&#x3082;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x3082;&#x3057; JavaScript &#x3092;&#x76F4;&#x63A5;&#x547C;&#x3073;&#x51FA;&#x3059;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3068;&#x3057;&#x305F;&#x3089;&#x3001;&#x305D;&#x306E;&#x5B89;&#x5168;&#x6027;&#x306F;&#x3059;&#x3079;&#x3066;&#x53F0;&#x7121;&#x3057;&#x306B;&#x306A;&#x3063;&#x3066;&#x3057;&#x307E;&#x3044;&#x307E;&#x3059;&#x3002;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x308B;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x304C;&#x5B9F;&#x884C;&#x6642;&#x30A8;&#x30E9;&#x30FC;&#x3092;&#x8D77;&#x3053;&#x3059;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3057;&#x3001;&#x305D;&#x308C;&#x304C;&#x3044;&#x3064;&#x8D77;&#x304D;&#x308B;&#x306E;&#x304B;&#x4E88;&#x6E2C;&#x3059;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;Elm&#x304C;&#x6E21;&#x3057;&#x305F;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x305D;&#x306E;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x304C;&#x5909;&#x66F4;&#x3057;&#x3066;&#x3057;&#x307E;&#x3046;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x30C7;&#x30FC;&#x30BF;&#x304C;&#x5909;&#x66F4;&#x3055;&#x308C;&#x305F;&#x3068;&#x3057;&#x3066;&#x3001;&#x305D;&#x306E;&#x5909;&#x66F4;&#x3092;&#x691C;&#x51FA;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x3000;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x306F;&#x526F;&#x4F5C;&#x7528;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x3000;&#x5916;&#x90E8;&#x306E;&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x3078;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x9001;&#x4FE1;&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;&#x306A;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x3000;&#x30D1;&#x30B9;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x8A18;&#x9332;&#x3059;&#x308B;&#x3053;&#x3068;&#x306F;&#xFF1F;&#x3000;JavaScript&#x3092;&#x76F4;&#x63A5;&#x4F7F;&#x3046;&#x3068;&#x304D;&#x306B;&#x306F;&#x3001;&#x3053;&#x308C;&#x3060;&#x3051;&#x306E;&#x3053;&#x3068;&#x3092;&#x6C17;&#x306B;&#x3057;&#x306A;&#x304F;&#x3066;&#x306F;&#x306A;&#x3089;&#x306A;&#x3044;&#x306E;&#x3067;&#x3059;&#x3002;&#x591A;&#x304F;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x304C; Elm &#x306B;&#x7279;&#x306B;&#x60F9;&#x304D;&#x3064;&#x3051;&#x3089;&#x308C;&#x3066;&#x3044;&#x308B;&#x306E;&#x306F;&#x3001;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x3053;&#x3068;&#x306B;&#x982D;&#x3092;&#x60A9;&#x307E;&#x305B;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x307E;&#x3063;&#x305F;&#x304F;&#x306A;&#x3044;&#x304B;&#x3089;&#x306A;&#x306E;&#x3067;&#x3059;&#x3002;</li>
+<li><strong>&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x306E;&#x6C3E;&#x6FEB;&#x3002;</strong> JavaScript&#x3067;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x3082;&#x306E;&#x3092;&#x76F4;&#x63A5;Elm&#x306B;&#x3082;&#x8907;&#x88FD;&#x3057;&#x305F;&#x3044;&#x3068;&#x3044;&#x3046;&#x8981;&#x671B;&#x306F;&#x6975;&#x3081;&#x3066;&#x5F37;&#x304F;&#x5B58;&#x5728;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x3082;&#x3057;Elm&#x304B;&#x3089;JavaScript&#x306E;&#x95A2;&#x6570;&#x3092;&#x76F4;&#x63A5;&#x547C;&#x3073;&#x51FA;&#x305B;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x3066;&#x3044;&#x305F;&#x306A;&#x3089;&#x3001;<code>elm/html</code> &#x304C;&#x5C0E;&#x5165;&#x3055;&#x308C;&#x308B;&#x524D;&#x306E;&#xFF12;&#x5E74;&#x306E;&#x3046;&#x3061;&#x306B;&#x3001;&#x9593;&#x9055;&#x3044;&#x306A;&#x304F;&#x8AB0;&#x304B;&#x304C; jQuery &#x306E;&#x30D0;&#x30A4;&#x30F3;&#x30C7;&#x30A3;&#x30F3;&#x30B0;&#x3092;&#x4F5C;&#x3063;&#x3066;&#x3044;&#x305F;&#x3053;&#x3068;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;Elm&#x3068;&#x540C;&#x3058;&#x3088;&#x3046;&#x306B;JavaScript&#x3078;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3055;&#x308C;&#x308B;&#x9759;&#x7684;&#x578B;&#x4ED8;&#x3051;&#x95A2;&#x6570;&#x578B;&#x8A00;&#x8A9E;&#x3067;&#x3082;&#x3001;&#x3088;&#x308A;&#x4F1D;&#x7D71;&#x7684;&#x306A;&#x76F8;&#x4E92;&#x904B;&#x7528;&#x306E;&#x4ED5;&#x7D44;&#x307F;&#x3092;&#x63A1;&#x7528;&#x3057;&#x3066;&#x3044;&#x308B;&#x8A00;&#x8A9E;&#x3067;&#x306F;&#x3001;&#x3059;&#x3067;&#x306B;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x306E;&#x6C3E;&#x6FEB;&#x304C;&#x8D77;&#x3053;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x79C1;&#x304C;&#x77E5;&#x308B;&#x9650;&#x308A;&#x3001;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x306E;&#x6C3E;&#x6FEB;&#x306F; JavaScript &#x3078;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3055;&#x308C;&#x308B;&#x8A00;&#x8A9E;&#x306B;&#x7279;&#x6709;&#x306E;&#x73FE;&#x8C61;&#x3067;&#x3059;&#x3002;&#x4ED6;&#x306E;&#x8A00;&#x8A9E;&#x3001;&#x305F;&#x3068;&#x3048;&#x3070; Python &#x3067;&#x306F;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3078;&#x306E;&#x8981;&#x6C42;&#x306F;&#x3053;&#x308C;&#x307B;&#x3069;&#x5F37;&#x304F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x79C1;&#x304C;&#x601D;&#x3046;&#x306B;&#x3001;&#x3053;&#x308C;&#x306F;JavaScript &#x306E;&#x72EC;&#x7279;&#x306A;&#x6587;&#x5316;&#x3084;&#x30A8;&#x30B3;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306E;&#x6B74;&#x53F2;&#x304C;&#x3082;&#x305F;&#x3089;&#x3057;&#x305F;&#x6B20;&#x70B9;&#x3067;&#x306F;&#x306A;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;</li>
+</ol>
+<!--
+Given these pitfalls, ports and custom elements are attractive because they let you get things done in JavaScript while preserving the best parts of Elm. Great! On the flip side, it means Elm cannot piggyback on the JS ecosystem to gain more libraries more quickly. If you take a longer-view, I think this is actually a key strength. As a result:
+-->
+<p>&#x3053;&#x308C;&#x3089;&#x306E;&#x843D;&#x3068;&#x3057;&#x7A74;&#x3092;&#x8003;&#x3048;&#x308B;&#x3068;&#x3001;Elm &#x306E;&#x826F;&#x3044;&#x90E8;&#x5206;&#x3092;&#x640D;&#x306A;&#x308F;&#x305A;&#x306B;&#x3001;&#x5FC5;&#x8981;&#x3067;&#x3042;&#x308C;&#x3070; JavaScript &#x3092;&#x4F7F;&#x3063;&#x3066;&#x554F;&#x984C;&#x3092;&#x89E3;&#x6C7A;&#x3059;&#x308B;&#x3053;&#x3068;&#x306E;&#x3067;&#x304D;&#x308B;&#x30DD;&#x30FC;&#x30C8;&#x3068;&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x30A8;&#x30EC;&#x30E1;&#x30F3;&#x30C4;&#x306F;&#x3001;&#x3068;&#x3066;&#x3082;&#x9B45;&#x529B;&#x7684;&#x3067;&#x306F;&#x306A;&#x3044;&#x304B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#x3002;&#x7D20;&#x6674;&#x3089;&#x3057;&#x3044;&#x3067;&#x3059;&#x306D;&#xFF01;&#x3000;&#x4E00;&#x65B9;&#x3067;&#x3001;Elm &#x306F; JavaScript &#x306E;&#x30A8;&#x30B3;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306B;&#x4E57;&#x3063;&#x304B;&#x3063;&#x3066;&#x8FC5;&#x901F;&#x306B;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3092;&#x5897;&#x3084;&#x3059;&#x3053;&#x3068;&#x306F;&#x3067;&#x304D;&#x307E;&#x305B;&#x3093;&#x3002;&#x305D;&#x308C;&#x3067;&#x3082;&#x306A;&#x304A;&#x3001;&#x9577;&#x3044;&#x76EE;&#x3067;&#x898B;&#x308B;&#x3068;&#x3053;&#x306E;&#x70B9;&#x3053;&#x305D;&#x304C; Elm &#x306E;&#x5F37;&#x3055;&#x306E;&#x8981;&#x306B;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x7D50;&#x679C;&#x3068;&#x3057;&#x3066;&#x5F97;&#x3089;&#x308C;&#x308B;&#x306E;&#x306F;&#x3001;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x9577;&#x6240;&#x3067;&#x3059;&#x3002;</p>
+<!--
+1. **Packages are designed for Elm.** As members of the Elm community get more experience and confidence, we are starting to see fresh approaches to layout and data visualization that work seamlessly with The Elm Architecture and the overall ecosystem. I expect this to keep happening with other sorts of problems!
+2. **Code is portable.** If the compiler someday produces x86 or WebAssembly, the whole ecosystem just keeps working, but faster! Ports guarantee that all packages are written entirely in Elm, and Elm itself was designed such that other non-JS compiler targets are viable.
+3. **Packages are more secure.** Languages like JavaScript have serious security concerns with packages. Reports of [stealing credentials](https://www.bleepingcomputer.com/news/security/compromised-javascript-package-caught-stealing-npm-credentials/) and [stealing API keys](https://winbuzzer.com/2020/01/14/microsoft-discovers-an-npm-package-thats-been-stealing-unix-user-data-xcxwbn/) are not uncommon, imposing a permanent auditing cost on all packages. Do they add a keylogger to `window`? Elm packages can guarantee that entire categories of exploits just cannot happen, reducing auditing cost and security risks overall.
+4. **Optimization is easier.** The style of generated code has changed significantly from release to release in the past. For example, the [0.19 release](https://elm-lang.org/news/small-assets-without-the-headache) was able to dramatically reduce asset size by (1) generating code in a way that works better with JavaScript minifiers and (2) using different runtime representations of custom types depending on your optimization level. I expect it will change again for code slicing or if we find a faster calling convention for currying. Furthermore, the compiler can safely assume that all code is pure, which may allow it to move code around more aggressively than other compilers. Locking into a specific calling convention now is likely to make some of these optimizations impossible. -->
+<ol>
+<li><strong>&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x306F; Elm &#x306E;&#x3084;&#x308A;&#x65B9;&#x306B;&#x5408;&#x3046;&#x3088;&#x3046;&#x306B;&#x3001;&#x3088;&#x308A;&#x3088;&#x304F;&#x8A2D;&#x8A08;&#x3055;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</strong> Elm&#x30B3;&#x30DF;&#x30E5;&#x30CB;&#x30C6;&#x30A3;&#x306F;&#x7D4C;&#x9A13;&#x3092;&#x7A4D;&#x307F;&#x3001;&#x81EA;&#x4FE1;&#x3092;&#x3082;&#x3063;&#x3066; Elm &#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x305D;&#x306E;&#x305F;&#x3081;&#x3001;&#x3068;&#x304F;&#x306B;&#x30EC;&#x30A4;&#x30A2;&#x30A6;&#x30C8;&#x3068;&#x30C7;&#x30FC;&#x30BF;&#x53EF;&#x8996;&#x5316;&#x306E;&#x5206;&#x91CE;&#x3067;&#x306F;&#x3001;Elm &#x306E;&#x30A8;&#x30B3;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x3092;&#x6D3B;&#x7528;&#x3057;&#x3084;&#x3059;&#x304F;&#x3001;The Elm Architecture &#x3068;&#x3082;&#x89AA;&#x548C;&#x6027;&#x306E;&#x9AD8;&#x3044;&#x65B0;&#x3057;&#x3044;&#x30A2;&#x30D7;&#x30ED;&#x30FC;&#x30C1;&#x3092;&#x63A1;&#x7528;&#x3057;&#x305F;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x304C;&#x898B;&#x3089;&#x308C;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x4ED6;&#x306E;&#x5206;&#x91CE;&#x3067;&#x3082;&#x3001;&#x3053;&#x306E;&#x3088;&#x3046;&#x306A;&#x9769;&#x65B0;&#x304C;&#x8D77;&#x3053;&#x308A;&#x7D9A;&#x3051;&#x308B;&#x3053;&#x3068;&#x3092;&#x671F;&#x5F85;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#xFF01;</li>
+<li><strong>&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x79FB;&#x690D;&#x6027;&#x304C;&#x4FDD;&#x305F;&#x308C;&#x307E;&#x3059;&#x3002;</strong> &#x5C06;&#x6765;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x30FC;&#x304C; x86 &#x3084; WebAssembly &#x3092;&#x51FA;&#x529B;&#x3059;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x305F;&#x3068;&#x3057;&#x3066;&#x3082;&#x3001;&#x30A8;&#x30B3;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306F;&#x305D;&#x306E;&#x307E;&#x307E;&#x52D5;&#x4F5C;&#x3057;&#x7D9A;&#x3051;&#x307E;&#x3059;&#x3057;&#x3001;&#x305D;&#x306E;&#x3046;&#x3048;&#x5B9F;&#x884C;&#x901F;&#x5EA6;&#x306F;&#x901F;&#x304F;&#x306A;&#x308A;&#x307E;&#x3059;&#xFF01;&#x3000;&#x30DD;&#x30FC;&#x30C8;&#x306E;&#x4ED5;&#x7D44;&#x307F;&#x306F;&#x3059;&#x3079;&#x3066;&#x306E;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x304C; Elm &#x3060;&#x3051;&#x3067;&#x66F8;&#x304B;&#x308C;&#x3066;&#x3044;&#x308B;&#x3053;&#x3068;&#x3092;&#x4FDD;&#x8A3C;&#x3057;&#x307E;&#x3059;&#x3002;&#x305D;&#x3057;&#x3066; Elm &#x81EA;&#x8EAB;&#x3082;&#x3001;JavaScript &#x4EE5;&#x5916;&#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x30FC;&#x30BF;&#x30FC;&#x30B2;&#x30C3;&#x30C8;&#x3092;&#x5B9F;&#x73FE;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x8A2D;&#x8A08;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</li>
+<li><strong>&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x306E;&#x5B89;&#x5168;&#x6027;&#x304C;&#x5411;&#x4E0A;&#x3057;&#x307E;&#x3059;&#x3002;</strong> JavaScript&#x306E;&#x3088;&#x3046;&#x306A;&#x8A00;&#x8A9E;&#x306B;&#x306F;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x7BA1;&#x7406;&#x305D;&#x306E;&#x3082;&#x306E;&#x306B;&#x91CD;&#x5927;&#x306A;&#x30BB;&#x30AD;&#x30E5;&#x30EA;&#x30C6;&#x30A3;&#x4E0A;&#x306E;&#x61F8;&#x5FF5;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;<a href="https://www.bleepingcomputer.com/news/security/compromised-javascript-package-caught-stealing-npm-credentials/" target="_blank">&#x8CC7;&#x683C;&#x60C5;&#x5831;&#x304C;&#x7A83;&#x53D6;&#x3055;&#x308C;&#x305F;&#x4E8B;&#x4F8B;</a>&#x3084;<a href="https://winbuzzer.com/2020/01/14/microsoft-discovers-an-npm-package-thats-been-stealing-unix-user-data-xcxwbn/" target="_blank">API&#x30AD;&#x30FC;&#x304C;&#x7A83;&#x53D6;&#x3055;&#x308C;&#x305F;&#x4E8B;&#x4F8B;</a>&#x306F;&#x6C7A;&#x3057;&#x3066;&#x3081;&#x305A;&#x3089;&#x3057;&#x304F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;<code>window</code>&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306B;&#x30AD;&#x30FC;&#x30ED;&#x30AC;&#x30FC;&#x304C;&#x4ED5;&#x639B;&#x3051;&#x3089;&#x308C;&#x308B;&#x3001;&#x306A;&#x3069;&#x306E;&#x5371;&#x967A;&#x304C;&#x3042;&#x308B;&#x305F;&#x3081;&#x3001;JavaScript&#x306E;&#x30A8;&#x30B3;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306F;&#x3059;&#x3079;&#x3066;&#x306E;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3092;&#x8A8D;&#x8A3C;&#x3059;&#x308B;&#x30B3;&#x30B9;&#x30C8;&#x3092;&#x5F37;&#x3044;&#x3089;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;Elm&#x306E;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x306F;&#x3001;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x306E;&#x8A8D;&#x8A3C;&#x306B;&#x304B;&#x304B;&#x308B;&#x30B3;&#x30B9;&#x30C8;&#x3068;&#x3001;&#x30BB;&#x30AD;&#x30E5;&#x30EA;&#x30C6;&#x30A3;&#x4E0A;&#x306E;&#x30EA;&#x30B9;&#x30AF;&#x3092;&#x5168;&#x4F53;&#x7684;&#x306B;&#x6291;&#x3048;&#x3064;&#x3064;&#x3001;&#x3053;&#x3046;&#x3057;&#x305F;&#x985E;&#x306E;&#x6F0F;&#x6D29;&#x304C;&#x767A;&#x751F;&#x3057;&#x3048;&#x306A;&#x3044;&#x3053;&#x3068;&#x3092;&#x4FDD;&#x8A3C;&#x3067;&#x304D;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</li>
+<li><strong>&#x6700;&#x9069;&#x5316;&#x304C;&#x3088;&#x308A;&#x5BB9;&#x6613;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</strong> &#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x30FC;&#x304C;&#x751F;&#x6210;&#x3059;&#x308B;JavaScript&#x30B3;&#x30FC;&#x30C9;&#x306F;&#x3001;&#x30EA;&#x30EA;&#x30FC;&#x30B9;&#x3092;&#x8FFD;&#x3046;&#x3054;&#x3068;&#x306B;&#x5927;&#x304D;&#x304F;&#x5909;&#x5316;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x4F8B;&#x3048;&#x3070;<a href="https://elm-lang.org/news/small-assets-without-the-headache" target="_blank">&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;0.19</a>&#x3067;&#x306F;&#x3001;(1)JavaScript&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x4F4E;&#x6E1B;&#x3059;&#x308B;&#x30C4;&#x30FC;&#x30EB;&#x306E;&#x5229;&#x7528;&#x3092;&#x5FF5;&#x982D;&#x306B;&#x7F6E;&#x3044;&#x305F;&#x30B3;&#x30FC;&#x30C9;&#x751F;&#x6210;&#x3001;(2)&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x304C;&#x9078;&#x629E;&#x3057;&#x305F;&#x6700;&#x9069;&#x5316;&#x30EC;&#x30D9;&#x30EB;&#x306B;&#x3088;&#x3063;&#x3066;&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;&#x306E;&#x5B9F;&#x884C;&#x6642;&#x8868;&#x73FE;&#x3092;&#x5909;&#x66F4;&#x3059;&#x308B;&#x3001;&#x3068;&#x3044;&#x3046;2&#x3064;&#x306E;&#x6700;&#x9069;&#x5316;&#x306B;&#x3088;&#x3063;&#x3066;&#x3001;&#x30A2;&#x30BB;&#x30C3;&#x30C8;&#x30B5;&#x30A4;&#x30BA;&#x3092;&#x5287;&#x7684;&#x306B;&#x5C0F;&#x3055;&#x304F;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x4ECA;&#x5F8C;&#x3082;&#x3001;JavaScript&#x30B3;&#x30FC;&#x30C9;&#x306E;&#x5206;&#x5272;&#x751F;&#x6210;&#x3084;&#x3001;&#x30AB;&#x30EA;&#x30FC;&#x5316;&#x3055;&#x308C;&#x305F;&#x95A2;&#x6570;&#x306E;&#x3055;&#x3089;&#x306B;&#x9AD8;&#x901F;&#x306A;&#x547C;&#x3073;&#x51FA;&#x3057;&#x898F;&#x7D04;&#x306A;&#x3069;&#x3001;&#x65B0;&#x3057;&#x3044;&#x6700;&#x9069;&#x5316;&#x624B;&#x6CD5;&#x304C;&#x898B;&#x3064;&#x304B;&#x308C;&#x3070;&#x3001;&#x518D;&#x3073;&#x30B3;&#x30FC;&#x30C9;&#x751F;&#x6210;&#x306B;&#x624B;&#x3092;&#x52A0;&#x3048;&#x308B;&#x3053;&#x3068;&#x304C;&#x3042;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x3055;&#x3089;&#x306B;&#x3001;Elm&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x30FC;&#x306F;&#x751F;&#x6210;&#x3055;&#x308C;&#x308B;&#x30B3;&#x30FC;&#x30C9;&#x304C;&#x7D14;&#x7C8B;&#x3067;&#x3042;&#x308B;&#x3068;&#x4EEE;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x306B;&#x3088;&#x3063;&#x3066;&#x3001;&#x4ED6;&#x306E;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x30FC;&#x3088;&#x308A;&#x7A4D;&#x6975;&#x7684;&#x306B;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x79FB;&#x52D5;&#x3055;&#x305B;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x73FE;&#x6642;&#x70B9;&#x3067;&#x306F;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x30FC;&#x304C;&#x7279;&#x5B9A;&#x306E;&#x95A2;&#x6570;&#x547C;&#x3073;&#x51FA;&#x3057;&#x898F;&#x7D04;&#x3092;&#x5F37;&#x5236;&#x3055;&#x308C;&#x308B;&#x3068;&#x3001;&#x3053;&#x3046;&#x3044;&#x3063;&#x305F;&#x6700;&#x9069;&#x5316;&#x3092;&#x4E0D;&#x53EF;&#x80FD;&#x306B;&#x3057;&#x3066;&#x3057;&#x307E;&#x3046;&#x304A;&#x305D;&#x308C;&#x304C;&#x3042;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</li>
+</ol>
+<!--
+This is definitely a longer and harder path, but languages live for 30+ years. They have to support teams and companies for decades, and when I think about what Elm will look like in 20 or 30 years, I think the trade-offs that come with ports look really promising! My talk [What is Success?](https://youtu.be/uGlzRt-FYto) starts a little slow, but it gets into this a bit more!
+-->
+<p>&#x3053;&#x308C;&#x304C;&#x9577;&#x304F;&#x967A;&#x3057;&#x3044;&#x9053;&#x306E;&#x308A;&#x306B;&#x306A;&#x308B;&#x3053;&#x3068;&#x306F;&#x9593;&#x9055;&#x3044;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x304C;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x8A00;&#x8A9E;&#x306F;30&#x5E74;&#x4EE5;&#x4E0A;&#x3082;&#x4F7F;&#x308F;&#x308C;&#x7D9A;&#x3051;&#x308B;&#x3082;&#x306E;&#x3067;&#x3059;&#x3002;&#x6570;&#x5341;&#x5E74;&#x306B;&#x308F;&#x305F;&#x3063;&#x3066;&#x30C1;&#x30FC;&#x30E0;&#x3084;&#x4F01;&#x696D;&#x3092;&#x30B5;&#x30DD;&#x30FC;&#x30C8;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x306E;&#x3067;&#x3001;20&#x5E74;&#x304B;&#x3089;30&#x5E74;&#x5148;&#x306B; Elm &#x304C;&#x3069;&#x3046;&#x306A;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x304B;&#x3092;&#x898B;&#x636E;&#x3048;&#x3066;&#x8003;&#x3048;&#x305F;&#x3068;&#x304D;&#x3001;&#x3053;&#x306E;&#x30DD;&#x30FC;&#x30C8;&#x306B;&#x3088;&#x308B;&#x30C8;&#x30EC;&#x30FC;&#x30C9;&#x30AA;&#x30D5;&#x306F;&#x3068;&#x3066;&#x3082;&#x671F;&#x5F85;&#x3067;&#x304D;&#x308B;&#x306E;&#x3067;&#x306F;&#x306A;&#x3044;&#x304B;&#x3068;&#x601D;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#xFF01;&#x3000;&#x79C1;&#x306E;&#x8B1B;&#x6F14;&#x3001;<a href="https://youtu.be/uGlzRt-FYto" target="_blank">What is Success?</a>&#x306F;&#x3061;&#x3087;&#x3063;&#x3068;&#x30B9;&#x30ED;&#x30FC;&#x30B9;&#x30BF;&#x30FC;&#x30C8;&#x3067;&#x3059;&#x304C;&#x3001;&#x3053;&#x306E;&#x4E8B;&#x306B;&#x3064;&#x3044;&#x3066;&#x3088;&#x308A;&#x6DF1;&#x304F;&#x8E0F;&#x307F;&#x8FBC;&#x3093;&#x3067;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<!--
+And again, this path is not for everyone! There are many alternative languages that have a traditional FFI instead, and I encourage you to look into those languages if you think that path might be better. Is the package ecosystem as cohesive? Do you get runtime exceptions more often? Maybe, but maybe the extra flexibility is worth it for you. So I encourage you to take a look at [these interop examples](https://github.com/elm-community/js-integration-examples) to decide if flags, ports, and custom elements will cover everything you need. This is especially important if you are considering Elm for commercial use!
+-->
+<p>&#x7E70;&#x308A;&#x8FD4;&#x3057;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x3053;&#x306E;&#x3084;&#x308A;&#x65B9;&#x306F;&#x3059;&#x3079;&#x3066;&#x306E;&#x4EBA;&#x306E;&#x305F;&#x3081;&#x306E;&#x3082;&#x306E;&#x3067;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;Elm&#x306E;&#x4ED6;&#x306B;&#x3082;&#x4F1D;&#x7D71;&#x7684;&#x306A;FFI&#x3092;&#x63A1;&#x7528;&#x3057;&#x3066;&#x3044;&#x308B;&#x6570;&#x591A;&#x304F;&#x306E;&#x8A00;&#x8A9E;&#x304C;&#x3042;&#x308B;&#x306E;&#x3067;&#x3001;&#x3042;&#x306A;&#x305F;&#x306B;&#x3068;&#x3063;&#x3066;&#x3088;&#x308A;&#x826F;&#x3044;&#x3068;&#x601D;&#x3048;&#x308B;&#x3082;&#x306E;&#x3092;&#x8A66;&#x3057;&#x3066;&#x307F;&#x308B;&#x3079;&#x304D;&#x3067;&#x3059;&#x3002;&#x305D;&#x308C;&#x3089;&#x306E;&#x8A00;&#x8A9E;&#x3067;&#x306F;&#x3001;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3084;&#x30A8;&#x30B3;&#x30B7;&#x30B9;&#x30C6;&#x30E0;&#x304C;&#x307E;&#x3068;&#x307E;&#x3063;&#x3066;&#x3044;&#x306A;&#x3044;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x5B9F;&#x884C;&#x6642;&#x4F8B;&#x5916;&#x306B;&#x51FA;&#x304F;&#x308F;&#x3059;&#x3053;&#x3068;&#x304C;&#x983B;&#x7E41;&#x306B;&#x3042;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x305D;&#x308C;&#x3067;&#x3082;&#x306A;&#x304A;&#x3001;&#x67D4;&#x8EDF;&#x6027;&#x304C;&#x91CD;&#x8981;&#x306B;&#x306A;&#x308B;&#x5834;&#x5408;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;Elm&#x306E;&#x5099;&#x3048;&#x308B;&#x30D5;&#x30E9;&#x30B0;&#x3001;&#x30DD;&#x30FC;&#x30C8;&#x3001;&#x305D;&#x3057;&#x3066;&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x30A8;&#x30EC;&#x30E1;&#x30F3;&#x30C4;&#x3068;&#x3044;&#x3046;&#x3084;&#x308A;&#x65B9;&#x3060;&#x3051;&#x3067;&#x3001;&#x3042;&#x306A;&#x305F;&#x306E;&#x3084;&#x308A;&#x305F;&#x3044;&#x3053;&#x3068;&#x304C;&#x5B9F;&#x73FE;&#x3067;&#x304D;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3001;<a href="https://github.com/elm-community/js-integration-examples" target="_blank">JavaScript&#x3068;&#x5B9F;&#x969B;&#x306B;&#x76F8;&#x4E92;&#x904B;&#x7528;&#x3057;&#x3066;&#x3044;&#x308B;&#x3053;&#x308C;&#x3089;&#x306E;&#x4F8B;</a>&#x3067;&#x78BA;&#x304B;&#x3081;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x3082;&#x3057;&#x3042;&#x306A;&#x305F;&#x304C;Elm&#x3092;&#x4ED5;&#x4E8B;&#x3067;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3092;&#x8003;&#x3048;&#x3066;&#x3044;&#x308B;&#x306A;&#x3089;&#x3001;&#x3053;&#x306E;&#x5224;&#x65AD;&#x306F;&#x7279;&#x306B;&#x91CD;&#x8981;&#x3067;&#x3059;&#xFF01;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="custom_elements.html" class="navigation navigation-prev " aria-label="Previous page: カスタムエレメンツ">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../webapps/" class="navigation navigation-next " aria-label="Next page: Webアプリケーション">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"制限事項","level":"1.9.4","depth":2,"next":{"title":"Webアプリケーション","level":"1.10","depth":1,"path":"webapps/README.md","ref":"webapps/README.md","articles":[{"title":"ナビゲーションする","level":"1.10.1","depth":2,"path":"webapps/navigation.md","ref":"webapps/navigation.md","articles":[]},{"title":"URLをパースする","level":"1.10.2","depth":2,"path":"webapps/url_parsing.md","ref":"webapps/url_parsing.md","articles":[]},{"title":"モジュール","level":"1.10.3","depth":2,"path":"webapps/modules.md","ref":"webapps/modules.md","articles":[]},{"title":"モジュールの構造化","level":"1.10.4","depth":2,"path":"webapps/structure.md","ref":"webapps/structure.md","articles":[]}]},"previous":{"title":"カスタムエレメンツ","level":"1.9.3","depth":2,"path":"interop/custom_elements.md","ref":"interop/custom_elements.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","elm-repl","bulk-redirect","ga","sitemap","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"elm-repl":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"ga":{"configuration":"auto","token":"UA-131798240-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"interop/limits.md","mtime":"2020-11-03T15:58:48.596Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-20T02:27:00.421Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-elm-repl/repl.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

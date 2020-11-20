@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>パターンマッチ · An Introduction to Elm</title>
+        <title>インストール · An Introduction to Elm</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -59,10 +59,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../error_handling/" />
+    <link rel="next" href="editor.html" />
     
     
-    <link rel="prev" href="custom_types.html" />
+    <link rel="prev" href="../effects/time.html" />
     
 
     </head>
@@ -188,9 +188,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="./">
+        <li class="chapter " data-level="1.5" data-path="../types/">
             
-                <a href="./">
+                <a href="../types/">
             
                     
                     型
@@ -202,9 +202,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="reading_types.html">
+        <li class="chapter " data-level="1.5.1" data-path="../types/reading_types.html">
             
-                <a href="reading_types.html">
+                <a href="../types/reading_types.html">
             
                     
                     型を読む
@@ -215,9 +215,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="type_aliases.html">
+        <li class="chapter " data-level="1.5.2" data-path="../types/type_aliases.html">
             
-                <a href="type_aliases.html">
+                <a href="../types/type_aliases.html">
             
                     
                     型エイリアス
@@ -228,9 +228,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="custom_types.html">
+        <li class="chapter " data-level="1.5.3" data-path="../types/custom_types.html">
             
-                <a href="custom_types.html">
+                <a href="../types/custom_types.html">
             
                     
                     カスタム型
@@ -241,9 +241,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.4" data-path="pattern_matching.html">
+        <li class="chapter " data-level="1.5.4" data-path="../types/pattern_matching.html">
             
-                <a href="pattern_matching.html">
+                <a href="../types/pattern_matching.html">
             
                     
                     パターンマッチ
@@ -375,9 +375,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8" data-path="../install/">
+        <li class="chapter active" data-level="1.8" data-path="./">
             
-                <a href="../install/">
+                <a href="./">
             
                     
                     インストール
@@ -389,9 +389,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.8.1" data-path="../install/editor.html">
+        <li class="chapter " data-level="1.8.1" data-path="editor.html">
             
-                <a href="../install/editor.html">
+                <a href="editor.html">
             
                     
                     コードエディター
@@ -402,9 +402,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8.2" data-path="../install/elm.html">
+        <li class="chapter " data-level="1.8.2" data-path="elm.html">
             
-                <a href="../install/elm.html">
+                <a href="elm.html">
             
                     
                     Elm
@@ -721,7 +721,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >パターンマッチ</a>
+        <a href=".." >インストール</a>
     </h1>
 </div>
 
@@ -737,73 +737,28 @@
                                 <section class="normal markdown-section">
                                 
                                 <!--
-# Pattern Matching
+# Installation
 -->
-<h1 id="&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;">&#x30D1;&#x30BF;&#x30FC;&#x30F3;&#x30DE;&#x30C3;&#x30C1;</h1>
+<h1 id="&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;">&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;</h1>
 <!--
-On the previous page, we learned how to create [custom types](/types/custom_types.html) with the `type` keyword. Our primary example was a `User` in a chat room:
+We have come a long way without installing anything! We learned **The Elm Architecture**. We learned about **types**. We learned how to interact with the outside world through **commands** and **subscriptions**. Things are going well, but we need to get Elm working on your computer for the next couple sections!
 -->
-<p>&#x524D;&#x306E;&#x30DA;&#x30FC;&#x30B8;&#x3067;&#x3001;<code>type</code> &#x30AD;&#x30FC;&#x30EF;&#x30FC;&#x30C9;&#x3092;&#x7528;&#x3044;&#x305F;<a href="custom_types.html">&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;</a>&#x306E;&#x66F8;&#x304D;&#x65B9;&#x306B;&#x3064;&#x3044;&#x3066;&#x5B66;&#x3073;&#x307E;&#x3057;&#x305F;&#x3002;
-&#x4E3B;&#x8981;&#x306A;&#x4F8B;&#x3068;&#x3057;&#x3066;&#x30C1;&#x30E3;&#x30C3;&#x30C8;&#x30EB;&#x30FC;&#x30E0;&#x306E; <code>User</code> &#x578B;&#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x307E;&#x3057;&#x305F;:</p>
-<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">User</span>
-  = <span class="hljs-type">Regular</span> <span class="hljs-type">String</span> <span class="hljs-type">Int</span>
-  | <span class="hljs-type">Visitor</span> <span class="hljs-type">String</span>
-</code></pre>
+<p>&#x4F55;&#x3082;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x3053;&#x3068;&#x306A;&#x304F;&#x9577;&#x3044;&#x9053;&#x306E;&#x308A;&#x3092;&#x6B69;&#x3093;&#x3067;&#x304D;&#x307E;&#x3057;&#x305F;&#xFF01;<strong> The Elm Architecture </strong>&#x3092;&#x5B66;&#x3073;&#x307E;&#x3057;&#x305F;&#x3002;<strong>&#x578B;</strong>&#x306B;&#x3064;&#x3044;&#x3066;&#x5B66;&#x3073;&#x307E;&#x3057;&#x305F;&#x3002;<strong>&#x30B3;&#x30DE;&#x30F3;&#x30C9;</strong>&#x3068;<strong>&#x30B5;&#x30D6;&#x30B9;&#x30AF;&#x30EA;&#x30D7;&#x30B7;&#x30E7;&#x30F3;</strong>&#x3092;&#x901A;&#x3057;&#x3066;&#x5916;&#x306E;&#x4E16;&#x754C;&#x3068;&#x3084;&#x308A;&#x3068;&#x308A;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3092;&#x5B66;&#x3073;&#x307E;&#x3057;&#x305F;&#x3002; &#x9806;&#x8ABF;&#x306B;&#x9032;&#x3093;&#x3067;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x6B21;&#x306E;2&#x3064;&#x306E;&#x7BC0;&#x3067;&#x306F;Elm&#x3092;&#x3042;&#x306A;&#x305F;&#x306E;&#x30B3;&#x30F3;&#x30D4;&#x30E5;&#x30FC;&#x30BF;&#x30FC;&#x3067;&#x52D5;&#x304B;&#x3059;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#xFF01;</p>
 <!--
-Regulars have a name and age, whereas visitors only have a name. So we have our custom type, but how do we actually use it?
+The next two pages will show how to get Elm working in your **editor** and then in your **terminal**.
 -->
-<p><code>Regular</code> &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306F;&#x540D;&#x524D;&#x3068;&#x5E74;&#x9F62;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x306B;&#x5BFE;&#x3057;&#x3001;<code>Visitor</code> &#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x306F;&#x540D;&#x524D;&#x3060;&#x3051;&#x3092;&#x6301;&#x3063;&#x3066;&#x3044;&#x308B;&#x306E;&#x3067;&#x3057;&#x305F;&#x3002;
-&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x30AB;&#x30B9;&#x30BF;&#x30E0;&#x578B;&#x306E;&#x4F5C;&#x308A;&#x65B9;&#x306F;&#x5206;&#x304B;&#x308A;&#x307E;&#x3057;&#x305F;&#x304C;&#x3001;&#x5B9F;&#x969B;&#x306B;&#x306F;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x4F7F;&#x3048;&#x3070;&#x826F;&#x3044;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;</p>
+<p>&#x6B21;&#x306E;2&#x3064;&#x306E;&#x30DA;&#x30FC;&#x30B8;&#x3067;&#x306F;&#x3001;Elm&#x3092;<strong>&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x30FC;</strong>&#x3068;<strong>&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;</strong>&#x3092;&#x4F7F;&#x3063;&#x3066;&#x52D5;&#x304B;&#x3059;&#x65B9;&#x6CD5;&#x3092;&#x7D39;&#x4ECB;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <!--
-## `case`
+**Why?** Upcoming topics like "JavaScript Interop" work a lot better when you can save files locally on your computer. This will also set us up to create more complex personal projects!
 -->
-<h2 id="case"><code>case</code></h2>
+<p><strong>&#x306A;&#x305C;</strong>&#x3053;&#x306E;&#x30BF;&#x30A4;&#x30DF;&#x30F3;&#x30B0;&#x3067;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3092;&#x3059;&#x308B;&#x306E;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#x3002;&#x300C;JavaScript&#x3068;&#x306E;&#x76F8;&#x4E92;&#x904B;&#x7528;&#x300D;&#x306E;&#x3088;&#x3046;&#x306A;&#x3053;&#x306E;&#x3042;&#x3068;&#x306E;&#x30C8;&#x30D4;&#x30C3;&#x30AF;&#x3067;&#x306F;&#x3001;&#x30B3;&#x30F3;&#x30D4;&#x30E5;&#x30FC;&#x30BF;&#x30FC;&#x306E;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x306B;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4FDD;&#x5B58;&#x3067;&#x304D;&#x308B;&#x3068;&#x3001;&#x4F5C;&#x696D;&#x52B9;&#x7387;&#x304C;&#x5927;&#x5E45;&#x306B;&#x5411;&#x4E0A;&#x3057;&#x307E;&#x3059;&#x3002; &#x3053;&#x308C;&#x306F;&#x3001;&#x3088;&#x308A;&#x8907;&#x96D1;&#x306A;&#x500B;&#x4EBA;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x6E96;&#x5099;&#x306B;&#x3082;&#x306A;&#x308A;&#x307E;&#x3059;&#xFF01;</p>
 <!--
-Say we want a `toName` function that decides on a name to show for each `User`. We need to use a `case` expression:
+**Troubleshooting:** Things can sometimes go wrong with installation, so if you run into any trouble, please ask about it in a [community forum](https://elm-lang.org/community)! Talking through an install problem can usually save you a lot of time, and people are happy to help out. Please ask for help!
 -->
-<p>&#x5404; <code>User</code> &#x304B;&#x3089;&#x8868;&#x793A;&#x3059;&#x308B;&#x540D;&#x524D;&#x3092;&#x8FD4;&#x3059;&#x95A2;&#x6570; <code>toName</code> &#x3092;&#x5B9A;&#x7FA9;&#x3057;&#x305F;&#x3044;&#x3068;&#x3057;&#x307E;&#x3059;&#x3002;
-<code>case</code> &#x5F0F;&#x3092;&#x4F7F;&#x3046;&#x5FC5;&#x8981;&#x304C;&#x3042;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;:</p>
-<pre><code class="lang-elm"><span class="hljs-title">toName</span> : <span class="hljs-type">User</span> -&gt; <span class="hljs-type">String</span>
-<span class="hljs-title">toName</span> user =
-  <span class="hljs-keyword">case</span> user <span class="hljs-keyword">of</span>
-    <span class="hljs-type">Regular</span> name age -&gt;
-      name
-
-    <span class="hljs-type">Visitor</span> name -&gt;
-      name
-<span class="hljs-comment">-- toName (Regular &quot;Thomas&quot; 44) == &quot;Thomas&quot;</span>
-<span class="hljs-comment">-- toName (Visitor &quot;kate95&quot;)    == &quot;kate95&quot;</span>
-</code></pre>
-<!--
-The `case` expression allows us to branch based on which variant we happen to see, so whether we see Thomas or Kate, we always know how to show their name.
--->
-<p><code>case</code>&#x5F0F;&#x306F;&#x6E21;&#x3055;&#x308C;&#x305F;&#x30D0;&#x30EA;&#x30A2;&#x30F3;&#x30C8;&#x3054;&#x3068;&#x306B;&#x51E6;&#x7406;&#x3092;&#x5206;&#x5C90;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x306A;&#x306E;&#x3067;<code>Regular</code>&#x306E;&#x30C8;&#x30FC;&#x30DE;&#x30B9;&#x304C;&#x6765;&#x3088;&#x3046;&#x304C;<code>Visitor</code>&#x306E;&#x30B1;&#x30A4;&#x30C8;&#x304C;&#x6765;&#x3088;&#x3046;&#x304C;&#x540D;&#x524D;&#x306E;&#x8868;&#x793A;&#x306E;&#x4ED5;&#x65B9;&#x306F;&#x5E38;&#x306B;&#x308F;&#x304B;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
-<!--
-And if we try invalid arguments like `toName (Visitar "kate95")` or `toName Anonymous`, the compiler tells us about it immediately. This means many simple mistakes can be fixed in seconds, rather than making it to users and costing a lot more time overall.
--->
-<p>&#x305D;&#x3057;&#x3066;&#x3082;&#x3057;&#x3001;<code>toName (Visitar &quot;kate95&quot;)</code>&#x3000;&#x3084; <code>toName Anonymous</code> &#x306E;&#x3088;&#x3046;&#x306A;&#x4E0D;&#x6B63;&#x306A;&#x5F15;&#x6570;&#x3092;&#x4E0E;&#x3048;&#x305F;&#x5834;&#x5408;&#x306B;&#x306F;&#x3001;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30E9;&#x304C;&#x305D;&#x306E;&#x3053;&#x3068;&#x306B;&#x3064;&#x3044;&#x3066;&#x3059;&#x3050;&#x306B;&#x6559;&#x3048;&#x3066;&#x304F;&#x308C;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;
-&#x3053;&#x308C;&#x306B;&#x3088;&#x3063;&#x3066;&#x591A;&#x304F;&#x306E;&#x5358;&#x7D14;&#x306A;&#x30DF;&#x30B9;&#x304C;&#x6570;&#x79D2;&#x3067;&#x4FEE;&#x6B63;&#x3067;&#x304D;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DE;&#x30FC;&#x304C;&#x81EA;&#x5206;&#x3067;&#x30DF;&#x30B9;&#x3092;&#x898B;&#x3064;&#x3051;&#x306A;&#x3044;&#x3068;&#x3044;&#x3051;&#x306A;&#x3044;&#x3088;&#x3046;&#x306A;&#x8A00;&#x8A9E;&#x3068;&#x6BD4;&#x3079;&#x3066;&#x5168;&#x4F53;&#x306E;&#x958B;&#x767A;&#x6642;&#x9593;&#x3092;&#x5927;&#x3044;&#x306B;&#x524A;&#x6E1B;&#x3067;&#x304D;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</p>
-<!--
-## Wild Cards
--->
-<h2 id="&#x30EF;&#x30A4;&#x30EB;&#x30C9;&#x30AB;&#x30FC;&#x30C9;">&#x30EF;&#x30A4;&#x30EB;&#x30C9;&#x30AB;&#x30FC;&#x30C9;</h2>
-<!--
-The `toName` function we just defined works great, but notice that the `age` is not used in the implementation? When some of the associated data is unused, it is common to use a “wild card” instead of giving it a name:
--->
-<p>&#x4E0A;&#x3067;&#x5B9A;&#x7FA9;&#x3057;&#x305F;<code>toName</code>&#x95A2;&#x6570;&#x306F;&#x3046;&#x307E;&#x304F;&#x52D5;&#x304D;&#x307E;&#x3059;&#x304C;&#x3001;<code>age</code>&#x306E;&#x5024;&#x3092;&#x5B9F;&#x88C5;&#x5185;&#x3067;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3088;&#x306D;&#xFF1F;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x306A;&#x3044;&#x95A2;&#x9023;&#x30C7;&#x30FC;&#x30BF;&#x306B;&#x306F;&#x540D;&#x524D;&#x3092;&#x4ED8;&#x3051;&#x308B;&#x4EE3;&#x308F;&#x308A;&#x306B;&#x300C;&#x30EF;&#x30A4;&#x30EB;&#x30C9;&#x30AB;&#x30FC;&#x30C9;&#x300D;&#x3092;&#x4F7F;&#x3046;&#x306E;&#x304C;&#x666E;&#x901A;&#x3067;&#x3059;&#x3002;</p>
-<pre><code class="lang-elm"><span class="hljs-title">toName</span> : <span class="hljs-type">User</span> -&gt; <span class="hljs-type">String</span>
-<span class="hljs-title">toName</span> user =
-  <span class="hljs-keyword">case</span> user <span class="hljs-keyword">of</span>
-    <span class="hljs-type">Regular</span> name _ -&gt;
-      name
-
-    <span class="hljs-type">Visitor</span> name -&gt;
-      name
-</code></pre>
-<!--
-The `_` acknowledges the data there, but also saying explicitly that nobody is using it.
--->
-<p><code>_</code>&#x306F;&#x305D;&#x3053;&#x306B;&#x306A;&#x3093;&#x3089;&#x304B;&#x306E;&#x5024;&#x304C;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x793A;&#x3057;&#x3064;&#x3064;&#x3082;&#x3001;&#x5B9F;&#x969B;&#x306B;&#x306F;&#x305D;&#x306E;&#x5024;&#x304C;&#x7279;&#x306B;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x306A;&#x3044;&#x3053;&#x3068;&#x3092;&#x8868;&#x73FE;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p><strong>&#x30C8;&#x30E9;&#x30D6;&#x30EB;&#x30B7;&#x30E5;&#x30FC;&#x30C6;&#x30A3;&#x30F3;&#x30B0;&#xFF1A;</strong> &#x3068;&#x304D;&#x3069;&#x304D;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x304C;&#x3046;&#x307E;&#x304F;&#x3044;&#x304B;&#x306A;&#x3044;&#x3053;&#x3068;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x306E;&#x3067;&#x3001;&#x4F55;&#x304B;&#x554F;&#x984C;&#x304C;&#x767A;&#x751F;&#x3057;&#x305F;&#x3068;&#x304D;&#x306F;&#x3001;<a href="https://elm-lang.org/community" target="_blank">&#x30B3;&#x30DF;&#x30E5;&#x30CB;&#x30C6;&#x30A3;&#x30D5;&#x30A9;&#x30FC;&#x30E9;&#x30E0;</a>&#x3067;&#x76F8;&#x8AC7;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#xFF01;<sup><a href="#fn_1" id="reffn_1">1</a></sup>&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x306E;&#x554F;&#x984C;&#x306B;&#x3064;&#x3044;&#x3066;&#x76F8;&#x8AC7;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x591A;&#x304F;&#x306E;&#x5834;&#x5408;&#x5927;&#x5E45;&#x306A;&#x6642;&#x9593;&#x306E;&#x7BC0;&#x7D04;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3057;&#x3001;&#x307F;&#x3093;&#x306A;&#x559C;&#x3093;&#x3067;&#x5354;&#x529B;&#x3057;&#x3066;&#x304F;&#x308C;&#x307E;&#x3059;&#x3002; &#x305C;&#x3072;&#x76F8;&#x8AC7;&#x3057;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#xFF01;</p>
+<blockquote id="fn_1">
+<sup>1</sup>. &#x8A33;&#x6CE8;&#xFF1A;Elm-jp &#x30B3;&#x30DF;&#x30E5;&#x30CB;&#x30C6;&#x30A3;&#x306F;&#x3001;&#x65E5;&#x672C;&#x8A9E;&#x3067; Elm &#x306B;&#x3064;&#x3044;&#x3066;&#x6C17;&#x8EFD;&#x306B;&#x76F8;&#x8AC7;&#x3067;&#x304D;&#x308B;&#x5834;&#x6240;&#x3068;&#x3057;&#x3066; <a href="https://discordapp.com/invite/4j2MxCg" target="_blank">discord</a> &#x3092;&#x63D0;&#x4F9B;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002; &#x305C;&#x3072;&#x3053;&#x3061;&#x3089;&#x3092;&#x3054;&#x6D3B;&#x7528;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;<a href="#reffn_1" title="Jump back to footnote [1] in the text."> &#x21A9;</a>
+</blockquote>
 
                                 
                                 </section>
@@ -831,12 +786,12 @@ The `_` acknowledges the data there, but also saying explicitly that nobody is u
 
             
                 
-                <a href="custom_types.html" class="navigation navigation-prev " aria-label="Previous page: カスタム型">
+                <a href="../effects/time.html" class="navigation navigation-prev " aria-label="Previous page: Time">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../error_handling/" class="navigation navigation-next " aria-label="Next page: エラーハンドリング">
+                <a href="editor.html" class="navigation navigation-next " aria-label="Next page: コードエディター">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -847,7 +802,7 @@ The `_` acknowledges the data there, but also saying explicitly that nobody is u
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"パターンマッチ","level":"1.5.4","depth":2,"next":{"title":"エラーハンドリング","level":"1.6","depth":1,"path":"error_handling/README.md","ref":"error_handling/README.md","articles":[{"title":"Maybe","level":"1.6.1","depth":2,"path":"error_handling/maybe.md","ref":"error_handling/maybe.md","articles":[]},{"title":"Result","level":"1.6.2","depth":2,"path":"error_handling/result.md","ref":"error_handling/result.md","articles":[]}]},"previous":{"title":"カスタム型","level":"1.5.3","depth":2,"path":"types/custom_types.md","ref":"types/custom_types.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","elm-repl","bulk-redirect","ga","sitemap","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"elm-repl":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"ga":{"configuration":"auto","token":"UA-131798240-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"types/pattern_matching.md","mtime":"2019-10-24T14:36:27.510Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-20T02:27:00.421Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"インストール","level":"1.8","depth":1,"next":{"title":"コードエディター","level":"1.8.1","depth":2,"path":"install/editor.md","ref":"install/editor.md","articles":[]},"previous":{"title":"Time","level":"1.7.4","depth":2,"path":"effects/time.md","ref":"effects/time.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","elm-repl","bulk-redirect","ga","sitemap","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"elm-repl":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"ga":{"configuration":"auto","token":"UA-131798240-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"install/README.md","mtime":"2020-11-03T15:58:48.592Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-20T02:27:00.421Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
