@@ -109,3 +109,11 @@
 	color: #f4f4f5;
 	border-bottom-color: #272a3a;
 }
+
+
+.book-header::after {
+  content: "2020/11/20 大規模アップデート。 旧版の翻訳は http://guide-backup.elm-lang.jp/ にあります。";
+  background-color: #ffbebe;
+  color: #333;
+  display: block;
+}

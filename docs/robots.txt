@@ -1,8 +1,8 @@
 User-agent: *
 Disallow: *
+
 Allow: /about_translation.html$
 Allow: /$
-Allow: /install.html$
 Allow: /core_language.html$
 Allow: /architecture/$
 Allow: /architecture/buttons.html$
@@ -21,10 +21,14 @@ Allow: /effects/http.html$
 Allow: /effects/json.html$
 Allow: /effects/random.html$
 Allow: /effects/time.html$
+Allow: /install/$
+Allow: /install/editor.html$
+Allow: /install/elm.html$
 Allow: /interop/$
 Allow: /interop/flags.html$
 Allow: /interop/ports.html$
 Allow: /interop/custom_elements.html$
+Allow: /interop/limits.html$
 Allow: /webapps/$
 Allow: /webapps/navigation.html$
 Allow: /webapps/url_parsing.html$
