@@ -1,0 +1,987 @@
+
+<!DOCTYPE HTML>
+<html lang="ja" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Elm · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../interop/" />
+    
+    
+    <link rel="prev" href="editor.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="検索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../about_translation.html">
+            
+                <a href="../about_translation.html">
+            
+                    
+                    翻訳について
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../core_language.html">
+            
+                <a href="../core_language.html">
+            
+                    
+                    言語の基礎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    ボタン
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    テキストフィールド
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    フォーム
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    型を読む
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    型エイリアス
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    カスタム型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    パターンマッチ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../error_handling/">
+            
+                <a href="../error_handling/">
+            
+                    
+                    エラーハンドリング
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../error_handling/maybe.html">
+            
+                <a href="../error_handling/maybe.html">
+            
+                    
+                    Maybe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../error_handling/result.html">
+            
+                <a href="../error_handling/result.html">
+            
+                    
+                    Result
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../effects/">
+            
+                <a href="../effects/">
+            
+                    
+                    コマンドとサブスクリプション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../effects/http.html">
+            
+                <a href="../effects/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../effects/json.html">
+            
+                <a href="../effects/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../effects/random.html">
+            
+                <a href="../effects/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../effects/time.html">
+            
+                <a href="../effects/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    インストール
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="editor.html">
+            
+                <a href="editor.html">
+            
+                    
+                    コードエディター
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.2" data-path="elm.html">
+            
+                <a href="elm.html">
+            
+                    
+                    Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../interop/">
+            
+                <a href="../interop/">
+            
+                    
+                    JavaScriptとの相互運用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../interop/flags.html">
+            
+                <a href="../interop/flags.html">
+            
+                    
+                    フラグ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../interop/ports.html">
+            
+                <a href="../interop/ports.html">
+            
+                    
+                    ポート
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../interop/custom_elements.html">
+            
+                <a href="../interop/custom_elements.html">
+            
+                    
+                    カスタムエレメンツ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../interop/limits.html">
+            
+                <a href="../interop/limits.html">
+            
+                    
+                    制限事項
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Webアプリケーション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    ナビゲーションする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URLをパースする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    モジュール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    モジュールの構造化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    最適化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    アセットサイズ縮小化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    次への一歩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" >
+            
+                <span>
+            
+                    
+                    付録
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../appendix/types_as_sets.html">
+            
+                <a href="../appendix/types_as_sets.html">
+            
+                    
+                    集合としての型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../appendix/types_as_bits.html">
+            
+                <a href="../appendix/types_as_bits.html">
+            
+                    
+                    型のビット表現
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../appendix/function_types.html">
+            
+                <a href="../appendix/function_types.html">
+            
+                    
+                    関数の型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBookで公開 
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Elm</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+# Install Elm
+-->
+<h1 id="elm&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;">Elm&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;</h1>
+<!--
+The previous page described how to install a code editor for Elm, so the next step is to obtain an executable file named `elm`. Here are the **install** links:
+-->
+<p>&#x524D;&#x306E;&#x30DA;&#x30FC;&#x30B8;&#x3067;&#x306F;&#x3001;Elm&#x7528;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x30FC;&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3092;&#x8AAC;&#x660E;&#x3057;&#x307E;&#x3057;&#x305F;&#x3002;&#x6B21;&#x306F;<code>elm</code> &#x3068;&#x3044;&#x3046;&#x5B9F;&#x884C;&#x53EF;&#x80FD;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x53D6;&#x5F97;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;&#x3053;&#x3061;&#x3089;&#x304C;<strong>&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;</strong>&#x7528;&#x306E;&#x30EA;&#x30F3;&#x30AF;&#x3067;&#x3059;&#x3002;</p>
+<!--
+- **Mac** - [installer](https://github.com/elm/compiler/releases/download/0.19.1/installer-for-mac.pkg)
+- **Linux** - <a href="https://github.com/elm/compiler/blob/master/installers/linux/README.md" target="_blank">instructions</a>
+- **Windows** - [installer](https://github.com/elm/compiler/releases/download/0.19.1/installer-for-windows.exe)
+-->
+<ul>
+<li><strong>Mac</strong> - <a href="https://github.com/elm/compiler/releases/download/0.19.1/installer-for-mac.pkg" target="_blank">&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30E9;&#x30FC;</a></li>
+<li><strong>Linux</strong> - <a href="https://github.com/elm/compiler/blob/master/installers/linux/README.md" target="_blank">&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x624B;&#x9806;</a></li>
+<li><strong>Windows</strong> - <a href="https://github.com/elm/compiler/releases/download/0.19.1/installer-for-windows.exe" target="_blank">&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30E9;&#x30FC;</a></li>
+</ul>
+<!--
+After installation is complete, open up the terminal on your computer. It may be called `cmd.exe` or `Command Prompt` on Windows.
+-->
+<p>&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x304C;&#x7D42;&#x308F;&#x3063;&#x305F;&#x3089;&#x3001;&#x30B3;&#x30F3;&#x30D4;&#x30E5;&#x30FC;&#x30BF;&#x30FC;&#x306E;&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x3092;&#x958B;&#x3044;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;Windows&#x3067;&#x306F;&#x3001;<code>cmd.exe</code>&#x307E;&#x305F;&#x306F;<code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x30D7;&#x30ED;&#x30F3;&#x30D7;&#x30C8;</code>&#x3068;&#x547C;&#x3070;&#x308C;&#x308B;&#x3053;&#x3068;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<!--
+![terminal](images/terminal.png)
+-->
+<p><img src="images/terminal.png" alt="&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;"></p>
+<!--
+Start by navigating to your desktop in the terminal:
+-->
+<p>&#x307E;&#x305A;&#x306F;&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x3067;&#x30C7;&#x30B9;&#x30AF;&#x30C8;&#x30C3;&#x30D7;&#x306B;&#x79FB;&#x52D5;&#x3057;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<!--
+```bash
+# Mac and Linux
+cd ~/Desktop
+
+# Windows (but with <username> filled in with your user name)
+cd C:\Users\<username>\Desktop
+```
+-->
+<pre><code class="lang-bash"><span class="hljs-comment"># Mac&#x3001;Linux</span>
+<span class="hljs-built_in">cd</span> ~/Desktop
+
+<span class="hljs-comment"># Windows (&lt;username&gt; &#x306B;&#x306F;&#x3042;&#x306A;&#x305F;&#x306E;&#x30E6;&#x30FC;&#x30B6;&#x30FC;&#x540D;&#x304C;&#x5165;&#x308A;&#x307E;&#x3059;)</span>
+<span class="hljs-built_in">cd</span> C:\Users\&lt;username&gt;\Desktop
+</code></pre>
+<!--
+The next step is to get familiar with `elm` command. I personally had a really hard time learning terminal commands, so I worked hard to make the `elm` command nice to use. Let's go through a couple common scenarios.
+-->
+<p>&#x6B21;&#x306E;&#x30B9;&#x30C6;&#x30C3;&#x30D7;&#x306F;<code>elm</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306B;&#x6163;&#x308C;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;&#x79C1;&#x81EA;&#x8EAB;&#x306F;&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x899A;&#x3048;&#x308B;&#x306E;&#x306B;&#x672C;&#x5F53;&#x306B;&#x82E6;&#x52B4;&#x3057;&#x305F;&#x306E;&#x3067;&#x3001;<code>elm</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F;&#x4F7F;&#x3044;&#x3084;&#x3059;&#x3044;&#x3088;&#x3046;&#x306B;&#x9811;&#x5F35;&#x3063;&#x3066;&#x4F5C;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;&#x3088;&#x304F;&#x4F7F;&#x3046;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x3044;&#x304F;&#x3064;&#x304B;&#x898B;&#x3066;&#x3044;&#x304D;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p><br></p>
+<h2 id="elm-init"><span style="font-family:Consolas,&apos;Liberation Mono&apos;,Menlo,Courier,monospace;">elm init</span></h2>
+<!--
+You can start an Elm project by running:
+-->
+<p>&#x4EE5;&#x4E0B;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3068;&#x3001;Elm&#x306E;&#x30A2;&#x30D7;&#x30EA;&#x30B1;&#x30FC;&#x30B7;&#x30E7;&#x30F3;&#x3084;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x3092;&#x4F5C;&#x6210;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;&#x5FC5;&#x8981;&#x306A;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x304C;&#x81EA;&#x52D5;&#x7684;&#x306B;&#x751F;&#x6210;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-bash">elm init
+</code></pre>
+<!--
+Try running this command to create an `elm.json` file and a `src/` directory:
+-->
+<p>&#x3053;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;<code>elm.json</code>&#x3068;&#x3044;&#x3046;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3068;&#x3001;<code>src/</code>&#x3068;&#x3044;&#x3046;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x304C;&#x4F5C;&#x6210;&#x3055;&#x308C;&#x308B;&#x306F;&#x305A;&#x3067;&#x3059;&#x3002;</p>
+<!--
+- [`elm.json`](https://github.com/elm/compiler/blob/master/docs/elm.json/application.md) describes your project.
+- `src/` holds all of your Elm files.
+-->
+<ul>
+<li><a href="https://github.com/elm/compiler/blob/master/docs/elm.json/application.md" target="_blank"><code>elm.json</code></a>&#x306B;&#x306F;&#x3001;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x60C5;&#x5831;&#x304C;&#x66F8;&#x304B;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</li>
+<li><code>src/</code>&#x306B;&#x306F;&#x3059;&#x3079;&#x3066;&#x306E;Elm&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x304C;&#x5165;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</li>
+</ul>
+<!--
+Now try creating a file called `src/Main.elm` in your editor, and copying in the code from [the buttons example](https://elm-lang.org/examples/buttons).
+-->
+<p>&#x305D;&#x308C;&#x3067;&#x306F;&#x3001;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x30FC;&#x3067;<code>src/Main.elm</code>&#x3068;&#x3044;&#x3046;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F5C;&#x3063;&#x3066;&#x3001;<a href="https://elm-lang.org/examples/buttons" target="_blank">&#x30DC;&#x30BF;&#x30F3;&#x306E;&#x30B5;&#x30F3;&#x30D7;&#x30EB;</a>&#x304B;&#x3089;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x30B3;&#x30D4;&#x30FC;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p><br></p>
+<h2 id="elm-reactor"><span style="font-family:Consolas,&apos;Liberation Mono&apos;,Menlo,Courier,monospace;">elm reactor</span></h2>
+<!--
+`elm reactor` helps you build Elm projects without messing with the terminal too much. You just run it at the root of your project, like this:
+-->
+<p><code>elm reactor</code>&#x3092;&#x4F7F;&#x3046;&#x3068;&#x3001;&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x3067;&#x6BCE;&#x5EA6;&#x3054;&#x3061;&#x3083;&#x3054;&#x3061;&#x3083;&#x9811;&#x5F35;&#x3089;&#x306A;&#x304F;&#x3066;&#x3082;Elm&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x30D3;&#x30EB;&#x30C9;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306E;&#x30EB;&#x30FC;&#x30C8;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x3067;&#x4EE5;&#x4E0B;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5165;&#x529B;&#x3057;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<pre><code class="lang-bash">elm reactor
+</code></pre>
+<!--
+This starts a server at [`http://localhost:8000`](http://localhost:8000). You can navigate to any Elm file and see what it looks like. Run `elm reactor`, follow the localhost link, and try to check out your `src/Main.elm` file!
+-->
+<p>&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x304C;<a href="http://localhost:8000" target="_blank"><code>http://localhost:8000</code></a>&#x3067;&#x8D77;&#x52D5;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x30B5;&#x30A4;&#x30C8;&#x3067;&#x306F;&#x3069;&#x306E;Elm&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x3082;&#x79FB;&#x52D5;&#x3067;&#x304D;&#x3066;&#x3001;&#x3069;&#x3093;&#x306A;&#x611F;&#x3058;&#x306B;&#x306A;&#x308B;&#x304B;&#x898B;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;<code>elm reactor</code>&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x3001;localhost&#x3078;&#x306E;&#x30EA;&#x30F3;&#x30AF;&#x3092;&#x958B;&#x304D;&#x3001;<code>src/Main.elm</code>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x78BA;&#x8A8D;&#x3057;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#xFF01;</p>
+<p><br></p>
+<h2 id="elm-make"><span style="font-family:Consolas,&apos;Liberation Mono&apos;,Menlo,Courier,monospace;">elm make</span></h2>
+<!--
+You can compile Elm code to HTML or JavaScript with commands like this:
+-->
+<p>&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x4F7F;&#x3046;&#x3068;&#x3001;Elm&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3092;HTML&#x3084;JavaScript&#x306B;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<!--
+```bash
+# Create an index.html file that you can open in your browser.
+elm make src/Main.elm
+
+# Create an optimized JS file to embed in a custom HTML document.
+elm make src/Main.elm --optimize --output=elm.js
+```
+-->
+<pre><code class="lang-bash"><span class="hljs-comment"># &#x30D6;&#x30E9;&#x30A6;&#x30B6;&#x3067;&#x958B;&#x304F;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;index.html&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</span>
+elm make src/Main.elm
+
+<span class="hljs-comment"># &#x81EA;&#x524D;&#x306E;HTML&#x30C9;&#x30AD;&#x30E5;&#x30E1;&#x30F3;&#x30C8;&#x306B;&#x57CB;&#x3081;&#x8FBC;&#x3080;&#x305F;&#x3081;&#x306E;&#x6700;&#x9069;&#x5316;&#x3055;&#x308C;&#x305F;JS&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x4F5C;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;</span>
+elm make src/Main.elm --optimize --output=elm.js
+</code></pre>
+<!--
+Try running these commands on your `src/Main.elm` file.
+-->
+<p>&#x3053;&#x308C;&#x3089;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x30ED;&#x30FC;&#x30AB;&#x30EB;&#x306B;&#x3042;&#x308B;<code>src/Main.elm</code>&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x306B;&#x5BFE;&#x3057;&#x3066;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;</p>
+<!--
+This is the most general way to compile Elm code. It is extremely useful once your project becomes too advanced for `elm reactor`.
+-->
+<p><code>elm make</code>&#x306F;Elm&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3059;&#x308B;&#x6700;&#x3082;&#x4E00;&#x822C;&#x7684;&#x306A;&#x65B9;&#x6CD5;&#x3067;&#x3059;&#x3002;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x304C;<code>elm reactor</code>&#x3067;&#x30B3;&#x30F3;&#x30D1;&#x30A4;&#x30EB;&#x3059;&#x308B;&#x306B;&#x306F;&#x9AD8;&#x5EA6;&#x904E;&#x304E;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x3063;&#x305F;&#x3089;&#x6975;&#x3081;&#x3066;&#x6709;&#x7528;&#x3067;&#x3059;&#x3002;</p>
+<!--
+This command produces the same messages you have been seeing in the online editor and with `elm reactor`. Years of work has gone into them so far, but please report any unhelpful messages [here](https://github.com/elm/error-message-catalog/issues). I am sure there are ways to improve!
+-->
+<p>&#x3053;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3059;&#x308B;&#x3068;&#x3001;&#x30AA;&#x30F3;&#x30E9;&#x30A4;&#x30F3;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x30FC;&#x3084;<code>elm reactor</code>&#x3067;&#x8868;&#x793A;&#x3055;&#x308C;&#x305F;&#x3082;&#x306E;&#x3068;&#x540C;&#x3058;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x304C;&#x8868;&#x793A;&#x3055;&#x308C;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x307E;&#x3067;&#x306B;&#x5E74;&#x5358;&#x4F4D;&#x306E;&#x6642;&#x9593;&#x3092;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x306E;&#x6539;&#x5584;&#x306B;&#x8CBB;&#x3084;&#x3057;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x304C;&#x308F;&#x304B;&#x308A;&#x306B;&#x304F;&#x3044;&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x304C;&#x3042;&#x308A;&#x307E;&#x3057;&#x305F;&#x3089;<a href="https://github.com/elm/error-message-catalog/issues" target="_blank">&#x3053;&#x3061;&#x3089;</a>&#x306B;&#x5831;&#x544A;&#x3057;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x304D;&#x3063;&#x3068;&#x6539;&#x5584;&#x3067;&#x304D;&#x308B;&#x3068;&#x601D;&#x3044;&#x307E;&#x3059;&#xFF01;</p>
+<p><br></p>
+<h2 id="elm-install"><span style="font-family:Consolas,&apos;Liberation Mono&apos;,Menlo,Courier,monospace;">elm install</span></h2>
+<!--
+Elm packages all live at [`package.elm-lang.org`](https://package.elm-lang.org/).
+-->
+<p>Elm&#x306E;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x306F;&#x5168;&#x3066;<a href="https://package.elm-lang.org/" target="_blank"><code>package.elm-lang.org</code></a>&#x306B;&#x7F6E;&#x304B;&#x308C;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<!--
+Say you look around and decide you need [`elm/http`][http] and [`elm/json`][json] to make some HTTP requests. You can get them set up in your project with the following commands:
+-->
+<p>&#x4F8B;&#x3048;&#x3070;HTTP&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3092;&#x7D44;&#x307F;&#x7ACB;&#x3066;&#x308B;&#x305F;&#x3081;&#x306B;&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3092;&#x63A2;&#x3057;&#x3066;<a href="https://package.elm-lang.org/packages/elm/http/latest" target="_blank"><code>elm/http</code></a>&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3068;<a href="https://package.elm-lang.org/packages/elm/json/latest" target="_blank"><code>elm/json</code></a>&#x30D1;&#x30C3;&#x30B1;&#x30FC;&#x30B8;&#x3092;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x306B;&#x8FFD;&#x52A0;&#x3057;&#x305F;&#x3044;&#x3068;&#x601D;&#x3063;&#x305F;&#x3089;&#x3001;&#x4EE5;&#x4E0B;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3067;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-bash">elm install elm/http
+elm install elm/json
+</code></pre>
+<!--
+This adds these dependencies into your `elm.json` file, making these packages available in your project. That will let you say `import Http` and use functions like `Http.get` in your programs.
+-->
+<p>&#x3053;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306F;<code>elm.json</code>&#x306B;&#x4F9D;&#x5B58;&#x95A2;&#x4FC2;&#x3092;&#x8FFD;&#x8A18;&#x3057;&#x3066;&#x3001;&#x30D7;&#x30ED;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3067;&#x5229;&#x7528;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306B;&#x3088;&#x308A;&#x3001;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3067;<code>import Http</code>&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x3001;<code>Http.get</code>&#x306E;&#x3088;&#x3046;&#x306A;&#x95A2;&#x6570;&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<p><br></p>
+<!--
+## Tips and Tricks
+-->
+<h2 id="&#x30D2;&#x30F3;&#x30C8;&#x3068;&#x30B3;&#x30C4;">&#x30D2;&#x30F3;&#x30C8;&#x3068;&#x30B3;&#x30C4;</h2>
+<!--
+**First**, do not worry about remembering all this stuff!
+-->
+<p><strong>&#x305D;&#x306E;1</strong>&#x3001;&#x5168;&#x3066;&#x3092;&#x899A;&#x3048;&#x3088;&#x3046;&#x3068;&#x3059;&#x308B;&#x5FC5;&#x8981;&#x306F;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#xFF01;</p>
+<!--
+You can always run `elm --help` to get a full outline of what `elm` is capable of.
+-->
+<p><code>elm --help</code>&#x3092;&#x4F7F;&#x3046;&#x3053;&#x3068;&#x3067;&#x3001;&#x3044;&#x3064;&#x3067;&#x3082;<code>elm</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3067;&#x3067;&#x304D;&#x308B;&#x5168;&#x3066;&#x306E;&#x3053;&#x3068;&#x306B;&#x3064;&#x3044;&#x3066;&#x3001;&#x6982;&#x8981;&#x3092;&#x78BA;&#x8A8D;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<!--
+You can also run commands like `elm make --help` and `elm repl --help` to get hints about a specific command. This is great if you want to check which flags are available and what they do.
+-->
+<p>&#x307E;&#x305F;&#x3001;<code>elm make --help</code>&#x3084;<code>elm repl --help</code>&#x306E;&#x3088;&#x3046;&#x306B;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x5B9F;&#x884C;&#x3057;&#x3066;&#x3001;&#x5404;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306B;&#x95A2;&#x3059;&#x308B;&#x30D2;&#x30F3;&#x30C8;&#x3092;&#x5F97;&#x308B;&#x3053;&#x3068;&#x3082;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x306F;&#x3069;&#x306E;&#x30D5;&#x30E9;&#x30B0;&#x304C;&#x5229;&#x7528;&#x53EF;&#x80FD;&#x304B;&#x3001;&#x4F55;&#x3092;&#x3059;&#x308B;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306A;&#x306E;&#x304B;&#x3092;&#x78BA;&#x8A8D;&#x3057;&#x305F;&#x3044;&#x3068;&#x304D;&#x306B;&#x4FBF;&#x5229;&#x3067;&#x3059;&#x3002;</p>
+<!--
+**Second**, do not worry if it takes some time to get comfortable with the terminal in general.
+-->
+<p><strong>&#x305D;&#x306E;2</strong>&#x3001;&#x3082;&#x3057;&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x306E;&#x64CD;&#x4F5C;&#x5168;&#x822C;&#x306B;&#x6163;&#x308C;&#x308B;&#x307E;&#x3067;&#x306B;&#x6642;&#x9593;&#x304C;&#x304B;&#x304B;&#x3063;&#x3066;&#x3082;&#x5FC3;&#x914D;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<!--
+I have been using it for over a decade now, and I still cannot remember how to compress files, find all Elm files in a directory, etc. I still look a lot of things up!
+-->
+<p>&#x79C1;&#x306F;&#x3082;&#x3046;10&#x5E74;&#x4EE5;&#x4E0A;&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x304C;&#x3001;&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x5727;&#x7E2E;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3084;&#x3001;&#x30C7;&#x30A3;&#x30EC;&#x30AF;&#x30C8;&#x30EA;&#x5185;&#x306E;&#x3059;&#x3079;&#x3066;&#x306E;Elm&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x898B;&#x3064;&#x3051;&#x308B;&#x65B9;&#x6CD5;&#x306A;&#x3069;&#x3092;&#x3044;&#x307E;&#x3060;&#x306B;&#x899A;&#x3048;&#x3089;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;&#x4ECA;&#x3067;&#x3082;&#x305F;&#x304F;&#x3055;&#x3093;&#x306E;&#x3053;&#x3068;&#x3092;&#x8ABF;&#x3079;&#x3066;&#x3044;&#x307E;&#x3059;&#xFF01;</p>
+<hr>
+<!--
+Now that we have our editor set up and `elm` available in the terminal, let's get back to learning Elm!
+-->
+<p>&#x3053;&#x308C;&#x3067;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x30FC;&#x306E;&#x8A2D;&#x5B9A;&#x304C;&#x5B8C;&#x4E86;&#x3057;&#x3001;&#x30BF;&#x30FC;&#x30DF;&#x30CA;&#x30EB;&#x3067;<code>elm</code>&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x4F7F;&#x3048;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x306E;&#x3067;&#x3001;Elm&#x306E;&#x5B66;&#x7FD2;&#x306B;&#x623B;&#x308A;&#x307E;&#x3057;&#x3087;&#x3046;&#xFF01;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="editor.html" class="navigation navigation-prev " aria-label="Previous page: コードエディター">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../interop/" class="navigation navigation-next " aria-label="Next page: JavaScriptとの相互運用">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Elm","level":"1.8.2","depth":2,"next":{"title":"JavaScriptとの相互運用","level":"1.9","depth":1,"path":"interop/README.md","ref":"interop/README.md","articles":[{"title":"フラグ","level":"1.9.1","depth":2,"path":"interop/flags.md","ref":"interop/flags.md","articles":[]},{"title":"ポート","level":"1.9.2","depth":2,"path":"interop/ports.md","ref":"interop/ports.md","articles":[]},{"title":"カスタムエレメンツ","level":"1.9.3","depth":2,"path":"interop/custom_elements.md","ref":"interop/custom_elements.md","articles":[]},{"title":"制限事項","level":"1.9.4","depth":2,"path":"interop/limits.md","ref":"interop/limits.md","articles":[]}]},"previous":{"title":"コードエディター","level":"1.8.1","depth":2,"path":"install/editor.md","ref":"install/editor.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","elm-repl","bulk-redirect","ga","sitemap","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"elm-repl":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"ga":{"configuration":"auto","token":"UA-131798240-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"install/elm.md","mtime":"2020-11-03T15:58:48.592Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-20T02:27:00.421Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-elm-repl/repl.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

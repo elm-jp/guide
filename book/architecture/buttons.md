@@ -4,18 +4,16 @@
 # ボタン
 
 <!--
-#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://elm-lang.org/examples/buttons).
+Our first example is a counter that can be incremented or decremented.
 -->
-
----
-#### [サンプルコード](https://github.com/evancz/elm-architecture-tutorial/)をダウンロードするか[オンラインエディタ](https://elm-lang.org/examples/buttons)で試してください。
----
-
+最初の例はインクリメントやデクリメントを行うカウンタの作成です。
 
 <!--
-Our first example is a simple counter that can be incremented or decremented. I find that it can be helpful to see the entire program in one place, so here it is! We will break it down afterwards.
+I included the full program below. Click the blue "Edit" button to mess with it in the online editor. Try changing text on one of the buttons. **Click the blue button now!**
 -->
-最初の例はインクリメントやデクリメントを行うシンプルなカウンタの作成です。プログラムすべてを一箇所にまとめて置けば読みやすいでしょう、用意しておきました！あとでひとつひとつ詳細をみていきます。
+以下にプログラムの全文を掲載しました。青い"Edit"ボタンをクリックして、オンラインエディタでいじってみましょう。ボタンの文字を書き換えてみてください。**今すぐ青いボタンをクリック！**
+
+<div class="edit-link"><a href="https://elm-lang.org/examples/buttons">Edit</a></div>
 
 ```elm
 import Browser
@@ -23,8 +21,13 @@ import Html exposing (Html, button, div, text)
 import Html.Events exposing (onClick)
 
 
+
+-- MAIN
+
+
 main =
   Browser.sandbox { init = init, update = update, view = view }
+
 
 
 -- MODEL
@@ -62,38 +65,107 @@ view model =
 ```
 
 <!--
-That's everything!
+Now that you have poked around the code a little bit, you may have some questions. What is the `main` value doing? How do the different parts fit together? Let's go through the code and talk about it.
 -->
-これで全部です！
+コードを少しいじってみたことで、疑問を持ったかもしれませんね。この`main`という値は何をしているのだろうか？どのようにして異なるパーツを組み合わせているのだろうか？と。コードを見ながら説明していきましょう。
 
 <!--
-> **Note:** This section has `type` and `type alias` declarations. You can read all about these in the upcoming section on [types](/types/index.html). You do not *need* to deeply understand that stuff now, but you are free to jump ahead if it helps.
+> **Note:** The code here uses [type annotations](/types/reading_types.html), [type aliases](/types/type_aliases.html), and [custom types](/types/custom_types.html). The point of this section is to get a feeling for The Elm Architecture though, so we will not cover them until a bit later. I encourage you to peek ahead if you are getting stuck on these aspects!
 -->
-> **Note:** この章は `type` と `type alias` 宣言を含みます。それら詳細は次章である [型](/types/index.html) で読むことができます。この時点で深く理解しておく*必要はありません*が、読むことで理解の手助けになる場合はご自由に読んで下さい。
+> **Note:** ここのコードは[型注釈](/types/reading_types.html)と [型エイリアス](/types/type_aliases.html)、[カスタム型](/types/custom_types.html)を使用しています。この節のポイントはThe Elm Architectureの雰囲気をつかむことなので、これらはもう少し後で取り上げます。もしこういった面で行き詰まっているならば上記の節を覗いてみることをおすすめします！
+
+## Main
 
 <!--
-When writing this program from scratch, I always start by taking a guess at the model. To make a counter, we at least need to keep track of a number that is going up and down. So let's just start with that!
+The `main` value is special in Elm. It describes what gets shown on screen. In this case, we are going to initialize our application with the `init` value, the `view` function is going to show everything on screen, and user input is going to be fed into the `update` function. Think of this as the high-level description of our program.
 -->
-カウンタプログラムを白紙から書くとき、私はいつもモデルを考えることから始めます。カウンタを作るには、最低でも増えたり減ったりする数字を記録する必要があります。それではモデルに関するところだけ書き始めましょう！
+`main`はElmでは特別な値で、画面に何を表示するかを記述します。この例では、アプリケーションを`init`で初期化して、`view`関数ですべてを画面に表示し、ユーザーからの入力を`update`関数に渡します。これがプログラムの大まかな概要だと考えてください。
+
+
+<!--
+## Model
+-->
+## モデル
+
+<!--
+Data modeling is extremely important in Elm. The point of the **model** is to capture all the details about your application as data.
+-->
+Elmでは、アプリケーションの状態をプログラムが扱える形にする**モデル化**が非常に重要です。**モデル**のポイントは、アプリケーションに関する情報を全てくまなくデータとして表現できるようにすることです。
+
+<!--
+To make a counter, we need to keep track of a number that is going up and down. That means our model is really small this time:
+-->
+カウンターを作るためには、増えたり減ったりする数を把握しておく必要がありますね。このケースでは、モデルが本当に小さなものになります。
 
 ```elm
 type alias Model = Int
 ```
 
 <!--
-Now that we have a model, we need to define how it changes over time. I always start my `UPDATE` section by defining a set of messages that we will get from the UI:
+We just need an `Int` value to track the current count. We can see that in our initial value:
 -->
-モデルができたら、次は時が経つとどのように数字が変わるのか定義していきます。私はUIから受け取るメッセージ群を定義することで書ける `UPDATE` の部分からいつも始めます。
+現在のカウントを把握しておくためには`Int`型の値だけが必要です。これは初期値で確認できます。
+
+```elm
+init : Model
+init =
+  0
+```
+
+<!--
+The initial value is zero, and it will go up and down as people press different buttons.
+-->
+初期値はゼロで、各ボタンを押すと増えたり減ったりします。
+
+
+## View
+
+<!--
+We have a model, but how do we show it on screen? That is the role of the `view` function:
+-->
+これでモデルが用意できましたが、モデルの内容を画面に表示するにはどうすればいいでしょうか？それは`view`関数の役割です。
+
+```elm
+view : Model -> Html Msg
+view model =
+  div []
+    [ button [ onClick Decrement ] [ text "-" ]
+    , div [] [ text (String.fromInt model) ]
+    , button [ onClick Increment ] [ text "+" ]
+    ]
+```
+
+<!--
+This function takes in the `Model` as an argument. It outputs HTML. So we are saying that we want to show a decrement button, the current count, and an increment button.
+-->
+このviewという関数は`Model`を引数として受け取り、HTMLを出力します。ここでは、マイナスボタン、現在のカウント、プラスボタンを表示させることになります。
+
+<!--
+Notice that we have an `onClick` handler for each button. These are saying: **when someone clicks, generate a message**. So the plus button is generating an `Increment` message. What is that and where does it go? To the `update` function!
+-->
+各ボタンに`onClick`ハンドラーがあることに注目してください。**クリックするとメッセージを生成する**ということです。つまりこのプラスボタンは`Increment`メッセージを生成しています。メッセージを生成するとはどういうことでしょうか、そして生成されたメッセージはどこに行くのでしょうか？`update`関数に行きます！
+
+
+## Update
+
+<!--
+The `update` function describes how our `Model` will change over time.
+-->
+`update`関数は、各種イベントで生成されたメッセージをきっかけとして、`Model`が各場面でどのように変化するかを記述するものです。
+
+<!--
+We define two messages that it might receive:
+-->
+たとえば今回の例では、update関数は以下のように定義されている2つのメッセージを受け取る可能性があります。
 
 ```elm
 type Msg = Increment | Decrement
 ```
 
 <!--
-I definitely know the user will be able to increment and decrement the counter. The `Msg` type describes these capabilities as *data*. Important! From there, the `update` function just describes what to do when you receive one of these messages.
+From there, the `update` function just describes what to do when you receive one of these messages.
 -->
-上記のコードを見ると、ユーザがカウンタをインクリメントやデクリメントできることが明確に分かります。`Msg`型はそういった機能を*データ*として記述します。これは重要なことです！それでは、メッセージを受信したとき何をすべきかを `update` 関数にそのまま記述しましょう。
-
+それでは、メッセージを受信したとき何をすべきかを `update` 関数にそのまま記述しましょう。
 
 ```elm
 update : Msg -> Model -> Model
@@ -107,55 +179,73 @@ update msg model =
 ```
 
 <!--
-If you get an `Increment` message, you increment the model. If you get a `Decrement` message, you decrement the model. Pretty straight-forward stuff.
+If you get an `Increment` message, you increment the model. If you get a `Decrement` message, you decrement the model.
 -->
-`Increment`メッセージを受け取ったらモデルをインクリメントし、`Decrement`メッセージを受け取ったらデクリメントします。非常に簡潔な関数です。
+`Increment`メッセージを受け取ったらモデルをインクリメントし、`Decrement`メッセージを受け取ったらデクリメントします。
 
 <!--
-Okay, so that's all good, but how do we actually make some HTML and show it on screen? Elm has a library called `elm/html` that gives you full access to HTML5 as normal Elm functions:
+So whenever we get a message, we run it through `update` to get a new model. We then call `view` to figure out how to show the new model on screen. Then repeat! User input generates a message, `update` the model, `view` it on screen. Etc.
 -->
-よし、すべて順調ですね。次の問題ですが、どうやってHTMLを作成しそれを画面で表示しましょうか？ Elmは`elm/html`というライブラリを持っており、これを使うと通常のElm関数としてHTML5のすべてを書き表せます:
-
-```elm
-view : Model -> Html Msg
-view model =
-  div []
-    [ button [ onClick Decrement ] [ text "-" ]
-    , div [] [ text (String.fromInt model) ]
-    , button [ onClick Increment ] [ text "+" ]
-    ]
-```
-
-<!--
-One thing to notice is that our `view` function is producing a `Html Msg` value. This means that it is a chunk of HTML that can produce `Msg` values. And when you look at the definition, you see the `onClick` attributes are set to give out `Increment` and `Decrement` values. These will get fed directly into our `update` function, driving our whole app forward.
--->
-注目すべき点は、`view`関数が`Html Msg`値を返すことです。`Html Msg`は`Msg`の値を生み出しうるHTMLのかたまりだということを意味しています。`view`関数の定義を見てもらうと、`Increment`や`Decrement`のメッセージを生み出すために`onClick`属性が設定されているのが分かるでしょう。これらは`update`関数にそのまま入力され、アプリ全体を動作させます。
-
-<!--
-Another thing to notice is that `div` and `button` are just normal Elm functions. These functions take (1) a list of attributes and (2) a list of child nodes. It is just HTML with slightly different syntax. Instead of having `<` and `>` everywhere, we have `[` and `]`. We have found that folks who can read HTML have a pretty easy time learning to read this variation. Okay, but why not have it be *exactly* like HTML? **Since we are using normal Elm functions, we have the full power of the Elm programming language to help us build our views!** We can refactor repetitive code out into functions. We can put helpers in modules and import them just like any other code. We can use the same testing frameworks and libraries as any other Elm code. Everything that is nice about programming in Elm is 100% available to help you with your view. No need for a hacked together templating language!
--->
-もうひとつの注目すべき点は、`div`と`button`は単なる通常のElm関数であることです。これらの関数は (1) 属性のリストと (2) 子ノードのリストを引数に取ります。HTMLのシンタックスとほんの少し異なるだけです。そこかしこに`<`と`>`を置く代わりにElmでは`[`と`]`を置きます。HTMLを読めるあなた方にとっては、この変化に慣れることは非常に容易でしょう。でも、どうしてHTMLと*まったく*同じ外観にしないのでしょう？**その理由は、Elm関数を使うことでviewを組み立てるときにElm言語の力を最大限に引き出せるからです！**重複したコードを関数にまとめられます。さらに、それを補助関数としてモジュールに追加し、他のview以外の関数と同じようにインポートして使えます。また、他のElmコードと同じテストフレームワークやライブラリを使えます。Elmが持つプログラミングの利点すべてをviewで100%活用できるのです。もしもHTMLとまったく同じ外観だったなら、重複したコードをまとめたりするためにはPugやMustacheといったテンプレートエンジンの機能を使ってどうにかする必要があったでしょう。しかし実際にはそんな苦労をする必要はありません、Elmの関数で表現できるので！
-
-<!--
-There is also something a bit deeper going on here. **The view code is entirely declarative**. We take in a `Model` and produce some `Html`. That is it. There is no need to mutate the DOM manually. Elm takes care of that behind the scenes. This gives Elm [much more leeway to make optimizations](https://elm-lang.org/blog/blazing-fast-html) and ends up making rendering *faster* overall. So you write less code and the code runs faster. The best kind of abstraction!
--->
-もう少し掘り下げます。**view部分のコードはすべて宣言的に書かれます。**`Model`を受け取り`Html`を生成する、それだけです。書き手がDOMに直接触れる必要もありません。Elmはそれを隠してうまくやってくれます。こうすることでElmに[最適化する裁量を十二分に与えることができ](https://elm-lang.org/blog/blazing-fast-html)、その結果、全体のレンダリングを*速く*することになります。少ないコードを書くだけでそのコードは速く動作するのです。抽象化によるすごい効果です！
-
-<!--
-This pattern is the essence of The Elm Architecture. Every example we see from now on will be a slight variation on this basic pattern: `Model`, `update`, `view`.
--->
-このパターンはThe Elm Architectureの本質です。これから示すすべての例はこの基本パターンである`Model`, `update`, `view`を少し変えたものです。
+つまり何かメッセージを受け取るたびに`update`に渡して実行して新しいモデルを取得します。次に`view`を呼び出して新しいモデルを画面にどう表示するか計算します。これがその後も繰り返されていきます！つまり、view によって表示された画面でユーザーが何か操作を行うとまたメッセージが生成され、それをupdate関数が受け取ってモデルを更新（update）し、viewがそのモデルを元にまた画面を表示（view）します。
 
 
 <!--
-> **Exercise:** One cool thing about The Elm Architecture is that it is super easy to extend as our product requirements change. Say your product manager has come up with this amazing "reset" feature. A new button that will reset the counter to zero.
+## Overview
+-->
+## 全体像
+
+<!--
+Now that you have seen all the parts of an Elm program, it may be a bit easier to see how they fit into the diagram we saw earlier:
+-->
+これでElmのプログラムのすべてのパーツを見たわけですが、先ほど見た図のどこにどれが対応するかを整理してみると、もう少しわかりやすいかもしれません。
+
+<!--
+![Diagram of The Elm Architecture](buttons.svg)
+-->
+![The Elm Architectureの図](buttons.svg)
+
+<!--
+Elm starts by rendering the initial value on screen. From there you enter into this loop:
+-->
+Elmは初期値を画面に描画することから始まります。そこから以下のループに入ります。
+
+<!--
+1. Wait for user input.
+2. Send a message to `update`
+3. Produce a new `Model`
+4. Call `view` to get new HTML
+5. Show the new HTML on screen
+6. Repeat!
+-->
+1. ユーザーからの入力を待ちます
+2. `update`にメッセージを送ります
+3. 新しい`Model`を生成します
+4. `view`関数を呼び出して新しいHTMLを取得します
+5. 画面上に新しいHTMLを表示します
+6. 繰り返します！
+
+<!--
+This is the essence of The Elm Architecture. Every example we see from now on will be a slight variation on this basic pattern.
+-->
+これがThe Elm Architectureの本質です。これから見るすべての例は、この基本的なパターンにわずかなバリエーションを加えたものになります。
+
+<!--
+> **Exercise:** Add a button to reset the counter to zero:
 >
-> To add the feature you come back to the `Msg` type and add another possibility: `Reset`. You then move on to the `update` function and describe what happens when you get that message. Finally you add a button in your view.
+> 1. Add a `Reset` variant to the `Msg` type
+> 2. Add a `Reset` branch in the `update` function
+> 3. Add a button in the `view` function.
 >
-> See if you can implement the "reset" feature!
+> You can edit the example in the online editor [here](https://elm-lang.org/examples/buttons).
+>
+> If that goes well, try adding another button to increment by steps of 10.
 -->
-> **練習問題:** The Elm Architectureが優れていることの一つに、プロダクトに変更が必要な場合はとても簡単に拡張できることが挙げられます。あなたのプロダクトマネージャが"reset"機能を思い付いたとしましょう。新しいボタンはカウンタを0にリセットします。
+> **演習:** カウンターをゼロにリセットするボタンを追加してみましょう
 >
-> この機能を追加するには`Msg`型の実装部分にもどってもう一つの可能性の`Reset`を追加しましょう。メッセージを受け取ったときに何をすべきかを`update`関数に記述して下さい。最後はviewにボタンを追加して下さい。
+> 1. `Reset`バリアントを`Msg`型に追加します
+> 2. `update`関数に`Reset`の分岐を追加します
+> 3. `view`関数にボタンを追加します
 >
-> それでは、"reset"機能を実装してみましょう！
+> このサンプルは[こちら](https://elm-lang.org/examples/buttons)のオンラインエディタで編集できます。
+>
+> これがうまくいったら、10ずつ増えるボタンを追加してみてください。

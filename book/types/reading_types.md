@@ -4,16 +4,10 @@
 # 型を読む
 
 <!--
-In the [Core Language](/core_language.html) section of this book, we ran a bunch of code in the REPL. Well, we are going to do it again, but now with an emphasis on the types that are getting spit out. So type `elm repl` in your terminal again. You should see this:
+In the [Core Language](/core_language.html) section of this book, we went through a bunch of interactive examples to get a feeling for the language. Well, we are going to do it again, but with a new question in mind. What **type** of value is that?
 -->
-このガイドの[言語の基礎](/core_language.md)の節では、REPLでコードをいろいろ実行しました。 さて、もう一度REPLでコードを試していこうと思いますが、今度は表示される型に注目していきましょう。 ターミナルに`elm repl`と入力してください。 このように表示されます:
+このガイドの[言語の基礎](/core_language.md)の節では、言語の雰囲気を掴むために多くのインタラクティブな例をざっと見てきました。さて、もう一度例を見ていこうと思いますが、今度は新たな問いを念頭に置いてやっていきましょう。つまり、この値の **型** はなんだろうか？ということです。
 
-```elm
----- Elm 0.19.0 ----------------------------------------------------------------
-Read <https://elm-lang.org/0.19.0/repl> to learn more: exit, help, imports, etc.
---------------------------------------------------------------------------------
->
-```
 
 <!--
 ## Primitives and Lists
@@ -25,43 +19,83 @@ Let's enter some simple expressions and see what happens:
 -->
 いくつかのシンプルな式を入力して、何が起こるかを見てみましょう:
 
-```elm
-> "hello"
-"hello" : String
-
-> not True
-False : Bool
-
-> round 3.1415
-3 : Int
-```
-
-<!--
-In these three examples, the REPL tells us the resulting value along with what *type* of value it happens to be. The value `"hello"` is a `String`. The value `3` is an `Int`. Nothing too crazy here.
--->
-上の3つの例では、REPLは結果として得られる値と、その値の*型*を教えてくれます。値`"hello"`は`String`です。 値`3`は`Int`です。何もおかしなことはありません。
-
-<!--
-Let's see what happens with lists holding different types of values:
--->
-様々な型の値を保持するリストで何が起こるか見てみましょう:
-
-```elm
-> [ "Alice", "Bob" ]
-[ "Alice", "Bob" ] : List String
-
-> [ 1.0, 8.6, 42.1 ]
-[ 1.0, 8.6, 42.1 ] : List Float
-
-> []
-[] : List a
-```
+{% replWithTypes %}
+[
+	{
+		"input": "\"hello\"",
+		"value": "\u001b[93m\"hello\"\u001b[0m",
+		"type_": "String"
+	},
+	{
+		"input": "not True",
+		"value": "\u001b[96mFalse\u001b[0m",
+		"type_": "Bool"
+	},
+	{
+		"input": "round 3.1415",
+		"value": "\u001b[95m3\u001b[0m",
+		"type_": "Int"
+	}
+]
+{% endreplWithTypes %}
 
 <!--
-In the first case, we have a `List` filled with `String` values. In the second, the `List` is filled with `Float` values. In the third case the list is empty, so we do not actually know what kind of values are in the list. So the type `List a` is saying "I know I have a list, but it could be filled with anything". The lower-case `a` is called a *type variable*, meaning that there are no constraints in our program that pin this down to some specific type. In other words, the type can vary based on how it is used.
+Click on this black box ⬆️ and the cursor should start blinking. Type in `3.1415` and press the ENTER key. It should print out `3.1415` followed by the type `Float`.
 -->
-最初のケースでは、`List`には`String`の値が入っています。2番目のケースでは、`List`には`Float`の値が入っています。3番目のケースでは、リストは空なので実際にどのような値がリストに入っているかはわかりません。つまり`List a`という型は、「リストがあるのはわかるが、何の型が入るかはわからない」ということを表現しています。小文字の`a`は*型変数*と呼ばれます。この型変数には特定の型に固定する制約がありません。言い換えると、その型は使用方法に基づいて変化する可能性があるということです。
 
+この黒い部分 ⬆️ をクリックするとカーソルが点滅し始めます。`3.1415`と入力してエンターキーを押してください。すると、型である`Float`が付加されて`3.1415`が出力されるはずです。
+
+<!--
+Okay, but what is going on here exactly? Each entry shows value along with what **type** of value it happens to be. You can read these examples out loud like this:
+-->
+さて、ここでは正確には一体何が起こっているのでしょうか？それぞれには入力値に加えてその値がどのような **型** の値になったかが表示されています。これらは次のように読み上げることができます：
+
+<!--
+- The value `"hello"` is a `String`.
+- The value `False` is a `Bool`.
+- The value `3` is an `Int`.
+- The value `3.1415` is a `Float`.
+-->
+- 値`"hello"`は`String`型です。
+- 値`False`は`Bool`型です。
+- 値`3`は`Int`型です。
+- 値`3.1415`は`Float`型です。
+
+<!--
+Elm is able to figure out the type of any value you enter! Let's see what happens with lists:
+-->
+Elmはあなたが入力したどんな値の型も推論することができます！今度はリストの動作を確認してみましょう：
+
+{% replWithTypes %}
+[
+	{
+		"input": "[ \"Alice\", \"Bob\" ]",
+		"value": "[\u001b[93m\"Alice\"\u001b[0m,\u001b[93m\"Bob\"\u001b[0m]",
+		"type_": "List String"
+	},
+	{
+		"input": "[ 1.0, 8.6, 42.1 ]",
+		"value": "[\u001b[95m1.0\u001b[0m,\u001b[95m8.6\u001b[0m,\u001b[95m42.1\u001b[0m]",
+		"type_": "List Float"
+	}
+]
+{% endreplWithTypes %}
+
+<!--
+You can read these types as:
+
+1. We have a `List` filled with `String` values.
+2. We have a `List` filled with `Float` values.
+-->
+これらの型は次のように読みます：
+
+1. `String`型の値の要素を持つ`List`型
+2. `Float`型の値の要素を持つ`List`型
+
+<!--
+The **type** is a rough description of the particular value we are looking at.
+-->
+**型** は私たちが注目している値の大まかな説明になります。
 
 <!--
 ## Functions
@@ -73,20 +107,35 @@ Let's see the type of some functions:
 -->
 関数の型を見てみましょう:
 
-```elm
-> String.length
-<function> : String -> Int
-```
+{% replWithTypes %}
+[
+	{
+		"input": "String.length",
+		"value": "\u001b[36m<function>\u001b[0m",
+		"type_": "String -> Int"
+	}
+]
+{% endreplWithTypes %}
 
 <!--
-The function `String.length` has type `String -> Int`. This means it *must* take in a `String` argument, and it will definitely return an integer result. So let's try giving it an argument:
+Try entering `round` or `sqrt` to see some other function types ⬆️
 -->
-`String.length`関数は`String -> Int`という型を持っています。必ず`String`型の引数を１つ受け取り、整数の結果を返すことをこの型は意味しています。
+`round`や`sqrt`を入力して他の関数の型を見てみましょう ⬆️
 
-```elm
-> String.length "Supercalifragilisticexpialidocious"
-34 : Int
-```
+<!--
+The `String.length` function has type `String -> Int`. This means it *must* take in a `String` argument, and it will definitely return an `Int` value. So let's try giving it an argument:
+-->
+`String.length`関数は`String -> Int`という型を持っています。これは、*必ず*`String`型の引数を１つ受け取り、絶対に`Int`型の値を返すことを意味しています。さぁ、実際に引数を与えてみましょう：
+
+{% replWithTypes %}
+[
+	{
+		"input": "String.length \"Supercalifragilisticexpialidocious\"",
+		"value": "\u001b[95m34\u001b[0m",
+		"type_": "Int"
+	}
+]
+{% endreplWithTypes %}
 
 <!--
 So we start with a `String -> Int` function and give it a `String` argument. This results in an `Int`.
@@ -94,22 +143,14 @@ So we start with a `String -> Int` function and give it a `String` argument. Thi
 まず`String -> Int`の関数に`String`を与えてみましょう。結果は`Int`です。
 
 <!--
-What happens when you do not give a `String` though?
+What happens when you do not give a `String` though? Try entering `String.length [1,2,3]` or `String.length True` to see what happens ⬆️
 -->
-`String`以外を与えたら何が起こるでしょうか？
-
-```elm
-> String.length [1,2,3]
--- error!
-
-> String.length True
--- error!
-```
+`String`以外を与えたら何が起こるでしょうか？`String.length [1,2,3]`と入力するか`String.length True`と入力して動作を見てみましょう ⬆️
 
 <!--
-A `String -> Int` function *must* get a `String` argument!
+You will find that a `String -> Int` function *must* get a `String` argument!
 -->
-`String -> Int`の関数は*必ず*`String`型の値を引数にしなくてはなりません！
+`String -> Int`の関数は`String`型の値を引数に*しなくてはならない*ことが理解できたでしょう！
 
 <!--
 > **Note:** Functions that take multiple arguments end up having more and more arrows. For example, here is a function that takes two arguments:
@@ -117,9 +158,15 @@ A `String -> Int` function *must* get a `String` argument!
 -->
 > **Note:** 複数の引数を取る関数は、より多くの矢印を持つことになります。例えば、2つの引数をとる関数はこうなります:
 >
-```elm
-String.repeat : Int -> String -> String
-```
+> {% replWithTypes %}
+[
+	{
+		"input": "String.repeat",
+		"value": "\u001b[36m<function>\u001b[0m",
+		"type_": "Int -> String -> String"
+	}
+]
+{% endreplWithTypes %}
 >
 <!--
 > Giving two arguments like `String.repeat 3 "ha"` will produce `"hahaha"`. It works to think of `->` as a weird way to separate arguments, but I explain the real reasoning [here](/appendix/function_types.md). It is pretty neat!
@@ -132,9 +179,9 @@ String.repeat : Int -> String -> String
 ## 型注釈（タイプアノテーション）
 
 <!--
-So far we have just let Elm figure out the types, but it also lets you write a **type annotation** on the line above a definition if you want. So when you are writing code, you can say things like this:
+So far we have just let Elm figure out the types, but it also lets you write a **type annotation** on the line above a definition. So when you are writing code, you can say things like this:
 -->
-今のところElmに型を推論させているだけですが、必要ならば、定義の上の行に**型注釈**を書くこともできます。つまり、次のようにコードを書くことができます:
+今のところElmに型を推論させているだけですが、定義の上の行に**型注釈**を書くこともできます。つまり、次のようにコードを書くことができます:
 
 ```elm
 half : Float -> Float
@@ -182,32 +229,44 @@ People can make mistakes in type annotations though, so what happens if the anno
 ## 型変数（タイプバリアブル）
 
 <!--
-As you look through the functions in [`elm/core`][core], you will see some type signatures with lower-case letters in them. We can check some of them out in `elm repl`:
+As you look through more Elm code, you will start to see type annotations with lower-case letters in them. A common example is the `List.length` function:
 -->
-[`elm/core`][core]の関数を見ると、小文字の型シグネチャがいくつかあることがわかります。
-以下のように`elm repl`で実際に確かめることができます。
-> **訳注:** 型シグネチャは関数の引数の型と返り値の型の組み合わせのこと。
+より多くのElmのコードに目を通すようになると、小文字の型注釈を目にし始めるでしょう。よくある例として`List.length`関数が挙げられます：
 
-```elm
-> List.length
-<function> : List a -> Int
-```
+{% replWithTypes %}
+[
+	{
+		"input": "List.length",
+		"value": "\u001b[36m<function>\u001b[0m",
+		"type_": "List a -> Int"
+	}
+]
+{% endreplWithTypes %}
 
 <!--
 Notice that lower-case `a` in the type? That is called a **type variable**. It can vary depending on how [`List.length`][length] is used:
 -->
 型の中に小文字`a`があることに気づきましたか？これは **型変数** と呼ばれるものです。この`a`が実際にどんな型になるかは、[`List.length`][length]がどのように使われるかによって変わります。
 
-```elm
-> List.length [1,1,2,3,5,8]
-6 : Int
-
-> List.length [ "a", "b", "c" ]
-3 : Int
-
-> List.length [ True, False ]
-2 : Int
-```
+{% replWithTypes %}
+[
+	{
+		"input": "List.length [1,1,2,3,5,8]",
+		"value": "\u001b[95m6\u001b[0m",
+		"type_": "Int"
+	},
+	{
+		"input": "List.length [ \"a\", \"b\", \"c\" ]",
+		"value": "\u001b[95m3\u001b[0m",
+		"type_": "Int"
+	},
+	{
+		"input": "List.length [ True, False ]",
+		"value": "\u001b[95m2\u001b[0m",
+		"type_": "Int"
+	}
+]
+{% endreplWithTypes %}
 
 <!--
 We just want the length, so it does not matter what is in the list. So the type variable `a` is saying that we can match any type. Let&rsquo;s look at another common example:
@@ -215,16 +274,25 @@ We just want the length, so it does not matter what is in the list. So the type 
 
 単に長さが欲しいだけなのでリストの中に何が入っているかは気にしません。つまり型変数`a`はどんな型にも使えるということです。もう1つよくある例を見てみましょう:
 
-```elm
-> List.reverse
-<function> : List a -> List a
-
-> List.reverse [ "a", "b", "c" ]
-["c","b","a"] : List String
-
-> List.reverse [ True, False ]
-[False,True] : List Bool
-```
+{% replWithTypes %}
+[
+	{
+		"input": "List.reverse",
+		"value": "\u001b[36m<function>\u001b[0m",
+		"type_": "List a -> List a"
+	},
+	{
+		"input": "List.reverse [ \"a\", \"b\", \"c\" ]",
+		"value": "[\u001b[93m\"c\"\u001b[0m,\u001b[93m\"b\"\u001b[0m,\u001b[93m\"a\"\u001b[0m]",
+		"type_": "List String"
+	},
+	{
+		"input": "List.reverse [ True, False ]",
+		"value": "[\u001b[96mFalse\u001b[0m,\u001b[96mTrue\u001b[0m]",
+		"type_": "List Bool"
+	}
+]
+{% endreplWithTypes %}
 
 <!--
 Again, the type variable `a` can vary depending on how [`List.reverse`][reverse] is used. But in this case, we have an `a` in the argument and in the result. This means that if you give a `List Int` you must get a `List Int` as well. Once we decide what `a` is, that’s what it is everywhere.
@@ -238,7 +306,6 @@ Again, the type variable `a` can vary depending on how [`List.reverse`][reverse]
 
 > **Note:** 型変数は小文字から始めなければなりませんが、完全な単語でも構いません。つまり例のように1文字の変数でなくても問題ありません。`List.length`の型を`List value -> Int`とも書けますし、`List.reverse`の型は`List element -> List element`とも書けます。小文字で始まっていれば大丈夫です。型変数の`a`や`b`といった1文字のものは慣例によりいたるところで使われていますが、より具体的な名前を付けたほうがいい場合もあります。
 
-[core]: https://package.elm-lang.org/packages/elm/core/latest/
 [length]: https://package.elm-lang.org/packages/elm/core/latest/List#length
 [reverse]: https://package.elm-lang.org/packages/elm/core/latest/List#reverse
 
@@ -249,18 +316,26 @@ Again, the type variable `a` can vary depending on how [`List.reverse`][reverse]
 ## 制約付き型変数
 
 <!--
-There are a few “constrained” type variables. The most common example is probably the `number` type. The [`negate`][negate] function uses it:
+There is a special variant of type variables in Elm called **constrained** type variables. The most common example is the `number` type. The [`negate`](https://package.elm-lang.org/packages/elm/core/latest/Basics#negate) function uses it:
 -->
-いくつか"制約付き"の型変数があります。最も一般的な例はおそらく`number`型です。[`negate`][negate]関数は`number`を使用します：
+Elmには **制約付き** 型変数と呼ばれる特殊な型変数があります。最もよく使われる例は`number`型です。[`negate`][negate]関数は`number`を使用します：
 
-```elm
-negate : number -> number
-```
+{% replWithTypes %}
+[
+	{
+		"input": "negate",
+		"value": "\u001b[36m<function>\u001b[0m",
+		"type_": "number -> number"
+	}
+]
+{% endreplWithTypes %}
+
+Try expressions like `negate 3.1415` and `negate (round 3.1415)` and `negate "hi"` ⬆️
 
 <!--
-Normally type variables can get filled in with _anything_, but `number` can only be filled in by `Int` and `Float` values. It constrains the possibilities.
+Normally type variables can get filled in with anything, but `number` can only be filled in by `Int` and `Float` values. It _constrains_ the possibilities.
 -->
-通常、型変数には_どんな型_でも当てはめることができますが、`number`には`Int`か`Float`しか当てはめられません。制約は型変数の可能性を制限します。
+通常、型変数にはどんな型でも当てはめることができますが、`number`には`Int`か`Float`しか当てはめられません。制約は型変数の可能性を_制限_します。
 
 <!--
 The full list of constrained type variables is:
@@ -285,4 +360,7 @@ These constrained type variables exist to make operators like `(+)` and `(<)` a 
 -->
 これらの制約付き型変数は、`(+)`や`(<)`のような演算子をより柔軟に使えるようにするために存在しています。
 
-[negate]: https://package.elm-lang.org/packages/elm/core/latest/Basics#negate
+<!--
+By now we have covered types for values and functions pretty well, but what does this look like when we start wanting more complex data structures?
+-->
+ここまでで値と関数の型については非常によく網羅してきましたが、より複雑なデータ構造が必要になり始めたら型はどのようになるでしょうか？

@@ -4,21 +4,21 @@
 # Elm について (はじめに)
 
 <!--
-**Elm is a functional language that compiles to JavaScript.** It competes with projects like React as a tool for creating websites and web apps. Elm has a very strong emphasis on simplicity, ease-of-use, and quality tooling.
+**Elm is a functional language that compiles to JavaScript.** It helps you make websites and web apps. It has a strong emphasis on simplicity and quality tooling.
 -->
-**Elm は JavaScript にコンパイルできる関数型プログラミング言語です。** ウェブサイトやウェブアプリケーションを作るツールという面では React のようなプロジェクトだと言えます。 Elm はシンプルであること、簡単に使えること、高品質であることを大切にしています。
+**Elm は JavaScript にコンパイルできる関数型プログラミング言語です。** ウェブサイトやウェブアプリケーションを作るのに役立ちます。Elm はシンプルであること、簡単に使えること、高品質であることを大切にしています。
 
 <!--
 This guide will:
 
   - Teach you the fundamentals of programming in Elm.
-  - Show you how to make interactive apps with *The Elm Architecture*.
+  - Show you how to make interactive apps with **The Elm Architecture**.
   - Emphasize principles and patterns that generalize to programming in any language.
 -->
 このガイドは以下のことを目指します。
 
   - Elm によるプログラミングの基礎を身に着けてもらうこと
-  - *The Elm Architecture* を使ってインタラクティブなアプリケーションを作る方法をお見せすること
+  - **The Elm Architecture** を使ってインタラクティブなアプリケーションを作る方法をお見せすること
   - あらゆる言語で使える法則やパターンを重視すること
 
 <!--
@@ -27,9 +27,9 @@ By the end I hope you will not only be able to create great web apps in Elm, but
 最終的にはあなたには Elm を使って素晴らしいウェブアプリをただ作れるようになるだけでなく、Elm をうまく使えるようになるための核となるアイディアやパターンを理解してもらえればと思います。
 
 <!--
-If you are on the fence, I can safely guarantee that if you give Elm a shot and actually make a project in it, you will end up writing better JavaScript and React code. The ideas transfer pretty easily!
+If you are on the fence, I can safely guarantee that if you give Elm a shot and actually make a project in it, you will end up writing better JavaScript code. The ideas transfer pretty easily!
 -->
-Elm に対して様子見の立場である方も、Elm をちょっと試してみて実際に何かプロジェクトで使ってみると JavaScript や React のコードがいままでよりもうまく書けるようになっているはずです。 Elm で得られた知見はいろんなところで簡単に役立てることができます。
+Elm に対して様子見の立場である方も、Elm をちょっと試してみて実際に何かプロジェクトで使ってみると JavaScript のコードがいままでよりもうまく書けるようになっているはずです。 Elm で得られた知見はいろんなところで簡単に役立てることができます。
 
 <!--
 ## A Quick Sample
@@ -38,16 +38,9 @@ Elm に対して様子見の立場である方も、Elm をちょっと試して
 ## Elm を知るためのサンプルコード
 
 <!--
-Of course *I* think Elm is good, so look for yourself.
+Here is a little program that lets you increment and decrement a number:
 -->
-もちろんこのガイドの原著者である Evan は Elm の作者でもあるので、Elm を素晴らしいものだと信じていますが、読者の皆様にも同じように感じてほしいと思っています。
-そのために簡単な Elm のプログラムをお見せします。
-
-<!--
-Here is [a simple counter](https://elm-lang.org/examples/buttons). If you look at the code, it just lets you increment and decrement the counter:
--->
-以下のコードは[カウンターのサンプル](https://elm-lang.org/examples/buttons)です。
-このコードは、カウンターをインクリメント(+1)したりデクリメント(-1)したりするものです。
+以下のコードは、数をインクリメント(+1)したりデクリメント(-1)したりする小さなプログラムです。
 
 ```elm
 import Browser
@@ -76,43 +69,38 @@ view model =
 ```
 
 <!--
-Notice that the `update` and `view` are entirely decoupled. You describe your HTML in a declarative way and Elm takes care of messing with the DOM.
--->
-`update` と `view` が完全に分離されていることにお気づきになることでしょう。
-また、HTML を宣言的に書くだけで、Elm が DOM に関するめんどうごとを全部引き受けてくれます。
+Try it out in the online editor [here](https://elm-lang.org/examples/buttons).
 
+The code can definitely look unfamiliar at first, so we will get into how this example works soon!
+-->
+[こちらの](https://elm-lang.org/examples/buttons)オンラインエディターで試してください。
+
+このコードは、はじめはきっと見慣れないものでしょうから、どんなことをしているかをこのあとすぐに説明します！
 
 <!--
-## Why a *functional* language?
+## Why a functional *language*?
 -->
-## なぜ関数型を採用しているか
+## なぜ関数型*言語*を採用しているか
 
 <!--
-Forget what you have heard about functional programming. Fancy words, weird ideas, bad tooling. Barf. Elm is about:
+You can get some benefits from programming in a functional *style*, but there are some things you can only get from a functional *language* like Elm:
 
-  - No runtime errors in practice. No `null`. No `undefined` is not a function.
-  - Friendly error messages that help you add features more quickly.
-  - Well-architected code that *stays* well-architected as your app grows.
+  - No runtime errors in practice.
+  - Friendly error messages.
+  - Reliable refactoring.
   - Automatically enforced semantic versioning for all Elm packages.
 -->
-まず「関数型プログラミング」について今までに聞いた話をすべて忘れてください。
-なんだかよくわからない用語を使ったり、今まで見たことないような特殊な考え方だったり、実際にアプリケーションを作ろうと思ってもまともなツールがそろってなかったり...
-反吐が出ますね。
+関数型*スタイル*でプログラミングすることで、いくらかの恩恵を受けられますが、Elmのような関数型*言語*でしか得られないものがあります。
 
-Elm はもっと実用的な以下のものを実現するために手段として関数型の考え方を使っているだけです。
-
-  - 実用上ランタイムエラーがでないし、`null`もないし、`undefined`が関数だなんて話はありえません
-  - とてもわかりやすい親切なエラーメッセージによってより素早くあなたのコードに機能を追加できます
-  - コードの規模が大きくなっても全体の設計が壊れることがありません
-  - すべてのElmパッケージにおいて、決められたルールに則って自動的にバージョン番号が付与されています
+  - 実用上ランタイムエラーがでない
+  - とてもわかりやすい親切なエラーメッセージ
+  - 信頼性の高いリファクタリング
+  - すべてのElmパッケージは自動的にセマンティックバージョニングが強制されている
 
 <!--
-No combination of JS libraries can ever give you this, yet it is all free and easy in Elm. Now these nice things are *only* possible because Elm builds upon 40+ years of work on typed functional languages. So Elm is a functional language because the practical benefits are worth the couple hours you'll spend reading this guide.
+No combination of JS libraries can give you all of these guarantees. They come from the design of the language itself! And thanks to these guarantees, it is quite common for Elm programmers to say they never felt so **confident** while programming. Confident to add features quickly. Confident to refactor thousands of lines. But without the background anxiety that you missed something important!
 -->
-JSをそのまま使ったらどんなライブラリを使って工夫してもこれらを実現することはできませんが、ElmならJSという言語の枠に縛られずに簡単に実現できます。
-こんな素晴らしいことが可能になるのは、Elmが「静的型付関数型言語」という40年以上の歴史を持つ研究成果を活用しているからにほかなりません。
-そのためElmにとって、関数型というのは目的ではなく手段であり、こういった現実的なメリットを得るという目的のために関数型言語を採用しているに過ぎません。
-もちろん関数型言語という少し見慣れないパラダイムを使っているElmを学ぶには時間が少しかかりますが、このガイドを読むのに使うたった数時間の投資に十分見合うだけの価値をもたらしてくれます。
+JSのライブラリだけではこれらすべてを保証できないでしょう。ですが言語自体の設計によって保証できるようになります！これらが保証されているおかげで、今までこんなにも**自信**を持ってプログラミングできたことはない、と言うことがElmプログラマーには珍しくありません。自信を持って素早く機能を追加したり、数千行をリファクタリングできるようになります。それでも、何か大事なところを見落とす心配はないのです！
 
 <!--
 I have put a huge emphasis on making Elm easy to learn and use, so all I ask is that you give Elm a shot and see what you think. I hope you will be pleasantly surprised!

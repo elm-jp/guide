@@ -1,0 +1,44 @@
+;require(["gitbook"], function(gitbook) {
+
+    gitbook.events.bind("page.change", function()
+    {
+        var nodes = gitbook.state.$book[0].getElementsByClassName("elm-repl");
+        // must go through backwards because the nodes array is modified
+        // if any nodes no longer have that class name. It is pretty nuts!
+        for (var i = nodes.length; i--; )
+        {
+            init(i, nodes[i]);
+        }
+    });
+
+    function init(id, node)
+    {
+        var repl = Elm.Repl.init({
+            node: node,
+            flags: {
+                id: id,
+                types: node.className.indexOf('show-types') !== -1,
+                entries: JSON.parse(node.textContent)
+            }
+        });
+
+        repl.ports.evaluate.subscribe(evaluate);
+
+        function evaluate(javascript)
+        {
+            var url = URL.createObjectURL(new Blob([javascript], { mime: "application/javascript" }));
+            var worker = new Worker(url);
+
+            worker.onmessage = function(e) { report(e.data) };
+            worker.onerror = function(e) { report(e.message) };
+
+            function report(value)
+            {
+                repl.ports.outcomes.send(value);
+                URL.revokeObjectURL(url);
+                worker.terminate();
+            }
+        }
+    }
+
+});

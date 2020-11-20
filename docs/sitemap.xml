@@ -2,7 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 <url> <loc>https://guide.elm-lang.jp/about_translation.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guide.elm-lang.jp/./</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://guide.elm-lang.jp/install.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guide.elm-lang.jp/core_language.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guide.elm-lang.jp/architecture/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guide.elm-lang.jp/architecture/buttons.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
@@ -21,10 +20,14 @@
 <url> <loc>https://guide.elm-lang.jp/effects/json.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guide.elm-lang.jp/effects/random.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guide.elm-lang.jp/effects/time.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guide.elm-lang.jp/install/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guide.elm-lang.jp/install/editor.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guide.elm-lang.jp/install/elm.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guide.elm-lang.jp/interop/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guide.elm-lang.jp/interop/flags.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guide.elm-lang.jp/interop/ports.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guide.elm-lang.jp/interop/custom_elements.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://guide.elm-lang.jp/interop/limits.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guide.elm-lang.jp/webapps/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guide.elm-lang.jp/webapps/navigation.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://guide.elm-lang.jp/webapps/url_parsing.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>

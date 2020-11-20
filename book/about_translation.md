@@ -10,7 +10,7 @@
 ## 原文のバージョン
 
 この翻訳はできる限り英語版の更新に追従するように努めていますが、ボランティアで運営されているため更新が追いつかないこともあります。
-[翻訳がベースとしているバージョンと英語版の最新バージョンとの差分](https://github.com/evancz/guide.elm-lang.org/compare/430f602c54300e71d6363cbc36cd98d25341c11b...master)をご確認ください。
+[翻訳がベースとしているバージョンと英語版の最新バージョンとの差分](https://github.com/evancz/guide.elm-lang.org/compare/4109eae8b0bad3d0e315e8ded97becfa6dc4d17f...master)をご確認ください。
 
 "There isn’t anything to compare." と表示されていれば翻訳が最新の英語版に対応していることを意味します。
 
@@ -71,12 +71,15 @@ Elm guide は初学者の方にも分かることを重視したドキュメン�
 | 型注釈 | type annotation |
 | タプル | tuple |
 | レコード | record |
+| レコードコンストラクター | record constructor |
 | 無名関数 | anonymous function |
 | 予約語 | keyword |
 | 構造的部分型 | structural typing |
 | 制約付き型変数 | constrained type variable |
 | 部分関数 | partial function |
 | 属性 | attribute |
+| ハンドラー | handler |
+| インタラクティブ | interactive |
 <!-- | ソースコード自身がその意味するところを雄弁に語るようになります | self-documenting | -->
 <!-- | ソースコード自身がその意味するところを雄弁に語るようになります | self-documented | -->
 <!-- | 章 | chapter | -->

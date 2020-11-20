@@ -36,7 +36,7 @@ type UserStatus = Regular | Visitor
 The `UserStatus` type has two **variants**. Someone can be a `Regular` or a `Visitor`. So we could represent a user as a record like this:
 -->
 
-`UserStatus`型は 2 つの **バリアント** を持っています。ユーザは`Regular`か`Visitor`になれます。つまりユーザをこのようなレコードで表すことができます:
+`UserStatus`型は 2 つの **バリアント** を持っています。ユーザーは`Regular`か`Visitor`になれます。つまりユーザーをこのようなレコードで表すことができます:
 
 ```elm
 type UserStatus
@@ -80,25 +80,51 @@ The data is attached directly to the variant, so there is no need for the record
 名前のデータはバリアントに直接付与されたので、レコード型はもう必要ありません。
 
 <!--
-Another benefit of this approach is that each variant can have different associated data. Say that `Regular` users gave their age when they signed up. There is no nice way to capture that with records, but when you define your own custom type it is no problem. We add some associated data to the `Regular` variant:
+Another benefit of this approach is that each variant can have different associated data. Say that `Regular` users gave their age when they signed up. There is no nice way to capture that with records, but when you define your own custom type it is no problem. Let's add some associated data to the `Regular` variant in an interactive example:
 -->
 
-この方法の別の利点は各バリアントには別の関連データを持たせられることです。`Regular`なユーザがサインアップのときに年齢を登録することを考えてみてください。これをレコードでどうにかするいい方法はありませんが、カスタム型を自分で定義するなら何の問題もなく行えます。`Regular`バリアントに他の関連データを追加してみましょう：
+この方法の別の利点は、各バリアントごとに他のバリアントとは異なる専用のデータを持たせられることです。アカウントを持っているユーザーである`Regular`ユーザーがサインアップのときに年齢を登録することを考えてみてください。レコードではこのようなケースをうまく取り扱うことができませんが、カスタム型を自分で定義するなら何の問題もなく行えます。年齢を登録できるようにするために`Regular`バリアントに関連するデータを追加しましょう。次の対話形式の例を見てください：
 
-```elm
-type User
-  = Regular String Int
-  | Visitor String
-
-thomas = Regular "Thomas" 44
-kate95 = Visitor "kate95"
-```
+{% replWithTypes %}
+[
+  {
+    "add-type": "User",
+    "input": "type User\n  = Regular String Int\n  | Visitor String\n"
+  },
+  {
+    "input": "Regular",
+    "value": "\u001b[36m<function>\u001b[0m",
+    "type_": "String -> Int -> User"
+  },
+  {
+    "input": "Visitor",
+    "value": "\u001b[36m<function>\u001b[0m",
+    "type_": "String -> User"
+  },
+  {
+    "input": "Regular \"Thomas\" 44",
+    "value": "\u001b[96mRegular\u001b[0m \u001b[93m\"Thomas\"\u001b[0m \u001b[95m44\u001b[0m",
+    "type_": "User"
+  },
+  {
+    "input": "Visitor \"kate95\"",
+    "value": "\u001b[96mVisitor\u001b[0m \u001b[93m\"kate95\"\u001b[0m",
+    "type_": "User"
+  }
+]
+{% endreplWithTypes %}
 
 <!--
-The different variants of a type can diverge quite dramatically. For example, maybe we add location for `Regular` users so we can suggest regional chat rooms. Add more associated data! Or maybe we want to have anonymous users. Add a third variant called `Anonymous`. Maybe we end up with:
+Try defining a `Regular` visitor with a name and age ⬆️
 -->
 
-ある型において、各バリアントはそれぞれまったく異なる構造をとることができます。例えば、`Regular`ユーザに地域ローカルなチャットルームを提供するために現在地を追加することがあるかもしれません。更なる関連データを追加しましょう！また、匿名ユーザの機能が欲しくなるかもしれません。3 つ目の`Anonymous`バリアントを追加しましょう。最終的にこうなります：
+名前と年齢を指定して`Regular`訪問者を定義してみてください ⬆️
+
+<!--
+We only added an age, but variants of a type can diverge quite dramatically. For example, maybe we want to add location for `Regular` users so we can suggest regional chat rooms. Add more associated data! Or maybe we want to have anonymous users. Add a third variant called `Anonymous`. Maybe we end up with:
+-->
+
+上記の例では年齢を追加しただけですが、型のバリアントはかなり劇的に分岐することがあります。例えば、地域のチャットルームを提案できるようにするために`Regular`ユーザーに所在地を追加したくなるかもしれません。その場合は`Regular`バリアントに関連するデータを追加します！あるいは匿名ユーザーを用意したくなるかもしれません。`Anonymous`という3つめのバリアントを追加します。おそらく最終的には次のようになります:
 
 ```elm
 type User
@@ -137,7 +163,7 @@ type Msg
 We have four variants. Some variants have no associated data, others have a bunch. Notice that `ReceivedMessage` actually has a record as associated data. That is totally fine. Any type can be associated data! This allows you to describe interactions in your application very precisely.
 -->
 
-この型には 4 つのバリアントがあり、関連データを持つバリアントと持たないバリアントがあります。他のバリアントは関連データを持っています。`ReceivedMessage`が実際に関連データとしてレコードを持っていることに気づきましたか？これはまったく問題ありません。どんな型も関連データにすることができます！どんな型も関連データにすることができるため、どのユーザーからどんなメッセージを受けたかなど、ただの String や User の組み合わせでは何を意味するのか曖昧になってしまうような情報も非常に厳密に記述することができます。
+この型には4つのバリアントがあり、関連するデータを持つバリアントと持たないバリアントがあります。`ReceivedMessage`が実は関連するデータとしてレコードを持っていることに気づきましたか？これはまったく問題ありません。どんな型でも関連するデータとして持つことができます！そのため、どのユーザーからどんなメッセージを受けたかなど、ただの String や User の組み合わせでは何を意味するのか曖昧になってしまうような情報も非常に厳密に記述することができます。
 
 <!--
 ## Modeling

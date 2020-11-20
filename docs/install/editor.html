@@ -1,0 +1,866 @@
+
+<!DOCTYPE HTML>
+<html lang="ja" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>コードエディター · An Introduction to Elm</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Evan Czaplicki">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="elm.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="検索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../about_translation.html">
+            
+                <a href="../about_translation.html">
+            
+                    
+                    翻訳について
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../core_language.html">
+            
+                <a href="../core_language.html">
+            
+                    
+                    言語の基礎
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../architecture/">
+            
+                <a href="../architecture/">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../architecture/buttons.html">
+            
+                <a href="../architecture/buttons.html">
+            
+                    
+                    ボタン
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../architecture/text_fields.html">
+            
+                <a href="../architecture/text_fields.html">
+            
+                    
+                    テキストフィールド
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../architecture/forms.html">
+            
+                <a href="../architecture/forms.html">
+            
+                    
+                    フォーム
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../types/">
+            
+                <a href="../types/">
+            
+                    
+                    型
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../types/reading_types.html">
+            
+                <a href="../types/reading_types.html">
+            
+                    
+                    型を読む
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../types/type_aliases.html">
+            
+                <a href="../types/type_aliases.html">
+            
+                    
+                    型エイリアス
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../types/custom_types.html">
+            
+                <a href="../types/custom_types.html">
+            
+                    
+                    カスタム型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../types/pattern_matching.html">
+            
+                <a href="../types/pattern_matching.html">
+            
+                    
+                    パターンマッチ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../error_handling/">
+            
+                <a href="../error_handling/">
+            
+                    
+                    エラーハンドリング
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../error_handling/maybe.html">
+            
+                <a href="../error_handling/maybe.html">
+            
+                    
+                    Maybe
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../error_handling/result.html">
+            
+                <a href="../error_handling/result.html">
+            
+                    
+                    Result
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../effects/">
+            
+                <a href="../effects/">
+            
+                    
+                    コマンドとサブスクリプション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../effects/http.html">
+            
+                <a href="../effects/http.html">
+            
+                    
+                    HTTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../effects/json.html">
+            
+                <a href="../effects/json.html">
+            
+                    
+                    JSON
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../effects/random.html">
+            
+                <a href="../effects/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../effects/time.html">
+            
+                <a href="../effects/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    インストール
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.8.1" data-path="editor.html">
+            
+                <a href="editor.html">
+            
+                    
+                    コードエディター
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="elm.html">
+            
+                <a href="elm.html">
+            
+                    
+                    Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../interop/">
+            
+                <a href="../interop/">
+            
+                    
+                    JavaScriptとの相互運用
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../interop/flags.html">
+            
+                <a href="../interop/flags.html">
+            
+                    
+                    フラグ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../interop/ports.html">
+            
+                <a href="../interop/ports.html">
+            
+                    
+                    ポート
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../interop/custom_elements.html">
+            
+                <a href="../interop/custom_elements.html">
+            
+                    
+                    カスタムエレメンツ
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../interop/limits.html">
+            
+                <a href="../interop/limits.html">
+            
+                    
+                    制限事項
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../webapps/">
+            
+                <a href="../webapps/">
+            
+                    
+                    Webアプリケーション
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../webapps/navigation.html">
+            
+                <a href="../webapps/navigation.html">
+            
+                    
+                    ナビゲーションする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../webapps/url_parsing.html">
+            
+                <a href="../webapps/url_parsing.html">
+            
+                    
+                    URLをパースする
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../webapps/modules.html">
+            
+                <a href="../webapps/modules.html">
+            
+                    
+                    モジュール
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../webapps/structure.html">
+            
+                <a href="../webapps/structure.html">
+            
+                    
+                    モジュールの構造化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../optimization/">
+            
+                <a href="../optimization/">
+            
+                    
+                    最適化
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../optimization/lazy.html">
+            
+                <a href="../optimization/lazy.html">
+            
+                    
+                    Html.lazy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../optimization/keyed.html">
+            
+                <a href="../optimization/keyed.html">
+            
+                    
+                    Html.keyed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../optimization/asset_size.html">
+            
+                <a href="../optimization/asset_size.html">
+            
+                    
+                    アセットサイズ縮小化
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../next_steps.html">
+            
+                <a href="../next_steps.html">
+            
+                    
+                    次への一歩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" >
+            
+                <span>
+            
+                    
+                    付録
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../appendix/types_as_sets.html">
+            
+                <a href="../appendix/types_as_sets.html">
+            
+                    
+                    集合としての型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../appendix/types_as_bits.html">
+            
+                <a href="../appendix/types_as_bits.html">
+            
+                    
+                    型のビット表現
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../appendix/function_types.html">
+            
+                <a href="../appendix/function_types.html">
+            
+                    
+                    関数の型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            GitBookで公開 
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >コードエディター</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+# Install a Code Editor
+-->
+<h1 id="&#x30B3;&#x30FC;&#x30C9;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x30FC;&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;">&#x30B3;&#x30FC;&#x30C9;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x30FC;&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3059;&#x308B;</h1>
+<!--
+The first step is to get a code editor set up to handle Elm files.
+-->
+<p>&#x6700;&#x521D;&#x306E;&#x30B9;&#x30C6;&#x30C3;&#x30D7;&#x306F;&#x3001;Elm&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x6271;&#x3046;&#x305F;&#x3081;&#x306B;&#x30B3;&#x30FC;&#x30C9;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x30FC;&#x3092;&#x8A2D;&#x5B9A;&#x3059;&#x308B;&#x3053;&#x3068;&#x3067;&#x3059;&#x3002;</p>
+<!--
+![editor](images/editor.png)
+-->
+<p><img src="images/editor.png" alt="&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x30FC;"></p>
+<!--
+There are a bunch of editor plugins maintained by community members for a broad range of editors. You can check out a list of them [here](https://github.com/elm/editor-plugins).
+-->
+<p>&#x30B3;&#x30DF;&#x30E5;&#x30CB;&#x30C6;&#x30A3;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x306B;&#x3088;&#x3063;&#x3066;&#x30E1;&#x30F3;&#x30C6;&#x30CA;&#x30F3;&#x30B9;&#x3055;&#x308C;&#x3066;&#x3044;&#x308B;&#x3001;&#x3055;&#x307E;&#x3056;&#x307E;&#x306A;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x30FC;&#x5411;&#x3051;&#x306E;&#x305F;&#x304F;&#x3055;&#x3093;&#x306E;&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x4E00;&#x89A7;&#x3092;<a href="https://github.com/elm/editor-plugins" target="_blank">&#x3053;&#x3061;&#x3089;</a>&#x304B;&#x3089;&#x78BA;&#x8A8D;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<!--
+It can be tricky to get an editor set up, so for the purpose of this guide, I am going to show how to get set up with Sublime Text in particular. Hopefully this will be helpful for people new to programming or as a backup for people who already have a preferred code editor.
+-->
+<p>&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x30FC;&#x306E;&#x8A2D;&#x5B9A;&#x304C;&#x9762;&#x5012;&#x306A;&#x3082;&#x306E;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x306E;&#x3067;&#x3001;&#x3053;&#x306E;&#x30AC;&#x30A4;&#x30C9;&#x5411;&#x3051;&#x306B;&#x306F;Sublime Text&#x3092;&#x53D6;&#x308A;&#x4E0A;&#x3052;&#x3066;&#x8A2D;&#x5B9A;&#x65B9;&#x6CD5;&#x3092;&#x3054;&#x7D39;&#x4ECB;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x306E;&#x5185;&#x5BB9;&#x304C;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30DF;&#x30F3;&#x30B0;&#x521D;&#x5FC3;&#x8005;&#x306E;&#x65B9;&#x3005;&#x306E;&#x5F79;&#x306B;&#x7ACB;&#x3064;&#x3053;&#x3068;&#x3084;&#x3001;&#x3059;&#x3067;&#x306B;&#x304A;&#x6C17;&#x306B;&#x5165;&#x308A;&#x306E;&#x30B3;&#x30FC;&#x30C9;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x30FC;&#x3092;&#x304A;&#x6301;&#x3061;&#x306E;&#x65B9;&#x306E;&#x88DC;&#x52A9;&#x3068;&#x3057;&#x3066;&#x5F79;&#x7ACB;&#x3064;&#x3053;&#x3068;&#x3092;&#x9858;&#x3063;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<h2 id="sublime-text">Sublime Text</h2>
+<!--
+**Step 1:** Download Sublime Text from [here](https://www.sublimetext.com/).
+-->
+<p><strong>&#x624B;&#x9806; 1:</strong> <a href="https://www.sublimetext.com/" target="_blank">&#x3053;&#x3061;&#x3089;</a>&#x304B;&#x3089;Sublime Text&#x3092;&#x30C0;&#x30A6;&#x30F3;&#x30ED;&#x30FC;&#x30C9;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<!--
+**Step 2:** Install the "Elm Syntax Highlighting" plugin.
+-->
+<p><strong>&#x624B;&#x9806; 2:</strong> &quot;Elm Syntax Highlighting&quot;&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x3092;&#x30A4;&#x30F3;&#x30B9;&#x30C8;&#x30FC;&#x30EB;&#x3057;&#x307E;&#x3059;&#x3002;</p>
+<ul>
+<li><a href="https://github.com/evancz/elm-syntax-highlighting/blob/master/install/mac.md" target="_blank">Mac</a></li>
+<li><a href="https://github.com/evancz/elm-syntax-highlighting/blob/master/install/linux.md" target="_blank">Linux</a></li>
+<li><a href="https://github.com/evancz/elm-syntax-highlighting/blob/master/install/windows.md" target="_blank">Windows</a></li>
+</ul>
+<!--
+After going through those steps, it should be possible to open Elm files with syntax highlighting. Keywords like `import` and `type` should be colorful so the code is easier to read.
+-->
+<p>&#x4E0A;&#x8A18;&#x306E;&#x624B;&#x9806;&#x3092;&#x5B9F;&#x65BD;&#x3059;&#x308B;&#x3068;&#x3001;&#x69CB;&#x6587;&#x306E;&#x5F37;&#x8ABF;&#x8868;&#x793A;&#x304C;&#x306A;&#x3055;&#x308C;&#x305F;&#x72B6;&#x614B;&#x3067;Elm&#x30D5;&#x30A1;&#x30A4;&#x30EB;&#x3092;&#x958B;&#x3051;&#x308B;&#x306F;&#x305A;&#x3067;&#x3059;&#x3002; <code>import</code>&#x3084;<code>type</code>&#x306E;&#x3088;&#x3046;&#x306A;&#x4E88;&#x7D04;&#x8A9E;&#x304C;&#x30AB;&#x30E9;&#x30D5;&#x30EB;&#x306B;&#x8868;&#x793A;&#x3055;&#x308C;&#x3001;&#x305D;&#x308C;&#x306B;&#x3088;&#x3063;&#x3066;&#x30B3;&#x30FC;&#x30C9;&#x304C;&#x3088;&#x308A;&#x8AAD;&#x307F;&#x3084;&#x3059;&#x304F;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
+<!--
+> **Note:** There are alternatives! Community members have created editor plugins for Atom, Emacs, IntelliJ, Vim, VS Code, and many more. We try to keep [this page](https://github.com/elm/editor-plugins) up to date with all the options!
+-->
+<blockquote>
+<p><strong>Note:</strong> &#x307B;&#x304B;&#x306E;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x30FC;&#x3092;&#x4F7F;&#x3046;&#x306E;&#x3082;&#x826F;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#xFF01;&#x30B3;&#x30DF;&#x30E5;&#x30CB;&#x30C6;&#x30A3;&#x306E;&#x30E1;&#x30F3;&#x30D0;&#x30FC;&#x304C;Atom&#x3001;Emacs&#x3001;IntelliJ&#x3001;Vim&#x3001;VS Code&#x306A;&#x3069;&#x305F;&#x304F;&#x3055;&#x3093;&#x306E;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x30FC;&#x5411;&#x3051;&#x306B;&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x3092;&#x4F5C;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;&#x6211;&#x3005;&#x306F;&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x304C;&#x5229;&#x7528;&#x53EF;&#x80FD;&#x306A;&#x3059;&#x3079;&#x3066;&#x306E;&#x30A8;&#x30C7;&#x30A3;&#x30BF;&#x30FC;&#x3092;&#x8A18;&#x8F09;&#x3057;&#x3066;<a href="https://github.com/elm/editor-plugins" target="_blank">&#x30D7;&#x30E9;&#x30B0;&#x30A4;&#x30F3;&#x4E00;&#x89A7;&#x306E;&#x30DA;&#x30FC;&#x30B8;</a>&#x3092;&#x6700;&#x65B0;&#x306E;&#x72B6;&#x614B;&#x306B;&#x4FDD;&#x3064;&#x3088;&#x3046;&#x306B;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#xFF01;</p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: インストール">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="elm.html" class="navigation navigation-next " aria-label="Next page: Elm">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"コードエディター","level":"1.8.1","depth":2,"next":{"title":"Elm","level":"1.8.2","depth":2,"path":"install/elm.md","ref":"install/elm.md","articles":[]},"previous":{"title":"インストール","level":"1.8","depth":1,"path":"install/README.md","ref":"install/README.md","articles":[{"title":"コードエディター","level":"1.8.1","depth":2,"path":"install/editor.md","ref":"install/editor.md","articles":[]},{"title":"Elm","level":"1.8.2","depth":2,"path":"install/elm.md","ref":"install/elm.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["youtube","elm-repl","bulk-redirect","ga","sitemap","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"elm-repl":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"ga":{"configuration":"auto","token":"UA-131798240-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"install/editor.md","mtime":"2020-11-15T05:30:46.030Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-20T02:27:00.421Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-elm-repl/repl.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -4,25 +4,43 @@
 # JavaScriptとの相互運用
 
 <!--
-We have seen quite a bit of Elm so far! We learned **The Elm Architecture**. We learned about **types**. We learned how to interact with the outside world through **commands** and **subscriptions**. Things are going well!
+By now we have seen **The Elm Architecture**, **types**, **commands**, **subscriptions**, and we even have Elm installed locally.
 -->
-ここまでElmについてのたくさんの事柄を見てきました。**The Elm Architecture**を学び、**型**について学び、**コマンド**と**サブスクリプション**を使って外の世界とやり取りする方法を学びました。いい調子です！
+ここまでで**The Elm Architecture**、**型**、**コマンド**、**サブスクリプション**について学び、いよいよローカルにElmをインストールしました。
 
 <!--
-But what happens when you need to do something in JavaScript? Maybe there is a JavaScript library you absolutely need? Maybe you want to embed Elm in an existing JavaScript application? Etc. This chapter will outline all the available options: flags, ports, and custom elements.
+But what happens when you need to integrate with JavaScript? Maybe there is a browser API that does not have an equivalent Elm package yet. Maybe you want to embed a JavaScript widget within your Elm app? Etc. This chapter will outline Elm's three interop mechanisms:
 -->
-では、JavaScriptを使って何かしたくなったとしたらどうでしょう？どうしても必要なJavaScriptライブラリがあったとしたら？Elmを既存のJavaScriptアプリケーションに組み込みたいとしたら？この章では、そのためにElmが提供する選択肢を取り上げて、要点を解説します: フラグ、ポート、そしてカスタムエレメンツです。
+では、JavaScriptと一緒に使いたくなったとしたらどうでしょう？ 使いたいブラウザーAPIがまだElmのパッケージになっていなかったとしたら？ Elmで作ったアプリケーションの中にJavaScriptのウィジェットを組み込みたいとしたら？ この章では、そのためにElmが提供する以下の3つの相互運用の方法を取り上げて、要点を解説します。
 
 <!--
-Whichever one you use, the first step is to initialize your Elm program.
+- [Flags](/interop/flags.html)
+- [Ports](/interop/ports.html)
+- [Custom Elements](/interop/custom_elements.html)
 -->
-どれを使うとしても、最初の一歩はElmプログラムを初期化することです。
+
+- [フラグ](/interop/flags.html)
+- [ポート](/interop/ports.html)
+- [カスタムエレメンツ](/interop/custom_elements.html)
+
+<!--
+Before we get into the three mechanisms, we need know how to compile Elm programs to JavaScript!
+-->
+
+実際にこの3つの方法の中身に入る前に、まずはElmのプログラムをJavaScriptにコンパイルする方法を知る必要があります！
+
+<!--
+> **NOTE:** If you are evaluating Elm for use at work, I encourage you to make sure these three mechanisms will be able to cover all of your needs. You can get a quick overview of this chapter by looking at these [examples](https://github.com/elm-community/js-integration-examples/). Please ask [here](https://discourse.elm-lang.org/) if you are not sure about something, and I encourage you to circle back to Elm later if you are not fully confident.
+-->
+
+> **Note:** Elmを仕事で使うことを検討しているなら、上に示したこの3つの方法が、あなたの要件を満たしているかどうか確かめておくことをおすすめします。この3つの方法について本章で解説している内容は、[こちらの例](https://github.com/elm-community/js-integration-examples/)からざっと概要をつかむことができます。何かわからないことがあったら、[ここ](https://discourse.elm-lang.org/)から質問してみましょう[^1]。それでも自信が持てないときは、時間をおいてみて、あとでもう一度Elmを試してみるのもいいでしょう。
 
 
 <!--
-## Initializing Elm Programs
+## Compiling to JavaScript
 -->
-## Elmプログラムの初期化
+
+## JavaScriptにコンパイルする
 
 <!--
 Running `elm make` produces HTML files by default. So if you say:
@@ -43,26 +61,34 @@ elm make src/Main.elm --output=main.js
 ```
 
 <!--
-This produces a JavaScript file that exposes an `Elm.Main.init` function. So once you have `main.js` you can write your own HTML file that does whatever you want! For example:
+This produces a JavaScript file that exposes an `Elm.Main.init()` function. So once you have `main.js` you can write your own HTML file that does whatever you want.
 -->
-こうすれば、`Elm.Main.init`関数を公開するJavaScriptファイルが生成されます。`main.js`ファイルが手に入ったので、自分で好きなようにHTMLファイルを書くことができます！例えばこうです:
+こうすれば、`Elm.Main.init()`関数を公開するJavaScriptファイルが生成されます。`main.js`ファイルが手に入ったので、自分で好きなようにHTMLファイルを書くことができます！
 
+
+<!--
+## Embedding in HTML
+-->
+## HTMLに埋め込む
+
+<!--
+Here is the minimal HTML needed to make your `main.js` appear in a browser:
+-->
+コンパイルして作成した`main.js`を動かしてブラウザで表示させるために必要な最小限のHTMLが以下のものです。
 
 ```html
-<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="UTF-8">
   <title>Main</title>
-  <link rel="stylesheet" href="whatever-you-want.css">
   <script src="main.js"></script>
 </head>
 
 <body>
-  <div id="elm"></div>
+  <div id="myapp"></div>
   <script>
   var app = Elm.Main.init({
-    node: document.getElementById('elm')
+    node: document.getElementById('myapp')
   });
   </script>
 </body>
@@ -70,63 +96,27 @@ This produces a JavaScript file that exposes an `Elm.Main.init` function. So onc
 ```
 
 <!--
-I want to call attention to a couple important lines here.
+I want to call attention to the important lines here:
 -->
 特に注意してほしい重要な行がいくつかあります。
 
 <!--
-**First**, in the `<head>` of the document, you can load whatever you want! In our little example we  loaded a CSS file called `whatever-you-want.css`:
--->
-**最初に**、ドキュメントの`<head>`の中では、なんでも好きなものを読み込むことができます！この小さな例では`whatever-you-want.css`というCSSファイルを読み込んでいます:
+- `<head>` - We have a line to load our compiled `main.js` file. This is required! If you compile an Elm module called `Main`, you will get an `Elm.Main.init()` function available in JavaScript. If you compile an Elm module named `Home`, you will get an `Elm.Home.init()` function in JavaScript. Etc.
 
-```html
-<link rel="stylesheet" href="whatever-you-want.css">
-```
+- `<body>` - We need to do two things here. First, we create a `<div>` that want our Elm program to take over. Maybe it is within a larger application, surrounded by tons of other stuff? That is fine! Second, we have a `<script>` to initializes our Elm program. Here we call the `Elm.Main.init()` function to start our program, passing in the `node` we want to take over.
+
+Now that we know how to embed Elm programs in an HTML document, it is time to start exploring the three interop options: flags, ports, and custom elements!
+-->
+
+- `<head>` ではコンパイルした`main.js`を読み込んでいます。この行は必須です！Elmから`Main`という名前でコンパイルしたモジュールは、JavaScriptから`Elm.Main.init()`という関数として使うことができます。もし、Elmの`Home`というモジュールをコンパイルしたなら、`Elm.Home.init()`関数になる、というぐあいです。
+- `<body>` では2つのことを行ないます。最初に、Elmに制御させるための`<div>`を作ります。Elmが操作できるのはこの `<div>` の中に限られていますので、もしこれが他のたくさんの要素に囲まれた大きなアプリケーションの中だったとしても心配は要りません！ 次に、Elmを初期化するための`<script>`タグがあります。ここで`Elm.Main.init()`関数を呼び出し、`node`という引数にElmに制御させたい要素を渡してプログラムを開始します。
+
+さあ、HTMLドキュメントの中にElmプログラムを組み込むやりかたを学んだところで、いよいよJavaScriptとやり取りする3つの方法、フラグ、ポート、カスタムエレメンツについて見ていきましょう！
 
 <!--
-Maybe you write CSS by hand. Maybe you generate it somehow. Whatever the case, you can load it and use it in Elm. (There are some great options for specifying your CSS all _within_ Elm as well, but that is a whole other topic!)
+> **Note:** This is a normal HTML file, so you can put whatever you want in it! Many people load additional JS and CSS files in the `<head>`. That means it is totally fine to write your CSS by hand or to generate it somehow. Add something like `<link rel="stylesheet" href="whatever-you-want.css">` in your `<head>` and you have access to it. (There are some great options for specifying your CSS all _within_ Elm as well, but that is a whole other topic!)
 -->
-あなたはCSSを手で書くかもしれませんし、他の方法で生成するのかもしれません。何にせよ、CSSを読み込んでElmで使うことができます（_すべての_ CSSをElmで記述する素敵な方法も用意されていますが、それはまた別の話題です）。
 
-<!--
-**Second**, we have a line to load our compiled Elm code:
--->
-**第二に**、コンパイルしたElmコードを読み込んでいるのは次の行です:
+> **Note:** これはごくふつうのHTMLファイルなので、なんでも好きなものを配置することができます！ `<head>`で追加のJSやCSSを読み込むことはよくあります。つまり、手で書いたり、他の方法で生成したりしたCSSを使うのに、何も問題はありません。`<head>`の中に`<link rel="stylesheet" href="whatever-you-want.css">`というようなタグを追加するだけでよいのです（CSSの記述を _Elmの中だけで_ 完結させる素敵な方法も用意されていますが、それはまた別の話題です）。
 
-```html
-<script src="main.js"></script>
-```
-
-<!--
-This will make an object called `Elm` available in global scope. So if you compile an Elm module called `Main`, you will have `Elm.Main` in JavaScript. If you compile an Elm module named `Home`, you will have `Elm.Home` in JavaScript. Etc.
--->
-こうすることで、グローバルスコープから`Elm`という名前のオブジェクトを利用できるようになります。`Main`というElmモジュールは、コンパイルすると、JavaScriptでは`Elm.Main`になります。Elmモジュールの名前が`Home`なら、JavaScriptからは`Elm.Home`として扱う、といった具合です。
-
-<!--
-**Third**, in the `<body>` of the document, we run a little bit of JavaScript code to initialize our Elm program:
--->
-**第三に**、ドキュメントの`<body>`の中で、ほんの少しだけJavaScriptコードを走らせて、Elmプログラムを初期化します。
-
-```html
-<div id="elm"></div>
-<script>
-var app = Elm.Main.init({
-  node: document.getElementById('elm')
-});
-</script>
-```
-
-<!--
-We create an empty `<div>`. We want our Elm program to take over that node entirely. Maybe it is within a larger application, surrounded by tons of other stuff? That is fine!
--->
-空の`<div>`要素を作りました。このノードの制御は、Elmプログラムに完全に任せたいところです。これがもっと大きなアプリケーションで、ほかのたくさんの要素に囲まれていたとしても、問題ありません！
-
-<!--
-The `<script>` tag then initializes our Elm program. We grab the `node` we want to take over, and give it to `Elm.Main.init` which starts our program.
--->
-それから、`<script>`タグでElmプログラムを初期化しています。Elmに任せたいノードを取得し、プログラムを開始する`Elm.Main.init`関数に渡します。
-
-<!--
-Now that we can embed Elm programs in an HTML document, it is time to start exploring the three interop options: flags, ports, and web components!
--->
-これでHTMLドキュメントの中にElmプログラムを組み込むことができました。いよいよJavaScriptとやり取りする3つの方法、フラグ、ポート、Webコンポーネントについて見ていきましょう！
+[^1]: 訳注: elm-jpでは日本語でElmについてやりとりできるdiscordを用意していますので、ぜひ[招待リンク](https://discordapp.com/invite/4j2MxCg)から参加して感想をお聞かせください

@@ -3,25 +3,18 @@
 -->
 # JSON
 
----
-<!--
-#### [Clone the code](https://github.com/evancz/elm-architecture-tutorial/) or follow along in the [online editor](https://elm-lang.org/examples/cat-gifs).
--->
-#### [サンプルコード](https://github.com/evancz/elm-architecture-tutorial/)をダウンロードするか[オンラインエディタ](https://elm-lang.org/examples/cat-gifs)で試してください。
----
-
 <!--
 We just saw an example that uses HTTP to get the content of a book. That is great, but a ton of servers return data in a special format called JavaScript Object Notation, or JSON for short.
 -->
 前節ではHTTPリクエストを使ってある本の内容を取得する例を見てきました。これはこれで素晴らしいのですが、非常に多くのサーバーはJavaScript Object Notaions（略してJSON）と呼ばれる特別な形式でデータを返してきます。
 
 <!--
-So our next example shows how to fetch some JSON data, allowing us to press a button to show random cat GIFs.
+So our next example shows how to fetch some JSON data, allowing us to press a button to show random cat GIFs. Click the blue "Edit" button and look through the program a bit. Try not to only look at the cats! **Click the blue button now!**
 -->
-続く我々の例では、JSONデータをどのように取得するかについて紹介します。ボタンを押すとランダムな猫のGIF画像を表示することができます。
 
+そこで、次の例では JSON データを取得する方法を紹介します。これを利用して「押すとランダムな猫の GIF 画像を表示するボタン」を作ることができます。青い "Edit" ボタンをクリックしてこのプログラムに目を通してみてください。猫ばかり見ていてはいけませんよ！ **今すぐ青いボタンをクリック！**
 
-
+<div class="edit-link"><a href="https://elm-lang.org/examples/cat-gifs">Edit</a></div>
 
 ```elm
 import Browser

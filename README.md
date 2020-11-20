@@ -65,10 +65,10 @@ $ git push origin ${your_branch_name}
 (october-dev ブランチではちょっとビルド方法が変わります。october-devブランチのREADMEを見てください)
 
 まず下記のコマンドで依存するプログラムをインストールします。
+（ついでにページ埋め込み型 repl 用のソースをコンパイルしたりいろいろします）
 
 ```bash
 $ npm i
-$ npm run install
 ```
 
 下記のコマンドで開発サーバーが立ち上がります。
