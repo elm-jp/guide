@@ -330,7 +330,10 @@ Elmには **制約付き** 型変数と呼ばれる特殊な型変数があり�
 ]
 {% endreplWithTypes %}
 
+<!--
 Try expressions like `negate 3.1415` and `negate (round 3.1415)` and `negate "hi"` ⬆️
+-->
+`negate 3.1415`、`negate (round 3.1415)`、`negate "hi"`などの式を試してみてください ⬆️
 
 <!--
 Normally type variables can get filled in with anything, but `number` can only be filled in by `Int` and `Float` values. It _constrains_ the possibilities.
