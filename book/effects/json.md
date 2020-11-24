@@ -6,7 +6,7 @@
 <!--
 We just saw an example that uses HTTP to get the content of a book. That is great, but a ton of servers return data in a special format called JavaScript Object Notation, or JSON for short.
 -->
-前節ではHTTPリクエストを使ってある本の内容を取得する例を見てきました。これはこれで素晴らしいのですが、非常に多くのサーバーはJavaScript Object Notaions（略してJSON）と呼ばれる特別な形式でデータを返してきます。
+前節ではHTTPリクエストを使ってある本の内容を取得する例を見てきました。これはこれで素晴らしいのですが、非常に多くのサーバーはJavaScript Object Notation（略してJSON）と呼ばれる特別な形式でデータを返してきます。
 
 <!--
 So our next example shows how to fetch some JSON data, allowing us to press a button to show random cat GIFs. Click the blue "Edit" button and look through the program a bit. Try not to only look at the cats! **Click the blue button now!**
