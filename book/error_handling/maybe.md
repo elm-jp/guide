@@ -80,10 +80,10 @@ Not all strings make sense as numbers, so this function models that explicitly. 
 すべての文字列が数値として意味をなすわけではありません。この関数はそれを明示的に表現しています。文字列をfloatに変換できますか？多分（=Maybe）！変換したら、そのデータをパターンマッチして適切に処理を続けましょう。
 
 <!--
-> **Exercise:** I wrote a little program [here](https://ellie-app.com/3P9hcDhdsc5a1) that converts from Celsius to Fahrenheit. Try refactoring the `view` code in different ways. Can you put a red border around invalid input? Can you add more conversions? Fahrenheit to Celsius? Inches to Meters?
+> **Exercise:** I wrote a little program [here](https://ellie-app.com/bJSMQz9tydqa1) that converts from Celsius to Fahrenheit. Try refactoring the `view` code in different ways. Can you put a red border around invalid input? Can you add more conversions? Fahrenheit to Celsius? Inches to Meters?
 -->
 
-> **演習:** 摂氏から華氏に変換する小さなプログラムを[ここ](https://ellie-app.com/3P9hcDhdsc5a1)に書きました。さまざまな方法で`view`コードをリファクタリングしてみてください。無効な入力の周りに赤い枠を付けることはできますか？他の変換を追加することができますか。華氏から摂氏？インチからメートル？
+> **演習:** 摂氏から華氏に変換する小さなプログラムを[ここ](https://ellie-app.com/bJSMQz9tydqa1)に書きました。さまざまな方法で`view`コードをリファクタリングしてみてください。無効な入力の周りに赤い枠を付けることはできますか？他の変換を追加することができますか。華氏から摂氏？インチからメートル？
 
 [toFloat]: https://package.elm-lang.org/packages/elm-lang/core/latest/String#toFloat
 
