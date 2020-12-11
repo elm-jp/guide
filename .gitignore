@@ -2,7 +2,6 @@ node_modules
 elm-stuff
 _book
 
-package-lock.json
 
 ### https://raw.github.com/github/gitignore/65cdade87324774700104eee79dec1e7b91d56d7/Node.gitignore
 
