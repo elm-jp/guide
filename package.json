@@ -16,7 +16,9 @@
     "replace": "1.1.1",
     "rimraf": "^2.6.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "node": "10.23.0"
+  },
   "scripts": {
     "postinstall": "npm run install-gitbook && npm run install-repl",
     "install-gitbook": "replace --silent ',\"elm-repl\"' '' book.json && gitbook install && replace --silent '\"youtube\"' '\"youtube\",\"elm-repl\"' book.json",
