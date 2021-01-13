@@ -318,7 +318,7 @@ Again, the type variable `a` can vary depending on how [`List.reverse`][reverse]
 <!--
 There is a special variant of type variables in Elm called **constrained** type variables. The most common example is the `number` type. The [`negate`](https://package.elm-lang.org/packages/elm/core/latest/Basics#negate) function uses it:
 -->
-Elmには **制約付き** 型変数と呼ばれる特殊な型変数があります。最もよく使われる例は`number`型です。[`negate`][negate]関数は`number`を使用します：
+Elmには **制約付き** 型変数と呼ばれる特殊な型変数があります。最もよく使われる例は`number`型です。[`negate`](https://package.elm-lang.org/packages/elm/core/latest/Basics#negate)関数は`number`を使用します：
 
 {% replWithTypes %}
 [
