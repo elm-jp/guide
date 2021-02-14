@@ -59,7 +59,7 @@ Putting those together, we can optimize `src/Main.elm` with two terminal command
 
 ```bash
 elm make src/Main.elm --optimize --output=elm.js
-uglifyjs elm.js --compress 'pure_funcs="F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9",pure_getters,keep_fargs=false,unsafe_comps,unsafe' | uglifyjs --mangle --output=elm.min.js
+uglifyjs elm.js --compress 'pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,keep_fargs=false,unsafe_comps,unsafe' | uglifyjs --mangle --output elm.min.js
 ```
 
 <!--
@@ -104,13 +104,13 @@ set -e
 js="elm.js"
 min="elm.min.js"
 
-elm make --optimize --output=$js $@
+elm make --optimize --output=$js "$@"
 
-uglifyjs $js --compress 'pure_funcs="F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9",pure_getters,keep_fargs=false,unsafe_comps,unsafe' | uglifyjs --mangle --output=$min
+uglifyjs $js --compress 'pure_funcs=[F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9],pure_getters,keep_fargs=false,unsafe_comps,unsafe' | uglifyjs --mangle --output $min
 
-echo "Compiled size:$(cat $js | wc -c) bytes  ($js)"
-echo "Minified size:$(cat $min | wc -c) bytes  ($min)"
-echo "Gzipped size: $(cat $min | gzip -c | wc -c) bytes"
+echo "Compiled size:$(wc $js -c) bytes  ($js)"
+echo "Minified size:$(wc $min -c) bytes  ($min)"
+echo "Gzipped size: $(gzip $min -c | wc -c) bytes"
 ```
 
 <!--
@@ -150,7 +150,7 @@ I recommend writing a `Browser.application` and compiling to a single JavaScript
 これまで見てきたように、`Browser.application`を使い、単一のJavaScriptファイルへとコンパイルするのを書くのをお勧めします。そのJavaScriptファイルは、ユーザがページを最初に訪れたときにダウンロード(とキャッシュ)されるでしょう。JavaScriptを生成する他の有名なプログラミング言語と比較しても、Elmはずっと小さなファイルを作成しますので、[ここ](https://elm-lang.org/blog/small-assets-without-the-headache)で見ていただいたように、この戦略に従えばよりいっそう良い結果を得られるでしょう。
 
 <!--
->> **Note:** In theory, it is possible to get even smaller assets with Elm. It is not possible right now, but if you are working on 50k lines of Elm or more, we would like to learn about your situation as part of a user study. More details [here](https://gist.github.com/evancz/fc6ff4995395a1643155593a182e2de7)!
+> **Note:** In theory, it is possible to get even smaller assets with Elm. It is not possible right now, but if you are working on 50k lines of Elm or more, we would like to learn about your situation as part of a user study. More details [here](https://gist.github.com/evancz/fc6ff4995395a1643155593a182e2de7)!
 -->
 
->> **Note:** 理論的には、Elmでこれよりもさらに小さなアセットにすることも可能です。これは現段階では不可能なのですが、もしあなたがElmで5万行以上のコードを書いているなら、ユーザの使用状況の調査のひとつとして、あなたの状況を教えていただけたらと思います。くわしくは[こちら](https://gist.github.com/evancz/fc6ff4995395a1643155593a182e2de7)をご覧ください！
+> **Note:** 理論的には、Elmでこれよりもさらに小さなアセットにすることも可能です。これは現段階では不可能なのですが、もしあなたがElmで5万行以上のコードを書いているなら、ユーザの使用状況の調査のひとつとして、あなたの状況を教えていただけたらと思います。くわしくは[こちら](https://gist.github.com/evancz/fc6ff4995395a1643155593a182e2de7)をご覧ください！

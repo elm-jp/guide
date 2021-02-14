@@ -25,9 +25,10 @@ toAge userInput =
 ```
 
 <!--
-Instead of crashing on bad input, we say explicitly that the result may be an `Age 24` or an `InvalidInput`. No matter what input we get, we always produce one of these two variants. From there, we use pattern matching which will ensure that both possibilities are accounted for. No crashing!
+No matter what input is given to the `toAge` function, it always produces a value. Valid input produces values like `Age 24` and `Age 99`, whereas invalid input produces the `InvalidInput` value. From there, we use pattern matching which will ensure that both possibilities are accounted for. No crashing!
 -->
-間違った入力でクラッシュする代わりに、結果が`Age 24`または`InvalidInput`になることを明示的に表現します。どのような入力が得られても、常に2つのバリアントうちの1つを生成します。それからパターンマッチを使って両方の可能性が確実に処理されるようにします。クラッシュはしません！
+
+`toAge`関数にどのような入力が与えられた場合でも常に値を生成します。有効な入力の場合は`Age 24`や`Age 99`などの値を生成するのに対して、無効な入力の場合は`InvalidInput`という値を生成します。それからパターンマッチを使って両方の可能性が確実に処理されるようにします。クラッシュはしません！
 
 <!--
 This kind of thing comes up all the time! For example, maybe you want to turn a bunch of user input into a `Post` to share with others. But what happens if they forget to add a title? Or there is no content in the post? We could model all these problems explicitly:

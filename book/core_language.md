@@ -137,7 +137,7 @@ The values passed in to the function are commonly called **arguments**, so you c
 関数に渡された値は一般に**引数**と呼ばれます。「`greet`は1つの引数を取る関数である」と言えます。
 
 <!--
-Okay, now that greetings are out of the way, how about an `madlib` function that takes _two_ arguments?
+Okay, now that greetings are out of the way, how about a `madlib` function that takes _two_ arguments?
 -->
 さて、これで挨拶はできましたが、_2つの_引数を取る`madlib`関数はどうでしょうか？
 

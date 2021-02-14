@@ -169,7 +169,7 @@ canBuyAlcohol user =
 ```
 
 <!--
-Notice that the `Maybe` type forces us to pattern match on the users age. It is actually impossible to write code where you forget that users may not have an age. Elm makes sure of it! Now we can advertise alcohol confident that we are not influencing minors directly! Only their older peers.
+Notice that the `Maybe` type forces us to pattern match on the user's age. It is actually impossible to write code where you forget that users may not have an age. Elm makes sure of it! Now we can advertise alcohol confident that we are not influencing minors directly! Only their older peers.
 -->
 
 `Maybe`型はユーザの年齢を使うときにパターンマッチするのを強いることに注意してください。ユーザが年齢を持っていない可能性があることを忘れたようなコードを書くことはElmでは実際に不可能です。Elmはそれを保証します！これで未成年者に直接影響を与えていないと確信してアルコールを宣伝できます。成人済みのユーザにだけ宣伝します。
