@@ -9,20 +9,20 @@ We just saw an example that uses HTTP to get the content of a book. That is grea
 前節ではHTTPリクエストを使ってある本の内容を取得する例を見てきました。これはこれで素晴らしいのですが、非常に多くのサーバーはJavaScript Object Notation（略してJSON）と呼ばれる特別な形式でデータを返してきます。
 
 <!--
-So our next example shows how to fetch some JSON data, allowing us to press a button to show random cat GIFs. Click the blue "Edit" button and look through the program a bit. Try not to only look at the cats! **Click the blue button now!**
+So our next example shows how to fetch some JSON data, allowing us to press a button to show random quotes from a haphazard selection of books. Click the blue "Edit" button and look through the program a bit. Maybe you have read some of these books too? **Click the blue button now!**
 -->
 
-そこで、次の例では JSON データを取得する方法を紹介します。これを利用して「押すとランダムな猫の GIF 画像を表示するボタン」を作ることができます。青い "Edit" ボタンをクリックしてこのプログラムに目を通してみてください。猫ばかり見ていてはいけませんよ！ **今すぐ青いボタンをクリック！**
+そこで、次の例では JSON データを取得する方法を紹介します。これを利用して「なんかどっかの本からテキトーに引用文を表示するボタン」を作ることができます。青い "Edit" ボタンをクリックしてこのプログラムに目を通してみてください。もしかしたらいくつか見たことある本があるかもしれません。今すぐ青いボタンをクリック！
 
-<div class="edit-link"><a href="https://elm-lang.org/examples/cat-gifs">Edit</a></div>
+<div class="edit-link"><a href="https://elm-lang.org/examples/quotes">Edit</a></div>
 
 ```elm
 import Browser
 import Html exposing (..)
-import Html.Attributes exposing (..)
+import Html.Attributes exposing (style)
 import Html.Events exposing (..)
 import Http
-import Json.Decode exposing (Decoder, field, string)
+import Json.Decode exposing (Decoder, map4, field, int, string)
 
 
 
@@ -45,12 +45,20 @@ main =
 type Model
   = Failure
   | Loading
-  | Success String
+  | Success Quote
+
+
+type alias Quote =
+  { quote : String
+  , source : String
+  , author : String
+  , year : Int
+  }
 
 
 init : () -> (Model, Cmd Msg)
 init _ =
-  (Loading, getRandomCatGif)
+  (Loading, getRandomQuote)
 
 
 
@@ -59,19 +67,19 @@ init _ =
 
 type Msg
   = MorePlease
-  | GotGif (Result Http.Error String)
+  | GotQuote (Result Http.Error Quote)
 
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
   case msg of
     MorePlease ->
-      (Loading, getRandomCatGif)
+      (Loading, getRandomQuote)
 
-    GotGif result ->
+    GotQuote result ->
       case result of
-        Ok url ->
-          (Success url, Cmd.none)
+        Ok quote ->
+          (Success quote, Cmd.none)
 
         Err _ ->
           (Failure, Cmd.none)
@@ -93,27 +101,32 @@ subscriptions model =
 view : Model -> Html Msg
 view model =
   div []
-    [ h2 [] [ text "Random Cats" ]
-    , viewGif model
+    [ h2 [] [ text "Random Quotes" ]
+    , viewQuote model
     ]
 
 
-viewGif : Model -> Html Msg
-viewGif model =
+viewQuote : Model -> Html Msg
+viewQuote model =
   case model of
     Failure ->
       div []
-        [ text "I could not load a random cat for some reason. "
+        [ text "I could not load a random quote for some reason. "
         , button [ onClick MorePlease ] [ text "Try Again!" ]
         ]
 
     Loading ->
       text "Loading..."
 
-    Success url ->
+    Success quote ->
       div []
         [ button [ onClick MorePlease, style "display" "block" ] [ text "More Please!" ]
-        , img [ src url ] []
+        , blockquote [] [ text quote.quote ]
+        , p [ style "text-align" "right" ]
+            [ text "— "
+            , cite [] [ text quote.source ]
+            , text (" by " ++ quote.author ++ " (" ++ String.fromInt quote.year ++ ")")
+            ]
         ]
 
 
@@ -121,17 +134,21 @@ viewGif model =
 -- HTTP
 
 
-getRandomCatGif : Cmd Msg
-getRandomCatGif =
+getRandomQuote : Cmd Msg
+getRandomQuote =
   Http.get
-    { url = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cat"
-    , expect = Http.expectJson GotGif gifDecoder
+    { url = "https://elm-lang.org/api/random-quotes"
+    , expect = Http.expectJson GotQuote quoteDecoder
     }
 
 
-gifDecoder : Decoder String
-gifDecoder =
-  field "data" (field "image_url" string)
+quoteDecoder : Decoder Quote
+quoteDecoder =
+  map4 Quote
+    (field "quote" string)
+    (field "source" string)
+    (field "author" string)
+    (field "year" int)
 ```
 
 <!--
@@ -140,13 +157,14 @@ This example is pretty similar to the last one:
 この例は前節のものと非常によく似ていますね：
 
 <!--
-- `init` starts us off in the `Loading` state, with a command to get a random cat GIF.
-- `update` handles the `GotGif` message for whenever a new GIF is available. Whatever happens there, we do not have any additional commands. It also handles the `MorePlease` message when someone presses the button, issuing a command to get more random cats.
+- `init` starts us off in the `Loading` state, with a command to get a random quote.
+- `update` handles the `GotQuote` message for whenever a new quote is available. Whatever happens there, we do not have any additional commands. It also handles the `MorePlease` message when someone presses the button, issuing a command to get more random quotes.
 - `view` shows you the cats!
+- `view` shows you the quotes!
 -->
-- `init`関数は`Loading`の状態とランダムな猫のGIF画像を取得するコマンドの組から始まります。
-- `update`関数では、新しいGIF画像が得られる時の`GotGif`メッセージを処理します。成功か失敗かにかかわらず、続くコマンドがないことを示すCmd.noneを返しています。また、誰かがボタンが押した際に発生する`MorePlease`メッセージも処理し、ランダムな猫の画像を更に取得するためのコマンドを発行しています。
-- `view`関数では取得された猫のGIF画像を表示します！
+- `init`関数は`Loading`の状態とランダムな本の引用文を取得するコマンドの組から始まります。
+- `update`関数では、新しい引用文が得られるときに発行される`GotQuote`メッセージを処理します。成功か失敗かにかかわらず、続くコマンドがないことを示すCmd.noneを返しています。また、誰かがボタンが押した際に発生する`MorePlease`メッセージも処理し、ランダムな猫の画像を更に取得するためのコマンドを発行しています。
+- `view`関数では取得された引用文を表示します！
 
 <!--
 The main difference is in the `getRandomCatGif` definition. Instead of using `Http.expectString`, we have switched to `Http.expectJson`. What is the deal with that?
@@ -160,26 +178,17 @@ The main difference is in the `getRandomCatGif` definition. Instead of using `Ht
 ## JSON
 
 <!--
-When you ask [`api.giphy.com`](https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cat) for a random cat GIF, their server produces a big string of JSON like this:
+When you ask [`/api/random-quotes`](https://elm-lang.org/api/random-quotes) for a random quote, the server produces a string of JSON like this:
 -->
 
-サイト[`api.giphy.com`](https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cat)に対してランダムな猫のGIF画像を要求すると、対応するサーバーは次のようなJSON形式の長い文字列を生成します：
+サイト[`/api/random-quotes`](https://elm-lang.org/api/random-quotes)に対してランダムな本の引用文を要求すると、要求を受け取ったサーバーは次のようなJSON形式の文字列を生成します：
 
 ```json
 {
-  "data": {
-    "type": "gif",
-    "id": "l2JhxfHWMBWuDMIpi",
-    "title": "cat love GIF by The Secret Life Of Pets",
-    "image_url": "https://media1.giphy.com/media/l2JhxfHWMBWuDMIpi/giphy.gif",
-    "caption": "",
-    ...
-  },
-  "meta": {
-    "status": 200,
-    "msg": "OK",
-    "response_id": "5b105e44316d3571456c18b3"
-  }
+  "quote": "December used to be a month but it is now a year",
+  "source": "Letters from a Stoic",
+  "author": "Seneca",
+  "year": 54
 }
 ```
 
@@ -316,64 +325,16 @@ In this case we demand an object with a `"name"` field, and if it exists, we wan
 
 
 <!--
-## Nesting Decoders
--->
-## 入れ子になった複数のデコーダー
-
-<!--
-Remember the `api.giphy.com` data?
--->
-`api.giphy.com`のデータについて覚えていますか？
-
-
-```json
-{
-  "data": {
-    "type": "gif",
-    "id": "l2JhxfHWMBWuDMIpi",
-    "title": "cat love GIF by The Secret Life Of Pets",
-    "image_url": "https://media1.giphy.com/media/l2JhxfHWMBWuDMIpi/giphy.gif",
-    "caption": "",
-    ...
-  },
-  "meta": {
-    "status": 200,
-    "msg": "OK",
-    "response_id": "5b105e44316d3571456c18b3"
-  }
-}
-```
-
-<!--
-We wanted to access `response.data.image_url` to show a random GIF. Well, we have the tools now!
--->
-ランダムなGIFを表示するために`response.data.image_url`にアクセスしたかったわけですが、今はそのためのツールがあります！
-
-
-```elm
-import Json.Decode exposing (Decoder, field, string)
-
-gifDecoder : Decoder String
-gifDecoder =
-  field "data" (field "image_url" string)
-```
-
-<!--
-This is the exact `gifDecoder` definition we used in our example program above! Is there a `"data"` field? Does that value have an `"image_url"` field? Is the value there a string? All our expectations are written out explicitly, allowing us to safely extract Elm values from JSON.
--->
-これは上記の例のプログラムで使った`gifDecoder`の定義そのものです！まずは`"data"`フィールドがあるかどどうかを調べ、そのフィールドに`"image_url"`というフィールドが含まれているかどうか、そしてその値が文字列であるかどうかを調べます。我々の期待するところが明示的に記述されることにより、安全にJSONからElmの値を抽出することができるのです。
-
-
-<!--
 ## Combining Decoders
 -->
-## デコーダーの結合
+<!-- TODO -->
+## Combining Decoders
 
 <!--
-That is all we needed for our HTTP example, but decoders can do more! For example, what if we want _two_ fields? We snap decoders together with [`map2`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2):
+But what if we want to decode _two_ fields? We snap decoders together with [`map2`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2):
 -->
-
-HTTPの例で必要とされたのはこれで全てですが、デコーダーを組み合せてもっと色々とできます！例えば、_二つ_ のフィールドが欲しい場合にどうしたら良いでしょうか？この場合[`map2`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2)を使ってデコーダーを組み合わせます：
+<!-- TODO -->
+But what if we want to decode _two_ fields? We snap decoders together with [`map2`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2):
 
 ```elm
 map2 : (a -> b -> value) -> Decoder a -> Decoder b -> Decoder value
@@ -382,17 +343,15 @@ map2 : (a -> b -> value) -> Decoder a -> Decoder b -> Decoder value
 <!--
 This function takes in two decoders. It tries them both and combines their results. So now we can put together two different decoders:
 -->
-この関数は二つのデコーダーを引数に取り、双方のデコードを試みてその結果を組み合わせます。したがって二つの異なるデコーダーを一纏めにすることができます：
-
+<!-- TODO -->
+This function takes in two decoders. It tries them both and combines their results. So now we can put together two different decoders:
 
 ```elm
 import Json.Decode exposing (Decoder, map2, field, string, int)
-
 type alias Person =
   { name : String
   , age : Int
   }
-
 personDecoder : Decoder Person
 personDecoder =
   map2 Person
@@ -403,13 +362,79 @@ personDecoder =
 <!--
 So if we used `personDecoder` on `{ "name": "Tom", "age": 42 }` we would get out an Elm value like `Person "Tom" 42`.
 -->
-`personDecoder`を`{ "name": "Tom", "age": 42 }`に対して使用したとすると、`Person "Tom" 42`といったElmの値を得ることになるでしょう。
+<!-- TODO -->
+So if we used `personDecoder` on `{ "name": "Tom", "age": 42 }` we would get out an Elm value like `Person "Tom" 42`.
 
 <!--
 If we really wanted to get into the spirit of decoders, we would define `personDecoder` as `map2 Person nameDecoder ageDecoder` using our previous definitions. You always want to be building your decoders up from smaller building blocks!
 -->
-デコーダーの流儀に従うとするなら、以前に定義したデコーダーを使って、`personDecoder`を`map2 Person nameDecoder ageDecoder`として書くことも可能
-です。小さな構成要素からデコーダーを組み立てたいと常に思うようになるでしょう！
+<!-- TODO -->
+If we really wanted to get into the spirit of decoders, we would define `personDecoder` as `map2 Person nameDecoder ageDecoder` using our previous definitions. You always want to be building your decoders up from smaller building blocks!
+
+
+<!--
+## Nesting Decoders
+-->
+<!-- TODO -->
+## Nesting Decoders
+
+<!--
+A lot of JSON data is not so nice and flat. Imagine if `/api/random-quotes/v2` was released with richer information about authors:
+-->
+<!-- TODO -->
+A lot of JSON data is not so nice and flat. Imagine if `/api/random-quotes/v2` was released with richer information about authors:
+
+```json
+{
+  "quote": "December used to be a month but it is now a year",
+  "source": "Letters from a Stoic",
+  "author":
+  {
+    "name": "Seneca",
+    "age": 68,
+    "origin": "Cordoba"
+  },
+  "year": 54
+}
+```
+
+<!--
+We could handle this new scenario by nesting our nice little decoders:
+-->
+<!-- TODO -->
+We could handle this new scenario by nesting our nice little decoders:
+
+```elm
+import Json.Decode exposing (Decoder, map2, map4, field, int, string)
+type alias Quote =
+  { quote : String
+  , source : String
+  , author : Person
+  , year : Int
+  }
+quoteDecoder : Decoder Quote
+quoteDecoder =
+  map4 Quote
+    (field "quote" string)
+    (field "source" string)
+    (field "author" personDecoder)
+    (field "year" int)
+type alias Person =
+  { name : String
+  , age : Int
+  }
+personDecoder : Decoder Person
+personDecoder =
+  map2 Person
+    (field "name" string)
+    (field "age" int)
+```
+
+<!--
+Notice that we do not bother decoding the `"origin"` field of the author. Decoders are fine with skipping over fields, which can be helpful when extracting a small amount of information from very large JSON values.
+-->
+<!-- TODO -->
+Notice that we do not bother decoding the `"origin"` field of the author. Decoders are fine with skipping over fields, which can be helpful when extracting a small amount of information from very large JSON values.
 
 <!--
 ## Next Steps
@@ -433,9 +458,9 @@ So there are ways to extract all sorts of data structures. The `oneOf` function 
 
 <!--
 There are also [`map3`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map3), [`map4`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map4), and others for handling objects with more than two fields. But as you start working with larger JSON objects, it is worth checking out [`NoRedInk/elm-json-decode-pipeline`](https://package.elm-lang.org/packages/NoRedInk/elm-json-decode-pipeline/latest). The types there are a bit fancier, but some folks find them much easier to read and work with.
+We saw [`map2`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2) and [`map4`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map4) for handling objects with many fields. But as you start working with larger and larger JSON objects, it is worth checking out [`NoRedInk/elm-json-decode-pipeline`](https://package.elm-lang.org/packages/NoRedInk/elm-json-decode-pipeline/latest). The types there are a bit fancier, but some folks find them much easier to read and work with.
 -->
-[`map3`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map3)や[`map4`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map4)などという、二つ以上のフィールドを含むオブジェクトを取り扱うための関数もあります。しかし、さらに大きなJSONオブジェクトを取り扱うのであれば、[`NoRedInk/elm-json-decode-pipeline`](https://package.elm-lang.org/packages/NoRedInk/elm-json-decode-pipeline/latest)もチェックして見る価値があるでしょう。そこで使われている型にはややわかりづらい部分がありますが、一部の人達はずっと読みやすく扱いやすいとの知見を得ています。
-
+今回は[`map2`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2)や[`map4`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map4)を使って、たくさんのフィールドを含むオブジェクトを取りあつかいました。しかし、取りあつかうJSONオブジェクトが大きくなるにつれて、[`NoRedInk/elm-json-decode-pipeline`](https://package.elm-lang.org/packages/NoRedInk/elm-json-decode-pipeline/latest)の使用を検討したほうがよくなります。そのライブラリーで使われている型にはややわかりづらい部分がありますが、「こっちの方がずっと読みやすい」と言って採用している人たちも結構います。
 
 <!--
 > **Fun Fact:** I have heard a bunch of stories of folks finding bugs in their _server_ code as they switched from JS to Elm. The decoders people write end up working as a validation phase, catching weird stuff in JSON values. So when NoRedInk switched from React to Elm, it revealed a couple bugs in their Ruby code!
