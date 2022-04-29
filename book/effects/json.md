@@ -327,14 +327,12 @@ In this case we demand an object with a `"name"` field, and if it exists, we wan
 <!--
 ## Combining Decoders
 -->
-<!-- TODO -->
-## Combining Decoders
+## デコーダーを組み合わせる
 
 <!--
 But what if we want to decode _two_ fields? We snap decoders together with [`map2`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2):
 -->
-<!-- TODO -->
-But what if we want to decode _two_ fields? We snap decoders together with [`map2`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2):
+さて、フィールドが1つだったら上記の方法でも問題ありません。でも **2つ** のフィールドを持つJSONはどうやってデコードしたらいいんでしょうか？ そこで使えるのが [`map2`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2) です。この関数を使って2つのデコーダーをカチッと噛み合わせることができます。型を見てみましょう。
 
 ```elm
 map2 : (a -> b -> value) -> Decoder a -> Decoder b -> Decoder value
@@ -343,15 +341,16 @@ map2 : (a -> b -> value) -> Decoder a -> Decoder b -> Decoder value
 <!--
 This function takes in two decoders. It tries them both and combines their results. So now we can put together two different decoders:
 -->
-<!-- TODO -->
-This function takes in two decoders. It tries them both and combines their results. So now we can put together two different decoders:
+ご覧の通り、この関数は2つのデコーダーを引数にとります。`map2`はこの2つのデコーダーをそれぞれ評価し、結果を1つに合成します。では実際に2つの異なるデコーダーを渡して1つにしてみましょう。
 
 ```elm
 import Json.Decode exposing (Decoder, map2, field, string, int)
+
 type alias Person =
   { name : String
   , age : Int
   }
+
 personDecoder : Decoder Person
 personDecoder =
   map2 Person
@@ -362,27 +361,22 @@ personDecoder =
 <!--
 So if we used `personDecoder` on `{ "name": "Tom", "age": 42 }` we would get out an Elm value like `Person "Tom" 42`.
 -->
-<!-- TODO -->
-So if we used `personDecoder` on `{ "name": "Tom", "age": 42 }` we would get out an Elm value like `Person "Tom" 42`.
+これで、例えば`personDecoder`を`{ "name": "Tom", "age": 42 }`に適用すると`Person "Tom" 42`というElmであつかえる値に変換できるようになりました。
 
 <!--
 If we really wanted to get into the spirit of decoders, we would define `personDecoder` as `map2 Person nameDecoder ageDecoder` using our previous definitions. You always want to be building your decoders up from smaller building blocks!
 -->
-<!-- TODO -->
-If we really wanted to get into the spirit of decoders, we would define `personDecoder` as `map2 Person nameDecoder ageDecoder` using our previous definitions. You always want to be building your decoders up from smaller building blocks!
-
+さて、先ほどの定義をもっとデコーダーの流儀を反映した書き方に変更してみましょう。`personDecoder`を`map2 Person nameDecoder ageDecoder`と定義するのです。このように、いつだって小さな部品を組み合わせることで所望のデコーダーを構築できるのです。
 
 <!--
 ## Nesting Decoders
 -->
-<!-- TODO -->
-## Nesting Decoders
+## デコーダーをネストする
 
 <!--
 A lot of JSON data is not so nice and flat. Imagine if `/api/random-quotes/v2` was released with richer information about authors:
 -->
-<!-- TODO -->
-A lot of JSON data is not so nice and flat. Imagine if `/api/random-quotes/v2` was released with richer information about authors:
+JSONデータというのは、ふつうそんなにフラットな構造をしていません。例えば`/api/random-quotes`は次のバージョン`/api/random-quotes/v2`で本の著者についての情報を以下のようにもっと増やしてくるかもしれません。
 
 ```json
 {
@@ -401,17 +395,18 @@ A lot of JSON data is not so nice and flat. Imagine if `/api/random-quotes/v2` w
 <!--
 We could handle this new scenario by nesting our nice little decoders:
 -->
-<!-- TODO -->
-We could handle this new scenario by nesting our nice little decoders:
+もしこんなことになっても、いい感じの小さなデコーダーをネストさせることで対応できます。
 
 ```elm
 import Json.Decode exposing (Decoder, map2, map4, field, int, string)
+
 type alias Quote =
   { quote : String
   , source : String
   , author : Person
   , year : Int
   }
+
 quoteDecoder : Decoder Quote
 quoteDecoder =
   map4 Quote
@@ -419,10 +414,12 @@ quoteDecoder =
     (field "source" string)
     (field "author" personDecoder)
     (field "year" int)
+
 type alias Person =
   { name : String
   , age : Int
   }
+
 personDecoder : Decoder Person
 personDecoder =
   map2 Person
@@ -433,8 +430,7 @@ personDecoder =
 <!--
 Notice that we do not bother decoding the `"origin"` field of the author. Decoders are fine with skipping over fields, which can be helpful when extracting a small amount of information from very large JSON values.
 -->
-<!-- TODO -->
-Notice that we do not bother decoding the `"origin"` field of the author. Decoders are fine with skipping over fields, which can be helpful when extracting a small amount of information from very large JSON values.
+さて、先ほどのJSONデータには本の著者の出身地に関する`"origin"`フィールドありました。でも上記の例ではこのフィールドをデコードしていません。このように、デコーダーはJSONデータに含まれるフィールドを無視してもいいのです。このおかげで、めちゃくちゃ大きなJSON値からも、実際に必要なほんのちょっとの情報だけを取り出すことが可能になります。
 
 <!--
 ## Next Steps
