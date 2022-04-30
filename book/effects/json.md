@@ -429,7 +429,7 @@ personDecoder =
 <!--
 Notice that we do not bother decoding the `"origin"` field of the author. Decoders are fine with skipping over fields, which can be helpful when extracting a small amount of information from very large JSON values.
 -->
-さて、先ほどのJSONデータには本の著者の出身地に関する`"origin"`フィールドありました。でも上記の例ではこのフィールドをデコードしていません。このように、デコーダーはJSONデータに含まれるフィールドを無視してもいいのです。このおかげで、めちゃくちゃ大きなJSON値からも、実際に必要なほんのちょっとの情報だけを取り出すことが可能になります。
+さて、先ほどのJSONデータには本の著者の出身地に関する`"origin"`フィールドがありました。でも上記の例ではこのフィールドをデコードしていません。このように、デコーダーはJSONデータに含まれるフィールドを無視してもいいのです。このおかげで、めちゃくちゃ大きなJSON値からも、実際に必要なほんのちょっとの情報だけを取り出すことが可能になります。
 
 <!--
 ## Next Steps
