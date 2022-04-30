@@ -745,17 +745,17 @@ We just saw an example that uses HTTP to get the content of a book. That is grea
 -->
 <p>&#x524D;&#x7BC0;&#x3067;&#x306F;HTTP&#x30EA;&#x30AF;&#x30A8;&#x30B9;&#x30C8;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3042;&#x308B;&#x672C;&#x306E;&#x5185;&#x5BB9;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x4F8B;&#x3092;&#x898B;&#x3066;&#x304D;&#x307E;&#x3057;&#x305F;&#x3002;&#x3053;&#x308C;&#x306F;&#x3053;&#x308C;&#x3067;&#x7D20;&#x6674;&#x3089;&#x3057;&#x3044;&#x306E;&#x3067;&#x3059;&#x304C;&#x3001;&#x975E;&#x5E38;&#x306B;&#x591A;&#x304F;&#x306E;&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x306F;JavaScript Object Notation&#xFF08;&#x7565;&#x3057;&#x3066;JSON&#xFF09;&#x3068;&#x547C;&#x3070;&#x308C;&#x308B;&#x7279;&#x5225;&#x306A;&#x5F62;&#x5F0F;&#x3067;&#x30C7;&#x30FC;&#x30BF;&#x3092;&#x8FD4;&#x3057;&#x3066;&#x304D;&#x307E;&#x3059;&#x3002;</p>
 <!--
-So our next example shows how to fetch some JSON data, allowing us to press a button to show random cat GIFs. Click the blue "Edit" button and look through the program a bit. Try not to only look at the cats! **Click the blue button now!**
+So our next example shows how to fetch some JSON data, allowing us to press a button to show random quotes from a haphazard selection of books. Click the blue "Edit" button and look through the program a bit. Maybe you have read some of these books too? **Click the blue button now!**
 -->
-<p>&#x305D;&#x3053;&#x3067;&#x3001;&#x6B21;&#x306E;&#x4F8B;&#x3067;&#x306F; JSON &#x30C7;&#x30FC;&#x30BF;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3092;&#x7D39;&#x4ECB;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x300C;&#x62BC;&#x3059;&#x3068;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;&#x732B;&#x306E; GIF &#x753B;&#x50CF;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&#x30DC;&#x30BF;&#x30F3;&#x300D;&#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x9752;&#x3044; &quot;Edit&quot; &#x30DC;&#x30BF;&#x30F3;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x3053;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306B;&#x76EE;&#x3092;&#x901A;&#x3057;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x732B;&#x3070;&#x304B;&#x308A;&#x898B;&#x3066;&#x3044;&#x3066;&#x306F;&#x3044;&#x3051;&#x307E;&#x305B;&#x3093;&#x3088;&#xFF01; <strong>&#x4ECA;&#x3059;&#x3050;&#x9752;&#x3044;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#xFF01;</strong></p>
-<div class="edit-link"><a href="https://elm-lang.org/examples/cat-gifs" target="_blank">Edit</a></div>
+<p>&#x305D;&#x3053;&#x3067;&#x3001;&#x6B21;&#x306E;&#x4F8B;&#x3067;&#x306F; JSON &#x30C7;&#x30FC;&#x30BF;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x65B9;&#x6CD5;&#x3092;&#x7D39;&#x4ECB;&#x3057;&#x307E;&#x3059;&#x3002;&#x3053;&#x308C;&#x3092;&#x5229;&#x7528;&#x3057;&#x3066;&#x300C;&#x306A;&#x3093;&#x304B;&#x3069;&#x3063;&#x304B;&#x306E;&#x672C;&#x304B;&#x3089;&#x30C6;&#x30AD;&#x30C8;&#x30FC;&#x306B;&#x5F15;&#x7528;&#x6587;&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&#x30DC;&#x30BF;&#x30F3;&#x300D;&#x3092;&#x4F5C;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x9752;&#x3044; &quot;Edit&quot; &#x30DC;&#x30BF;&#x30F3;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x3053;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x306B;&#x76EE;&#x3092;&#x901A;&#x3057;&#x3066;&#x307F;&#x3066;&#x304F;&#x3060;&#x3055;&#x3044;&#x3002;&#x3082;&#x3057;&#x304B;&#x3057;&#x305F;&#x3089;&#x3044;&#x304F;&#x3064;&#x304B;&#x898B;&#x305F;&#x3053;&#x3068;&#x3042;&#x308B;&#x672C;&#x304C;&#x3042;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002; <strong>&#x4ECA;&#x3059;&#x3050;&#x9752;&#x3044;&#x30DC;&#x30BF;&#x30F3;&#x3092;&#x30AF;&#x30EA;&#x30C3;&#x30AF;&#xFF01;</strong></p>
+<div class="edit-link"><a href="https://elm-lang.org/examples/quotes" target="_blank">Edit</a></div>
 
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Browser
 <span class="hljs-keyword">import</span> Html <span class="hljs-keyword">exposing</span> (..)
-<span class="hljs-keyword">import</span> Html.Attributes <span class="hljs-keyword">exposing</span> (..)
+<span class="hljs-keyword">import</span> Html.Attributes <span class="hljs-keyword">exposing</span> (style)
 <span class="hljs-keyword">import</span> Html.Events <span class="hljs-keyword">exposing</span> (..)
 <span class="hljs-keyword">import</span> Http
-<span class="hljs-keyword">import</span> Json.Decode <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Decoder</span>, field, string)
+<span class="hljs-keyword">import</span> Json.Decode <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Decoder</span>, map4, field, int, string)
 
 
 
@@ -778,12 +778,20 @@ So our next example shows how to fetch some JSON data, allowing us to press a bu
 <span class="hljs-keyword">type</span> <span class="hljs-type">Model</span>
   = <span class="hljs-type">Failure</span>
   | <span class="hljs-type">Loading</span>
-  | <span class="hljs-type">Success</span> <span class="hljs-type">String</span>
+  | <span class="hljs-type">Success</span> <span class="hljs-type">Quote</span>
+
+
+<span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Quote</span> =
+  { quote : <span class="hljs-type">String</span>
+  , source : <span class="hljs-type">String</span>
+  , author : <span class="hljs-type">String</span>
+  , year : <span class="hljs-type">Int</span>
+  }
 
 
 <span class="hljs-title">init</span> : () -&gt; (<span class="hljs-type">Model</span>, <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>)
 <span class="hljs-title">init</span> _ =
-  (<span class="hljs-type">Loading</span>, getRandomCatGif)
+  (<span class="hljs-type">Loading</span>, getRandomQuote)
 
 
 
@@ -792,19 +800,19 @@ So our next example shows how to fetch some JSON data, allowing us to press a bu
 
 <span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
   = <span class="hljs-type">MorePlease</span>
-  | <span class="hljs-type">GotGif</span> (<span class="hljs-type">Result</span> <span class="hljs-type">Http</span>.<span class="hljs-type">Error</span> <span class="hljs-type">String</span>)
+  | <span class="hljs-type">GotQuote</span> (<span class="hljs-type">Result</span> <span class="hljs-type">Http</span>.<span class="hljs-type">Error</span> <span class="hljs-type">Quote</span>)
 
 
 <span class="hljs-title">update</span> : <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">Model</span> -&gt; (<span class="hljs-type">Model</span>, <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>)
 <span class="hljs-title">update</span> msg model =
   <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
     <span class="hljs-type">MorePlease</span> -&gt;
-      (<span class="hljs-type">Loading</span>, getRandomCatGif)
+      (<span class="hljs-type">Loading</span>, getRandomQuote)
 
-    <span class="hljs-type">GotGif</span> result -&gt;
+    <span class="hljs-type">GotQuote</span> result -&gt;
       <span class="hljs-keyword">case</span> result <span class="hljs-keyword">of</span>
-        <span class="hljs-type">Ok</span> url -&gt;
-          (<span class="hljs-type">Success</span> url, <span class="hljs-type">Cmd</span>.none)
+        <span class="hljs-type">Ok</span> quote -&gt;
+          (<span class="hljs-type">Success</span> quote, <span class="hljs-type">Cmd</span>.none)
 
         <span class="hljs-type">Err</span> _ -&gt;
           (<span class="hljs-type">Failure</span>, <span class="hljs-type">Cmd</span>.none)
@@ -826,27 +834,32 @@ So our next example shows how to fetch some JSON data, allowing us to press a bu
 <span class="hljs-title">view</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
 <span class="hljs-title">view</span> model =
   div []
-    [ h2 [] [ text <span class="hljs-string">&quot;Random Cats&quot;</span> ]
-    , viewGif model
+    [ h2 [] [ text <span class="hljs-string">&quot;Random Quotes&quot;</span> ]
+    , viewQuote model
     ]
 
 
-<span class="hljs-title">viewGif</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
-<span class="hljs-title">viewGif</span> model =
+<span class="hljs-title">viewQuote</span> : <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Html</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">viewQuote</span> model =
   <span class="hljs-keyword">case</span> model <span class="hljs-keyword">of</span>
     <span class="hljs-type">Failure</span> -&gt;
       div []
-        [ text <span class="hljs-string">&quot;I could not load a random cat for some reason. &quot;</span>
+        [ text <span class="hljs-string">&quot;I could not load a random quote for some reason. &quot;</span>
         , button [ onClick <span class="hljs-type">MorePlease</span> ] [ text <span class="hljs-string">&quot;Try Again!&quot;</span> ]
         ]
 
     <span class="hljs-type">Loading</span> -&gt;
       text <span class="hljs-string">&quot;Loading...&quot;</span>
 
-    <span class="hljs-type">Success</span> url -&gt;
+    <span class="hljs-type">Success</span> quote -&gt;
       div []
         [ button [ onClick <span class="hljs-type">MorePlease</span>, style <span class="hljs-string">&quot;display&quot;</span> <span class="hljs-string">&quot;block&quot;</span> ] [ text <span class="hljs-string">&quot;More Please!&quot;</span> ]
-        , img [ src url ] []
+        , blockquote [] [ text quote.quote ]
+        , p [ style <span class="hljs-string">&quot;text-align&quot;</span> <span class="hljs-string">&quot;right&quot;</span> ]
+            [ text <span class="hljs-string">&quot;&#x2014; &quot;</span>
+            , cite [] [ text quote.source ]
+            , text (<span class="hljs-string">&quot; by &quot;</span> ++ quote.author ++ <span class="hljs-string">&quot; (&quot;</span> ++ <span class="hljs-type">String</span>.fromInt quote.year ++ <span class="hljs-string">&quot;)&quot;</span>)
+            ]
         ]
 
 
@@ -854,31 +867,35 @@ So our next example shows how to fetch some JSON data, allowing us to press a bu
 <span class="hljs-comment">-- HTTP</span>
 
 
-<span class="hljs-title">getRandomCatGif</span> : <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>
-<span class="hljs-title">getRandomCatGif</span> =
+<span class="hljs-title">getRandomQuote</span> : <span class="hljs-type">Cmd</span> <span class="hljs-type">Msg</span>
+<span class="hljs-title">getRandomQuote</span> =
   <span class="hljs-type">Http</span>.get
-    { url = <span class="hljs-string">&quot;https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&amp;tag=cat&quot;</span>
-    , expect = <span class="hljs-type">Http</span>.expectJson <span class="hljs-type">GotGif</span> gifDecoder
+    { url = <span class="hljs-string">&quot;https://elm-lang.org/api/random-quotes&quot;</span>
+    , expect = <span class="hljs-type">Http</span>.expectJson <span class="hljs-type">GotQuote</span> quoteDecoder
     }
 
 
-<span class="hljs-title">gifDecoder</span> : <span class="hljs-type">Decoder</span> <span class="hljs-type">String</span>
-<span class="hljs-title">gifDecoder</span> =
-  field <span class="hljs-string">&quot;data&quot;</span> (field <span class="hljs-string">&quot;image_url&quot;</span> string)
+<span class="hljs-title">quoteDecoder</span> : <span class="hljs-type">Decoder</span> <span class="hljs-type">Quote</span>
+<span class="hljs-title">quoteDecoder</span> =
+  map4 <span class="hljs-type">Quote</span>
+    (field <span class="hljs-string">&quot;quote&quot;</span> string)
+    (field <span class="hljs-string">&quot;source&quot;</span> string)
+    (field <span class="hljs-string">&quot;author&quot;</span> string)
+    (field <span class="hljs-string">&quot;year&quot;</span> int)
 </code></pre>
 <!--
 This example is pretty similar to the last one:
 -->
 <p>&#x3053;&#x306E;&#x4F8B;&#x306F;&#x524D;&#x7BC0;&#x306E;&#x3082;&#x306E;&#x3068;&#x975E;&#x5E38;&#x306B;&#x3088;&#x304F;&#x4F3C;&#x3066;&#x3044;&#x307E;&#x3059;&#x306D;&#xFF1A;</p>
 <!--
-- `init` starts us off in the `Loading` state, with a command to get a random cat GIF.
-- `update` handles the `GotGif` message for whenever a new GIF is available. Whatever happens there, we do not have any additional commands. It also handles the `MorePlease` message when someone presses the button, issuing a command to get more random cats.
-- `view` shows you the cats!
+- `init` starts us off in the `Loading` state, with a command to get a random quote.
+- `update` handles the `GotQuote` message for whenever a new quote is available. Whatever happens there, we do not have any additional commands. It also handles the `MorePlease` message when someone presses the button, issuing a command to get more random quotes.
+- `view` shows you the quotes!
 -->
 <ul>
-<li><code>init</code>&#x95A2;&#x6570;&#x306F;<code>Loading</code>&#x306E;&#x72B6;&#x614B;&#x3068;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;&#x732B;&#x306E;GIF&#x753B;&#x50CF;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306E;&#x7D44;&#x304B;&#x3089;&#x59CB;&#x307E;&#x308A;&#x307E;&#x3059;&#x3002;</li>
-<li><code>update</code>&#x95A2;&#x6570;&#x3067;&#x306F;&#x3001;&#x65B0;&#x3057;&#x3044;GIF&#x753B;&#x50CF;&#x304C;&#x5F97;&#x3089;&#x308C;&#x308B;&#x6642;&#x306E;<code>GotGif</code>&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x51E6;&#x7406;&#x3057;&#x307E;&#x3059;&#x3002;&#x6210;&#x529F;&#x304B;&#x5931;&#x6557;&#x304B;&#x306B;&#x304B;&#x304B;&#x308F;&#x3089;&#x305A;&#x3001;&#x7D9A;&#x304F;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x304C;&#x306A;&#x3044;&#x3053;&#x3068;&#x3092;&#x793A;&#x3059;Cmd.none&#x3092;&#x8FD4;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x8AB0;&#x304B;&#x304C;&#x30DC;&#x30BF;&#x30F3;&#x304C;&#x62BC;&#x3057;&#x305F;&#x969B;&#x306B;&#x767A;&#x751F;&#x3059;&#x308B;<code>MorePlease</code>&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3082;&#x51E6;&#x7406;&#x3057;&#x3001;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;&#x732B;&#x306E;&#x753B;&#x50CF;&#x3092;&#x66F4;&#x306B;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x767A;&#x884C;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</li>
-<li><code>view</code>&#x95A2;&#x6570;&#x3067;&#x306F;&#x53D6;&#x5F97;&#x3055;&#x308C;&#x305F;&#x732B;&#x306E;GIF&#x753B;&#x50CF;&#x3092;&#x8868;&#x793A;&#x3057;&#x307E;&#x3059;&#xFF01;</li>
+<li><code>init</code>&#x95A2;&#x6570;&#x306F;<code>Loading</code>&#x306E;&#x72B6;&#x614B;&#x3068;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;&#x672C;&#x306E;&#x5F15;&#x7528;&#x6587;&#x3092;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x306E;&#x7D44;&#x304B;&#x3089;&#x59CB;&#x307E;&#x308A;&#x307E;&#x3059;&#x3002;</li>
+<li><code>update</code>&#x95A2;&#x6570;&#x3067;&#x306F;&#x3001;&#x65B0;&#x3057;&#x3044;&#x5F15;&#x7528;&#x6587;&#x304C;&#x5F97;&#x3089;&#x308C;&#x308B;&#x3068;&#x304D;&#x306B;&#x767A;&#x884C;&#x3055;&#x308C;&#x308B;<code>GotQuote</code>&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3092;&#x51E6;&#x7406;&#x3057;&#x307E;&#x3059;&#x3002;&#x6210;&#x529F;&#x304B;&#x5931;&#x6557;&#x304B;&#x306B;&#x304B;&#x304B;&#x308F;&#x3089;&#x305A;&#x3001;&#x7D9A;&#x304F;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x304C;&#x306A;&#x3044;&#x3053;&#x3068;&#x3092;&#x793A;&#x3059;Cmd.none&#x3092;&#x8FD4;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;&#x307E;&#x305F;&#x3001;&#x8AB0;&#x304B;&#x304C;&#x30DC;&#x30BF;&#x30F3;&#x304C;&#x62BC;&#x3057;&#x305F;&#x969B;&#x306B;&#x767A;&#x751F;&#x3059;&#x308B;<code>MorePlease</code>&#x30E1;&#x30C3;&#x30BB;&#x30FC;&#x30B8;&#x3082;&#x51E6;&#x7406;&#x3057;&#x3001;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;&#x672C;&#x306E;&#x5F15;&#x7528;&#x6587;&#x3092;&#x66F4;&#x306B;&#x53D6;&#x5F97;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x30B3;&#x30DE;&#x30F3;&#x30C9;&#x3092;&#x767A;&#x884C;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</li>
+<li><code>view</code>&#x95A2;&#x6570;&#x3067;&#x306F;&#x53D6;&#x5F97;&#x3055;&#x308C;&#x305F;&#x5F15;&#x7528;&#x6587;&#x3092;&#x8868;&#x793A;&#x3057;&#x307E;&#x3059;&#xFF01;</li>
 </ul>
 <!--
 The main difference is in the `getRandomCatGif` definition. Instead of using `Http.expectString`, we have switched to `Http.expectJson`. What is the deal with that?
@@ -889,23 +906,14 @@ The main difference is in the `getRandomCatGif` definition. Instead of using `Ht
 -->
 <h2 id="json">JSON</h2>
 <!--
-When you ask [`api.giphy.com`](https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=cat) for a random cat GIF, their server produces a big string of JSON like this:
+When you ask [`/api/random-quotes`](https://elm-lang.org/api/random-quotes) for a random quote, the server produces a string of JSON like this:
 -->
-<p>&#x30B5;&#x30A4;&#x30C8;<a href="https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&amp;tag=cat" target="_blank"><code>api.giphy.com</code></a>&#x306B;&#x5BFE;&#x3057;&#x3066;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;&#x732B;&#x306E;GIF&#x753B;&#x50CF;&#x3092;&#x8981;&#x6C42;&#x3059;&#x308B;&#x3068;&#x3001;&#x5BFE;&#x5FDC;&#x3059;&#x308B;&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;JSON&#x5F62;&#x5F0F;&#x306E;&#x9577;&#x3044;&#x6587;&#x5B57;&#x5217;&#x3092;&#x751F;&#x6210;&#x3057;&#x307E;&#x3059;&#xFF1A;</p>
+<p>&#x30B5;&#x30A4;&#x30C8;<a href="https://elm-lang.org/api/random-quotes" target="_blank"><code>/api/random-quotes</code></a>&#x306B;&#x5BFE;&#x3057;&#x3066;&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;&#x672C;&#x306E;&#x5F15;&#x7528;&#x6587;&#x3092;&#x8981;&#x6C42;&#x3059;&#x308B;&#x3068;&#x3001;&#x8981;&#x6C42;&#x3092;&#x53D7;&#x3051;&#x53D6;&#x3063;&#x305F;&#x30B5;&#x30FC;&#x30D0;&#x30FC;&#x306F;&#x6B21;&#x306E;&#x3088;&#x3046;&#x306A;JSON&#x5F62;&#x5F0F;&#x306E;&#x6587;&#x5B57;&#x5217;&#x3092;&#x751F;&#x6210;&#x3057;&#x307E;&#x3059;&#xFF1A;</p>
 <pre><code class="lang-json">{
-  <span class="hljs-string">&quot;data&quot;</span>: {
-    <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;gif&quot;</span>,
-    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;l2JhxfHWMBWuDMIpi&quot;</span>,
-    <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;cat love GIF by The Secret Life Of Pets&quot;</span>,
-    <span class="hljs-string">&quot;image_url&quot;</span>: <span class="hljs-string">&quot;https://media1.giphy.com/media/l2JhxfHWMBWuDMIpi/giphy.gif&quot;</span>,
-    <span class="hljs-string">&quot;caption&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
-    ...
-  },
-  <span class="hljs-string">&quot;meta&quot;</span>: {
-    <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-number">200</span>,
-    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;OK&quot;</span>,
-    <span class="hljs-string">&quot;response_id&quot;</span>: <span class="hljs-string">&quot;5b105e44316d3571456c18b3&quot;</span>
-  }
+  <span class="hljs-string">&quot;quote&quot;</span>: <span class="hljs-string">&quot;December used to be a month but it is now a year&quot;</span>,
+  <span class="hljs-string">&quot;source&quot;</span>: <span class="hljs-string">&quot;Letters from a Stoic&quot;</span>,
+  <span class="hljs-string">&quot;author&quot;</span>: <span class="hljs-string">&quot;Seneca&quot;</span>,
+  <span class="hljs-string">&quot;year&quot;</span>: <span class="hljs-number">54</span>
 }
 </code></pre>
 <!--
@@ -1005,57 +1013,19 @@ In this case we demand an object with a `"name"` field, and if it exists, we wan
 -->
 <p>&#x3053;&#x306E;&#x5834;&#x5408;<code>&quot;name&quot;</code>&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3092;&#x542B;&#x3080;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x8981;&#x6C42;&#x3057;&#x3001;&#x3082;&#x3057;&#x5B58;&#x5728;&#x3059;&#x308B;&#x5834;&#x5408;&#x306B;&#x306F;&#x305D;&#x306E;&#x5024;&#x304C;<code>String</code>&#x3067;&#x3042;&#x308B;&#x3053;&#x3068;&#x3092;&#x8981;&#x6C42;&#x3057;&#x307E;&#x3059;&#x3002;</p>
 <!--
-## Nesting Decoders
--->
-<h2 id="&#x5165;&#x308C;&#x5B50;&#x306B;&#x306A;&#x3063;&#x305F;&#x8907;&#x6570;&#x306E;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;">&#x5165;&#x308C;&#x5B50;&#x306B;&#x306A;&#x3063;&#x305F;&#x8907;&#x6570;&#x306E;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;</h2>
-<!--
-Remember the `api.giphy.com` data?
--->
-<p><code>api.giphy.com</code>&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x306B;&#x3064;&#x3044;&#x3066;&#x899A;&#x3048;&#x3066;&#x3044;&#x307E;&#x3059;&#x304B;&#xFF1F;</p>
-<pre><code class="lang-json">{
-  <span class="hljs-string">&quot;data&quot;</span>: {
-    <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;gif&quot;</span>,
-    <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;l2JhxfHWMBWuDMIpi&quot;</span>,
-    <span class="hljs-string">&quot;title&quot;</span>: <span class="hljs-string">&quot;cat love GIF by The Secret Life Of Pets&quot;</span>,
-    <span class="hljs-string">&quot;image_url&quot;</span>: <span class="hljs-string">&quot;https://media1.giphy.com/media/l2JhxfHWMBWuDMIpi/giphy.gif&quot;</span>,
-    <span class="hljs-string">&quot;caption&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
-    ...
-  },
-  <span class="hljs-string">&quot;meta&quot;</span>: {
-    <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-number">200</span>,
-    <span class="hljs-string">&quot;msg&quot;</span>: <span class="hljs-string">&quot;OK&quot;</span>,
-    <span class="hljs-string">&quot;response_id&quot;</span>: <span class="hljs-string">&quot;5b105e44316d3571456c18b3&quot;</span>
-  }
-}
-</code></pre>
-<!--
-We wanted to access `response.data.image_url` to show a random GIF. Well, we have the tools now!
--->
-<p>&#x30E9;&#x30F3;&#x30C0;&#x30E0;&#x306A;GIF&#x3092;&#x8868;&#x793A;&#x3059;&#x308B;&#x305F;&#x3081;&#x306B;<code>response.data.image_url</code>&#x306B;&#x30A2;&#x30AF;&#x30BB;&#x30B9;&#x3057;&#x305F;&#x304B;&#x3063;&#x305F;&#x308F;&#x3051;&#x3067;&#x3059;&#x304C;&#x3001;&#x4ECA;&#x306F;&#x305D;&#x306E;&#x305F;&#x3081;&#x306E;&#x30C4;&#x30FC;&#x30EB;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#xFF01;</p>
-<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Json.Decode <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Decoder</span>, field, string)
-
-<span class="hljs-title">gifDecoder</span> : <span class="hljs-type">Decoder</span> <span class="hljs-type">String</span>
-<span class="hljs-title">gifDecoder</span> =
-  field <span class="hljs-string">&quot;data&quot;</span> (field <span class="hljs-string">&quot;image_url&quot;</span> string)
-</code></pre>
-<!--
-This is the exact `gifDecoder` definition we used in our example program above! Is there a `"data"` field? Does that value have an `"image_url"` field? Is the value there a string? All our expectations are written out explicitly, allowing us to safely extract Elm values from JSON.
--->
-<p>&#x3053;&#x308C;&#x306F;&#x4E0A;&#x8A18;&#x306E;&#x4F8B;&#x306E;&#x30D7;&#x30ED;&#x30B0;&#x30E9;&#x30E0;&#x3067;&#x4F7F;&#x3063;&#x305F;<code>gifDecoder</code>&#x306E;&#x5B9A;&#x7FA9;&#x305D;&#x306E;&#x3082;&#x306E;&#x3067;&#x3059;&#xFF01;&#x307E;&#x305A;&#x306F;<code>&quot;data&quot;</code>&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x304C;&#x3042;&#x308B;&#x304B;&#x3069;&#x3069;&#x3046;&#x304B;&#x3092;&#x8ABF;&#x3079;&#x3001;&#x305D;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x306B;<code>&quot;image_url&quot;</code>&#x3068;&#x3044;&#x3046;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x304C;&#x542B;&#x307E;&#x308C;&#x3066;&#x3044;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3001;&#x305D;&#x3057;&#x3066;&#x305D;&#x306E;&#x5024;&#x304C;&#x6587;&#x5B57;&#x5217;&#x3067;&#x3042;&#x308B;&#x304B;&#x3069;&#x3046;&#x304B;&#x3092;&#x8ABF;&#x3079;&#x307E;&#x3059;&#x3002;&#x6211;&#x3005;&#x306E;&#x671F;&#x5F85;&#x3059;&#x308B;&#x3068;&#x3053;&#x308D;&#x304C;&#x660E;&#x793A;&#x7684;&#x306B;&#x8A18;&#x8FF0;&#x3055;&#x308C;&#x308B;&#x3053;&#x3068;&#x306B;&#x3088;&#x308A;&#x3001;&#x5B89;&#x5168;&#x306B;JSON&#x304B;&#x3089;Elm&#x306E;&#x5024;&#x3092;&#x62BD;&#x51FA;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</p>
-<!--
 ## Combining Decoders
 -->
-<h2 id="&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x306E;&#x7D50;&#x5408;">&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x306E;&#x7D50;&#x5408;</h2>
+<h2 id="&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x308B;">&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x308B;</h2>
 <!--
-That is all we needed for our HTTP example, but decoders can do more! For example, what if we want _two_ fields? We snap decoders together with [`map2`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2):
+But what if we want to decode _two_ fields? We snap decoders together with [`map2`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2):
 -->
-<p>HTTP&#x306E;&#x4F8B;&#x3067;&#x5FC5;&#x8981;&#x3068;&#x3055;&#x308C;&#x305F;&#x306E;&#x306F;&#x3053;&#x308C;&#x3067;&#x5168;&#x3066;&#x3067;&#x3059;&#x304C;&#x3001;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x7D44;&#x307F;&#x5408;&#x305B;&#x3066;&#x3082;&#x3063;&#x3068;&#x8272;&#x3005;&#x3068;&#x3067;&#x304D;&#x307E;&#x3059;&#xFF01;&#x4F8B;&#x3048;&#x3070;&#x3001;<em>&#x4E8C;&#x3064;</em> &#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x304C;&#x6B32;&#x3057;&#x3044;&#x5834;&#x5408;&#x306B;&#x3069;&#x3046;&#x3057;&#x305F;&#x3089;&#x826F;&#x3044;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F;&#x3053;&#x306E;&#x5834;&#x5408;<a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2" target="_blank"><code>map2</code></a>&#x3092;&#x4F7F;&#x3063;&#x3066;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x307E;&#x3059;&#xFF1A;</p>
+<p>&#x3055;&#x3066;&#x3001;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x304C;1&#x3064;&#x3060;&#x3063;&#x305F;&#x3089;&#x4E0A;&#x8A18;&#x306E;&#x65B9;&#x6CD5;&#x3067;&#x3082;&#x554F;&#x984C;&#x3042;&#x308A;&#x307E;&#x305B;&#x3093;&#x3002;&#x3067;&#x3082; <strong>2&#x3064;</strong> &#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3092;&#x6301;&#x3064;JSON&#x306F;&#x3069;&#x3046;&#x3084;&#x3063;&#x3066;&#x30C7;&#x30B3;&#x30FC;&#x30C9;&#x3057;&#x305F;&#x3089;&#x3044;&#x3044;&#x3093;&#x3067;&#x3057;&#x3087;&#x3046;&#x304B;&#xFF1F; &#x305D;&#x3053;&#x3067;&#x4F7F;&#x3048;&#x308B;&#x306E;&#x304C; <a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2" target="_blank"><code>map2</code></a> &#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x95A2;&#x6570;&#x3092;&#x4F7F;&#x3063;&#x3066;2&#x3064;&#x306E;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x30AB;&#x30C1;&#x30C3;&#x3068;&#x565B;&#x307F;&#x5408;&#x308F;&#x305B;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;&#x578B;&#x3092;&#x898B;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-elm"><span class="hljs-title">map2</span> : (a -&gt; b -&gt; value) -&gt; <span class="hljs-type">Decoder</span> a -&gt; <span class="hljs-type">Decoder</span> b -&gt; <span class="hljs-type">Decoder</span> value
 </code></pre>
 <!--
 This function takes in two decoders. It tries them both and combines their results. So now we can put together two different decoders:
 -->
-<p>&#x3053;&#x306E;&#x95A2;&#x6570;&#x306F;&#x4E8C;&#x3064;&#x306E;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x5F15;&#x6570;&#x306B;&#x53D6;&#x308A;&#x3001;&#x53CC;&#x65B9;&#x306E;&#x30C7;&#x30B3;&#x30FC;&#x30C9;&#x3092;&#x8A66;&#x307F;&#x3066;&#x305D;&#x306E;&#x7D50;&#x679C;&#x3092;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x307E;&#x3059;&#x3002;&#x3057;&#x305F;&#x304C;&#x3063;&#x3066;&#x4E8C;&#x3064;&#x306E;&#x7570;&#x306A;&#x308B;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x4E00;&#x7E8F;&#x3081;&#x306B;&#x3059;&#x308B;&#x3053;&#x3068;&#x304C;&#x3067;&#x304D;&#x307E;&#x3059;&#xFF1A;</p>
+<p>&#x3054;&#x89A7;&#x306E;&#x901A;&#x308A;&#x3001;&#x3053;&#x306E;&#x95A2;&#x6570;&#x306F;2&#x3064;&#x306E;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x5F15;&#x6570;&#x306B;&#x3068;&#x308A;&#x307E;&#x3059;&#x3002;<code>map2</code>&#x306F;&#x3053;&#x306E;2&#x3064;&#x306E;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x305D;&#x308C;&#x305E;&#x308C;&#x8A55;&#x4FA1;&#x3057;&#x3001;&#x7D50;&#x679C;&#x3092;1&#x3064;&#x306B;&#x5408;&#x6210;&#x3057;&#x307E;&#x3059;&#x3002;&#x3067;&#x306F;&#x5B9F;&#x969B;&#x306B;2&#x3064;&#x306E;&#x7570;&#x306A;&#x308B;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x6E21;&#x3057;&#x3066;1&#x3064;&#x306B;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> Json.Decode <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Decoder</span>, map2, field, string, int)
 
 <span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Person</span> =
@@ -1072,12 +1042,67 @@ This function takes in two decoders. It tries them both and combines their resul
 <!--
 So if we used `personDecoder` on `{ "name": "Tom", "age": 42 }` we would get out an Elm value like `Person "Tom" 42`.
 -->
-<p><code>personDecoder</code>&#x3092;<code>{ &quot;name&quot;: &quot;Tom&quot;, &quot;age&quot;: 42 }</code>&#x306B;&#x5BFE;&#x3057;&#x3066;&#x4F7F;&#x7528;&#x3057;&#x305F;&#x3068;&#x3059;&#x308B;&#x3068;&#x3001;<code>Person &quot;Tom&quot; 42</code>&#x3068;&#x3044;&#x3063;&#x305F;Elm&#x306E;&#x5024;&#x3092;&#x5F97;&#x308B;&#x3053;&#x3068;&#x306B;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;</p>
+<p>&#x3053;&#x308C;&#x3067;&#x3001;&#x4F8B;&#x3048;&#x3070;<code>personDecoder</code>&#x3092;<code>{ &quot;name&quot;: &quot;Tom&quot;, &quot;age&quot;: 42 }</code>&#x306B;&#x9069;&#x7528;&#x3059;&#x308B;&#x3068;<code>Person &quot;Tom&quot; 42</code>&#x3068;&#x3044;&#x3046;Elm&#x3067;&#x3042;&#x3064;&#x304B;&#x3048;&#x308B;&#x5024;&#x306B;&#x5909;&#x63DB;&#x3067;&#x304D;&#x308B;&#x3088;&#x3046;&#x306B;&#x306A;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;</p>
 <!--
 If we really wanted to get into the spirit of decoders, we would define `personDecoder` as `map2 Person nameDecoder ageDecoder` using our previous definitions. You always want to be building your decoders up from smaller building blocks!
 -->
-<p>&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x306E;&#x6D41;&#x5100;&#x306B;&#x5F93;&#x3046;&#x3068;&#x3059;&#x308B;&#x306A;&#x3089;&#x3001;&#x4EE5;&#x524D;&#x306B;&#x5B9A;&#x7FA9;&#x3057;&#x305F;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3001;<code>personDecoder</code>&#x3092;<code>map2 Person nameDecoder ageDecoder</code>&#x3068;&#x3057;&#x3066;&#x66F8;&#x304F;&#x3053;&#x3068;&#x3082;&#x53EF;&#x80FD;
-&#x3067;&#x3059;&#x3002;&#x5C0F;&#x3055;&#x306A;&#x69CB;&#x6210;&#x8981;&#x7D20;&#x304B;&#x3089;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x7D44;&#x307F;&#x7ACB;&#x3066;&#x305F;&#x3044;&#x3068;&#x5E38;&#x306B;&#x601D;&#x3046;&#x3088;&#x3046;&#x306B;&#x306A;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#xFF01;</p>
+<p>&#x3055;&#x3066;&#x3001;&#x5148;&#x307B;&#x3069;&#x306E;&#x5B9A;&#x7FA9;&#x3092;&#x3082;&#x3063;&#x3068;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x306E;&#x6D41;&#x5100;&#x3092;&#x53CD;&#x6620;&#x3057;&#x305F;&#x66F8;&#x304D;&#x65B9;&#x306B;&#x5909;&#x66F4;&#x3057;&#x3066;&#x307F;&#x307E;&#x3057;&#x3087;&#x3046;&#x3002;<code>personDecoder</code>&#x3092;<code>map2 Person nameDecoder ageDecoder</code>&#x3068;&#x5B9A;&#x7FA9;&#x3059;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x3044;&#x3064;&#x3060;&#x3063;&#x3066;&#x5C0F;&#x3055;&#x306A;&#x90E8;&#x54C1;&#x3092;&#x7D44;&#x307F;&#x5408;&#x308F;&#x305B;&#x308B;&#x3053;&#x3068;&#x3067;&#x6240;&#x671B;&#x306E;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x69CB;&#x7BC9;&#x3067;&#x304D;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;</p>
+<!--
+## Nesting Decoders
+-->
+<h2 id="&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x30CD;&#x30B9;&#x30C8;&#x3059;&#x308B;">&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x30CD;&#x30B9;&#x30C8;&#x3059;&#x308B;</h2>
+<!--
+A lot of JSON data is not so nice and flat. Imagine if `/api/random-quotes/v2` was released with richer information about authors:
+-->
+<p>JSON&#x30C7;&#x30FC;&#x30BF;&#x3068;&#x3044;&#x3046;&#x306E;&#x306F;&#x3001;&#x3075;&#x3064;&#x3046;&#x305D;&#x3093;&#x306A;&#x306B;&#x30D5;&#x30E9;&#x30C3;&#x30C8;&#x306A;&#x69CB;&#x9020;&#x3092;&#x3057;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;&#x4F8B;&#x3048;&#x3070;<code>/api/random-quotes</code>&#x306F;&#x6B21;&#x306E;&#x30D0;&#x30FC;&#x30B8;&#x30E7;&#x30F3;<code>/api/random-quotes/v2</code>&#x3067;&#x672C;&#x306E;&#x8457;&#x8005;&#x306B;&#x3064;&#x3044;&#x3066;&#x306E;&#x60C5;&#x5831;&#x3092;&#x4EE5;&#x4E0B;&#x306E;&#x3088;&#x3046;&#x306B;&#x3082;&#x3063;&#x3068;&#x5897;&#x3084;&#x3057;&#x3066;&#x304F;&#x308B;&#x304B;&#x3082;&#x3057;&#x308C;&#x307E;&#x305B;&#x3093;&#x3002;</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;quote&quot;</span>: <span class="hljs-string">&quot;December used to be a month but it is now a year&quot;</span>,
+  <span class="hljs-string">&quot;source&quot;</span>: <span class="hljs-string">&quot;Letters from a Stoic&quot;</span>,
+  <span class="hljs-string">&quot;author&quot;</span>:
+  {
+    <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;Seneca&quot;</span>,
+    <span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">68</span>,
+    <span class="hljs-string">&quot;origin&quot;</span>: <span class="hljs-string">&quot;Cordoba&quot;</span>
+  },
+  <span class="hljs-string">&quot;year&quot;</span>: <span class="hljs-number">54</span>
+}
+</code></pre>
+<!--
+We could handle this new scenario by nesting our nice little decoders:
+-->
+<p>&#x3082;&#x3057;&#x3053;&#x3093;&#x306A;&#x3053;&#x3068;&#x306B;&#x306A;&#x3063;&#x3066;&#x3082;&#x3001;&#x3044;&#x3044;&#x611F;&#x3058;&#x306E;&#x5C0F;&#x3055;&#x306A;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x3092;&#x30CD;&#x30B9;&#x30C8;&#x3055;&#x305B;&#x308B;&#x3053;&#x3068;&#x3067;&#x5BFE;&#x5FDC;&#x3067;&#x304D;&#x307E;&#x3059;&#x3002;</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">import</span> Json.Decode <span class="hljs-keyword">exposing</span> (<span class="hljs-type">Decoder</span>, map2, map4, field, int, string)
+
+<span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Quote</span> =
+  { quote : <span class="hljs-type">String</span>
+  , source : <span class="hljs-type">String</span>
+  , author : <span class="hljs-type">Person</span>
+  , year : <span class="hljs-type">Int</span>
+  }
+
+<span class="hljs-title">quoteDecoder</span> : <span class="hljs-type">Decoder</span> <span class="hljs-type">Quote</span>
+<span class="hljs-title">quoteDecoder</span> =
+  map4 <span class="hljs-type">Quote</span>
+    (field <span class="hljs-string">&quot;quote&quot;</span> string)
+    (field <span class="hljs-string">&quot;source&quot;</span> string)
+    (field <span class="hljs-string">&quot;author&quot;</span> personDecoder)
+    (field <span class="hljs-string">&quot;year&quot;</span> int)
+
+<span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Person</span> =
+  { name : <span class="hljs-type">String</span>
+  , age : <span class="hljs-type">Int</span>
+  }
+
+<span class="hljs-title">personDecoder</span> : <span class="hljs-type">Decoder</span> <span class="hljs-type">Person</span>
+<span class="hljs-title">personDecoder</span> =
+  map2 <span class="hljs-type">Person</span>
+    (field <span class="hljs-string">&quot;name&quot;</span> string)
+    (field <span class="hljs-string">&quot;age&quot;</span> int)
+</code></pre>
+<!--
+Notice that we do not bother decoding the `"origin"` field of the author. Decoders are fine with skipping over fields, which can be helpful when extracting a small amount of information from very large JSON values.
+-->
+<p>&#x3055;&#x3066;&#x3001;&#x5148;&#x307B;&#x3069;&#x306E;JSON&#x30C7;&#x30FC;&#x30BF;&#x306B;&#x306F;&#x672C;&#x306E;&#x8457;&#x8005;&#x306E;&#x51FA;&#x8EAB;&#x5730;&#x306B;&#x95A2;&#x3059;&#x308B;<code>&quot;origin&quot;</code>&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x304C;&#x3042;&#x308A;&#x307E;&#x3057;&#x305F;&#x3002;&#x3067;&#x3082;&#x4E0A;&#x8A18;&#x306E;&#x4F8B;&#x3067;&#x306F;&#x3053;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3092;&#x30C7;&#x30B3;&#x30FC;&#x30C9;&#x3057;&#x3066;&#x3044;&#x307E;&#x305B;&#x3093;&#x3002;&#x3053;&#x306E;&#x3088;&#x3046;&#x306B;&#x3001;&#x30C7;&#x30B3;&#x30FC;&#x30C0;&#x30FC;&#x306F;JSON&#x30C7;&#x30FC;&#x30BF;&#x306B;&#x542B;&#x307E;&#x308C;&#x308B;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3092;&#x7121;&#x8996;&#x3057;&#x3066;&#x3082;&#x3044;&#x3044;&#x306E;&#x3067;&#x3059;&#x3002;&#x3053;&#x306E;&#x304A;&#x304B;&#x3052;&#x3067;&#x3001;&#x3081;&#x3061;&#x3083;&#x304F;&#x3061;&#x3083;&#x5927;&#x304D;&#x306A;JSON&#x5024;&#x304B;&#x3089;&#x3082;&#x3001;&#x5B9F;&#x969B;&#x306B;&#x5FC5;&#x8981;&#x306A;&#x307B;&#x3093;&#x306E;&#x3061;&#x3087;&#x3063;&#x3068;&#x306E;&#x60C5;&#x5831;&#x3060;&#x3051;&#x3092;&#x53D6;&#x308A;&#x51FA;&#x3059;&#x3053;&#x3068;&#x304C;&#x53EF;&#x80FD;&#x306B;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;</p>
 <!--
 ## Next Steps
 -->
@@ -1097,9 +1122,9 @@ So there are ways to extract all sorts of data structures. The `oneOf` function 
 -->
 <p>&#x3064;&#x307E;&#x308A;&#x3001;&#x3042;&#x3089;&#x3086;&#x308B;&#x7A2E;&#x985E;&#x306E;&#x30C7;&#x30FC;&#x30BF;&#x69CB;&#x9020;&#x3092;&#x62BD;&#x51FA;&#x3059;&#x308B;&#x305F;&#x3081;&#x306E;&#x65B9;&#x6CD5;&#x304C;&#x5B58;&#x5728;&#x3059;&#x308B;&#x306E;&#x3067;&#x3059;&#x3002;&#x3068;&#x304F;&#x306B;oneOf&#x95A2;&#x6570;&#x306F;&#x4E00;&#x8CAB;&#x6027;&#x306E;&#x306A;&#x3044;JSON&#x3092;&#x30C7;&#x30B3;&#x30FC;&#x30C9;&#x3059;&#x308B;&#x969B;&#x306B;&#x3068;&#x3066;&#x3082;&#x5F79;&#x306B;&#x7ACB;&#x3061;&#x307E;&#x3059;&#xFF08;&#x4F8B;&#x3048;&#x3070;&#x3001;&#x6570;&#x5B57;&#x3092;Int&#x578B;&#x3068;&#x3057;&#x3066;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x5834;&#x5408;&#x3084;&#x6587;&#x5B57;&#x5217;&#x3067;&#x8868;&#x73FE;&#x3057;&#x305F;String&#x578B;&#x3068;&#x3057;&#x3066;&#x53D7;&#x3051;&#x53D6;&#x308B;&#x5834;&#x5408;&#x304C;&#x3042;&#x3063;&#x305F;&#x308A;&#x3068;&#x3001;&#x56F0;&#x308A;&#x307E;&#x3059;&#x3088;&#x306D;&#xFF01;&#xFF09;&#x3002;</p>
 <!--
-There are also [`map3`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map3), [`map4`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map4), and others for handling objects with more than two fields. But as you start working with larger JSON objects, it is worth checking out [`NoRedInk/elm-json-decode-pipeline`](https://package.elm-lang.org/packages/NoRedInk/elm-json-decode-pipeline/latest). The types there are a bit fancier, but some folks find them much easier to read and work with.
+We saw [`map2`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2) and [`map4`](https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map4) for handling objects with many fields. But as you start working with larger and larger JSON objects, it is worth checking out [`NoRedInk/elm-json-decode-pipeline`](https://package.elm-lang.org/packages/NoRedInk/elm-json-decode-pipeline/latest). The types there are a bit fancier, but some folks find them much easier to read and work with.
 -->
-<p><a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map3" target="_blank"><code>map3</code></a>&#x3084;<a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map4" target="_blank"><code>map4</code></a>&#x306A;&#x3069;&#x3068;&#x3044;&#x3046;&#x3001;&#x4E8C;&#x3064;&#x4EE5;&#x4E0A;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3092;&#x542B;&#x3080;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x53D6;&#x308A;&#x6271;&#x3046;&#x305F;&#x3081;&#x306E;&#x95A2;&#x6570;&#x3082;&#x3042;&#x308A;&#x307E;&#x3059;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x3055;&#x3089;&#x306B;&#x5927;&#x304D;&#x306A;JSON&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x53D6;&#x308A;&#x6271;&#x3046;&#x306E;&#x3067;&#x3042;&#x308C;&#x3070;&#x3001;<a href="https://package.elm-lang.org/packages/NoRedInk/elm-json-decode-pipeline/latest" target="_blank"><code>NoRedInk/elm-json-decode-pipeline</code></a>&#x3082;&#x30C1;&#x30A7;&#x30C3;&#x30AF;&#x3057;&#x3066;&#x898B;&#x308B;&#x4FA1;&#x5024;&#x304C;&#x3042;&#x308B;&#x3067;&#x3057;&#x3087;&#x3046;&#x3002;&#x305D;&#x3053;&#x3067;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x308B;&#x578B;&#x306B;&#x306F;&#x3084;&#x3084;&#x308F;&#x304B;&#x308A;&#x3065;&#x3089;&#x3044;&#x90E8;&#x5206;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x4E00;&#x90E8;&#x306E;&#x4EBA;&#x9054;&#x306F;&#x305A;&#x3063;&#x3068;&#x8AAD;&#x307F;&#x3084;&#x3059;&#x304F;&#x6271;&#x3044;&#x3084;&#x3059;&#x3044;&#x3068;&#x306E;&#x77E5;&#x898B;&#x3092;&#x5F97;&#x3066;&#x3044;&#x307E;&#x3059;&#x3002;</p>
+<p>&#x4ECA;&#x56DE;&#x306F;<a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map2" target="_blank"><code>map2</code></a>&#x3084;<a href="https://package.elm-lang.org/packages/elm/json/latest/Json-Decode#map4" target="_blank"><code>map4</code></a>&#x3092;&#x4F7F;&#x3063;&#x3066;&#x3001;&#x305F;&#x304F;&#x3055;&#x3093;&#x306E;&#x30D5;&#x30A3;&#x30FC;&#x30EB;&#x30C9;&#x3092;&#x542B;&#x3080;&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x3092;&#x53D6;&#x308A;&#x3042;&#x3064;&#x304B;&#x3044;&#x307E;&#x3057;&#x305F;&#x3002;&#x3057;&#x304B;&#x3057;&#x3001;&#x53D6;&#x308A;&#x3042;&#x3064;&#x304B;&#x3046;JSON&#x30AA;&#x30D6;&#x30B8;&#x30A7;&#x30AF;&#x30C8;&#x304C;&#x5927;&#x304D;&#x304F;&#x306A;&#x308B;&#x306B;&#x3064;&#x308C;&#x3066;&#x3001;<a href="https://package.elm-lang.org/packages/NoRedInk/elm-json-decode-pipeline/latest" target="_blank"><code>NoRedInk/elm-json-decode-pipeline</code></a>&#x306E;&#x4F7F;&#x7528;&#x3092;&#x691C;&#x8A0E;&#x3057;&#x305F;&#x307B;&#x3046;&#x304C;&#x3088;&#x304F;&#x306A;&#x308A;&#x307E;&#x3059;&#x3002;&#x305D;&#x306E;&#x30E9;&#x30A4;&#x30D6;&#x30E9;&#x30EA;&#x30FC;&#x3067;&#x4F7F;&#x308F;&#x308C;&#x3066;&#x3044;&#x308B;&#x578B;&#x306B;&#x306F;&#x3084;&#x3084;&#x308F;&#x304B;&#x308A;&#x3065;&#x3089;&#x3044;&#x90E8;&#x5206;&#x304C;&#x3042;&#x308A;&#x307E;&#x3059;&#x304C;&#x3001;&#x300C;&#x3053;&#x3063;&#x3061;&#x306E;&#x65B9;&#x304C;&#x305A;&#x3063;&#x3068;&#x8AAD;&#x307F;&#x3084;&#x3059;&#x3044;&#x300D;&#x3068;&#x8A00;&#x3063;&#x3066;&#x63A1;&#x7528;&#x3057;&#x3066;&#x3044;&#x308B;&#x4EBA;&#x305F;&#x3061;&#x3082;&#x7D50;&#x69CB;&#x3044;&#x307E;&#x3059;&#x3002;</p>
 <!--
 > **Fun Fact:** I have heard a bunch of stories of folks finding bugs in their _server_ code as they switched from JS to Elm. The decoders people write end up working as a validation phase, catching weird stuff in JSON values. So when NoRedInk switched from React to Elm, it revealed a couple bugs in their Ruby code!
 -->
@@ -1149,7 +1174,7 @@ There are also [`map3`](https://package.elm-lang.org/packages/elm/json/latest/Js
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JSON","level":"1.7.2","depth":2,"next":{"title":"Random","level":"1.7.3","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},"previous":{"title":"HTTP","level":"1.7.1","depth":2,"path":"effects/http.md","ref":"effects/http.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","elm-repl","bulk-redirect","ga","sitemap","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"elm-repl":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"ga":{"configuration":"auto","token":"UA-131798240-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"effects/json.md","mtime":"2021-01-13T14:06:02.890Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-14T05:48:14.170Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JSON","level":"1.7.2","depth":2,"next":{"title":"Random","level":"1.7.3","depth":2,"path":"effects/random.md","ref":"effects/random.md","articles":[]},"previous":{"title":"HTTP","level":"1.7.1","depth":2,"path":"effects/http.md","ref":"effects/http.md","articles":[]},"dir":"ltr"},"config":{"plugins":["youtube","elm-repl","bulk-redirect","ga","sitemap","-sharing"],"root":"book","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"youtube":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://guide.elm-lang.jp/"},"elm-repl":{},"bulk-redirect":{"basepath":"/","redirectsFile":"redirects.json"},"ga":{"configuration":"auto","token":"UA-131798240-1"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Evan Czaplicki","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"An Introduction to Elm","language":"ja","gitbook":"*","description":"Learn the basics of Elm. Build applications. Learn functional programming."},"file":{"path":"effects/json.md","mtime":"2022-04-30T05:03:32.197Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-30T05:08:20.301Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
