@@ -122,7 +122,7 @@ I try to use the following heuristics when code is:
 
 - **コードがその場所でしか使われていないとき** &mdash; もしもそのロジックがそこでしか使われていないのであれば、私はそのロジックを独立したトップレベルの補助関数として抜き出します。そしてその関数を利用している箇所となるべく近い所に起きます。その際、`-- POST PREVIEW`（この下に投稿の表示に関わる定義が書かれてるよ）といった見出しをコメントで付けることもあります。
 - **似たようなコードがあるとき** &mdash; 例として投稿をあらわす`Post`をトップページと投稿者のページに表示することを考えましょう。トップページでは内容に興味を持ってもらうことを重視して、長めの抜粋を表示します。一方で投稿者のページでは幅広い内容の記事を書いていることを示すために、タイトルが目立つようにします。そう考えると、これらは同じコードではなく、似ているだけのコードだと言えます。ですから「コードがその場所でしか使われていないとき」の経験則にしたがいましょう。単に別々の独立したコードとしてそれぞれのロジックを実装すれば良いのです。
-- **コードがまったく同じとき** &mdash; 「コードがその場所でしか使われていないとき」の経験則にしたがってコードを管理していると、そのうち同じコードが複数箇所にあらわれてきます。それ自体は悪いことではありません！ でももしかしたらその中に**完全に**同じ意味合いを持つ同じ内容のコードが見つかるかもしれません。そうなって初めて、そのロジックを共通の補助関数としてくくりだせばいいのです！ もしどうしても必要なら、`-- READ TIME`（読むのにかかる時間）といった見出しをまたコメントとしてつけておいても構いません。もしそのロジックを使っているモジュールが1つだけなら、やることはたったそれだけです。
+- **コードがまったく同じとき** &mdash; 「コードがその場所でしか使われていないとき」の経験則にしたがってコードを管理していると、そのうち同じコードが複数箇所にあらわれてきます。それ自体は悪いことではありません！ でももしかしたらその中に**完全に**同じ意味合いを持つ同じ内容のコードが見つかるかもしれません。そうなって初めて、そのロジックを共通の補助関数としてくくりだせばいいのです！ 例えばその補助関数が記事を読むためにかかる時間を導出する関数なら、`-- READ TIME`（読むのにかかる時間）といった見出しをコメントとしてつけておいても構いません。もしそのロジックを使っているモジュールが1つだけなら、やることはたったそれだけです。
 
 <!--
 These heuristics are all about making helper functions within a single file. You only want to create a new module when a bunch of these helper functions all center around a specific custom type. For example, you start by creating a `Page.Author` module, and do not create a `Post` module until the helper functions start piling up. At that point, creating a new module should make your code feel easier to navigate and understand. If it does not, go back to the version that was clearer. More modules is not more better! Take the path that keeps the code simple and clear.
@@ -140,7 +140,7 @@ To summarize, assume **similar** code is **unique** by default. (It usually is i
 > **Note:** One of the most common ways to get tripped up with modules is when something that was once **the same** becomes **similar** later on. Very common, especially in user interfaces! Folks will often try to create a Frankenstein function that handles all the different cases. Adding more arguments. Adding more _complex_ arguments. The better path is to accept that you now have two **unique** situations and copy the code into both places. Customize it exactly how you need. Then see if any of the resulting logic is **the same**. If so, move it out into helpers. **Your long functions should split into multiple smaller functions, not grow longer and more complex!**
 -->
 
-> **Note:** モジュールについて失敗するよくあるケースは、最初**同じ**だったものが後から**似ている**コードに変わってしまう場合です。こういう事件はユーザーインターフェイスに関わる部分で本当によく起きます！ そうして業深き人類は、様々なケースに対応するためにつぎはぎだらけのおぞましい関数を作り出してしまうのです。「引数が足りなぁ〜い！」「こんな単純な引数じゃ制御しきれない！ もっと**複雑怪奇**にしなくては……」。マッドサイエンティストのうめき声がこだまします。そんな倫理から外れた狂気の改造手術をやめて、2つの**独立した別々の**コードがあるという状況を許容しましょう。それぞれの場所に同じコードをコピーすることを受け入れるのです。そうすることで余計な条件分岐などを書かずに済み、本業に集中できます。その結果**全く同じ**ロジックが出てきたら、その段階になって初めて共通の補助関数としてくくりだせば良いのです。そうすれば長大な関数は**複数の小さな関数に分割**されます。決して無駄な条件分岐とつぎはぎだらけの**もっと長大で複雑な関数になることはありえません**。
+> **Note:** モジュールについて失敗するよくあるケースは、最初**同じ**だったものが後から**似ている**コードに変わってしまう場合です。こういう事件はユーザーインターフェイスに関わる部分で本当によく起きます！ そうして気付けば、様々なケースに対応するためにつぎはぎだらけのおぞましい関数を作り出してしまっているのです。「引数が足りなぁ〜い！」「こんな単純な引数じゃ制御しきれない！ もっと**複雑怪奇**にしなくては……」。マッドサイエンティストのうめき声がこだまします。そんな狂気の改造手術をやめて、2つの**独立した別々の**コードがあるという状況を許容しましょう。それぞれの場所に同じコードをコピーすることを受け入れるのです。そうすることで余計な条件分岐などを書かずに済み、本業に集中できます。その結果**全く同じ**ロジックが出てきたら、その段階になって初めて共通の補助関数としてくくりだせば良いのです。**そうすれば長大な関数は複数の小さな関数に分割されます。無駄な分岐処理が入って複雑になることはありません。**
 
 <!--
 ## Using Modules
