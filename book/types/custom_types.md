@@ -62,7 +62,7 @@ So now we can track if someone is a `Regular` with an account or a `Visitor` who
 Rather than creating a custom type and a type alias, we can represent all this with just a single custom type. The `Regular` and `Visitor` variants each have an associated data. In our case, the associated data is a `String` value:
 -->
 
-上述のようにカスタム型と型エイリアスを1つずつ作成するのではなく、すべてを単一のカスタム型で表すことができます。`Regular`と`Visitor`のバリアントにはそれぞれ関連するデータを持たせることができます。今回の場合、関連するデータは`String`の値です：
+上述のようにカスタム型と型エイリアスを1つずつ作成するのではなく、すべてを単一のカスタム型で表すことができます。`Regular`と`Visitor`のバリアントにはそれぞれ関連するデータを持たせることができます。[^1]今回の場合、関連するデータは`String`の値です：
 
 ```elm
 type User
@@ -201,3 +201,6 @@ Now we know how to create custom types, the next section will show how to use th
 -->
 
 > **Note: カスタム型は Elm で最も重要な機能です。** 特に一度でもより厳密にシナリオを設計しようとする習慣を持てば、カスタム型に非常に深みを感じるでしょう。わたしはこの深みを付録の[集合としての型](/appendix/types_as_sets.html)や[型のビット表現](/appendix/types_as_bits.html)で共有しようと試みています。助けになれば幸いです！
+
+
+[^1]: 訳注: Elmを学び始めてつまづきやすいポイントがカスタム型です。途中でわからなくなってしまった方のために[補足説明の記事](https://qiita.com/arowM/items/a05510b72450355b54dd)を用意しました。どうぞお役立てください。またElm-jpの[discord](https://discordapp.com/invite/4j2MxCg)もぜひご活用ください。
