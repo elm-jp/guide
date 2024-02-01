@@ -100,7 +100,7 @@ The `Url.Parser` module makes it quite concise to fully turn valid URLs into nic
 Now say we have a personal blog where addresses like this are valid:
 -->
 
-個人用のプログで、次のようなURLのページがあるとしましょう。
+個人用のブログで、次のようなURLのページがあるとしましょう。
 
 - `/blog/12/the-history-of-chairs`
 - `/blog/13/the-endless-september`
